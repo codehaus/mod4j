@@ -11,6 +11,8 @@
 package org.mod4j.mojo;
 
 import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.ArrayList;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -95,6 +97,19 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
 
             try {
                 getLog().info("Processing DSL : " + dslExt.getDslName());
+                crossxDslModel(dir, dslExt);
+            } catch (Mod4jWorkflowException we) {
+                throw new MojoFailureException("Workflow ERROR while processing the " + dslExt.getDslName() + " at:"
+                        + dir);
+            } catch (Exception e) {
+                throw new MojoFailureException("ERROR while processing " + dslExt.getDslName() + " :" + e.getMessage());
+            }
+        }
+
+        for (DslExtension dslExt : dslExtensions) {
+
+            try {
+                getLog().info("Processing DSL : " + dslExt.getDslName());
                 processDslModel(dir, dslExt);
             } catch (Mod4jWorkflowException we) {
                 throw new MojoFailureException("Workflow ERROR while processing the " + dslExt.getDslName() + " at:"
@@ -138,9 +153,25 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
     /**
      * Method for processing DslExtensions within a project. The following steps will be processed:<br> 1) Walk through
      * all Mod4j model files for the given <b>DslExtension</b> within the model project and extract reference
-     * information (Crossx) from them. <br> 2) Run all workflow files in the project, which checks consistency
+     * information (Crossx) from them. 
+     * 
+     * @param projectDir
+     * @param DslExtension
+     * @throws Exception
+     */
+    public void crossxDslModel(final String projectDir, final DslExtension dsl) throws Exception {
+
+        DirectoryWalker walker = new DirectoryWalker();
+        CrossxDirectoryVisitor vis = new CrossxDirectoryVisitor(dsl, projectDir, true);
+        walker.walk(projectDir + "/" + modelDir, vis);
+    }
+
+    /**
+     * Method for processing DslExtensions within a project. The following steps will be processed:<br> 
+     * 2) Run all workflow files in the project, which checks consistency
      * of the models and generate the code. <br>
      * 
+     * Note that the crossxDslModel operation should run first to make all the cross reference information available.
      * @param projectDir
      * @param DslExtension
      * @throws Exception
@@ -148,9 +179,6 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
     public void processDslModel(final String projectDir, final DslExtension dsl) throws Exception {
 
         DirectoryWalker walker = new DirectoryWalker();
-        CrossxDirectoryVisitor vis = new CrossxDirectoryVisitor(dsl, projectDir, true);
-        walker.walk(projectDir + "/" + modelDir, vis);
-
         CodegenDirectoryVisitor codegen = new CodegenDirectoryVisitor(dsl, projectDir, true);
         walker.walk(projectDir + "/" + modelDir, codegen);
     }

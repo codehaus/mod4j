@@ -31,7 +31,7 @@
          Don't use the filenames of the ecore files, because they won't work when the
          plugins are exported and installed.
     -->
-    <bean class="org.mod4j.dsl.presentation.xtext.PresentationStandaloneSetup"/>
+    <bean class="org.mod4j.dsl.presentation.xtext.PresentationStandaloneSetupForCrossx"/>
     <bean id="PresentationDsl" class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
         <metaModelPackage value="org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage" />   
     </bean>
@@ -44,24 +44,9 @@
     <component id="pmfmod2crossx-modelfileReader" class="org.eclipse.xtext.MweReader" 
 	            uri="${modelfile}"
 	            outputSlot="model">
-		<register class="org.mod4j.dsl.presentation.xtext.PresentationStandaloneSetup"/>
+		<register class="org.mod4j.dsl.presentation.xtext.PresentationStandaloneSetupForCrossx"/>
 	</component>
-    
-    <component id="Presentation-ModelChecks" class="org.eclipse.xtend.check.CheckComponent">
-        <metaModel idRef="PresentationDsl" />
-        <metaModel idRef="crossx"/>
-        <checkFile value="org::mod4j::dsl::presentation::validation::checks::PresentationChecks" />
-        <emfAllChildrenSlot value="model" />
-    </component>
 
-    <!--
-    <component id="Presentation-CrossxChecks" class="org.openarchitectureware.check.CheckComponent">
-        <metaModel idRef="PresentationDsl" />
-        <metaModel idRef="crossx"/>
-        <checkFile value="org::mod4j::dsl::presentation::validation::checks::CrossxChecks" />
-        <emfAllChildrenSlot value="model" />
-    </component>
-    -->
     <!-- Call the Xtend model-to-model transformation to complete the Presentation model.
     <component id="compltePmf" class="oaw.xtend.XtendComponent">
        <metaModel idRef="PresentationDsl"/>

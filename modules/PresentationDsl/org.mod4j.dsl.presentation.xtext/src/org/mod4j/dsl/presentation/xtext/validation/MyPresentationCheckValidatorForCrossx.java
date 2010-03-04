@@ -11,17 +11,17 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.xtext.validation.CheckType;
 import org.mod4j.crossx.mm.crossx.CrossxPackage;
 
-public class MyPresentationCheckValidator extends PresentationCheckValidator {
+public class MyPresentationCheckValidatorForCrossx extends PresentationCheckValidator {
 
-	public MyPresentationCheckValidator() { 
-        System.out.println("MyPresentationCheckValidator()  MyPresentationCheckValidator()  MyPresentationCheckValidator()  MyPresentationCheckValidator() ");
+	public MyPresentationCheckValidatorForCrossx() { 
+	    System.out.println("MyPresentationCheckValidatorForCrossx()  MyPresentationCheckValidatorForCrossx()  MyPresentationCheckValidatorForCrossx()  MyPresentationCheckValidatorForCrossx() ");
 		configure();
 	}
 	
 	protected void configure() {
 //        addCheckFile("org::mod4j::dsl::presentation::xtext::validation::CrossxChecks1", CheckType.FAST);
-        addCheckFile("org::mod4j::dsl::presentation::validation::checks::CrossxChecks", CheckType.FAST);
-        addCheckFile("org::mod4j::dsl::presentation::validation::checks::PresentationChecks", CheckType.FAST);
+//        addCheckFile("org::mod4j::dsl::presentation::validation::checks::CrossxChecks", CheckType.FAST);
+//        addCheckFile("org::mod4j::dsl::presentation::validation::checks::PresentationChecks", CheckType.FAST);
 	}
 	
 //	@Override
