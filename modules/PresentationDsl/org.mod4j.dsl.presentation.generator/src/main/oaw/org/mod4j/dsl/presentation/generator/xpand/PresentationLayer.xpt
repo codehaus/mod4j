@@ -50,7 +50,7 @@
             «EXPAND ObjectCollectionDataViewPanelHtml::GenerateObjectCollectionDataViewPanelHtml(false) FOR cf»
         «ENDFILE»
 		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name.toFirstUpper() + "CollectionDataViewPanel.properties")»
-    	    «EXPAND ContentFormProperties::GenerateProperties FOR cf»
+    	    «EXPAND FormProperties::GenerateProperties FOR cf»
 		«ENDFILE»
 	«ENDFOREACH»
 
@@ -149,7 +149,7 @@
 	    «EXPAND ObjectPanelHtml::GenerateObjectPanelHtml FOR this»
 	«ENDFILE»
 	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name.toFirstUpper() + "Panel.properties")»
-	    «EXPAND ContentFormProperties::GenerateProperties FOR this»
+	    «EXPAND FormProperties::GenerateProperties FOR this»
 	«ENDFILE»
 
 		«REM»The Edit Panel Java and HTML and properties file«ENDREM»
@@ -160,7 +160,7 @@
 	    «EXPAND ObjectEditPanelHtml::GenerateObjectEditPanelHtml FOR this»
 	«ENDFILE»
 	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name.toFirstUpper() + "EditPanel.properties")»
-	    «EXPAND ContentFormProperties::GenerateProperties FOR this»
+	    «EXPAND FormProperties::GenerateProperties FOR this»
 	«ENDFILE»
 			
 	«REM»The Compound Object Swap panel containing both the edit and view panels, Java and HTML«ENDREM»

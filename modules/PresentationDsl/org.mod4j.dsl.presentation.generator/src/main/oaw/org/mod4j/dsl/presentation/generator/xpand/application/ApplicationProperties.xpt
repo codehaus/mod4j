@@ -9,29 +9,16 @@
 «ENDREM»
 «IMPORT PresentationDsl»
 «IMPORT org::mod4j::dslcommon::xpand::properties»
-
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
-«DEFINE GenerateProperties FOR ContentForm -»
-«FOREACH this.formElements AS e-»
-lbl.«e.dataProperty.name»=«e.label»
-«ENDFOREACH»
-
-«FOREACH this.processes AS p-»
-cmd.«p.referredProcess.name»=«p.label»
-«ENDFOREACH»
-«ENDDEFINE»
-
 «DEFINE ApplicationProperties FOR PresentationModel -»
-«EXPAND PropertyComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ContentFormProperties.xpt") FOR this -»
+«EXPAND PropertyComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ApplicationProperties.xpt") FOR this -»
 
 app.title= «getApplicationName()»
-
 home.msg=Welcome to «getApplicationName()» application...
-msg.confirm=Are you sure?
-
 lbl.home=Home
 
+msg.confirm=Are you sure?
 true=True
 false=False
 
@@ -52,5 +39,4 @@ PatternValidator='${input}' does not match pattern '${pattern}'
 # Override 'default' properties
 Required=Attribute '${label}' is mandatory.
 StringValidator.maximum='${input}' for '${label}' may contain a maximum of ${maximum} character(s).
-«ENDDEFINE»
-				
+«ENDDEFINE»             
