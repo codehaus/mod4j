@@ -103,7 +103,7 @@ context ProcessCall if referredProcess != null
     (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
       ;
 
-context ProcessCall if (this.owningDialogue != null) && (referredProcess != null) && (this.referredProcess.metaType != ProcessReference)
+context ProcessCall if (this.owningDialogue != null) && (referredProcess.name != null) && (this.referredProcess.metaType != ProcessReference)
                        && (this.owningDialogue.contextRef.name != null)
-    ERROR "The process [" + this.name + "] must have the same context as the from to which it belongs [" + this.owningDialogue.name + "]" :
+    ERROR "The process [" + this.referredProcess.name + "] must have the same context as the from to which it belongs [" + this.owningDialogue.name + "]" :
     this.owningDialogue.contextRef.name.equalsIgnoreCase(this.referredProcess.contextRef.name);

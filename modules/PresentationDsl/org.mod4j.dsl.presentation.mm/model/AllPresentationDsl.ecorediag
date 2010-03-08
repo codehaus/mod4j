@@ -594,7 +594,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_7G6yQSbDEd-f9K5Z0RH3mg" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="PresentationDsl.ecore#//ServiceReference"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7G6yQibDEd-f9K5Z0RH3mg" x="425" y="540"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7G6yQibDEd-f9K5Z0RH3mg" x="1000" y="400"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_9xxWcc_FEd6GKolWbdgitg"/>
   <element xmi:type="ecore:EPackage" href="PresentationDsl.ecore#/"/>
@@ -1134,5 +1134,18 @@
     <element xmi:type="ecore:EReference" href="PresentationDsl.ecore#//DialogueCall/referredDialogue"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lThjIybeEd-f9K5Z0RH3mg" points="[-18, -20, 361, 162]$[-18, -171, 361, 11]$[-356, -171, 23, 11]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lTqtECbeEd-f9K5Z0RH3mg" id="(0.8283582089552238,0.5952380952380952)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_rFkGAChZEd-f9K5Z0RH3mg" type="3002" source="_Ex4wMOoSEd6PA8b5nHVCYg" target="_7G6yQCbDEd-f9K5Z0RH3mg">
+    <children xmi:type="notation:Node" xmi:id="_rFkGBChZEd-f9K5Z0RH3mg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_rFkGBShZEd-f9K5Z0RH3mg" x="-8" y="-32"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rFkGBihZEd-f9K5Z0RH3mg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_rFkGByhZEd-f9K5Z0RH3mg" x="-3" y="32"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_rFkGAShZEd-f9K5Z0RH3mg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_rFkGAihZEd-f9K5Z0RH3mg" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="PresentationDsl.ecore#//ServiceExpression/service"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rFkGAyhZEd-f9K5Z0RH3mg" points="[2, 32, -2, -66]$[6, 89, 2, -9]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rFkGCChZEd-f9K5Z0RH3mg" id="(0.7272727272727273,0.23809523809523808)"/>
   </edges>
 </notation:Diagram>

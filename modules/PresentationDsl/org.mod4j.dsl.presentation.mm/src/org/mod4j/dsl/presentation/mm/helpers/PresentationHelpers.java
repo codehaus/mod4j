@@ -375,7 +375,7 @@ public class PresentationHelpers {
                 DialogueCall dialogueCall = (DialogueCall)uicall;
                 if( form == null ){
                     // referred form cannot be found, but that is checked elsewhere
-                    return "ERROR: 1 referred form [" + dialogueCall.getName() + "] not found";
+                    return "" ; // "ERROR: 1 referred form [" + dialogueCall.getName() + "] not found";
                 }
                 if( form.getContextRef().getName() == null ){
                     // referred form has incorrect context, stop checking 
@@ -435,10 +435,10 @@ public class PresentationHelpers {
             }
         }
         return "";
-        } catch(Exception e){
+        } catch(RuntimeException e){
             System.out.println("checkProcess Exception for Process [" + p.getName() + "]");
+            throw e;
         }
-        return "";
     }
 
     /** Find the context for a process
