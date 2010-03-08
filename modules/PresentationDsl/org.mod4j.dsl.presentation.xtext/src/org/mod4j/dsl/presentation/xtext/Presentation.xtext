@@ -196,7 +196,7 @@ enum ExpressionType :
     ALL = "all" | FIND = "find";
 
 ServiceExpression :
-    "service"  serviceName = ID "." serviceMethod = ID
+    "service"  service = [ServiceReference] "." serviceMethod = ID
     ;
 
 NavigationExpression :

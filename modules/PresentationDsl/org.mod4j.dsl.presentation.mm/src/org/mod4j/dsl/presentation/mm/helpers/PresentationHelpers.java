@@ -87,9 +87,9 @@ public class PresentationHelpers {
      */
     static public Mod4jType serviceCallMod4jType(String context, ServiceExpression exp){
         Mod4jType result = new Mod4jType("UNKNOWN", "UNNOWN");
-        Symbol service = CrossxBroker.lookupSymbol(exp.getServiceName(), exp.getServiceName(), "Service");
+        Symbol service = CrossxBroker.lookupSymbol(exp.getService().getName(), exp.getService().getName(), "Service");
         if( service == null ){
-            result.setError("ERROR: 5 service [" + exp.getServiceName() + "] does not exist");
+            result.setError("ERROR: 5 service [" + exp.getService().getName() + "] does not exist");
             return result;
         }
         Symbol serviceMethod = CrossxBroker.getSubSymbol(service, exp.getServiceMethod());

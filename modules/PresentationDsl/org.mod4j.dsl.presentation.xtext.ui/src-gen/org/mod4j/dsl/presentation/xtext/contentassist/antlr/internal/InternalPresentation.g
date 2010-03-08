@@ -5617,9 +5617,9 @@ rule__ServiceExpression__Group__1
     }
 :
 (
-{ before(grammarAccess.getServiceExpressionAccess().getServiceNameAssignment_1()); }
-(rule__ServiceExpression__ServiceNameAssignment_1)
-{ after(grammarAccess.getServiceExpressionAccess().getServiceNameAssignment_1()); }
+{ before(grammarAccess.getServiceExpressionAccess().getServiceAssignment_1()); }
+(rule__ServiceExpression__ServiceAssignment_1)
+{ after(grammarAccess.getServiceExpressionAccess().getServiceAssignment_1()); }
 )
 
 	rule__ServiceExpression__Group__2
@@ -6982,14 +6982,18 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ServiceExpression__ServiceNameAssignment_1
+rule__ServiceExpression__ServiceAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getServiceExpressionAccess().getServiceNameIDTerminalRuleCall_1_0()); }
-	RULE_ID{ after(grammarAccess.getServiceExpressionAccess().getServiceNameIDTerminalRuleCall_1_0()); }
+{ before(grammarAccess.getServiceExpressionAccess().getServiceServiceReferenceCrossReference_1_0()); }
+(
+{ before(grammarAccess.getServiceExpressionAccess().getServiceServiceReferenceIDTerminalRuleCall_1_0_1()); }
+	RULE_ID{ after(grammarAccess.getServiceExpressionAccess().getServiceServiceReferenceIDTerminalRuleCall_1_0_1()); }
+)
+{ after(grammarAccess.getServiceExpressionAccess().getServiceServiceReferenceCrossReference_1_0()); }
 )
 
 ;

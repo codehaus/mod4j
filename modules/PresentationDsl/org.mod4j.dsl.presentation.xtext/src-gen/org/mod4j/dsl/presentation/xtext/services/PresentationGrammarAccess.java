@@ -1729,27 +1729,31 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ServiceExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cServiceKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cServiceNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cServiceNameIDTerminalRuleCall_1_0 = (RuleCall)cServiceNameAssignment_1.eContents().get(0);
+		private final Assignment cServiceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cServiceServiceReferenceCrossReference_1_0 = (CrossReference)cServiceAssignment_1.eContents().get(0);
+		private final RuleCall cServiceServiceReferenceIDTerminalRuleCall_1_0_1 = (RuleCall)cServiceServiceReferenceCrossReference_1_0.eContents().get(1);
 		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cServiceMethodAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cServiceMethodIDTerminalRuleCall_3_0 = (RuleCall)cServiceMethodAssignment_3.eContents().get(0);
 		
 		//ServiceExpression:
-		//  "service" serviceName=ID "." serviceMethod=ID;
+		//  "service" service=[ServiceReference] "." serviceMethod=ID;
 		public ParserRule getRule() { return rule; }
 
-		//"service" serviceName=ID "." serviceMethod=ID
+		//"service" service=[ServiceReference] "." serviceMethod=ID
 		public Group getGroup() { return cGroup; }
 
 		//"service"
 		public Keyword getServiceKeyword_0() { return cServiceKeyword_0; }
 
-		//serviceName=ID
-		public Assignment getServiceNameAssignment_1() { return cServiceNameAssignment_1; }
+		//service=[ServiceReference]
+		public Assignment getServiceAssignment_1() { return cServiceAssignment_1; }
+
+		//[ServiceReference]
+		public CrossReference getServiceServiceReferenceCrossReference_1_0() { return cServiceServiceReferenceCrossReference_1_0; }
 
 		//ID
-		public RuleCall getServiceNameIDTerminalRuleCall_1_0() { return cServiceNameIDTerminalRuleCall_1_0; }
+		public RuleCall getServiceServiceReferenceIDTerminalRuleCall_1_0_1() { return cServiceServiceReferenceIDTerminalRuleCall_1_0_1; }
 
 		//"."
 		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
@@ -2372,7 +2376,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//ServiceExpression:
-	//  "service" serviceName=ID "." serviceMethod=ID;
+	//  "service" service=[ServiceReference] "." serviceMethod=ID;
 	public ServiceExpressionElements getServiceExpressionAccess() {
 		return (pServiceExpression != null) ? pServiceExpression : (pServiceExpression = new ServiceExpressionElements());
 	}

@@ -2759,23 +2759,19 @@ ruleServiceExpression returns [EObject current=null]
     }
 (	
 	
-	    lv_serviceName_1=	RULE_ID
-	{
-		createLeafNode(grammarAccess.getServiceExpressionAccess().getServiceNameIDTerminalRuleCall_1_0(), "serviceName"); 
-	}
- 
-	    {
-	        if ($current==null) {
+		
+		{
+			if ($current==null) {
 	            $current = factory.create(grammarAccess.getServiceExpressionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode, $current);
 	        }
-	        
-	        try {
-	       		set($current, "serviceName", lv_serviceName_1, "ID", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
+        }
+	RULE_ID
+	{
+		createLeafNode(grammarAccess.getServiceExpressionAccess().getServiceServiceReferenceCrossReference_1_0(), "service"); 
+	}
+
+		// TODO assign feature to currentNode
 	
 )'.' 
     {

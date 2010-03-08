@@ -187,7 +187,7 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSimpleProcessCallAccess().getReferredProcessAssignment_0(), "rule__SimpleProcessCall__ReferredProcessAssignment_0");
 					put(grammarAccess.getSimpleProcessCallAccess().getLabelAssignment_1_1(), "rule__SimpleProcessCall__LabelAssignment_1_1");
 					put(grammarAccess.getStandardExpressionAccess().getTypeAssignment(), "rule__StandardExpression__TypeAssignment");
-					put(grammarAccess.getServiceExpressionAccess().getServiceNameAssignment_1(), "rule__ServiceExpression__ServiceNameAssignment_1");
+					put(grammarAccess.getServiceExpressionAccess().getServiceAssignment_1(), "rule__ServiceExpression__ServiceAssignment_1");
 					put(grammarAccess.getServiceExpressionAccess().getServiceMethodAssignment_3(), "rule__ServiceExpression__ServiceMethodAssignment_3");
 					put(grammarAccess.getNavigationExpressionAccess().getCompositionAssignment_0(), "rule__NavigationExpression__CompositionAssignment_0");
 					put(grammarAccess.getNavigationExpressionAccess().getReferencesAssignment_2(), "rule__NavigationExpression__ReferencesAssignment_2");

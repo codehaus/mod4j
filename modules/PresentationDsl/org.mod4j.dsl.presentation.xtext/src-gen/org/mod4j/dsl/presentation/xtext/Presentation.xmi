@@ -721,8 +721,13 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Keyword" value="service"/>
-        <tokens xsi:type="xtext:Assignment" feature="serviceName" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        <tokens xsi:type="xtext:Assignment" feature="service" operator="=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/pmfmod#//ServiceReference"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+          </terminal>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="."/>
         <tokens xsi:type="xtext:Assignment" feature="serviceMethod" operator="=">

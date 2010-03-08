@@ -350,10 +350,6 @@
   <children xmi:type="notation:Node" xmi:id="_Ex4wMOoSEd6PA8b5nHVCYg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_EyB6IOoSEd6PA8b5nHVCYg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_EyB6IeoSEd6PA8b5nHVCYg" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_F02XIOoUEd6PA8b5nHVCYg" type="2001">
-        <element xmi:type="ecore:EAttribute" href="PresentationDsl.ecore#//ServiceExpression/serviceName"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_F02XIeoUEd6PA8b5nHVCYg"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_ICHf8OoUEd6PA8b5nHVCYg" type="2001">
         <element xmi:type="ecore:EAttribute" href="PresentationDsl.ecore#//ServiceExpression/serviceMethod"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_ICHf8eoUEd6PA8b5nHVCYg"/>
@@ -1142,10 +1138,10 @@
     <children xmi:type="notation:Node" xmi:id="_rFkGBihZEd-f9K5Z0RH3mg" type="4012">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_rFkGByhZEd-f9K5Z0RH3mg" x="-3" y="32"/>
     </children>
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_rFkGAShZEd-f9K5Z0RH3mg" lineColor="4210752"/>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_rFkGAShZEd-f9K5Z0RH3mg" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_rFkGAihZEd-f9K5Z0RH3mg" fontColor="4210752" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="PresentationDsl.ecore#//ServiceExpression/service"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rFkGAyhZEd-f9K5Z0RH3mg" points="[2, 32, -2, -66]$[6, 89, 2, -9]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rFkGAyhZEd-f9K5Z0RH3mg" points="[3, 24, -1, -82]$[3, 97, -1, -9]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rFkGCChZEd-f9K5Z0RH3mg" id="(0.7272727272727273,0.23809523809523808)"/>
   </edges>
 </notation:Diagram>

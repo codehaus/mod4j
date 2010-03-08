@@ -1661,22 +1661,22 @@ public interface PresentationDslPackage extends EPackage {
     int SERVICE_EXPRESSION__DESCRIPTION = EXPRESSION__DESCRIPTION;
 
     /**
-     * The feature id for the '<em><b>Service Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SERVICE_EXPRESSION__SERVICE_NAME = EXPRESSION_FEATURE_COUNT + 0;
-
-    /**
      * The feature id for the '<em><b>Service Method</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SERVICE_EXPRESSION__SERVICE_METHOD = EXPRESSION_FEATURE_COUNT + 1;
+    int SERVICE_EXPRESSION__SERVICE_METHOD = EXPRESSION_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Service</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_EXPRESSION__SERVICE = EXPRESSION_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Service Expression</em>' class.
@@ -2705,17 +2705,6 @@ public interface PresentationDslPackage extends EPackage {
     EClass getServiceExpression();
 
     /**
-     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression#getServiceName <em>Service Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Service Name</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression#getServiceName()
-     * @see #getServiceExpression()
-     * @generated
-     */
-    EAttribute getServiceExpression_ServiceName();
-
-    /**
      * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression#getServiceMethod <em>Service Method</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2725,6 +2714,17 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      */
     EAttribute getServiceExpression_ServiceMethod();
+
+    /**
+     * Returns the meta object for the reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression#getService <em>Service</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Service</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression#getService()
+     * @see #getServiceExpression()
+     * @generated
+     */
+    EReference getServiceExpression_Service();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression <em>Navigation Expression</em>}'.
@@ -3423,20 +3423,20 @@ public interface PresentationDslPackage extends EPackage {
         EClass SERVICE_EXPRESSION = eINSTANCE.getServiceExpression();
 
         /**
-         * The meta object literal for the '<em><b>Service Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute SERVICE_EXPRESSION__SERVICE_NAME = eINSTANCE.getServiceExpression_ServiceName();
-
-        /**
          * The meta object literal for the '<em><b>Service Method</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
         EAttribute SERVICE_EXPRESSION__SERVICE_METHOD = eINSTANCE.getServiceExpression_ServiceMethod();
+
+        /**
+         * The meta object literal for the '<em><b>Service</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SERVICE_EXPRESSION__SERVICE = eINSTANCE.getServiceExpression_Service();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.NavigationExpressionImpl <em>Navigation Expression</em>}' class.

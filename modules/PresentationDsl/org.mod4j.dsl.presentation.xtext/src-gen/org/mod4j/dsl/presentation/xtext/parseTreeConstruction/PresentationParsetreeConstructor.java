@@ -7213,11 +7213,11 @@ protected class StandardExpression_TypeAssignment extends AssignmentToken  {
 /************ begin Rule ServiceExpression ****************
  *
  * ServiceExpression:
- *   "service" serviceName=ID "." serviceMethod=ID;
+ *   "service" service=[ServiceReference] "." serviceMethod=ID;
  *
  **/
 
-// "service" serviceName=ID "." serviceMethod=ID
+// "service" service=[ServiceReference] "." serviceMethod=ID
 protected class ServiceExpression_Group extends GroupToken {
 	
 	public ServiceExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -7260,15 +7260,15 @@ protected class ServiceExpression_ServiceKeyword_0 extends KeywordToken  {
 		
 }
 
-// serviceName=ID
-protected class ServiceExpression_ServiceNameAssignment_1 extends AssignmentToken  {
+// service=[ServiceReference]
+protected class ServiceExpression_ServiceAssignment_1 extends AssignmentToken  {
 	
-	public ServiceExpression_ServiceNameAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ServiceExpression_ServiceAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getServiceExpressionAccess().getServiceNameAssignment_1();
+		return grammarAccess.getServiceExpressionAccess().getServiceAssignment_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -7279,12 +7279,15 @@ protected class ServiceExpression_ServiceNameAssignment_1 extends AssignmentToke
 	}	
 		
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("serviceName",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("serviceName");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
-			type = AssignmentType.LRC;
-			element = grammarAccess.getServiceExpressionAccess().getServiceNameIDTerminalRuleCall_1_0();
-			return obj;
+		if((value = current.getConsumable("service",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("service");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getServiceExpressionAccess().getServiceServiceReferenceCrossReference_1_0().getType().getClassifier())) {
+				type = AssignmentType.CR;
+				element = grammarAccess.getServiceExpressionAccess().getServiceServiceReferenceCrossReference_1_0(); 
+				return obj;
+			}
 		}
 		return null;
 	}
@@ -7304,7 +7307,7 @@ protected class ServiceExpression_FullStopKeyword_2 extends KeywordToken  {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ServiceExpression_ServiceNameAssignment_1(parent, this, 0, inst);
+			case 0: return new ServiceExpression_ServiceAssignment_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	

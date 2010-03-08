@@ -95,8 +95,8 @@
       <genOperations ecoreOperation="PresentationDsl.ecore#//UICall/asDialogueCall"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//ServiceExpression">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ServiceExpression/serviceName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ServiceExpression/serviceMethod"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ServiceExpression/service"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//NavigationExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//NavigationExpression/references"/>

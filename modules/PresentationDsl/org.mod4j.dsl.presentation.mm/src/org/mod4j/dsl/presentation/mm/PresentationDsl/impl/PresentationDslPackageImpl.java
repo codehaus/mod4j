@@ -840,7 +840,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getServiceExpression_ServiceName() {
+    public EAttribute getServiceExpression_ServiceMethod() {
         return (EAttribute)serviceExpressionEClass.getEStructuralFeatures().get(0);
     }
 
@@ -849,8 +849,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getServiceExpression_ServiceMethod() {
-        return (EAttribute)serviceExpressionEClass.getEStructuralFeatures().get(1);
+    public EReference getServiceExpression_Service() {
+        return (EReference)serviceExpressionEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1125,8 +1125,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         createEReference(uiCallEClass, UI_CALL__CONTEXT_EXP);
 
         serviceExpressionEClass = createEClass(SERVICE_EXPRESSION);
-        createEAttribute(serviceExpressionEClass, SERVICE_EXPRESSION__SERVICE_NAME);
         createEAttribute(serviceExpressionEClass, SERVICE_EXPRESSION__SERVICE_METHOD);
+        createEReference(serviceExpressionEClass, SERVICE_EXPRESSION__SERVICE);
 
         navigationExpressionEClass = createEClass(NAVIGATION_EXPRESSION);
         createEReference(navigationExpressionEClass, NAVIGATION_EXPRESSION__REFERENCES);
@@ -1299,8 +1299,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         addEOperation(uiCallEClass, this.getDialogueCall(), "asDialogueCall", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         initEClass(serviceExpressionEClass, ServiceExpression.class, "ServiceExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getServiceExpression_ServiceName(), ecorePackage.getEString(), "serviceName", null, 0, 1, ServiceExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getServiceExpression_ServiceMethod(), ecorePackage.getEString(), "serviceMethod", null, 0, 1, ServiceExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getServiceExpression_Service(), this.getServiceReference(), null, "service", null, 0, 1, ServiceExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(navigationExpressionEClass, NavigationExpression.class, "NavigationExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getNavigationExpression_References(), this.getAssociationRoleReference(), null, "references", null, 0, -1, NavigationExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
