@@ -21,7 +21,7 @@
 
 
 «DEFINE ListAllDataProvider FOR DialogueCall»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ListAllDataProvider.xpt") FOR this»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: DtoListAllDataProvider.xpt") FOR this»
 «LET this.referredContentForm() AS form»
 «LET this.referredDialogue.contextRef.name AS context»
 «LET findServiceWithMethod(context, "Create") AS serviceType»
