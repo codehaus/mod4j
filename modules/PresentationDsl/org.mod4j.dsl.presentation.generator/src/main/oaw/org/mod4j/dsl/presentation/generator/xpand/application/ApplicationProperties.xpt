@@ -19,6 +19,7 @@ home.msg=Welcome to «getApplicationName()» application...
 lbl.home=Home
 
 msg.confirm=Are you sure?
+cmd.continue=Continue
 true=True
 false=False
 
