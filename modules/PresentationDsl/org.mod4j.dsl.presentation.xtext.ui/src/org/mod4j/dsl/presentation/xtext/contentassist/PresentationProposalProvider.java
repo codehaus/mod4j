@@ -11,13 +11,20 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.Keyword;
+import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.core.editor.contentassist.ICompletionProposalAcceptor;
 import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
 import org.mod4j.crossx.mm.crossx.Symbol;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueReference;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessReference;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceReference;
 import org.mod4j.dsl.presentation.xtext.scoping.PresentationProposals;
+import org.mod4j.eclipse.util.EclipseUtil;
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */
@@ -38,6 +45,115 @@ public class PresentationProposalProvider extends AbstractPresentationProposalPr
     protected boolean doCreateStringProposals(){
         return false;
     }
+    
+    @Override
+    public void completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext, ICompletionProposalAcceptor acceptor) {
+        System.out.println("completeKeyword '" + keyword.getValue()+ "' for model '" + contentAssistContext.getCurrentModel()
+                + "' and getCurrentNode()'"+ contentAssistContext.getCurrentNode().getParent().getElement() + "'");
+        EObject element = contentAssistContext.getCurrentNode().getParent().getElement();
+        String keyValue = keyword.getValue();
+        if( (element instanceof DtoReference) ){
+            if( keyValue.equals("dto") ){
+                acceptKeywordProposal(keyword, contentAssistContext, acceptor);
+                return;
+            }
+        } else if( element instanceof ServiceReference ){
+            if( keyValue.equals("service") ){
+                acceptKeywordProposal(keyword, contentAssistContext, acceptor);
+                return;
+            }
+        } else if( element instanceof ProcessReference ){
+            if( keyValue.equals("form") || keyValue.equals("process") ){
+                acceptKeywordProposal(keyword, contentAssistContext, acceptor);
+                return;
+            }
+        } else if( element instanceof DialogueReference ){
+            if( keyValue.equals("form") || keyValue.equals("process") ){
+                acceptKeywordProposal(keyword, contentAssistContext, acceptor);
+                return;
+            }
+        } else {
+            acceptKeywordProposal(keyword, contentAssistContext, acceptor);
+        }
+    }
+
+    // accept the keyword as proposal
+    private void acceptKeywordProposal(Keyword keyword, ContentAssistContext contentAssistContext,
+            ICompletionProposalAcceptor acceptor) {
+        ICompletionProposal proposal = createCompletionProposal(keyword, keyword.getValue(), contentAssistContext);
+        adjustPriority(proposal, contentAssistContext.getPrefix(), getKeywordPriority());
+        acceptor.accept(proposal);
+    }
+
+
+    @Override
+    public void completeDtoReference_ModelName(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        List<ModelInfo> models = CrossxBroker.findAllModelsInProject(EclipseUtil.getProjectName(context.getRootModel()), Arrays.asList("DataContractDsl") );
+        for (ModelInfo foundModel : models) {
+            propose(foundModel.getModelname(), context, acceptor);
+        }
+    }
+
+    @Override
+    public void completeDtoReference_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        ExternalReference externalReference = (ExternalReference)model;
+        List<Symbol> symbols = CrossxBroker.findAllFromModel(externalReference.getModelName(), "Dto");
+        for (Symbol symbol : symbols) {
+            propose(symbol.getName(), context, acceptor);
+        }
+    }
+
+    @Override
+    public void completeServiceReference_ModelName(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        List<ModelInfo> models = CrossxBroker.findAllModelsInProject(EclipseUtil.getProjectName(context.getRootModel()), Arrays.asList("ServiceDsl") );
+        for (ModelInfo foundModel : models) {
+            propose(foundModel.getModelname(), context, acceptor);
+        }
+    }
+
+    @Override
+    public void completeServiceReference_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        ExternalReference externalReference = (ExternalReference)model;
+        List<Symbol> symbols = CrossxBroker.findAllFromModel(externalReference.getModelName(), "Service");
+        for (Symbol symbol : symbols) {
+            propose(symbol.getName(), context, acceptor);
+        }
+    }
+
+    @Override
+    public void completeProcessReference_ModelName(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        List<ModelInfo> models = CrossxBroker.findAllModelsInProject(EclipseUtil.getProjectName(context.getRootModel()), Arrays.asList("PresentationDsl") );
+        for (ModelInfo foundModel : models) {
+            propose(foundModel.getModelname(), context, acceptor);
+        }
+    }
+
+    @Override
+    public void completeProcessReference_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        ExternalReference externalReference = (ExternalReference)model;
+        List<Symbol> symbols = CrossxBroker.findAllFromModel(externalReference.getModelName(), Arrays.asList("Process"));
+        for (Symbol symbol : symbols) {
+            propose(symbol.getName(), context, acceptor);
+        }
+    }
+
+    @Override
+    public void completeDialogueReference_ModelName(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        List<ModelInfo> models = CrossxBroker.findAllModelsInProject(EclipseUtil.getProjectName(context.getRootModel()), Arrays.asList("PresentationDsl") );
+        for (ModelInfo foundModel : models) {
+            propose(foundModel.getModelname(), context, acceptor);
+        }
+    }
+
+    @Override
+    public void completeDialogueReference_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        ExternalReference externalReference = (ExternalReference)model;
+        List<Symbol> symbols = CrossxBroker.findAllFromModel(externalReference.getModelName(), Arrays.asList("Form"));
+        for (Symbol symbol : symbols) {
+            propose(symbol.getName(), context, acceptor);
+        }
+    }
+
 
     /**
      * collect the DtoProperties belonging to the Dto in the context of the given FormElement
@@ -56,21 +172,6 @@ public class PresentationProposalProvider extends AbstractPresentationProposalPr
 //        }
 //    }
     
-//    @Override public void completeExternalReference_ModelName(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-//        List<ModelInfo> models = CrossxBroker.findAllModels( Arrays.asList("PresentationDsl", "DataContractDsl") );
-//        for (ModelInfo foundModel : models) {
-//            propose(foundModel.getModelname(), context, acceptor);
-//        }
-//    }
-
-//    @Override public void completeExternalReference_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-//        ExternalReference externalReference = (ExternalReference)model;
-//        List<Symbol> symbols = CrossxBroker.findAllFromModel(externalReference.getModelName(), Arrays.asList("Dto", "Dialogue", "Process", "Link"));
-//        for (Symbol symbol : symbols) {
-//            propose(symbol.getName(), context, acceptor);
-//        }
-//    }
-    
 //    @Override public void completeAssociationRoleReference_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 //        List<String> names = PresentationProposals.getLinkStepReferencesProposals(model);
 //        for (String name : names) {
@@ -85,13 +186,6 @@ public class PresentationProposalProvider extends AbstractPresentationProposalPr
 //        }
 //    }
 
-//    @Override public void complete_DirectDialogueCall(EObject model, org.eclipse.xtext.RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-//        List<String> names = PresentationProposals.getDirectDialogueCallProposals(model, new ArrayList<String>());        
-//        for (String name : names) {
-//            propose(name, context, acceptor);
-//        }
-//    }
-    
 //    @Override public void complete_LinkedDialogueCall(EObject model, org.eclipse.xtext.RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 //        List<String> names = PresentationProposals.getLinkedDialogueCallProposals(model, new ArrayList<String>());        
 //        for (String name : names) {
@@ -106,13 +200,6 @@ public class PresentationProposalProvider extends AbstractPresentationProposalPr
 //        }
 //    }
     
-//    @Override public void completeProcessCall_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-//        List<String> names = PresentationProposals.getProcessCallProposals(model, new ArrayList<String>());        
-//        for (String name : names) {
-//            propose(name, context, acceptor);
-//        }
-//    }
-
 //    @Override public void completeLinkedProcessCall_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 //        List<String> names = PresentationProposals.getLinkedProcessCallProposals(model, new ArrayList<String>());        
 //        for (String name : names) {

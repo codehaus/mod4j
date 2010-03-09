@@ -335,50 +335,50 @@ public class PresentationProposals {
      *            The context within xText for which the proposals is created
      * @return
      */
-    static public List<String> getProcessCallProposals(EObject ctx, List<String> subTypes) {
-        List<String> result = new ArrayList<String>();
-        ExternalReference dtoRef = null;
-        if (ctx == null) {
-            return result;
-        }
-        Set<String> models = new HashSet<String>();
-        // The context may be of different types
-        if (ctx instanceof ProcessCall) {
-        	ctx = ctx.eContainer();
-        }
-        if (ctx instanceof UIModelElement) {
-        	UIModelElement uim = (UIModelElement) ctx;
-        	for (ModelElementWithContext element : uim.getPresentationModel().getElements()) {
-        		String context = element.getContextRef().getName();
-        		if (element instanceof Process && ("RootDto".equals(context) || uim.getContextRef().getName().equals(context))) {
-        			if (subTypes.isEmpty() || subTypes.contains(element.eClass().getName())) {
-        				result.add(element.getName());
-        			}
-        		}
-        	}
-            dtoRef = uim.getContextRef();
-            List<ExternalReference> refs = uim.getPresentationModel().getExternalReferences();
-            for (ExternalReference ref : refs) {
-            	models.add(ref.getModelName());
-            }
-            if (dtoRef == null) {
-                result.add("<<no context found>>");
-            }
-        }
-        if (dtoRef == null) {
-            return result;
-        }
-        for (String model : models) {
-	        List<Symbol> symbols = CrossxBroker.findAllFromModel(model, "Process");
-	        for (Symbol symb : symbols) {
-	        	String context = CrossxBroker.getPropertyValue(symb, "context");
-	        	if ((dtoRef.getName().equals(context) || "RootDto".equals(context)) && (subTypes.isEmpty() || subTypes.contains(CrossxBroker.getPropertyValue(symb, "processType")))) {
-       				result.add(symb.getName());
-	        	}
-	        }
-        }
-        return result;
-    }
+//    static public List<String> getProcessCallProposals(EObject ctx, List<String> subTypes) {
+//        List<String> result = new ArrayList<String>();
+//        ExternalReference dtoRef = null;
+//        if (ctx == null) {
+//            return result;
+//        }
+//        Set<String> models = new HashSet<String>();
+//        // The context may be of different types
+//        if (ctx instanceof ProcessCall) {
+//        	ctx = ctx.eContainer();
+//        }
+//        if (ctx instanceof UIModelElement) {
+//        	UIModelElement uim = (UIModelElement) ctx;
+//        	for (ModelElementWithContext element : uim.getPresentationModel().getElements()) {
+//        		String context = element.getContextRef().getName();
+//        		if (element instanceof Process && ("RootDto".equals(context) || uim.getContextRef().getName().equals(context))) {
+//        			if (subTypes.isEmpty() || subTypes.contains(element.eClass().getName())) {
+//        				result.add(element.getName());
+//        			}
+//        		}
+//        	}
+//            dtoRef = uim.getContextRef();
+//            List<ExternalReference> refs = uim.getPresentationModel().getExternalReferences();
+//            for (ExternalReference ref : refs) {
+//            	models.add(ref.getModelName());
+//            }
+//            if (dtoRef == null) {
+//                result.add("<<no context found>>");
+//            }
+//        }
+//        if (dtoRef == null) {
+//            return result;
+//        }
+//        for (String model : models) {
+//	        List<Symbol> symbols = CrossxBroker.findAllFromModel(model, "Process");
+//	        for (Symbol symb : symbols) {
+//	        	String context = CrossxBroker.getPropertyValue(symb, "context");
+//	        	if ((dtoRef.getName().equals(context) || "RootDto".equals(context)) && (subTypes.isEmpty() || subTypes.contains(CrossxBroker.getPropertyValue(symb, "processType")))) {
+//       				result.add(symb.getName());
+//	        	}
+//	        }
+//        }
+//        return result;
+//    }
     
     /**
      * Checks whether the list 'properties' contains an element with name 'name'
