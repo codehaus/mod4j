@@ -148,6 +148,9 @@ String getWicketSwapPanelClass(String name) : JAVA
   
 String getWicketServiceDataProviderClass(String dtoname) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketServiceDataProviderClass(java.lang.String);
+
+String getWicketDataProviderClass(String dtoname) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketDataProviderClass(java.lang.String);
   
 String getWicketListAllDataProviderClass(String dtoname) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketListAllDataProviderClass(java.lang.String);

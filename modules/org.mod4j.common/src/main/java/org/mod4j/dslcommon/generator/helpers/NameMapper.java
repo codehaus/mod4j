@@ -287,6 +287,9 @@ public class NameMapper {
         return javaDomainClass(name) + "SwapPanel";
     }
     
+    public static String getWicketDataProviderClass(String dtoname) {
+        return javaDomainClass(dtoname) + "DataProvider";
+    }
     public static String getWicketListAllDataProviderClass(String dtoname) {
         return javaDomainClass(dtoname) + "ListAllDataProvider";
     }

@@ -69,6 +69,11 @@
 						                                                    + getWicketListAllDataProviderClass(form.contextRef.name) ))»
                             «EXPAND DtoListAllDataProvider::ListAllDataProvider FOR uiCall»
 						«ENDFILE»
+						«print("02- Generating advanced data provider for process [" + process.name + "] form [" + form.name + "]")»
+                        «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." 
+                                                                            + getWicketDataProviderClass(form.contextRef.name) ))»
+                            «EXPAND DtoDataProvider::generateDataProvider FOR uiCall»
+                        «ENDFILE»						
 					«ELSEIF uiCall.getStandardExpression().type == ExpressionType::FIND »
 				    	«print("03 Finder Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
 						«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." 
