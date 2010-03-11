@@ -1,8 +1,8 @@
 presentation MaintainRecords;
 
 from RecordShopDataContract dto FullRecordDto;
-from Records service Records;
- 
+from Records service updateRecord;
+
 process showAllRecords context list FullRecordDto [
     all form RecordsForm; // <--MODFORJ-205: ERROR if required services do not exist
 ]
