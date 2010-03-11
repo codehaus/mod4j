@@ -290,9 +290,6 @@ public class NameMapper {
     public static String getWicketDataProviderClass(String dtoname) {
         return javaDomainClass(dtoname) + "DataProvider";
     }
-    public static String getWicketListAllDataProviderClass(String dtoname) {
-        return javaDomainClass(dtoname) + "ListAllDataProvider";
-    }
     public static String getWicketServiceDataProviderClass(String dtoname) {
         return javaDomainClass(dtoname) + "ServiceDataProvider";
     }

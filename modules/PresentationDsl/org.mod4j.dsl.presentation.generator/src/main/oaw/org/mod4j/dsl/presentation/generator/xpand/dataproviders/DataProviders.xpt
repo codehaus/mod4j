@@ -77,7 +77,7 @@
 						«ENDFILE»
 					«ENDIF»
 				«ELSE»
-«REM»                    «EXPAND DtoListAllDataProvider::ListAllDataProvider FOR uiCall»«ENDREM»
+«REM»                    «EXPAND DtoDataProvider::generateDataProvider FOR uiCall»«ENDREM»
 				«ENDIF»
 			«ENDIF»
 		«ELSE»
