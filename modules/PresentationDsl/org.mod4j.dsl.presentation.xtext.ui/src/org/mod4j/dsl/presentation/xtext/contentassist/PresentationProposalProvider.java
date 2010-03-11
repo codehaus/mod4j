@@ -9,10 +9,13 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.RuleCall;
+import org.eclipse.xtext.parsetree.AbstractNode;
+import org.eclipse.xtext.parsetree.CompositeNode;
 import org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.core.editor.contentassist.ICompletionProposalAcceptor;
 import org.mod4j.crossx.broker.CrossxBroker;
@@ -21,6 +24,7 @@ import org.mod4j.crossx.mm.crossx.Symbol;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceReference;
 import org.mod4j.dsl.presentation.xtext.scoping.PresentationProposals;
@@ -52,9 +56,14 @@ public class PresentationProposalProvider extends AbstractPresentationProposalPr
     @Override
     public void completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext, ICompletionProposalAcceptor acceptor) {
 //        System.out.println("completeKeyword '" + keyword.getValue()+ "' for model '" + contentAssistContext.getCurrentModel()
-//                + "' and getCurrentNode()'"+ contentAssistContext.getCurrentNode().getParent().getElement() + "'");
+//                + "'\n and getCurrentNode()'"+ contentAssistContext.getCurrentNode() + "'"
+//                + "'\n and getCurrentNode().**'"+ contentAssistContext.getCurrentNode().getParent().getElement() + "'");
         EObject element = contentAssistContext.getCurrentNode().getParent().getElement();
         String keyValue = keyword.getValue();
+        if( ! (element instanceof ExternalReference) ){
+            acceptKeywordProposal(keyword, contentAssistContext, acceptor);
+            return;
+        }
         if( (element instanceof DtoReference) ){
             if( keyValue.equals("dto") ){
                 acceptKeywordProposal(keyword, contentAssistContext, acceptor);
