@@ -17,7 +17,7 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
  
 «DEFINE GenerateObjectCollectionDataViewPanel(boolean withProcesses) FOR ContentForm -»
-«EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateObjectCollectionDataViewPanel.xpt") FOR this-»
+«EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectCollectionDataViewPanel.xpt") FOR this-»
 «REM»«LET (ContentForm)(this.dialogues.first().referredElement) AS cf»«ENDREM»
 «LET this.name.toFirstUpper() + "CollectionDataViewPanel"  +(withProcesses ? "" : "Only") AS className»
 package «getPresentationRootPackage()».panels;
@@ -91,19 +91,13 @@ public class «className» extends Panel
         
 	protected DataView<«this.contextRef.name»> collection;
 
-    public «className»(String id, IModel<«this.contextRef.name»> context, 
-              Integer maxItemsPerPage, «getWicketMasterPageClass()» owner, boolean multiple)
-    {
-        this(id, context, maxItemsPerPage, owner, ProcessType.all(), multiple);
-    }
-
     protected Mod4jDataProvider<«this.contextRef.name»> dataProvider;
     protected IModel model;
     protected WebMarkupContainer container ;
     protected boolean multiple = true;
     
     public «className»(String id, IModel<«this.contextRef.name»> context, 
-              Integer maxItemsPerPage, «getWicketMasterPageClass()» owner, Collection<ProcessType> visibleProcesses , boolean multiple )
+              Integer maxItemsPerPage, «getWicketMasterPageClass()» owner, boolean multiple )
 	{
 	    super(id);
 	    myself = this;
@@ -121,7 +115,7 @@ public class «className» extends Panel
 	    this.page = owner;
 		container = (WebMarkupContainer)new WebMarkupContainer("container");
 		container.setOutputMarkupId(true);
-		collection = new «this.contextRef.name»DataView("breakfasts", dataProvider, visibleProcesses);
+		collection = new «this.contextRef.name»DataView("breakfasts", dataProvider);
 		collection.setItemsPerPage(maxItemsPerPage);
 		container.add(collection);
 
@@ -308,12 +302,10 @@ public class «className» extends Panel
 
 «DEFINE dataView(boolean withProcesses) FOR ContentForm»
 	private class «this.contextRef.name»DataView extends	DataView<«this.contextRef.name»> {
-		private «this.contextRef.name»DataView(String id, Mod4jDataProvider<«this.contextRef.name»> dataProvider, Collection<ProcessType> visibleProcesses) {
+		
+		private «this.contextRef.name»DataView(String id, Mod4jDataProvider<«this.contextRef.name»> dataProvider) {
 			super(id, dataProvider);
-			this.visibleProcesses = visibleProcesses;
 		}
-
-        protected Collection<ProcessType> visibleProcesses;
         
 		@Override
 		protected void populateItem(final Item<«this.contextRef.name»> item)
