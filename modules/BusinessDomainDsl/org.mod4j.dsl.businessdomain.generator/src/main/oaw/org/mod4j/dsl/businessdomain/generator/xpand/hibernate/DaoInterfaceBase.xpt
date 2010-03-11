@@ -108,6 +108,17 @@ public interface «javaDaoBaseInterface(this.name)» {
      * @return the number of persisted objects in the database.
      */
     long count();
+    
+    /**
+     * Counts the number of persisted «javaDomainClass(this.name)» objects in the database that
+     * matches the given example object.
+     *
+     * @param example
+     *                the example object to be counted
+     * 
+     * @return the number of persisted objects in the database.
+     */
+    long count(final «javaDomainExampleClass(this.name)» example);
 
     /**
      * Selects «javaDomainClass(this.name)»s from the database that matches an

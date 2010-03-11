@@ -220,6 +220,19 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
             }
         }
     }
+    
+    @Test
+    public void testCountByExample() {
+        customerDao.add(new Customer("Rembrandt", "van Rijn", date(), 3));
+        customerDao.add(new Customer("Saskia", "van Rijn", date(), 4));
+        customerDao.add(new Customer("Paulus", "Potter", date(), 5));
+        flush();
+        clear();
+
+        CustomerExample example = new CustomerExample();
+        example.setLastName("Rijn");
+        assertEquals(2, customerDao.count(example));
+    }
 
     @Test
     public void testFindByExample() {

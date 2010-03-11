@@ -27,11 +27,13 @@ import «javaDomainClassPath(this.name)»;
 import «javaDomainExampleClassPath(this.name)»;
 import «javaDaoBaseInterfacePath(this.name)»;
 
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Projections;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -122,6 +124,24 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
      */
     public long count() {
         return ((Long) getHibernateTemplate().iterate("select count(*) from «javaDomainClass(this.name)»").next()).longValue();
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    @SuppressWarnings("unchecked")
+    public long count(final «javaDomainExampleClass(this.name)» example) {
+        List<Integer> result;
+        result = getHibernateTemplate().executeFind(new HibernateCallback() {
+            public Object doInHibernate(final Session session)
+                    throws HibernateException, SQLException {
+                Criteria crit = session.createCriteria(«javaDomainClass(this.name)».class);
+                crit.setProjection(Projections.rowCount());
+                crit.add(Example.create(example).enableLike(MatchMode.ANYWHERE).ignoreCase());
+                return crit.list();
+            }
+        });
+        return result.get(0);
     }
 
     /**
