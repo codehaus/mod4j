@@ -708,7 +708,7 @@ public ProcessType getProcessType() {
         «modelName»Model = new PropertyModel(model, "«this.getNavigationExpression().references.get(0).name»");
     «ELSEIF this.getStandardExpression() != null»
         «IF this.getStandardExpression().type == ExpressionType::ALL»
-            «LET getWicketListAllDataProviderClass(this.referredUIModelElement().contextRef.name) AS providerType»
+            «LET getWicketDataProviderClass(this.referredUIModelElement().contextRef.name) AS providerType»
             «providerType» «this.name»provider = new «providerType»();
             «modelName»Model = new Model(«this.name»provider);
             «ENDLET»

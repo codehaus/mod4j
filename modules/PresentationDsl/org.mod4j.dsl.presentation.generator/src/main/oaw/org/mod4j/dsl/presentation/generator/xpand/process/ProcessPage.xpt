@@ -31,7 +31,7 @@ import «getPresentationRootPackage()».processes.PmfProcess;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 
 «FOREACH this.processElements.select(e|(e.getStandardExpression() != null) && (e.getStandardExpression().type== ExpressionType::ALL )) AS e»
-import «getPresentationRootPackage()».dataproviders.«getWicketListAllDataProviderClass(e.referredUIModelElement().contextRef.name)» ;
+import «getPresentationRootPackage()».dataproviders.«getWicketDataProviderClass(e.referredUIModelElement().contextRef.name)» ;
 «ENDFOREACH»
 «FOREACH this.processElements.select(e|(e.getStandardExpression() != null) && (e.getStandardExpression().type== ExpressionType::FIND )) AS e»
 import «getPresentationRootPackage()».dataproviders.«getWicketFinderDataProviderClass(e.referredUIModelElement().contextRef.name)» ;
@@ -70,7 +70,7 @@ import org.mod4j.common.wicket.ext.components.ComponentsFeedbackMessageFilter;
 
 public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass()»<«this.contextRef.name»> 
 {
-    private Integer maxItemsPerPage = 5;
+    private Integer maxItemsPerPage = 10;
 
     protected IModel model;
     
@@ -240,7 +240,7 @@ public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass
         panelModel = new PropertyModel(model, "«this.getNavigationExpression().references.get(0).name»");
     «ELSEIF this.getStandardExpression() != null»
         «IF this.getStandardExpression().type == ExpressionType::ALL»
-            «LET getWicketListAllDataProviderClass(this.referredDialogue().contextRef.name) AS providerType»
+            «LET getWicketDataProviderClass(this.referredDialogue().contextRef.name) AS providerType»
 	        «providerType» provider = new «providerType»();
 	        panelModel = new Model(provider);
 	        «ENDLET»

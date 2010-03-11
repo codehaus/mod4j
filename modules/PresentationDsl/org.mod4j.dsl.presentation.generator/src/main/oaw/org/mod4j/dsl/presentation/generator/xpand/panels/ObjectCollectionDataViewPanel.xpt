@@ -41,7 +41,7 @@ import «getPresentationRootPackage()».processes.«process.javaClass()»;
 «ENDFOREACH»
 import «getPresentationCommonPackage()».processes.ProcessType;
 «IF this.processes.referredProcess.exists(e|e.type == ProcessType::ADDTO)»
-import «getPresentationRootPackage()».dataproviders.«getWicketListAllDataProviderClass(this.contextRef.name)»;
+import «getPresentationRootPackage()».dataproviders.«getWicketDataProviderClass(this.contextRef.name)»;
 «ENDIF»
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 import «getPresentationCommonPackage()».ext.components.CheckBoxDtoModel;
