@@ -146,6 +146,27 @@ public class CrossxBroker {
     }
 
     /**
+     * Find all models within project with name 'project'
+     * 
+     * @param project
+     * @return
+     */
+    public static List<ModelInfo> findAllModelsInProject(String project, List<String> types) {
+        System.out.println("findAllModelsInProject[" + project + "]");
+        List<ModelInfo> all = CrossxEnvironment.findAllModelsInProject(project);
+        List<ModelInfo> result = new ArrayList<ModelInfo>();
+        for (ModelInfo modelInfo : all) {
+            if( types.contains( modelInfo.getDslname()) ) {
+                System.out.println("add [" + modelInfo.getModelname()+ "]");
+                result.add(modelInfo);
+            } else {
+                System.out.println("NOT add [" + modelInfo.getModelname()+ "]");
+            }
+        }
+        return result;
+    }
+
+    /**
       */
     public static Symbol lookupSymbolWithProperty(String model, String symbolname, String type, String propertyName,
             String propertyValue) {

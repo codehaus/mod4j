@@ -118,6 +118,9 @@ public class CrossxEnvironment {
         if (environment == null) {
             System.err.println("CrossxEnvironment::find environment = null");
         }
+        if (environment.isEmpty() ) {
+            System.err.println("CrossxEnvironment::find environment isEmpty()");
+        }
         for (CrossxLocation location : environment.values()) {
             Symbol result = location.lookup(model, symbolname, elemType);
             if (result != null) {
