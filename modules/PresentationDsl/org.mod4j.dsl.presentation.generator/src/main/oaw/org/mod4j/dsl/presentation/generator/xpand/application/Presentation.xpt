@@ -242,7 +242,7 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.model.IModel;
 
-public abstract class «getWicketMasterPageClass()»<DtoType> extends WebPage {
+public abstract class «getWicketMasterPageClass()» extends WebPage {
     protected «getWicketSesssionClass()» session;
 
     protected PmfProcess owningProcess = null;
@@ -253,16 +253,6 @@ public abstract class «getWicketMasterPageClass()»<DtoType> extends WebPage {
 
     public PmfProcess getProcess() {
         return owningProcess ;
-    }
-
-    private Mod4jDataProvider<DtoType> provider = null;
-
-    public Mod4jDataProvider<DtoType> getProvider() {
-        return provider;
-    }
-
-    public void setProvider(Mod4jDataProvider<DtoType> provider) {
-        this.provider = provider;
     }
 
     private List<AbstractLink> menuItems = new ArrayList<AbstractLink>();
