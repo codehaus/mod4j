@@ -42,7 +42,7 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import «getPresentationServiceFacadeClassPath()»;
 import «getPresentationCommonPackage()».processes.ProcessType;
 
-import «javaLocalServiceInterfacePath(this.service.name)» ;
+import «javaLocalServiceInterfacePath(this.service.modelName)» ;
 «IF this.service.name != updateServiceType»
 import «javaLocalServiceInterfacePath(updateServiceType)» ;
 «ENDIF»
@@ -65,7 +65,7 @@ public class «classname»
         return processTypes;
     }
 
-    «javaLocalServiceInterface(this.service.name)» service;
+    «javaLocalServiceInterface(this.service.modelName)» service;
     «javaLocalServiceInterface(updateServiceType)» updateService;
     private «inContext» context = null;
     private List<«outContext»> result = null;
@@ -75,14 +75,14 @@ public class «classname»
 	 * @param service The service from which the list and count is retrieved.
 	 */
 	public «classname»(«inContext» context) {
-        this.service = «getPresentationServiceFacadeClass()».get«javaLocalServiceInterface(this.service.name)»();
+        this.service = «getPresentationServiceFacadeClass()».get«javaLocalServiceInterface(this.service.modelName)»();
         this.updateService = «getPresentationServiceFacadeClass()».get«javaLocalServiceInterface(updateServiceType)»();
 		this.context = context;
 	}
 
     private void getResult(){
         if( result == null ){
-            result = service.«this.serviceMethod»(context);
+            result = service.«this.service.name»(context);
             if( result == null ) {      // no result
                 result = new ArrayList<«outContext»>();
             }

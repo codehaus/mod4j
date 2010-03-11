@@ -22,8 +22,8 @@ context ProcessReference ERROR "There is no model " + this.modelName  + " that c
 context DialogueReference ERROR "There is no model " + this.modelName  + " that contains form " + this.name :
        lookupSymbol(this.modelName, this.name, "Form") != null;
 
-context ServiceReference ERROR "There is no model " + this.modelName  + " that contains service " + this.name :
-       lookupSymbol(this.modelName, this.name, "Service") != null;
+//context ServiceReference ERROR "There is no model " + this.modelName  + " that contains service " + this.name :
+//       lookupSymbol(this.modelName, this.name, "Service") != null;
 
 context DtoReference ERROR "There is no model " + this.modelName  + " that contains dto  " + this.name :
        lookupSymbol(this.modelName, this.name, "Dto") != null;

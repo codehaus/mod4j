@@ -20,11 +20,21 @@
 
 «DEFINE ServiceFacade FOR PresentationModel -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ServiceFacade.xpt") FOR this»
+«LET findAllSymbols(getProject(), "Service") AS allServices»
+    «FOREACH allServices AS service»
+//         import «javaLocalServiceInterfacePath(service.name)» ;
+//  «LET service.subSymbols.select(sub | sub.type == "ServiceMethod" ) AS methods»
+	    «FOREACH methods AS method»
+// Method: «method.name»  type: «method.type» special: «method.getPropertyValue("methodType")»    
+	    «ENDFOREACH»
+    «ENDLET»
+    «ENDFOREACH»
+«ENDLET-»
 package «getPresentationRootPackage()».pages;
 
 import org.mod4j.runtime.dto.AbstractDto;
 «FOREACH this.externalReferences AS ext-»
-«LET lookupSymbol(ext.modelName, ext.name, "Service") AS service-»
+«LET lookupSymbol(ext.modelName, ext.modelName, "Service") AS service-»
     «IF service != null-»
         import «javaLocalServiceInterfacePath(service.name)» ;
     «ENDIF-»
@@ -43,7 +53,7 @@ import org.apache.wicket.markup.html.WebPage;
 
 public class «getPresentationServiceFacadeClass()»  extends WebPage {
 «FOREACH this.externalReferences AS ext-»
-«LET lookupSymbol(ext.modelName, ext.name, "Service") AS service-»
+«LET lookupSymbol(ext.modelName, ext.modelName, "Service") AS service-»
     «IF service != null-»
         «LET javaLocalServiceInterface(service.name) AS serviceType»
         @SpringBean(name = "«service.name.toFirstLower()»Service")

@@ -7213,11 +7213,11 @@ protected class StandardExpression_TypeAssignment extends AssignmentToken  {
 /************ begin Rule ServiceExpression ****************
  *
  * ServiceExpression:
- *   "service" service=[ServiceReference] "." serviceMethod=ID;
+ *   "service" service=[ServiceReference];
  *
  **/
 
-// "service" service=[ServiceReference] "." serviceMethod=ID
+// "service" service=[ServiceReference]
 protected class ServiceExpression_Group extends GroupToken {
 	
 	public ServiceExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -7230,7 +7230,7 @@ protected class ServiceExpression_Group extends GroupToken {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ServiceExpression_ServiceMethodAssignment_3(parent, this, 0, inst);
+			case 0: return new ServiceExpression_ServiceAssignment_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -7288,57 +7288,6 @@ protected class ServiceExpression_ServiceAssignment_1 extends AssignmentToken  {
 				element = grammarAccess.getServiceExpressionAccess().getServiceServiceReferenceCrossReference_1_0(); 
 				return obj;
 			}
-		}
-		return null;
-	}
-
-}
-
-// "."
-protected class ServiceExpression_FullStopKeyword_2 extends KeywordToken  {
-	
-	public ServiceExpression_FullStopKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getServiceExpressionAccess().getFullStopKeyword_2();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ServiceExpression_ServiceAssignment_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// serviceMethod=ID
-protected class ServiceExpression_ServiceMethodAssignment_3 extends AssignmentToken  {
-	
-	public ServiceExpression_ServiceMethodAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getServiceExpressionAccess().getServiceMethodAssignment_3();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ServiceExpression_FullStopKeyword_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("serviceMethod",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("serviceMethod");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
-			type = AssignmentType.LRC;
-			element = grammarAccess.getServiceExpressionAccess().getServiceMethodIDTerminalRuleCall_3_0();
-			return obj;
 		}
 		return null;
 	}

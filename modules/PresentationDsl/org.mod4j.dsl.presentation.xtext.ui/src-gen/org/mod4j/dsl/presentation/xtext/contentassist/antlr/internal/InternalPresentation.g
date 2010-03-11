@@ -5622,52 +5622,10 @@ rule__ServiceExpression__Group__1
 { after(grammarAccess.getServiceExpressionAccess().getServiceAssignment_1()); }
 )
 
-	rule__ServiceExpression__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
-
-
-rule__ServiceExpression__Group__2
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getServiceExpressionAccess().getFullStopKeyword_2()); }
-
-	'.' 
-
-{ after(grammarAccess.getServiceExpressionAccess().getFullStopKeyword_2()); }
-)
-
-	rule__ServiceExpression__Group__3
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__ServiceExpression__Group__3
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getServiceExpressionAccess().getServiceMethodAssignment_3()); }
-(rule__ServiceExpression__ServiceMethodAssignment_3)
-{ after(grammarAccess.getServiceExpressionAccess().getServiceMethodAssignment_3()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
-
 
 
 
@@ -6994,21 +6952,6 @@ rule__ServiceExpression__ServiceAssignment_1
 	RULE_ID{ after(grammarAccess.getServiceExpressionAccess().getServiceServiceReferenceIDTerminalRuleCall_1_0_1()); }
 )
 { after(grammarAccess.getServiceExpressionAccess().getServiceServiceReferenceCrossReference_1_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ServiceExpression__ServiceMethodAssignment_3
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getServiceExpressionAccess().getServiceMethodIDTerminalRuleCall_3_0()); }
-	RULE_ID{ after(grammarAccess.getServiceExpressionAccess().getServiceMethodIDTerminalRuleCall_3_0()); }
 )
 
 ;

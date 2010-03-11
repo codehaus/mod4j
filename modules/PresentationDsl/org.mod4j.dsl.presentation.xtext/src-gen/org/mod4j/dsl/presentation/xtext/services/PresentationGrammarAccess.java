@@ -1732,15 +1732,12 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Assignment cServiceAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cServiceServiceReferenceCrossReference_1_0 = (CrossReference)cServiceAssignment_1.eContents().get(0);
 		private final RuleCall cServiceServiceReferenceIDTerminalRuleCall_1_0_1 = (RuleCall)cServiceServiceReferenceCrossReference_1_0.eContents().get(1);
-		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cServiceMethodAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cServiceMethodIDTerminalRuleCall_3_0 = (RuleCall)cServiceMethodAssignment_3.eContents().get(0);
 		
 		//ServiceExpression:
-		//  "service" service=[ServiceReference] "." serviceMethod=ID;
+		//  "service" service=[ServiceReference];
 		public ParserRule getRule() { return rule; }
 
-		//"service" service=[ServiceReference] "." serviceMethod=ID
+		//"service" service=[ServiceReference]
 		public Group getGroup() { return cGroup; }
 
 		//"service"
@@ -1754,15 +1751,6 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 		//ID
 		public RuleCall getServiceServiceReferenceIDTerminalRuleCall_1_0_1() { return cServiceServiceReferenceIDTerminalRuleCall_1_0_1; }
-
-		//"."
-		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
-
-		//serviceMethod=ID
-		public Assignment getServiceMethodAssignment_3() { return cServiceMethodAssignment_3; }
-
-		//ID
-		public RuleCall getServiceMethodIDTerminalRuleCall_3_0() { return cServiceMethodIDTerminalRuleCall_3_0; }
 	}
 
 	public class NavigationExpressionElements implements IParserRuleAccess {
@@ -2376,7 +2364,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//ServiceExpression:
-	//  "service" service=[ServiceReference] "." serviceMethod=ID;
+	//  "service" service=[ServiceReference];
 	public ServiceExpressionElements getServiceExpressionAccess() {
 		return (pServiceExpression != null) ? pServiceExpression : (pServiceExpression = new ServiceExpressionElements());
 	}

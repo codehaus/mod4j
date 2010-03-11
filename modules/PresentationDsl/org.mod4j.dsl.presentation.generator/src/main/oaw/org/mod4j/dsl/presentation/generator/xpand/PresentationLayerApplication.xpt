@@ -55,14 +55,15 @@
         «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + "ServiceFacade"))»
             «EXPAND ServiceFacade::ServiceFacade FOR this»
         «ENDFILE»
+        «REM» 
+             If tehre is no generated masterpage, generate an empty one
+        «ENDREM»
         «IF ! fileExist(  fullGeneratePath(getPresentationModuleName(""),  masterPageFilePath) ) -»
-        «print("NOT EXIST IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII : " + fullGeneratePath(getPresentationModuleName(""),  masterPageFilePath)  )»
             «FILE generate( getPresentationModuleName(""), masterPageFilePath)-»
                 «EXPAND Presentation::GenerateMasterPage FOR this»
             «ENDFILE»
         «ENDIF» 
         «IF ! fileExist(  fullGenerateResourcePath(getPresentationModuleName(""),  masterPageHtmlFilePath) ) -»
-        «print("NOT EXIST KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK : " + fullGenerateResourcePath(getPresentationModuleName(""),  masterPageHtmlFilePath)  )»
             «FILE generate( getPresentationModuleName(""), masterPageHtmlFilePath)-»
                 «EXPAND Presentation::GenerateMasterPageHtml FOR this»
             «ENDFILE»

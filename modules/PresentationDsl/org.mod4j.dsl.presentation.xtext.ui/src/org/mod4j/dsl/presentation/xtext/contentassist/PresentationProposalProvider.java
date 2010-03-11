@@ -46,10 +46,13 @@ public class PresentationProposalProvider extends AbstractPresentationProposalPr
         return false;
     }
     
+    /** 
+     * Limit the keywords shown for "from <model> ***  based on the type of model that has been typed.
+     */
     @Override
     public void completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext, ICompletionProposalAcceptor acceptor) {
-        System.out.println("completeKeyword '" + keyword.getValue()+ "' for model '" + contentAssistContext.getCurrentModel()
-                + "' and getCurrentNode()'"+ contentAssistContext.getCurrentNode().getParent().getElement() + "'");
+//        System.out.println("completeKeyword '" + keyword.getValue()+ "' for model '" + contentAssistContext.getCurrentModel()
+//                + "' and getCurrentNode()'"+ contentAssistContext.getCurrentNode().getParent().getElement() + "'");
         EObject element = contentAssistContext.getCurrentNode().getParent().getElement();
         String keyValue = keyword.getValue();
         if( (element instanceof DtoReference) ){
@@ -115,7 +118,10 @@ public class PresentationProposalProvider extends AbstractPresentationProposalPr
     public void completeServiceReference_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
         ExternalReference externalReference = (ExternalReference)model;
         List<Symbol> symbols = CrossxBroker.findAllFromModel(externalReference.getModelName(), "Service");
-        for (Symbol symbol : symbols) {
+        // There is only one Service in a model !
+        Symbol service = symbols.get(0);
+        List<Symbol> methods = service.getSubSymbols();
+        for (Symbol symbol : methods) {
             propose(symbol.getName(), context, acceptor);
         }
     }
@@ -165,13 +171,6 @@ public class PresentationProposalProvider extends AbstractPresentationProposalPr
         }
     }
 
-//    @Override public void completeDialogueCall_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-//        List<String> propoals = PresentationProposals.getDirectDialogueCallProposals(model, Collections.EMPTY_LIST);
-//        for (String name : propoals) {
-//            propose(name, context, acceptor);
-//        }
-//    }
-    
 //    @Override public void completeAssociationRoleReference_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 //        List<String> names = PresentationProposals.getLinkStepReferencesProposals(model);
 //        for (String name : names) {

@@ -2773,30 +2773,6 @@ ruleServiceExpression returns [EObject current=null]
 
 		// TODO assign feature to currentNode
 	
-)'.' 
-    {
-        createLeafNode(grammarAccess.getServiceExpressionAccess().getFullStopKeyword_2(), null); 
-    }
-(	
-	
-	    lv_serviceMethod_3=	RULE_ID
-	{
-		createLeafNode(grammarAccess.getServiceExpressionAccess().getServiceMethodIDTerminalRuleCall_3_0(), "serviceMethod"); 
-	}
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getServiceExpressionRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "serviceMethod", lv_serviceMethod_3, "ID", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-	
 ));
 
 

@@ -24,7 +24,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceReference;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ServiceExpressionImpl#getServiceMethod <em>Service Method</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ServiceExpressionImpl#getService <em>Service</em>}</li>
  * </ul>
  * </p>
@@ -32,26 +31,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceReference;
  * @generated
  */
 public class ServiceExpressionImpl extends ExpressionImpl implements ServiceExpression {
-    /**
-     * The default value of the '{@link #getServiceMethod() <em>Service Method</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getServiceMethod()
-     * @generated
-     * @ordered
-     */
-    protected static final String SERVICE_METHOD_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getServiceMethod() <em>Service Method</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getServiceMethod()
-     * @generated
-     * @ordered
-     */
-    protected String serviceMethod = SERVICE_METHOD_EDEFAULT;
-
     /**
      * The cached value of the '{@link #getService() <em>Service</em>}' reference.
      * <!-- begin-user-doc -->
@@ -79,27 +58,6 @@ public class ServiceExpressionImpl extends ExpressionImpl implements ServiceExpr
     @Override
     protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.SERVICE_EXPRESSION;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getServiceMethod() {
-        return serviceMethod;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setServiceMethod(String newServiceMethod) {
-        String oldServiceMethod = serviceMethod;
-        serviceMethod = newServiceMethod;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_METHOD, oldServiceMethod, serviceMethod));
     }
 
     /**
@@ -148,8 +106,6 @@ public class ServiceExpressionImpl extends ExpressionImpl implements ServiceExpr
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_METHOD:
-                return getServiceMethod();
             case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE:
                 if (resolve) return getService();
                 return basicGetService();
@@ -165,9 +121,6 @@ public class ServiceExpressionImpl extends ExpressionImpl implements ServiceExpr
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_METHOD:
-                setServiceMethod((String)newValue);
-                return;
             case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE:
                 setService((ServiceReference)newValue);
                 return;
@@ -183,9 +136,6 @@ public class ServiceExpressionImpl extends ExpressionImpl implements ServiceExpr
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_METHOD:
-                setServiceMethod(SERVICE_METHOD_EDEFAULT);
-                return;
             case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE:
                 setService((ServiceReference)null);
                 return;
@@ -201,28 +151,10 @@ public class ServiceExpressionImpl extends ExpressionImpl implements ServiceExpr
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_METHOD:
-                return SERVICE_METHOD_EDEFAULT == null ? serviceMethod != null : !SERVICE_METHOD_EDEFAULT.equals(serviceMethod);
             case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE:
                 return service != null;
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy()) return super.toString();
-
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (serviceMethod: ");
-        result.append(serviceMethod);
-        result.append(')');
-        return result.toString();
     }
 
 } //ServiceExpressionImpl

@@ -729,10 +729,6 @@
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </terminal>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="."/>
-        <tokens xsi:type="xtext:Assignment" feature="serviceMethod" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-        </tokens>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="NavigationExpression">

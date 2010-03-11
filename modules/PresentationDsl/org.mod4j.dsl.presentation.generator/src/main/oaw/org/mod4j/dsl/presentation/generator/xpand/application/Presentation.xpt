@@ -24,6 +24,7 @@ package «getPresentationRootPackage()»;
 
 import «getPresentationRootPackage()».pages.exceptions.«getWicketPageNotFoundPageClass()»;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
+import «getPresentationServiceFacadeClassPath()»;
 
 import org.apache.wicket.Request;
 import org.apache.wicket.RequestCycle;
@@ -158,12 +159,13 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
 
     public «getWicketHomePageClass()»() {
         this(new PageParameters());
-        new «getPresentationServiceFacadeClass()»();
     }
 
     public «getWicketHomePageClass()»(PageParameters parameters) {
         super(null);
         add(new FeedbackPanel("feedback"));
+         // need to create an instance to initialize the SPring injection in the service facade
+        new «getPresentationServiceFacadeClass()»();
     }
 
     @Override

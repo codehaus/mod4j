@@ -87,14 +87,15 @@ public class PresentationHelpers {
      */
     static public Mod4jType serviceCallMod4jType(String context, ServiceExpression exp){
         Mod4jType result = new Mod4jType("UNKNOWN", "UNNOWN");
-        Symbol service = CrossxBroker.lookupSymbol(exp.getService().getName(), exp.getService().getName(), "Service");
+        Symbol service = CrossxBroker.lookupSymbol(exp.getService().getModelName(), exp.getService().getModelName(), "Service");
         if( service == null ){
             result.setError("ERROR: 5 service [" + exp.getService().getName() + "] does not exist");
             return result;
         }
-        Symbol serviceMethod = CrossxBroker.getSubSymbol(service, exp.getServiceMethod());
+//        Symbol serviceMethod = CrossxBroker.getSubSymbol(service, exp.getServiceMethod());
+        Symbol serviceMethod = CrossxBroker.getSubSymbol(service, exp.getService().getName());
         if( serviceMethod == null ){
-            result.setError("ERROR: 6 service method [" + exp.getServiceMethod() + "] does not exist");
+            result.setError("ERROR: 6 service method [" + exp.getService().getName() + "] does not exist");
             return result;
         }
         // found the service method.
@@ -103,13 +104,13 @@ public class PresentationHelpers {
         if( methodType.equals("CustomMethod") ) {
             String inDto = CrossxBroker.getPropertyValue(serviceMethod, "in");
             if( ! inDto.equals(context ) ){
-                result.setError("ERROR: 7 service method [" + exp.getServiceMethod() + "] has input [" + inDto + "] should be [" + context + "]");
+                result.setError("ERROR: 7 service method [" + exp.getService().getName() + "] has input [" + inDto + "] should be [" + context + "]");
                 return result;
             }
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "out");
             String outCollection = CrossxBroker.getPropertyValue(serviceMethod, "outCollection");
             if( outDto == null ){
-                result.setError("ERROR: 8 service method [" + exp.getServiceMethod() + "] has no output should be [" + context + "]");
+                result.setError("ERROR: 8 service method [" + exp.getService().getName() + "] has no output should be [" + context + "]");
                 return result;
             }
             result.setBaseType(outDto);
@@ -124,7 +125,7 @@ public class PresentationHelpers {
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "dto");
             String inDto = outDto;
             if( ! inDto.equals(context ) ){
-                result.setError("ERROR: 7 service method [" + exp.getServiceMethod() + "] has input [" + inDto + "] should be [" + context + "]");
+                result.setError("ERROR: 7 service method [" + exp.getService().getName() + "] has input [" + inDto + "] should be [" + context + "]");
                 return result;
             }
             result.setBaseType(outDto);
@@ -143,7 +144,7 @@ public class PresentationHelpers {
         } else if( methodType.equals("GETFROM") ) {
             String inDto = CrossxBroker.getPropertyValue(serviceMethod, "whole");
             if( ! inDto.equals(context ) ){
-                result.setError("ERROR: 7 service method [" + exp.getServiceMethod() + "] has input [" + inDto + "] should be [" + context + "]");
+                result.setError("ERROR: 7 service method [" + exp.getService().getName() + "] has input [" + inDto + "] should be [" + context + "]");
                 return result;
             }
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "part");
