@@ -103,8 +103,9 @@ public class  «getWicketDataProviderClass(context)» extends SortableDataProvid
         «IF findService != null -»
         if (filter != null) {
             result = service.count«businessClassName(form)»s(filter);
-        }«ENDIF»
-        result = service.count«businessClassName(form)»s();
+        } else {«ENDIF»
+            result = service.count«businessClassName(form)»s();
+        «IF findService != null -»}«ENDIF»    
         return result.intValue();
     }
 
