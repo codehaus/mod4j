@@ -132,8 +132,8 @@
      * 
      * @param firstResult - the index of the first result object to be retrieved (numbered from 0)
      * @param maxResuls - the maximum number of result objects to retrieve (or <=0 for no limit) 
-     * @param sortProperty the property of the object to sort on
-     * @param isAscending should the retruned list be sorted ascending or descending? 
+     * @param sortProperty - the property of the object to sort on
+     * @param isAscending - should the retruned list be sorted ascending or descending? 
      * 
      * @return List containing 0 or more existing «dto.businessClass()» objects.
      *
@@ -141,7 +141,7 @@
      */
     public List<«javaDomainClass(dto.businessClass())»> list«this.dto.businessClass()»s(final int firstResult, final int maxResults,
         final String sortProperty, final boolean isAscending);
-    
+
     /**
      * Counts all existing «dto.businessClass()»s objects.
      * «description» 
@@ -160,7 +160,36 @@
      *            The object to which the result objects must conform.
      * @return List<«Class»>
      */
-    public List<«Class»> find«Class»ByExample(«javaDomainExampleClass(dto.businessClass())» example);
+    public List<«Class»> find«Class»ByExample(final «javaDomainExampleClass(dto.businessClass())» example);
+    
+    /**
+     * Reads a sorted range (page) of existing «dto.businessClass()»s.
+     * «description» 
+     * 
+     * @param example - the example object to which the result objects need to conform
+     * @param firstResult - the index of the first result object to be retrieved (numbered from 0)
+     * @param maxResuls - the maximum number of result objects to retrieve (or <=0 for no limit) 
+     * @param sortProperty - the property of the object to sort on
+     * @param isAscending - should the retruned list be sorted ascending or descending? 
+     * 
+     * @return List containing 0 or more existing «dto.businessClass()» objects.
+     *
+     * @see {@link #list«this.dto.businessClass()»s(int, int, String, boolean)}
+     */
+    public List<«javaDomainClass(dto.businessClass())»> «this.name»(final «javaDomainExampleClass(dto.businessClass())» example,
+        final int firstResult, final int maxResults, final String sortProperty, final boolean isAscending);
+    
+    /**
+     * Counts the number of persisted «dto.businessClass()» objects in the database that
+     * matches the given example object.
+     * «description»
+     *
+     * @param example
+     *                the example object to be counted
+     * 
+     * @return the number of persisted objects in the database.
+     */     
+    public long count«this.dto.businessClass()»s(final «javaDomainExampleClass(dto.businessClass())» example);
 «ENDLET»
 «ENDDEFINE»
 

@@ -18,7 +18,7 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::crossx::broker::xtend::Crossx» 
 
-«DEFINE LocalService FOR ServiceModel»
+«DEFINE LocalService FOR ServiceModel -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j ServiceDsl generator: LocalService.xpt") FOR this»
 
 	package «getServiceRootPackage()»;
@@ -72,7 +72,7 @@
 	}
 «ENDDEFINE»
 
-«DEFINE CustomMethod FOR CustomMethod»
+«DEFINE CustomMethod FOR CustomMethod -»
 «print("Custom method [" + this.name + "] param ["  + this.outParameter + "]")»
 «LET JavaParamType(this.outParameter) AS returnType»
 	/** 
@@ -88,11 +88,11 @@
  «ENDLET»
  «ENDDEFINE»
 
-«DEFINE Parameter FOR Parameter»
+«DEFINE Parameter FOR Parameter -»
 «JavaParamType(this)»  «this.name»
 «ENDDEFINE»
 
-«DEFINE CreateMethod FOR SpecialMethod»
+«DEFINE CreateMethod FOR SpecialMethod -»
     /**
      * Creates a new «this.dto.name».
      * «description»
@@ -103,7 +103,7 @@
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object);
 «ENDDEFINE»
 
-«DEFINE ReadMethod FOR SpecialMethod»
+«DEFINE ReadMethod FOR SpecialMethod -»
     /**
      * Reads an existing «this.dto.name».
      * «description»
@@ -114,7 +114,7 @@
     public «JavaType(this.dto)» «this.name»(Long id);
 «ENDDEFINE»
 
-«DEFINE UpdateMethod FOR SpecialMethod»
+«DEFINE UpdateMethod FOR SpecialMethod -»
     /**
      * Updates an existing «this.dto.name».
      * «description»
@@ -125,7 +125,7 @@
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object);
 «ENDDEFINE»
 
-«DEFINE DeleteMethod FOR SpecialMethod»
+«DEFINE DeleteMethod FOR SpecialMethod -»
     /**
      * Deletes an existing «this.dto.name».
      * «description»
@@ -135,7 +135,7 @@
     public void «this.name»(«JavaType(this.dto)» object);
 «ENDDEFINE»
 
-«DEFINE ListallMethod FOR SpecialMethod»
+«DEFINE ListallMethod FOR SpecialMethod -»
     /**
      * Returns a list of all objects of type «JavaType(this.dto)».
      * «description»
@@ -172,7 +172,7 @@
         final String sortProperty, final boolean isAscending);
 «ENDDEFINE»
 
-«DEFINE CountMethod FOR SpecialMethod»
+«DEFINE CountMethod FOR SpecialMethod -»
     /**
      * Counts the number of existing objects of type «this.dto.businessClass()».
      * 
@@ -181,7 +181,7 @@
     public long count«this.dto.businessClass()»s();
 «ENDDEFINE»
 
-«DEFINE FindMethod FOR SpecialMethod»
+«DEFINE FindMethod FOR SpecialMethod -»
     /**
      * Find all objects of type «JavaType(this.dto)» that conform to the example object.
      * «description»
@@ -190,9 +190,35 @@
      * @return the list of all «JavaType(this.dto)» objects conforming to the example object.
      */
     public List<«JavaType(this.dto)»> «this.name»(«JavaType(this.dto)» example);
+    
+    /**
+     * Reads an sorted range (page) of objects of type «JavaType(this.dto)».
+     * 
+     * @param exampleDto the dto-object to which the result objects need to conform
+     * @param firstResult - the index of the first result object to be retrieved (numbered from 0)
+     * @param maxResults - the maximum number of result objects to retrieve (or <=0 for no limit) 
+     * @param sortProperty - the property of the object to sort on
+     * @param isAscending - should the retruned list be sorted ascending or descending? 
+     *
+     * @return ordered List containing 0 or more «JavaType(this.dto)» objects.
+     *
+     * @see {@link #«this.name»(int, int, String, boolean)} 
+     */
+    public List<«JavaType(this.dto)»> «this.name»(final «JavaType(this.dto)» exampleDto, final int firstResult, final int maxResults,
+        final String sortProperty, final boolean isAscending);
+
+    /**
+     * Counts the number of existing objects of type «this.dto.businessClass()».
+     *
+     * @param exampleDto
+     *            The dto-object to which the result objects must conform.
+     * 
+     * @return number of existing «this.dto.businessClass()» objects that matches the exampleDto.
+     */
+    public long count«this.dto.businessClass()»s(final «JavaType(this.dto)» exampleDto);
 «ENDDEFINE»
 
-«DEFINE Associations FOR ServiceModel»
+«DEFINE Associations FOR ServiceModel -»
 	«FOREACH this.methods.typeSelect(AssociationMethod) AS method»
 		«LET getAssociation(method) AS assoc» 
 		«LET getPropertyValue(assoc, "Multiplicity") AS mult»

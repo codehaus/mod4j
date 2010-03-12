@@ -10,6 +10,7 @@ import java.util.List;
 import org.company.recordshop.CustomerDaoTest.CustomerComparator;
 import org.company.recordshop.data.CustomerDao;
 import org.company.recordshop.domain.Customer;
+import org.company.recordshop.domain.CustomerExample;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,7 +38,7 @@ public class PagingSupportCustomerDaoTest extends AbstractDaoTestCase {
     public void setUp() {
 
         for (int i = 1; i <= NUMBER_OF_ITEMS; i++) {
-            Customer customer = new Customer("Customer-" + i, "FirstName", date(), i);
+            Customer customer = new Customer("Customer-" + i, "LastName", date(), i);
             customerDao.add(customer);
         }
         flush();
@@ -52,6 +53,8 @@ public class PagingSupportCustomerDaoTest extends AbstractDaoTestCase {
 
         assertEquals(NUMBER_OF_ITEMS, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
         assertEquals(NUMBER_OF_ITEMS, customerDao.count());
+        assertEquals(NUMBER_OF_ITEMS, customerDao.count(new CustomerExample()));
+        
     }
 
     /**
@@ -75,5 +78,21 @@ public class PagingSupportCustomerDaoTest extends AbstractDaoTestCase {
         List<Customer> customers10_20 = customerDao.listPage(10, 20);
         assertNotNull(customers10_20);
         assertEquals(5, customers10_20.size());
+    }
+    
+    @Test
+    public void testListPageByExample() {
+        
+        CustomerExample example = new CustomerExample();
+        
+        assertEquals(10, customerDao.listPageByExample(example, 0, 10, "firstName", true).size());
+        
+        customerDao.add(new Customer("John", "Thebuyer", date(), 100));
+        customerDao.add(new Customer("Rosa", "Thebuyer", date(), 101));
+        flush();
+        clear();
+        
+        example.setLastName("Thebuyer");
+        assertEquals(2, customerDao.listPageByExample(example, 0, 10, "firstName", true).size());
     }
 }

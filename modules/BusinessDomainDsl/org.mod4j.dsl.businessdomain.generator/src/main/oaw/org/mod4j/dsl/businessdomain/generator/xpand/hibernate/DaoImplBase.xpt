@@ -118,6 +118,30 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
         DetachedCriteria criteria = DetachedCriteria.forClass(«javaDomainClass(this.name)».class).addOrder(order);
         return getHibernateTemplate().findByCriteria(criteria, firstResult, maxResults);
     }
+    
+    /**
+     * {@inheritDoc}
+     */
+    @SuppressWarnings("unchecked")
+    public List<«javaDomainClass(this.name)»> listPageByExample(final «javaDomainExampleClass(this.name)» example, final int firstResult, final int maxResults,
+            final String sortProperty, final boolean isAscending) {
+        List<«javaDomainClass(this.name)»> result;
+        result = getHibernateTemplate().executeFind(new HibernateCallback() {
+            public Object doInHibernate(final Session session) throws HibernateException, SQLException {
+
+                org.hibernate.criterion.Order order;
+                if (isAscending) {
+                    order = org.hibernate.criterion.Order.asc(sortProperty);
+                } else {
+                    order = org.hibernate.criterion.Order.desc(sortProperty);
+                }
+                return session.createCriteria(«javaDomainClass(this.name)».class).add(
+                        Example.create(example).enableLike(MatchMode.ANYWHERE).ignoreCase())
+                        .setFirstResult(firstResult).setMaxResults(maxResults).addOrder(order).list();
+            }
+        });
+        return result;
+    }
 
     /**
      * {@inheritDoc}

@@ -25,6 +25,7 @@
 «LET this.referredDialogue.contextRef.name AS context»
 «LET findServiceWithMethod(context, "Create") AS serviceType»
 «LET findSpecialMethodInService(context, "LISTALL", serviceType) AS listallService»
+«LET findSpecialMethodInService(context, "FIND", serviceType) AS findService»
 package «getPresentationRootPackage()».dataproviders;
 
 import java.util.Arrays;
@@ -79,10 +80,10 @@ public class  «getWicketDataProviderClass(context)» extends SortableDataProvid
     public Iterator<«context»> iterator(int first, int count) {
 
         SortParam sp = getSort();
+        «IF findService != null -»
         if (filter != null) {
-            // TODO return service.findComestible(filter, first, count, sp.getProperty(),
-            // sp.isAscending()).iterator();
-        }
+            return service.«findService»(filter, first, count, sp.getProperty(), sp.isAscending()).iterator();
+        }«ENDIF»
         return service.«listallService»(first, count, sp.getProperty(), sp.isAscending()).iterator();
     }
 
@@ -99,11 +100,11 @@ public class  «getWicketDataProviderClass(context)» extends SortableDataProvid
 
     public int size() {
         Long result;
+        «IF findService != null -»
         if (filter != null) {
-            result = service.count«businessClassName(form)»s(); // TODO result = service.count«businessClassName(form)»s(filter);
-        } else {
-            result = service.count«businessClassName(form)»s();
-        }
+            result = service.count«businessClassName(form)»s(filter);
+        }«ENDIF»
+        result = service.count«businessClassName(form)»s();
         return result.intValue();
     }
 
@@ -115,6 +116,7 @@ public class  «getWicketDataProviderClass(context)» extends SortableDataProvid
         filter = («context») state;
     }
 }
+«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDLET»

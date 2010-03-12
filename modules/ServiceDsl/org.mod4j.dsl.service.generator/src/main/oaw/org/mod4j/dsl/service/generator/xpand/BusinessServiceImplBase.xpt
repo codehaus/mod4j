@@ -121,7 +121,7 @@
         final String sortProperty, final boolean isAscending){
         return «javaDaoInterface(dto.businessClass()).toFirstLower()».listPage(firstResult, maxResults, sortProperty, isAscending);
     }
-    
+
     /**
      * {@inheritDoc} 
      */
@@ -130,13 +130,28 @@
     }
 «ENDDEFINE»
 
-«DEFINE FindMethod FOR SpecialMethod»
+«DEFINE FindMethod FOR SpecialMethod -»
 «LET javaDomainClass(dto.businessClass()) AS Class»
     /**
      * {@inheritDoc} 
      */
     public List<«Class»> find«Class»ByExample(«javaDomainExampleClass(dto.businessClass())» example) {
         return this.«javaDaoInterface(dto.businessClass()).toFirstLower()».findByExample(example);
+    }
+
+    /**
+     * {@inheritDoc} 
+     */
+    public List<«javaDomainClass(dto.businessClass())»> «this.name»(final «javaDomainExampleClass(dto.businessClass())» example, final int firstResult,
+        final int maxResults, final String sortProperty, final boolean isAscending){
+        return «javaDaoInterface(dto.businessClass()).toFirstLower()».listPageByExample(example, firstResult, maxResults, sortProperty, isAscending);
+    }
+    
+    /**
+     * {@inheritDoc} 
+     */
+    public long count«this.dto.businessClass()»s(«javaDomainExampleClass(dto.businessClass())» example){
+        return «javaDaoInterface(dto.businessClass()).toFirstLower()».count(example);
     }
 «ENDLET»
 «ENDDEFINE»

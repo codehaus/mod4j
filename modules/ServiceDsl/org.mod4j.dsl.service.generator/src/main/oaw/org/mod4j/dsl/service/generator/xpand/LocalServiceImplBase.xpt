@@ -220,21 +220,43 @@
     /**
      * {@inheritDoc}
      */
-	public List<«dtoType»> «this.name»(«dtoType» example) {
+	public List<«dtoType»> «this.name»(«dtoType» filter) {
 		List<«Class»> found = null;
 		List<«dtoType»> result = new ArrayList<«dtoType»>();
 
-		«this.dto.businessClass().javaDomainExampleClass()» bexample =
-		              «javaTranslatorClass(dto.name).toFirstLower()».exampleFromDto(example);
-		found = «javaDomainServiceInterface(model.name).toFirstLower()».find«Class»ByExample(bexample);
+		«this.dto.businessClass().javaDomainExampleClass()» example =
+		              «javaTranslatorClass(dto.name).toFirstLower()».exampleFromDto(filter);
+		found = «javaDomainServiceInterface(model.name).toFirstLower()».find«Class»ByExample(example);
 		
 		for («Class» object : found) {
 			«dtoType» item = «javaTranslatorClass(dto.name).toFirstLower()».toDto(object);
 			result.add(item);
 		}
 		return result;
-
 	}
+	
+    /**
+     * {@inheritDoc}
+     */
+    public List<«JavaType(this.dto)»> «this.name»(final «JavaType(this.dto)» exampleDto, final int firstResult, final int maxResults,
+        final String sortProperty, final boolean isAscending) {
+        List<«this.dto.businessClass()»> range = «javaDomainServiceInterface(model.name).toFirstLower()».«this.name»(«javaTranslatorClass(dto.name).toFirstLower()».exampleFromDto(exampleDto),
+            firstResult, maxResults, sortProperty, isAscending);
+        List<«JavaType(this.dto)»> result = new ArrayList<«JavaType(this.dto)»>();
+        
+        for («this.dto.businessClass()» object : range) {
+            «JavaType(this.dto)» item = «javaTranslatorClass(dto.name).toFirstLower()».toDto(object);
+            result.add(item);
+        }
+        return result;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public long count«this.dto.businessClass()»s(final «JavaType(this.dto)» exampleDto) {
+        return «javaDomainServiceInterface(model.name).toFirstLower()».count«this.dto.businessClass()»s(«javaTranslatorClass(dto.name).toFirstLower()».exampleFromDto(exampleDto));
+    }
 «ENDLET»
 «ENDLET»
 «ENDDEFINE»
@@ -371,7 +393,7 @@
      * {@inheritDoc}
      */
     public List<«JavaType(this.part)»> «this.name»(«this.main.name» source){
-//    public List«JavaType(this.part)» «this.name»(«this.main.name» source){
+
 		if (source == null) {
 			throw new ServiceException(
 					"get«this.rolename.toFirstUpper()»: parameter [source] should not be null");
@@ -381,7 +403,6 @@
 
 		List<«this.part.name»> result = new ArrayList<«this.part.name»>();
 
-//        for («this.part.dtoBaseBusinessClass()» element: parts) {
         for («this.part.businessClass()» element: parts) {
 			«this.part.name» item = «javaTranslatorClass(this.part.name).toFirstLower()».toDto(element);
 			result.add(item);
