@@ -114,7 +114,7 @@ public class «getPresentationServiceFacadeClass()»  extends WebPage {
                         return service«serviceType».«listAllService»(firstResult, maxResults, sortProperty, isAscending);
                     }
                         
-                    public static long count«businessClassName(extDto.modelName, extDto.name)»s() {
+                    public static long count«dto.name»() {
                         return service«serviceType».count«businessClassName(extDto.modelName, extDto.name)»s();
                     }
                 «ENDIF»
@@ -127,7 +127,7 @@ public class «getPresentationServiceFacadeClass()»  extends WebPage {
                         return service«serviceType».«findService»(exampleDto, firstResult, maxResults, sortProperty, isAscending);
                     }
 
-                    public static long count«businessClassName(extDto.modelName, extDto.name)»s(final «dto.name» exampleDto) {
+                    public static long count«dto.name»(final «dto.name» exampleDto) {
                         return service«serviceType».count«businessClassName(extDto.modelName, extDto.name)»s(exampleDto);
                     }
                 «ENDIF»
