@@ -21,6 +21,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crossx.ecore#//Symbol/properties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crossx.ecore#//Symbol/subSymbols"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference crossx.ecore#//Symbol/owner"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference crossx.ecore#//Symbol/parent"/>
     </genClasses>
     <genClasses ecoreClass="crossx.ecore#//SymbolProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//SymbolProperty/name"/>

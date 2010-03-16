@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.mod4j.crossx.mm.crossx.Symbol#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mod4j.crossx.mm.crossx.Symbol#getSubSymbols <em>Sub Symbols</em>}</li>
  *   <li>{@link org.mod4j.crossx.mm.crossx.Symbol#getOwner <em>Owner</em>}</li>
+ *   <li>{@link org.mod4j.crossx.mm.crossx.Symbol#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,6 +102,7 @@ public interface Symbol extends EObject {
     /**
      * Returns the value of the '<em><b>Sub Symbols</b></em>' containment reference list.
      * The list contents are of type {@link org.mod4j.crossx.mm.crossx.Symbol}.
+     * It is bidirectional and its opposite is '{@link org.mod4j.crossx.mm.crossx.Symbol#getParent <em>Parent</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Sub Symbols</em>' containment reference list isn't clear,
@@ -109,7 +111,8 @@ public interface Symbol extends EObject {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Sub Symbols</em>' containment reference list.
      * @see org.mod4j.crossx.mm.crossx.CrossxPackage#getSymbol_SubSymbols()
-     * @model containment="true"
+     * @see org.mod4j.crossx.mm.crossx.Symbol#getParent
+     * @model opposite="parent" containment="true"
      * @generated
      */
     EList<Symbol> getSubSymbols();
@@ -141,5 +144,33 @@ public interface Symbol extends EObject {
      * @generated
      */
     void setOwner(ModelInfo value);
+
+    /**
+     * Returns the value of the '<em><b>Parent</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link org.mod4j.crossx.mm.crossx.Symbol#getSubSymbols <em>Sub Symbols</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Parent</em>' container reference.
+     * @see #setParent(Symbol)
+     * @see org.mod4j.crossx.mm.crossx.CrossxPackage#getSymbol_Parent()
+     * @see org.mod4j.crossx.mm.crossx.Symbol#getSubSymbols
+     * @model opposite="subSymbols" transient="false"
+     * @generated
+     */
+    Symbol getParent();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.crossx.mm.crossx.Symbol#getParent <em>Parent</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Parent</em>' container reference.
+     * @see #getParent()
+     * @generated
+     */
+    void setParent(Symbol value);
 
 } // Symbol

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -39,6 +40,7 @@ import org.mod4j.crossx.mm.crossx.SymbolProperty;
  *   <li>{@link org.mod4j.crossx.mm.crossx.impl.SymbolImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mod4j.crossx.mm.crossx.impl.SymbolImpl#getSubSymbols <em>Sub Symbols</em>}</li>
  *   <li>{@link org.mod4j.crossx.mm.crossx.impl.SymbolImpl#getOwner <em>Owner</em>}</li>
+ *   <li>{@link org.mod4j.crossx.mm.crossx.impl.SymbolImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -185,7 +187,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
      */
     public EList<Symbol> getSubSymbols() {
         if (subSymbols == null) {
-            subSymbols = new EObjectContainmentEList<Symbol>(Symbol.class, this, CrossxPackage.SYMBOL__SUB_SYMBOLS);
+            subSymbols = new EObjectContainmentWithInverseEList<Symbol>(Symbol.class, this, CrossxPackage.SYMBOL__SUB_SYMBOLS, CrossxPackage.SYMBOL__PARENT);
         }
         return subSymbols;
     }
@@ -236,13 +238,61 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
      * <!-- end-user-doc -->
      * @generated
      */
+    public Symbol getParent() {
+        if (eContainerFeatureID() != CrossxPackage.SYMBOL__PARENT) return null;
+        return (Symbol)eContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetParent(Symbol newParent, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject)newParent, CrossxPackage.SYMBOL__PARENT, msgs);
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setParent(Symbol newParent) {
+        if (newParent != eInternalContainer() || (eContainerFeatureID() != CrossxPackage.SYMBOL__PARENT && newParent != null)) {
+            if (EcoreUtil.isAncestor(this, newParent))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            NotificationChain msgs = null;
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newParent != null)
+                msgs = ((InternalEObject)newParent).eInverseAdd(this, CrossxPackage.SYMBOL__SUB_SYMBOLS, Symbol.class, msgs);
+            msgs = basicSetParent(newParent, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.SYMBOL__PARENT, newParent, newParent));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
+            case CrossxPackage.SYMBOL__SUB_SYMBOLS:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubSymbols()).basicAdd(otherEnd, msgs);
             case CrossxPackage.SYMBOL__OWNER:
                 if (eInternalContainer() != null)
                     msgs = eBasicRemoveFromContainer(msgs);
                 return basicSetOwner((ModelInfo)otherEnd, msgs);
+            case CrossxPackage.SYMBOL__PARENT:
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetParent((Symbol)otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -261,6 +311,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
                 return ((InternalEList<?>)getSubSymbols()).basicRemove(otherEnd, msgs);
             case CrossxPackage.SYMBOL__OWNER:
                 return basicSetOwner(null, msgs);
+            case CrossxPackage.SYMBOL__PARENT:
+                return basicSetParent(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -275,6 +327,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
         switch (eContainerFeatureID()) {
             case CrossxPackage.SYMBOL__OWNER:
                 return eInternalContainer().eInverseRemove(this, CrossxPackage.MODEL_INFO__SYMBOLS, ModelInfo.class, msgs);
+            case CrossxPackage.SYMBOL__PARENT:
+                return eInternalContainer().eInverseRemove(this, CrossxPackage.SYMBOL__SUB_SYMBOLS, Symbol.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -297,6 +351,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
                 return getSubSymbols();
             case CrossxPackage.SYMBOL__OWNER:
                 return getOwner();
+            case CrossxPackage.SYMBOL__PARENT:
+                return getParent();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -327,6 +383,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
             case CrossxPackage.SYMBOL__OWNER:
                 setOwner((ModelInfo)newValue);
                 return;
+            case CrossxPackage.SYMBOL__PARENT:
+                setParent((Symbol)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -354,6 +413,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
             case CrossxPackage.SYMBOL__OWNER:
                 setOwner((ModelInfo)null);
                 return;
+            case CrossxPackage.SYMBOL__PARENT:
+                setParent((Symbol)null);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -376,6 +438,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
                 return subSymbols != null && !subSymbols.isEmpty();
             case CrossxPackage.SYMBOL__OWNER:
                 return getOwner() != null;
+            case CrossxPackage.SYMBOL__PARENT:
+                return getParent() != null;
         }
         return super.eIsSet(featureID);
     }

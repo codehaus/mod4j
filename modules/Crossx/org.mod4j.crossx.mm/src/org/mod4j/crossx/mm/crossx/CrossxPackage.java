@@ -178,13 +178,22 @@ public interface CrossxPackage extends EPackage {
     int SYMBOL__OWNER = 4;
 
     /**
+     * The feature id for the '<em><b>Parent</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL__PARENT = 5;
+
+    /**
      * The number of structural features of the '<em>Symbol</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYMBOL_FEATURE_COUNT = 5;
+    int SYMBOL_FEATURE_COUNT = 6;
 
     /**
      * The meta object id for the '{@link org.mod4j.crossx.mm.crossx.impl.SymbolPropertyImpl <em>Symbol Property</em>}' class.
@@ -465,6 +474,17 @@ public interface CrossxPackage extends EPackage {
     EReference getSymbol_Owner();
 
     /**
+     * Returns the meta object for the container reference '{@link org.mod4j.crossx.mm.crossx.Symbol#getParent <em>Parent</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Parent</em>'.
+     * @see org.mod4j.crossx.mm.crossx.Symbol#getParent()
+     * @see #getSymbol()
+     * @generated
+     */
+    EReference getSymbol_Parent();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.crossx.mm.crossx.SymbolProperty <em>Symbol Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -681,6 +701,14 @@ public interface CrossxPackage extends EPackage {
          * @generated
          */
         EReference SYMBOL__OWNER = eINSTANCE.getSymbol_Owner();
+
+        /**
+         * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SYMBOL__PARENT = eINSTANCE.getSymbol_Parent();
 
         /**
          * The meta object literal for the '{@link org.mod4j.crossx.mm.crossx.impl.SymbolPropertyImpl <em>Symbol Property</em>}' class.
