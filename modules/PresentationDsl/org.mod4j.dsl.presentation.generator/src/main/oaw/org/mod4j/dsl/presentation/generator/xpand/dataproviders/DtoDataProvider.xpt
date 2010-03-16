@@ -47,9 +47,6 @@ import org.apache.commons.logging.LogFactory;
 import «getPresentationCommonPackage()».processes.ProcessType;
 import «getPresentationServiceFacadeClassPath(this.findModel().name)»;
 
-«FOREACH allServiceTypes AS s»
-import «javaLocalServiceInterfacePath(s)» ;
-«ENDFOREACH»
 import «javaDtoClassPath(context)»;
 
 /**
@@ -61,10 +58,6 @@ public class  «getWicketDataProviderClass(context)» extends SortableDataProvid
         IFilterStateLocator, Mod4jDataProvider<«context»> {
 
     private static final Log log = LogFactory.getLog(«getWicketDataProviderClass(context)».class);
-
-    «FOREACH allServiceTypes AS s»
-    private «javaLocalServiceInterface(s)» «s»Service;
-    «ENDFOREACH»
 
     /** Store filter information */
     private «context» filter;
@@ -80,20 +73,24 @@ public class  «getWicketDataProviderClass(context)» extends SortableDataProvid
      * Create a new DataProvider 
      */
     public «getWicketDataProviderClass(context)»() {
-    «FOREACH allServiceTypes AS s»
-        this.«s»Service = «getPresentationServiceFacadeClass()».get«javaLocalServiceInterface(s)»();
-    «ENDFOREACH»
         setSort("«form.formElements.selectFirst(e | e.dataProperty != null).dataProperty.name»", true); // set default sort
     }
 
     public Iterator<«context»> iterator(int first, int count) {
 
         SortParam sp = getSort();
+        «REM» TODO: Its better to use the service names as specified by the user in the service model.
         «IF findService != null -»
         if (filter != null) {
             return «findServiceType»Service.«findService»(filter, first, count, sp.getProperty(), sp.isAscending()).iterator();
         }«ENDIF»
         return «listAllServiceType»Service.«listAllService»(first, count, sp.getProperty(), sp.isAscending()).iterator();
+        «ENDREM»
+        «IF findService != null -»
+        if (filter != null) {
+            return «getPresentationServiceFacadeClass()».find«context»(filter, first, count, sp.getProperty(), sp.isAscending()).iterator();
+        }«ENDIF»
+        return «getPresentationServiceFacadeClass()».list«context»(first, count, sp.getProperty(), sp.isAscending()).iterator();
     }
 
     public IModel<«context»> model(«context» object) {
@@ -111,9 +108,9 @@ public class  «getWicketDataProviderClass(context)» extends SortableDataProvid
         Long result;
         «IF findService != null -»
         if (filter != null) {
-            result = «findServiceType»Service.count«businessClassName(form)»s(filter);
+            result = «getPresentationServiceFacadeClass()».count«context»(filter);
         } else {«ENDIF»
-            result = «listAllServiceType»Service.count«businessClassName(form)»s();
+            result = «getPresentationServiceFacadeClass()».count«context»();
         «IF findService != null -»}«ENDIF»    
         return result.intValue();
     }
