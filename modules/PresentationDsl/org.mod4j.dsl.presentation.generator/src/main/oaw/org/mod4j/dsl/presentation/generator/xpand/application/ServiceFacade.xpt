@@ -52,8 +52,8 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.markup.html.WebPage;
 
 public class «getPresentationServiceFacadeClass()»  extends WebPage {
-«FOREACH this.externalReferences AS ext-»
-«LET lookupSymbol(ext.modelName, ext.modelName, "Service") AS service-»
+«FOREACH this.externalReferences.modelName.toSet() AS ext-»
+«LET lookupSymbol(ext, ext, "Service") AS service-»
     «IF service != null-»
         «LET javaLocalServiceInterface(service.name) AS serviceType»
         @SpringBean(name = "«service.name.toFirstLower()»Service")
