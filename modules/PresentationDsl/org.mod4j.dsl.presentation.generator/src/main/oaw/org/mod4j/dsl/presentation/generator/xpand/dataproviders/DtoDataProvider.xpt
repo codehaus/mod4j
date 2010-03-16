@@ -42,7 +42,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import «getPresentationCommonPackage()».processes.ProcessType;
-import «getPresentationServiceFacadeClassPath()»;
+import «getPresentationServiceFacadeClassPath(this.findModel().name)»;
 
 import «javaLocalServiceInterfacePath(serviceType)» ;
 import «javaDtoClassPath(context)»;

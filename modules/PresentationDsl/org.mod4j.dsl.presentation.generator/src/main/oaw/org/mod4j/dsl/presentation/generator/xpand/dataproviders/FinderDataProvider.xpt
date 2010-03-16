@@ -43,7 +43,7 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.CompoundPropertyModel;
-import «getPresentationServiceFacadeClassPath()»;
+import «getPresentationServiceFacadeClassPath(this.findModel().name)»;
 import «getPresentationCommonPackage()».processes.ProcessType;
 
 import «javaLocalServiceInterfacePath(serviceType)» ;

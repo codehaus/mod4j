@@ -273,8 +273,8 @@ public class NameMapper {
         return "ServiceFacade" ;
     }
 
-    public static String getPresentationServiceFacadeClassPath() {
-        return ProjectProperties.getPresentationRootPackage() + ".pages." + getPresentationServiceFacadeClass() ;
+    public static String getPresentationServiceFacadeClassPath(String modelName) {
+        return ProjectProperties.getPresentationRootPackage() + "." + getPresentationServiceFacadeClass() ;
     }
 
     public static String getWicketPanelClass(String name) {

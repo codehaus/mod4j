@@ -68,7 +68,7 @@ package «getPresentationRootPackage()».processes;
 
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
-import «getPresentationServiceFacadeClassPath()»;
+import «getPresentationServiceFacadeClassPath(this.findModel().name)»;
 import «getPresentationRootPackage()».pages.«this.name.toFirstUpper()»Page;
 // import «javaDtoClassPath(this.contextRef.name)»;
 «FOREACH this.processElements.referredUIModelElement().contextRef.name.add(this.contextRef.name).toSet() AS c»
@@ -350,7 +350,7 @@ package «getPresentationRootPackage()».processes;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
-import «getPresentationServiceFacadeClassPath()»;
+import «getPresentationServiceFacadeClassPath(this.findModel().name)»;
 import «javaDtoClassPath(this.contextRef.name)»;
 import «getPresentationCommonPackage()».ext.components.Helpers;
 import org.mod4j.runtime.dto.AbstractDto;

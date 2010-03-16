@@ -49,9 +49,12 @@
         «FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name.toFirstUpper() + "CollectionDataViewPanelOnly.html")»
             «EXPAND ObjectCollectionDataViewPanelHtml::GenerateObjectCollectionDataViewPanelHtml(false) FOR cf»
         «ENDFILE»
-		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name.toFirstUpper() + "CollectionDataViewPanel.properties")»
-    	    «EXPAND FormProperties::GenerateProperties FOR cf»
-		«ENDFILE»
+        «FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name.toFirstUpper() + "CollectionDataViewPanel.properties")»
+            «EXPAND FormProperties::GenerateProperties FOR cf»
+        «ENDFILE»
+        «FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name.toFirstUpper() + "CollectionDataViewPanelOnly.properties")»
+            «EXPAND FormProperties::GenerateProperties FOR cf»
+        «ENDFILE»
 	«ENDFOREACH»
 
     

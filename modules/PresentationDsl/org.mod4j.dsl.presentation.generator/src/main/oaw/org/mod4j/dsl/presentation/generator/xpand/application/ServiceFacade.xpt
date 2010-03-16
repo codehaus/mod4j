@@ -30,7 +30,7 @@
     «ENDLET»
     «ENDFOREACH»
 «ENDLET-»
-package «getPresentationRootPackage()».pages;
+package «getPresentationRootPackage()»;
 
 import org.mod4j.runtime.dto.AbstractDto;
 «FOREACH this.externalReferences AS ext-»

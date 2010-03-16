@@ -52,7 +52,7 @@
 		    «EXPAND Presentation::GenerateMasterPageHtml FOR this»
 		«ENDFILE»
     «ELSE»
-        «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + "ServiceFacade"))»
+        «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + "." + "ServiceFacade"))»
             «EXPAND ServiceFacade::ServiceFacade FOR this»
         «ENDFILE»
         «REM» 

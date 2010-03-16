@@ -156,7 +156,7 @@ public class PresentationHelpers {
         return result;
     }
         
-    private static PresentationModel findModel(ModelElement elem){
+    static public PresentationModel findModel(ModelElement elem){
         if( elem instanceof PresentationModel){
             return (PresentationModel)elem;
         } else {
