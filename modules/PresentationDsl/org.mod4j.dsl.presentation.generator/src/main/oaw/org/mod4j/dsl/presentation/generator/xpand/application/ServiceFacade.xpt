@@ -50,9 +50,23 @@ import «javaDtoClassPath(dto.name)»;
 «ENDFOREACH»
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.markup.html.WebPage;
+import java.util.List;
 
+/** This class serves as a gateway to the services defined by the Service DSL Models.
+ *  All other objects in the presentation layer get their access to the servuice through this class.
+ */
 public class «getPresentationServiceFacadeClass()»  extends WebPage {
-«FOREACH this.externalReferences.modelName.toSet() AS ext-»
+«REM»
+«LET this.externalReferences.typeSelect(DtoReference).name AS dtoNames»
+«print("DtoNames [" + dtoNames + "]")»
+«LET  dtoNames.findServiceMethod("Create")  AS serviceMethods»
+«FOREACH serviceMethods AS m»
+«print("Service [" + m.parent + "] method " + m.name)»
+«ENDFOREACH»
+«ENDLET»
+«ENDLET»
+«ENDREM»
+«FOREACH this.externalReferences.typeSelect(ServiceReference).modelName.toSet() AS ext-»
 «LET lookupSymbol(ext, ext, "Service") AS service-»
     «IF service != null-»
         «LET javaLocalServiceInterface(service.name) AS serviceType»
@@ -90,6 +104,31 @@ public class «getPresentationServiceFacadeClass()»  extends WebPage {
                 «IF readService != null »
                     public static «dto.name» read«dto.name»(long id){
                         return service«serviceType».«readService»(id);
+                    }
+                «ENDIF»
+                «ENDLET»
+                «LET findSpecialMethodInService(dto.name, "LISTALL", service.name) AS listAllService»
+                «IF listAllService != null »
+                    public static List<«dto.name»> list«dto.name»(final int firstResult, final int maxResults, 
+                                                            final String sortProperty, final boolean isAscending){
+                        return service«serviceType».«listAllService»(firstResult, maxResults, sortProperty, isAscending);
+                    }
+                        
+                    public static long count«businessClassName(extDto.modelName, extDto.name)»s() {
+                        return service«serviceType».count«businessClassName(extDto.modelName, extDto.name)»s();
+                    }
+                «ENDIF»
+                «ENDLET»
+                «LET findSpecialMethodInService(dto.name, "FIND", service.name) AS findService»
+                «IF findService != null »
+                    public static List<«dto.name»> find«dto.name»(final «dto.name» exampleDto,
+                                                            final int firstResult, final int maxResults, 
+                                                            final String sortProperty, final boolean isAscending){
+                        return service«serviceType».«findService»(exampleDto, firstResult, maxResults, sortProperty, isAscending);
+                    }
+
+                    public static long count«businessClassName(extDto.modelName, extDto.name)»s(final «dto.name» exampleDto) {
+                        return service«serviceType».count«businessClassName(extDto.modelName, extDto.name)»s(exampleDto);
                     }
                 «ENDIF»
                 «ENDLET»
