@@ -15,6 +15,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+
 public class ProjectProperties {
 
     public static void setPropertiesFile(String filename) {
@@ -338,6 +341,15 @@ public class ProjectProperties {
         return project;
     }
 
+    public static String getProjectForEObject(EObject object) {
+        if( project.equals("/") ){ 
+            URI uri = object.eResource().getURI();
+            return uri.segment(1);
+        } else {
+            return project;
+        }
+    }
+    
     public static void setProject(String project) {
         ProjectProperties.project = project;
     }

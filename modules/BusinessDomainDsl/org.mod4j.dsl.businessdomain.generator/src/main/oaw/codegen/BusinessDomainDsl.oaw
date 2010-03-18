@@ -32,6 +32,11 @@
     <bean id="crossx" class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
         <metaModelPackage value="org.mod4j.crossx.mm.crossx.CrossxPackage" />   
     </bean>
+    <bean id="ecore" class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
+        <metaModelPackage value="org.eclipse.emf.ecore.EcorePackage" />   
+    </bean>
+    
+    
      
      <!-- As in the newly generated generator project
      <component class="org.eclipse.xtext.MweReader" 
@@ -61,6 +66,7 @@
     -->
     <component id="BusinessDomainWorkflow-DomainGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="bm" />
+        <metaModel idRef="ecore"/>
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DomainLayer::Root FOR busModel" />
         <outlet path="${applicationPath}/">
@@ -74,6 +80,7 @@
     -->
     <component id="BusinessDomainWorkflow-DomainEextensionPointsGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="bm" />
+        <metaModel idRef="ecore"/>
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DomainLayer::ExtensionPointGeneration FOR busModel" />
         <outlet path="${applicationPath}/">
@@ -88,6 +95,7 @@
      <component id="BusinessDomainWorkflow-DataLayerResourcesGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="bm" />
         <metaModel idRef="crossx"/>
+        <metaModel idRef="ecore"/>
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genResources FOR busModel" />
         <outlet path="${applicationPath}/">
@@ -101,6 +109,7 @@
     -->  
     <component id="BusinessDomainWorkflow-DataLayerDaoGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="bm" />
+        <metaModel idRef="ecore"/>
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genDao FOR busModel" />
         <outlet path="${applicationPath}/">
@@ -114,6 +123,7 @@
     -->  
     <component id="BusinessDomainWorkflow-DataLayerExtentionPointsGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="bm" />
+        <metaModel idRef="ecore"/>
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genDaoExtensions FOR busModel" />
         <outlet path="${applicationPath}/">
@@ -127,6 +137,7 @@
     -->  
     <component id="BusinessDomainWorkflow-MavenConfigGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="bm" />
+        <metaModel idRef="ecore"/>
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DomainLayer::CreateMavenConfiguration FOR busModel"/>
         <outlet path="${applicationPath}">

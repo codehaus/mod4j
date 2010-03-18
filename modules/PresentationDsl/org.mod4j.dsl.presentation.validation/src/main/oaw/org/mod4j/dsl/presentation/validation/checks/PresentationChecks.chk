@@ -9,10 +9,14 @@
  *     Ordina - initial implementation
  *******************************************************************************/
 import PresentationDsl;
+import crossx;
+import ecore;
 
 extension org::mod4j::dslcommon::xtend::generatorutil;
 extension org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers;
 extension org::eclipse::xtend::util::stdlib::elementprops;
+extension org::mod4j::crossx::broker::xtend::Crossx;
+extension org::mod4j::dslcommon::xtend::ProjectProperties;
 
 boolean hasDouble(Process process, ProcessType type ):
     (
@@ -72,24 +76,11 @@ context Process if this.type == ProcessType::EDIT
     ERROR "An 'edit' process cannot have a 'list'  context ":
     ! this.collectionContext;
 
-//context Process if (this.type == ProcessType::EDIT) && (this.contentForm != null) 
-//    ERROR "A Content Form may have at most one 'edit' action or process" :
-//    this.contentForm.actions.forAll(p | (p != this) implies ( p.type != ProcessType::EDIT) ) &&
-//    this.contentForm.processes.referredProcess().forAll(p | p.type != ProcessType::EDIT) ;
-
 /* INCORRECT FOR EXTERNAL PROCESSCALL
 context ProcessCall if (this.referredProcess.type != ProcessType::CUSTOM) && (this.owningDialogue != null) 
     ERROR "12 A Content Form may have at most one " + this.referredProcess.type + "' action or process" :
     hasDouble(this, this.referredProcess.type);
 */
-
-//context DialogueCall ERROR  "Referred form [" + this.name + "] not found" :
-//	this.referredContentForm() != null
-//    ;
-
-//context ProcessCall ERROR "Referred process [" + this.name + "] not found" :
-//	this.referredProcess() != null
-//    ;
 
 context Process 
     ERROR "Process error " + this.getProperty("ERROR") :
@@ -107,3 +98,38 @@ context ProcessCall if (this.owningDialogue != null) && (referredProcess.name !=
                        && (this.owningDialogue.contextRef.name != null)
     ERROR "The process [" + this.referredProcess.name + "] must have the same context as the from to which it belongs [" + this.owningDialogue.name + "]" :
     this.owningDialogue.contextRef.name.equalsIgnoreCase(this.referredProcess.contextRef.name);
+
+context UICall if this.contextExp.metaType == StandardExpression
+    ERROR "No servce method found for [" + this.referredUIModelElement().contextRef.name + "] of type 'listall', needed to support the use of 'all'" :
+    let con = this.referredUIModelElement().contextRef :
+    findServiceMethod(this, con.name, "LISTALL") != null;
+    
+context UICall if this.contextExp.metaType == StandardExpression
+    ERROR "No servce method found for [" + this.referredUIModelElement().contextRef.name + "] of type 'find', needed to support the use of 'all'" :
+    let con = this.referredUIModelElement().contextRef :
+    findServiceMethod(this, con.name, "FIND") != null;
+    
+String findSpecialMethod(String dtoName, String methodType) :
+    let methods = 
+    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith(methodType) && method.getPropertyValue("dto").endsWith(dtoName)) :
+    (methods.isEmpty ? null : methods.first().name);
+    
+String findSpecialMethodInService(String dtoName, String methodType, Symbol service) :
+    service.findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith(methodType) && method.getPropertyValue("dto").endsWith(dtoName)).first().name;
+    
+// returns the name of a service that contains a special method of "methodType" for the referred DTO in "form"
+String findServiceWithMethod(String dtoName, String methodType) :
+    findAllSymbols(getProject(), "Service").select( s | findSpecialMethodInService(dtoName, methodType, s) != null ).first().name;
+
+// returns the symbol of the special method of "methodType" for the referred DTO 
+// TODO: should only look in the current project, but this p[roject cannot be found
+Symbol findServiceMethod(UICall self, String dtoName, String methodType) :
+//    findAllSymbols(getProjectForEObject(self), "Service").select( s | findSpecialMethodInService(dtoName, methodType, s) != null ).first();
+    findAllModels().modelname.findAllFromModel("Service").select( s | findSpecialMethodInService(dtoName, methodType, s) != null ).first();
+
+Symbol findMethodInService(Symbol service, String methodName) :
+    service.findAllSubSymbols("ServiceMethod").
+    selectFirst( method | method.name == methodName);
+    

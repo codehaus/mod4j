@@ -32,6 +32,9 @@
     <bean id="crossx" class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
         <metaModelPackage value="org.mod4j.crossx.mm.crossx.CrossxPackage" />   
     </bean>
+    <bean id="ecore" class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
+        <metaModelPackage value="org.eclipse.emf.ecore.EcorePackage" />   
+    </bean>
     
     <!--
         Parse the model file and validate syntax and model constraints
@@ -68,6 +71,7 @@
     <component id="DataContractWorkflow-Generator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="dcm" />
         <metaModel idRef="crossx" />
+        <metaModel idRef="ecore" />
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::datacontract::generator::xpand::ServiceLayer::Generate FOR dataContractModel" />
         <outlet path="${applicationPath}/">
@@ -81,6 +85,7 @@
     -->  
     <component id="DataContractDslWorkflow-MavenConfigGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="dcm" />
+        <metaModel idRef="ecore" />
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::datacontract::generator::xpand::ServiceLayer::generateMavenConfiguration FOR dataContractModel"/>
         <outlet path="${applicationPath}">

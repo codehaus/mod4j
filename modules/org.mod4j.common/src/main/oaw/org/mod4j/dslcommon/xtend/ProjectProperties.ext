@@ -8,10 +8,13 @@
  * Contributors:
  *     Ordina - initial implementation
  *******************************************************************************/
-
+import ecore;
 
 String getProject() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getProject();
+
+String getProjectForEObject(EObject object) :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getProject(org.eclipse.emf.ecore.EObject);
 
 /* 
  * Application properties
