@@ -62,15 +62,15 @@ public class SimpleCustomerDtoTranslatorTest extends AbstractServiceTestCase {
 	}
 
 	@Test
-	public void testCreateNewFromDtoFail() {
+	public void testCreateNewFromNullDtol() {
 		try {
 			simpleCustomerDtoTranslator.fromDto(null, null);
 			fail("Expected IllegalArgumentException");
 		} catch (IllegalArgumentException te) {
-			// TODO: write some meaningful assertions for the content of the
-			// exception.
+			assertEquals(
+					"Argument source is null! Translation of a dto can not be based on a null dto.",
+					te.getMessage());
 		}
-
 	}
 
 	@Test

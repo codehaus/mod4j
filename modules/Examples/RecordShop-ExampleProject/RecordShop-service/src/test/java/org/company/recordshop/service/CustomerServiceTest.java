@@ -11,7 +11,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mod4j.runtime.exception.BusinessRuleException;
 import org.mod4j.runtime.exception.ServiceException;
-import org.mod4j.runtime.exception.TranslatorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.ExpectedException;
 import org.springframework.test.annotation.Rollback;
@@ -137,7 +136,7 @@ public class CustomerServiceTest extends AbstractServiceTestCase {
 	}
 
 	@Test
-	@ExpectedException(ServiceException.class)
+	@ExpectedException(IllegalArgumentException.class)
 	public final void testUpdateCustomerFail() {
 
 		FullCustomerDto custDto = new FullCustomerDto();
@@ -162,9 +161,8 @@ public class CustomerServiceTest extends AbstractServiceTestCase {
 	}
 
 	@Test
-	@ExpectedException(ServiceException.class)
+	@ExpectedException(IllegalArgumentException.class)
 	public final void testDeleteCustomerFail() {
-
 		FullCustomerDto zombieDto = new FullCustomerDto();
 		customerServiceModelService.deleteCustomer(zombieDto);
 	}

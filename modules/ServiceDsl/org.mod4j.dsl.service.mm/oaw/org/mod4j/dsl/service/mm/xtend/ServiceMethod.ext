@@ -51,6 +51,12 @@ Symbol baseDtoSymbol(DtoReference dto) :
     (refSymbol == null) ? null : lookupReference(refSymbol)
 ;
 
+Boolean creatable(DtoReference dto) :
+    let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
+    let creatable = dtoSymbol.getPropertyValue("creatable") :
+    (creatable == "true") ? true : false
+;
+
 String dtoType(DtoReference dto) :
     let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
     let dtoType = dtoSymbol.getPropertyValue("dtoType") :

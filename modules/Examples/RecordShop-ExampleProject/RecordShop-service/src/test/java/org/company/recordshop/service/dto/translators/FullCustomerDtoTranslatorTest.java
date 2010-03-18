@@ -1,5 +1,7 @@
 package org.company.recordshop.service.dto.translators;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -9,6 +11,8 @@ import org.company.recordshop.service.dto.SexeEnumDto;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.mod4j.runtime.exception.BusinessRuleException;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 
 public class FullCustomerDtoTranslatorTest {
 
@@ -40,19 +44,34 @@ public class FullCustomerDtoTranslatorTest {
 	 */
 	@Test
 	public void testTranslateFromDtoFail() {
-
 		FullCustomerDto fullCustDto = new FullCustomerDto();
 		fullCustDto.setFirstName("Vincent");
 		fullCustDto.setLastName("Van Gogh");
 		fullCustDto.setCustomerNr(1234);
 		fullCustDto.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		fullCustDto.setDiscountPercentage(-1); // Illegal
-
 		try {
 			scTranslator.fromDto(fullCustDto);
-			fail("Tanslation of a illegal attirbute value should thrown a BusinessRuleException.");
+			fail("Expected BusinessRuleException");
 		} catch (BusinessRuleException e) {
-
+			Errors errors = (Errors) e.getCause();
+			assertEquals(1, errors.getErrorCount());
+			assertEquals(1, errors.getFieldErrorCount());
+			FieldError error = errors.getFieldError();
+			assertNotNull(error);
+			assertEquals(2, error.getArguments().length);
+			assertEquals(0L, error.getArguments()[0]);
+			assertEquals(-1L, error.getArguments()[1]);
+			assertEquals("discountPercentage", error.getField());
+			assertEquals("field.value.min.customer.discountPercentage", error
+					.getCodes()[0]);
+			assertEquals("field.value.min.discountPercentage",
+					error.getCodes()[1]);
+			assertEquals("field.value.min.java.lang.Integer",
+					error.getCodes()[2]);
+			assertEquals("field.value.min", error.getCodes()[3]);
+			assertEquals(-1, error.getRejectedValue());
+			assertEquals("customer", error.getObjectName());
 		}
 	}
 

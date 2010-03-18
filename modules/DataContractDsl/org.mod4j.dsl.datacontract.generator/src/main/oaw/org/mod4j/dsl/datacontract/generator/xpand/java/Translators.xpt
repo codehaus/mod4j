@@ -31,7 +31,6 @@
          import java.util.HashSet;
          import java.util.Set;
          import org.mod4j.runtime.exception.ConcurrentUpdateException;
-         import org.mod4j.runtime.exception.TranslatorException;
          import «getDomainRootPackage()».«javaClassName(base.name)»;
          import «getDomainRootPackage()».«javaClassName(base.name)»Example;
          import «getDtoPackage()».«javaClassName(name)»;
@@ -78,36 +77,35 @@
                   «ENDIF»        
               «ENDFOREACH»
          
-             /**
+                 /**
               «IF this.creatable»
-              * Translates a «javaClassName(name)» dto object into a «javaClassName(base.name)» domain object.
-              * A new domain object will be created passed to the {@link #fromDto(FullCustomerDto, Customer)}.
+                  * Translates a «javaClassName(name)» dto object into a «javaClassName(base.name)» domain object.
+                  * A new domain object will be created passed to the {@link #fromDto(FullCustomerDto, Customer)}.
               «ENDIF».
-              *
-              * @param source The {@link «javaClassName(name)»} object to translate, may not be {@code null}.
-              * @return {@link «javaClassName(base.name)»}, the resulting domain object.
-              * @throws IllegalArgumentException
-              */
-              public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source) throws IllegalArgumentException {
+                  *
+                  * @param source The {@link «javaClassName(name)»} object to translate, may not be {@code null}.
+                  * @return {@link «javaClassName(base.name)»}, the resulting domain object.
+                  * @throws IllegalArgumentException
+                  */
+                 public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source) throws IllegalArgumentException {
                   «REM»A DTO is NOT creatable if it does not contain all mandatory properties of the domain object. See CompleteDtc.ext. «ENDREM»
                   «IF this.creatable -»
-                      if (getTranslated().containsKey((source))) {
-                          return («javaClassName(base.name)») getTranslated().get(source);
-                      }              
+                    if (getTranslated().containsKey((source))) {
+                        return («javaClassName(base.name)») getTranslated().get(source);
+                    }
 
-                      if (source == null ) {
-                          throw new IllegalArgumentException("Argument [source] may not be null");
-                      }
+                    if (source == null ) {
+                        throw new IllegalArgumentException("Argument [source] may not be null");
+                    }
               
-                      if (source.getId() != null) {
-                          throw new IllegalArgumentException("Can not translate a dto with existing id to a new domain object. Dto: " + source.toString());
-                      }
-                   
-                      «javaClassName(base.name) -» target = new «javaClassName(base.name) -»(«EXPAND Constructors::addConstructorArgumentsList -»);
+                    if (source.getId() != null) {
+                        throw new IllegalArgumentException("Can not translate a dto with existing id to a new domain object. Dto: " + source.toString());
+                    }
+                    «javaClassName(base.name) -» target = new «javaClassName(base.name) -»(«EXPAND Constructors::addConstructorArgumentsList -»);
                                     
-                      return fromDto(source, target);
+                    return fromDto(source, target);
                   «ELSE -»
-                      throw new TranslatorException("Translation of this source dto must be based on a existing domain object. Dto: " + source.toString());
+                      throw new IllegalArgumentException("This source dto does not contain all non-nullable properties of the domain object to be created: " + source.toString());
                   «ENDIF»
               }         
                                      

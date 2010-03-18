@@ -67,6 +67,9 @@
      * {@inheritDoc} 
      */
     public «javaDomainClass(dto.businessClass())» create«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object) {
+        if (object == null) {
+            throw new IllegalArgumentException("argument [object] must not be null");
+        }
         return «javaDaoInterface(dto.businessClass()).toFirstLower()».add(object);
     }
 «ENDDEFINE»
@@ -76,6 +79,9 @@
      * {@inheritDoc} 
      */
     public «javaDomainClass(dto.businessClass())»  read«this.dto.businessClass()»(Long id){
+        if (id == null) {
+            throw new IllegalArgumentException("argument [id] must not be null");
+        }
         return «javaDaoInterface(dto.businessClass()).toFirstLower()».retrieve(id);
     }
 «ENDDEFINE»
@@ -85,6 +91,9 @@
      * {@inheritDoc} 
      */
     public «javaDomainClass(dto.businessClass())»  update«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object) {
+        if (object == null) {
+            throw new IllegalArgumentException("argument [object] must not be null");
+        }
         return «javaDaoInterface(dto.businessClass()).toFirstLower()».update(object);
     }
 «ENDDEFINE»
@@ -93,7 +102,10 @@
     /**
      * {@inheritDoc} 
      */
-    public void delete«this.dto.businessClass()»(«businessClass(this.dto)» object){
+    public void delete«this.dto.businessClass()»(«businessClass(this.dto)» object) {
+        if (object == null) {
+            throw new IllegalArgumentException("argument [object] must not be null");
+        }
         «javaDaoInterface(dto.businessClass()).toFirstLower()
         ».delete(object);
     }
@@ -136,6 +148,9 @@
      * {@inheritDoc} 
      */
     public List<«Class»> find«Class»ByExample(«javaDomainExampleClass(dto.businessClass())» example) {
+        if (example == null) {
+            throw new IllegalArgumentException("argument [example] must not be null");
+        }
         return this.«javaDaoInterface(dto.businessClass()).toFirstLower()».findByExample(example);
     }
 
@@ -169,6 +184,14 @@
 		     * {@inheritDoc} 
 		     */
 			public void «genName»(«method.main.businessClass()» whole, «method.part.businessClass()» part) {
+                if (whole == null) {
+                    throw new IllegalArgumentException("argument [whole] must not be null");
+                }
+                «IF mult != "ONE" -»
+                    if (part == null) {
+                        throw new IllegalArgumentException("argument [part] must not be null");
+                    }
+                «ENDIF -»
 				whole.«genName»(part);
 				«javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
 			}
@@ -177,6 +200,14 @@
 			     * {@inheritDoc} 
 			     */
 				public void «genName»(«method.main.businessClass()» whole, int index, «method.part.businessClass()» part) {
+                    if (whole == null) {
+                        throw new IllegalArgumentException("argument [whole] must not be null");
+                    }
+                    «IF mult != "ONE" -»
+                        if (part == null) {
+                            throw new IllegalArgumentException("argument [part] must not be null");
+                        }
+                    «ENDIF -»
 	                whole.«genName»(index, part); 
 		            «javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
 		        }
@@ -189,6 +220,12 @@
 		     * {@inheritDoc} 
 		     */
 			public void removeFrom«method.rolename.toFirstUpper()»(«method.main.businessClass()» whole, «method.part.businessClass()» part) {
+                if (whole == null) {
+                    throw new IllegalArgumentException("argument [whole] must not be null");
+                }
+                if (part == null) {
+                    throw new IllegalArgumentException("argument [part] must not be null");
+                }
 				whole.removeFrom«method.rolename.toFirstUpper()»(part);
 				«javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
 				«javaDaoInterface(method.part.businessClass()).toFirstLower()».update(part);
@@ -198,6 +235,9 @@
 			     * {@inheritDoc} 
 			     */
 				public void removeFrom«method.rolename.toFirstUpper()»(«method.main.businessClass()» whole, int index) {
+                    if (whole == null) {
+                        throw new IllegalArgumentException("argument [whole] must not be null");
+                    }
 					whole.removeFrom«method.rolename.toFirstUpper()»(index);
 					«javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
 				}
@@ -210,6 +250,9 @@
 			     * {@inheritDoc} 
 			     */
 				public «method.part.businessClass()» get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source){
+                    if (source == null) {
+                        throw new IllegalArgumentException("argument [source] must not be null");
+                    }
 				    return source.get«method.rolename.toFirstUpper()»();
 				}
 			«ELSE»			
@@ -217,6 +260,9 @@
 			     * {@inheritDoc} 
 			     */
 				public List<«method.part.businessClass()»> get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source){
+                    if (source == null) {
+                        throw new IllegalArgumentException("argument [source] must not be null");
+                    }
 				    return new ArrayList<«method.part.businessClass()»>( source.get«method.rolename.toFirstUpper()»() );
 				}
 			«ENDIF»
