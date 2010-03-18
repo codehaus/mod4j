@@ -68,6 +68,12 @@
     «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.CheckBoxColumn" ))»
         «EXPAND CheckBoxColumn::CheckBoxColumn FOR this»
     «ENDFILE»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.ButtonPanel" ))»
+        «EXPAND ButtonPanel::ButtonPanel FOR this»
+    «ENDFILE»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.LinkPanel" ))»
+        «EXPAND LinkPanel::LinkPanel FOR this»
+    «ENDFILE»
     
 	«FILE generate(getPresentationModuleName(""), getPresentationCommonPackageAsPath() + "/ext/components/FieldFeedbackPanel.html")»
 	    «EXPAND CommonFieldFeedbackPanel::GenerateFieldFeedbackPanelHtml FOR this»
