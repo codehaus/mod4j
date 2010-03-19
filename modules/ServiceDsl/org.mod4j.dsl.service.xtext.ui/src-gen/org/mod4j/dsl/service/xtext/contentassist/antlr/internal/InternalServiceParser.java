@@ -23,14 +23,14 @@ public class InternalServiceParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'list'", "'create'", "'read'", "'update'", "'delete'", "'listall'", "'find'", "'add'", "'remove'", "'get'", "'service'", "';'", "'reference'", "'from'", "'import'", "'method'", "'in'", "'('", "')'", "','", "'out'", "'for'", "'crud'"
     };
-    public static final int RULE_ML_COMMENT=7;
     public static final int RULE_ID=5;
-    public static final int RULE_WS=9;
-    public static final int EOF=-1;
-    public static final int RULE_INT=6;
     public static final int RULE_STRING=4;
     public static final int RULE_ANY_OTHER=10;
+    public static final int RULE_INT=6;
+    public static final int RULE_WS=9;
     public static final int RULE_SL_COMMENT=8;
+    public static final int EOF=-1;
+    public static final int RULE_ML_COMMENT=7;
 
         public InternalServiceParser(TokenStream input) {
             super(input);
@@ -885,11 +885,11 @@ public class InternalServiceParser extends AbstractInternalContentAssistParser {
                 {
                 int LA1_1 = input.LA(2);
 
-                if ( (LA1_1==33) ) {
-                    alt1=1;
-                }
-                else if ( ((LA1_1>=12 && LA1_1<=17)||LA1_1==26||LA1_1==32) ) {
+                if ( ((LA1_1>=12 && LA1_1<=17)||LA1_1==26||LA1_1==32) ) {
                     alt1=2;
+                }
+                else if ( (LA1_1==33) ) {
+                    alt1=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -1007,6 +1007,11 @@ public class InternalServiceParser extends AbstractInternalContentAssistParser {
                     alt2=3;
                     }
                     break;
+                case 26:
+                    {
+                    alt2=1;
+                    }
+                    break;
                 case 12:
                 case 13:
                 case 14:
@@ -1015,11 +1020,6 @@ public class InternalServiceParser extends AbstractInternalContentAssistParser {
                 case 17:
                     {
                     alt2=2;
-                    }
-                    break;
-                case 26:
-                    {
-                    alt2=1;
                     }
                     break;
                 default:

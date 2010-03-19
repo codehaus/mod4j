@@ -50,6 +50,9 @@ String checkProcess(Process p):
 String checkProcessCall(ProcessCall p):
   JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.checkProcessCall(org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall);
 
+String checkDialogueCall(DialogueCall p):
+  JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.checkDialogueCall(org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall);
+
 PresentationModel findModel(ModelElement elem) :
   JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.findModel(org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement);
   

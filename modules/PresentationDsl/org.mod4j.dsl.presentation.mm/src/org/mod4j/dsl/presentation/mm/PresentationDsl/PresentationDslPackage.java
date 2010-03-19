@@ -1607,13 +1607,22 @@ public interface PresentationDslPackage extends EPackage {
     int PROCESS_CALL__REFERRED_PROCESS = UI_CALL_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Owning Menu</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS_CALL__OWNING_MENU = UI_CALL_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Process Call</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROCESS_CALL_FEATURE_COUNT = UI_CALL_FEATURE_COUNT + 2;
+    int PROCESS_CALL_FEATURE_COUNT = UI_CALL_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2611,6 +2620,17 @@ public interface PresentationDslPackage extends EPackage {
     EReference getProcessCall_ReferredProcess();
 
     /**
+     * Returns the meta object for the container reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getOwningMenu <em>Owning Menu</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Owning Menu</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getOwningMenu()
+     * @see #getProcessCall()
+     * @generated
+     */
+    EReference getProcessCall_OwningMenu();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement <em>UI Model Element</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3331,6 +3351,14 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EReference PROCESS_CALL__REFERRED_PROCESS = eINSTANCE.getProcessCall_ReferredProcess();
+
+        /**
+         * The meta object literal for the '<em><b>Owning Menu</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PROCESS_CALL__OWNING_MENU = eINSTANCE.getProcessCall_OwningMenu();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementImpl <em>UI Model Element</em>}' class.

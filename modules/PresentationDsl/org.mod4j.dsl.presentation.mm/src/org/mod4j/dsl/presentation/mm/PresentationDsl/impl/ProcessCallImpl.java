@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Menu;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
 
@@ -30,6 +31,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessCallImpl#getOwningDialogue <em>Owning Dialogue</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessCallImpl#getReferredProcess <em>Referred Process</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessCallImpl#getOwningMenu <em>Owning Menu</em>}</li>
  * </ul>
  * </p>
  *
@@ -149,6 +151,47 @@ public class ProcessCallImpl extends UICallImpl implements ProcessCall {
      * <!-- end-user-doc -->
      * @generated
      */
+    public Menu getOwningMenu() {
+        if (eContainerFeatureID() != PresentationDslPackage.PROCESS_CALL__OWNING_MENU) return null;
+        return (Menu)eContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetOwningMenu(Menu newOwningMenu, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject)newOwningMenu, PresentationDslPackage.PROCESS_CALL__OWNING_MENU, msgs);
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOwningMenu(Menu newOwningMenu) {
+        if (newOwningMenu != eInternalContainer() || (eContainerFeatureID() != PresentationDslPackage.PROCESS_CALL__OWNING_MENU && newOwningMenu != null)) {
+            if (EcoreUtil.isAncestor(this, newOwningMenu))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            NotificationChain msgs = null;
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newOwningMenu != null)
+                msgs = ((InternalEObject)newOwningMenu).eInverseAdd(this, PresentationDslPackage.MENU__START_PROCESSES, Menu.class, msgs);
+            msgs = basicSetOwningMenu(newOwningMenu, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PROCESS_CALL__OWNING_MENU, newOwningMenu, newOwningMenu));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -156,6 +199,10 @@ public class ProcessCallImpl extends UICallImpl implements ProcessCall {
                 if (eInternalContainer() != null)
                     msgs = eBasicRemoveFromContainer(msgs);
                 return basicSetOwningDialogue((Dialogue)otherEnd, msgs);
+            case PresentationDslPackage.PROCESS_CALL__OWNING_MENU:
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetOwningMenu((Menu)otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -170,6 +217,8 @@ public class ProcessCallImpl extends UICallImpl implements ProcessCall {
         switch (featureID) {
             case PresentationDslPackage.PROCESS_CALL__OWNING_DIALOGUE:
                 return basicSetOwningDialogue(null, msgs);
+            case PresentationDslPackage.PROCESS_CALL__OWNING_MENU:
+                return basicSetOwningMenu(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -184,6 +233,8 @@ public class ProcessCallImpl extends UICallImpl implements ProcessCall {
         switch (eContainerFeatureID()) {
             case PresentationDslPackage.PROCESS_CALL__OWNING_DIALOGUE:
                 return eInternalContainer().eInverseRemove(this, PresentationDslPackage.DIALOGUE__PROCESSES, Dialogue.class, msgs);
+            case PresentationDslPackage.PROCESS_CALL__OWNING_MENU:
+                return eInternalContainer().eInverseRemove(this, PresentationDslPackage.MENU__START_PROCESSES, Menu.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -201,6 +252,8 @@ public class ProcessCallImpl extends UICallImpl implements ProcessCall {
             case PresentationDslPackage.PROCESS_CALL__REFERRED_PROCESS:
                 if (resolve) return getReferredProcess();
                 return basicGetReferredProcess();
+            case PresentationDslPackage.PROCESS_CALL__OWNING_MENU:
+                return getOwningMenu();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -218,6 +271,9 @@ public class ProcessCallImpl extends UICallImpl implements ProcessCall {
                 return;
             case PresentationDslPackage.PROCESS_CALL__REFERRED_PROCESS:
                 setReferredProcess((AbstractProcess)newValue);
+                return;
+            case PresentationDslPackage.PROCESS_CALL__OWNING_MENU:
+                setOwningMenu((Menu)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -237,6 +293,9 @@ public class ProcessCallImpl extends UICallImpl implements ProcessCall {
             case PresentationDslPackage.PROCESS_CALL__REFERRED_PROCESS:
                 setReferredProcess((AbstractProcess)null);
                 return;
+            case PresentationDslPackage.PROCESS_CALL__OWNING_MENU:
+                setOwningMenu((Menu)null);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -253,6 +312,8 @@ public class ProcessCallImpl extends UICallImpl implements ProcessCall {
                 return getOwningDialogue() != null;
             case PresentationDslPackage.PROCESS_CALL__REFERRED_PROCESS:
                 return referredProcess != null;
+            case PresentationDslPackage.PROCESS_CALL__OWNING_MENU:
+                return getOwningMenu() != null;
         }
         return super.eIsSet(featureID);
     }

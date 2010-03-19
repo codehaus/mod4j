@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -72,9 +73,24 @@ public class MenuImpl extends ModelElementImpl implements Menu {
      */
     public EList<ProcessCall> getStartProcesses() {
         if (startProcesses == null) {
-            startProcesses = new EObjectContainmentEList<ProcessCall>(ProcessCall.class, this, PresentationDslPackage.MENU__START_PROCESSES);
+            startProcesses = new EObjectContainmentWithInverseEList<ProcessCall>(ProcessCall.class, this, PresentationDslPackage.MENU__START_PROCESSES, PresentationDslPackage.PROCESS_CALL__OWNING_MENU);
         }
         return startProcesses;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case PresentationDslPackage.MENU__START_PROCESSES:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getStartProcesses()).basicAdd(otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**

@@ -87,6 +87,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="owningDialogue" eType="#//Dialogue"
         eOpposite="#//Dialogue/processes"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredProcess" eType="#//AbstractProcess"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owningMenu" eType="#//Menu"
+        eOpposite="#//Menu/startProcesses"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UIModelElement" abstract="true" eSuperTypes="#//ModelElementWithContext"/>
   <eClassifiers xsi:type="ecore:EClass" name="UICall" abstract="true" eSuperTypes="#//ModelElement">
@@ -136,7 +138,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="OperationExpression" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Menu" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="startProcesses" upperBound="-1"
-        eType="#//ProcessCall" containment="true"/>
+        eType="#//ProcessCall" containment="true" eOpposite="#//ProcessCall/owningMenu"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProcessReference" eSuperTypes="#//AbstractProcess #//ExternalReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractProcess" abstract="true" eSuperTypes="#//UIModelElement">

@@ -17,6 +17,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getOwningDialogue <em>Owning Dialogue</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getReferredProcess <em>Referred Process</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getOwningMenu <em>Owning Menu</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,5 +79,33 @@ public interface ProcessCall extends UICall {
      * @generated
      */
     void setReferredProcess(AbstractProcess value);
+
+    /**
+     * Returns the value of the '<em><b>Owning Menu</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Menu#getStartProcesses <em>Start Processes</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Owning Menu</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Owning Menu</em>' container reference.
+     * @see #setOwningMenu(Menu)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getProcessCall_OwningMenu()
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Menu#getStartProcesses
+     * @model opposite="startProcesses" transient="false"
+     * @generated
+     */
+    Menu getOwningMenu();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getOwningMenu <em>Owning Menu</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Owning Menu</em>' container reference.
+     * @see #getOwningMenu()
+     * @generated
+     */
+    void setOwningMenu(Menu value);
 
 } // ProcessCall

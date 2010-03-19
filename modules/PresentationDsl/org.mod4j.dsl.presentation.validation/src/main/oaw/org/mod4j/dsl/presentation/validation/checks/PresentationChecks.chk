@@ -82,54 +82,25 @@ context ProcessCall if (this.referredProcess.type != ProcessType::CUSTOM) && (th
     hasDouble(this, this.referredProcess.type);
 */
 
-context Process 
-    ERROR "Process error " + this.getProperty("ERROR") :
-    let result = checkProcess(this) :       
-    (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
-     ;
+//context Process 
+//    ERROR "Process error " + this.getProperty("ERROR") :
+//    let result = checkProcess(this) :       
+//    (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
+//     ;
 
-context ProcessCall if referredProcess != null
+context ProcessCall if (referredProcess != null) 
     ERROR "ProcessCall error " + this.getProperty("ERROR") :
     let result = checkProcessCall(this) :       
     (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
       ;
 
+context DialogueCall if referredDialogue != null
+    ERROR "DialogueCall error " + this.getProperty("ERROR") :
+    let result = checkDialogueCall(this) :       
+    (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
+     ;
+
 context ProcessCall if (this.owningDialogue != null) && (referredProcess.name != null) && (this.referredProcess.metaType != ProcessReference)
                        && (this.owningDialogue.contextRef.name != null)
     ERROR "The process [" + this.referredProcess.name + "] must have the same context as the from to which it belongs [" + this.owningDialogue.name + "]" :
     this.owningDialogue.contextRef.name.equalsIgnoreCase(this.referredProcess.contextRef.name);
-
-context UICall if this.contextExp.metaType == StandardExpression
-    ERROR "No servce method found for [" + this.referredUIModelElement().contextRef.name + "] of type 'listall', needed to support the use of 'all'" :
-    let con = this.referredUIModelElement().contextRef :
-    findServiceMethod(this, con.name, "LISTALL") != null;
-    
-context UICall if this.contextExp.metaType == StandardExpression
-    ERROR "No servce method found for [" + this.referredUIModelElement().contextRef.name + "] of type 'find', needed to support the use of 'all'" :
-    let con = this.referredUIModelElement().contextRef :
-    findServiceMethod(this, con.name, "FIND") != null;
-    
-String findSpecialMethod(String dtoName, String methodType) :
-    let methods = 
-    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
-    select( method | method.getPropertyValue("methodType").endsWith(methodType) && method.getPropertyValue("dto").endsWith(dtoName)) :
-    (methods.isEmpty ? null : methods.first().name);
-    
-String findSpecialMethodInService(String dtoName, String methodType, Symbol service) :
-    service.findAllSubSymbols("ServiceMethod").
-    select( method | method.getPropertyValue("methodType").endsWith(methodType) && method.getPropertyValue("dto").endsWith(dtoName)).first().name;
-    
-// returns the name of a service that contains a special method of "methodType" for the referred DTO in "form"
-String findServiceWithMethod(String dtoName, String methodType) :
-    findAllSymbols(getProject(), "Service").select( s | findSpecialMethodInService(dtoName, methodType, s) != null ).first().name;
-
-// returns the symbol of the special method of "methodType" for the referred DTO 
-// TODO: should only look in the current project, but this p[roject cannot be found
-Symbol findServiceMethod(UICall self, String dtoName, String methodType) :
-//    findAllSymbols(getProjectForEObject(self), "Service").select( s | findSpecialMethodInService(dtoName, methodType, s) != null ).first();
-    findAllModels().modelname.findAllFromModel("Service").select( s | findSpecialMethodInService(dtoName, methodType, s) != null ).first();
-
-Symbol findMethodInService(Symbol service, String methodName) :
-    service.findAllSubSymbols("ServiceMethod").
-    selectFirst( method | method.name == methodName);
-    

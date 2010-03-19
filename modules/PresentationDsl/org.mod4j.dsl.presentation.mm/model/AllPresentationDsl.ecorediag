@@ -1140,4 +1140,17 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rFkGAyhZEd-f9K5Z0RH3mg" points="[23, 20, -2, -89]$[23, 100, -2, -9]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rFkGCChZEd-f9K5Z0RH3mg" id="(0.7272727272727273,0.23809523809523808)"/>
   </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_YPQ1QDNYEd-BJ8qNrJSjsQ" type="3002" source="_9zkGtM_FEd6GKolWbdgitg" target="_nZnPcSIIEd-Qrfr4VvAwDg">
+    <children xmi:type="notation:Node" xmi:id="_YPQ1RDNYEd-BJ8qNrJSjsQ" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_YPQ1RTNYEd-BJ8qNrJSjsQ" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_YPQ1RjNYEd-BJ8qNrJSjsQ" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_YPQ1RzNYEd-BJ8qNrJSjsQ" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_YPQ1QTNYEd-BJ8qNrJSjsQ" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_YPQ1QjNYEd-BJ8qNrJSjsQ" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="PresentationDsl.ecore#//ProcessCall/owningMenu"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_YPQ1QzNYEd-BJ8qNrJSjsQ" points="[2, -7, -86, 332]$[90, -372, 2, -33]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YPQ1SDNYEd-BJ8qNrJSjsQ" id="(0.6274509803921569,0.13793103448275862)"/>
+  </edges>
 </notation:Diagram>

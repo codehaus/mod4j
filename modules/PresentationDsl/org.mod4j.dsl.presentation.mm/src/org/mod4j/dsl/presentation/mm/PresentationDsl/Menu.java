@@ -28,6 +28,7 @@ public interface Menu extends ModelElement {
     /**
      * Returns the value of the '<em><b>Start Processes</b></em>' containment reference list.
      * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall}.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getOwningMenu <em>Owning Menu</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Start Processes</em>' containment reference list isn't clear,
@@ -36,7 +37,8 @@ public interface Menu extends ModelElement {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Start Processes</em>' containment reference list.
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getMenu_StartProcesses()
-     * @model containment="true"
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getOwningMenu
+     * @model opposite="owningMenu" containment="true"
      * @generated
      */
     EList<ProcessCall> getStartProcesses();
