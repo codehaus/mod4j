@@ -332,7 +332,7 @@ public class PresentationHelpers {
      * @return
      */
     static public Mod4jType getMod4jType(String model, String sourceDtoName, NavigationExpression nav){
-        Mod4jType result = new Mod4jType("UNKNOWN", "UNKNOW");
+        Mod4jType result = new Mod4jType("UNKNOWN", "UNKNOWN");
         
         if( nav == null) {
             return null;
@@ -366,109 +366,111 @@ public class PresentationHelpers {
      * @param p
      * @return
      */
-    public static String checkProcess(Process p) {
-        try{
-            // check for 
-            DtoReference context = findContext(p);
-            if( (context == null) || (context.getName() == null) ) {
-                return "ERROR: internal Mod4j error, cannot find context";
-            }
-            if( p.getProcessElements() == null ) {
-                return "ERROR:  process has no elements";
-            }
-            for (UICall uicall : p.getProcessElements()) {
-                String calledName;
-                String contextName ;
-                Boolean isCollectionContext ;
-                if( uicall instanceof DialogueCall ) {
-                    ContentForm form = referredContentForm(uicall);
-                    if( form == null ){
-                        // referred form cannot be found, but that is checked elsewhere
-                        return "";   //"ERROR: 1 referred form [" + dialogueCall.getName() + "] not found";
-                    }
-                    calledName = form.getName();
-                    contextName = form.getContextRef().getName();
-                    isCollectionContext = form.isCollectionContext();
-                } else if( uicall instanceof ProcessCall) {
-                    Process process = referredProcess(uicall);
-                    if( process == null ){
-                        // referred process cannot be found, but that is checked elsewhere
-                        return ""; // ERROR: 1 referred process [" + uicall.getName() + "] not found";
-                    }
-                    calledName = process.getName();
-                    contextName = process.getContextRef().getName();
-                    isCollectionContext = process.isCollectionContext();
-                } else {
-                    return "ERROR: Internal Mod4j error, UIcall is neither a process nor a form";
-                }
-                if( contextName == null ){
-                    // referred form has incorrect context, stop checking 
-                    return "ERROR: internal error, context name is null";
-                }
-    
-                Mod4jType expectedType = new Mod4jType(contextName, (isCollectionContext ? "LIST" : "SINGLE"));
-                if( uicall.getContextExp() == null ){
-                    // check whether context of referred form is identical to that of the process
-                    if( ! contextName.equals(context.getName())){
-                        return "ERROR: 2 context of process and called dialogue/process [" + calledName + ":" + contextName + "]should be the same";
-                    }
-                } else {
-                    NavigationExpression navExp = getNavigationExpression(uicall);
-                    if( navExp != null ){
-                        Mod4jType resultType = getMod4jType(context.getModelName(), context.getName(), navExp);
-                        if( resultType.hasError()){
-                            return resultType.getError();
-                        }
-                        if( ! expectedType.matches(resultType)){
-                            return "ERROR: 3 type of navigation [" + resultType.toString() + 
-                                  "] and called dialogue [" + expectedType.toString() + "] should be the same";
-                        }
-                    }
-                    ServiceExpression serExp = getServiceExpression(uicall);
-                    if( serExp != null ){
-                        Mod4jType resultType = serviceCallMod4jType(context.getName(), serExp);
-                        if( resultType.hasError() ){
-                            return resultType.getError();
-                        } else {
-                            if( ! expectedType.matches(resultType) ){
-                                return "ERROR: 4 type of service [" + resultType.toString() + 
-                                "] and called dialogue [" + expectedType.toString() + "] should be the same";
-                            }
-                        }
-    //                        String resultType = getResultType(context.getModelName(), context.getName(), navExp);
-    //                        if( ! form.getContextRef().getName().equals(resultType)){
-    //                            return "ERROR: context of navigation and called dialogue should be the same";
-    //                        }
-                    }
-                    StandardExpression stdExp = getStandardExpression(uicall);
-                    if( stdExp != null ){
-    //                        String resultType = findContext(p).getName();
-                        String resultType = standardExpressionResultType(context.getName(),
-                                contextName, stdExp);
-                        if( resultType.startsWith("ERROR:")){
-                            return resultType;
-                        } else {
-                            Mod4jType result = new Mod4jType(resultType, "LIST");
-                            if( ! expectedType.matches(result) ){
-                                return "ERROR: 5 type of process [" + result.toString() + 
-                                "] and called dialogue [" + expectedType.toString() + "] should be the same";
-                            }
-                        }
-                    }
-                }
-            }
-            return "";
-        } catch(RuntimeException e){
-            System.out.println("checkProcess Exception for Process [" + p.getName() + "]");
-            throw e;
-        }
-    }
+//    public static String checkProcess(Process p) {
+//        try{
+//            // check for 
+//            DtoReference context = findContext(p);
+//            if( (context == null) || (context.getName() == null) ) {
+//                return "ERROR: internal Mod4j error, cannot find context";
+//            }
+//            if( p.getProcessElements() == null ) {
+//                return "ERROR:  process has no elements";
+//            }
+//            for (UICall uicall : p.getProcessElements()) {
+//                String calledName;
+//                String contextName ;
+//                Boolean isCollectionContext ;
+//                if( uicall instanceof DialogueCall ) {
+//                    ContentForm form = referredContentForm(uicall);
+//                    if( form == null ){
+//                        // referred form cannot be found, but that is checked elsewhere
+//                        return "";   //"ERROR: 1 referred form [" + dialogueCall.getName() + "] not found";
+//                    }
+//                    calledName = form.getName();
+//                    contextName = form.getContextRef().getName();
+//                    isCollectionContext = form.isCollectionContext();
+//                } else if( uicall instanceof ProcessCall) {
+//                    Process process = referredProcess(uicall);
+//                    if( process == null ){
+//                        // referred process cannot be found, but that is checked elsewhere
+//                        return ""; // ERROR: 1 referred process [" + uicall.getName() + "] not found";
+//                    }
+//                    calledName = process.getName();
+//                    contextName = process.getContextRef().getName();
+//                    isCollectionContext = process.isCollectionContext();
+//                } else {
+//                    return "ERROR: Internal Mod4j error, UIcall is neither a process nor a form";
+//                }
+//                if( contextName == null ){
+//                    // referred form has incorrect context, stop checking 
+//                    return "ERROR: internal error, context name is null";
+//                }
+//    
+//                Mod4jType expectedType = new Mod4jType(contextName, (isCollectionContext ? "LIST" : "SINGLE"));
+//                if( uicall.getContextExp() == null ){
+//                    // check whether context of referred form is identical to that of the process
+//                    if( ! contextName.equals(context.getName())){
+//                        return "ERROR: 2 context of process and called dialogue/process [" + calledName + ":" + contextName + "]should be the same";
+//                    }
+//                } else {
+//                    NavigationExpression navExp = getNavigationExpression(uicall);
+//                    if( navExp != null ){
+//                        Mod4jType resultType = getMod4jType(context.getModelName(), context.getName(), navExp);
+//                        if( resultType.hasError()){
+//                            return resultType.getError();
+//                        }
+//                        if( ! expectedType.matches(resultType)){
+//                            return "ERROR: 3 type of navigation [" + resultType.toString() + 
+//                                  "] and called dialogue [" + expectedType.toString() + "] should be the same";
+//                        }
+//                    }
+//                    ServiceExpression serExp = getServiceExpression(uicall);
+//                    if( serExp != null ){
+//                        Mod4jType resultType = serviceCallMod4jType(context.getName(), serExp);
+//                        if( resultType.hasError() ){
+//                            return resultType.getError();
+//                        } else {
+//                            if( ! expectedType.matches(resultType) ){
+//                                return "ERROR: 4 type of service [" + resultType.toString() + 
+//                                "] and called dialogue [" + expectedType.toString() + "] should be the same";
+//                            }
+//                        }
+//    //                        String resultType = getResultType(context.getModelName(), context.getName(), navExp);
+//    //                        if( ! form.getContextRef().getName().equals(resultType)){
+//    //                            return "ERROR: context of navigation and called dialogue should be the same";
+//    //                        }
+//                    }
+//                    StandardExpression stdExp = getStandardExpression(uicall);
+//                    if( stdExp != null ){
+//    //                        String resultType = findContext(p).getName();
+//                        String resultType = standardExpressionResultType(context.getName(),
+//                                contextName, stdExp);
+//                        if( resultType.startsWith("ERROR:")){
+//                            return resultType;
+//                        } else {
+//                            Mod4jType result = new Mod4jType(resultType, "LIST");
+//                            if( ! expectedType.matches(result) ){
+//                                return "ERROR: 5 type of process [" + result.toString() + 
+//                                "] and called dialogue [" + expectedType.toString() + "] should be the same";
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            return "";
+//        } catch(RuntimeException e){
+//            System.out.println("checkProcess Exception for Process [" + p.getName() + "]");
+//            throw e;
+//        }
+//    }
 
     public static String checkDialogueCall(DialogueCall dcall) {
         DtoReference context = null ;
+        Boolean ownerIsCollectionContext = true;
         Process owner = dcall.getProcess();
         if( owner != null ){
             context = findContext(owner);
+            ownerIsCollectionContext = owner.isCollectionContext();
         }
         if( (context == null) || (context.getName() == null) ) {
             return "ERROR: internal Mod4j error 2, cannot find context";
@@ -485,19 +487,23 @@ public class PresentationHelpers {
             // referred form has incorrect context, stop checking 
             return "ERROR: internal error, context name is null";
         }
-        return checkUICall(dcall, context, calledName, contextName, isCollectionContext);
+        return checkUICall(dcall, context, calledName, contextName, isCollectionContext, ownerIsCollectionContext);
     }
+    
     public static String checkProcessCall(ProcessCall pcall) {
         try{
             DtoReference context = null ;
+            Boolean ownerIsCollectionContext = false;
             // check for 
             Dialogue dia = pcall.getOwningDialogue();
             if( dia != null ){
                 context = dia.getContextRef();
+                ownerIsCollectionContext = dia.isCollectionContext();
             }
             Process owner = pcall.getProcess();
             if( owner != null ){
                 context = findContext(owner);
+                ownerIsCollectionContext = owner.isCollectionContext();
             }
             if( pcall.getOwningMenu() != null ){
                 return "";  /// no checks for a process call in a menu
@@ -519,7 +525,7 @@ public class PresentationHelpers {
                 return "ERROR: internal error, context name is null";
             }
 
-            return checkUICall(pcall, context, calledName, contextName, isCollectionContext);
+            return checkUICall(pcall, context, calledName, contextName, isCollectionContext, ownerIsCollectionContext);
         } catch(RuntimeException e){
             System.out.println("checkProcess Exception for ProcessCall [" + pcall.getReferredProcess().getName() + "]");
             throw e;
@@ -534,7 +540,7 @@ public class PresentationHelpers {
      * @param isCollectionContext
      */
     private static String checkUICall(UICall pcall, DtoReference context, String calledName, String contextName,
-            Boolean isCollectionContext) {
+            Boolean isCollectionContext, Boolean ownerIsCollectionContext) {
         Mod4jType expectedType = new Mod4jType(contextName, (isCollectionContext ? "LIST" : "SINGLE"));
         if( pcall.getContextExp() == null ){
             // check whether context of referred form is identical to that of the process
@@ -544,6 +550,9 @@ public class PresentationHelpers {
         } else {
             NavigationExpression navExp = getNavigationExpression(pcall);
             if( navExp != null ){
+                if( ownerIsCollectionContext && (pcall.getProcess() != null) ){                    
+                    return "ERROR: Cannot use a navigation when calling process context is 'list'";
+                }
                 Mod4jType resultType = getMod4jType(context.getModelName(), context.getName(), navExp);
                 if( resultType.hasError()){
                     return resultType.getError();
