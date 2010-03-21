@@ -23,36 +23,32 @@
 package «getPresentationRootPackage()».pages;
 
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
-«FOREACH this.processElements.referredDialogue().select(e|e != null) AS dialogue»
+«FOREACH this.processElements.referredDialogue().select(e|e != null) AS dialogue -»
 import «javaDtoClassPath(dialogue.contextRef.name)»;
 «ENDFOREACH»
 import «javaDtoClassPath(this.contextRef.name)»;
 import «getPresentationRootPackage()».processes.PmfProcess;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 
-«FOREACH this.processElements.select(e|(e.getStandardExpression() != null) && (e.getStandardExpression().type== ExpressionType::ALL )) AS e»
+«FOREACH this.processElements.select(e|(e.getStandardExpression() != null) && ((e.getStandardExpression().type== ExpressionType::ALL || 
+     e.getStandardExpression().type== ExpressionType::FIND))) AS e -»
 import «getPresentationRootPackage()».dataproviders.«getWicketDataProviderClass(e.referredUIModelElement().contextRef.name)» ;
 «ENDFOREACH»
-«FOREACH this.processElements.select(e|(e.getStandardExpression() != null) && (e.getStandardExpression().type== ExpressionType::FIND )) AS e»
-import «getPresentationRootPackage()».dataproviders.«getWicketFinderDataProviderClass(e.referredUIModelElement().contextRef.name)» ;
-«ENDFOREACH»
 
-«FOREACH this.processElements.select(e|e.getServiceExpression() != null ) AS e»
+«FOREACH this.processElements.select(e|e.getServiceExpression() != null ) AS e -»
 import «getPresentationRootPackage()».dataproviders.«getWicketServiceDataProviderClass(e.referredUIModelElement().contextRef.name)» ;
 «ENDFOREACH»
 
-«FOREACH this.processElements AS uiCall»
+«FOREACH this.processElements AS uiCall -»
     «IF uiCall.referredDialogue() != null»
         «IF uiCall.referredDialogue().collectionContext»
-            import «getPresentationRootPackage()».panels.«uiCall.referredDialogue().name.toFirstUpper()»CollectionDataViewPanel;
-            import «getPresentationRootPackage()».panels.«uiCall.referredDialogue().name.toFirstUpper()»CollectionDataViewPanelOnly;
+            import «getPresentationRootPackage()».panels.«uiCall.referredDialogue().name.toFirstUpper()»DataTablePanel;
+            import «getPresentationRootPackage()».panels.«uiCall.referredDialogue().name.toFirstUpper()»DataTablePanelOnly;
         «ELSE »
             import «getPresentationRootPackage()».panels.«uiCall.referredDialogue().name.toFirstUpper()»SwapEditPanel;
         «ENDIF»
     «ENDIF»
 «ENDFOREACH»
-
-
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.wicket.model.CompoundPropertyModel;
@@ -70,7 +66,7 @@ import org.mod4j.common.wicket.ext.components.ComponentsFeedbackMessageFilter;
 
 public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass()» 
 {
-    private Integer maxItemsPerPage = 10;
+    private Integer maxItemsPerPage = 8;
 
     protected IModel model;
     
@@ -101,9 +97,9 @@ public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass
         add(errorMessages);
 
 //        IModel panelModel = null ;
-        «FOREACH this.processElements AS uiCall»
-            «IF uiCall.referredDialogue() != null»
-                «EXPAND createPanel(this) FOR uiCall»
+        «FOREACH this.processElements AS uiCall -»
+            «IF uiCall.referredDialogue() != null -»
+                «EXPAND createPanel(this) FOR uiCall -»
             «ENDIF»
         «ENDFOREACH»     
         add(panels.get(currentPanel));
@@ -216,13 +212,13 @@ public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass
 «ENDREM»
 «DEFINE createPanel(Process process) FOR UICall»
     IModel «this.referredDialogue().name»Model = null;
-    «EXPAND Process::createModel FOR this»
+    «EXPAND Process::createModel FOR this -»
     «IF this.referredDialogue().collectionContext»
-        «IF (process.type == ProcessType::ADDTO) || (process.type == ProcessType::LINK) »
-            «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»CollectionDataViewPanelOnly("panel", 
-                                                «this.referredDialogue().name»Model, maxItemsPerPage, this, «(process.type == ProcessType::ADDTO) ? "true" : "false" »);
+        «IF (process.type == ProcessType::ADDTO) || (process.type == ProcessType::LINK) -»
+            «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»DataTablePanelOnly("panel", 
+            «this.referredDialogue().name»Model, maxItemsPerPage, this, «((process.type == ProcessType::ADDTO) ? "true" : "false")»);
         «ELSE»
-            «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»CollectionDataViewPanel("panel", «this.referredDialogue().name»Model, maxItemsPerPage, this, true);
+            «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»DataTablePanel("panel", «this.referredDialogue().name»Model, maxItemsPerPage, this, true);
         «ENDIF»
     «ELSE»
         «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»SwapEditPanel("panel", «this.referredDialogue().name»Model);
@@ -239,13 +235,11 @@ public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass
     «IF this.getNavigationExpression() != null»
         panelModel = new PropertyModel(model, "«this.getNavigationExpression().references.get(0).name»");
     «ELSEIF this.getStandardExpression() != null»
-        «IF this.getStandardExpression().type == ExpressionType::ALL»
+        «IF ((this.getStandardExpression().type == ExpressionType::ALL) || (this.getStandardExpression().type == ExpressionType::FIND))»
             «LET getWicketDataProviderClass(this.referredDialogue().contextRef.name) AS providerType»
 	        «providerType» provider = new «providerType»();
 	        panelModel = new Model(provider);
 	        «ENDLET»
-        «ELSEIF this.getStandardExpression().type == ExpressionType::FIND»
-            // TODO add Find providder IModel
         «ENDIF»
     «ELSEIF this.getServiceExpression() != null»
         «getWicketServiceDataProviderClass(this.referredDialogue().contextRef.name)» p = new «getWicketServiceDataProviderClass(this.referredDialogue().contextRef.name)»(context.getObject());

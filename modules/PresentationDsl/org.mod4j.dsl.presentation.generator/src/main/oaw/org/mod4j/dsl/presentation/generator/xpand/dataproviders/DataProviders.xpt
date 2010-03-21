@@ -29,9 +29,6 @@
     «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." + "ModelDataProvider"))»
         «EXPAND ModelDataProvider::ModelDataProvider FOR this»
     «ENDFILE»
-    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." + "PmfListDataProvider"))»
-        «EXPAND PmfListDataProvider::PmfListDataProvider FOR this»
-    «ENDFILE»
 
 	«REM»The page containing the Dialogue referred to in the process«ENDREM»
     «print("MOD4J INFO: Running Presentation generator process pages")»
@@ -63,25 +60,19 @@
                         «EXPAND DtoServiceDataProvider::ServiceDataProvider(process.contextRef.name) FOR uiCall.getServiceExpression()»
 					«ENDFILE»
 				«ELSEIF uiCall.getStandardExpression() != null»
-				    «IF uiCall.getStandardExpression().type == ExpressionType::ALL»
+				    «IF uiCall.getStandardExpression().type == ExpressionType::ALL || uiCall.getStandardExpression().type == ExpressionType::FIND»
 						«print("02 Generating advanced data provider for process [" + process.name + "] form [" + form.name + "]")»
                         «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." 
                                                                             + getWicketDataProviderClass(form.contextRef.name) ))»
                             «EXPAND DtoDataProvider::generateDataProvider FOR uiCall»
                         «ENDFILE»						
-					«ELSEIF uiCall.getStandardExpression().type == ExpressionType::FIND »
-				    	«print("03 Finder Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
-						«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." 
-						                                                    + getWicketFinderDataProviderClass(form.contextRef.name) ))»
-				    	    «EXPAND FinderDataProvider::FinderDataProvider FOR uiCall»
-						«ENDFILE»
-					«ENDIF»
-				«ELSE»
+				    «ELSE»
 «REM»                    «EXPAND DtoDataProvider::generateDataProvider FOR uiCall»«ENDREM»
-				«ENDIF»
-			«ENDIF»
-		«ELSE»
-		    «print("No dataprovider generated for process [" + process.name + "] form [" + form.name + "]")»
+				    «ENDIF»
+			    «ENDIF»
+		    «ELSE»
+		        «print("No dataprovider generated for process [" + process.name + "] form [" + form.name + "]")»
+            «ENDIF»
         «ENDIF»
 		«ENDLET»
     «ENDFOREACH»

@@ -15,10 +15,12 @@
 «DEFINE GenerateProperties FOR ContentForm -»
 «EXPAND PropertyComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: FormProperties.xpt") FOR this -»
 
+lbl.panelname=«this.name»
 «FOREACH this.formElements AS e-»
 lbl.«e.dataProperty.name»=«e.label»
 «ENDFOREACH»
 
+cmd.resetAll=Reset
 «FOREACH this.processes AS p-»
 cmd.«p.referredProcess.name»=«p.label»
 «ENDFOREACH»

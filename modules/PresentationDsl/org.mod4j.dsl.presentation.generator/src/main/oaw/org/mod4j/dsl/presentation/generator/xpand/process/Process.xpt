@@ -707,15 +707,12 @@ public ProcessType getProcessType() {
     «IF this.getNavigationExpression() != null»
         «modelName»Model = new PropertyModel(model, "«this.getNavigationExpression().references.get(0).name»");
     «ELSEIF this.getStandardExpression() != null»
-        «IF this.getStandardExpression().type == ExpressionType::ALL»
+        «IF this.getStandardExpression().type == ExpressionType::ALL || this.getStandardExpression().type == ExpressionType::FIND»
             «LET getWicketDataProviderClass(this.referredUIModelElement().contextRef.name) AS providerType»
             «providerType» «this.name»provider = new «providerType»();
-            «modelName»Model = new Model(«this.name»provider);
-            «ENDLET»
-        «ELSEIF this.getStandardExpression().type == ExpressionType::FIND»
-            // TODO add Find providder IModel
-            «LET getWicketFinderDataProviderClass(this.referredUIModelElement().contextRef.name) AS providerType»
-	        «providerType» «this.name»provider = new «providerType»(context); 
+            «IF this.getStandardExpression().type == ExpressionType::FIND -»
+                «this.name»provider.setFilterState(context.getObject());
+            «ENDIF»
             «modelName»Model = new Model(«this.name»provider);
             «ENDLET»
         «ENDIF»

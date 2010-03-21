@@ -1,0 +1,72 @@
+«REM»
+ Copyright (c) 2010 Ordina and committers to Mod4j
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+  Contributors:
+     Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+«IMPORT org::mod4j::dslcommon::xpand::xml»
+
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+
+«DEFINE GenerateObjectDataTablePanelHtml(boolean withProcesses) FOR ContentForm -»
+    «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectDataTablePanelHtml.xpt") FOR this-»
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"  
+      xml:lang="en"  
+      lang="en">
+       
+<wicket:panel>
+	<div class="tableWrapper horizontal">
+	<wicket:message key="lbl.panelname"/>
+    <table class="horizontal" wicket:id="table">[table]</table>
+    <!-- <span wicket:id="focus-restore">[call to focus restore script]</span> --> 
+    <!-- <a href="#" wicket:id="edit-selected"><wicket:message key="cmd.edit" /></a> -->
+    
+    «REM»
+             Add a reset button that operates on the checkbox column of the datatable.
+    «ENDREM»
+    <input wicket:id="resetAll" type="submit" value="resetAll" /> 
+	
+	«REM»
+             Add a button for each process that operates on a selection of objects in the datatable.
+    «ENDREM»
+    «IF withProcesses -»
+        «FOREACH this.processes.select(p|p.referredProcess.type==ProcessType::NEW) AS pc -»
+            <!-- New button -->
+			<input type="button" value="«pc.label»" wicket:id="«pc.referredProcess.name»" class="button" />
+		«ENDFOREACH»
+	    «FOREACH this.processes.select(pc | pc.referredProcess != null) AS pc -»
+	        «LET pc.referredProcess AS process»
+	        «IF ((process.type==ProcessType::REMOVEFROM) || (process.type==ProcessType::ADDTO)
+	              || (process.type==ProcessType::CUSTOM) || (process.type==ProcessType::DELETE)) 
+	              && process.collectionContext -»
+	            <!-- Button that operates on the collection -->
+	            <td class="butcol">
+	            <input type="button" 
+                       value="«((pc.label!= null) && (pc.label != "") ? pc.label: process.label)»" 
+	                   wicket:id="«process.name»" 
+	                   class="button" /></td>
+	        «ENDIF»
+	        «ENDLET»
+	    «ENDFOREACH»
+	«ENDIF»
+	«IF !withProcesses -»
+        <td class="butcol"><input type="button" value="Add" wicket:id="addLink" class="button" /></td>
+    «ENDIF»
+    <div class="tableBottom"></div>
+    <div class="topleft"></div>
+    <div class="topright"></div>
+    </div>
+</wicket:panel>
+</html>
+«ENDDEFINE»
+				
