@@ -335,7 +335,7 @@ public class «className» extends Panel {
                        String componentId, final IModel<«this.contextRef.name»> rowModel) {
                        
                        LinkPanel<«this.contextRef.name»> link = new LinkPanel<«this.contextRef.name»>(componentId, rowModel,
-                           new Model<String>("«process.name»"), new Model<String>("«process.name»")) {
+                           new Model<String>("«pp.label»"), new Model<String>("«pp.label»")) {
                            @Override
                            public void onClick(AjaxRequestTarget target) {
 		                       «process.javaClass()» process = new «process.javaClass()»(rowModel);
@@ -353,9 +353,8 @@ public class «className» extends Panel {
                    }
                });		   		   
 			«ENDIF»
-			«ENDLET»
-	    «ENDFOREACH»
-		«FOREACH this.processes.referredProcess.select(e|e.type==ProcessType::EDIT) AS process»
+    		«IF process.type==ProcessType::EDIT»
+
             // Edit process
             columns.add(new HeaderlessColumn<«this.contextRef.name»>() {
                   
@@ -363,7 +362,7 @@ public class «className» extends Panel {
                    String componentId, final IModel<«this.contextRef.name»> rowModel) {
                    
                    LinkPanel<«this.contextRef.name»> link = new LinkPanel<«this.contextRef.name»>(componentId, rowModel,
-                       new Model<String>("«process.name»"), new Model<String>("«process.name»")) {
+                       new Model<String>("«pp.label»"), new Model<String>("«pp.label»")) {
                        @Override
                        public void onClick(AjaxRequestTarget target) {
 		                    «process.javaClass()» process = new «process.javaClass()»(rowModel);
@@ -380,8 +379,8 @@ public class «className» extends Panel {
                    }
                }
            });  
-	    «ENDFOREACH»
-        «FOREACH this.processes.referredProcess.select(e|  (e.type==ProcessType::DELETE) && (! e.collectionContext)) AS process»
+	    «ENDIF»
+        «IF (process.type==ProcessType::DELETE) && (! process.collectionContext) »
             «IF ! process.collectionContext»
             // Delete process on collection
             columns.add(new HeaderlessColumn<«this.contextRef.name»>() {
@@ -390,7 +389,7 @@ public class «className» extends Panel {
                    String componentId, final IModel<«this.contextRef.name»> rowModel) {
                    
                    LinkPanel<«this.contextRef.name»> link = new LinkPanel<«this.contextRef.name»>(componentId, rowModel,
-                       new Model<String>("«process.name»"), new Model<String>("«process.name»")) {
+                       new Model<String>("«pp.label»"), new Model<String>("«pp.label»")) {
                        @Override
                        public void onClick(AjaxRequestTarget target) {
                            «process.javaClass()» process = new «process.javaClass()»(rowModel);
@@ -406,8 +405,8 @@ public class «className» extends Panel {
                }
            });  
            «ENDIF»
-        «ENDFOREACH»
-        «FOREACH this.processes.referredProcess.select(e|  (e.type==ProcessType::REMOVEFROM) && (! e.collectionContext)) AS process»
+        «ENDIF»
+        «IF (process.type==ProcessType::REMOVEFROM) && (! process.collectionContext)»
             // Remove from process on collection
             columns.add(new HeaderlessColumn<«this.contextRef.name»>() {
                   
@@ -415,7 +414,7 @@ public class «className» extends Panel {
                    String componentId, final IModel<«this.contextRef.name»> rowModel) {
                    
                    LinkPanel<«this.contextRef.name»> link = new LinkPanel<«this.contextRef.name»>(componentId, rowModel,
-                       new Model<String>("«process.name»"), new Model<String>("«process.name»")) {
+                       new Model<String>("«pp.label»"), new Model<String>("«pp.label»")) {
                        @Override
                        public void onClick(AjaxRequestTarget target) {
                            «process.javaClass()» process = new «process.javaClass()»(model);
@@ -429,6 +428,8 @@ public class «className» extends Panel {
                    }
                }
            });  
+        «ENDIF»
+        «ENDLET»
         «ENDFOREACH»
 	«ENDIF»
 	return columns;
