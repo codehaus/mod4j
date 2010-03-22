@@ -276,12 +276,12 @@ public class «className» extends Panel {
 //		add(new BookmarkablePageLink<Object>("edit",BreakfastsEditPage.class));
 	}
 		
-	«EXPAND createColumns(withProcesses) FOR this -»
+	«EXPAND createColumns(withProcesses, className) FOR this -»
 }
 «ENDLET»
 «ENDDEFINE»
 
-«DEFINE createColumns(boolean withProcesses) FOR ContentForm -»
+«DEFINE createColumns(boolean withProcesses, String className) FOR ContentForm -»
     /**
      * @return Returns a List of contstructed columns for the DataTable.
      */
@@ -335,7 +335,8 @@ public class «className» extends Panel {
                        String componentId, final IModel<«this.contextRef.name»> rowModel) {
                        
                        LinkPanel<«this.contextRef.name»> link = new LinkPanel<«this.contextRef.name»>(componentId, rowModel,
-                           new Model<String>("«pp.label»"), new Model<String>("«pp.label»")) {
+                           new Model<String>( getLocalizer().getString("cmd.«process.name»", «className».this) ) ,
+                           new Model<String>("«pp.label»")) {
                            @Override
                            public void onClick(AjaxRequestTarget target) {
 		                       «process.javaClass()» process = new «process.javaClass()»(rowModel);
@@ -362,7 +363,8 @@ public class «className» extends Panel {
                    String componentId, final IModel<«this.contextRef.name»> rowModel) {
                    
                    LinkPanel<«this.contextRef.name»> link = new LinkPanel<«this.contextRef.name»>(componentId, rowModel,
-                       new Model<String>("«pp.label»"), new Model<String>("«pp.label»")) {
+                       new Model<String>( getLocalizer().getString("cmd.«process.name»", «className».this) ) ,
+                       new Model<String>("«pp.label»")) {
                        @Override
                        public void onClick(AjaxRequestTarget target) {
 		                    «process.javaClass()» process = new «process.javaClass()»(rowModel);
@@ -389,7 +391,8 @@ public class «className» extends Panel {
                    String componentId, final IModel<«this.contextRef.name»> rowModel) {
                    
                    LinkPanel<«this.contextRef.name»> link = new LinkPanel<«this.contextRef.name»>(componentId, rowModel,
-                       new Model<String>("«pp.label»"), new Model<String>("«pp.label»")) {
+                       new Model<String>( getLocalizer().getString("cmd.«process.name»", «className».this) ) ,
+                       new Model<String>("«pp.label»")) {
                        @Override
                        public void onClick(AjaxRequestTarget target) {
                            «process.javaClass()» process = new «process.javaClass()»(rowModel);
@@ -414,7 +417,8 @@ public class «className» extends Panel {
                    String componentId, final IModel<«this.contextRef.name»> rowModel) {
                    
                    LinkPanel<«this.contextRef.name»> link = new LinkPanel<«this.contextRef.name»>(componentId, rowModel,
-                       new Model<String>("«pp.label»"), new Model<String>("«pp.label»")) {
+                       new Model<String>( getLocalizer().getString("cmd.«process.name»", «className».this) ) ,
+                       new Model<String>("«pp.label»")) {
                        @Override
                        public void onClick(AjaxRequestTarget target) {
                            «process.javaClass()» process = new «process.javaClass()»(model);
