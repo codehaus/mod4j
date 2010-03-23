@@ -131,6 +131,9 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
         if (example == null) {
             throw new IllegalArgumentException("argument [example] may not be null");
         }
+        if (sortProperty == null) {
+            throw new IllegalArgumentException("argument [sortProperty] may not be null");
+        }
         List<«javaDomainClass(this.name)»> result;
         result = getHibernateTemplate().executeFind(new HibernateCallback() {
             public Object doInHibernate(final Session session) throws HibernateException, SQLException {

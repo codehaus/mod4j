@@ -327,4 +327,14 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
     public void testListCustomersNullProperty() {
         customerDao.listPage(0, 0, null, true);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testListPageCustomersNullCustomer() {
+        customerDao.listPageByExample(null, 0, 0, "firstName", true);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testListPageNullSortingProperty() {
+        customerDao.listPageByExample(new CustomerExample(), 0, 0, null, true);
+    }
 }
