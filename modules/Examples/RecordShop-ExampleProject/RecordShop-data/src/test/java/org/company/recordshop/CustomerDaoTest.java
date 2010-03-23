@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
@@ -23,7 +22,6 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.ExpectedException;
 import org.springframework.test.jdbc.SimpleJdbcTestUtils;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author Jos Warmer
@@ -33,7 +31,8 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
 
     public class CustomerComparator implements Comparator<Customer> {
         public int compare(Customer one, Customer other) {
-            return (one.getFirstName() + one.getLastName()).compareTo(other.getFirstName() + other.getLastName());
+            return (one.getFirstName() + one.getLastName()).compareTo(other.getFirstName()
+                    + other.getLastName());
         }
     }
 
@@ -72,6 +71,11 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         assertEquals(0, saved.getOrders().size());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testRetrieveWithNullId() {
+        customerDao.retrieve(null);
+    }
+
     /**
      * Test method for {@link CustomerDao#add(Customer)}.
      */
@@ -83,8 +87,8 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         flush();
 
         assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        assertEquals(222, simpleJdbcTemplate.queryForInt("select customer_nr from Customer_TABLE where id = ?",
-                customer.getId()));
+        assertEquals(222, simpleJdbcTemplate.queryForInt(
+                "select customer_nr from Customer_TABLE where id = ?", customer.getId()));
     }
 
     /**
@@ -148,10 +152,12 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
     }
 
     /**
-     * Basic Collection pattern test (inverse="true"). Test method for deleting a customer with orders added. </br>
-     * Model code: <code>association Customer customer one <-> many Order orders;</code> </br> Its a bi-directional
-     * one-to-many relation without notion of composite- or aggregate-root concept. Tests when a Customer with an
-     * existing order is deleted, an ConstraintViolationException is thrown.
+     * Basic Collection pattern test (inverse="true"). Test method for deleting a customer with
+     * orders added. </br> Model code:
+     * <code>association Customer customer one <-> many Order orders;</code> </br> Its a
+     * bi-directional one-to-many relation without notion of composite- or aggregate-root concept.
+     * Tests when a Customer with an existing order is deleted, an ConstraintViolationException is
+     * thrown.
      */
     @Test
     @ExpectedException(ConstraintViolationException.class)
@@ -167,9 +173,14 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         flush();
         fail("Expected a ConstraintViolationException");
         /*
-         * DELETE on table 'CUSTOMER_TABLE' caused a violation of foreign key constraint 'FK75A2F39DAE33DD38' for key
-         * (557056)
+         * DELETE on table 'CUSTOMER_TABLE' caused a violation of foreign key constraint
+         * 'FK75A2F39DAE33DD38' for key (557056)
          */
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDeleteNull() {
+        customerDao.delete(null);
     }
 
     /**
@@ -220,7 +231,12 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
             }
         }
     }
-    
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddWithNullObject() {
+        customerDao.add(null);
+    }
+
     @Test
     public void testCountByExample() {
         customerDao.add(new Customer("Rembrandt", "van Rijn", date(), 3));
@@ -232,6 +248,11 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         CustomerExample example = new CustomerExample();
         example.setLastName("Rijn");
         assertEquals(2, customerDao.count(example));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCountByNullExample() {
+        customerDao.count(null);
     }
 
     @Test
@@ -290,5 +311,20 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         example.setCustomerNr(5);
         customer = customerDao.findByExample(example).get(0);
         assertEquals(5, customer.getCustomerNr().intValue());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFindByExampleWithNullObject() {
+        customerDao.findByExample(null);
+    }
+
+    /**
+     * Test that the
+     * {@link CustomerServiceModelDomainService#listCustomers(int, int, String, boolean)} method
+     * throws an IllegalArgumentException when the property argument is null.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testListCustomersNullProperty() {
+        customerDao.listPage(0, 0, null, true);
     }
 }

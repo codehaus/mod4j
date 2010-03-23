@@ -108,6 +108,9 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
     @SuppressWarnings("unchecked")
     public List<«javaDomainClass(this.name)»> listPage(final int firstResult, final int maxResults,
         final String sortProperty, final boolean isAscending) {
+        if (sortProperty == null) {
+            throw new IllegalArgumentException("argument [sortProperty] may not be null");
+        }
 
         org.hibernate.criterion.Order order;
         if (isAscending) {
@@ -125,6 +128,9 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
     @SuppressWarnings("unchecked")
     public List<«javaDomainClass(this.name)»> listPageByExample(final «javaDomainExampleClass(this.name)» example, final int firstResult, final int maxResults,
             final String sortProperty, final boolean isAscending) {
+        if (example == null) {
+            throw new IllegalArgumentException("argument [example] may not be null");
+        }
         List<«javaDomainClass(this.name)»> result;
         result = getHibernateTemplate().executeFind(new HibernateCallback() {
             public Object doInHibernate(final Session session) throws HibernateException, SQLException {
@@ -155,6 +161,9 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
      */
     @SuppressWarnings("unchecked")
     public long count(final «javaDomainExampleClass(this.name)» example) {
+        if (example == null) {
+            throw new IllegalArgumentException("argument [example] may not be null");
+        }
         List<Integer> result;
         result = getHibernateTemplate().executeFind(new HibernateCallback() {
             public Object doInHibernate(final Session session)
@@ -173,6 +182,9 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
      */
     @SuppressWarnings("unchecked")
     public List<«javaDomainClass(this.name)»> findByExample(final «javaDomainExampleClass(this.name)» example) {
+        if (example == null) {
+            throw new IllegalArgumentException("argument [example] may not be null");
+        }
         List<«javaDomainClass(this.name)»> result;
         result = getHibernateTemplate().executeFind(new HibernateCallback() {
             public Object doInHibernate(final Session session)
