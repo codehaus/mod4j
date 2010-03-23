@@ -746,13 +746,22 @@ public interface PresentationDslPackage extends EPackage {
     int DATA_PROPERTY__FORM_ELEMENT = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Editable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_PROPERTY__EDITABLE = MODEL_ELEMENT_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Data Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_PROPERTY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
+    int DATA_PROPERTY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 4;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl <em>UI Call</em>}' class.
@@ -965,13 +974,22 @@ public interface PresentationDslPackage extends EPackage {
     int DTO_PROPERTY_REFERENCE__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
 
     /**
+     * The feature id for the '<em><b>Subname</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_PROPERTY_REFERENCE__SUBNAME = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Dto Property Reference</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DTO_PROPERTY_REFERENCE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+    int DTO_PROPERTY_REFERENCE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference <em>External Reference</em>}' class.
@@ -2235,6 +2253,17 @@ public interface PresentationDslPackage extends EPackage {
     EReference getDataProperty_FormElement();
 
     /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty#isEditable <em>Editable</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Editable</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty#isEditable()
+     * @see #getDataProperty()
+     * @generated
+     */
+    EAttribute getDataProperty_Editable();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue <em>Dialogue</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2307,6 +2336,17 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      */
     EClass getDtoPropertyReference();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference#getSubname <em>Subname</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Subname</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference#getSubname()
+     * @see #getDtoPropertyReference()
+     * @generated
+     */
+    EAttribute getDtoPropertyReference_Subname();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference <em>External Reference</em>}'.
@@ -3043,6 +3083,14 @@ public interface PresentationDslPackage extends EPackage {
         EReference DATA_PROPERTY__FORM_ELEMENT = eINSTANCE.getDataProperty_FormElement();
 
         /**
+         * The meta object literal for the '<em><b>Editable</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DATA_PROPERTY__EDITABLE = eINSTANCE.getDataProperty_Editable();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DialogueImpl <em>Dialogue</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3103,6 +3151,14 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EClass DTO_PROPERTY_REFERENCE = eINSTANCE.getDtoPropertyReference();
+
+        /**
+         * The meta object literal for the '<em><b>Subname</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DTO_PROPERTY_REFERENCE__SUBNAME = eINSTANCE.getDtoPropertyReference_Subname();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference <em>External Reference</em>}' class.

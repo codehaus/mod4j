@@ -205,7 +205,7 @@ NavigationExpression :
     ;
 
 DtoPropertyReference :
-	name = ID
+	( name = ID ) ( "." subname = ID)?
 	;
 
 AssociationRoleReference :

@@ -249,57 +249,23 @@ public class «className» extends Panel {
 «ENDDEFINE»
 
 «DEFINE addWicketComponent(String className) FOR FormElement»
-«LET this.dataProperty.name.toFirstLower() AS varName»
+«LET this.dataProperty.name.toFirstLower().replaceAll("\\.", "_") AS varName»
     // «varName»
     «IF this.dataProperty.dataType.equalsIgnoreCase("string")»
         TextField<String> «varName» = new TextField<String>("«this.dataProperty.name»");
         «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «className».this)));
-//        «varName».setRequired(true);
-
-        FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
-        «varName»Msgs.setOutputMarkupId(true);
-        «varName».add(new AjaxUpdatingBehaviour(«varName»Msgs));
-        form.add(«varName»);
-        form.add(«varName»Msgs);
     «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("decimal")»
         TextField<Float> «varName» = new TextField<Float>("«this.dataProperty.name»", Float.class);
         «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «className».this)));
-//        «varName».setRequired(true);
-
-        FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
-        «varName»Msgs.setOutputMarkupId(true);
-        «varName».add(new AjaxUpdatingBehaviour(«varName»Msgs));
-        form.add(«varName»);
-        form.add(«varName»Msgs);
     «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("boolean")»
         CheckBox «varName» = new CheckBox("«this.dataProperty.name»");
         «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «className».this)));
-//        «varName».setRequired(true);
-
-        FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
-        «varName»Msgs.setOutputMarkupId(true);
-        «varName».add(new AjaxUpdatingBehaviour(«varName»Msgs));
-        form.add(«varName»);
-        form.add(«varName»Msgs);
     «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("integer")»
         TextField<Integer> «varName» = new TextField<Integer>("«this.dataProperty.name»", Integer.class);
         «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «className».this)));
-//        «varName».setRequired(true);
-
-        FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
-        «varName»Msgs.setOutputMarkupId(true);
-        «varName».add(new AjaxUpdatingBehaviour(«varName»Msgs));
-        form.add(«varName»);
-        form.add(«varName»Msgs);
     «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("datetime")»
         DateTimeField «varName» = new DateTimeField("«this.dataProperty.name»", new JodaModel(new PropertyModel<DateTime>(localModel, "«this.dataProperty.name»")));
         «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «className».this)));
-
-        FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
-        «varName»Msgs.setOutputMarkupId(true);
-        «varName».add(new AjaxUpdatingBehaviour(«varName»Msgs));
-        form.add(«varName»);
-        form.add(«varName»Msgs);
     «ELSEIF this.dataProperty.isEnumeration»
         DropDownChoice<«this.dataProperty.dataType»> «varName» = new DropDownChoice<«this.dataProperty.dataType»>("«this.dataProperty.name»", Arrays.asList(«this.dataProperty.dataType».values()),
         		new IChoiceRenderer<«this.dataProperty.dataType»>() {
@@ -312,13 +278,16 @@ public class «className» extends Panel {
 		            }
 		        });
         «varName».setNullValid(true);
-//        «varName».setRequired(true);
         «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", this)));
-        FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
-        «varName»Msgs.setOutputMarkupId(true);
-        «varName».add(new AjaxUpdatingBehaviour(«varName»Msgs));
-        form.add(«varName»);
-        form.add(«varName»Msgs);
     «ENDIF»
+//  «varName».setRequired(true);
+    FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«this.dataProperty.name»Msgs", new ComponentFeedbackMessageFilter(«varName»));
+    «varName»Msgs.setOutputMarkupId(true);
+    «varName».add(new AjaxUpdatingBehaviour(«varName»Msgs));
+    «IF ! this.dataProperty.editable»
+        «varName».setEnabled(false);
+    «ENDIF»
+    form.add(«varName»);
+    form.add(«varName»Msgs);
 «ENDLET»
 «ENDDEFINE»

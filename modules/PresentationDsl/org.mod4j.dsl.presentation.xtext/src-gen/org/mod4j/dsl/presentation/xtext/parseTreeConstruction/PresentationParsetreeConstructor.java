@@ -60,7 +60,7 @@ protected class ThisRootNode extends RootToken {
 			case 25: return new StandardExpression_TypeAssignment(this, this, 25, inst);
 			case 26: return new ServiceExpression_Group(this, this, 26, inst);
 			case 27: return new NavigationExpression_Group(this, this, 27, inst);
-			case 28: return new DtoPropertyReference_NameAssignment(this, this, 28, inst);
+			case 28: return new DtoPropertyReference_Group(this, this, 28, inst);
 			case 29: return new AssociationRoleReference_NameAssignment(this, this, 29, inst);
 			case 30: return new UICall_Alternatives(this, this, 30, inst);
 			default: return null;
@@ -5620,7 +5620,7 @@ protected class FormElement_ReferencesAssignment_2 extends AssignmentToken  {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new DtoPropertyReference_NameAssignment(this, this, 0, inst);
+			case 0: return new DtoPropertyReference_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -7435,19 +7435,44 @@ protected class NavigationExpression_ReferencesAssignment_2 extends AssignmentTo
 /************ begin Rule DtoPropertyReference ****************
  *
  * DtoPropertyReference:
- *   name=ID;
+ *   name=ID ("." subname=ID)?;
  *
  **/
 
-// name=ID
-protected class DtoPropertyReference_NameAssignment extends AssignmentToken  {
+// name=ID ("." subname=ID)?
+protected class DtoPropertyReference_Group extends GroupToken {
 	
-	public DtoPropertyReference_NameAssignment(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public DtoPropertyReference_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getDtoPropertyReferenceAccess().getGroup();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new DtoPropertyReference_Group_1(parent, this, 0, inst);
+			case 1: return new DtoPropertyReference_NameAssignment_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getDtoPropertyReferenceRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// name=ID
+protected class DtoPropertyReference_NameAssignment_0 extends AssignmentToken  {
+	
+	public DtoPropertyReference_NameAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDtoPropertyReferenceAccess().getNameAssignment();
+		return grammarAccess.getDtoPropertyReferenceAccess().getNameAssignment_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -7456,22 +7481,91 @@ protected class DtoPropertyReference_NameAssignment extends AssignmentToken  {
 		}	
 	}	
 		
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getDtoPropertyReferenceRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("name",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getDtoPropertyReferenceAccess().getNameIDTerminalRuleCall_0();
+			element = grammarAccess.getDtoPropertyReferenceAccess().getNameIDTerminalRuleCall_0_0();
 			return obj;
 		}
 		return null;
 	}
 
 }
+
+// ("." subname=ID)?
+protected class DtoPropertyReference_Group_1 extends GroupToken {
+	
+	public DtoPropertyReference_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getDtoPropertyReferenceAccess().getGroup_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new DtoPropertyReference_SubnameAssignment_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "."
+protected class DtoPropertyReference_FullStopKeyword_1_0 extends KeywordToken  {
+	
+	public DtoPropertyReference_FullStopKeyword_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getDtoPropertyReferenceAccess().getFullStopKeyword_1_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new DtoPropertyReference_NameAssignment_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// subname=ID
+protected class DtoPropertyReference_SubnameAssignment_1_1 extends AssignmentToken  {
+	
+	public DtoPropertyReference_SubnameAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getDtoPropertyReferenceAccess().getSubnameAssignment_1_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new DtoPropertyReference_FullStopKeyword_1_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("subname",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("subname");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getDtoPropertyReferenceAccess().getSubnameIDTerminalRuleCall_1_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
 
 /************ end Rule DtoPropertyReference ****************/
 

@@ -110,6 +110,8 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSimpleProcessCallAccess().getGroup_1(), "rule__SimpleProcessCall__Group_1__0");
 					put(grammarAccess.getServiceExpressionAccess().getGroup(), "rule__ServiceExpression__Group__0");
 					put(grammarAccess.getNavigationExpressionAccess().getGroup(), "rule__NavigationExpression__Group__0");
+					put(grammarAccess.getDtoPropertyReferenceAccess().getGroup(), "rule__DtoPropertyReference__Group__0");
+					put(grammarAccess.getDtoPropertyReferenceAccess().getGroup_1(), "rule__DtoPropertyReference__Group_1__0");
 					put(grammarAccess.getApplicationModelAccess().getDescriptionAssignment_0(), "rule__ApplicationModel__DescriptionAssignment_0");
 					put(grammarAccess.getApplicationModelAccess().getNameAssignment_2(), "rule__ApplicationModel__NameAssignment_2");
 					put(grammarAccess.getApplicationModelAccess().getExternalReferencesAssignment_4(), "rule__ApplicationModel__ExternalReferencesAssignment_4");
@@ -190,7 +192,8 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getServiceExpressionAccess().getServiceAssignment_1(), "rule__ServiceExpression__ServiceAssignment_1");
 					put(grammarAccess.getNavigationExpressionAccess().getCompositionAssignment_0(), "rule__NavigationExpression__CompositionAssignment_0");
 					put(grammarAccess.getNavigationExpressionAccess().getReferencesAssignment_2(), "rule__NavigationExpression__ReferencesAssignment_2");
-					put(grammarAccess.getDtoPropertyReferenceAccess().getNameAssignment(), "rule__DtoPropertyReference__NameAssignment");
+					put(grammarAccess.getDtoPropertyReferenceAccess().getNameAssignment_0(), "rule__DtoPropertyReference__NameAssignment_0");
+					put(grammarAccess.getDtoPropertyReferenceAccess().getSubnameAssignment_1_1(), "rule__DtoPropertyReference__SubnameAssignment_1_1");
 					put(grammarAccess.getAssociationRoleReferenceAccess().getNameAssignment(), "rule__AssociationRoleReference__NameAssignment");
 				}
 			};

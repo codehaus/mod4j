@@ -1795,18 +1795,38 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 	public class DtoPropertyReferenceElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DtoPropertyReference");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cSubnameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cSubnameIDTerminalRuleCall_1_1_0 = (RuleCall)cSubnameAssignment_1_1.eContents().get(0);
 		
 		//DtoPropertyReference:
-		//  name=ID;
+		//  name=ID ("." subname=ID)?;
 		public ParserRule getRule() { return rule; }
 
+		//name=ID ("." subname=ID)?
+		public Group getGroup() { return cGroup; }
+
 		//name=ID
-		public Assignment getNameAssignment() { return cNameAssignment; }
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+
+		//("." subname=ID)?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"."
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+
+		//subname=ID
+		public Assignment getSubnameAssignment_1_1() { return cSubnameAssignment_1_1; }
+
+		//ID
+		public RuleCall getSubnameIDTerminalRuleCall_1_1_0() { return cSubnameIDTerminalRuleCall_1_1_0; }
 	}
 
 	public class AssociationRoleReferenceElements implements IParserRuleAccess {
@@ -2388,7 +2408,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//DtoPropertyReference:
-	//  name=ID;
+	//  name=ID ("." subname=ID)?;
 	public DtoPropertyReferenceElements getDtoPropertyReferenceAccess() {
 		return (pDtoPropertyReference != null) ? pDtoPropertyReference : (pDtoPropertyReference = new DtoPropertyReferenceElements());
 	}

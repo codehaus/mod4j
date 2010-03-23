@@ -2861,11 +2861,11 @@ ruleDtoPropertyReference returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(	
+((	
 	
 	    lv_name_0=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getDtoPropertyReferenceAccess().getNameIDTerminalRuleCall_0(), "name"); 
+		createLeafNode(grammarAccess.getDtoPropertyReferenceAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
 	}
  
 	    {
@@ -2881,7 +2881,31 @@ ruleDtoPropertyReference returns [EObject current=null]
 	        }
 	    }
 	
-);
+)('.' 
+    {
+        createLeafNode(grammarAccess.getDtoPropertyReferenceAccess().getFullStopKeyword_1_0(), null); 
+    }
+(	
+	
+	    lv_subname_2=	RULE_ID
+	{
+		createLeafNode(grammarAccess.getDtoPropertyReferenceAccess().getSubnameIDTerminalRuleCall_1_1_0(), "subname"); 
+	}
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getDtoPropertyReferenceRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "subname", lv_subname_2, "ID", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+	
+))?);
 
 
 

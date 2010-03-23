@@ -103,6 +103,10 @@
   <children xmi:type="notation:Node" xmi:id="_9zaVYs_FEd6GKolWbdgitg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_9zaVZc_FEd6GKolWbdgitg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_9zaVZs_FEd6GKolWbdgitg" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_MIrBMTZpEd-aG5zAq4KrFw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="PresentationDsl.ecore#//DtoPropertyReference/subname"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MIrBMjZpEd-aG5zAq4KrFw"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_9zaVZ8_FEd6GKolWbdgitg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_9zaVaM_FEd6GKolWbdgitg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_9zaVac_FEd6GKolWbdgitg"/>
@@ -287,6 +291,18 @@
   <children xmi:type="notation:Node" xmi:id="_deMAwN2vEd6vKPi1E6CFhw" type="1001">
     <children xmi:type="notation:Node" xmi:id="_deMAw92vEd6vKPi1E6CFhw" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_deMAxN2vEd6vKPi1E6CFhw" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_mAonQjZ1Ed-aG5zAq4KrFw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="PresentationDsl.ecore#//DataProperty/dataType"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_mAonQzZ1Ed-aG5zAq4KrFw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_mAonRDZ1Ed-aG5zAq4KrFw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="PresentationDsl.ecore#//DataProperty/isEnumeration"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_mAonRTZ1Ed-aG5zAq4KrFw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_peKeEDZ1Ed-aG5zAq4KrFw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="PresentationDsl.ecore#//DataProperty/editable"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_peKeETZ1Ed-aG5zAq4KrFw"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_deMAxd2vEd6vKPi1E6CFhw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_deMAxt2vEd6vKPi1E6CFhw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_deMAx92vEd6vKPi1E6CFhw"/>

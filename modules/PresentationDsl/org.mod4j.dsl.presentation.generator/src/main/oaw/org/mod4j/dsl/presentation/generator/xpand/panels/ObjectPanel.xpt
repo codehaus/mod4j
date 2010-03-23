@@ -39,6 +39,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
 
 «FOREACH this.formElements.dataProperty AS dp»
+    «print("DATAPROPERTY " + dp)»
 	«IF dp.isEnumeration»
 	import «javaDtoClassPath(dp.dataType)»;
 	«ENDIF»
@@ -81,7 +82,7 @@ public class «className» extends Panel {
 «ENDDEFINE»
 
 «DEFINE addWicketComponent FOR FormElement»
-
+    «print("AddWicjket: " + this.name)»
     «IF this.dataProperty.dataType == "string"»
         add(new Label("«this.dataProperty.name»", new PropertyModel<String>(model, "«this.dataProperty.name»")));
     «ELSEIF this.dataProperty.dataType == "boolean"»

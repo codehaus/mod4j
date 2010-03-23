@@ -444,6 +444,15 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getDataProperty_Editable() {
+        return (EAttribute)dataPropertyEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getDialogue() {
         return dialogueEClass;
     }
@@ -500,6 +509,15 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      */
     public EClass getDtoPropertyReference() {
         return dtoPropertyReferenceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDtoPropertyReference_Subname() {
+        return (EAttribute)dtoPropertyReferenceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1067,6 +1085,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         createEAttribute(dataPropertyEClass, DATA_PROPERTY__DATA_TYPE);
         createEAttribute(dataPropertyEClass, DATA_PROPERTY__IS_ENUMERATION);
         createEReference(dataPropertyEClass, DATA_PROPERTY__FORM_ELEMENT);
+        createEAttribute(dataPropertyEClass, DATA_PROPERTY__EDITABLE);
 
         dialogueEClass = createEClass(DIALOGUE);
         createEAttribute(dialogueEClass, DIALOGUE__READONLY);
@@ -1077,6 +1096,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         createEReference(dialogueCallEClass, DIALOGUE_CALL__REFERRED_DIALOGUE);
 
         dtoPropertyReferenceEClass = createEClass(DTO_PROPERTY_REFERENCE);
+        createEAttribute(dtoPropertyReferenceEClass, DTO_PROPERTY_REFERENCE__SUBNAME);
 
         externalReferenceEClass = createEClass(EXTERNAL_REFERENCE);
         createEAttribute(externalReferenceEClass, EXTERNAL_REFERENCE__MODEL_NAME);
@@ -1237,6 +1257,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEAttribute(getDataProperty_DataType(), ecorePackage.getEString(), "dataType", null, 0, 1, DataProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getDataProperty_IsEnumeration(), ecorePackage.getEBoolean(), "isEnumeration", null, 0, 1, DataProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getDataProperty_FormElement(), this.getFormElement(), this.getFormElement_DataProperty(), "formElement", null, 0, 1, DataProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getDataProperty_Editable(), ecorePackage.getEBoolean(), "editable", "true", 0, 1, DataProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dialogueEClass, Dialogue.class, "Dialogue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getDialogue_Readonly(), ecorePackage.getEBoolean(), "readonly", "false", 0, 1, Dialogue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1247,6 +1268,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEReference(getDialogueCall_ReferredDialogue(), this.getAbstractDialogue(), null, "referredDialogue", null, 0, 1, DialogueCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dtoPropertyReferenceEClass, DtoPropertyReference.class, "DtoPropertyReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getDtoPropertyReference_Subname(), ecorePackage.getEString(), "subname", null, 0, 1, DtoPropertyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(externalReferenceEClass, ExternalReference.class, "ExternalReference", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getExternalReference_ModelName(), ecorePackage.getEString(), "modelName", null, 0, 1, ExternalReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

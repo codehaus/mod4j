@@ -30,6 +30,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DataPropertyImpl#getDataType <em>Data Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DataPropertyImpl#isIsEnumeration <em>Is Enumeration</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DataPropertyImpl#getFormElement <em>Form Element</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DataPropertyImpl#isEditable <em>Editable</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,6 +76,26 @@ public class DataPropertyImpl extends ModelElementImpl implements DataProperty {
      * @ordered
      */
     protected boolean isEnumeration = IS_ENUMERATION_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isEditable() <em>Editable</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isEditable()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean EDITABLE_EDEFAULT = true;
+
+    /**
+     * The cached value of the '{@link #isEditable() <em>Editable</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isEditable()
+     * @generated
+     * @ordered
+     */
+    protected boolean editable = EDITABLE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -183,6 +204,27 @@ public class DataPropertyImpl extends ModelElementImpl implements DataProperty {
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isEditable() {
+        return editable;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setEditable(boolean newEditable) {
+        boolean oldEditable = editable;
+        editable = newEditable;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.DATA_PROPERTY__EDITABLE, oldEditable, editable));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -236,6 +278,8 @@ public class DataPropertyImpl extends ModelElementImpl implements DataProperty {
                 return isIsEnumeration();
             case PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT:
                 return getFormElement();
+            case PresentationDslPackage.DATA_PROPERTY__EDITABLE:
+                return isEditable();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -256,6 +300,9 @@ public class DataPropertyImpl extends ModelElementImpl implements DataProperty {
                 return;
             case PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT:
                 setFormElement((FormElement)newValue);
+                return;
+            case PresentationDslPackage.DATA_PROPERTY__EDITABLE:
+                setEditable((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -278,6 +325,9 @@ public class DataPropertyImpl extends ModelElementImpl implements DataProperty {
             case PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT:
                 setFormElement((FormElement)null);
                 return;
+            case PresentationDslPackage.DATA_PROPERTY__EDITABLE:
+                setEditable(EDITABLE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -296,6 +346,8 @@ public class DataPropertyImpl extends ModelElementImpl implements DataProperty {
                 return isEnumeration != IS_ENUMERATION_EDEFAULT;
             case PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT:
                 return getFormElement() != null;
+            case PresentationDslPackage.DATA_PROPERTY__EDITABLE:
+                return editable != EDITABLE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -314,6 +366,8 @@ public class DataPropertyImpl extends ModelElementImpl implements DataProperty {
         result.append(dataType);
         result.append(", isEnumeration: ");
         result.append(isEnumeration);
+        result.append(", editable: ");
+        result.append(editable);
         result.append(')');
         return result.toString();
     }

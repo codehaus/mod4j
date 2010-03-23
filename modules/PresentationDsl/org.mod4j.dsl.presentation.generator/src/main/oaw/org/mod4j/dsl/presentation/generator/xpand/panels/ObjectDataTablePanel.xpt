@@ -312,9 +312,9 @@ public class «className» extends Panel {
     
 	«LET this.formElements.toList() AS list -»
 	«LET list.first() AS first -»
-	    «EXPAND firstCell(this.contextRef.name, "TODO No idea yet") FOR first -»
+	    «EXPAND firstCell(this.contextRef.name, "TODO No idea yet", className) FOR first -»
 		«FOREACH list AS fe -»
-		    «EXPAND cell(first, this.contextRef.name) FOR fe -»
+		    «EXPAND cell(first, this.contextRef.name, className) FOR fe -»
 		«ENDFOREACH»
 	«ENDLET»
 	«ENDLET»
@@ -367,7 +367,16 @@ public class «className» extends Panel {
                        new Model<String>("«pp.label»")) {
                        @Override
                        public void onClick(AjaxRequestTarget target) {
-		                    «process.javaClass()» process = new «process.javaClass()»(rowModel);
+	                        «this.contextRef.name» dto = rowModel.getObject();
+	                        IModel elementModel = null;
+	                        Object o = model.getObject();
+	                        if (o instanceof Mod4jDataProvider<?>) {
+	                            elementModel = new Model(dto);
+	                        } else if (o instanceof Set<?>) {
+	                            elementModel = new ListElementModel("id", dto.getId(),model);
+	                        }
+	
+	                        «process.javaClass()» process = new «process.javaClass()» (elementModel);
 		                    process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
 		                    Page next = process.nextPage(null);
 		                    if (next != null) {
@@ -440,15 +449,17 @@ public class «className» extends Panel {
 	}
 «ENDDEFINE»
 
-«DEFINE firstCell(String contextRefName, String responsePageName) FOR FormElement -»
-		columns.add(new PropertyColumn<«contextRefName»>(new Model<String>("«this.dataProperty.name.toFirstUpper()»"), "«this.dataProperty.name»", "«this.dataProperty.name»") {
+«DEFINE firstCell(String contextRefName, String responsePageName, String className) FOR FormElement -»
+		columns.add(new PropertyColumn<«contextRefName»>(
+            new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»",«className».this)),
+    		"«this.dataProperty.name»", "«this.dataProperty.name»") {
             @Override
             public void populateItem(Item<ICellPopulator<«contextRefName»>> item, String componentId,
                     final IModel<«contextRefName»> rowModel) {
 
                 LinkPanel<«contextRefName»> link = new LinkPanel<«contextRefName»>(componentId, rowModel,
-                        new PropertyModel<String>(rowModel, "«this.dataProperty.name»"), new Model<String>(
-                                "To «contextRefName»")) {
+                        new PropertyModel<String>(rowModel, "«this.dataProperty.name»"), 
+                        new Model<String>("To «contextRefName»")) {
                     @Override
                     public void onClick(AjaxRequestTarget target) {
                         //TODO setResponsePage(new «responsePageName»(rowModel));
@@ -459,10 +470,11 @@ public class «className» extends Panel {
         });
 «ENDDEFINE»
 
-«DEFINE cell(FormElement first, String contextRefName) FOR FormElement -»
+«DEFINE cell(FormElement first, String contextRefName, String className) FOR FormElement -»
 	«IF this != first -»
 		//item.add(new Label("«this.dataProperty.name»"));
-		columns.add(new PropertyColumn<«contextRefName»>(new Model<String>("«this.dataProperty.name.toFirstUpper()»"),
+		columns.add(new PropertyColumn<«contextRefName»>(
+             new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»",«className».this)),
             "«this.dataProperty.name»", "«this.dataProperty.name»"));
 	«ENDIF»
 «ENDDEFINE»

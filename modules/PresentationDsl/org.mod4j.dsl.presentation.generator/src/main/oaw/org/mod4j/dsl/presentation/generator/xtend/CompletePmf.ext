@@ -51,10 +51,25 @@ addFormElement(Symbol symbol, ContentForm form) :
 
 /** Add the referred dataproperty to a formelements.
  */	
+//DataProperty addDataProperty(FormElement element) :
+//    let dtoSymbol = lookupSymbol(element.form.contextRef.modelName, element.form.contextRef.name, "Dto") :
+//    let symbol = dtoSymbol.subSymbols.select(s|s.type.matches("DataProperty")).select(sym | sym.name.equalsIgnoreCase(element.references.name)).first() :
+//    element.setDataProperty(newDataProperty(symbol))
+//;
 DataProperty addDataProperty(FormElement element) :
     let dtoSymbol = lookupSymbol(element.form.contextRef.modelName, element.form.contextRef.name, "Dto") :
     let symbol = dtoSymbol.subSymbols.select(s|s.type.matches("DataProperty")).select(sym | sym.name.equalsIgnoreCase(element.references.name)).first() :
-    element.setDataProperty(newDataProperty(symbol))
+    print("FormElement 01: " + element.references.name + "  ==> dtoSymbol " + dtoSymbol + " symbol " + symbol )->
+    ( symbol == null ? element.addNavDataProperty() : element.setDataProperty(newDataProperty(symbol)))
+;
+DataProperty addNavDataProperty(FormElement element) :
+    let dtoSymbol= lookupSymbol(element.form.contextRef.modelName, element.form.contextRef.name, "Dto") :
+    let navDtoSymbol = dtoSymbol .subSymbols.select(s|s.type.matches("AssociationRoleReference")).select(sym | sym.name.equalsIgnoreCase(element.references.name)).first() :
+    let referredDtoSymbol = lookupSymbol(navDtoSymbol.getReferenceProperty("ReferencedDto").modelname, 
+                                    navDtoSymbol.getReferenceProperty("ReferencedDto").symbolname , "Dto" ) :
+    let propSymbol = referredDtoSymbol .subSymbols.select(s|s.type.matches("DataProperty")).select(sym | sym.name.equalsIgnoreCase(element.references.subname)).first() :
+    print("FormElement : " + element.references.name + "  ==> dtoSymbol " + dtoSymbol + "  navDtoSymbol " + navDtoSymbol + " propSymbol " + propSymbol)->
+    ( propSymbol == null ? true : element.setDataProperty(newNavDataProperty(propSymbol, element.references.name + "." + element.references.subname)))
 ;
 
 /** If the label is empty, fill it with the name of the property
@@ -82,6 +97,17 @@ PresentationDsl::DataProperty newDataProperty(Symbol symbol) :
     result.setName(symbol.name)->
     result.setDataType(dataType)->
     result.setIsEnumeration(ref != null)->
+    result;
+
+PresentationDsl::DataProperty newNavDataProperty(Symbol symbol, String name) :
+    let result = new DataProperty :
+    let dataType = symbol.getPropertyValue("DataType") :
+    let owner = (Symbol)(symbol.eContainer) :
+    let ref = lookupSymbol(owner.owner.modelname, dataType, "EnumerationDto") :
+    result.setName(name)->
+    result.setDataType(dataType)->
+    result.setIsEnumeration(ref != null)->
+    result.setEditable(false)->
     result;
 
 fillLabel(AbstractProcess p) :

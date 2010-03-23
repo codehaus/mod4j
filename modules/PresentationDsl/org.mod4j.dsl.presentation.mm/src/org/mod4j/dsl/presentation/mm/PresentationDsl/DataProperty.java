@@ -18,6 +18,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty#getDataType <em>Data Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty#isIsEnumeration <em>Is Enumeration</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty#getFormElement <em>Form Element</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty#isEditable <em>Editable</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,5 +106,32 @@ public interface DataProperty extends ModelElement {
      * @generated
      */
     void setFormElement(FormElement value);
+
+    /**
+     * Returns the value of the '<em><b>Editable</b></em>' attribute.
+     * The default value is <code>"true"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Editable</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Editable</em>' attribute.
+     * @see #setEditable(boolean)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getDataProperty_Editable()
+     * @model default="true"
+     * @generated
+     */
+    boolean isEditable();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty#isEditable <em>Editable</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Editable</em>' attribute.
+     * @see #isEditable()
+     * @generated
+     */
+    void setEditable(boolean value);
 
 } // DataProperty
