@@ -80,7 +80,7 @@
                  /**
               «IF this.creatable»
                   * Translates a «javaClassName(name)» dto object into a «javaClassName(base.name)» domain object.
-                  * A new domain object will be created passed to the {@link #fromDto(FullCustomerDto, Customer)}.
+                  * A new domain object will be created passed to the {@link #fromDto(«javaClassName(name)», «javaClassName(base.name)»)}.
               «ENDIF».
                   *
                   * @param source The {@link «javaClassName(name)»} object to translate, may not be {@code null}.
@@ -204,13 +204,13 @@
                          } else {                         // source.get«assRef.name.toFirstUpper()»() != null ) {
 	                             /* Add a new associated object */
        						if( source.get«assRef.name.toFirstUpper()»().getId() != null ){
-								// add an existing product
+								/* Add an existing object */
 								«assRefBusinessClass» original = «assRefBusinessClass.toFirstLower()»Dao.retrieve(source.get«assRef.name.toFirstUpper()»().getId());
 								«assRefBusinessClass» updated  = «assRefTranslator».fromDto(source.get«assRef.name.toFirstUpper()»(), original);
 								«assRefBusinessClass.toFirstLower()»Dao.update(updated);
 								target.set«assRef.name.toFirstUpper()»(updated);
 	                         } else  {
-	                             /* add a new Product */
+	                             /* Add a new object */
 	                             target.set«assRef.name.toFirstUpper()»(«assRefTranslator».fromDto(source.get«assRef.name.toFirstUpper()»()));
 	                         }
                          }

@@ -107,7 +107,7 @@
     
     /**
      * Should NOT be used by clients! Implements the correct setting of the link
-     * for + owner : Customer when a single element is added to it.
+     * for + owner when a single element is added to it.
      * 
      * @param element 
      */
@@ -116,7 +116,7 @@
     }
     
     /**
-     * Should NOT be used by clients! Implements the correct setting of the link for + owner : Customer 
+     * Should NOT be used by clients! Implements the correct setting of the link for + owner  
      *                  when a single element is removed to it.
      * 
      * @param element 
