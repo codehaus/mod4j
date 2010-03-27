@@ -2,6 +2,8 @@
 datacontract RecordShopDataContract  ; 
   
 from RecordShopDomainModel import Customer;
+from RecordShopDomainModel import Person;
+from RecordShopDomainModel import Relation;
 from RecordShopDomainModel import Artist;
 from RecordShopDomainModel import Order;
 from RecordShopDomainModel import Record;
@@ -139,4 +141,23 @@ from RecordShopDomainModel import RecordTypeEnum;
      */
 	enumeration sexeEnumDto represents  SexeEnum;
 	enumeration RecordTypeEnumDto represents RecordTypeEnum;
-	enumeration lowerRecordTypeEnumDto represents RecordTypeEnum;	
+	enumeration lowerRecordTypeEnumDto represents RecordTypeEnum;
+	
+	class RelationDto represents Relation [
+	    name;
+	    since;
+	    references [
+	        personTo as PersonDto;
+	        personFrom as PersonDto;
+	    ]
+	]
+	
+	class PersonDto represents Person [
+	    firstName;
+	    lastName;
+	    birthDate;
+	    references [
+	       relationsFrom as RelationDto;
+	       relationsTo as RelationDto;
+	    ]
+	]	

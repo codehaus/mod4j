@@ -25,6 +25,14 @@ class Person [
         unique fullName [firstName, lastName]
     ]  
 ]
+association Person personFrom one <-> many Relation relationsFrom;
+association Person personTo one <-> many Relation relationsTo;
+
+class Relation [
+    string name;
+    datetime since nullable;
+    datetime ended nullable;
+]
 
 class Address [
     string streetName;
