@@ -87,6 +87,7 @@
     <genClasses ecoreClass="DataContractDsl.ecore#//ExternalReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//ExternalReference/modelname"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference DataContractDsl.ecore#//ExternalReference/datacontractModel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//ExternalReference/keyword"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -86,6 +86,20 @@ public class CrossxEnvironment {
     }
 
     /**
+     * Remove'modelinfo' to the location named 'location' in the current environment
+     * 
+     * @param location
+     *            the name of the location to add to
+     * @param modelinfo
+     *            the ModelInfo to add
+     */
+    public static void removeModelInfo(String location, String resource) {
+        print("CrossxEnvironment::RemoveModelInfo [" + location + "] [" + resource + "]");
+        CrossxLocation atLocation = findLocation(location);
+        atLocation.removeModelInfo(resource);
+    }
+
+    /**
      * Find the CrossxLocation named 'location' or create a new one if it does not exist.
      * 
      * @param location

@@ -29,6 +29,7 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
  * <ul>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ExternalReferenceImpl#getModelname <em>Modelname</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ExternalReferenceImpl#getDatacontractModel <em>Datacontract Model</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ExternalReferenceImpl#getKeyword <em>Keyword</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,6 +57,26 @@ public class ExternalReferenceImpl extends ModelElementImpl implements ExternalR
 	protected String modelname = MODELNAME_EDEFAULT;
 
 	/**
+     * The default value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getKeyword()
+     * @generated
+     * @ordered
+     */
+    protected static final String KEYWORD_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getKeyword()
+     * @generated
+     * @ordered
+     */
+    protected String keyword = KEYWORD_EDEFAULT;
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -138,6 +159,27 @@ public class ExternalReferenceImpl extends ModelElementImpl implements ExternalR
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getKeyword() {
+        return keyword;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setKeyword(String newKeyword) {
+        String oldKeyword = keyword;
+        keyword = newKeyword;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.EXTERNAL_REFERENCE__KEYWORD, oldKeyword, keyword));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -192,6 +234,8 @@ public class ExternalReferenceImpl extends ModelElementImpl implements ExternalR
                 return getModelname();
             case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
                 return getDatacontractModel();
+            case DataContractDslPackage.EXTERNAL_REFERENCE__KEYWORD:
+                return getKeyword();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -209,6 +253,9 @@ public class ExternalReferenceImpl extends ModelElementImpl implements ExternalR
                 return;
             case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
                 setDatacontractModel((DataContractModel)newValue);
+                return;
+            case DataContractDslPackage.EXTERNAL_REFERENCE__KEYWORD:
+                setKeyword((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -228,6 +275,9 @@ public class ExternalReferenceImpl extends ModelElementImpl implements ExternalR
             case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
                 setDatacontractModel((DataContractModel)null);
                 return;
+            case DataContractDslPackage.EXTERNAL_REFERENCE__KEYWORD:
+                setKeyword(KEYWORD_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -244,6 +294,8 @@ public class ExternalReferenceImpl extends ModelElementImpl implements ExternalR
                 return MODELNAME_EDEFAULT == null ? modelname != null : !MODELNAME_EDEFAULT.equals(modelname);
             case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
                 return getDatacontractModel() != null;
+            case DataContractDslPackage.EXTERNAL_REFERENCE__KEYWORD:
+                return KEYWORD_EDEFAULT == null ? keyword != null : !KEYWORD_EDEFAULT.equals(keyword);
         }
         return super.eIsSet(featureID);
     }
@@ -260,6 +312,8 @@ public class ExternalReferenceImpl extends ModelElementImpl implements ExternalR
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (modelname: ");
         result.append(modelname);
+        result.append(", keyword: ");
+        result.append(keyword);
         result.append(')');
         return result.toString();
     }

@@ -26,7 +26,7 @@ Dto :
 
 ExternalReference :
     (description=STRING)?
-    "from" modelname=ID "import" name=ID ";";
+    "from" modelname=ID (keyword =("import" | "businessclass" | "enumeration") ) name=ID ";";
     
 //BusinessClassReference:
 //    (description=STRING)?

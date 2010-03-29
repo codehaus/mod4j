@@ -16,9 +16,14 @@ extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::eclipse::xtend::util::stdlib::elementprops;
 extension org::mod4j::dslcommon::xtend::generatorutil;
 
-context DataContractDsl::ExternalReference ERROR "BusinessClass or Enumeration [" + this.name + "] not defined in model [" + this.modelname + "]":
-       ( lookupSymbol(this.modelname, this.name, "BusinessClass") != null ) 
-       ||
+context DataContractDsl::ExternalReference 
+    if keyword.equalsIgnoreCase("businessclass")
+    ERROR "BusinessClass [" + this.name + "] not defined in model [" + this.modelname + "]":
+       ( lookupSymbol(this.modelname, this.name, "BusinessClass") != null ) ;
+
+context DataContractDsl::ExternalReference 
+    if keyword.equalsIgnoreCase("enumeration")
+    ERROR "Enumeration [" + this.name + "] not defined in model [" + this.modelname + "]":
        ( lookupSymbol(this.modelname, this.name, "Enumeration") != null) ;
 
 context DataContractDsl::BusinessClassPropertyReference ERROR "Property [" + this.name + "] must be defined in the corresponding business class" :

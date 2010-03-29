@@ -69,6 +69,13 @@ public class CrossxLocation {
         information.add(modelinfo);
     }
 
+    public void removeModelInfo(String resource) {
+        ModelInfo existing = findModelInfo(resource, information);
+        if (existing != null) {
+            information.remove(existing);
+        }
+    }
+
     /**
      * Find the existing ModelInfo that has the same resource as modelinfo
      * 
@@ -79,6 +86,14 @@ public class CrossxLocation {
     private ModelInfo findModelInfo(ModelInfo modelinfo, List<ModelInfo> modelInfoList) {
         for (ModelInfo existing : modelInfoList) {
             if (modelinfo.getResource().equals(existing.getResource())) {
+                return existing;
+            }
+        }
+        return null;
+    }
+    private ModelInfo findModelInfo(String resource, List<ModelInfo> modelInfoList) {
+        for (ModelInfo existing : modelInfoList) {
+            if (resource.equals(existing.getResource())) {
                 return existing;
             }
         }

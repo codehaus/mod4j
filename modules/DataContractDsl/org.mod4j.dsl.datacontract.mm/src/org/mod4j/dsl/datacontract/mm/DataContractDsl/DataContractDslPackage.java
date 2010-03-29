@@ -1583,13 +1583,22 @@ public interface DataContractDslPackage extends EPackage {
 	int EXTERNAL_REFERENCE__DATACONTRACT_MODEL = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+     * The feature id for the '<em><b>Keyword</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_REFERENCE__KEYWORD = MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>External Reference</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int EXTERNAL_REFERENCE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int EXTERNAL_REFERENCE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 
 	/**
@@ -2212,6 +2221,17 @@ public interface DataContractDslPackage extends EPackage {
 	EReference getExternalReference_DatacontractModel();
 
 	/**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference#getKeyword <em>Keyword</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Keyword</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference#getKeyword()
+     * @see #getExternalReference()
+     * @generated
+     */
+    EAttribute getExternalReference_Keyword();
+
+    /**
      * Returns the meta object for enum '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.Multiplicity <em>Multiplicity</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2736,6 +2756,14 @@ public interface DataContractDslPackage extends EPackage {
          * @generated
          */
 		EReference EXTERNAL_REFERENCE__DATACONTRACT_MODEL = eINSTANCE.getExternalReference_DatacontractModel();
+
+        /**
+         * The meta object literal for the '<em><b>Keyword</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EXTERNAL_REFERENCE__KEYWORD = eINSTANCE.getExternalReference_Keyword();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.Multiplicity <em>Multiplicity</em>}' enum.

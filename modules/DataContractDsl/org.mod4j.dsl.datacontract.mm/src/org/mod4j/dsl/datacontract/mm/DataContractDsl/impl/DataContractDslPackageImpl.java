@@ -763,6 +763,15 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getExternalReference_Keyword() {
+        return (EAttribute)externalReferenceEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getMultiplicity() {
         return multiplicityEEnum;
     }
@@ -870,6 +879,7 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         externalReferenceEClass = createEClass(EXTERNAL_REFERENCE);
         createEAttribute(externalReferenceEClass, EXTERNAL_REFERENCE__MODELNAME);
         createEReference(externalReferenceEClass, EXTERNAL_REFERENCE__DATACONTRACT_MODEL);
+        createEAttribute(externalReferenceEClass, EXTERNAL_REFERENCE__KEYWORD);
 
         // Create enums
         multiplicityEEnum = createEEnum(MULTIPLICITY);
@@ -998,6 +1008,7 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         initEClass(externalReferenceEClass, ExternalReference.class, "ExternalReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getExternalReference_Modelname(), ecorePackage.getEString(), "modelname", "", 0, 1, ExternalReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getExternalReference_DatacontractModel(), this.getDataContractModel(), this.getDataContractModel_ExternalReferences(), "datacontractModel", null, 0, 1, ExternalReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getExternalReference_Keyword(), ecorePackage.getEString(), "keyword", null, 0, 1, ExternalReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals
         initEEnum(multiplicityEEnum, Multiplicity.class, "Multiplicity");

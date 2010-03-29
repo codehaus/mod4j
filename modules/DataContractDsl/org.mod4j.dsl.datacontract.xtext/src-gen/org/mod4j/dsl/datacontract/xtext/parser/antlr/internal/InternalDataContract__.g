@@ -11,39 +11,40 @@ T11 : 'datacontract' ;
 T12 : ';' ;
 T13 : 'from' ;
 T14 : 'import' ;
-T15 : 'class' ;
-T16 : 'represents' ;
-T17 : '[' ;
-T18 : 'references' ;
-T19 : ']' ;
-T20 : 'enumeration' ;
-T21 : 'as' ;
-T22 : 'custom' ;
-T23 : 'boolean' ;
-T24 : 'string' ;
-T25 : 'datetime' ;
-T26 : 'integer' ;
-T27 : 'decimal' ;
+T15 : 'businessclass' ;
+T16 : 'enumeration' ;
+T17 : 'class' ;
+T18 : 'represents' ;
+T19 : '[' ;
+T20 : 'references' ;
+T21 : ']' ;
+T22 : 'as' ;
+T23 : 'custom' ;
+T24 : 'boolean' ;
+T25 : 'string' ;
+T26 : 'datetime' ;
+T27 : 'integer' ;
+T28 : 'decimal' ;
 
-// $ANTLR src "../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g" 1353
+// $ANTLR src "../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g" 1383
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g" 1355
+// $ANTLR src "../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g" 1385
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g" 1357
+// $ANTLR src "../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g" 1387
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g" 1359
+// $ANTLR src "../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g" 1389
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g" 1361
+// $ANTLR src "../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g" 1391
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g" 1363
+// $ANTLR src "../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g" 1393
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g" 1365
+// $ANTLR src "../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g" 1395
 RULE_ANY_OTHER : .;
 
 

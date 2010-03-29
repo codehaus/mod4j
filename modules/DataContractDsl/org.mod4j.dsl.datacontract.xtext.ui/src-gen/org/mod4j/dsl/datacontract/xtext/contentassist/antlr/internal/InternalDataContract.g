@@ -506,6 +506,40 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__ExternalReference__KeywordAlternatives_3_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getExternalReferenceAccess().getKeywordImportKeyword_3_0_0()); }
+
+	'import' 
+
+{ after(grammarAccess.getExternalReferenceAccess().getKeywordImportKeyword_3_0_0()); }
+)
+
+    |(
+{ before(grammarAccess.getExternalReferenceAccess().getKeywordBusinessclassKeyword_3_0_1()); }
+
+	'businessclass' 
+
+{ after(grammarAccess.getExternalReferenceAccess().getKeywordBusinessclassKeyword_3_0_1()); }
+)
+
+    |(
+{ before(grammarAccess.getExternalReferenceAccess().getKeywordEnumerationKeyword_3_0_2()); }
+
+	'enumeration' 
+
+{ after(grammarAccess.getExternalReferenceAccess().getKeywordEnumerationKeyword_3_0_2()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__BusinessClassDto__Alternatives_5
     @init {
 		int stackSize = keepStackSize();
@@ -763,11 +797,9 @@ rule__ExternalReference__Group__3
     }
 :
 (
-{ before(grammarAccess.getExternalReferenceAccess().getImportKeyword_3()); }
-
-	'import' 
-
-{ after(grammarAccess.getExternalReferenceAccess().getImportKeyword_3()); }
+{ before(grammarAccess.getExternalReferenceAccess().getKeywordAssignment_3()); }
+(rule__ExternalReference__KeywordAssignment_3)
+{ after(grammarAccess.getExternalReferenceAccess().getKeywordAssignment_3()); }
 )
 
 	rule__ExternalReference__Group__4
@@ -2005,6 +2037,22 @@ rule__ExternalReference__ModelnameAssignment_2
 (
 { before(grammarAccess.getExternalReferenceAccess().getModelnameIDTerminalRuleCall_2_0()); }
 	RULE_ID{ after(grammarAccess.getExternalReferenceAccess().getModelnameIDTerminalRuleCall_2_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ExternalReference__KeywordAssignment_3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getExternalReferenceAccess().getKeywordAlternatives_3_0()); }
+(rule__ExternalReference__KeywordAlternatives_3_0)
+{ after(grammarAccess.getExternalReferenceAccess().getKeywordAlternatives_3_0()); }
 )
 
 ;

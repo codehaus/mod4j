@@ -171,6 +171,10 @@
         <element xmi:type="ecore:EAttribute" href="DataContractDsl.ecore#//ExternalReference/modelname"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_8v5mI4lFEd2el5Lm26_Lug"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_Xkl6oDjJEd-aG5zAq4KrFw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="DataContractDsl.ecore#//ExternalReference/keyword"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Xkl6oTjJEd-aG5zAq4KrFw"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_Lo70tZOPEd2cmoRVWx_T4Q"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_Lo70tpOPEd2cmoRVWx_T4Q"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Lo70t5OPEd2cmoRVWx_T4Q"/>

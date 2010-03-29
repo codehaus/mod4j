@@ -44,6 +44,7 @@ public class DataContractParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getDataContractModelAccess().getAlternatives_5(), "rule__DataContractModel__Alternatives_5");
 					put(grammarAccess.getDtoAccess().getAlternatives(), "rule__Dto__Alternatives");
+					put(grammarAccess.getExternalReferenceAccess().getKeywordAlternatives_3_0(), "rule__ExternalReference__KeywordAlternatives_3_0");
 					put(grammarAccess.getBusinessClassDtoAccess().getAlternatives_5(), "rule__BusinessClassDto__Alternatives_5");
 					put(grammarAccess.getDtoPropertyAccess().getAlternatives_0(), "rule__DtoProperty__Alternatives_0");
 					put(grammarAccess.getDataContractModelAccess().getGroup(), "rule__DataContractModel__Group__0");
@@ -69,6 +70,7 @@ public class DataContractParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDataContractModelAccess().getEnumerationsAssignment_5_1(), "rule__DataContractModel__EnumerationsAssignment_5_1");
 					put(grammarAccess.getExternalReferenceAccess().getDescriptionAssignment_0(), "rule__ExternalReference__DescriptionAssignment_0");
 					put(grammarAccess.getExternalReferenceAccess().getModelnameAssignment_2(), "rule__ExternalReference__ModelnameAssignment_2");
+					put(grammarAccess.getExternalReferenceAccess().getKeywordAssignment_3(), "rule__ExternalReference__KeywordAssignment_3");
 					put(grammarAccess.getExternalReferenceAccess().getNameAssignment_4(), "rule__ExternalReference__NameAssignment_4");
 					put(grammarAccess.getBusinessClassDtoAccess().getDescriptionAssignment_0(), "rule__BusinessClassDto__DescriptionAssignment_0");
 					put(grammarAccess.getBusinessClassDtoAccess().getNameAssignment_2(), "rule__BusinessClassDto__NameAssignment_2");

@@ -51,7 +51,13 @@
         <tokens xsi:type="xtext:Assignment" feature="modelname" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="import"/>
+        <tokens xsi:type="xtext:Assignment" feature="keyword" operator="=">
+          <terminal xsi:type="xtext:Alternatives">
+            <groups xsi:type="xtext:Keyword" value="import"/>
+            <groups xsi:type="xtext:Keyword" value="businessclass"/>
+            <groups xsi:type="xtext:Keyword" value="enumeration"/>
+          </terminal>
+        </tokens>
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>

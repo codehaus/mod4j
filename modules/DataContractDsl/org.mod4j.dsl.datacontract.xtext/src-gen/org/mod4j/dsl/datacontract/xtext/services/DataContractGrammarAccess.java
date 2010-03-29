@@ -115,13 +115,18 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 		private final Keyword cFromKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cModelnameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cModelnameIDTerminalRuleCall_2_0 = (RuleCall)cModelnameAssignment_2.eContents().get(0);
-		private final Keyword cImportKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cKeywordAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Alternatives cKeywordAlternatives_3_0 = (Alternatives)cKeywordAssignment_3.eContents().get(0);
+		private final Keyword cKeywordImportKeyword_3_0_0 = (Keyword)cKeywordAlternatives_3_0.eContents().get(0);
+		private final Keyword cKeywordBusinessclassKeyword_3_0_1 = (Keyword)cKeywordAlternatives_3_0.eContents().get(1);
+		private final Keyword cKeywordEnumerationKeyword_3_0_2 = (Keyword)cKeywordAlternatives_3_0.eContents().get(2);
 		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cNameIDTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ExternalReference:
-		//  description=STRING? "from" modelname=ID "import" name=ID ";";  
+		//  description=STRING? "from" modelname=ID keyword=( "import" | "businessclass" |
+		//  "enumeration" ) name=ID ";";  
 		//
 		//
 		//
@@ -129,7 +134,7 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 		//
 		//    
 		//
-		//            
+		//                        
 		//
 		//    
 		//
@@ -148,7 +153,8 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 		////    "from" modelname=ID "enumeration" name=ID;
 		public ParserRule getRule() { return rule; }
 
-		//description=STRING? "from" modelname=ID "import" name=ID ";"
+		//description=STRING? "from" modelname=ID keyword=( "import" | "businessclass" |
+		//"enumeration" ) name=ID ";"
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -166,8 +172,20 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 		//ID
 		public RuleCall getModelnameIDTerminalRuleCall_2_0() { return cModelnameIDTerminalRuleCall_2_0; }
 
+		//keyword=( "import" | "businessclass" | "enumeration" )
+		public Assignment getKeywordAssignment_3() { return cKeywordAssignment_3; }
+
+		//"import"|"businessclass"|"enumeration"
+		public Alternatives getKeywordAlternatives_3_0() { return cKeywordAlternatives_3_0; }
+
 		//"import"
-		public Keyword getImportKeyword_3() { return cImportKeyword_3; }
+		public Keyword getKeywordImportKeyword_3_0_0() { return cKeywordImportKeyword_3_0_0; }
+
+		//"businessclass"
+		public Keyword getKeywordBusinessclassKeyword_3_0_1() { return cKeywordBusinessclassKeyword_3_0_1; }
+
+		//"enumeration"
+		public Keyword getKeywordEnumerationKeyword_3_0_2() { return cKeywordEnumerationKeyword_3_0_2; }
 
 		//name=ID
 		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
@@ -855,7 +873,8 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 	}
 
 	//ExternalReference:
-	//  description=STRING? "from" modelname=ID "import" name=ID ";";  
+	//  description=STRING? "from" modelname=ID keyword=( "import" | "businessclass" |
+	//  "enumeration" ) name=ID ";";  
 	//
 	//
 	//
@@ -863,7 +882,7 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 	//
 	//    
 	//
-	//            
+	//                        
 	//
 	//    
 	//

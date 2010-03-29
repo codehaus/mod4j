@@ -451,7 +451,8 @@ protected class Dto_CustomDtoParserRuleCall_1 extends RuleCallToken {
 /************ begin Rule ExternalReference ****************
  *
  * ExternalReference:
- *   description=STRING? "from" modelname=ID "import" name=ID ";";  
+ *   description=STRING? "from" modelname=ID keyword=( "import" | "businessclass" |
+ *   "enumeration" ) name=ID ";";  
  * 
  * 
  * 
@@ -459,7 +460,7 @@ protected class Dto_CustomDtoParserRuleCall_1 extends RuleCallToken {
  * 
  *     
  * 
- *             
+ *                         
  * 
  *     
  * 
@@ -479,7 +480,8 @@ protected class Dto_CustomDtoParserRuleCall_1 extends RuleCallToken {
  *
  **/
 
-// description=STRING? "from" modelname=ID "import" name=ID ";"
+// description=STRING? "from" modelname=ID keyword=( "import" | "businessclass" |
+// "enumeration" ) name=ID ";"
 protected class ExternalReference_Group extends GroupToken {
 	
 	public ExternalReference_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -584,15 +586,15 @@ protected class ExternalReference_ModelnameAssignment_2 extends AssignmentToken 
 
 }
 
-// "import"
-protected class ExternalReference_ImportKeyword_3 extends KeywordToken  {
+// keyword=( "import" | "businessclass" | "enumeration" )
+protected class ExternalReference_KeywordAssignment_3 extends AssignmentToken  {
 	
-	public ExternalReference_ImportKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ExternalReference_KeywordAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getExternalReferenceAccess().getImportKeyword_3();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getExternalReferenceAccess().getKeywordAssignment_3();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -602,6 +604,27 @@ protected class ExternalReference_ImportKeyword_3 extends KeywordToken  {
 		}	
 	}	
 		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("keyword",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("keyword");
+		if("import".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KW;
+			element = grammarAccess.getExternalReferenceAccess().getKeywordImportKeyword_3_0_0();
+			return obj;
+		}
+		if("businessclass".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KW;
+			element = grammarAccess.getExternalReferenceAccess().getKeywordBusinessclassKeyword_3_0_1();
+			return obj;
+		}
+		if("enumeration".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KW;
+			element = grammarAccess.getExternalReferenceAccess().getKeywordEnumerationKeyword_3_0_2();
+			return obj;
+		}
+		return null;
+	}
+
 }
 
 // name=ID
@@ -617,7 +640,7 @@ protected class ExternalReference_NameAssignment_4 extends AssignmentToken  {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ExternalReference_ImportKeyword_3(parent, this, 0, inst);
+			case 0: return new ExternalReference_KeywordAssignment_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	

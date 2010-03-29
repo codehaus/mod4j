@@ -37,11 +37,13 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.mod4j.common.generator.admin.Mod4jTracker;
 import org.mod4j.common.generator.admin.ProjectTrack;
+import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.crossx.broker.CrossxEnvironment;
 import org.mod4j.crossx.mm.crossx.CrossxPackage;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
@@ -89,6 +91,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     public static final String bundleName = "org.mod4j.eclipse";
 
     public static final String CROSSX_EXTENSION = ".crossx~";
+    public static final String CROSSX_EXTENSION_NODOT = "crossx~";
 
     public static final String MODEL_DIR = "src/model";
 
@@ -145,15 +148,16 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             switch (delta.getKind()) {
             case IResourceDelta.ADDED:
                 // handle added resource
-                files.add(resource);
+                filesAddedOrChanged.add(resource);
 //                generateCrossxSymbols(resource);
                 break;
             case IResourceDelta.REMOVED:
+                filesRemoved.add(resource);
                 // handle removed resource
                 break;
             case IResourceDelta.CHANGED:
                 // handle changed resource
-                files.add(resource);
+                filesAddedOrChanged.add(resource);
 //                generateCrossxSymbols(resource);
                 break;
             }
@@ -162,7 +166,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         }
     }
 
-    List<IResource> files = new ArrayList<IResource>();
+    List<IResource> filesAddedOrChanged = new ArrayList<IResource>();
+    List<IResource> filesRemoved        = new ArrayList<IResource>();
     /**
      * Visitor to generate code from the models
      * 
@@ -185,7 +190,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
      */
     class CrossxSymbolGeneratorVisitor implements IResourceVisitor {
         public boolean visit(IResource resource) {
-            files.add(resource);
+            filesAddedOrChanged.add(resource);
 //            generateCrossxSymbols(resource);
             // return true to continue visiting children.
             return true;
@@ -282,7 +287,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         System.err.println("Mod4jBuilder: full build");
         cleanOutputDirectories();
         try {
-            files.clear();
+            filesAddedOrChanged.clear();
             getProject().accept(new CrossxSymbolGeneratorVisitor());
             generateCrossxForAllFiles(monitor);
             getProject().accept(new Mod4jCodeGeneratorVisitor());
@@ -306,33 +311,36 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     protected void incrementalBuild(IResourceDelta delta, IProgressMonitor monitor) throws CoreException {
         // the visitor does the work.
         System.err.println("Mod4jBuilder: incremental build");
-        files.clear();
+        filesAddedOrChanged.clear();
+        filesRemoved.clear();
         delta.accept(new CrossxGenerateSymbolDeltaVisitor());
+        removeCrossx(monitor);
         generateCrossxForAllFiles(monitor);
         delta.accept(new Mod4jDeltaVisitor());
         FileTrackerView.myrefresh();
+        CrossxView.myrefresh();
     }
 
     private void generateCrossxForAllFiles(IProgressMonitor monitor) {
 //        for (IResource resource : files) {
 //            generateCrossxSymbols(resource);
 //        }
-        for (IResource resource : files) {
+        for (IResource resource : filesAddedOrChanged) {
             if( resource.getName().endsWith(".busmod")){
                 generateCrossxSymbols(resource);
             }
         }
-        for (IResource resource : files) {
+        for (IResource resource : filesAddedOrChanged) {
             if( resource.getName().endsWith(".dtcmod")){
                 generateCrossxSymbols(resource);
             }
         }
-        for (IResource resource : files) {
+        for (IResource resource : filesAddedOrChanged) {
             if( resource.getName().endsWith(".sermod")){
                 generateCrossxSymbols(resource);
             }
         }
-        for (IResource resource : files) {
+        for (IResource resource : filesAddedOrChanged) {
             if( resource.getName().endsWith(".pmfmod")){
                 generateCrossxSymbols(resource);
             }
@@ -588,9 +596,13 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         int depth = IResource.DEPTH_ONE;
         try {
            problems = resource.findMarkers(IMarker.PROBLEM, true, depth);
-           if( problems.length > 0) {
-               return true;
-           }
+           for (int i = 0; i < problems.length; i++) {
+               IMarker iMarker = problems[i];
+               int severity = iMarker.getAttribute(IMarker.SEVERITY, IMarker.SEVERITY_INFO);
+               if( severity == IMarker.SEVERITY_ERROR) {
+                   return true;
+               }
+          }
         } catch (CoreException e) {
             System.err.println("Mod4j Builder Exception in generateCode [" + e.getMessage() + "]");
             e.printStackTrace();
@@ -632,6 +644,30 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
                 wf.runWorkflow(wfName, resource.getProject().getName(), modelfile, crossxfile, false);
             } catch (Mod4jWorkflowException m4jwe) {
                 System.err.println("[" + m4jwe.getMessage() + "]");
+            }
+        }
+    }
+
+    /**
+     * Removes Crossx symbols for files in filesremoved
+     * @param monitor
+     */
+    private void removeCrossx(IProgressMonitor monitor) {
+        for (IResource resource : filesRemoved) {
+            DslExtension dsl = isDslFile(resource);
+            if (dsl != null) {
+                String modelfile = EclipseUtil.resource2UriString(resource);
+                System.out.println("MODEL : " + modelfile );
+                CrossxEnvironment.removeModelInfo(resource.getProject().getName(), modelfile);
+                
+                IPath path = resource.getFullPath();
+                IPath crossxPath = path.addFileExtension(CROSSX_EXTENSION_NODOT);
+                IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(crossxPath);
+                try {
+                    file.delete(true, monitor);
+                } catch (CoreException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

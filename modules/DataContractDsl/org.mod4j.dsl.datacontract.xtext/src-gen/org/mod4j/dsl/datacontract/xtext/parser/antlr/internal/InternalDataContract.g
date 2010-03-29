@@ -300,11 +300,41 @@ ruleExternalReference returns [EObject current=null]
 	        }
 	    }
 	
-)'import' 
+)(	
+	
+	    lv_keyword_3=('import' 
     {
-        createLeafNode(grammarAccess.getExternalReferenceAccess().getImportKeyword_3(), null); 
+        createLeafNode(grammarAccess.getExternalReferenceAccess().getKeywordImportKeyword_3_0_0(), "keyword"); 
     }
-(	
+
+
+    |'businessclass' 
+    {
+        createLeafNode(grammarAccess.getExternalReferenceAccess().getKeywordBusinessclassKeyword_3_0_1(), "keyword"); 
+    }
+
+
+    |'enumeration' 
+    {
+        createLeafNode(grammarAccess.getExternalReferenceAccess().getKeywordEnumerationKeyword_3_0_2(), "keyword"); 
+    }
+
+)
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getExternalReferenceRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "keyword", /* lv_keyword_3 */ input.LT(-1), null, lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+	
+)(	
 	
 	    lv_name_4=	RULE_ID
 	{
