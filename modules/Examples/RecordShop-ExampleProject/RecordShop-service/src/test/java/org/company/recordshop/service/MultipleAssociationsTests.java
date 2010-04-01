@@ -8,46 +8,53 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author Johan Vogelzang
- *
+ * 
  */
 public class MultipleAssociationsTests extends AbstractServiceTestCase {
-    
-    @Autowired
-    private CustomerServiceModelLocalService customerServiceModelService;
-   
-    @Test public void testDummy (){}
-    
-    //@Test
-    public void testCreateCrossRelations() {
 
-        PersonDto manDto = new PersonDto();
-        manDto.setLastName("Johnson");
-        manDto.setFirstName("John");
-        manDto.setBirthDate(new DateTime());
-        manDto = customerServiceModelService.createPerson(manDto);
+	@Autowired
+	private CustomerServiceModelLocalService customerServiceModelService;
 
-        PersonDto womanDto = new PersonDto();
-        womanDto.setLastName("Butterfly");
-        womanDto.setFirstName("Susan");
-        womanDto.setBirthDate(new DateTime());
-        womanDto = customerServiceModelService.createPerson(womanDto);
+	@Test
+	public void testDummy() {
+	}
 
-        /* Husband: Relation from man to woman */
-        RelationDto husbandRelationDto = new RelationDto();
-        husbandRelationDto.setName("Husband");
-        husbandRelationDto.setPersonFrom(manDto);
-        husbandRelationDto.setPersonTo(womanDto);
-        husbandRelationDto = customerServiceModelService.createRelation(husbandRelationDto);
-        
-        /* The create service does a lot of updating, do we always need to get the latest versions? */ 
-        //manDto = husbandRelationDto.getPersonFrom();
-        //womanDto = husbandRelationDto.getPersonTo();
-        
-        /* Wife: Relation form woman to man */
-        RelationDto wifeRelationDto = new RelationDto();
-        wifeRelationDto.setName("Wife");
-        wifeRelationDto.setPersonFrom(womanDto);
-        wifeRelationDto.setPersonTo(manDto);
-        wifeRelationDto = customerServiceModelService.createRelation(wifeRelationDto);
-    }
+	@Test
+	public void testCreateCrossRelations() {
+
+		PersonDto manDto = new PersonDto();
+		manDto.setLastName("Johnson");
+		manDto.setFirstName("John");
+		manDto.setBirthDate(new DateTime());
+		manDto = customerServiceModelService.createPerson(manDto);
+
+		PersonDto womanDto = new PersonDto();
+		womanDto.setLastName("Butterfly");
+		womanDto.setFirstName("Susan");
+		womanDto.setBirthDate(new DateTime());
+		womanDto = customerServiceModelService.createPerson(womanDto);
+
+		/* Husband: Relation from man to woman */
+		RelationDto husbandRelationDto = new RelationDto();
+		husbandRelationDto.setName("Husband");
+		husbandRelationDto.setPersonFrom(manDto);
+		husbandRelationDto.setPersonTo(womanDto);
+		husbandRelationDto = customerServiceModelService
+				.createRelation(husbandRelationDto);
+
+		/*
+		 * The create service does a lot of updating, do we always need to get
+		 * the latest versions?
+		 */
+		// manDto = husbandRelationDto.getPersonFrom();
+		// womanDto = husbandRelationDto.getPersonTo();
+
+		/* Wife: Relation form woman to man */
+		RelationDto wifeRelationDto = new RelationDto();
+		wifeRelationDto.setName("Wife");
+		wifeRelationDto.setPersonFrom(womanDto);
+		wifeRelationDto.setPersonTo(manDto);
+		wifeRelationDto = customerServiceModelService
+				.createRelation(wifeRelationDto);
+	}
 }
