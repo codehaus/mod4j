@@ -13,30 +13,9 @@
 «EXTENSION Association»
 
 «DEFINE many2ManyAccessorsTo FOR Association»
-    /**
-     * @param id
-     *        id of the collection element to return
-     *
-     * @return «targetRoleName» («getCollectionInterface()»<«target.name»>)
-     *         with the given id.
-     */
-    public «target.name» getFrom«targetRoleName.toFirstUpper()» (Long id) {
-        if (id == null) {
-            return null;
-        }
-        for («target.name» «target.name.toFirstLower()»: this.«targetRoleName») {
-            if (id.equals(«target.name.toFirstLower()».getId())) {
-                return «target.name.toFirstLower()»;
-            }
-        }
-        return null;
-    }
-    /**
-     * @return «targetRoleName» («getCollectionInterface()»<«target.name»>).
-     */
-    public «getCollectionInterface()»<«target.name»> get«targetRoleName.toFirstUpper()» () {
-        return Collections.unmodifiable«getCollectionInterface()»(this.«targetRoleName»);
-    }
+    «EXPAND get(target.name, targetRoleName) FOR this»
+
+    «EXPAND getFrom(target.name, targetRoleName) FOR this»
 
     «EXPAND addToTargetCollection FOR this»
     «EXPAND removeFromTargetCollection FOR this»    
@@ -49,12 +28,9 @@
 «ENDDEFINE»
 
 «DEFINE many2ManyAccessorsFrom FOR Association»
-    /**
-     * @return «sourceRoleName» (Set<«source.name»>).
-     */
-    public Set<«source.name»> get«sourceRoleName.toFirstUpper()» () {
-        return Collections.unmodifiableSet(this.«sourceRoleName»);
-    }
+    «EXPAND get(source.name, sourceRoleName) FOR this»
+
+    «EXPAND getFrom(source.name, sourceRoleName) FOR this»
 
     /**
      * Implements adding single element to a collection.
@@ -84,6 +60,41 @@
             return true;
         }
         return false;
+    }
+«ENDDEFINE»
+
+«REM»  Defines the get() operation for both ends of the association
+«ENDREM»
+«DEFINE get(String type, String roleName)  FOR Association»
+   /**
+     * @return «roleName» («getCollectionInterface()»<«type»>).
+     */
+    public «getCollectionInterface()»<«type»> get«roleName.toFirstUpper()» () {
+        return Collections.unmodifiable«getCollectionInterface()»(this.«roleName»);
+    }
+«ENDDEFINE»
+
+«REM»  Defines the getForm***(Long id) operation for bioth ends of the association
+«ENDREM»
+«DEFINE getFrom(String type, String roleName) FOR Association»
+    /**
+     * @param id
+     *        id of the collection element to return
+     *
+     * @return «roleName» (Set<«type»>)
+     * @return «roleName» («getCollectionInterface()»<«type»>)
+     *         with the given id.
+     */
+    public «type» getFrom«roleName.toFirstUpper()» (Long id) {
+        if (id == null) {
+            return null;
+        }
+        for («type» «type.toFirstLower()»: this.«roleName») {
+            if (id.equals(«type.toFirstLower()».getId())) {
+                return «type.toFirstLower()»;
+            }
+        }
+        return null;
     }
 «ENDDEFINE»
 
