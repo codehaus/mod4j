@@ -30,6 +30,7 @@
          import java.util.Map;
          import java.util.HashSet;
          import java.util.Set;
+         import org.springframework.util.Assert;
          import org.mod4j.runtime.exception.ConcurrentUpdateException;
          import «getDomainRootPackage()».«javaClassName(base.name)»;
          import «getDomainRootPackage()».«javaClassName(base.name)»Example;
@@ -85,22 +86,17 @@
                   *
                   * @param source The {@link «javaClassName(name)»} object to translate, may not be {@code null}.
                   * @return {@link «javaClassName(base.name)»}, the resulting domain object.
-                  * @throws IllegalArgumentException
                   */
-                 public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source) throws IllegalArgumentException {
+                 public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source) {
                   «REM»A DTO is NOT creatable if it does not contain all mandatory properties of the domain object. See CompleteDtc.ext. «ENDREM»
                   «IF this.creatable -»
                     if (getTranslated().containsKey((source))) {
                         return («javaClassName(base.name)») getTranslated().get(source);
                     }
 
-                    if (source == null ) {
-                        throw new IllegalArgumentException("Argument [source] may not be null");
-                    }
+                    Assert.notNull(source, "argument [source] may not be null");
+                    Assert.isNull(source.getId(), "Can not translate a dto with existing id to a new domain object. Dto: " + source);
               
-                    if (source.getId() != null) {
-                        throw new IllegalArgumentException("Can not translate a dto with existing id to a new domain object. Dto: " + source.toString());
-                    }
                     «javaClassName(base.name) -» target = new «javaClassName(base.name) -»(«EXPAND Constructors::addConstructorArgumentsList -»);
                                     
                     return fromDto(source, target);
@@ -116,21 +112,15 @@
               * @param source The {@link «javaClassName(name)»} object to translate, may not be {@code null}.
               * @param target The {@link «javaClassName(base.name)»} object translated from source, may not be {@code null}.
               * @return {@link «javaClassName(base.name)»}, the resulting domain object.
-              * @throws IllegalArgumentException
               */
-              public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, final «javaClassName(base.name)» target) throws IllegalArgumentException {
+              public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, final «javaClassName(base.name)» target) {
 
                   if (getTranslated().containsKey((source))) {
                       return («javaClassName(base.name)») getTranslated().get(source);
                   }
                  
-                  if (source == null ) {
-                      throw new IllegalArgumentException("Argument source is null! Translation of a dto can not be based on a null dto.");
-                  }
-
-                  if (target == null) {
-                      throw new IllegalArgumentException("Argument target is null! Translation of a dto can not be based on a null domain object.");
-                  }
+                  Assert.notNull(source, "argument [source] may not be null");
+                  Assert.notNull(target, "argument [target] may not be null");
 
                   final boolean equals = (source.getId() == null) ? target.getId() == null
                                                                   : source.getId().equals(target.getId());
@@ -238,11 +228,7 @@
                   if (getTranslated().containsKey((source))) {
                       return («javaClassName(name)») getTranslated().get(source);
                   }
-                 
-                  if (source == null ) {
-                      throw new IllegalArgumentException("Argument source is null! Translation of a domain object can not be based on a null object.");
-                  }
-                  
+                  Assert.notNull(source, "argument [source] may not be null");
                   «javaClassName(name)» result = new «javaClassName(name)»(source.getId(), source.getVersion());
                   «FOREACH properties.typeSelect(DtoDataProperty).select(e|e.writable) AS dataProperty -»
                       «IF dataProperty.metaType == DtoEnumerationProperty -»
@@ -322,12 +308,9 @@
   *
   * @return {@link «ExampleClass»}, the resulting businessclass object.
   */
-  public «ExampleClass» exampleFromDto(final «javaClassName(name)» source) throws IllegalArgumentException {
-        «ExampleClass» result = new «ExampleClass»();
-     
-      if (source == null ) {
-          throw new IllegalArgumentException("Argument source is null! Translation of a dto can not be based on a null dto.");
-      }
+  public «ExampleClass» exampleFromDto(final «javaClassName(name)» source) {     
+      Assert.notNull(source, "argument [source] may not be null");
+      «ExampleClass» result = new «ExampleClass»();
 
       «FOREACH properties.typeSelect(DtoDataProperty).select(e|e.writable) AS dataProperty -»
               «IF dataProperty.metaType == DtoEnumerationProperty -»

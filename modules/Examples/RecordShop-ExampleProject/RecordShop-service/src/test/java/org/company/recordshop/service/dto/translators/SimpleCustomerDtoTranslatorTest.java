@@ -1,7 +1,7 @@
 package org.company.recordshop.service.dto.translators;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
 import java.lang.reflect.Field;
@@ -67,28 +67,24 @@ public class SimpleCustomerDtoTranslatorTest extends AbstractServiceTestCase {
 			simpleCustomerDtoTranslator.fromDto(null, null);
 			fail("Expected IllegalArgumentException");
 		} catch (IllegalArgumentException te) {
-			assertEquals(
-					"Argument source is null! Translation of a dto can not be based on a null dto.",
-					te.getMessage());
+			assertEquals("argument [source] may not be null", te.getMessage());
 		}
 	}
 
 	@Test
 	public void testToDtoBiderectionalSucceed() {
 
-		Customer cust = new Customer("Herman", "Bread", new DateTime(2009, 11,
-				6, 0, 0, 0, 0), 4321);
+		Customer cust = new Customer("Herman", "Bread", new DateTime(
+				"2009-11-06"), 4321);
 		Order order = new Order("1111");
 		cust.addToOrders(order);
 
 		SimpleCustomerDto customerDto = simpleCustomerDtoTranslator.toDto(cust);
 
-		assertTrue("CustomerNr must be eqaul to 4321", customerDto
-				.getCustomerNr() == 4321);
-		assertTrue("", customerDto.getOrders().isEmpty() == false);
+		assertEquals(Integer.valueOf(4321), customerDto.getCustomerNr());
+		assertFalse(customerDto.getOrders().isEmpty());
 		for (OrderNumberAndDateDto orderDto : customerDto.getOrders()) {
-			assertTrue("OrderNr must be equal to '1111'", orderDto
-					.getOrderNumber().equals("1111"));
+			assertEquals("1111", orderDto.getOrderNumber());
 		}
 	}
 

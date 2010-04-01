@@ -27,6 +27,7 @@
 
     import java.util.List;
     import java.util.ArrayList;
+    import org.springframework.util.Assert;
 
     import «javaDomainServiceInterfacePath(name)»;
 
@@ -133,10 +134,8 @@
     /**
      * {@inheritDoc}
      */
-    public void «this.name»(«JavaType(this.dto)» object) {
-        if (object == null) {
-            throw new IllegalArgumentException("argument [object] must not be null");
-        }
+    public void «this.name»(«JavaType(this.dto)» object) {  
+        Assert.notNull(object, "argument [object] may not be null");
         «javaDomainClass(dto.businessClass())» existing =
             «javaDomainServiceInterface(model.name).toFirstLower()».read«businessClass(this.dto)»(object.getId());
         «javaDomainServiceInterface(model.name).toFirstLower()».delete«businessClass(this.dto)»(existing);
@@ -274,12 +273,8 @@
          * {@inheritDoc}
          */
         public void «method.name»(«method.main.name» whole, «method.part.name» part) {
-            if (part == null) { 
-                throw new IllegalArgumentException("argument [part] should not be null");
-            }
-            if (whole == null) { 
-                throw new IllegalArgumentException("argument [whole] should not be null");
-            }
+            Assert.notNull(whole, "argument [whole] may not be null");
+            Assert.notNull(part, "argument [part] may not be null");
             «method.part.businessClass()» partObject = «javaDomainServiceInterface(this.name).toFirstLower()».read«method.part.businessClass()»(part.getId());
             «method.main.businessClass()» wholeObject = «javaDomainServiceInterface(this.name).toFirstLower()».read«method.main.businessClass()»(whole.getId());
             «javaDomainServiceInterface(this.name).toFirstLower()».removeFrom«method.rolename.toFirstUpper()»(wholeObject, partObject);
@@ -295,12 +290,8 @@
      * {@inheritDoc}
      */
     public void «this.name»(«this.main.name» whole, «this.part.name» part) {
-        if (whole == null) {
-            throw new IllegalArgumentException("parameter [whole] should not be null");
-        }
-        if (part == null) {
-            throw new IllegalArgumentException("parameter [part] should not be null");
-        }
+        Assert.notNull(whole, "argument [whole] may not be null");
+        Assert.notNull(part, "argument [part] may not be null");
         «this.part.businessClass()» partBusinessObject = «javaDomainServiceInterface(this.model.name).toFirstLower()».read«this.part.businessClass()»(part.getId());
         «this.main.businessClass()» mainBusinessObject = «javaDomainServiceInterface(this.model.name).toFirstLower()».read«this.main.businessClass()»(whole.getId());
         «javaDomainServiceInterface(this.model.name).toFirstLower()».addTo«this.rolename.toFirstUpper()»(mainBusinessObject, partBusinessObject);
@@ -313,9 +304,7 @@
      * {@inheritDoc}
      */
     public void «this.name»(«this.main.name» whole, «this.part.name» part) {
-        if (whole == null) { 
-            throw new IllegalArgumentException("argument [whole] should not be null");
-        }
+        Assert.notNull(whole, "argument [whole] may not be null");
         «this.part.businessClass()» partBusinessObject = null;
         if (part != null) {
             partBusinessObject = «javaDomainServiceInterface(this.model.name).toFirstLower()».read«this.part.businessClass()»(part.getId());
@@ -332,9 +321,7 @@
      * {@inheritDoc}
      */
     public «JavaType(this.part)» «this.name»(«this.main.name» source){
-        if (source == null) { 
-            throw new IllegalArgumentException("argument [source] should not be null");
-        }
+        Assert.notNull(source, "argument [source] may not be null");
         «this.part.businessClass()» target = null;
         «this.main.businessClass()» sourceBusinessObject = «domainService».read«this.main.businessClass()»(source.getId());
         target = «domainService».get«this.part.businessClass()»(sourceBusinessObject);
@@ -349,9 +336,7 @@
      * {@inheritDoc}
      */
     public List<«JavaType(this.part)»> «this.name»(«this.main.name» source) {
-        if (source == null) { 
-            throw new IllegalArgumentException("argument [source] should not be null");
-        }
+        Assert.notNull(source, "argument [source] may not be null");
         «this.main.businessClass()» businessSource = «domainService».read«this.main.businessClass()»(source.getId());
         List<«this.part.businessClass()»> parts = «domainService».get«this.rolename.toFirstUpper()»(businessSource);
         List<«this.part.name»> result = new ArrayList<«this.part.name»>();
