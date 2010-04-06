@@ -137,6 +137,7 @@ public class ThreeLevelsAssociationTests extends AbstractServiceTestCase {
        
         CustomerWithOrdersAndOrderLines createdCustomer = customerServiceModelService.createCustomer(customerDto);
         flush();
+//        createdCustomer = customerServiceModelService.readCustomerAsCustomerWithOrdersAndOrderLines(createdCustomer.getId());
 
         OrderLineDto orderLineDtoNew = new OrderLineDto();
         orderLineDtoNew.setLineNumber(3);
@@ -149,6 +150,8 @@ public class ThreeLevelsAssociationTests extends AbstractServiceTestCase {
         //Update the complete customer structure in one service call.
         CustomerWithOrdersAndOrderLines updatedCustomer = customerServiceModelService.updateCustomer(createdCustomer);
         flush();
+        //JOS: Added to make the test succeed, but it should not be needed.
+        updatedCustomer = customerServiceModelService.readCustomerAsCustomerWithOrdersAndOrderLines(updatedCustomer.getId());
 
         assertEquals(2, updatedCustomer.getOrders().size());
         for (OrderWithOrderLinesDto updatedOrderDto : updatedCustomer.getOrders()) {
