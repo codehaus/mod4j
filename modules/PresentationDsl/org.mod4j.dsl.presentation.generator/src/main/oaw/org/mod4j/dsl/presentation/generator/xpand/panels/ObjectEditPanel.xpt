@@ -50,6 +50,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxCheckBox;
+import org.apache.wicket.ajax.markup.html.form.AjaxFallbackButton;
 import org.apache.wicket.behavior.SimpleAttributeModifier;
 import org.apache.wicket.feedback.ComponentFeedbackMessageFilter;
 import org.apache.wicket.markup.html.basic.Label;
@@ -61,6 +62,7 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
@@ -71,6 +73,12 @@ import org.apache.wicket.validation.validator.PatternValidator;
 import org.apache.wicket.validation.validator.RangeValidator;
 import org.apache.wicket.markup.html.form.CheckBox;
 import org.apache.wicket.datetime.StyleDateConverter;
+
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.mod4j.runtime.exception.BusinessRuleException;
+
 
 import «javaDtoClassPath(this.contextRef.name)»;
 
@@ -87,6 +95,8 @@ import «javaDtoClassPath(this.contextRef.name)»;
 @SuppressWarnings("serial")
 public class «className» extends Panel {
 	private Log log = LogFactory.getLog(getClass());
+
+«EXPAND addWicketVariable(className) FOREACH this.formElements»
 
 	protected «getWicketMasterPageClass()» page() {
 	    return («getWicketMasterPageClass()»)findPage();
@@ -114,14 +124,18 @@ public class «className» extends Panel {
  
  «IF (saveProcesses != null) && (!saveProcesses.isEmpty)»
      «FOREACH saveProcesses.referredProcess AS p»
-        Button «p.name»save = new Button("«p.name»save", 
-                new Model<String>( getLocalizer().getString("cmd.«p.name»", «className».this) ) ){
+        AjaxFallbackButton «p.name»save = new AjaxFallbackButton("«p.name»save", 
+                new Model<String>( getLocalizer().getString("cmd.«p.name»", «className».this) ), form ){
             @Override
-            public void onSubmit() {
-                «p.javaClass()» process = new «p.javaClass()»(model);
-                «getWicketMasterPageClass()» currentPage = («getWicketMasterPageClass()»)this.getPage();
-                process.setOwningPage(currentPage);
-                process.run(model.getObject());
+            public void onSubmit(AjaxRequestTarget target, Form theForm) {
+                try {
+	                «p.javaClass()» process = new «p.javaClass()»(model);
+	                «getWicketMasterPageClass()» currentPage = («getWicketMasterPageClass()»)this.getPage();
+	                process.setOwningPage(currentPage);
+	                process.run(model.getObject());
+	            } catch( BusinessRuleException e){
+	                handleBusinessRuleException(target, theForm, e);
+	            }
             }
         };
         form.add(«p.name»save);
@@ -240,11 +254,53 @@ public class «className» extends Panel {
         add(formMsgs);
         add(form);
     }
+    
+    /**
+     * @param target
+     * @param thForm
+     * @param e
+     */
+    private void handleBusinessRuleException(AjaxRequestTarget target, Form theForm, BusinessRuleException e) {
+        Errors exceptionErrors = (Errors) e.getCause();
+        for (Object tmp : exceptionErrors.getAllErrors()) {
+            if( tmp instanceof FieldError){
+                FieldError error = (FieldError)tmp;
+                String field = error.getField();
+                String message = error.getDefaultMessage();
+                Boolean visibleFieldError = false;
+    «FOREACH this.formElements AS elem»
+    «LET elem.dataProperty.name.toFirstLower().replaceAll("\\.", "_") AS varName»
+                if( field.equals("«elem.dataProperty.name»")){
+                    «varName»Msgs.error(message);
+                    target.addComponent(«varName»Msgs);
+                    visibleFieldError = true;
+                }
+    «ENDLET»
+    «ENDFOREACH»
+                if( ! visibleFieldError ){
+                    theForm.error(message);
+                    target.addComponent(theForm);
+                }
+            } else if( tmp instanceof ObjectError){
+                ObjectError objectError = (ObjectError)tmp;
+                String objectMessage = objectError.getDefaultMessage();
+                theForm.error(objectMessage);
+                target.addComponent(theForm);
+            }
+        }
+    }
+    
 }
 «ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDLET»
+«ENDLET»
+«ENDDEFINE»
+
+«DEFINE addWicketVariable(String className) FOR FormElement»
+«LET this.dataProperty.name.toFirstLower().replaceAll("\\.", "_") AS varName»
+    FeedbackPanel «varName»Msgs = null;
 «ENDLET»
 «ENDDEFINE»
 
@@ -281,7 +337,7 @@ public class «className» extends Panel {
         «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", this)));
     «ENDIF»
 //  «varName».setRequired(true);
-    FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«this.dataProperty.name»Msgs", new ComponentFeedbackMessageFilter(«varName»));
+    «varName»Msgs = new FeedbackPanel("«this.dataProperty.name»Msgs"); //, new ComponentFeedbackMessageFilter(«varName»));
     «varName»Msgs.setOutputMarkupId(true);
     «varName».add(new AjaxUpdatingBehaviour(«varName»Msgs));
     «IF ! this.dataProperty.editable»
