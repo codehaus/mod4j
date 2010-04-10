@@ -1,0 +1,32 @@
+"prachtig voorbeeld van een presentatiemodel"
+presentation RecordshopPresentation;
+
+from RecordShopDataContract import FullCustomerDto ;
+from RecordShopDataContract import SimpleCustomerDto;
+from RecordShopDataContract import ArtistDto;
+// TODO from CustomerModel import  CustomerDetails ;
+from CustomerServiceModel import CustomerServiceModel;  
+ 
+"Customer ContentForm"  
+ContentForm CustomerDetail context  FullCustomerDto [
+	element lastName label name;  
+	element emailAddress label email;
+	element age	label age;
+]
+
+"Customer ContentReadonlyForm" 
+ContentForm CustomerReadOnlyDetail context FullCustomerDto [
+	readonly true; 
+	element lastName label lastName ;
+	element sexe label sexe readonly true;
+]
+
+CollectionDialogue CustomerCollection context FullCustomerDto [
+	  dialogues [ 
+	  	to CustomerReadOnlyDetail;
+	  ]
+]
+
+//MasterDetail CustomerMD context FullCustomerDto 
+//	master CustomerCollection ;
+//	detail CustomerDetail ;

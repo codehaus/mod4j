@@ -1,0 +1,23 @@
+"prachtig voorbeeld van een artiesten presentatiemodel"
+presentation RecordshopArtistPresentation;
+
+from RecordShopDataContract import SimpleCustomerDto;
+from RecordShopDataContract import ArtistDto;
+from RecordShopDataContract import FullCustomerDto ;
+from CustomerServiceModel import CustomerServiceModel;  
+ 
+/* Disabled. Enable when fixed.
+
+"Simple Artist Form"
+ContentForm ArtistForm context ArtistDto [
+	element age
+		label artistAge;
+]
+
+CompoundDialogue ArtistCompound context ArtistDto 
+	readonly true;
+	dialogues [
+		ArtistForm;
+	]
+	
+*/
