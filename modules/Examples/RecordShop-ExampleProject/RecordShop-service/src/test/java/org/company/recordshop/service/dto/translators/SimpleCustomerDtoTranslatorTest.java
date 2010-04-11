@@ -64,7 +64,7 @@ public class SimpleCustomerDtoTranslatorTest extends AbstractServiceTestCase {
 	@Test
 	public void testCreateNewFromNullDtol() {
 		try {
-			simpleCustomerDtoTranslator.fromDto(null, null);
+			simpleCustomerDtoTranslator.fromDto(null, (Customer)null);
 			fail("Expected IllegalArgumentException");
 		} catch (IllegalArgumentException te) {
 			assertEquals("argument [source] may not be null", te.getMessage());

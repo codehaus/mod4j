@@ -58,19 +58,6 @@
             «EXPAND FieldGetterSetter::field(businessClassname + "Dao")
                                   FOR (businessClassname.toFirstLower() + "Dao") »
         «ENDFOREACH»
-        
-            /**
-                * Thread-local register for translated «javaClassName(base.name)» objects
-             */
-             private static ThreadLocal<Map<Object, Object>> translatedHolder = new ThreadLocal<Map<Object, Object>>() {
-             public Map<Object, Object> initialValue() {
-                 return new HashMap<Object, Object>();
-             }
-         };
-
-         private Map<Object, Object> getTranslated() {
-             return translatedHolder.get();
-         }
 
               «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
                   «IF dataProperty.metaType == DtoEnumerationProperty -»
@@ -88,18 +75,16 @@
                   * @return {@link «javaClassName(base.name)»}, the resulting domain object.
                   */
                  public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source) {
+                     return fromDto(source, new HashMap<Object, Object>());
+                 }
+                 
+                 «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, final Map<Object, Object> translated) {
                   «REM»A DTO is NOT creatable if it does not contain all mandatory properties of the domain object. See CompleteDtc.ext. «ENDREM»
                   «IF this.creatable -»
-                    if (getTranslated().containsKey((source))) {
-                        return («javaClassName(base.name)») getTranslated().get(source);
-                    }
-
-                    Assert.notNull(source, "argument [source] may not be null");
-                    Assert.isNull(source.getId(), "Can not translate a dto with existing id to a new domain object. Dto: " + source);
-              
-                    «javaClassName(base.name) -» target = new «javaClassName(base.name) -»(«EXPAND Constructors::addConstructorArgumentsList -»);
-                                    
-                    return fromDto(source, target);
+                      Assert.notNull(source, "argument [source] may not be null");
+                      Assert.isNull(source.getId(), "Can not translate a dto with existing id to a new domain object. Dto: " + source);
+                      «javaClassName(base.name) -» target = new «javaClassName(base.name) -»(«EXPAND Constructors::addConstructorArgumentsList -»);
+                      return fromDto(source, target, translated);
                   «ELSE -»
                       throw new IllegalArgumentException("This source dto does not contain all non-nullable properties of the domain object to be created: " + source.toString());
                   «ENDIF»
@@ -114,9 +99,13 @@
               * @return {@link «javaClassName(base.name)»}, the resulting domain object.
               */
               public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, final «javaClassName(base.name)» target) {
+                  return fromDto(source, target, new HashMap<Object, Object>());
+              }
+              
+              «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, final «javaClassName(base.name)» target, final Map<Object, Object> translated) {
 
-                  if (getTranslated().containsKey((source))) {
-                      return («javaClassName(base.name)») getTranslated().get(source);
+                  if (translated.containsKey((source))) {
+                      return («javaClassName(base.name)») translated.get(source);
                   }
                  
                   Assert.notNull(source, "argument [source] may not be null");
@@ -147,7 +136,7 @@
                       «assRef.dtoType.getBaseDtoName()»Translator «assRef.name»Translator = new «assRef.dtoType.getBaseDtoName()»Translator();
                   «ENDFOREACH» 
  «ENDREM»
-                  getTranslated().put(source, target);
+                  translated.put(source, target);
                   «FOREACH  associationProperties AS assRef -»
 					«LET assRef.dtoType.getBaseDtoBusinessClassName() AS assRefBusinessClass»
 					«LET assRef.dtoType.getBaseDtoName() AS assRefDto»
@@ -170,18 +159,18 @@
 		                  for («assRefDto» element : source.get«assRef.name.toFirstUpper()»()) {
 		                      if (element.getId() == null) {
 		                          /* A new object to be added */
-		                          target.addTo«assRef.name.toFirstUpper()»(«assRefTranslator».fromDto(element));
+		                          target.addTo«assRef.name.toFirstUpper()»(«assRefTranslator».fromDto(element, translated));
 		                      } else {
 		                  «REM»start new code«ENDREM»
 								/* An existing object to be updated */
 								if( target.getFrom«assRef.name.toFirstUpper()»(element.getId())  == null ){
 									// Element is not in target yet, read it from the store and add to target
 									«assRefBusinessClass» original = «assRefBusinessClass.toFirstLower()»Dao.retrieve(element.getId());
-									«assRefBusinessClass» updated = «assRefTranslator».fromDto(element, original);
+									«assRefBusinessClass» updated = «assRefTranslator».fromDto(element, original, translated);
 									target.addTo«assRef.name.toFirstUpper()»(updated);
 								} else {
 									// Element is in target already, use this object. No need to add to the collection
-		                          «assRefTranslator».fromDto(element, target.getFrom«assRef.name.toFirstUpper()»(element.getId()));
+		                          «assRefTranslator».fromDto(element, target.getFrom«assRef.name.toFirstUpper()»(element.getId()), translated);
 								}
 							}
 						}
@@ -196,11 +185,11 @@
        						if( source.get«assRef.name.toFirstUpper()»().getId() != null ){
 								/* Add an existing object */
 								«assRefBusinessClass» original = «assRefBusinessClass.toFirstLower()»Dao.retrieve(source.get«assRef.name.toFirstUpper()»().getId());
-								«assRefBusinessClass» updated  = «assRefTranslator».fromDto(source.get«assRef.name.toFirstUpper()»(), original);
+								«assRefBusinessClass» updated  = «assRefTranslator».fromDto(source.get«assRef.name.toFirstUpper()»(), original, translated);
 								target.set«assRef.name.toFirstUpper()»(updated);
 	                         } else  {
 	                             /* Add a new object */
-	                             target.set«assRef.name.toFirstUpper()»(«assRefTranslator».fromDto(source.get«assRef.name.toFirstUpper()»()));
+	                             target.set«assRef.name.toFirstUpper()»(«assRefTranslator».fromDto(source.get«assRef.name.toFirstUpper()»(), translated));
 	                         }
                          }
                      «ENDIF»
@@ -208,7 +197,7 @@
                      «ENDLET»
                      «ENDLET»
                   «ENDFOREACH»
-                  getTranslated().remove(source);
+                  translated.remove(source);
                   target.activateValidation(true);
 
                   return target;
@@ -224,8 +213,12 @@
               * @return «javaClassName(name)» The {@link «javaClassName(name)»} object translated from source.
               */
               public «javaClassName(name)» toDto(final «javaClassName(base.name)» source) {
-                  if (getTranslated().containsKey((source))) {
-                      return («javaClassName(name)») getTranslated().get(source);
+                return toDto(source, new HashMap<Object, Object>());
+              }
+
+              «javaClassName(name)» toDto(final «javaClassName(base.name)» source, final Map<Object, Object> translated) {
+                  if (translated.containsKey((source))) {
+                      return («javaClassName(name)») translated.get(source);
                   }
                   Assert.notNull(source, "argument [source] may not be null");
                   «javaClassName(name)» result = new «javaClassName(name)»(source.getId(), source.getVersion());
@@ -241,21 +234,21 @@
                       «assRef.dtoType.getBaseDtoName()»Translator «assRef.name»Translator = new «assRef.dtoType.getBaseDtoName()»Translator();
                   «ENDFOREACH» 
 «ENDREM»
-                  getTranslated().put(source, result);
+                  translated.put(source, result);
                   «FOREACH associationProperties AS assRef -»
                      «LET javaTranslatorName(javaClassName(assRef.dtoType.getBaseDtoName())).toFirstLower() AS assRefTranslator»
                      «IF assRef.multiplicity == Multiplicity::MANY -»                        
                            for («assRef.dtoType.getBaseDtoBusinessClassName()» element: source.get«assRef.name.toFirstUpper()»()) {
-                              result.addTo«assRef.name.toFirstUpper()»(«assRefTranslator».toDto(element));
+                              result.addTo«assRef.name.toFirstUpper()»(«assRefTranslator».toDto(element, translated));
                           }
                      «ELSE -» «REM»2One«ENDREM»
                          if( source.get«assRef.name.toFirstUpper()»() != null ) {
-                             result.set«assRef.name.toFirstUpper()»(«assRefTranslator».toDto(source.get«assRef.name.toFirstUpper()»()));
+                             result.set«assRef.name.toFirstUpper()»(«assRefTranslator».toDto(source.get«assRef.name.toFirstUpper()»(), translated));
                          }
                      «ENDIF -»
                      «ENDLET-»
                   «ENDFOREACH»
-                  getTranslated().remove(source);
+                  translated.remove(source);
 
                   return result;
               }
