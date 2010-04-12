@@ -1,8 +1,0 @@
-<workflow>
-   <property file='generate.properties'/>
-   <bean class="org.eclipse.mwe.emf.StandaloneSetup">
-	   	<platformUri value=".."/>
-   		<registerEcoreFile value="platform:/resource/org.mod4j.dsl.presentation.mm/model/PresentationDsl.ecore"/>
-   </bean>
-   <component file='org/openarchitectureware/xtext/Generator.oaw' inheritAll='true'/>
-</workflow>

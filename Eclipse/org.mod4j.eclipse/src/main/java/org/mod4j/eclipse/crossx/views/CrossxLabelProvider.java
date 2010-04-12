@@ -95,8 +95,6 @@ public class CrossxLabelProvider extends LabelProvider {
                 return UiHelper.mod4jServiceImage;
             } else if (info.getDslname().equals("DataContractDsl")) {
                 return UiHelper.mod4jDataContractImage;
-            } else if (info.getDslname().equals("PresentationDsl")) {
-                return UiHelper.mod4jPresentationImage;
             } else {
                 return UiHelper.mod4jImage;
             }
