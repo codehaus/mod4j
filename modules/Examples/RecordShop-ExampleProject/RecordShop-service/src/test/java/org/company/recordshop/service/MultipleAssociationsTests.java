@@ -71,7 +71,7 @@ public class MultipleAssociationsTests extends AbstractServiceTestCase {
      * Update test. First create and store each dto separately. Then add the associated objects and update. 
      * 
      */
-    //@Test
+    @Test
     public void testUpdateCrossRelations() {
 
         PersonDto manDto = new PersonDto();

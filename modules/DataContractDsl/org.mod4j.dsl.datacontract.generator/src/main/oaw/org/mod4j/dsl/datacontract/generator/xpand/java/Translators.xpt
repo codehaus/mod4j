@@ -197,7 +197,6 @@
                      «ENDLET»
                      «ENDLET»
                   «ENDFOREACH»
-                  translated.remove(source);
                   target.activateValidation(true);
 
                   return target;
@@ -248,8 +247,6 @@
                      «ENDIF -»
                      «ENDLET-»
                   «ENDFOREACH»
-                  translated.remove(source);
-
                   return result;
               }
               
