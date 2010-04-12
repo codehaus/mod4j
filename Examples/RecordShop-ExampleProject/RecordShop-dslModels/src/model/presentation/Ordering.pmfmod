@@ -1,0 +1,35 @@
+"alle UI die met orders te maken heeft"
+presentation RecordShopOrderingPresentation;
+
+from RecordShopDataContract import FullCustomerDto ;
+from RecordShopDataContract import SimpleCustomerDto;
+from RecordShopDataContract import ArtistDto;
+//from RecordShopDataContract import OrderDto ;
+//from RecordShopDataContract import OrderNumberAndDateDto ;
+from CustomerServiceModel import CustomerServiceModel;  
+ 
+/* Disabled. Enable when fixed.
+
+ContentForm OrderMainDetails context OrderDto [
+	element orderNumber
+		label ordernr;
+	element orderDate
+		label date;
+	element totalAmount   
+		label amount
+		readonly true;  
+]
+	
+ContentForm OrderAndDateForm context OrderNumberAndDateDto [
+    readonly true; 
+	element orderNumber label number;
+	element orderDate label date;
+]
+	
+CollectionDialogue OrderAndDateCollection context OrderNumberAndDateDto [
+	dialogues [
+		OrderAndDateForm;
+	]
+]
+
+*/
