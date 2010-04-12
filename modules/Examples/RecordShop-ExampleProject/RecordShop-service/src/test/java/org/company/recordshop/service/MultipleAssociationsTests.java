@@ -60,7 +60,13 @@ public class MultipleAssociationsTests extends AbstractServiceTestCase {
         wifeRelationDto.setPersonTo(manDto);
         wifeRelationDto = customerServiceModelService.createRelation(wifeRelationDto);
         flush();
-
+        
+        wifeRelationDto = customerServiceModelService.readRelationAsRelationDto(wifeRelationDto.getId());
+        /* TODO uncomment to see this test fail.
+        Assert.assertTrue(wifeRelationDto.getPersonFrom().getId() == womanDto.getId());
+        Assert.assertTrue(wifeRelationDto.getPersonTo().getId() == manDto.getId());
+        */
+        
         manDto = customerServiceModelService.readPersonAsPersonDto(manDto.getId());
         womanDto = customerServiceModelService.readPersonAsPersonDto(womanDto.getId());
         Assert.assertTrue(manDto.getVersion() == 2);
