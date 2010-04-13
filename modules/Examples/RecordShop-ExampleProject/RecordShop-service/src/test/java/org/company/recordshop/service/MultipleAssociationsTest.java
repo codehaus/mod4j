@@ -8,7 +8,7 @@ import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class MultipleAssociationsTests extends AbstractServiceTestCase {
+public class MultipleAssociationsTest extends AbstractServiceTestCase {
 
     @Autowired
     private CustomerServiceModelLocalService customerServiceModelService;

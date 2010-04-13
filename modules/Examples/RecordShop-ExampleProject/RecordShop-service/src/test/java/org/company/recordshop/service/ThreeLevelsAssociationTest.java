@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author Johan Vogelzang
  *
  */
-public class ThreeLevelsAssociationTests extends AbstractServiceTestCase {
+public class ThreeLevelsAssociationTest extends AbstractServiceTestCase {
     
     @Autowired
     private CustomerServiceModelLocalService customerServiceModelService;
@@ -35,21 +35,33 @@ public class ThreeLevelsAssociationTests extends AbstractServiceTestCase {
         customerDto.setLastName("TheCustomer");
         customerDto.setBirthDate(new DateTime("1970-01-01"));
 
-        FullProductDto productDto = new FullProductDto();
-        productDto.setProductNumber("PRODNR-1");
-        productDto.setPrice(99.99f);
-        productDto.setOrderable(true);
+        FullProductDto productDto1 = new FullProductDto();
+        productDto1.setProductNumber("PRODNR-1");
+        productDto1.setPrice(99.99f);
+        productDto1.setOrderable(true);
+        FullProductDto productDto2 = new FullProductDto();
+        productDto2.setProductNumber("PRODNR-2");
+        productDto2.setPrice(99.99f);
+        productDto2.setOrderable(true);
+        FullProductDto productDto3 = new FullProductDto();
+        productDto3.setProductNumber("PRODNR-3");
+        productDto3.setPrice(99.99f);
+        productDto3.setOrderable(true);
+        FullProductDto productDto4 = new FullProductDto();
+        productDto4.setProductNumber("PRODNR-4");
+        productDto4.setPrice(99.99f);
+        productDto4.setOrderable(true);
 
         OrderWithOrderLinesDto order1 = new OrderWithOrderLinesDto();
         order1.setOrderNumber("ORDER-1");
         OrderLineDto orderLineDto1 = new OrderLineDto();
         orderLineDto1.setLineNumber(1);
         orderLineDto1.setDescription("ORDER-1-ORDERLINE-1");
-        orderLineDto1.setProduct(productDto);
+        orderLineDto1.setProduct(productDto1);
         OrderLineDto orderLineDto2 = new OrderLineDto();
         orderLineDto2.setLineNumber(2);
         orderLineDto2.setDescription("ORDER-1-ORDERLINE-2");
-        orderLineDto2.setProduct(productDto);
+        orderLineDto2.setProduct(productDto2);
         order1.addToOrderLines(orderLineDto1);
         order1.addToOrderLines(orderLineDto2);
 
@@ -58,11 +70,11 @@ public class ThreeLevelsAssociationTests extends AbstractServiceTestCase {
         OrderLineDto orderLineDto3 = new OrderLineDto();
         orderLineDto3.setLineNumber(1);
         orderLineDto3.setDescription("ORDER-2-ORDERLINE-1");
-        orderLineDto3.setProduct(productDto);
+        orderLineDto3.setProduct(productDto3);
         OrderLineDto orderLineDto4 = new OrderLineDto();
         orderLineDto4.setLineNumber(2);
         orderLineDto4.setDescription("ORDER-2-ORDERLINE-2");
-        orderLineDto4.setProduct(productDto);
+        orderLineDto4.setProduct(productDto4);
         order2.addToOrderLines(orderLineDto3);
         order2.addToOrderLines(orderLineDto4);
 
@@ -88,7 +100,7 @@ public class ThreeLevelsAssociationTests extends AbstractServiceTestCase {
                 assertTrue(orderLineDto.getId() > 0);
                 assertTrue(orderLineDto.getProduct().getId() > 0);
                 assertTrue(orderLineDto.getDescription().contains("-ORDERLINE-" + orderLineDto.getLineNumber()));
-                assertEquals("PRODNR-1", orderLineDto.getProduct().getProductNumber());
+                assertTrue(orderLineDto.getProduct().getProductNumber().startsWith("PRODNR-" ));
             }
         }
     }
