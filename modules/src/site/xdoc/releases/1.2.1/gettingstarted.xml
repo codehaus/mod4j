@@ -39,10 +39,8 @@
                         <br />
                     </li>
                     <li>
-                        Install, using the
-                        <a href="../../eclipse-update-manager.html">Update Manager</a>
-                        in Eclipse, at least the following
-                        plug-ins into Eclipse:
+                        Install, using the Update Manager*) in Eclipse, at least the following
+                        plug-ins into Eclipse (in the specified order):
                         <table>
                             <thead>
                                 <tr>
@@ -90,6 +88,8 @@
                                 </td>
                             </tr>
                         </table>
+                        *) <a href="../../eclipse-update-manager.html">Here</a> you find more info about how to use the Eclipse Update Manager.
+                        <br />
                         <br />
                     </li>
                     <li>
