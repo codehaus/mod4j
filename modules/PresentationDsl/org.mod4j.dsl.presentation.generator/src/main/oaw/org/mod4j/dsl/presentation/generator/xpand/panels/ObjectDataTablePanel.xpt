@@ -141,7 +141,7 @@ public class «className» extends Panel {
 						public void onClick() {
 			                «process.javaClass()» process = new «process.javaClass()»(model);
 			                process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
-			                Page next = process.nextPage(null);
+			                Page next = process.nextPage();
 			                if (next != null) {
 			                    setResponsePage(next);
 			                }
@@ -164,7 +164,7 @@ public class «className» extends Panel {
                         public void onClick() {
                             «process.javaClass()» process = new «process.javaClass()»(model);
                             process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
-                            Page next = process.nextPage(null);
+                            Page next = process.nextPage();
                             if (next != null) {
                                 setResponsePage(next);
                             }
@@ -182,7 +182,7 @@ public class «className» extends Panel {
                             public void onClick() {
 	                            «process.javaClass()» process = new «process.javaClass()»(model);
 	                            process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
-	                            Page next = process.nextPage(null);
+	                            Page next = process.nextPage();
 	                            if (next != null) {
 	                                setResponsePage(next);
 	                            }
@@ -225,7 +225,7 @@ public class «className» extends Panel {
 	                        public void onClick() {
 	                            «process.javaClass()» process = new «process.javaClass()»(model);
 	                            process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
-	                            Page next = process.nextPage(null);
+	                            Page next = process.nextPage();
 	                            if (next != null) {
 	                                setResponsePage(next);
 	                            }
@@ -341,7 +341,8 @@ public class «className» extends Panel {
                            public void onClick(AjaxRequestTarget target) {
 		                       «process.javaClass()» process = new «process.javaClass()»(rowModel);
 		                       process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
-		                       Page next = process.nextPage(rowModel.getObject());
+//                             Page next = process.nextPage(rowModel.getObject());
+                               Page next = process.nextPage();
 		                       if (next != null) {
 		                           setResponsePage(next);
 		                       }
@@ -378,7 +379,7 @@ public class «className» extends Panel {
 	
 	                        «process.javaClass()» process = new «process.javaClass()» (elementModel);
 		                    process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
-		                    Page next = process.nextPage(null);
+		                    Page next = process.nextPage();
 		                    if (next != null) {
 		                        setResponsePage(next);
 		                    }

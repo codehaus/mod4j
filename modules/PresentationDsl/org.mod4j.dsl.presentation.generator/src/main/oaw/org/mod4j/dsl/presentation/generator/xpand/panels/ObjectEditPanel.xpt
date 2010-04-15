@@ -154,7 +154,7 @@ public class «className» extends Panel {
                 process.setOwningPage(currentPage);
                 process.run(model.getObject());
 
-                currentPage.getProcess().done(currentPage);
+                currentPage.getProcess().done();
             }
         };
         «p.name»delete.setDefaultFormProcessing(false);
@@ -206,7 +206,7 @@ public class «className» extends Panel {
         «IF process.isInteractive()»
                 «process.javaClass()» process = new «process.javaClass()»(model);
                 process.setOwningPage(page());
-                setResponsePage(process.nextPage(null));
+                setResponsePage(process.nextPage());
         «ENDIF»
             }
         };
@@ -224,7 +224,7 @@ public class «className» extends Panel {
         «IF process.isInteractive()»
                 «process.javaClass()» process = new «process.javaClass()»(model);
                 process.setOwningPage(page());
-                setResponsePage(process.nextPage(null));
+                setResponsePage(process.nextPage());
         «ENDIF»
             }
         };
@@ -242,7 +242,7 @@ public class «className» extends Panel {
         «IF process.isInteractive()»
                 «process.javaClass()» process = new «process.javaClass()»(model);
                 process.setOwningPage(page());
-                setResponsePage(process.nextPage(null));
+                setResponsePage(process.nextPage());
         «ENDIF»
             }
         };

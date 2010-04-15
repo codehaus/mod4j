@@ -279,7 +279,7 @@ public abstract class «getWicketMasterPageClass()» extends WebPage {
 				public void onClick() {
 					«processCall.javaClass()» process = new «processCall.javaClass()»(null);
 					process.setOwningPage(myself);
-					setResponsePage(process.nextPage(null));
+					setResponsePage(process.nextPage());
 				}
 			};
 			«processCall.referredProcess.name»Link.add( new Label( "name", "«processCall.label»"  )); //getLocalizer().getString("lbl.comestibles", this)));

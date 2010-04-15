@@ -166,7 +166,7 @@ public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass
             panels.get(currentPanel - 1).replaceWith(nextPanel);
             showSteps();
         } else {
-            this.getProcess().done(null);
+            this.getProcess().done();
         }
     }
     public void previousPanel(){
@@ -176,7 +176,7 @@ public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass
             panels.get(currentPanel + 1).replaceWith(nextPanel);
             showSteps();
         } else {
-            this.getProcess().done(null);
+            this.getProcess().done();
         }
     }
 
