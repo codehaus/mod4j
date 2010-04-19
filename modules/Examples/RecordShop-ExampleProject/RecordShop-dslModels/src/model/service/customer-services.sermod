@@ -1,7 +1,7 @@
 "The RecordShop Customer Service Model. Contains all services needed to maintain Customers."
 service CustomerServiceModel   ;
           
-from RecordShopDataContract import SimpleCustomerDto;
+from RecordShopDataContract import SimpleCustomerDto; 
 from RecordShopDataContract import UniqueCustomerDto; 
 from RecordShopDataContract import StringDto;
 from RecordShopDataContract import FullCustomerDto; 
@@ -13,7 +13,7 @@ from RecordShopDataContract import CustomerWithOrdersAndOrderLines;
 from RecordShopDataContract import ProductWithCustomersDto;
 from RecordShopDataContract import FullProductDto;
 from RecordShopDataContract import ArtistDto;
-from RecordShopDataContract import PersonDto;
+from RecordShopDataContract import PersonDto;   
 from RecordShopDataContract import RelationDto;
 
 crud RelationDto;
@@ -21,7 +21,7 @@ crud PersonDto;
 find findPersons for PersonDto;
 
 read readOrder     for OrderDto ; 
-read readOrderLine for OrderLineDto  ;               
+read readOrderLine for OrderLineDto  ;                
 for OrderDto reference orderLines add OrderLineDto ;
 for OrderDto reference orderLines remove OrderLineDto;
             
@@ -45,6 +45,7 @@ listall listFullCustomers for FullCustomerDto;
 listall listAllArtists for ArtistDto;
       
 find findCustomers for SimpleCustomerDto ;  
+find findCustomersFull for FullCustomerDto;
 
 for SimpleCustomerDto reference orders add OrderDto ;
 for SimpleCustomerDto reference orders remove OrderDto   ;
