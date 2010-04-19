@@ -73,8 +73,9 @@
 «ENDDEFINE»
 
 «DEFINE addSuperArgumentList FOR BusinessClass -»
-    «IF superclass != null -»«EXPAND addSuperArgumentList FOR superclass -»«IF !properties.reject(e|e.nullable || e.hasDefault).isEmpty -», «ENDIF»«ENDIF»
-    «FOREACH properties.reject(e|e.nullable || e.hasDefault || e.derived) AS prop SEPARATOR "," -»«prop.name»«ENDFOREACH»
+    «FOREACH this.getAllProperties().reject(e|e.nullable || e.hasDefault || e.derived) AS prop ITERATOR propIter SEPARATOR "," -»
+        «prop.name-»
+    «ENDFOREACH-»
 «ENDDEFINE»
 
 «DEFINE addCallToSuperOnlyMinimalConstructor (String classNameSuffix) FOR BusinessClass -»
