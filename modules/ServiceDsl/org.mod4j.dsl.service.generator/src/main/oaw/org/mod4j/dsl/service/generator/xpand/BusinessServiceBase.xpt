@@ -176,7 +176,7 @@
      *
      * @see {@link #list«this.dto.businessClass()»s(int, int, String, boolean)}
      */
-    public List<«javaDomainClass(dto.businessClass())»> «this.name»(final «javaDomainExampleClass(dto.businessClass())» example,
+    public List<«javaDomainClass(dto.businessClass())»> find«Class»ByExampleCount(final «javaDomainExampleClass(dto.businessClass())» example,
         final int firstResult, final int maxResults, final String sortProperty, final boolean isAscending);
     
     /**

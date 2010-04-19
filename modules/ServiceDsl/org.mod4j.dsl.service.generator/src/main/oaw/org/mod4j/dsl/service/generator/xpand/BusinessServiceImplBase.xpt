@@ -148,7 +148,7 @@
     /**
      * {@inheritDoc} 
      */
-    public List<«javaDomainClass(dto.businessClass())»> «this.name»(final «javaDomainExampleClass(dto.businessClass())» example, final int firstResult,
+    public List<«javaDomainClass(dto.businessClass())»> find«Class»ByExampleCount(final «javaDomainExampleClass(dto.businessClass())» example, final int firstResult,
         final int maxResults, final String sortProperty, final boolean isAscending){
         return «javaDaoInterface(dto.businessClass()).toFirstLower()».listPageByExample(example, firstResult, maxResults, sortProperty, isAscending);
     }
