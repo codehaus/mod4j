@@ -98,9 +98,9 @@
      * «description»
      * @param object 
      *            The «this.dto.name» to create.
-     * @return the «this.dto.name» created, possibly modified during creation.
+     * @return the id of the «this.dto.name» created.
      */
-    public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object);
+    public Long «this.name»(«JavaType(this.dto)» object);
 «ENDDEFINE»
 
 «DEFINE ReadMethod FOR SpecialMethod -»
@@ -120,9 +120,8 @@
      * «description»
      * @param object
      *            The «this.dto.name» containing the modifications for the corresponding «JavaType(this.dto)»
-     * @return the «this.dto.name» updated, possibly modified during update.
      */
-    public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object);
+    public void «this.name»(«JavaType(this.dto)» object);
 «ENDDEFINE»
 
 «DEFINE DeleteMethod FOR SpecialMethod -»

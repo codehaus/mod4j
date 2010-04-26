@@ -97,10 +97,9 @@
     /**
      * {@inheritDoc}
      */
-    public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object){
-        «javaDomainClass(dto.businessClass())» result = null;
-            result = «javaDomainServiceInterface(model.name).toFirstLower()».create«businessClass(this.dto)»(«javaTranslatorClass(dto.name).toFirstLower()».fromDto(object));
-        return «javaTranslatorClass(dto.name).toFirstLower()».toDto(result);
+    public Long «this.name»(«JavaType(this.dto)» object){
+        Long result = «javaDomainServiceInterface(model.name).toFirstLower()».create«businessClass(this.dto)»(«javaTranslatorClass(dto.name).toFirstLower()».fromDto(object));
+        return result;
     }
 «ENDDEFINE»
 
@@ -120,12 +119,10 @@
     /**
      * {@inheritDoc}
      */
-    public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object) {    
-        «javaDomainClass(dto.businessClass())» result = null;
-        result = «javaDomainServiceInterface(model.name).toFirstLower()».read«businessClass(this.dto)»(object.getId());
-        result = «javaTranslatorClass(dto.name).toFirstLower()».fromDto(object, result);
-        result = «javaDomainServiceInterface(model.name).toFirstLower()».update«businessClass(this.dto)»(result);        
-        return «javaTranslatorClass(dto.name).toFirstLower()».toDto(result);
+    public void «this.name»(«JavaType(this.dto)» object) {    
+        «javaDomainClass(dto.businessClass())» domainObject = «javaDomainServiceInterface(model.name).toFirstLower()».read«businessClass(this.dto)»(object.getId());
+        «javaTranslatorClass(dto.name).toFirstLower()».fromDto(object, domainObject);
+        «javaDomainServiceInterface(model.name).toFirstLower()».update«businessClass(this.dto)»(domainObject);  
     }
 «ENDLET»
 «ENDDEFINE»

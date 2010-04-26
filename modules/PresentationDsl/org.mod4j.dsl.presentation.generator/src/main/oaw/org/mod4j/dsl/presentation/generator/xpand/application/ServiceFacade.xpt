@@ -81,14 +81,14 @@ public class «getPresentationServiceFacadeClass()»  extends WebPage {
             «IF (dto != null) && (getPropertyValue(dto, "dtoType") == "BusinessClassDto" )»
                 «LET findSpecialMethodInService(dto.name, "UPDATE", service.name) AS updateService»
                 «IF updateService != null »
-                    public static «dto.name» update(«dto.name» dto){
-                        return service«serviceType».«updateService»(dto);
+                    public static void update(«dto.name» dto){
+                        service«serviceType».«updateService»(dto);
                     }
                 «ENDIF»
                 «ENDLET»
                 «LET findSpecialMethodInService(dto.name, "Create", service.name) AS createService»
                 «IF createService != null »
-                    public static «dto.name» create(«dto.name» dto){
+                    public static Long create(«dto.name» dto){
                         return service«serviceType».«createService»(dto);
                     }
                 «ENDIF»
@@ -136,7 +136,7 @@ public class «getPresentationServiceFacadeClass()»  extends WebPage {
             «ENDLET»
         «ENDFOREACH»
         
-        public static AbstractDto create(AbstractDto dto) {
+        public static Long create(AbstractDto dto) {
         «FOREACH this.externalReferences AS extDto»
             «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
             «IF (dto != null) && (getPropertyValue(dto, "dtoType") == "BusinessClassDto" )»
@@ -149,17 +149,16 @@ public class «getPresentationServiceFacadeClass()»  extends WebPage {
             return null;
         }
 
-        public static AbstractDto update(AbstractDto dto) {
+        public static void update(AbstractDto dto) {
         «FOREACH this.externalReferences AS extDto»
             «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
             «IF (dto != null) && (getPropertyValue(dto, "dtoType") == "BusinessClassDto" )»
                if( dto instanceof «dto.name» ){
-                   return «getPresentationServiceFacadeClass()».update( («dto.name»)dto );
+                   «getPresentationServiceFacadeClass()».update( («dto.name»)dto );
                }
             «ENDIF»
             «ENDLET»
         «ENDFOREACH»
-            return null;
         }
 
         public static AbstractDto read(AbstractDto dto) {

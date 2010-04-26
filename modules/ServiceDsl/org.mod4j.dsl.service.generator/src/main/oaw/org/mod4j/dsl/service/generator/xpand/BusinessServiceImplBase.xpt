@@ -67,7 +67,7 @@
     /**
      * {@inheritDoc} 
      */
-    public «javaDomainClass(dto.businessClass())» create«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object) {
+    public Long create«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object) {
         Assert.notNull(object, "argument [object] may not be null");
         return «javaDaoInterface(dto.businessClass()).toFirstLower()».add(object);
     }
@@ -87,9 +87,9 @@
     /**
      * {@inheritDoc} 
      */
-    public «javaDomainClass(dto.businessClass())»  update«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object) {
+    public void update«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object) {
         Assert.notNull(object, "argument [object] may not be null");
-        return «javaDaoInterface(dto.businessClass()).toFirstLower()».update(object);
+        «javaDaoInterface(dto.businessClass()).toFirstLower()».update(object);
     }
 «ENDDEFINE»
 

@@ -68,9 +68,9 @@
      * 
      * @param object
      *            the «dto.businessClass()» to create.
-     * @return the «dto.businessClass()» created, possibly modified during creation.
+     * @return the id of the object created.
      */
-    public «javaDomainClass(dto.businessClass())» create«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object);
+    public Long create«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object);
 «ENDDEFINE»
 
 «DEFINE ReadMethod FOR SpecialMethod»
@@ -90,9 +90,8 @@
      * «description»
      * @param object
      *            the representation of the modified «businessClass(this.dto)».
-     * @return the «businessClass(this.dto)» updated, possibly modified during update.
      */
-    public «javaDomainClass(dto.businessClass())» update«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object);
+    public void update«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object);
 «ENDDEFINE»
 
 «DEFINE DeleteMethod FOR SpecialMethod»

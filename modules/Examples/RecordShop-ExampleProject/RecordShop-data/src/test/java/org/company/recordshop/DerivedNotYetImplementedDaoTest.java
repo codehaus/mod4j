@@ -19,10 +19,10 @@ public class DerivedNotYetImplementedDaoTest extends AbstractDaoTestCase {
 
     @Before
     public void setUp() {
-        DerivedNotYetImplemented derived = dao.add(new DerivedNotYetImplemented());
+        Long derived = dao.add(new DerivedNotYetImplemented());
         flush();
         clear();
-        read = dao.retrieve(derived.getId());
+        read = dao.retrieve(derived);
     }
 
     @Test

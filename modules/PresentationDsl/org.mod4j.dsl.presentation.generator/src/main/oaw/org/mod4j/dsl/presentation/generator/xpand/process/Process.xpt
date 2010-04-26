@@ -503,11 +503,13 @@ public void run(«context» element) {
     Object object = innerModel.getObject();
     if( object instanceof AbstractDto ){
         AbstractDto root = (AbstractDto)innerModel.getObject();
-        if( root.getId() == null ){
-            root  = «getPresentationServiceFacadeClass()».create(root);
+        Long id = root.getId();
+        if (id == null) {
+            id = «getPresentationServiceFacadeClass()».create(root);
         } else {
-            root  = «getPresentationServiceFacadeClass()».update(root);
+            «getPresentationServiceFacadeClass()».update(root);
         }
+        root = «getPresentationServiceFacadeClass()».read(root);
         innerModel.setObject(root);
     }
 }
@@ -561,14 +563,14 @@ public void run(List<«this.contextRef.name»> elements) {
     IModel innerModel = Helpers.findInnerMostModel(model);
     Object object = innerModel.getObject();
     if (object instanceof AbstractDto) {
-        AbstractDto root = (AbstractDto) innerModel.getObject();
-        if (root.getId() == null) {
-           System.out.println("CREATE CREATE CREATE CREATE CREATE CREATE CREATE CREATE ");
-            root = «getPresentationServiceFacadeClass()».create(root);
+        AbstractDto root = (AbstractDto)innerModel.getObject();
+        Long id = root.getId();
+        if (id == null) {
+            id = «getPresentationServiceFacadeClass()».create(root);
         } else {
-            System.out.println("UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE ");
-            root = «getPresentationServiceFacadeClass()».update(root);
+            «getPresentationServiceFacadeClass()».update(root);
         }
+        root = «getPresentationServiceFacadeClass()».read(root);
         innerModel.setObject(root);
     }
      owningPage.modelChanged();
@@ -583,12 +585,14 @@ public void run(«context» element) {
     IModel innerModel = Helpers.findInnerMostModel(model);
     Object object = innerModel.getObject();
     if (object instanceof AbstractDto) {
-        AbstractDto root = (AbstractDto) innerModel.getObject();
-        if (root.getId() == null) {
-            root = «getPresentationServiceFacadeClass()».create(root);
+        AbstractDto root = (AbstractDto)innerModel.getObject();
+        Long id = root.getId();
+        if (id == null) {
+            id = «getPresentationServiceFacadeClass()».create(root);
         } else {
-            root = «getPresentationServiceFacadeClass()».update(root);
+            «getPresentationServiceFacadeClass()».update(root);
         }
+        root = «getPresentationServiceFacadeClass()».read(root);
         innerModel.setObject(root);
     }
     owningPage.modelChanged();
@@ -686,12 +690,14 @@ public void add(Object o) {
     IModel innerModel = Helpers.findInnerMostModel(model);
     Object object = innerModel.getObject();
     if (object instanceof AbstractDto) {
-        AbstractDto root = (AbstractDto) innerModel.getObject();
-        if (root.getId() == null) {
-            root = «getPresentationServiceFacadeClass()».create(root);
+        AbstractDto root = (AbstractDto)innerModel.getObject();
+        Long id = root.getId();
+        if (id == null) {
+            id = «getPresentationServiceFacadeClass()».create(root);
         } else {
-            root = «getPresentationServiceFacadeClass()».update(root);
+            «getPresentationServiceFacadeClass()».update(root);
         }
+        root = «getPresentationServiceFacadeClass()».read(root);
         innerModel.setObject(root);
     }
     

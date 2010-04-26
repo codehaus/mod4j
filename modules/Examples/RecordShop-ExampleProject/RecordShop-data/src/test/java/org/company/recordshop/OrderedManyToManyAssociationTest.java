@@ -24,10 +24,10 @@ public class OrderedManyToManyAssociationTest extends AbstractDaoTestCase {
 
 	@Before
 	public void setUp() throws Exception {
-		from = fromDao.add(new Many2ManyFrom("thing"));
-		one = toDao.add(new Many2ManyOrderedTo("one"));
-		two = toDao.add(new Many2ManyOrderedTo("two"));
-		three = toDao.add(new Many2ManyOrderedTo("three"));
+		from = fromDao.retrieve(fromDao.add(new Many2ManyFrom("thing")));
+		one = toDao.retrieve(toDao.add(new Many2ManyOrderedTo("one")));
+		two = toDao.retrieve(toDao.add(new Many2ManyOrderedTo("two")));
+		three = toDao.retrieve(toDao.add(new Many2ManyOrderedTo("three")));
 		flush();
 	}
 

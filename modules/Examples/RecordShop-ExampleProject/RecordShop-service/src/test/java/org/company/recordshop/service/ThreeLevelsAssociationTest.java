@@ -12,22 +12,22 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
 /**
  * @author Johan Vogelzang
- *
+ * 
  */
 public class ThreeLevelsAssociationTest extends AbstractServiceTestCase {
-    
+
     @Autowired
     private CustomerServiceModelLocalService customerServiceModelService;
 
     CustomerWithOrdersAndOrderLines customerDto;
-    
+
     /**
      * Create a customer dto with orders and orderlines to be translated to a DO.
      */
-    @Before public void setUp() {
+    @Before
+    public void setUp() {
 
         customerDto = new CustomerWithOrdersAndOrderLines();
         customerDto.setCustomerNr(1234);
@@ -88,10 +88,12 @@ public class ThreeLevelsAssociationTest extends AbstractServiceTestCase {
         /**
          * Save, flush and check.
          */
-        
-        CustomerWithOrdersAndOrderLines createdCustomer = customerServiceModelService.createCustomer(customerDto);
+
+        CustomerWithOrdersAndOrderLines createdCustomer = customerServiceModelService
+                .readCustomerAsCustomerWithOrdersAndOrderLines(customerServiceModelService
+                        .createCustomer(customerDto));
         flush();
-        
+
         assertEquals(2, createdCustomer.getOrders().size());
         for (OrderWithOrderLinesDto orderDto : createdCustomer.getOrders()) {
             assertTrue(orderDto.getId() > 0);
@@ -99,39 +101,44 @@ public class ThreeLevelsAssociationTest extends AbstractServiceTestCase {
             for (OrderLineDto orderLineDto : orderDto.getOrderLines()) {
                 assertTrue(orderLineDto.getId() > 0);
                 assertTrue(orderLineDto.getProduct().getId() > 0);
-                assertTrue(orderLineDto.getDescription().contains("-ORDERLINE-" + orderLineDto.getLineNumber()));
-                assertTrue(orderLineDto.getProduct().getProductNumber().startsWith("PRODNR-" ));
+                assertTrue(orderLineDto.getDescription().contains(
+                        "-ORDERLINE-" + orderLineDto.getLineNumber()));
+                assertTrue(orderLineDto.getProduct().getProductNumber().startsWith("PRODNR-"));
             }
         }
     }
-    
+
     /**
      * Delete one orderline from each order, Update and check.
      */
     @Test
     public void testUpdateRemovedOrderLines() {
 
-        CustomerWithOrdersAndOrderLines createdCustomer = customerServiceModelService.createCustomer(customerDto);
+        CustomerWithOrdersAndOrderLines createdCustomer = customerServiceModelService
+                .readCustomerAsCustomerWithOrdersAndOrderLines(customerServiceModelService
+                        .createCustomer(customerDto));
         flush();
-        
+
         for (OrderWithOrderLinesDto orderDto : createdCustomer.getOrders()) {
             OrderLineDto toBeRemoved = null;
-            for (OrderLineDto orderLineDto : orderDto.getOrderLines()){
+            for (OrderLineDto orderLineDto : orderDto.getOrderLines()) {
                 if (orderLineDto.getLineNumber() == 1) {
                     toBeRemoved = orderLineDto;
                 }
             }
             orderDto.removeFromOrderLines(toBeRemoved);
         }
-        
+
         for (OrderWithOrderLinesDto orderDto : createdCustomer.getOrders()) {
             assertEquals(1, orderDto.getOrderLines().size());
         }
-               
-        //Update the complete customer structure in one service call.
-        CustomerWithOrdersAndOrderLines updatedCustomer = customerServiceModelService.updateCustomer(createdCustomer);
+
+        // Update the complete customer structure in one service call.
+        customerServiceModelService.updateCustomer(createdCustomer);
         flush();
-        
+        CustomerWithOrdersAndOrderLines updatedCustomer = customerServiceModelService
+                .readCustomerAsCustomerWithOrdersAndOrderLines(createdCustomer.getId());
+
         assertEquals(2, updatedCustomer.getOrders().size());
         for (OrderWithOrderLinesDto updatedOrderDto : updatedCustomer.getOrders()) {
             assertEquals(1, updatedOrderDto.getOrderLines().size());
@@ -146,10 +153,13 @@ public class ThreeLevelsAssociationTest extends AbstractServiceTestCase {
      */
     @Test
     public void testUpdateOrdersWithNewOrderLine() throws Exception {
-       
-        CustomerWithOrdersAndOrderLines createdCustomer = customerServiceModelService.createCustomer(customerDto);
+
+        Long customerId = customerServiceModelService.createCustomer(customerDto);
+        CustomerWithOrdersAndOrderLines createdCustomer = customerServiceModelService
+                .readCustomerAsCustomerWithOrdersAndOrderLines(customerId);
         flush();
-//        createdCustomer = customerServiceModelService.readCustomerAsCustomerWithOrdersAndOrderLines(createdCustomer.getId());
+        // createdCustomer =
+        // customerServiceModelService.readCustomerAsCustomerWithOrdersAndOrderLines(createdCustomer.getId());
 
         OrderLineDto orderLineDtoNew = new OrderLineDto();
         orderLineDtoNew.setLineNumber(3);
@@ -159,11 +169,14 @@ public class ThreeLevelsAssociationTest extends AbstractServiceTestCase {
             orderDto.addToOrderLines(orderLineDtoNew);
         }
 
-        //Update the complete customer structure in one service call.
-        CustomerWithOrdersAndOrderLines updatedCustomer = customerServiceModelService.updateCustomer(createdCustomer);
+        // Update the complete customer structure in one service call.
+        customerServiceModelService.updateCustomer(createdCustomer);
+        CustomerWithOrdersAndOrderLines updatedCustomer = customerServiceModelService
+                .readCustomerAsCustomerWithOrdersAndOrderLines(customerId);
         flush();
-        //JOS: Added to make the test succeed, but it should not be needed.
-        updatedCustomer = customerServiceModelService.readCustomerAsCustomerWithOrdersAndOrderLines(updatedCustomer.getId());
+        // JOS: Added to make the test succeed, but it should not be needed.
+        updatedCustomer = customerServiceModelService
+                .readCustomerAsCustomerWithOrdersAndOrderLines(updatedCustomer.getId());
 
         assertEquals(2, updatedCustomer.getOrders().size());
         for (OrderWithOrderLinesDto updatedOrderDto : updatedCustomer.getOrders()) {
@@ -171,40 +184,44 @@ public class ThreeLevelsAssociationTest extends AbstractServiceTestCase {
             for (OrderLineDto orderLineDto : updatedOrderDto.getOrderLines()) {
                 if (orderLineDto.getLineNumber() == 3) {
                     assertTrue(orderLineDto.getId() > 0);
-                    assertTrue("ORDER-NEW-ORDERLINE-3".equals(orderLineDto.getDescription()));    
+                    assertTrue("ORDER-NEW-ORDERLINE-3".equals(orderLineDto.getDescription()));
                 }
             }
         }
     }
-    
+
     /**
      * Update the several attribute values through the hierarchy.
      */
     @Test
     public void testChangeValueInOrderLine() throws Exception {
-      
-        CustomerWithOrdersAndOrderLines createdCustomer = customerServiceModelService.createCustomer(customerDto);
+
+        Long customerId = customerServiceModelService.createCustomer(customerDto);
+        CustomerWithOrdersAndOrderLines createdCustomer = customerServiceModelService
+                .readCustomerAsCustomerWithOrdersAndOrderLines(customerId);
         flush();
-        
+
         createdCustomer.setLastName("-CHICKEN-IN-");
         for (OrderWithOrderLinesDto orderDto : createdCustomer.getOrders()) {
-            for (OrderLineDto orderLine: orderDto.getOrderLines()){
+            for (OrderLineDto orderLine : orderDto.getOrderLines()) {
                 orderLine.setDescription("-THE-BASKET-");
                 orderLine.getProduct().setPrice(10f);
             }
         }
 
-        //Update the complete customer structure in one service call.
-        CustomerWithOrdersAndOrderLines updatedCustomer = customerServiceModelService.updateCustomer(createdCustomer);
+        // Update the complete customer structure in one service call.
+        customerServiceModelService.updateCustomer(createdCustomer);
         flush();
-              
+        CustomerWithOrdersAndOrderLines updatedCustomer = customerServiceModelService
+                .readCustomerAsCustomerWithOrdersAndOrderLines(customerId);
+
         assertTrue(updatedCustomer.getLastName().equals("-CHICKEN-IN-"));
         for (OrderWithOrderLinesDto orderDto : updatedCustomer.getOrders()) {
-            for (OrderLineDto orderLine: orderDto.getOrderLines()){
+            for (OrderLineDto orderLine : orderDto.getOrderLines()) {
                 assertTrue(orderLine.getDescription().equals("-THE-BASKET-"));
                 assertTrue(orderLine.getProduct().getPrice() == 10f);
             }
         }
-        
-    }    
+
+    }
 }

@@ -17,153 +17,139 @@ import org.springframework.test.annotation.Rollback;
 
 public class CustomerServiceTest extends AbstractServiceTestCase {
 
-	@Autowired
-	CustomerServiceModelLocalService customerServiceModelService;
+    @Autowired
+    CustomerServiceModelLocalService customerServiceModelService;
 
-	@Test
-	@Rollback(true)
-	public final void testCreateCustomer() {
+    @Test
+    @Rollback(true)
+    public final void testCreateCustomer() {
 
-		SimpleCustomerDto customer = new SimpleCustomerDto();
-		customer.setFirstName("Alfred");
-		customer.setLastName("Sloan");
-		customer.setCustomerNr(12345);
-		customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+        SimpleCustomerDto customer = new SimpleCustomerDto();
+        customer.setFirstName("Alfred");
+        customer.setLastName("Sloan");
+        customer.setCustomerNr(12345);
+        customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
-		customerServiceModelService.createCustomer(customer);
-		SimpleCustomerDto createdCustomer = customerServiceModelService
-				.createCustomer(customer);
+        customerServiceModelService.createCustomer(customer);
+        SimpleCustomerDto foundCustomer = customerServiceModelService
+                .readCustomer(customerServiceModelService.createCustomer(customer));
+        Assert.assertNotNull(foundCustomer);
+        Assert.assertTrue(foundCustomer.getCustomerNr() == 12345);
+        Assert.assertEquals(foundCustomer.getFirstName(), "Alfred");
+        Assert.assertEquals(foundCustomer.getLastName(), "Sloan");
+        Assert.assertTrue(foundCustomer.getOrders().isEmpty());
+    }
 
-		SimpleCustomerDto foundCustomer = customerServiceModelService
-				.readCustomer(createdCustomer.getId());
-		Assert.assertNotNull(foundCustomer);
-		Assert.assertEquals(foundCustomer.getId(), createdCustomer.getId());
-		Assert.assertTrue(foundCustomer.getCustomerNr() == 12345);
-		Assert.assertEquals(foundCustomer.getFirstName(), "Alfred");
-		Assert.assertEquals(foundCustomer.getLastName(), "Sloan");
-		Assert.assertTrue(foundCustomer.getOrders().isEmpty());
-	}
+    /**
+     * Test whether the same object can be created twice. Should result in an BusinessRuleException.
+     */
+    @Test
+    @Rollback(true)
+    @ExpectedException(BusinessRuleException.class)
+    public final void testCreateCustomerTwice() {
 
-	/**
-	 * Test whether the same object can be created twice. Should result in an
-	 * BusinessRuleException.
-	 */
-	@Test
-	@Rollback(true)
-	@ExpectedException(BusinessRuleException.class)
-	public final void testCreateCustomerTwice() {
+        SimpleCustomerDto customer = new SimpleCustomerDto();
+        customer.setFirstName("Alfred");
+        customer.setLastName("Sloan");
+        customer.setCustomerNr(12345);
 
-		SimpleCustomerDto customer = new SimpleCustomerDto();
-		customer.setFirstName("Alfred");
-		customer.setLastName("Sloan");
-		customer.setCustomerNr(12345);
+        customerServiceModelService.createCustomer(customer);
+        SimpleCustomerDto foundCustomer = customerServiceModelService
+                .readCustomer(customerServiceModelService.createCustomer(customer));
+        Assert.assertNotNull(foundCustomer);
+        customerServiceModelService.createCustomer(foundCustomer);
+    }
 
-		customerServiceModelService.createCustomer(customer);
-		SimpleCustomerDto createdCustomer = customerServiceModelService
-				.createCustomer(customer);
+    /**
+     * Test whether an object can be created while one of his properties violates a constraint.
+     * Should result in a BusinessRuleException.
+     */
+    @Test
+    @ExpectedException(BusinessRuleException.class)
+    public final void testMinLengthValidation() {
 
-		SimpleCustomerDto foundCustomer = customerServiceModelService
-				.readCustomer(createdCustomer.getId());
-		Assert.assertNotNull(foundCustomer);
-		Assert.assertEquals(foundCustomer.getId(), createdCustomer.getId());
+        SimpleCustomerDto customer = new SimpleCustomerDto();
+        customer.setFirstName("Alfred");
+        customer.setLastName("Sloan");
+        customer.setCustomerNr(-1);
+        customer.setUsername("a"); // violates minlength = 3 constraint
+        customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
-		SimpleCustomerDto createdCustomerTwice = customerServiceModelService
-				.createCustomer(foundCustomer);
-	}
+        customerServiceModelService.createCustomer(customer);
+    }
 
-	/**
-	 * Test whether an object can be created while one of his properties
-	 * violates a constraint. Should result in a BusinessRuleException.
-	 */
-	@Test
-	@ExpectedException(BusinessRuleException.class)
-	public final void testMinLengthValidation() {
+    /**
+     * Test whether an object can be created from a null DTO. Should result in a
+     * BusinessRuleException.
+     */
+    @Test
+    @ExpectedException(IllegalArgumentException.class)
+    public final void testNotNullValidation() {
+        customerServiceModelService.createCustomer((SimpleCustomerDto) null);
+    }
 
-		SimpleCustomerDto customer = new SimpleCustomerDto();
-		customer.setFirstName("Alfred");
-		customer.setLastName("Sloan");
-		customer.setCustomerNr(-1);
-		customer.setUsername("a"); // violates minlength = 3 constraint
-		customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+    @Test
+    public final void testReadCustomer() {
 
-		customerServiceModelService.createCustomer(customer);
-	}
+        SimpleCustomerDto customer = new SimpleCustomerDto();
+        customer.setFirstName("Alfred");
+        customer.setLastName("Sloan");
+        customer.setCustomerNr(12345);
+        customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+        customer = customerServiceModelService.readCustomer(customerServiceModelService
+                .createCustomer(customer));
+        assertEquals("Alfred", customer.getFirstName());
+        assertEquals("Sloan", customer.getLastName());
+        Assert.assertTrue(customer.getCustomerNr() == 12345);
+    }
 
-	/**
-	 * Test whether an object can be created from a null DTO. Should result in a
-	 * BusinessRuleException.
-	 */
-	@Test
-	@ExpectedException(IllegalArgumentException.class)
-	public final void testNotNullValidation() {
-		customerServiceModelService.createCustomer((SimpleCustomerDto) null);
-	}
+    @Test
+    public final void testUpdateCustomerSucceed() {
 
-	@Test
-	public final void testReadCustomer() {
+        FullCustomerDto custDto = new FullCustomerDto();
+        custDto.setFirstName("Johan");
+        custDto.setLastName("Vogelzang");
+        custDto.setCustomerNr(54321);
+        custDto.setDiscountPercentage(0);
+        custDto.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
-		SimpleCustomerDto customer = new SimpleCustomerDto();
-		customer.setFirstName("Alfred");
-		customer.setLastName("Sloan");
-		customer.setCustomerNr(12345);
-		customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
-		customer = customerServiceModelService.createCustomer(customer);
-		customer = customerServiceModelService.readCustomer(customer.getId());
-		assertEquals("Alfred", customer.getFirstName());
-		assertEquals("Sloan", customer.getLastName());
-		Assert.assertTrue(customer.getCustomerNr() == 12345);
-	}
+        Long customerId = customerServiceModelService.createCustomer(custDto);
+        custDto = customerServiceModelService.readCustomerAsFullCustomerDto(customerId);
+        flush();
+        custDto.setDiscountPercentage(100);
+        customerServiceModelService.updateCustomer(custDto);
+        custDto = customerServiceModelService.readCustomerAsFullCustomerDto(customerId);
+        assertTrue("DiscountPercentage should be 100", custDto.getDiscountPercentage() == 100);
+    }
 
-	@Test
-	public final void testUpdateCustomerSucceed() {
+    @Test
+    @ExpectedException(IllegalArgumentException.class)
+    public final void testUpdateCustomerFail() {
 
-		FullCustomerDto custDto = new FullCustomerDto();
-		custDto.setFirstName("Johan");
-		custDto.setLastName("Vogelzang");
-		custDto.setCustomerNr(54321);
-		custDto.setDiscountPercentage(0);
-		custDto.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+        FullCustomerDto custDto = new FullCustomerDto();
+        customerServiceModelService.updateCustomer(custDto);
+    }
 
-		FullCustomerDto result = customerServiceModelService
-				.createCustomer(custDto);
-		flush();
-		result.setDiscountPercentage(100);
-		customerServiceModelService.updateCustomer(result);
-		result = customerServiceModelService
-				.readCustomerAsFullCustomerDto(result.getId());
-		assertTrue("DiscountPercentage should be 100", result
-				.getDiscountPercentage() == 100);
-	}
+    @Test
+    public final void testDeleteCustomer() {
 
-	@Test
-	@ExpectedException(IllegalArgumentException.class)
-	public final void testUpdateCustomerFail() {
+        FullCustomerDto custDto = new FullCustomerDto();
+        custDto.setFirstName("Nasty");
+        custDto.setLastName("Customer");
+        custDto.setCustomerNr(666);
+        custDto.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
-		FullCustomerDto custDto = new FullCustomerDto();
-		customerServiceModelService.updateCustomer(custDto);
-	}
+        Long id = customerServiceModelService.createCustomer(custDto);
+        FullCustomerDto result = customerServiceModelService.readCustomerAsFullCustomerDto(id);
+        customerServiceModelService.deleteCustomer(result);
+        result = customerServiceModelService.readCustomerAsFullCustomerDto(id);
+        assertTrue("result value should be null", result == null);
+    }
 
-	@Test
-	public final void testDeleteCustomer() {
-
-		FullCustomerDto custDto = new FullCustomerDto();
-		custDto.setFirstName("Nasty");
-		custDto.setLastName("Customer");
-		custDto.setCustomerNr(666);
-		custDto.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
-
-		FullCustomerDto result = customerServiceModelService
-				.createCustomer(custDto);
-		customerServiceModelService.deleteCustomer(result);
-		result = customerServiceModelService
-				.readCustomerAsFullCustomerDto(result.getId());
-		assertTrue("result value should be null", result == null);
-	}
-
-	@Test
-	@ExpectedException(IllegalArgumentException.class)
-	public final void testDeleteCustomerFail() {
-		FullCustomerDto zombieDto = new FullCustomerDto();
-		customerServiceModelService.deleteCustomer(zombieDto);
-	}
+    @Test
+    @ExpectedException(IllegalArgumentException.class)
+    public final void testDeleteCustomerFail() {
+        FullCustomerDto zombieDto = new FullCustomerDto();
+        customerServiceModelService.deleteCustomer(zombieDto);
+    }
 }

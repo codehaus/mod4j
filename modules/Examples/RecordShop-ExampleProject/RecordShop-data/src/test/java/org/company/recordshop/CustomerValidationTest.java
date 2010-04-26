@@ -48,11 +48,11 @@ public class CustomerValidationTest extends AbstractDaoTestCase {
 			fail("Expected BusinessRuleException");
 		} catch (BusinessRuleException e) {
 		}
-		customer = customerDao.add(customer);
+		Long id = customerDao.add(customer);
 		flush();
 		clear();
 
-		customer = customerDao.retrieve(customer.getId());
+		customer = customerDao.retrieve(id);
 		/*
 		 * Now the object is instantiated by Hibernate. Hibernate does not use
 		 * the minimal constructor, but the default no-arg constructor. The

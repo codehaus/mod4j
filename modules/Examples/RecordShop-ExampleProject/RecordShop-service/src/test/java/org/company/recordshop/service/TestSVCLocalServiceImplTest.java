@@ -22,7 +22,7 @@ public class TestSVCLocalServiceImplTest extends AbstractServiceTestCase {
 
     @Test
     public void testListAllDerived() {
-        DerivedDto dto = testSVCService.createDerived(new DerivedDto());
+        testSVCService.createDerived(new DerivedDto());
         List<DerivedDto> list = testSVCService.listAllDerived();
         assertEquals(1, list.size());
         DerivedDto read = list.get(0);
@@ -35,8 +35,8 @@ public class TestSVCLocalServiceImplTest extends AbstractServiceTestCase {
 
     @Test
     public void testReadDerived() {
-        DerivedDto dto = testSVCService.createDerived(new DerivedDto());
-        DerivedDto read = testSVCService.readDerivedAsDerivedDto(dto.getId());
+        Long id = testSVCService.createDerived(new DerivedDto());
+        DerivedDto read = testSVCService.readDerivedAsDerivedDto(id);
         // assertEquals("first", read.getFirst());
         assertTrue(read.isSecondo());
         // assertEquals(new DateTime(3), read.getThird());
@@ -46,8 +46,8 @@ public class TestSVCLocalServiceImplTest extends AbstractServiceTestCase {
 
     @Test
     public void testUpdateDerived() {
-        DerivedDto dto = testSVCService.createDerived(new DerivedDto());
-        DerivedDto read = testSVCService.readDerivedAsDerivedDto(dto.getId());
+        Long id = testSVCService.createDerived(new DerivedDto());
+        DerivedDto read = testSVCService.readDerivedAsDerivedDto(id);
         // assertEquals("first", read.getFirst());
         assertTrue(read.isSecondo());
         // assertEquals(new DateTime(3), read.getThird());
@@ -59,7 +59,7 @@ public class TestSVCLocalServiceImplTest extends AbstractServiceTestCase {
         read.setFourth(4);
         // read.setFifth(5.0F);
         testSVCService.updateDerived(read);
-        DerivedDto updated = testSVCService.readDerivedAsDerivedDto(dto.getId());
+        DerivedDto updated = testSVCService.readDerivedAsDerivedDto(id);
         // assertEquals("first", updated.getFirst());
         assertTrue(updated.isSecondo());
         // assertEquals(new DateTime(3), updated.getThird());

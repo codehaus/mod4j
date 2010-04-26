@@ -40,46 +40,58 @@ public class CustomerWithOrdersAndOrderLinesServiceTest extends AbstractServiceT
         /**
          * Create a customer dto with orders and orderlines to be translated to a DO.
          */
-        CustomerWithOrdersAndOrderLines dto = createCustomerDto(new String[] { "1", "2" }, new String[] { "3", "4" });
+        CustomerWithOrdersAndOrderLines dto = createCustomerDto(new String[] { "1", "2" },
+                new String[] { "3", "4" });
         /**
          * Save it and check.
          */
-        CustomerWithOrdersAndOrderLines created = customerServiceModelService.createCustomer(dto);
+        Long customerId = customerServiceModelService.createCustomer(dto);
+        CustomerWithOrdersAndOrderLines created = customerServiceModelService
+                .readCustomerAsCustomerWithOrdersAndOrderLines(customerId);
         checkCustomer(created, new String[] { "1", "2" }, new String[] { "3", "4" });
 
         /**
          * Delete one orderline from each order and check.
          */
-        List<OrderWithOrderLinesDto> orderList = new ArrayList<OrderWithOrderLinesDto>(created.getOrders());
+        List<OrderWithOrderLinesDto> orderList = new ArrayList<OrderWithOrderLinesDto>(created
+                .getOrders());
         Collections.sort(orderList, new OrderDtoComparator());
         orderList.get(0).removeFromOrderLines(0);
         orderList.get(1).removeFromOrderLines(0);
-        CustomerWithOrdersAndOrderLines updated = customerServiceModelService.updateCustomer(created);
-        checkCustomer(created, new String[] { "1", "2" }, new String[] { "4" });
+        customerServiceModelService.updateCustomer(created);
+        CustomerWithOrdersAndOrderLines updated = customerServiceModelService
+                .readCustomerAsCustomerWithOrdersAndOrderLines(customerId);
+        checkCustomer(updated, new String[] { "1", "2" }, new String[] { "4" });
         /**
          * Add a new orderline to each order and check.
          */
         orderList = new ArrayList<OrderWithOrderLinesDto>(updated.getOrders());
         orderList.get(0).addToOrderLines(createOrderLine(5, "5"));
         orderList.get(1).addToOrderLines(createOrderLine(5, "5"));
-        updated = customerServiceModelService.updateCustomer(updated);
+        customerServiceModelService.updateCustomer(updated);
+        updated = customerServiceModelService
+                .readCustomerAsCustomerWithOrdersAndOrderLines(customerId);
         checkCustomer(updated, new String[] { "1", "2" }, new String[] { "4", "5" });
 
         /**
-         * Update the productnumber in the orderlines of both orders from 4 to 6. So leave the one with productnumber 5
-         * alone.
+         * Update the productnumber in the orderlines of both orders from 4 to 6. So leave the one
+         * with productnumber 5 alone.
          */
         orderList = new ArrayList<OrderWithOrderLinesDto>(updated.getOrders());
         assertEquals("4", orderList.get(0).getOrderLines().get(0).getProduct().getProductNumber());
         orderList.get(0).getOrderLines().get(0).getProduct().setProductNumber("6");
         assertEquals("4", orderList.get(1).getOrderLines().get(0).getProduct().getProductNumber());
         orderList.get(1).getOrderLines().get(0).getProduct().setProductNumber("6");
-        updated = customerServiceModelService.updateCustomer(updated);
+        customerServiceModelService.updateCustomer(updated);
+        updated = customerServiceModelService
+                .readCustomerAsCustomerWithOrdersAndOrderLines(customerId);
         checkCustomer(updated, new String[] { "1", "2" }, new String[] { "6", "5" });
     }
 
-    private void checkCustomer(CustomerWithOrdersAndOrderLines customer, String[] orderNumbers, String[] products) {
-        List<OrderWithOrderLinesDto> orders = new ArrayList<OrderWithOrderLinesDto>(customer.getOrders());
+    private void checkCustomer(CustomerWithOrdersAndOrderLines customer, String[] orderNumbers,
+            String[] products) {
+        List<OrderWithOrderLinesDto> orders = new ArrayList<OrderWithOrderLinesDto>(customer
+                .getOrders());
         Collections.sort(orders, new OrderComparator());
         assertEquals(orderNumbers.length, orders.size());
         for (int i = 0; i < orderNumbers.length; i++) {
@@ -94,7 +106,8 @@ public class CustomerWithOrdersAndOrderLinesServiceTest extends AbstractServiceT
         }
     }
 
-    private CustomerWithOrdersAndOrderLines createCustomerDto(String[] orderNumbers, String[] productNumbers) {
+    private CustomerWithOrdersAndOrderLines createCustomerDto(String[] orderNumbers,
+            String[] productNumbers) {
         CustomerWithOrdersAndOrderLines result = new CustomerWithOrdersAndOrderLines();
         result.setBirthDate(new DateTime("1955-10-17"));
         result.setFirstName("Piet");

@@ -49,7 +49,7 @@ public interface «javaDaoBaseInterface(this.name)» {
      *                the «javaDomainClass(this.name)» to add to the database.
      * @return the stored «this.name».
      */
-    «javaDomainClass(this.name)» add(«javaDomainClass(this.name)» object);
+    Long add(«javaDomainClass(this.name)» object);
 
     /**
      * Stores/Updates the «this.name» in the database. Inclusive all its posts.
@@ -58,7 +58,7 @@ public interface «javaDaoBaseInterface(this.name)» {
      *                the «javaDomainClass(this.name)» to store/update
      * @return the updated object
      */
-    «javaDomainClass(this.name)» update(«javaDomainClass(this.name)» object);
+    void update(«javaDomainClass(this.name)» object);
 
     /**
      * Deletes a «this.name» from the database.

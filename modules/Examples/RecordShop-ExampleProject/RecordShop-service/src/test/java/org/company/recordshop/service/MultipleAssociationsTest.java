@@ -20,36 +20,28 @@ public class MultipleAssociationsTest extends AbstractServiceTestCase {
         manDto.setLastName("Johnson");
         manDto.setFirstName("John");
         manDto.setBirthDate(new DateTime());
-        manDto = customerServiceModelService.createPerson(manDto);
+        Long manId = customerServiceModelService.createPerson(manDto);
 
         PersonDto womanDto = new PersonDto();
         womanDto.setLastName("Butterfly");
         womanDto.setFirstName("Susan");
         womanDto.setBirthDate(new DateTime());
-        womanDto = customerServiceModelService.createPerson(womanDto);
+        Long womanId = customerServiceModelService.createPerson(womanDto);
         flush();
 
         /* Husband: Relation from man to woman */
-        RelationDto husbandRelationDto = new RelationDto();
-        husbandRelationDto.setName("Husband");
-        husbandRelationDto.setPersonFrom(manDto);
-        husbandRelationDto.setPersonTo(womanDto);
-        husbandRelationDto = customerServiceModelService.createRelation(husbandRelationDto);
+        RelationDto husbandDto = new RelationDto();
+        husbandDto.setName("Husband");
+        husbandDto.setPersonFrom(customerServiceModelService.readPersonAsPersonDto(manId));
+        husbandDto.setPersonTo(customerServiceModelService.readPersonAsPersonDto(womanId));
+        Long husbandId = customerServiceModelService.createRelation(husbandDto);
         flush();
+        husbandDto = customerServiceModelService.readRelationAsRelationDto(husbandId);
 
-        Assert.assertTrue(husbandRelationDto.getId() > 0);
-        Assert.assertEquals(0, husbandRelationDto.getVersion().intValue());
-        /*
-         * This is not good. The versions of the personFrom and personTo should be 1, like after the 
-         * call to the readRelationAsRelationDto method. We will refactor the create-methods to return
-         * just the generated id, and the update-methods to return void.
-         */
-        Assert.assertEquals(0, husbandRelationDto.getPersonFrom().getVersion().intValue());
-        Assert.assertEquals(0, husbandRelationDto.getPersonTo().getVersion().intValue());
-        husbandRelationDto = customerServiceModelService.readRelationAsRelationDto(husbandRelationDto.getId());
-        Assert.assertEquals(0, husbandRelationDto.getVersion().intValue());
-        Assert.assertEquals(1, husbandRelationDto.getPersonFrom().getVersion().intValue());
-        Assert.assertEquals(1, husbandRelationDto.getPersonTo().getVersion().intValue());
+        Assert.assertTrue(husbandId > 0);
+        Assert.assertEquals(0, husbandDto.getVersion().intValue());
+        Assert.assertEquals(1, husbandDto.getPersonFrom().getVersion().intValue());
+        Assert.assertEquals(1, husbandDto.getPersonTo().getVersion().intValue());
 
         /*
          * Within the create service the opposite of a bi-directional association is updated, so we
@@ -60,24 +52,23 @@ public class MultipleAssociationsTest extends AbstractServiceTestCase {
          * latest version from the store. If you forget to do this you will run into a
          * ConcurrentUpdateException.
          */
-        manDto = customerServiceModelService.readPersonAsPersonDto(manDto.getId());
-        womanDto = customerServiceModelService.readPersonAsPersonDto(womanDto.getId());
+        manDto = customerServiceModelService.readPersonAsPersonDto(manId);
+        womanDto = customerServiceModelService.readPersonAsPersonDto(womanId);
         Assert.assertEquals(1, manDto.getVersion().intValue());
         Assert.assertEquals(1, womanDto.getVersion().intValue());
 
         /* Wife: Relation form woman to man */
-        RelationDto wifeRelationDto = new RelationDto();
-        wifeRelationDto.setName("Wife");
-        wifeRelationDto.setPersonFrom(husbandRelationDto.getPersonTo());
-        wifeRelationDto.setPersonTo(husbandRelationDto.getPersonFrom());
-        wifeRelationDto = customerServiceModelService.createRelation(wifeRelationDto);
+        RelationDto wifeDto = new RelationDto();
+        wifeDto.setName("Wife");
+        wifeDto.setPersonFrom(husbandDto.getPersonTo());
+        wifeDto.setPersonTo(husbandDto.getPersonFrom());
+        Long wifeRelationId = customerServiceModelService.createRelation(wifeDto);
         flush();
 
-        wifeRelationDto = customerServiceModelService.readRelationAsRelationDto(wifeRelationDto
-                .getId());
+        wifeDto = customerServiceModelService.readRelationAsRelationDto(wifeRelationId);
 
-        Assert.assertTrue(wifeRelationDto.getPersonFrom().getId() == womanDto.getId());
-        Assert.assertTrue(wifeRelationDto.getPersonTo().getId() == manDto.getId());
+        Assert.assertEquals(womanId, wifeDto.getPersonFrom().getId());
+        Assert.assertEquals(manId, wifeDto.getPersonTo().getId());
 
         manDto = customerServiceModelService.readPersonAsPersonDto(manDto.getId());
         womanDto = customerServiceModelService.readPersonAsPersonDto(womanDto.getId());
@@ -97,47 +88,51 @@ public class MultipleAssociationsTest extends AbstractServiceTestCase {
         manDto.setLastName("Johnson");
         manDto.setFirstName("John");
         manDto.setBirthDate(new DateTime());
-        manDto = customerServiceModelService.createPerson(manDto);
+        Long manId = customerServiceModelService.createPerson(manDto);
 
         PersonDto womanDto = new PersonDto();
         womanDto.setLastName("Butterfly");
         womanDto.setFirstName("Susan");
         womanDto.setBirthDate(new DateTime());
-        womanDto = customerServiceModelService.createPerson(womanDto);
+        Long womanId = customerServiceModelService.createPerson(womanDto);
 
         /* Husband: Relation from man to woman */
         RelationDto husbandRelationDto = new RelationDto();
         husbandRelationDto.setName("Husband");
-        husbandRelationDto = customerServiceModelService.createRelation(husbandRelationDto);
+        Long husbandId = customerServiceModelService.createRelation(husbandRelationDto);
 
         /* Wife: Relation from woman to man */
         RelationDto wifeRelationDto = new RelationDto();
         wifeRelationDto.setName("Wife");
-        wifeRelationDto = customerServiceModelService.createRelation(wifeRelationDto);
+        Long wifeId = customerServiceModelService.createRelation(wifeRelationDto);
         flush();
 
         /* Add man and woman to the husbandRelationDto */
-        husbandRelationDto.setPersonFrom(manDto);
-        husbandRelationDto.setPersonTo(womanDto);
-        husbandRelationDto = customerServiceModelService.updateRelation(husbandRelationDto);
+        husbandRelationDto = customerServiceModelService.readRelationAsRelationDto(husbandId);
+        husbandRelationDto.setPersonFrom(customerServiceModelService.readPersonAsPersonDto(manId));
+        husbandRelationDto.setPersonTo(customerServiceModelService.readPersonAsPersonDto(womanId));
+        customerServiceModelService.updateRelation(husbandRelationDto);
         flush();
+        husbandRelationDto = customerServiceModelService.readRelationAsRelationDto(husbandId);
         Assert.assertEquals(1, husbandRelationDto.getPersonFrom().getVersion().intValue());
         Assert.assertEquals(1, husbandRelationDto.getPersonTo().getVersion().intValue());
-        Assert.assertEquals(1, customerServiceModelService.readPersonAsPersonDto(manDto.getId())
+        Assert.assertEquals(1, customerServiceModelService.readPersonAsPersonDto(manId)
                 .getVersion().intValue());
-        Assert.assertEquals(1, customerServiceModelService.readPersonAsPersonDto(womanDto.getId())
+        Assert.assertEquals(1, customerServiceModelService.readPersonAsPersonDto(womanId)
                 .getVersion().intValue());
 
         /* Now add woman and man to the wifeRelation */
+        wifeRelationDto = customerServiceModelService.readRelationAsRelationDto(wifeId);
         wifeRelationDto.setPersonFrom(husbandRelationDto.getPersonTo());
         wifeRelationDto.setPersonTo(husbandRelationDto.getPersonFrom());
-        wifeRelationDto = customerServiceModelService.updateRelation(wifeRelationDto);
+        customerServiceModelService.updateRelation(wifeRelationDto);
         flush();
+        wifeRelationDto = customerServiceModelService.readRelationAsRelationDto(wifeId);
         Assert.assertEquals(2, wifeRelationDto.getPersonFrom().getVersion().intValue());
         Assert.assertEquals(2, wifeRelationDto.getPersonTo().getVersion().intValue());
-        Assert.assertEquals(2, customerServiceModelService.readPersonAsPersonDto(manDto.getId())
+        Assert.assertEquals(2, customerServiceModelService.readPersonAsPersonDto(manId)
                 .getVersion().intValue());
-        Assert.assertEquals(2, customerServiceModelService.readPersonAsPersonDto(womanDto.getId())
+        Assert.assertEquals(2, customerServiceModelService.readPersonAsPersonDto(womanId)
                 .getVersion().intValue());
     }
 }

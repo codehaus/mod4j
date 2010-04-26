@@ -133,20 +133,20 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
     @Test
     public void testDelete() {
         assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        Customer rembrandt = customerDao.add(new Customer("Rembrandt", "van Rijn", date(), 3));
-        Customer saskia = customerDao.add(new Customer("Saskia", "van Rijn", date(), 4));
-        Customer potter = customerDao.add(new Customer("Paulus", "Potter", date(), 5));
+        Long rembrandt = customerDao.add(new Customer("Rembrandt", "van Rijn", date(), 3));
+        Long saskia = customerDao.add(new Customer("Saskia", "van Rijn", date(), 4));
+        Long potter = customerDao.add(new Customer("Paulus", "Potter", date(), 5));
         flush();
         assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
         customerDao.delete(new Customer("Piet", "Paaltjens", date(), 6));
         assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        customerDao.delete(customerDao.retrieve(rembrandt.getId()));
+        customerDao.delete(customerDao.retrieve(rembrandt));
         flush();
         assertEquals(2, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        customerDao.delete(customerDao.retrieve(saskia.getId()));
+        customerDao.delete(customerDao.retrieve(saskia));
         flush();
         assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        customerDao.delete(customerDao.retrieve(potter.getId()));
+        customerDao.delete(customerDao.retrieve(potter));
         flush();
         assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
     }

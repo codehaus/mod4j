@@ -20,10 +20,10 @@ public class DerivedDaoTest extends AbstractDaoTestCase {
 
     @Before
     public void setUp() {
-        Derived derived = dao.add(new Derived());
+        Long id = dao.add(new Derived());
         flush();
         clear();
-        read = dao.retrieve(derived.getId());
+        read = dao.retrieve(id);
     }
 
     @Test
