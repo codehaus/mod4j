@@ -323,21 +323,6 @@
             <glossterm linkend="DTO">DTO</glossterm>&apos;s, the translator may cause Hibernate
             <emphasis>lazy loading</emphasis> to retrieve objects from the database
           automatically.</para>
-        <para>The <methodname>fromDto</methodname> method translates the <glossterm linkend="DTO"
-            >DTO</glossterm> into an instance of its corresponding domain model class. If the
-            <glossterm linkend="DTO">DTO</glossterm> has references however, these are
-            <emphasis>not</emphasis> translated. There is a specific reason for this asymmetric
-          behaviour that has to do with passing <glossterm linkend="DTO">DTO</glossterm>&apos;s
-          corresponding to existing domain objects as an arguments to services. In general, the
-          client can manipulate objects referenced by a <glossterm linkend="DTO">DTO</glossterm> at
-          will, adding, deleting or updating instances. Faithfully merging these intended changes
-          with an existing object retrieved from persistent storage would require the translator to
-          interpret the changes by comparing them to the state of the corresponding domain object,
-          including the referenced associated objects. This is at the moment considered too great a
-          challenge. A client of the application will have to send a <glossterm linkend="DTO"
-            >DTO</glossterm> and its associated objects by sending the <glossterm linkend="DTO"
-            >DTO</glossterm> itself, and each of the deleted, changed or added associated objects by
-          calling separate specialised services that reflect the intended behaviour.</para>
       </section>
     </section>
     <section>
