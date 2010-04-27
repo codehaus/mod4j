@@ -52,15 +52,6 @@ public interface «javaDaoBaseInterface(this.name)» {
     Long add(«javaDomainClass(this.name)» object);
 
     /**
-     * Stores/Updates the «this.name» in the database. Inclusive all its posts.
-     * 
-     * @param object
-     *                the «javaDomainClass(this.name)» to store/update
-     * @return the updated object
-     */
-    void update(«javaDomainClass(this.name)» object);
-
-    /**
      * Deletes a «this.name» from the database.
      * 
      * @param object

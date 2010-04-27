@@ -114,7 +114,6 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         saved.setCustomerNr(2);
         saved.setNumberOfEars(2);
         saved.setLastName("Engelhard");
-        customerDao.update(saved);
         flush();
 
         Customer updated = customerDao.retrieve(saved.getId());

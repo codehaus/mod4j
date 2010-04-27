@@ -98,7 +98,6 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 		saved.setFirstName("Paula");
 		saved.setLastName("Potter");
 		saved.setSexe(SexeEnum.FEMALE);
-		personDao.update(saved);
 		flush();
 		assertEquals(1, simpleJdbcTemplate
 				.queryForInt("select version from person_table where id = ?",

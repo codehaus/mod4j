@@ -89,7 +89,6 @@
      */
     public void update«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object) {
         Assert.notNull(object, "argument [object] may not be null");
-        «javaDaoInterface(dto.businessClass()).toFirstLower()».update(object);
     }
 «ENDDEFINE»
 
@@ -180,7 +179,6 @@
                     Assert.notNull(part, "argument [part] may not be null");
                 «ENDIF -»
 				whole.«genName»(part);
-				«javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
 			}
 			«IF ordered == "true" »
 			    /**
@@ -192,7 +190,6 @@
                         Assert.notNull(part, "argument [part] may not be null");
                     «ENDIF -»
 	                whole.«genName»(index, part); 
-		            «javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
 		        }
 			«ENDIF»
 		«ENDIF»
@@ -206,8 +203,6 @@
                 Assert.notNull(whole, "argument [whole] may not be null");
                 Assert.notNull(part, "argument [part] may not be null");
 				whole.removeFrom«method.rolename.toFirstUpper()»(part);
-				«javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
-				«javaDaoInterface(method.part.businessClass()).toFirstLower()».update(part);
 			}
 			«IF ordered == "true" »
 			    /**
@@ -216,7 +211,6 @@
 				public void removeFrom«method.rolename.toFirstUpper()»(«method.main.businessClass()» whole, int index) {
                     Assert.notNull(whole, "argument [whole] may not be null");
 					whole.removeFrom«method.rolename.toFirstUpper()»(index);
-					«javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
 				}
 			«ENDIF»
 		«ENDIF»
