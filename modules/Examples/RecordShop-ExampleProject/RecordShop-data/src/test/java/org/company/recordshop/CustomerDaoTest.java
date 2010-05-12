@@ -311,7 +311,34 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         customer = customerDao.findByExample(example).get(0);
         assertEquals(5, customer.getCustomerNr().intValue());
     }
+    
+    @Test
+    public void testFindByExampleWithStringDate() {
+        
+        customerDao.add(new Customer("Rembrandt", "van Rijn", new DateTime("1606-07-15"), 3));
+        flush();
+        clear();
 
+        CustomerExample example = new CustomerExample();
+        example.setBirthDate(new DateTime("1606-07-15"));
+        List<Customer> result = customerDao.findByExample(example);
+        assertEquals(1, result.size());
+    }
+
+    @Test
+    public void testFindByExampleWithDate() {
+        
+        customerDao.add(new Customer("Rembrandt", "van Rijn", new DateTime(1606, 07, 15, 0, 0, 0, 0), 3));
+        flush();
+        clear();
+
+        CustomerExample example = new CustomerExample();
+        example.setBirthDate(new DateTime("1606-07-15"));
+        List<Customer> result = customerDao.findByExample(example);
+        assertEquals(1, result.size());
+    }
+
+    
     @Test(expected = IllegalArgumentException.class)
     public void testFindByExampleWithNullObject() {
         customerDao.findByExample(null);
