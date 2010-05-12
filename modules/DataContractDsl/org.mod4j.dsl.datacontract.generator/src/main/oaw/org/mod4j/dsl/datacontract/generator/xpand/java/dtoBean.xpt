@@ -51,9 +51,7 @@
          «EXPAND Constructors::addNoArgConstructor FOR this»
          «EXPAND Constructors::addIdAndVersionConstructor FOR this»
          «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty»
-              «IF dataProperty.writable -»
-                 «EXPAND Attributes::addSetter FOR dataProperty»
-             «ENDIF»
+             «EXPAND Attributes::addSetter FOR dataProperty»
              «EXPAND Attributes::addGetter FOR dataProperty»
          «ENDFOREACH»
          «FOREACH properties.typeSelect(DtoAssociationRoleProperty) AS assRef»

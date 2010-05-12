@@ -160,4 +160,10 @@ from RecordShopDomainModel import RecordTypeEnum;
 	       relationsFrom as RelationDto;
 	       relationsTo as RelationDto;
 	    ]
-	]	
+	]
+	
+	class AgedPerson represents Person [
+	   firstName;
+	   lastName;
+	   age;
+	]

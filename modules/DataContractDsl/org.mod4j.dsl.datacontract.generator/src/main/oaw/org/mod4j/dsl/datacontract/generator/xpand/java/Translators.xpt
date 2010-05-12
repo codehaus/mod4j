@@ -127,7 +127,7 @@
                           «IF dataProperty.metaType == DtoEnumerationProperty -»
                               target.set«javaClassName(dataProperty.name)»(«dataProperty.name»Translator.fromDto(source.get«javaClassName(dataProperty.name)»()));
                           «ELSE -»
-                                  target.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
+                              target.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
                           «ENDIF -»
                       «IF !dataProperty.nullable && !dataProperty.mandatoryForCreation»}«ENDIF»
                   «ENDFOREACH»
@@ -221,7 +221,7 @@
                   }
                   Assert.notNull(source, "argument [source] may not be null");
                   «javaClassName(name)» result = new «javaClassName(name)»(source.getId(), source.getVersion());
-                  «FOREACH properties.typeSelect(DtoDataProperty).select(e|e.writable) AS dataProperty -»
+                  «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
                       «IF dataProperty.metaType == DtoEnumerationProperty -»
                           result.set«javaClassName(dataProperty.name)»(«dataProperty.name»Translator.toDto(source.get«javaClassName(dataProperty.name)»()));
                       «ELSE -»
