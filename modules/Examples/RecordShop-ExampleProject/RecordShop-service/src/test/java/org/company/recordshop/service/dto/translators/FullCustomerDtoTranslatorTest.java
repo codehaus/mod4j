@@ -74,5 +74,66 @@ public class FullCustomerDtoTranslatorTest {
 			assertEquals("customer", error.getObjectName());
 		}
 	}
+	
+	
+	/**
+     * Tests if translation of multiple illegal attribute values results in an
+     * BusinessRuleExveption.
+     */
+    @Test
+    public void testTranslateFromDtoFailByMultipleErrors() {
+        FullCustomerDto fullCustDto = new FullCustomerDto();
+        fullCustDto.setFirstName("Vincent");
+        fullCustDto.setLastName("Van Gogh");
+        fullCustDto.setCustomerNr(1234);
+        fullCustDto.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+        fullCustDto.setDiscountPercentage(-1); // Illegal, must be between 0 and 100
+        fullCustDto.setNumberOfEars(5); // Illegal, max 4 is allowed.
+        
+        try {
+            scTranslator.fromDto(fullCustDto);
+            fail("Expected BusinessRuleException");
+            
+        } catch (BusinessRuleException e) {
+            
+            Errors errors = (Errors) e.getCause();
+            assertEquals(2, errors.getErrorCount());
+            assertEquals(2, errors.getFieldErrorCount());
+            
+            // numberOfEars violation
+            FieldError error1 = errors.getFieldError("numberOfEars");
+            assertNotNull(error1);
+            assertEquals(2, error1.getArguments().length);
+            assertEquals(4L, error1.getArguments()[0]);
+            assertEquals(5L, error1.getArguments()[1]);
+            assertEquals("numberOfEars", error1.getField());
+            assertEquals("field.value.max.customer.numberOfEars", error1
+                    .getCodes()[0]);
+            assertEquals("field.value.max.numberOfEars",
+                    error1.getCodes()[1]);
+            assertEquals("field.value.max.java.lang.Integer",
+                    error1.getCodes()[2]);
+            assertEquals("field.value.max", error1.getCodes()[3]);
+            assertEquals(5, error1.getRejectedValue());
+            assertEquals("customer", error1.getObjectName());
+            
+            //discountPercentage violation
+            FieldError error2 = errors.getFieldError("discountPercentage");
+            assertNotNull(error2);
+            assertEquals(2, error2.getArguments().length);
+            assertEquals(0L, error2.getArguments()[0]);
+            assertEquals(-1L, error2.getArguments()[1]);
+            assertEquals("discountPercentage", error2.getField());
+            assertEquals("field.value.min.customer.discountPercentage", error2
+                    .getCodes()[0]);
+            assertEquals("field.value.min.discountPercentage",
+                    error2.getCodes()[1]);
+            assertEquals("field.value.min.java.lang.Integer",
+                    error2.getCodes()[2]);
+            assertEquals("field.value.min", error2.getCodes()[3]);
+            assertEquals(-1, error2.getRejectedValue());
+            assertEquals("customer", error2.getObjectName());
+        }
+    }
 
 }
