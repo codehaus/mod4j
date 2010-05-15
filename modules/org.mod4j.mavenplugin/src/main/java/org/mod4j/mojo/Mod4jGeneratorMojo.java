@@ -11,8 +11,6 @@
 package org.mod4j.mojo;
 
 import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.ArrayList;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -125,7 +123,6 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
      * 1- BusinesDomainDsl (Mod4j) <br>
      * 2- DataContractDsl (Mod4j) <br>
      * 3- ServiceDsl (Mod4j) <br>
-     * 4- PresentationDsl (Mod4j)
      */
     private void addDefaultDslExtensions() {
 
@@ -143,12 +140,7 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
                 "org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage", ".sermod", 
                 "org/mod4j/dsl/service/generator/workflow/sermod2crossx.oaw",
                 "org/mod4j/dsl/service/generator/workflow/ServiceDsl.oaw", generatorPropertiesFileName));
-        
-        dslExtensions.add(new DslExtension("Mod4j", "PresentationDsl",
-                "org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage", ".pmfmod", 
-                "org/mod4j/dsl/presentation/generator/workflow/pmfmod2crossx.oaw",
-                "org/mod4j/dsl/presentation/generator/workflow/PresentationDsl.oaw", generatorPropertiesFileName));
-    }
+        }
 
     /**
      * Method for processing DslExtensions within a project. The following steps will be processed:<br> 1) Walk through

@@ -21,7 +21,6 @@
         <module>RecordShop-data</module>
         <module>RecordShop-business</module>
         <module>RecordShop-service</module>
-        <module>RecordShop-presentation</module>
     </modules>
     <build>
         <resources>

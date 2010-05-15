@@ -340,11 +340,6 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
                 generateCrossxSymbols(resource);
             }
         }
-        for (IResource resource : filesAddedOrChanged) {
-            if( resource.getName().endsWith(".pmfmod")){
-                generateCrossxSymbols(resource);
-            }
-        }
         try {
 			getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);
 		} catch (CoreException e) {

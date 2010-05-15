@@ -37,8 +37,7 @@
         <module>«getDomainModuleName()»</module>
         <module>«getDataModuleName()»</module>
         <module>«getBusinessModuleName()»</module>
-        <module>«getServiceModuleName()»</module>       
-        <module>«getPresentationModuleName("")»</module>
+        <module>«getServiceModuleName()»</module>
     </modules>
     <build>
         <resources>
