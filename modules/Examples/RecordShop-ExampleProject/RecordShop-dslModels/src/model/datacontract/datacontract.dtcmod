@@ -98,7 +98,7 @@ from RecordShopDomainModel import RecordTypeEnum;
     
     class ProductWithRecordsDto represents Product [
         productNumber ;
-        /*
+        /* TODO: http://jira.codehaus.org/browse/MODFORJ-219
         references [
             records as FullRecordDto;
         ]
