@@ -143,17 +143,17 @@ association Order order one -> many OrderLine orderLines ordered ;
 association OrderLine orderLine  one <-> one Product product ;
 
 "Many to One bidirectional: A record is sold as a product."
-association Record  record many <-> one Product product ;
+association Record  records many <-> one Product product ;
 
 "Many to Many bidirectional: Records have been made by zero or more contributors."
 association Record records many <-> many Artist contributors ;
 
 "Many to Many unidirectional: Products have been bought by zero or more buyers."
-association Product product many -> many Customer buyers ;
+association Product products many -> many Customer buyers ;
 
 "Many to One unidirectional: Customers have one invoiceAddress" 
 association Customer customers many -> one Address invoiceAddress;
 
-association Customer customer many -> many Artist idols;
+association Customer customers many -> many Artist idols;
 "Tests"
 association Person person one -> many Artist relatedTo ; 

@@ -343,7 +343,7 @@ public class AssociationTest extends AbstractDaoTestCase {
     public void recordAssociations(Collection<Record> records) {
         for (Record r : records) {
             if (r.getProduct() != null) {
-                assertTrue(r.getProduct().getRecord().contains(r));
+                assertTrue(r.getProduct().getRecords().contains(r));
             }
             for (Artist artist : r.getContributors()) {
                 assertTrue(artist.getRecords().contains(r));
@@ -355,7 +355,7 @@ public class AssociationTest extends AbstractDaoTestCase {
         for (Product p : products) {
             assertNotNull(p.getOrderLine());
             assertSame(p, p.getOrderLine().getProduct());
-        	for (Record r : p.getRecord()) {
+        	for (Record r : p.getRecords()) {
                 assertSame("t4", p, r.getProduct());
             }
         }
@@ -391,10 +391,10 @@ public class AssociationTest extends AbstractDaoTestCase {
         assertSame(pr01, record03.getProduct());
         assertSame(pr04, record04.getProduct());
 
-        assertEquals(3, pr01.getRecord().size());
-        assertEquals(0, pr02.getRecord().size());
-        assertEquals(0, pr03.getRecord().size());
-        assertEquals(1, pr04.getRecord().size());
+        assertEquals(3, pr01.getRecords().size());
+        assertEquals(0, pr02.getRecords().size());
+        assertEquals(0, pr03.getRecords().size());
+        assertEquals(1, pr04.getRecords().size());
     }
 
     @Test
