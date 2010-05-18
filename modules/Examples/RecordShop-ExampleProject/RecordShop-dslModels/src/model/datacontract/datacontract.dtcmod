@@ -96,6 +96,15 @@ from RecordShopDomainModel import RecordTypeEnum;
         ]
     ]
     
+    class ProductWithRecordsDto represents Product [
+        productNumber ;
+        /*
+        references [
+            records as FullRecordDto;
+        ]
+        */
+    ]
+    
     class FullRecordDto represents Record;
     
     class SimpleRecordDto represents Record [
