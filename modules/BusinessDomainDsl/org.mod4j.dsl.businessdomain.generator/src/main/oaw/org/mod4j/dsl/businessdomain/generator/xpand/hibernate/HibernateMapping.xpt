@@ -207,6 +207,7 @@
 «DEFINE many2oneMappingTo FOR Association -»
 		<!-- many2oneMappingTo -->
         <many-to-one name="«targetRoleName»"
+            cascade="save-update"
             class="«javaDomainClass(this.target.name)»" 
             not-null="false" column="«this.targetRoleName»_ID"
         />
