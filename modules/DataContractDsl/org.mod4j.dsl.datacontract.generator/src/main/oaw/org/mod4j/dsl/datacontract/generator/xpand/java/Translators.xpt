@@ -303,13 +303,9 @@
 
       «FOREACH properties.typeSelect(DtoDataProperty).select(e|e.writable) AS dataProperty -»
               «IF dataProperty.metaType == DtoEnumerationProperty -»
-                  if( source.get«javaClassName(dataProperty.name)»() != null ){
-                      result.set«javaClassName(dataProperty.name)»(«dataProperty.name»Translator.fromDto(source.get«javaClassName(dataProperty.name)»()));
-                  }
+                  result.set«javaClassName(dataProperty.name)»(«dataProperty.name»Translator.fromDto(source.get«javaClassName(dataProperty.name)»()));
               «ELSE -»
-                  if( source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»() != null ){
-                      result.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
-                  }
+                  result.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
               «ENDIF -»
       «ENDFOREACH»
       return result;
