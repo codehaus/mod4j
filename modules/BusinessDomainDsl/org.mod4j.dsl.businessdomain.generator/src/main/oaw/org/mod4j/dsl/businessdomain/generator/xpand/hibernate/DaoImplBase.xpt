@@ -66,17 +66,6 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
         return result;
     }
 
-   /**
-    * {@inheritDoc}
-    * With Hibernate persisted objects are automatically updated within the session, so nothing should happen here.
-    * 
-    * @param object The object to update.
-    * @return «javaDomainClass(this.name)»
-    **/ 
-    public void update(«javaDomainClass(this.name)» object) {
-        // Nothing to do: Hibernate will flush at the end of the transaction.
-    }
-
     /**
      * {@inheritDoc}
      */

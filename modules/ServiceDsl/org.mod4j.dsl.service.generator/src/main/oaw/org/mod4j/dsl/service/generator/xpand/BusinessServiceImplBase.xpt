@@ -88,7 +88,7 @@
      * {@inheritDoc} 
      */
     public void update«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object) {
-        Assert.notNull(object, "argument [object] may not be null");
+        // Nothing to do. Persistence is taken care of automatically.
     }
 «ENDDEFINE»
 
