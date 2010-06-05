@@ -131,6 +131,9 @@
     <profiles>
         <profile>
             <id>dev-environment</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <modules>
                 <module>org.mod4j.runtime.common</module>
                 <module>org.mod4j.common</module>
