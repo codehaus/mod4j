@@ -19,7 +19,11 @@ public class Derived extends DerivedImplBase {
 		super();
 	}
 
-	/**
+	protected Derived(Long id) {
+	    super(id);
+    }
+
+    /**
 	 * @return first (String)
 	 */
 	public String getFirst() {

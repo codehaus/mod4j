@@ -117,7 +117,7 @@ class Product [
 	integer minimalQuantity default 1;
 ]
 
-"Sexe enumeration." 
+"Sexe enumeration."
 enumeration SexeEnum [
 
     FEMALE = 2;
@@ -153,6 +153,8 @@ association Product products many -> many Customer buyers ;
 
 "Many to One unidirectional: Customers have one invoiceAddress" 
 association Customer customers many -> one Address invoiceAddress;
+
+association Address homeAddress one <-> many Person persons;
 
 association Customer customers many -> many Artist idols;
 "Tests"

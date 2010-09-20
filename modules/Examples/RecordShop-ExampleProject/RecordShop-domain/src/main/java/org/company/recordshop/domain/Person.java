@@ -32,7 +32,11 @@ public class Person extends PersonImplBase {
 		super(firstName, lastName, birthDate);
 	}
 
-	@Override
+	protected Person(Long id) {
+        super(id);
+    }
+
+    @Override
 	public Integer getAge() {
 		
         return Years.yearsBetween(birthDate, new DateTime()).getYears();

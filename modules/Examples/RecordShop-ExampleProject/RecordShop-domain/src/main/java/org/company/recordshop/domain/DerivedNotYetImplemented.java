@@ -23,7 +23,11 @@ public class DerivedNotYetImplemented extends DerivedNotYetImplementedImplBase {
 		);
 	}
 
-	/**
+	protected DerivedNotYetImplemented(Long id) {
+	    super(id);
+    }
+
+    /**
 	 * @return first (String)
 	 */
 	public String getFirst() {

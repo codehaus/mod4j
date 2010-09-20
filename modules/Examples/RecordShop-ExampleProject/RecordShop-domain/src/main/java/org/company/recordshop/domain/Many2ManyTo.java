@@ -34,4 +34,8 @@ public class Many2ManyTo extends Many2ManyToImplBase {
 		super(property);
 	}
 
+    protected Many2ManyTo(Long id) {
+        super(id);
+    }
+
 }

@@ -30,6 +30,13 @@ public class MyDerived extends MyDerivedImplBase {
 
 		);
 	}
+	
+	/**
+     * Creates a MyDerived with the specified ID.
+     */
+    protected MyDerived(Long id) {
+        super(id);
+    }
 
 	/**
 	 * {@inheritDoc}

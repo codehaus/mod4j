@@ -39,4 +39,8 @@ public class Artist extends ArtistImplBase {
 		super(firstName, lastName, birthDate, artistName);
 	}
 
+    protected Artist(Long id) {
+        super(id);
+    }
+
 }

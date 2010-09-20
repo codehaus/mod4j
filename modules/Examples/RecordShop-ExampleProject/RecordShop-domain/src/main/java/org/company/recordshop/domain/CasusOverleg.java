@@ -36,4 +36,8 @@ public class CasusOverleg extends CasusOverlegImplBase {
 		super(naam, datum);
 	}
 
+    protected CasusOverleg(Long id) {
+        super(id);
+    }
+
 }

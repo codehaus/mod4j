@@ -69,7 +69,7 @@ public class CustomerServiceModelLocalServiceImpl
 	/** 
 	 * {@inheritDoc}
 	 */
-	public OrderDto addToOrdersa(OrderDto order, SimpleCustomerDto customer) {
+	public OrderDto addToOrders(OrderDto order, SimpleCustomerDto customer) {
 
 		// TODO Mod4j: implement this service method manually
 		return null;

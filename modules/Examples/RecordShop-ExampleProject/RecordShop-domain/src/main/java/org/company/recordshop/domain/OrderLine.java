@@ -30,7 +30,11 @@ public class OrderLine extends OrderLineImplBase {
 		super(lineNumber, description);
 	}
 
-	/**
+	protected OrderLine(Long id) {
+	    super(id);
+    }
+
+    /**
 	 * @return lineAmount (Float)
 	 */
 	public Float getLineAmount() {

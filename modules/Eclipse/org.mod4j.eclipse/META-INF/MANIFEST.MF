@@ -28,5 +28,6 @@ Export-Package: org.mod4j.eclipse,
  org.mod4j.eclipse.views.filetracker,
  org.mod4j.eclipse.wizards,
  org.mod4j.eclipse.xtend
-Import-Package: org.eclipse.ui.actions,
+Import-Package: org.apache.commons.logging,
+ org.eclipse.ui.actions,
  org.eclipse.ui.part

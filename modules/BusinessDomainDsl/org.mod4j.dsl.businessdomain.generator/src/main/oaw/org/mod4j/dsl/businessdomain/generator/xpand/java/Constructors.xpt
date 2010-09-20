@@ -14,14 +14,14 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
 «DEFINE createAddValidators FOR BusinessClass»
-	private void addValidators() {
+    private void addValidators() {
     «EXPAND NewBusinessRules::addBusinessRulesValidators FOR this»
-	}
+    }
 «ENDDEFINE»
 
 «DEFINE addDefaultImplBaseConstructor FOR BusinessClass »
     /**
-     * Default no-argument constructor for «javaDomainBaseClass(this.name)» 
+     * Default no-argument constructor for «javaDomainBaseClass(this.name)»
      */
      protected  «javaDomainBaseClass(this.name) -» () {
         «IF superclass != null -»super();«ENDIF»
@@ -29,9 +29,19 @@
      }
 «ENDDEFINE»
 
+«DEFINE addIDImplBaseConstructor FOR BusinessClass »
+    /**
+     * Creates a «javaDomainBaseClass(this.name)» with the specified ID.
+     */
+    protected «javaDomainBaseClass(this.name) -»(Long id) {
+       «IF superclass != null -»super(id);«ENDIF»
+       «IF superclass == null -»this.id = id;«ENDIF»
+    }
+«ENDDEFINE»
+
 «DEFINE addDefaultConstructor FOR BusinessClass »
     /**
-     * Default no-argument constructor for «javaDomainClass(this.name)» 
+     * Default no-argument constructor for «javaDomainClass(this.name)»
      */
     protected  «javaDomainClass(this.name) -» () {
        «IF superclass != null -»super();«ENDIF»
@@ -42,15 +52,24 @@
     /**
      * Minimal constructor for «javaDomainBaseClass(this.name)»
      *
-     «EXPAND Javadoc::addJavaDocParamList FOR this -» 
+     «EXPAND Javadoc::addJavaDocParamList FOR this -»
      */
     public «javaDomainBaseClass(this.name)» («EXPAND addConstructorArgumentsList -») {
      «IF superclass != null -»
         super(«EXPAND addSuperArgumentList FOR this.superclass -»);
      «ENDIF»
      «EXPAND addConstructorAssignment FOREACH properties.reject(e|e.nullable || e.hasDefault || e.derived) -»
-     	addValidators();
+         addValidators();
         validation.validate();
+    }
+«ENDDEFINE»
+
+«DEFINE addIDConstructor FOR BusinessClass »
+    /**
+     * Creates a «javaDomainClass(this.name)» with the specified ID.
+     */
+    protected «javaDomainClass(this.name) -»(Long id) {
+        super(id);
     }
 «ENDDEFINE»
 
@@ -81,7 +100,7 @@
 «DEFINE addCallToSuperOnlyMinimalConstructor (String classNameSuffix) FOR BusinessClass -»
     /**
      * Minimal constructor for «javaDomainClass(this.name)»
-     «EXPAND Javadoc::addJavaDocParamList FOR this -» 
+     «EXPAND Javadoc::addJavaDocParamList FOR this -»
      */
     public «javaDomainClass(this.name)» («EXPAND addConstructorArgumentsList -») {
         super(«EXPAND addSuperArgumentList FOR this -»);

@@ -22,9 +22,9 @@
 package «getDaoPackage()»;
 
 import java.util.List;
+import org.mod4j.runtime.queries.SearchParameters;
 
 import «javaDomainClassPath(this.name)»;
-import «javaDomainExampleClassPath(this.name)»;
 
 /**
  * «javaDaoBaseInterface(this.name)»Data Access Object (DAO). Responsible for accessing database.
@@ -94,6 +94,8 @@ public interface «javaDaoBaseInterface(this.name)» {
         final String sortProperty, final boolean isAscending);
         
     /**
+     * @deprecated Instead use {@link #findByExample(«javaDomainClass(this.name)», SearchParameters)}.
+     *
      * Selects a sorted range (page) of «javaDomainClass(this.name)»s from the database.
      * 
      * @param example the example object to which the result objects need to conform
@@ -106,7 +108,7 @@ public interface «javaDaoBaseInterface(this.name)» {
      *
      * @see #listPage(int, int, String, boolean)
      */
-    List<«javaDomainClass(this.name)»> listPageByExample(final «javaDomainExampleClass(this.name)» example, final int firstResult, final int maxResults,
+    List<«javaDomainClass(this.name)»> listPageByExample(final «javaDomainClass(this.name)» example, final int firstResult, final int maxResults,
             final String sortProperty, final boolean isAscending);
 
     /**
@@ -117,6 +119,9 @@ public interface «javaDaoBaseInterface(this.name)» {
     long count();
     
     /**
+     * @deprecated Instead use {@link countByExample(«javaDomainClass(this.name)»)} or 
+     *     {@link countByExample(«javaDomainClass(this.name)» example, SearchParameters parameters)}.
+     *
      * Counts the number of persisted «javaDomainClass(this.name)» objects in the database that
      * matches the given example object.
      *
@@ -125,17 +130,58 @@ public interface «javaDaoBaseInterface(this.name)» {
      * 
      * @return the number of persisted objects in the database.
      */
-    long count(final «javaDomainExampleClass(this.name)» example);
+    long count(final «javaDomainClass(this.name)» example);
 
     /**
-     * Selects «javaDomainClass(this.name)»s from the database that matches an
-     * example object using Query-by-Example(QBE).
+     * Counts the number of persisted «javaDomainClass(this.name)» objects in the database that
+     * matches the given <code>example</code> object. By default the match mode will be set to 'anywhere',
+     * and the case of string-valued properties will be ignored.
+     *
+     * @param example
+     *                the example object to be counted
+     * 
+     * @return the number of persisted objects in the database.
+     * @since 1.4
+     */
+    long countByExample(«javaDomainClass(this.name)» example);
+
+    /**
+     * Counts the number of persisted «javaDomainClass(this.name)» objects in the database that
+     * matches the given <code>example</code> object and is constrained by the given search <code>parameters</code>.
+     *
+     * @param example
+     *                the example object to be counted
+     * @param parameters
+     *                the set of search parameters that specifies the search criteria.
+     * 
+     * @return the number of persisted objects in the database.
+     * @since 1.4
+     */
+    long countByExample(«javaDomainClass(this.name)» example, SearchParameters parameters);
+
+    /**
+     * Selects «javaDomainClass(this.name)»s from the database that matches the
+     * given <code>example</code> object. By default the match mode will be set to 'anywhere',
+     * and the case of string-valued properties will be ignored.
      * 
      * @param example
      *                the example object to which the result objects need to conform
      * @return a List of «javaDomainClass(this.name)» objects.
      */
-    List<«javaDomainClass(this.name)»> findByExample(«javaDomainExampleClass(this.name)» example);
+    List<«javaDomainClass(this.name)»> findByExample(«javaDomainClass(this.name)» example);
+    
+    /**
+     * Selects «javaDomainClass(this.name)»s from the database that matches the given
+     * <code>example</code> object, and is constrained by the given search <code>parameters</code>.
+     * 
+     * @param example
+     *                the example object to which the result objects need to conform
+     * @param parameters
+     *                the set of search parameters that specifies the search criteria.
+     * @return a List of «javaDomainClass(this.name)» objects.
+     * @since 1.4
+     */
+    List<«javaDomainClass(this.name)»> findByExample(«javaDomainClass(this.name)» example, SearchParameters parameters);
 }
 «ENDFILE»
 «ENDDEFINE»

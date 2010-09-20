@@ -17,18 +17,16 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
         "/org/company/recordshop/service/dtoTranslatorsContext.xml",
         "/org/company/recordshop/service/applicationContext.xml",
         "/org/company/recordshop/service/testContext.xml" })
+public abstract class AbstractServiceTestCase extends AbstractTransactionalJUnit4SpringContextTests {
 
-public abstract class AbstractServiceTestCase extends
-		AbstractTransactionalJUnit4SpringContextTests {
+    @Autowired
+    protected SessionFactory sessionFactory;
 
-	@Autowired
-	protected SessionFactory sessionFactory;
+    protected void flush() {
+        sessionFactory.getCurrentSession().flush();
+    }
 
-	protected void flush() {
-		sessionFactory.getCurrentSession().flush();
-	}
-
-	protected void clear() {
-		sessionFactory.getCurrentSession().clear();
-	}
+    protected void clear() {
+        sessionFactory.getCurrentSession().clear();
+    }
 }

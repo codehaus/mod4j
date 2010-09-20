@@ -22,3 +22,4 @@ Require-Bundle:
  org.eclipse.emf.mwe.core;bundle-version="0.7.2",
  org.eclipse.emf.mwe.utils;bundle-version="0.7.2",
  org.eclipse.xtend.util.stdlib;bundle-version="0.7.2"
+Import-Package: org.apache.commons.logging

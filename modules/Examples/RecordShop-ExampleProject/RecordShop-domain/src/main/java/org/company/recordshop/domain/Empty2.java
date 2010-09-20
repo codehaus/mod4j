@@ -21,10 +21,12 @@ public class Empty2 extends Empty2ImplBase {
 	/**
 	 * Minimal constructor for Empty2
 	 */
-	public Empty2(
-
-	) {
+	public Empty2() {
 		super();
 	}
+
+    protected Empty2(Long id) {
+        super(id);
+    }
 
 }

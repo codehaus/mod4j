@@ -28,14 +28,14 @@
 	import java.util.List;
 	import java.util.ArrayList;
     import org.springframework.util.Assert;
+    import org.mod4j.runtime.queries.SearchParameters;
     «REM»
         Import the business class  and dao for aech base of each BusinessClassDto. 
         Ensure that doules are removed.
     «ENDREM»	
 	«FOREACH this.uniqueBusinessClasses() AS cls -»
-	    import «javaDomainClassPath(cls)»;  
-    	import «javaDomainExampleClassPath(cls )»;
-		import «javaDaoInterfacePath(cls)»; 
+	    import «javaDomainClassPath(cls)»;
+		import «javaDaoInterfacePath(cls)»;
 	«ENDFOREACH»
 
 	/**
@@ -46,7 +46,6 @@
 	«FOREACH this.uniqueBusinessClasses() AS cls -»
 		«EXPAND FieldGetterSetter::field(javaDaoInterface(cls)) FOR javaDaoInterface(cls).toFirstLower()»    
 	«ENDFOREACH»
-
 
 	«EXPAND  CreateMethod  FOREACH this.uniqueMethods(MethodType::CREATE) »
 	«EXPAND  ReadMethod    FOREACH this.uniqueMethods(MethodType::READ) »
@@ -139,7 +138,7 @@
     /**
      * {@inheritDoc} 
      */
-    public List<«Class»> find«Class»ByExample(«javaDomainExampleClass(dto.businessClass())» example) {
+    public List<«Class»> findByExample(«javaDomainClass(dto.businessClass())» example) {
         Assert.notNull(example, "argument [example] may not be null");
         return this.«javaDaoInterface(dto.businessClass()).toFirstLower()».findByExample(example);
     }
@@ -147,7 +146,38 @@
     /**
      * {@inheritDoc} 
      */
-    public List<«javaDomainClass(dto.businessClass())»> find«Class»ByExampleCount(final «javaDomainExampleClass(dto.businessClass())» example, final int firstResult,
+    public List<«javaDomainClass(dto.businessClass())»> findByExample(final «javaDomainClass(dto.businessClass())» example, final SearchParameters parameters){
+        return «javaDaoInterface(dto.businessClass()).toFirstLower()».findByExample(example, parameters);
+    }
+    
+    /**
+     * {@inheritDoc} 
+     */
+    public long countByExample(final «javaDomainClass(dto.businessClass())» example){
+        return «javaDaoInterface(dto.businessClass()).toFirstLower()».countByExample(example);
+    }
+    
+    /**
+     * {@inheritDoc} 
+     */
+    public long countByExample(final «javaDomainClass(dto.businessClass())» example,final SearchParameters parameters){
+        return «javaDaoInterface(dto.businessClass()).toFirstLower()».countByExample(example, parameters);
+    }
+    
+
+ «REM»Below depricated!«ENDREM»
+    /**
+     * {@inheritDoc} 
+     */
+    public List<«Class»> find«Class»ByExample(«javaDomainClass(dto.businessClass())» example) {
+        Assert.notNull(example, "argument [example] may not be null");
+        return this.«javaDaoInterface(dto.businessClass()).toFirstLower()».findByExample(example);
+    }
+
+    /**
+     * {@inheritDoc} 
+     */
+    public List<«javaDomainClass(dto.businessClass())»> find«Class»ByExampleCount(final «javaDomainClass(dto.businessClass())» example, final int firstResult,
         final int maxResults, final String sortProperty, final boolean isAscending){
         return «javaDaoInterface(dto.businessClass()).toFirstLower()».listPageByExample(example, firstResult, maxResults, sortProperty, isAscending);
     }
@@ -155,7 +185,7 @@
     /**
      * {@inheritDoc} 
      */
-    public long count«this.dto.businessClass()»s(«javaDomainExampleClass(dto.businessClass())» example){
+    public long count«this.dto.businessClass()»s(«javaDomainClass(dto.businessClass())» example){
         return «javaDaoInterface(dto.businessClass()).toFirstLower()».count(example);
     }
 «ENDLET»

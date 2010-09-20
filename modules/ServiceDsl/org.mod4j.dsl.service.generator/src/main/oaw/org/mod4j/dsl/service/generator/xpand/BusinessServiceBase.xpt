@@ -25,10 +25,10 @@
 	package «getBusinessRootPackage()»;
 
 	import java.util.List;
+	import org.mod4j.runtime.queries.SearchParameters;
 
 	«FOREACH this.uniqueBusinessClasses() AS cls -»
 	import «javaDomainClassPath(cls )»;
-	import «javaDomainExampleClassPath(cls )»;
 	«ENDFOREACH»
 
 	/**
@@ -153,15 +153,68 @@
 «DEFINE FindMethod FOR SpecialMethod»
 «LET javaDomainClass(dto.businessClass()) AS Class»
     /**
+     * Finds all persisted «Class» obejcts that conform to the given <code>example</code> object.
+     * «description»
+     * @param example
+     *            The object to which the result objects must conform.
+     * @return List<«Class»>
+     * @since 1.4
+     */
+    public List<«Class»> findByExample(final «javaDomainClass(dto.businessClass())» example);
+    
+    /**
+     * Finds all persisted «dto.businessClass()» objects that conform to the given <code>example</code> object, and
+     * that are constrained by the given search <code>parameters</code>.
+     * «description» 
+     * 
+     * @param example - the example object to which the result objects need to conform
+     * @param parameters - the search parameters
+     * 
+     * @return List containing 0 or more existing «dto.businessClass()» objects.
+     * @since 1.4
+     */
+    public List<«javaDomainClass(dto.businessClass())»> findByExample(final «javaDomainClass(dto.businessClass())» example, final SearchParameters parameters);
+    
+    /**
+     * Counts the number of persisted «dto.businessClass()» objects that matches the given <code>example</code> object.
+     * «description»
+     *
+     * @param example
+     *                the example object to be counted
+     * 
+     * @return the number of persisted objects.
+     * @since 1.4
+     */     
+    public long countByExample(final «javaDomainClass(dto.businessClass())» example);
+
+    /**
+     * Counts the number persisted «dto.businessClass()» objects that conform to the given <code>example</code> object, and
+     * that are constrained by the given search <code>parameters</code>.
+     * «description» 
+     * 
+     * @param example - the example object to which the result objects need to conform
+     * @param parameters - the search parameters
+     * 
+     * @return List containing 0 or more existing «dto.businessClass()» objects.
+     * @since 1.4
+     */
+    public long countByExample(final «javaDomainClass(dto.businessClass())» example, final SearchParameters parameters);
+
+«REM»Below depricated methods!«ENDREM»
+    /**
+     * @deprecated
+     * 
      * Find all «Class» obejcts that look like the example object.
      * «description»
      * @param example
      *            The object to which the result objects must conform.
      * @return List<«Class»>
      */
-    public List<«Class»> find«Class»ByExample(final «javaDomainExampleClass(dto.businessClass())» example);
+    public List<«Class»> find«Class»ByExample(final «javaDomainClass(dto.businessClass())» example);
     
     /**
+     * @deprecated
+     *
      * Reads a sorted range (page) of existing «dto.businessClass()»s.
      * «description» 
      * 
@@ -175,10 +228,12 @@
      *
      * @see {@link #list«this.dto.businessClass()»s(int, int, String, boolean)}
      */
-    public List<«javaDomainClass(dto.businessClass())»> find«Class»ByExampleCount(final «javaDomainExampleClass(dto.businessClass())» example,
+    public List<«javaDomainClass(dto.businessClass())»> find«Class»ByExampleCount(final «javaDomainClass(dto.businessClass())» example,
         final int firstResult, final int maxResults, final String sortProperty, final boolean isAscending);
     
     /**
+     * @deprecated
+     *
      * Counts the number of persisted «dto.businessClass()» objects in the database that
      * matches the given example object.
      * «description»
@@ -188,10 +243,9 @@
      * 
      * @return the number of persisted objects in the database.
      */     
-    public long count«this.dto.businessClass()»s(final «javaDomainExampleClass(dto.businessClass())» example);
+    public long count«this.dto.businessClass()»s(final «javaDomainClass(dto.businessClass())» example);
 «ENDLET»
 «ENDDEFINE»
-
 
 «DEFINE Associations FOR ServiceModel»
 	«FOREACH this.methods.typeSelect(AssociationMethod) AS method»

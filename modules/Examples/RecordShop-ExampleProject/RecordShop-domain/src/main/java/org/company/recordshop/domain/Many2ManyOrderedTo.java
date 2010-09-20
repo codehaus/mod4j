@@ -34,4 +34,8 @@ public class Many2ManyOrderedTo extends Many2ManyOrderedToImplBase {
 		super(property);
 	}
 
+    protected Many2ManyOrderedTo(Long id) {
+        super(id);
+    }
+
 }

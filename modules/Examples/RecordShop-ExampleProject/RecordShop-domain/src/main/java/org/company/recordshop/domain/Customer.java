@@ -39,4 +39,8 @@ public class Customer extends CustomerImplBase {
 		super(firstName, lastName, birthDate, customerNr);
 	}
 
+    protected Customer(Long id) {
+        super(id);
+    }
+
 }

@@ -37,4 +37,8 @@ public class Address extends AddressImplBase {
 		super(streetName, houseNumber, zipcode, city);
 	}
 
+    protected Address(Long id) {
+       super(id);
+    }
+
 }
