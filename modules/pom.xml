@@ -374,6 +374,13 @@
                 <artifactId>log4j</artifactId>
                 <version>1.2.14</version>
             </dependency>
+            <dependency>
+            	<groupId>org.codehaus.mojo</groupId>
+            	<artifactId>build-helper-maven-plugin</artifactId>
+            	<version>1.5</version>
+            	<type>maven-plugin</type>
+            	<scope>compile</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
