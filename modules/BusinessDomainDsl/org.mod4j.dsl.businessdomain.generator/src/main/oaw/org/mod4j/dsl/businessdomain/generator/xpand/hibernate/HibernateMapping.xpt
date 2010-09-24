@@ -172,7 +172,7 @@
 «ENDDEFINE»
 
 «DEFINE one2manyMappingTo FOR Association -»
-		<!-- one2manyMappingTo«IF bidirectional», bi-directional«ENDIF» -->
+		<!-- one2manyMappingTo«IF bidirectional», bi-directional«ENDIF»-->
         <set name="«this.targetRoleName»"
             cascade="save-update" «IF bidirectional»inverse="true"«ENDIF»>
             <key column="«this.sourceRoleName»_ID"/>
@@ -183,7 +183,7 @@
 «ENDDEFINE»
 
 «DEFINE orderedOne2manyMappingTo FOR Association -»
-        <!-- orderedOne2manyMappingTo «IF bidirectional», bi-directional«ENDIF» -->
+        <!-- orderedOne2manyMappingTo «IF bidirectional», bi-directional«ENDIF»-->
         <list name="«this.targetRoleName»"
             cascade="save-update" «IF bidirectional»inverse="true"«ENDIF»>
             <key column="«this.sourceRoleName»_ID"/>
@@ -205,7 +205,7 @@
 «ENDDEFINE»
 
 «DEFINE many2oneMappingTo FOR Association -»
-		<!-- many2oneMappingTo «IF bidirectional», bi-directional«ENDIF» -->
+		<!-- many2oneMappingTo -->
         <many-to-one name="«targetRoleName»"
             cascade="save-update"
             class="«javaDomainClass(this.target.name)»" 
@@ -228,7 +228,7 @@
 «ENDDEFINE»
 
 «DEFINE one2oneMappingTo FOR Association -»
-		<!-- one2oneMappingTo «IF bidirectional», bi-directional«ENDIF» -->
+		<!-- one2oneMappingTo -->
         <many-to-one name="«targetRoleName»" 
                     column="«this.targetRoleName»_ID"
                     cascade="save-update"
@@ -246,7 +246,7 @@
 «ENDDEFINE»
 
 «DEFINE many2manyMappingTo FOR Association -»
-        <!-- many2manyMappingTo «IF bidirectional», bi-directional«ENDIF» -->
+        <!-- many2manyMappingTo -->
         <set name="«this.targetRoleName»" table="«this.sourceRoleName»_«this.targetRoleName»">
             <key column="«this.sourceRoleName»_ID" not-null="true" />
             <many-to-many class="«javaDomainClass(this.target.name)»" column="«this.targetRoleName»_ID" />
@@ -254,7 +254,7 @@
 «ENDDEFINE»
 
 «DEFINE orderedMany2manyMappingTo FOR Association -»
-        <!-- orderedMany2manyMappingTo «IF bidirectional», bi-directional«ENDIF» -->
+        <!-- orderedMany2manyMappingTo -->
         <list name="«this.targetRoleName»" table="«this.sourceRoleName»_«this.targetRoleName»">
             <key column="«this.sourceRoleName»_ID" not-null="true" />
             <list-index column="orderFor«sourceRoleName.toFirstUpper()»" />

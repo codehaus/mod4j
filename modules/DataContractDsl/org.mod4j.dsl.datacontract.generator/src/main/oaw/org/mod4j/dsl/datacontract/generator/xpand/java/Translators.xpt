@@ -251,7 +251,7 @@
 
 
           /**
-            * Validates that the version of the DTO and the business object are valid.
+            * Validate that the version of the DTO and the business object are valid.
             * The DTO may only have a version if the domain object also has a version.
             * When they both have a version and the DTO version is less, another user
             * has updated the domain object in the meantime, if it is equal, all is
@@ -286,15 +286,14 @@
 «LET this.base.name.javaDomainClass() AS Class»
 
  /**
-  * Translates a «javaClassName(name)» dto object into a «ExampleClass»Example object.
-  * All properties, including the id property, in the dto will be mapped to the corresponding property in the
-  * <code>target</code> domain object.
-  * Also translates all To-One association references in the dto, into the resulting example object.
-  * All To-Many associations will be ignored and are <strong>not</strong> translated inot the resulting example object.
+  * Translates a «javaClassName(name)» dto object into a «ExampleClass» Example domain object.
+  * All properties in the dto will be mapped to the corresponding property in the <code>target</code> domain object.
+  * Also translates all To-One association references in the dto, into the <code>target</code> domain object.
+  * All To-Many associations will be ignored and are not translated inot the <code>target</code> domain object.
   *
   * @param source The {@link «javaClassName(name)»} object to translate.
   *
-  * @return {@link «ExampleClass»}, the resulting example object.
+  * @return {@link «ExampleClass»}, the resulting businessclass object.
   */
   public «ExampleClass» exampleFromDto(final «javaClassName(name)» source) {
   

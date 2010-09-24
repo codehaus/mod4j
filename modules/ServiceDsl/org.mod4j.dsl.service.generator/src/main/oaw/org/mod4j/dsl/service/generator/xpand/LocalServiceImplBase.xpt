@@ -238,8 +238,6 @@
 
 «REM» Below depricatied!«ENDREM»
     /**
-     * @deprecated Instead use {@link #findByExample(«dtoType»)}
-     * 
      * {@inheritDoc}
      */
     public List<«dtoType»> «this.name»(«dtoType» filter) {
@@ -257,8 +255,6 @@
     }
 
     /**
-     * @deprecated Instead use {@link #findByExample(«JavaType(this.dto)», SearchParameters)}
-     *
      * {@inheritDoc}
      */
     public List<«JavaType(this.dto)»> «this.name»(final «JavaType(this.dto)» exampleDto, final int firstResult, final int maxResults,
@@ -278,8 +274,6 @@
     }
 
     /**
-     * @deprecated instead use {@link #countByExample(«JavaType(this.dto)», SearchParameters)}
-     *
      * {@inheritDoc}
      */
     public long count«this.dto.businessClass()»s(final «JavaType(this.dto)» exampleDto) {
