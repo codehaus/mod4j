@@ -36,7 +36,6 @@
         <module>«getDslModelsModuleName()»</module>
         <module>«getDomainModuleName()»</module>
         <module>«getDataModuleName()»</module>
-        <module>«getBusinessModuleName()»</module>
         <module>«getServiceModuleName()»</module>
     </modules>
     <build>

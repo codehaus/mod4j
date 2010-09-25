@@ -26,7 +26,6 @@
 
 	import java.util.List;
             
-	import «javaDomainServiceInterfacePath(name)»;
 	import «javaLocalServiceBaseClassPath(name)»;
     «FOREACH this.dtoReferences AS dto -»
 		import «getDtoPackage()».«javaClassName(dto.name)»;

@@ -107,22 +107,6 @@ String getHibernate_mapping_class_id_generator_class() :
 String getHibernate_InheritanceMappingStrategy() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getHibernate_InheritanceMappingStrategy();
 
- 
-/* 
- * business layer properties 
- */
-String getBusinessModuleName() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessModuleName();
-
-String getBusinessModulePath() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessModulePath();
-
-String getBusinessRootPackage() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessRootPackage();
-
-String getBusinessRootPackageAsPath() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessRootPackageAsPath();
-
 
 /* 
  * service layer properties 

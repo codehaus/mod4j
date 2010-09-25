@@ -38,8 +38,8 @@
             <version>«getApplicationVersion()»</version>
         </dependency>
         <dependency>
-            <groupId>«getBusinessRootPackage()»</groupId>
-            <artifactId>«getBusinessModuleName()»</artifactId>
+            <groupId>«getDataRootPackage()»</groupId>
+            <artifactId>«getDataModuleName()»</artifactId>
             <version>«getApplicationVersion()»</version>
         </dependency>
     </dependencies>    

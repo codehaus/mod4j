@@ -45,7 +45,6 @@ public class ProjectProperties {
         dslModelsModuleName = properties.getProperty("dslModelsModuleName");
         domainModuleName = properties.getProperty("domainModuleName");
         dataModuleName = properties.getProperty("dataModuleName");
-        businessModuleName = properties.getProperty("businessModuleName");
         serviceModuleName = properties.getProperty("serviceModuleName");
         presentationModuleName = properties.getProperty("presentationModuleName");
         rootPackage = properties.getProperty("rootPackage");
@@ -81,8 +80,6 @@ public class ProjectProperties {
     private static final String SRC_MODEL_PATH = "src/model";
 
     private static String dataModuleName = "DEFAULT";
-
-    private static String businessModuleName = "DEFAULT";
 
     private static String serviceModuleName = "DEFAULT";
 
@@ -182,10 +179,6 @@ public class ProjectProperties {
     public static String getDomainModuleName() {
         return domainModuleName;
     }
-
-    public static String getBusinessModuleName() {
-        return businessModuleName;
-    }
     
     public static String getPresentationModuleName(String targetPlatform) {
         return presentationModuleName ; //+ (targetPlatform != null ? "-" + targetPlatform : "");
@@ -203,10 +196,6 @@ public class ProjectProperties {
         return getApplicationPath() + "/" + getServiceModuleName();
     }
 
-    public static String getBusinessModulePath() {
-        return getApplicationPath() + "/" + getBusinessModuleName();
-    }
-
     public static String getDataModulePath() {
         return getApplicationPath() + "/" + getDataModuleName();
     }
@@ -217,14 +206,6 @@ public class ProjectProperties {
 
     public static String getRootPackage() {
         return rootPackage;
-    }
-
-    public static String getBusinessRootPackage() {
-        return businessRootPackage;
-    }
-
-    public static String getBusinessRootPackageAsPath() {
-        return getBusinessRootPackage().replaceAll("\\.", "/");
     }
 
     public static String getServiceRootPackage() {

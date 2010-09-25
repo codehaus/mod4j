@@ -26,17 +26,19 @@
     package «getServiceRootPackage()»;
 
     import java.util.List;
+    import java.util.Set;
     import java.util.ArrayList;
     import org.springframework.util.Assert;
     import org.mod4j.runtime.queries.SearchParameters;
 
-    import «javaDomainServiceInterfacePath(name)»;
+    //import «getDaoPackage()»;
 
     «FOREACH this.dtoReferences AS dto -»
     import «getDtoPackage()».«javaClassName(dto.name)»;
     «ENDFOREACH»
 
     «FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
+    import «javaDaoInterfacePath(dto.businessClass())»; 
     import «javaTranslatorClassPath(dto.name)»;
     import «javaDomainClassPath(dto.businessClass())»;
     import «javaDomainExampleClassPath(dto.businessClass())»;
@@ -47,10 +49,12 @@
      */
     abstract public class «javaLocalServiceBaseClass(name)» implements «javaLocalServiceInterface(name)» {
 
-    «EXPAND FieldGetterSetter::field(javaDomainServiceInterface(name)) FOR javaDomainServiceInterface(name).toFirstLower()»
+    «FOREACH this.uniqueBusinessClasses() AS bc -»
+        «EXPAND FieldGetterSetter::field(javaDaoInterface(bc)) FOR javaDaoInterface(bc).toFirstLower()»
+    «ENDFOREACH»
 
     «FOREACH this.getAllBusinessClassDtoSymbols() AS classDtoSymbol»
-    «EXPAND FieldGetterSetter::field(javaTranslatorClass(classDtoSymbol.name)) FOR javaTranslatorClass(classDtoSymbol.name).toFirstLower()»
+        «EXPAND FieldGetterSetter::field(javaTranslatorClass(classDtoSymbol.name)) FOR javaTranslatorClass(classDtoSymbol.name).toFirstLower()»
     «ENDFOREACH»
 
     «FOREACH this.methods.typeSelect(SpecialMethod) AS method»
@@ -89,7 +93,7 @@
      * {@inheritDoc}
      */
     public Long «this.name»(«JavaType(this.dto)» object){
-        Long result = «javaDomainServiceInterface(model.name).toFirstLower()».create«businessClass(this.dto)»(
+        Long result = «javaDaoInterface(dto.businessClass()).toFirstLower()».add(
                 «javaTranslatorClass(dto.name).toFirstLower()».fromDto(object));
         return result;
     }
@@ -101,7 +105,7 @@
      */
     public «JavaType(this.dto)» «this.name»(Long id) {
         «javaDomainClass(dto.businessClass())» result =
-              «javaDomainServiceInterface(model.name).toFirstLower()».read«businessClass(this.dto)»(id);
+              «javaDaoInterface(dto.businessClass()).toFirstLower()».retrieve(id);
         return (result == null) ? null : «javaTranslatorClass(dto.name).toFirstLower()».toDto(result);
     }
 «ENDDEFINE»
@@ -112,9 +116,9 @@
      * {@inheritDoc}
      */
     public void «this.name»(«JavaType(this.dto)» object) {
-        «javaDomainClass(dto.businessClass())» domainObject = «javaDomainServiceInterface(model.name).toFirstLower()».read«businessClass(this.dto)»(object.getId());
+        «javaDomainClass(dto.businessClass())» domainObject = «javaDaoInterface(dto.businessClass()).toFirstLower()».retrieve(object.getId());
         «javaTranslatorClass(dto.name).toFirstLower()».fromDto(object, domainObject);
-        «javaDomainServiceInterface(model.name).toFirstLower()».update«businessClass(this.dto)»(domainObject);
+        //«javaDaoInterface(model.name).toFirstLower()».update«businessClass(this.dto)»(domainObject);
     }
 «ENDLET»
 «ENDDEFINE»
@@ -126,8 +130,8 @@
     public void «this.name»(«JavaType(this.dto)» object) {
         Assert.notNull(object, "argument [object] may not be null");
         «javaDomainClass(dto.businessClass())» existing =
-            «javaDomainServiceInterface(model.name).toFirstLower()».read«businessClass(this.dto)»(object.getId());
-        «javaDomainServiceInterface(model.name).toFirstLower()».delete«businessClass(this.dto)»(existing);
+            «javaDaoInterface(dto.businessClass()).toFirstLower()».retrieve(object.getId());
+        «javaDaoInterface(dto.businessClass()).toFirstLower()».delete(existing);
     }
 «ENDDEFINE»
 
@@ -136,7 +140,7 @@
      * {@inheritDoc}
      */
     public List<«JavaType(this.dto)»> «this.name»() {
-        List<«this.dto.businessClass()»> all = «javaDomainServiceInterface(model.name).toFirstLower()».listAll«this.dto.businessClass()»s();
+        List<«this.dto.businessClass()»> all = «javaDaoInterface(dto.businessClass()).toFirstLower()».listAll();
         List<«JavaType(this.dto)»> result = new ArrayList<«JavaType(this.dto)»>(all.size());
 
         for («this.dto.businessClass()» object : all) {
@@ -150,7 +154,7 @@
      * {@inheritDoc}
      */
     public List<«JavaType(this.dto)»> «this.name»(final int firstResult, final int maxResults) {
-        List<«this.dto.businessClass()»> range = «javaDomainServiceInterface(model.name).toFirstLower()».list«this.dto.businessClass()»s(firstResult, maxResults);
+        List<«this.dto.businessClass()»> range = «javaDaoInterface(dto.businessClass()).toFirstLower()».listPage(firstResult, maxResults);
         List<«JavaType(this.dto)»> result = new ArrayList<«JavaType(this.dto)»>(range.size());
 
         for («this.dto.businessClass()» object : range) {
@@ -165,7 +169,7 @@
      */
     public List<«JavaType(this.dto)»> «this.name»(final int firstResult, final int maxResults,
         final String sortProperty, final boolean isAscending) {
-        List<«this.dto.businessClass()»> range = «javaDomainServiceInterface(model.name).toFirstLower()».list«this.dto.businessClass()»s(firstResult, maxResults, sortProperty, isAscending);
+        List<«this.dto.businessClass()»> range = «javaDaoInterface(dto.businessClass()).toFirstLower()».listPage(firstResult, maxResults, sortProperty, isAscending);
         List<«JavaType(this.dto)»> result = new ArrayList<«JavaType(this.dto)»>(range.size());
 
         for («this.dto.businessClass()» object : range) {
@@ -181,7 +185,7 @@
      * {@inheritDoc}
      */
     public long count«this.dto.businessClass()»s() {
-        return «javaDomainServiceInterface(model.name).toFirstLower()».count«this.dto.businessClass()»s();
+        return «javaDaoInterface(dto.businessClass()).toFirstLower()».count();
     }
 «ENDDEFINE»
 
@@ -195,7 +199,7 @@
         «this.dto.businessClass().javaDomainExampleClass()» example =
                       «javaTranslatorClass(dto.name).toFirstLower()».exampleFromDto(exampleDto);
 
-        List<«Class»> found = «javaDomainServiceInterface(model.name).toFirstLower()».findByExample(example);
+        List<«Class»> found = «javaDaoInterface(Class).toFirstLower()».findByExample(example);
         List<«dtoType»> result = new ArrayList<«dtoType»>(found.size());
 
         for («Class» object : found) {
@@ -212,7 +216,7 @@
         «this.dto.businessClass().javaDomainExampleClass()» example =
                       «javaTranslatorClass(dto.name).toFirstLower()».exampleFromDto(exampleDto);
 
-        List<«this.dto.businessClass()»> range = «javaDomainServiceInterface(model.name).toFirstLower()».findByExample(example, parameters);
+        List<«this.dto.businessClass()»> range = «javaDaoInterface(Class).toFirstLower()».findByExample(example, parameters);
         List<«JavaType(this.dto)»> result = new ArrayList<«JavaType(this.dto)»>(range.size());
 
         for («this.dto.businessClass()» object : range) {
@@ -226,59 +230,14 @@
      * {@inheritDoc}
      */
     public long countByExample(final «JavaType(this.dto)» exampleDto) {
-        return «javaDomainServiceInterface(model.name).toFirstLower()».countByExample(«javaTranslatorClass(dto.name).toFirstLower()».exampleFromDto(exampleDto));
+        return «javaDaoInterface(Class).toFirstLower()».countByExample(«javaTranslatorClass(dto.name).toFirstLower()».exampleFromDto(exampleDto));
     }
     
     /**
      * {@inheritDoc}
      */
     public long countByExample(final «JavaType(this.dto)» exampleDto, final SearchParameters parameters) {
-        return «javaDomainServiceInterface(model.name).toFirstLower()».countByExample(«javaTranslatorClass(dto.name).toFirstLower()».exampleFromDto(exampleDto), parameters);
-    }
-
-«REM» Below depricatied!«ENDREM»
-    /**
-     * {@inheritDoc}
-     */
-    public List<«dtoType»> «this.name»(«dtoType» filter) {
-        «this.dto.businessClass().javaDomainExampleClass()» example =
-                      «javaTranslatorClass(dto.name).toFirstLower()».exampleFromDto(filter);
-
-        List<«Class»> found = «javaDomainServiceInterface(model.name).toFirstLower()».find«Class»ByExample(example);
-        List<«dtoType»> result = new ArrayList<«dtoType»>(found.size());
-
-        for («Class» object : found) {
-            «dtoType» item = «javaTranslatorClass(dto.name).toFirstLower()».toDto(object);
-            result.add(item);
-        }
-        return result;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public List<«JavaType(this.dto)»> «this.name»(final «JavaType(this.dto)» exampleDto, final int firstResult, final int maxResults,
-        final String sortProperty, final boolean isAscending) {
-        «this.dto.businessClass().javaDomainExampleClass()» example =
-                      «javaTranslatorClass(dto.name).toFirstLower()».exampleFromDto(exampleDto);
-
-        List<«this.dto.businessClass()»> range = «javaDomainServiceInterface(model.name).toFirstLower()».find«Class»ByExampleCount(example,
-            firstResult, maxResults, sortProperty, isAscending);
-        List<«JavaType(this.dto)»> result = new ArrayList<«JavaType(this.dto)»>(range.size());
-
-        for («this.dto.businessClass()» object : range) {
-            «JavaType(this.dto)» item = «javaTranslatorClass(dto.name).toFirstLower()».toDto(object);
-            result.add(item);
-        }
-        return result;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public long count«this.dto.businessClass()»s(final «JavaType(this.dto)» exampleDto) {
-        return «javaDomainServiceInterface(model.name).toFirstLower()».count«this.dto.businessClass()»s(
-                «javaTranslatorClass(dto.name).toFirstLower()».exampleFromDto(exampleDto));
+        return «javaDaoInterface(Class).toFirstLower()».countByExample(«javaTranslatorClass(dto.name).toFirstLower()».exampleFromDto(exampleDto), parameters);
     }
 «ENDLET»
 «ENDLET»
@@ -314,11 +273,13 @@
          * {@inheritDoc}
          */
         public void «method.name»(«method.main.name» whole, «method.part.name» part) {
+        
             Assert.notNull(whole, "argument [whole] may not be null");
             Assert.notNull(part, "argument [part] may not be null");
-            «method.part.businessClass()» partObject = «javaDomainServiceInterface(this.name).toFirstLower()».read«method.part.businessClass()»(part.getId());
-            «method.main.businessClass()» wholeObject = «javaDomainServiceInterface(this.name).toFirstLower()».read«method.main.businessClass()»(whole.getId());
-            «javaDomainServiceInterface(this.name).toFirstLower()».removeFrom«method.rolename.toFirstUpper()»(wholeObject, partObject);
+            
+            «method.part.businessClass()» partObject = «javaDaoInterface(method.part.businessClass()).toFirstLower()».retrieve(part.getId());
+            «method.main.businessClass()» wholeObject = «javaDaoInterface(method.main.businessClass()).toFirstLower()».retrieve(whole.getId());
+            wholeObject.removeFrom«method.rolename.toFirstUpper()»(partObject);
         }
         «ENDIF»
     «ENDLET»
@@ -331,12 +292,17 @@
      * {@inheritDoc}
      */
     public void «this.name»(«this.main.name» whole, «this.part.name» part) {
+    
         Assert.notNull(whole, "argument [whole] may not be null");
         Assert.notNull(part, "argument [part] may not be null");
-        «this.part.businessClass()» partBusinessObject = «javaDomainServiceInterface(this.model.name).toFirstLower()».read«this.part.businessClass()»(part.getId());
-        «this.main.businessClass()» mainBusinessObject = «javaDomainServiceInterface(this.model.name).toFirstLower()».read«this.main.businessClass()»(whole.getId());
-        «javaDomainServiceInterface(this.model.name).toFirstLower()».addTo«this.rolename.toFirstUpper()»(mainBusinessObject, partBusinessObject);
-        return ;
+
+        «this.part.businessClass()» partBusinessObject = «javaDaoInterface(part.businessClass()).toFirstLower()».retrieve(part.getId());
+        Assert.notNull(partBusinessObject, "Con not add «part.businessClass()» to a non-existing «main.businessClass()»: [" + whole.toString() + "]");
+        
+        «this.main.businessClass()» mainBusinessObject = «javaDaoInterface(main.businessClass()).toFirstLower()».retrieve(whole.getId());
+        Assert.notNull(mainBusinessObject, "Con not add «part.businessClass()» to «main.businessClass()»: «part.businessClass()» does not exitst: [" + whole.toString() + "]");
+        
+        mainBusinessObject.addTo«this.rolename.toFirstUpper()»(partBusinessObject);
     }
 «ENDDEFINE»
 
@@ -345,41 +311,45 @@
      * {@inheritDoc}
      */
     public void «this.name»(«this.main.name» whole, «this.part.name» part) {
+    
         Assert.notNull(whole, "argument [whole] may not be null");
+        
         «this.part.businessClass()» partBusinessObject = null;
         if (part != null) {
-            partBusinessObject = «javaDomainServiceInterface(this.model.name).toFirstLower()».read«this.part.businessClass()»(part.getId());
+            partBusinessObject = «javaDaoInterface(part.businessClass()).toFirstLower()».retrieve(part.getId());
         }
-        «this.main.businessClass()» mainBusinessObject = «javaDomainServiceInterface(this.model.name).toFirstLower()».read«this.main.businessClass()»(whole.getId());
-        «javaDomainServiceInterface(this.model.name).toFirstLower()».set«this.rolename.toFirstUpper()»(mainBusinessObject, partBusinessObject);
-        return ;
+        «this.main.businessClass()» mainBusinessObject = «javaDaoInterface(main.businessClass()).toFirstLower()».retrieve(whole.getId());
+        mainBusinessObject.set«this.rolename.toFirstUpper()»(partBusinessObject);
     }
 «ENDDEFINE»
 
 «DEFINE getOneMethod FOR AssociationMethod»
-«LET javaDomainServiceInterface(this.model.name).toFirstLower() AS domainService»
     /**
      * {@inheritDoc}
      */
     public «JavaType(this.part)» «this.name»(«this.main.name» source){
+    
         Assert.notNull(source, "argument [source] may not be null");
+        
         «this.part.businessClass()» target = null;
-        «this.main.businessClass()» sourceBusinessObject = «domainService».read«this.main.businessClass()»(source.getId());
-        target = «domainService».get«this.part.businessClass()»(sourceBusinessObject);
+        «this.main.businessClass()» sourceBusinessObject = «javaDaoInterface(main.businessClass()).toFirstLower()».retrieve(source.getId());
+        Assert.notNull(sourceBusinessObject, "Can not «this.name» for a non existing «this.main.name»: [" + source.toString() + "]");
+        
+        target = «javaDaoInterface(part.businessClass()).toFirstLower()».retrieve(sourceBusinessObject.get«this.part.businessClass()»().getId());
         return «javaTranslatorClass(this.part.name).toFirstLower()».toDto(target);
     }
-«ENDLET»
 «ENDDEFINE»
 
 «DEFINE getManyMethod FOR AssociationMethod»
-«LET javaDomainServiceInterface(this.model.name).toFirstLower() AS domainService»
     /**
      * {@inheritDoc}
      */
     public List<«JavaType(this.part)»> «this.name»(«this.main.name» source) {
+    
         Assert.notNull(source, "argument [source] may not be null");
-        «this.main.businessClass()» businessSource = «domainService».read«this.main.businessClass()»(source.getId());
-        List<«this.part.businessClass()»> parts = «domainService».get«this.rolename.toFirstUpper()»(businessSource);
+        
+        «this.main.businessClass()» businessSource = «javaDaoInterface(main.businessClass()).toFirstLower()».retrieve(source.getId());
+        Set<«this.part.businessClass()»> parts = businessSource.get«this.rolename.toFirstUpper()»();
         List<«this.part.name»> result = new ArrayList<«this.part.name»>(parts.size());
 
         for («this.part.businessClass()» element: parts) {
@@ -388,5 +358,4 @@
         }
         return result;
     }
-«ENDLET»
 «ENDDEFINE»
