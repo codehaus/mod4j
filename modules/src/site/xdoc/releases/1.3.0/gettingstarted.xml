@@ -52,27 +52,35 @@
                             <tr>
                                 <td>Eclipse Xtext and Xpand plug-ins</td>
                                 <td>
-                                    <b> - Xtext Antlr Support 0.7.2</b>
-                                    <br />
                                     <b> - TMF XTEXT SDK (Incubation) 0.7.2</b>
                                     <br />
                                     <b> - M2T XPAND SDK (Incubation) 0.7.2</b>
                                 </td>
                                 <td>
                                     <b>
-                                        <code>http://download.itemis.com/updates/releases</code>
+                                        <code>http://download.eclipse.org/releases/galileo</code>
                                     </b>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Eclipse IAM (Integration for Apache Maven), formerly called
-                                    Q4E</td>
+                                <td>Eclipse Xtext Antlr plug-ins</td>
                                 <td>
-                                    Select all features
+                                    <b> - Xtext Antlr Support 0.7.2</b>
                                 </td>
                                 <td>
                                     <b>
-                                        <code>http://q4e.googlecode.com/svn/trunk/updatesite-iam</code>
+                                        <code>http://download.itemis.com/updates/releases</code>
+                                    </b>
+                                </td>
+                            </tr>                            
+                            <tr>
+                                <td>Eclipse Maven plug-in: m2eclipse</td>
+                                <td>
+                                    - Maven Integration for Eclipse 0.10.2
+                                </td>
+                                <td>
+                                    <b>
+                                        <code>http://m2eclipse.sonatype.org/sites/m2e</code>
                                     </b>
                                 </td>
                             </tr>
