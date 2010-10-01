@@ -68,9 +68,11 @@
     «FOREACH allServices AS service»
     <!-- service.name = «service.name»  this.name = «this.name»-->
     <bean id="«service.name.toFirstLower()»Service" class="«javaLocalServiceClassPath(service.name)»">
-        «FOREACH service.getPropertyValue("UniqueBusinessClasses").split(",") AS bcName»
-        	<property name="«javaDaoInterface(bcName).toFirstLower()»" ref="«javaDaoInterface(bcName).toFirstLower()»" />
-        «ENDFOREACH» 
+        «IF service.getPropertyValue("UniqueBusinessClasses").length > 0»
+            «FOREACH service.getPropertyValue("UniqueBusinessClasses").split(",") AS bcName»
+        	    <property name="«javaDaoInterface(bcName).toFirstLower()»" ref="«javaDaoInterface(bcName).toFirstLower()»" />
+            «ENDFOREACH» 
+    	«ENDIF»
     	«FOREACH findAllSubSymbols(service, "DtoReference") AS dto -»
             <property name="«javaTranslatorClass(dto.name).toFirstLower()»" ref="«javaTranslatorClass(dto.name).toFirstLower()»" />
 	    «ENDFOREACH-»

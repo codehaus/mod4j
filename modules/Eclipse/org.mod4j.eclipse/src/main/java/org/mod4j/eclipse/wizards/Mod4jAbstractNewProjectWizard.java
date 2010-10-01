@@ -230,14 +230,6 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
                     "" + LF +
                     "####" + LF +
                     "#" + LF +
-                    "# Business module properties" + LF +
-                    "#" + LF +                    
-                    "###" + LF +
-                    "businessModuleName=" + mainPage.getApplicationNameFieldValue() + "-business" + LF +
-                    "businessRootPackage=" + mainPage.getPackageNameFieldValue() + ".business" + LF +
-                    "" + LF +
-                    "####" + LF +
-                    "#" + LF +
                     "# Service module properties" + LF +
                     "#" + LF +
                     "####" + LF +
