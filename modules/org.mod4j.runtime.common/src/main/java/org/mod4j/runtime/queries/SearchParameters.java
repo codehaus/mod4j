@@ -204,4 +204,29 @@ public class SearchParameters implements Serializable {
 		}
 		return criteria;
 	}
+	
+	/**
+	 * Returns a String representation of the internal state of this object.
+	 */
+	@Override
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		result.append("org.mod4j.runtime.queries.SearchParameters[");
+		result.append("firstResult=");
+		result.append(firstResult);
+		result.append(", ");
+		result.append("maxResults=");
+		result.append(maxResults);
+		result.append(", ");
+		result.append("sortProperty=");
+		result.append(sortProperty);
+		result.append(", ");
+		result.append("matchMode=");
+		result.append(matchMode.toString());
+		result.append(", ");
+		result.append("ignoreCase=");
+		result.append(ignoreCase);
+		result.append("]");
+		return result.toString();
+	}
 }
