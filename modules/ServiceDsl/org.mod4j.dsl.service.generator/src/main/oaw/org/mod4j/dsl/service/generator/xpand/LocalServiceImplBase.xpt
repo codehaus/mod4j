@@ -30,13 +30,9 @@
     import java.util.ArrayList;
     import org.springframework.util.Assert;
     import org.mod4j.runtime.queries.SearchParameters;
-
-    //import «getDaoPackage()»;
-
     «FOREACH this.dtoReferences AS dto -»
     import «getDtoPackage()».«javaClassName(dto.name)»;
     «ENDFOREACH»
-
     «FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
     import «javaDaoInterfacePath(dto.businessClass())»; 
     import «javaTranslatorClassPath(dto.name)»;
@@ -118,7 +114,6 @@
     public void «this.name»(«JavaType(this.dto)» object) {
         «javaDomainClass(dto.businessClass())» domainObject = «javaDaoInterface(dto.businessClass()).toFirstLower()».retrieve(object.getId());
         «javaTranslatorClass(dto.name).toFirstLower()».fromDto(object, domainObject);
-        //«javaDaoInterface(model.name).toFirstLower()».update«businessClass(this.dto)»(domainObject);
     }
 «ENDLET»
 «ENDDEFINE»
@@ -244,7 +239,6 @@
 «ENDDEFINE»
 
 «DEFINE Associations FOR ServiceModel»
-// Association related service methods
     «FOREACH this.methods.typeSelect(AssociationMethod) AS method»
     «LET getAssociation(method) AS assoc»
     «LET getPropertyValue(assoc, "Multiplicity") AS mult»
