@@ -3,13 +3,13 @@ domain RecordShopDomainModel ;
            
 /*        
  * Remarks...                             
- */        
+ */
       
 "A Person represents a legal person."  
 class Person [  
-   
+
     "First name of the person."   
-    string firstName ; 
+    string firstName; 
     "Last name of the person."    
     string lastName;   
     datetime birthDate;
@@ -19,7 +19,7 @@ class Person [
     integer numberOfEars default 2 min 0 max 4;   
     "Gender"       
     SexeEnum sexe default MALE nullable;    
-   
+
     rules [   
         "The combination of first- and last name of a person must be unique"
         unique fullName [firstName, lastName]

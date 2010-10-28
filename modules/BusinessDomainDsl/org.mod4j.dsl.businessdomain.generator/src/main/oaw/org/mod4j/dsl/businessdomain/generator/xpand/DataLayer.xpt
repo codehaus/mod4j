@@ -17,33 +17,35 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE genResources FOR BusinessDomainDsl::BusinessDomainModel»
+
 	«print("MOD4J INFO: Running Business Domain Hibernate generator on model [" + this.name + "]")»
+
 	«FILE generate(getDataModuleName(), getDataRootPackageAsPath() + "/beanRefContext.xml")-»
-		«EXPAND HibernateConfiguration::hibernateheader     FOR this»
+		«EXPAND HibernateConfiguration::hibernateheader FOR this»
 	«ENDFILE»
 
     «IF !fileExist(fullExtendPath(getDataModuleName(), "/" + getEnvPropFileName()))»
-        «FILE extend(getDataModuleName(), "/" + getEnvPropFileName())»
+        «FILE generateToMain(getDataModuleName(), "/" + getEnvPropFileName())»
             «EXPAND HibernateDataLayerContext::environmentprops FOR this»
         «ENDFILE»
     «ELSE»
-        «retain(getDataModuleName(), "/" + getEnvPropFileName())»
+        «retain(getDataModuleName(), getEnvPropFileName())»
     «ENDIF»
 
-	«FILE generate( getDataModuleName(), getDataRootPackageAsPath() + "/applicationContext.xml")-»
+	«FILE generate(getDataModuleName(), getDataRootPackageAsPath() + "/applicationContext.xml")-»
     	«EXPAND HibernateDataLayerContext::datalayercontext FOR this»
 	«ENDFILE»
 	
-	«IF shouldRegenerate(fullExtendPath(getDataModuleName(), getDataRootPackageAsPath() + "/sessionFactoryContext.xml"))»
-        «FILE extend(getDataModuleName(), getDataRootPackageAsPath() + "/sessionFactoryContext.xml")»
+	«IF !fileExist(fullExtendPath(getDataModuleName(), getDataRootPackageAsPath() + "/sessionFactoryContext.xml"))»
+        «FILE generateToMain(getDataModuleName(), getDataRootPackageAsPath() + "/sessionFactoryContext.xml")»
             «EXPAND HibernateDataLayerContext::sessionFactoryContext FOR this»
         «ENDFILE»
     «ELSE»
         «retain(getDataModuleName(), getDataRootPackageAsPath() + "/sessionFactoryContext.xml")»
     «ENDIF»
     
-    «IF shouldRegenerate(fullExtendPath(getDataModuleName(), getDataRootPackageAsPath() + "/dataSourceContext.xml"))»
-        «FILE extend(getDataModuleName(), getDataRootPackageAsPath() + "/dataSourceContext.xml")»
+    «IF !fileExist(fullExtendPath(getDataModuleName(), getDataRootPackageAsPath() + "/dataSourceContext.xml"))»
+        «FILE generateToMain(getDataModuleName(), getDataRootPackageAsPath() + "/dataSourceContext.xml")»
             «EXPAND HibernateDataLayerContext::dataSourceContext FOR this»
         «ENDFILE»
     «ELSE»
@@ -77,24 +79,26 @@
 «ENDDEFINE»
 
 «DEFINE genDaoExtensions FOR BusinessDomainDsl::BusinessDomainModel»
+
 	«print("MOD4J INFO: Running Business Domain Dao Extension points generator on model [" + this.name + "]")»
+
 	«FOREACH this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls)) AS class»
-		«IF shouldRegenerate(fullExtendPath(getDataModuleName(), javaPathFileName(javaDaoClassPath(class.name) )))»
-			«FILE extend(getDataModuleName(), javaPathFileName(javaDaoClassPath(class.name) ))»
+		«IF !fileExist(fullExtendPath(getDataModuleName(), javaPathFileName(javaDaoClassPath(class.name))))»
+			«FILE generate(getDataModuleName(), javaPathFileName(javaDaoClassPath(class.name)))»
 			    «EXPAND DaoImpl::daoImplementation  FOR class»
             «ENDFILE»
 		«ELSE»
-			«retain(getDataModuleName(), javaPathFileName(javaDaoClassPath(class.name) ))»
+			«retain(getDataModuleName(), javaPathFileName(javaDaoClassPath(class.name)))»
         «ENDIF»
     «ENDFOREACH»
     
     «FOREACH this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls)) AS class»
-		«IF shouldRegenerate(fullExtendPath(getDataModuleName(), javaPathFileName( javaDaoInterfacePath(class.name))))»
-			«FILE extend(getDataModuleName(), javaPathFileName( javaDaoInterfacePath(class.name)))»
+		«IF !fileExist(fullExtendPath(getDataModuleName(), javaPathFileName(javaDaoInterfacePath(class.name))))»
+			«FILE generate(getDataModuleName(), javaPathFileName( javaDaoInterfacePath(class.name)))»
 			    «EXPAND DaoInterface::daoInterface  FOR class»
 			«ENDFILE»
 		«ELSE»
-		     «retain(getDataModuleName(), javaPathFileName( javaDaoInterfacePath(class.name)))»
+		     «retain(getDataModuleName(), javaPathFileName(javaDaoInterfacePath(class.name)))»
         «ENDIF»
     «ENDFOREACH»
             

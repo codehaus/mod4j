@@ -19,13 +19,15 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE Generate FOR ServiceModel»
+
 	«print("MOD4J INFO: Running Service Business generator on model [" + this.name + "]")»
-	«IF shouldRegenerate(fullExtendPath(getBusinessModuleName(), javaPathFileName(javaDomainServiceInterfacePath(name))))»
-		«FILE extend(getBusinessModuleName(), javaPathFileName(javaDomainServiceInterfacePath(name)))»
+
+	«IF !fileExist(fullExtendPath(getBusinessModuleName(), javaPathFileName(javaDomainServiceInterfacePath(name))))»
+		«FILE generate(getBusinessModuleName(), javaPathFileName(javaDomainServiceInterfacePath(name)))»
 		    «EXPAND BusinessService::BusinessService FOR this»
 		«ENDFILE»
 	«ELSE»
-	    «retain(getBusinessModuleName(), javaPathFileName(javaDomainServiceInterfacePath(name)) )»
+	    «retain(getBusinessModuleName(), javaPathFileName(javaDomainServiceInterfacePath(name)))»
 	«ENDIF»
 	
 	«FILE generate(getBusinessModuleName(), javaPathFileName(javaDomainServiceBaseInterfacePath(name)))»
@@ -36,12 +38,12 @@
 	  	«EXPAND BusinessServiceImplBase::BusinessServiceImplBase FOR this»
 	«ENDFILE»
 	
-	«IF shouldRegenerate(fullExtendPath(getBusinessModuleName(), javaPathFileName(javaDomainServiceClassPath(name))))»
-	 	«FILE extend(getBusinessModuleName(), javaPathFileName(javaDomainServiceClassPath(name)))» 
+	«IF !fileExist(fullExtendPath(getBusinessModuleName(), javaPathFileName(javaDomainServiceClassPath(name))))»
+	 	«FILE generate(getBusinessModuleName(), javaPathFileName(javaDomainServiceClassPath(name)))» 
 		  	«EXPAND BusinessServiceImpl::BusinessServiceImpl FOR this»
 		«ENDFILE»
 	«ELSE»
-	    «retain(getBusinessModuleName(), javaPathFileName(javaDomainServiceClassPath(name)) )»
+	   «retain(getBusinessModuleName(), javaPathFileName(javaDomainServiceClassPath(name)))»
 	«ENDIF»
 
 	«FILE generate(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/beanRefContext.xml")»
@@ -59,11 +61,11 @@
 «ENDREM»
 «DEFINE generateMavenConfiguration FOR ServiceModel»
 	«print("MOD4J INFO: Running Service maven generator on model [" + this.name + "]")»
-    «IF shouldRegenerate(getBusinessModulePath() + "/pom.xml")»
-        «FILE extend( getBusinessModuleName(), "pom.xml" )-»
+    «IF !fileExist(getBusinessModulePath() + "/pom.xml")»
+        «FILE generateToMain( getBusinessModuleName(), "pom.xml" )-»
 		  	«EXPAND BusinessModulePom::createBusinessModulePom»
 		«ENDFILE»
 	«ELSE»
-		«retain(getBusinessModuleName(), "pom.xml" )»
+		«retain(getDataModuleName(), "pom.xml")»
 	«ENDIF»
 «ENDDEFINE»
