@@ -16,7 +16,7 @@ from RecordShopDomainModel import Address;
     /*     
      * Transfer objects for BusinessClasses 
      */
-	
+     
 	"Full Customer transfer object with all the Customer attributes (no associations)."
 	class FullCustomerDto represents Customer;
 	

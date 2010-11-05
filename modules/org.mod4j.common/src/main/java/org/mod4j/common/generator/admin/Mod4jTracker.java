@@ -97,42 +97,19 @@ public class Mod4jTracker {
      * @param resource
      */
     public void finishResource(String resource, String applicationPath, String projectPath) {
-        // System.err.println("FINISH FileTracker");
+
+    	// System.err.println("FINISH FileTracker");
         for (GeneratedFile gen : getCurrentTrack().getExtensionFiles()) {
-            if (gen.isChanged()) {
-                // System.err.println("GENERATED : " + gen.getSourcePath());
                 String name = gen.getSourcePath();
                 name = gen.getOwner().getProject().getApplicationPath() + "/" + name;
                 File file = new File(name);
-                // Date modified = new Date(file.lastModified());
-                // System.err.println(DateFormat.getInstance().format(modified)
-                // + " [" + name + "]");
                 gen.setModifiedDate(file.lastModified());
-                gen.setChanged(false);
-            } else if (gen.isRetained()) {
-                // System.err.println("KEEPING : " + gen.getSourcePath());
-                gen.setRetained(false);
-            } else {
-                // System.err.println("REMOVED : " + gen.getSourcePath());
-            }
         }
         for (GeneratedFile gen : getCurrentTrack().getGeneratedFiles()) {
-            if (gen.isChanged()) {
-                // System.err.println("! GENERATED : " + gen.getSourcePath());
                 String name = gen.getSourcePath();
                 name = gen.getOwner().getProject().getApplicationPath() + "/" + name;
                 File file = new File(name);
-                // Date modified = new Date(file.lastModified());
-                // System.err.println(DateFormat.getInstance().format(modified)
-                // + " [" + name + "]");
                 gen.setModifiedDate(file.lastModified());
-                gen.setChanged(false);
-            } else if (gen.isRetained()) {
-                // System.err.println("! KEEPING : " + gen.getSourcePath());
-                gen.setRetained(false);
-            } else {
-                // System.err.println("! REMOVED : " + gen.getSourcePath());
-            }
         }
     }
 
@@ -171,8 +148,9 @@ public class Mod4jTracker {
      * @return
      */
     static public String generate(String moduleName, String filename) {
-        // System.err.println("Generate [" + filename + "]");
+        
         String result = null;
+        
         if (filename.endsWith(".java")) {
             result = moduleName + "/" + ProjectProperties.getSrcGenPath() + "/" + filename;
         } else if (filename.equals("pom.xml")) { // always in root of module
@@ -180,41 +158,33 @@ public class Mod4jTracker {
         } else {
             result = moduleName + "/" + ProjectProperties.getResourceGenPath() + "/" + filename;
         }
-        GeneratedFile file = getFileTracker().getCurrentTrack().generatedFile(result);
-        file.setChanged(true);
+
+    	GeneratedFile file = getFileTracker().getCurrentTrack().generatedFile(result);
         file.setRetained(false);
         return result;
     }
-
-    /**
-     * Static, because this is used in Xpand templates.
+    
+	/**
+     * The file 'filename' is to be generated within 'moduleName'. the name of the resulting file will be returned and
+     * stored in the file tracker. Static, because this is used in Xpand templates.
      * 
      * @param moduleName
      * @param filename
      * @return
      */
-    static public String extend(String moduleName, String filename) {
-        // System.err.println("Extend [" + filename + "]");
-        String result = getDefaultModuleManFilePath(moduleName, filename);
-        GeneratedFile file = getFileTracker().getCurrentTrack().extensionFile(result);
-        file.setChanged(true);
-        file.setRetained(false);
-        return result;
-    }
-    
-    /**
-     * Static, because this is used in Xpand templates.
-     * 
-     * @param moduleName
-     * @param subFolderPath
-     * @param fileName
-     * @return
-     */
-    static public String extend(final String moduleName, final String subFolderPath, final String fileName) {
+    static public String generateToMain(String moduleName, String filename) {
         
-        String result = getFilePath(moduleName, subFolderPath, fileName);
-        GeneratedFile file = getFileTracker().getCurrentTrack().extensionFile(result);
-        file.setChanged(true);
+        String result = null;
+        
+        if (filename.endsWith(".java")) {
+            result = moduleName + "/" + ProjectProperties.getSrcManPath() + "/" + filename;
+        } else if (filename.equals("pom.xml")) { // always in root of module
+            result = moduleName + "/" + filename;
+        } else {
+            result = moduleName + "/" + ProjectProperties.getResourceManPath() + "/" + filename;
+        }
+
+        GeneratedFile file = getFileTracker().getCurrentTrack().generatedFile(result);
         file.setRetained(false);
         return result;
     }
@@ -227,10 +197,10 @@ public class Mod4jTracker {
      * @return
      */
     static public String retain(String moduleName, String filename) {
-        // System.err.println("Retain [" + filename + "]");
+        
+    	//System.err.println("Retain [" + filename + "]");
         String result = getDefaultModuleManFilePath(moduleName, filename);
         GeneratedFile file = getFileTracker().getCurrentTrack().extensionFile(result);
-        file.setChanged(false);
         file.setRetained(true);
         return result;
     }
@@ -244,10 +214,10 @@ public class Mod4jTracker {
      * @return
      */
     static public String retain(final String moduleName, final String subFolderPath, final String filename) {
-        // System.err.println("Retain [" + filename + "]");
+        
+    	// System.err.println("Retain [" + filename + "]");
         String result = getFilePath(moduleName, subFolderPath, filename);
         GeneratedFile file = getFileTracker().getCurrentTrack().extensionFile(result);
-        file.setChanged(false);
         file.setRetained(true);
         return result;
     }

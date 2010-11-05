@@ -37,20 +37,16 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.mod4j.common.generator.admin.Mod4jTracker;
 import org.mod4j.common.generator.admin.ProjectTrack;
-import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.crossx.broker.CrossxEnvironment;
-import org.mod4j.crossx.mm.crossx.CrossxPackage;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
 import org.mod4j.dslcommon.generator.helpers.ModelHelpers;
 import org.mod4j.dslcommon.openarchitectureware.DslExtension;
 import org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowException;
-import org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowRunner;
 import org.mod4j.dslcommon.openarchitectureware.OutletDirectoryCleaner;
 import org.mod4j.dslcommon.openarchitectureware.RunCrossxWorkflow;
 import org.mod4j.eclipse.crossx.views.CrossxView;
@@ -65,8 +61,6 @@ import org.mod4j.eclipse.views.filetracker.FileTrackerView;
  * 
  */
 public class Mod4jBuilder extends IncrementalProjectBuilder {
-
-    private static final String MOD4JPROJECT_FILENAME = "mod4jproject.xml~";
 
     private static final String MOD4J_BUILDER_CONSOLE = "mod4j.projectbuilder";
 
@@ -91,6 +85,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     public static final String bundleName = "org.mod4j.eclipse";
 
     public static final String CROSSX_EXTENSION = ".crossx~";
+
     public static final String CROSSX_EXTENSION_NODOT = "crossx~";
 
     public static final String MODEL_DIR = "src/model";
@@ -168,6 +163,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 
     List<IResource> filesAddedOrChanged = new ArrayList<IResource>();
     List<IResource> filesRemoved        = new ArrayList<IResource>();
+    
     /**
      * Visitor to generate code from the models
      * 
@@ -218,29 +214,26 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
      *            The resource to check
      */
     private void checkSymbols(IResource resource) {
-        if (resource instanceof IFile && resource.getName().endsWith(CROSSX_EXTENSION)) {
+
+    	if (resource instanceof IFile && resource.getName().endsWith(CROSSX_EXTENSION)) {
             if (!inModelDir(resource)) {
                 return;
             }
             ModelInfo crossxInfo = readCrossx(resource);
             CrossxEnvironment.addModelInfo(resource.getProject().getName(), crossxInfo);
-
         }
     }
 
     public ModelInfo readCrossx(IResource resource) {
-        // Create a resource set.
+
+    	// Create a resource set.
         ResourceSet resourceSet = new ResourceSetImpl();
 
         // Register the default resource factory -- only needed for stand-alone!
         resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
                 Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 
-        // Register the package -- only needed for stand-alone!
-        CrossxPackage crossxPackage = CrossxPackage.eINSTANCE;
-
         // Get the URI of the model file.
-        // URI fileURI = URI.createFileURI(new File("mylibrary.xmi").getAbsolutePath());
         URI fileURI = URI.createFileURI(resource.getLocation().toPortableString());
 
         // Demand load the resource for this file.
@@ -261,7 +254,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
      * org.eclipse.core.runtime.IProgressMonitor)
      */
     protected IProject[] build(int kind, Map args, IProgressMonitor monitor) throws CoreException {
-        if (kind == FULL_BUILD) {
+       
+    	if (kind == FULL_BUILD) {
             fullBuild(monitor);
         } else if (kind == CLEAN_BUILD) {
             fullBuild(monitor);
@@ -284,7 +278,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
      * @throws CoreException
      */
     protected void fullBuild(final IProgressMonitor monitor) throws CoreException {
-        System.err.println("Mod4jBuilder: full build");
+        
+    	System.err.println("Mod4jBuilder: full build");
         cleanOutputDirectories();
         try {
             filesAddedOrChanged.clear();
@@ -309,7 +304,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
      *             see Eclipse documentation
      */
     protected void incrementalBuild(IResourceDelta delta, IProgressMonitor monitor) throws CoreException {
-        // the visitor does the work.
+        
+    	// the visitor does the work.
         System.err.println("Mod4jBuilder: incremental build");
         filesAddedOrChanged.clear();
         filesRemoved.clear();
@@ -322,10 +318,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     }
 
     private void generateCrossxForAllFiles(IProgressMonitor monitor) {
-//        for (IResource resource : files) {
-//            generateCrossxSymbols(resource);
-//        }
-        for (IResource resource : filesAddedOrChanged) {
+
+    	for (IResource resource : filesAddedOrChanged) {
             if( resource.getName().endsWith(".busmod")){
                 generateCrossxSymbols(resource);
             }
@@ -353,6 +347,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
      * output to a console.
      */
     protected void startupOnInitialize() {
+    	
         System.err.println("Mod4jBuilder.startupOnInitialize");
         if (!initialized) {
             System.err.println("Mod4jBuilder.startupOnInitialize ! initalized");
@@ -365,8 +360,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     }
 
     public static void initCrossx(String from) {
-        System.err.println("Mod4jBuilder.initCrossx from [" + from + "]");
-//        if (!CrossxEnvironment.isStarted()) {
+        
+    	System.err.println("Mod4jBuilder.initCrossx from [" + from + "]");
         if (!initialized) {
      		initialized = true;
             Mod4jBuilder b = new Mod4jBuilder();
@@ -378,6 +373,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     }
     
     public void startX() {
+    	
     	getConsole();
     	System.err.println("Mod4jBuilder.startX()");
         CrossxEnvironment.setPrintStream(getConsole());
@@ -403,6 +399,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     }
     
     public void start() {
+    	
     	System.err.println("Mod4jBuilder.start()");
         dslExtensions = Mod4jBuilder.getExtensions();
         IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
@@ -415,10 +412,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     public static QualifiedName PROJECT_TRACKER = new QualifiedName("org.mod4j.eclipse", "filetracker");
 
 	private void readFileTracker(IProject project) {
-//        Mod4jTracker.getFileTracker().readTracker(project.getWorkspace().getRoot().getLocation().toString()
-//				+ "/" + "mod4jgenerator.xml");
-        ProjectTrack projectTrack = new ProjectTrack();
-        projectTrack.readProjectTracker(project.getLocation().toString() + "/" + MOD4JPROJECT_FILENAME);
+
+		ProjectTrack projectTrack = new ProjectTrack();
         Mod4jTracker.getFileTracker().addProjectTrack(projectTrack);
 	}
     
@@ -428,6 +423,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
      * 
      */
     private void myloadCrossxInfo(IProject project) {
+    	
         // Run the visitor over the project to collect all Crossx information
         CrossxFindSymbolsResourceVisitor visitor = new CrossxFindSymbolsResourceVisitor();
         try {
@@ -575,11 +571,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
                         + resource.getName() + "] \nerror: [" + e.getMessage() + "]");
             }
             
-            // Tell filetracker to close current resource and save the current project track to file.
+            // Tell filetracker to close current resource.
             Mod4jTracker.getFileTracker().finishResource(modelFilePath, newAppPath, projectPath);
-            Mod4jTracker.getFileTracker().getCurrentProject().writeProjectTrack(
-            		getProject().getLocation().toString() + "/" + MOD4JPROJECT_FILENAME);
-
         }
     }
 
@@ -648,7 +641,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
      * @param monitor
      */
     private void removeCrossx(IProgressMonitor monitor) {
-        for (IResource resource : filesRemoved) {
+        
+    	for (IResource resource : filesRemoved) {
             DslExtension dsl = isDslFile(resource);
             if (dsl != null) {
                 String modelfile = EclipseUtil.resource2UriString(resource);
@@ -698,24 +692,6 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     }
 
     /**
-     * The path of the workflowfile for generating the code
-     * 
-     * @return
-     */
-    private IPath getGeneratorPathFromProject(DslExtension dsl) {
-        // TODO generate error message when oaw file is not available
-        // IResource resource = getProject().findMember(SRC_WORKFLOW_BUSMOD_OAW);
-        IResource resource = getProject().findMember(dsl.getDslCodegenWorkflow());
-        if (resource == null) {
-            EclipseUtil.showWarning("Mod4j: cannot open code generation workflow [" + dsl.getDslCodegenWorkflow()
-                    + "] for project [" + getProject().getName() + "] no code is generated");
-            return null;
-        }
-        IPath path = resource.getLocation();
-        return path;
-    }
-
-    /**
      * Checks whether <code>resource</code> is a Dsl file of a DSl in the extension list. If so, return the
      * corresponding DslExtension, if not returns null.
      * 
@@ -734,24 +710,10 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         return null;
     }
 
-    private DslExtension getForExtension(String extension) {
-        for (DslExtension dsl : dslExtensions) {
-            if (extension.equals(dsl.getDslFileExtension())) {
-                return dsl;
-            }
-        }
-        return null;
-    }
-
     public static List<DslExtension> getExtensions() {
         List<DslExtension> result = new ArrayList<DslExtension>();
 
         IExtensionRegistry reg = Platform.getExtensionRegistry();
-        // IExtensionPoint[] allextensions = reg.getExtensionPoints();
-        // for (int i = 0; i < allextensions.length; i++) {
-        // IExtensionPoint p = allextensions[i];
-        // System.err.println("Extension: "+ p.getUniqueIdentifier());
-        // }
         IConfigurationElement[] extensions = reg.getConfigurationElementsFor(DSL_EXTENSION_ID);
         for (int i = 0; i < extensions.length; i++) {
             IConfigurationElement element = extensions[i];

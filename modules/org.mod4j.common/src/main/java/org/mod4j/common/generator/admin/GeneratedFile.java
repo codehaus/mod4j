@@ -34,22 +34,22 @@ public class GeneratedFile {
         return owner;
     }
 
-    protected boolean changed = false; 
+    //protected boolean changed = false; 
 	protected boolean retained = false;
 
-	/**
-	 * @return the changed
-	 */
-	public boolean isChanged() {
-		return changed;
-	}
+//	/**
+//	 * @return the changed
+//	 */
+//	public boolean isChanged() {
+//		return changed;
+//	}
 
-	/**
-	 * @param changed the changed to set
-	 */
-	public void setChanged(boolean changed) {
-		this.changed = changed;
-	}
+//	/**
+//	 * @param changed the changed to set
+//	 */
+//	public void setChanged(boolean changed) {
+//		this.changed = changed;
+//	}
 
 	/**
 	 * @return the retained

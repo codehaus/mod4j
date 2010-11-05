@@ -68,7 +68,7 @@
         <metaModel idRef="bm" />
         <metaModel idRef="ecore"/>
         <fileEncoding value="${fileEncoding}"/>
-        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DomainLayer::Root FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::BusinessDomainLayer::Root FOR busModel" />
         <outlet path="${applicationPath}/">
             <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
@@ -82,7 +82,7 @@
         <metaModel idRef="bm" />
         <metaModel idRef="ecore"/>
         <fileEncoding value="${fileEncoding}"/>
-        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DomainLayer::ExtensionPointGeneration FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::BusinessDomainLayer::ExtensionPointGeneration FOR busModel" />
         <outlet path="${applicationPath}/">
             <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
@@ -92,12 +92,12 @@
     <!-- 
         Generation of Hibernate resources.
     -->  
-     <component id="BusinessDomainWorkflow-DataLayerResourcesGenerator" class="org.eclipse.xpand2.Generator">
+     <component id="BusinessDomainWorkflow-DataPackageResourcesGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="bm" />
         <metaModel idRef="crossx"/>
         <metaModel idRef="ecore"/>
         <fileEncoding value="${fileEncoding}"/>
-        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genResources FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataPackage::genResources FOR busModel" />
         <outlet path="${applicationPath}/">
             <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
@@ -107,11 +107,11 @@
     <!-- 
         Generation of Dao sources.
     -->  
-    <component id="BusinessDomainWorkflow-DataLayerDaoGenerator" class="org.eclipse.xpand2.Generator">
+    <component id="BusinessDomainWorkflow-DataPackageDaoGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="bm" />
         <metaModel idRef="ecore"/>
         <fileEncoding value="${fileEncoding}"/>
-        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genDao FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataPackage::genDao FOR busModel" />
         <outlet path="${applicationPath}/">
             <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
@@ -121,11 +121,11 @@
     <!-- 
         Generation of Extention Points for Dao's.
     -->  
-    <component id="BusinessDomainWorkflow-DataLayerExtentionPointsGenerator" class="org.eclipse.xpand2.Generator">
+    <component id="BusinessDomainWorkflow-DataPackageExtentionPointsGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="bm" />
         <metaModel idRef="ecore"/>
         <fileEncoding value="${fileEncoding}"/>
-        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genDaoExtensions FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataPackage::genDaoExtensions FOR busModel" />
         <outlet path="${applicationPath}/">
             <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
@@ -139,7 +139,7 @@
         <metaModel idRef="bm" />
         <metaModel idRef="ecore"/>
         <fileEncoding value="${fileEncoding}"/>
-        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DomainLayer::CreateMavenConfiguration FOR busModel"/>
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::BusinessDomainLayer::CreateMavenConfiguration FOR busModel"/>
         <outlet path="${applicationPath}">
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>

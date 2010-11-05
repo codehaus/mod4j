@@ -20,17 +20,19 @@
 «EXTENSION org::mod4j::common::xtend::FileTracker»
 
 «DEFINE Generate FOR ServiceModel»
+
 	«print("MOD4J INFO: Running Service generator on model [" + this.name + "]")»
+
 	«FILE generate(getServiceModuleName(), javaPathFileName(javaLocalServiceInterfacePath(name)))»
 		«EXPAND  LocalService::LocalService FOR this» 
 	«ENDFILE»
 	
-	«IF shouldRegenerate(fullExtendPath(getServiceModuleName(), javaPathFileName(javaLocalServiceClassPath(name))))»
-		«FILE extend(getServiceModuleName(), javaPathFileName(javaLocalServiceClassPath(name)))» 
+	«IF !fileExist(fullExtendPath(getServiceModuleName(), javaPathFileName(javaLocalServiceClassPath(name))))»
+		«FILE generate(getServiceModuleName(), javaPathFileName(javaLocalServiceClassPath(name)))» 
     		«EXPAND  LocalServiceImpl::LocalServiceImpl FOR this» 
     	«ENDFILE»
 	«ELSE»
-	    «retain(getServiceModuleName(), javaPathFileName(javaLocalServiceClassPath(name)) )»
+	    «retain(getServiceModuleName(), javaPathFileName(javaLocalServiceInterfacePath(name)))»
     «ENDIF»
 
 	«FILE generate(getServiceModuleName(), javaPathFileName(javaLocalServiceBaseClassPath(name)))»
@@ -45,8 +47,8 @@
 	    «EXPAND  ServiceLayerImplBaseContext::GenServiceLayerImplBaseContext FOR this» 
 	«ENDFILE»
     
-    «IF shouldRegenerate(fullExtendPath(getServiceModuleName(), getServiceRootPackageAsPath() + "/transactionManagerContext.xml"))»
-        «FILE extend(getServiceModuleName(), getServiceRootPackageAsPath() + "/transactionManagerContext.xml")»
+    «IF !fileExist(fullExtendPath(getServiceModuleName(), getServiceRootPackageAsPath() + "/transactionManagerContext.xml"))»
+        «FILE generateToMain(getServiceModuleName(), getServiceRootPackageAsPath() + "/transactionManagerContext.xml")»
 <?xml version="1.0" encoding="UTF-8"?>
 
 «EXPAND XmlComments::extensionPointHeader ("Mod4j ServiceDsl generator: ServiceLayer.xpt") FOR this»
@@ -61,15 +63,6 @@
 </beans>
         «ENDFILE»
     «ELSE»
-        «retain(getServiceModuleName(), getServiceRootPackageAsPath() + "/transactionManagerContext.xml")»
+         «retain(getServiceModuleName(), getServiceRootPackageAsPath() + "/transactionManagerContext.xml")»
     «ENDIF»
-  
-«ENDDEFINE»
-
-«REM»
-	Generation of Extention Points of the implementation base classes.
-	If they don't exist already these classes typically are generated to the srcMan folder. 
-«ENDREM»
-«DEFINE ExtensionPointGeneration FOR ServiceModel»
-  TODO implement this template
 «ENDDEFINE»

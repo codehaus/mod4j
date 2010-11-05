@@ -59,13 +59,14 @@ String getDslModelsModulePath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDslModelsModulePath();
 
 /* 
- * domain layer properties 
+ * Businessdomain layer properties 
  */
-String getDomainModuleName() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainModuleName();
+ // domain package
+String getBusinessDomainModuleName() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessDomainModuleName();
 
-String getDomainModulePath() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainModulePath();
+String getBusinessDomainModulePath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessDomainModulePath();
 
 String getDomainRootPackage() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainRootPackage();
@@ -73,16 +74,7 @@ String getDomainRootPackage() :
 String getDomainRootPackageAsPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainRootPackageAsPath();
 
-
-/* 
- * data layer properties 
- */
-String getDataModuleName() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDataModuleName();
-
-String getDataModulePath() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDataModulePath();
-
+// data package
 String getDataRootPackage() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDataRootPackage();
 

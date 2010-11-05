@@ -14,9 +14,9 @@
 «EXTENSION org::mod4j::common::xtend::FileTracker»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 
-«DEFINE createDataModulePom FOR BusinessDomainModel»
+«DEFINE createBusinessDomainModulePom FOR BusinessDomainModel»
 <?xml version="1.0" encoding="«getFileEncoding()»"?>
-«EXPAND XmlComments::extensionPointHeader ("Mod4j BusinessDomainDsl generator: DataModuleModuelPom.xpt") FOR this»
+«EXPAND XmlComments::extensionPointHeader ("Mod4j BusinessDomainDsl generator: DomainModuelPom.xpt") FOR this»
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
@@ -25,16 +25,11 @@
         <version>«getApplicationVersion()»</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>«getDataRootPackage()»</groupId>
-    <artifactId>«getDataModuleName()»</artifactId>
-    <name>«getDataModuleName()»</name>
+    <groupId>«getDomainRootPackage()»</groupId>
+    <artifactId>«getBusinessDomainModuleName()»</artifactId>
+    <name>«getBusinessDomainModuleName()»</name>
     <version>«getApplicationVersion()»</version>
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.mod4j</groupId>
             <artifactId>mod4j-runtime-common</artifactId>
@@ -44,9 +39,29 @@
             <artifactId>joda-time-hibernate</artifactId>
         </dependency>
         <dependency>
-            <groupId>«getDomainRootPackage()»</groupId>
-            <artifactId>«getDomainModuleName()»</artifactId>
-            <version>«getApplicationVersion()»</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+		</dependency>
+		<dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -64,18 +79,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-        </dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.transaction</groupId>
-			<artifactId>jta</artifactId>
-		</dependency>
-        <dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derby</artifactId>
             <scope>test</scope>
@@ -85,6 +88,6 @@
             <artifactId>commons-dbcp</artifactId>
             <scope>test</scope>
         </dependency>
-    </dependencies>
+    </dependencies>    
 </project>
 «ENDDEFINE»

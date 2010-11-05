@@ -43,8 +43,7 @@ public class ProjectProperties {
         applicationVersion = properties.getProperty("applicationVersion");
         applicationPath = properties.getProperty("applicationPath");
         dslModelsModuleName = properties.getProperty("dslModelsModuleName");
-        domainModuleName = properties.getProperty("domainModuleName");
-        dataModuleName = properties.getProperty("dataModuleName");
+        businessDomainModuleName = properties.getProperty("domainModuleName");
         serviceModuleName = properties.getProperty("serviceModuleName");
         presentationModuleName = properties.getProperty("presentationModuleName");
         rootPackage = properties.getProperty("rootPackage");
@@ -83,7 +82,7 @@ public class ProjectProperties {
 
     private static String serviceModuleName = "DEFAULT";
 
-    private static String domainModuleName = "DEFAULT";
+    private static String businessDomainModuleName = "DEFAULT";
     
     private static String presentationModuleName = "DEFAULT";
 
@@ -172,12 +171,12 @@ public class ProjectProperties {
         return dslModelsModuleName;
     }
 
-    public static String getDomainModulePath() {
-        return getApplicationPath() + "/" + getDomainModuleName();
+    public static String getBusinessDomainModulePath() {
+        return getApplicationPath() + "/" + getBusinessDomainModuleName();
     }
 
-    public static String getDomainModuleName() {
-        return domainModuleName;
+    public static String getBusinessDomainModuleName() {
+        return businessDomainModuleName;
     }
     
     public static String getPresentationModuleName(String targetPlatform) {
@@ -194,14 +193,6 @@ public class ProjectProperties {
 
     public static String getServiceModulePath() {
         return getApplicationPath() + "/" + getServiceModuleName();
-    }
-
-    public static String getDataModulePath() {
-        return getApplicationPath() + "/" + getDataModuleName();
-    }
-
-    public static String getDataModuleName() {
-        return dataModuleName;
     }
 
     public static String getRootPackage() {

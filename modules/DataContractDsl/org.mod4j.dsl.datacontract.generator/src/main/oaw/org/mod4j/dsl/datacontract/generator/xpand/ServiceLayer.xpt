@@ -16,9 +16,12 @@
 «EXTENSION org::mod4j::common::xtend::FileTracker»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
 
 «DEFINE Generate FOR DataContractModel»
+
 	«print("MOD4J INFO: Running Data Contract generator on model [" + this.name + "]")»
+
     «FOREACH enumerations AS enum»
 		«FILE generate(getServiceModuleName(), javaPathFileName(javaDtoClassPath(enum.name)))»
 		    «EXPAND Enumeration::createEnumDto FOR enum»
@@ -47,12 +50,14 @@
 	Generation of Maven configuration files. 
 «ENDREM»
 «DEFINE generateMavenConfiguration FOR DataContractModel»
+	
 	«print("MOD4J INFO: Running Data Contract Maven generator on model [" + this.name + "]")»
-    «IF shouldRegenerate(getServiceModulePath() + "/pom.xml")»
-        «FILE extend( getServiceModuleName(), "pom.xml" )-»
+    
+    «IF !fileExist(getServiceModulePath() + "/pom.xml")»
+        «FILE generateToMain(getServiceModuleName(), "pom.xml")-»
 		  	«EXPAND ServiceModulePom::createServiceModulePom»
 		«ENDFILE»
 	«ELSE»
-		«retain(getServiceModuleName(), "pom.xml" )»
+		«retain(getServiceModuleName(), "pom.xml")»
 	«ENDIF»
 «ENDDEFINE»
