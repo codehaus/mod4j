@@ -34,12 +34,7 @@
         </dependency>
         <dependency>
             <groupId>«getDomainRootPackage()»</groupId>
-            <artifactId>«getDomainModuleName()»</artifactId>
-            <version>«getApplicationVersion()»</version>
-        </dependency>
-        <dependency>
-            <groupId>«getBusinessRootPackage()»</groupId>
-            <artifactId>«getBusinessModuleName()»</artifactId>
+            <artifactId>«getBusinessDomainModuleName()»</artifactId>
             <version>«getApplicationVersion()»</version>
         </dependency>
     </dependencies>    

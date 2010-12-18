@@ -34,9 +34,7 @@
     </properties>
     <modules>
         <module>«getDslModelsModuleName()»</module>
-        <module>«getDomainModuleName()»</module>
-        <module>«getDataModuleName()»</module>
-        <module>«getBusinessModuleName()»</module>
+        <module>«getBusinessDomainModuleName()»</module>
         <module>«getServiceModuleName()»</module>
     </modules>
     <build>

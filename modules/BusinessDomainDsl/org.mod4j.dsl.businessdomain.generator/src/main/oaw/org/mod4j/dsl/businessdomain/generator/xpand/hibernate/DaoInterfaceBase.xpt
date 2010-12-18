@@ -16,7 +16,7 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE daoInterfaceBase  FOR BusinessDomainDsl::BusinessClass»
-«FILE generate(getDataModuleName(), javaPathFileName(javaDaoBaseInterfacePath(this.name) ))»
+«FILE generate(getBusinessDomainModuleName(), javaPathFileName(javaDaoBaseInterfacePath(this.name) ))»
 «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: DaoInterfaceBase.xpt") FOR this»
 
 package «getDaoPackage()»;

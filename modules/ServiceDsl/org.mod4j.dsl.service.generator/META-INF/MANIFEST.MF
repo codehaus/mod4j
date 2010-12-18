@@ -12,6 +12,5 @@ Bundle-Vendor: org.mod4j
 Export-Package: org.mod4j.dsl.service.generator.helpers,
  org.mod4j.dsl.service.generator.workflow,
  org.mod4j.dsl.service.generator.xpand,
- org.mod4j.dsl.service.generator.xpand.maven,
  org.mod4j.dsl.service.generator.xpand.spring,
  org.mod4j.dsl.service.generator.xtend

@@ -66,32 +66,18 @@
     
     <!-- Application Layer  -->
     «FOREACH allServices AS service»
-    <bean id="«service.name.toFirstLower()»Service"
-        class="«javaLocalServiceClassPath(service.name)»">
-        <property name="«javaDomainServiceInterface(service.name).toFirstLower()»" ref="«javaDomainServiceInterface(service.name).toFirstLower()»" />
+    <!-- service.name = «service.name»  this.name = «this.name»-->
+    <bean id="«service.name.toFirstLower()»Service" class="«javaLocalServiceClassPath(service.name)»">
+        «IF service.getPropertyValue("UniqueBusinessClasses").length > 0»
+            «FOREACH service.getPropertyValue("UniqueBusinessClasses").split(",") AS bcName»
+        	    <property name="«javaDaoInterface(bcName).toFirstLower()»" ref="«javaDaoInterface(bcName).toFirstLower()»" />
+            «ENDFOREACH» 
+    	«ENDIF»
     	«FOREACH findAllSubSymbols(service, "DtoReference") AS dto -»
-        <property name="«javaTranslatorClass(dto.name).toFirstLower()»" ref="«javaTranslatorClass(dto.name).toFirstLower()»" />
+            <property name="«javaTranslatorClass(dto.name).toFirstLower()»" ref="«javaTranslatorClass(dto.name).toFirstLower()»" />
 	    «ENDFOREACH-»
     </bean>
     «ENDFOREACH»
-
-«REM»
-  	«FOREACH allServices.findAllSubSymbols("DtoReference").makeUnique() AS dtoReference -»
-  	«LET dtoReference.name AS dtoName -»
-    <bean id="«javaTranslatorClass(dtoName).toFirstLower()»"
-        class="«javaTranslatorClassPath(dtoName)»">
-     «LET lookupSymbol(dtoReference.getPropertyValue("modelname"), dtoReference.name, "Dto") AS refDto -»
-	  	«FOREACH refDto.findAllSubSymbols("AssociationRoleReference") AS rolename -»
-		<property name="«rolename.getReferredDtoName().toFirstLower()»Translator"
-		                ref="«rolename.getReferredDtoName().toFirstLower()»Translator"/>
-		<property name="«rolename.getReferredBusinessClassName().toFirstLower()»Dao"
-		                ref="«rolename.getReferredBusinessClassName().toFirstLower()»Dao"/>
-	    «ENDFOREACH-»
-     «ENDLET-»
-    </bean>
-    «ENDLET-»
-    «ENDFOREACH-»
-«ENDREM»
 </beans>
 «ENDLET»
 «ENDDEFINE»
