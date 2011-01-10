@@ -51,6 +51,8 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
     protected static final String DATACONTRACT_PACKAGE = "datacontract";
 
     protected static final String SERVICE_PACKAGE = "service";
+    
+    protected static final String PRESENTATION_PACKAGE = "presentation";
 
     private static final String LF = System.getProperty("line.separator");
 
@@ -128,6 +130,10 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
                                     "org.mod4j.dsl.service.validation",
                                     "org.mod4j.dsl.service.generator",
                                     "org.mod4j.dsl.service.xtext",
+                                    "org.mod4j.dsl.presentation.mm",
+                                    "org.mod4j.dsl.presentation.validation",
+                                    "org.mod4j.dsl.presentation.generator",
+                                    "org.mod4j.dsl.presentation.xtext",
                                     "org.mod4j.common",									
 									"org.mod4j.crossx.mm",
 									"org.mod4j.crossx.broker",
@@ -153,6 +159,11 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
                             if( createSamples ){
                                 modelFileName = appname + ".sermod";
                                 Mod4jProjectCreator.createFile(modelFileName, modelFolder, sermodSampleModelContents(), monitor);
+                            }
+                            modelFolder = pr.getFolder(MODEL_DIR + "/" + PRESENTATION_PACKAGE);
+                            if( createSamples ){
+                                modelFileName = appname + ".pmfmod";
+                                Mod4jProjectCreator.createFile(modelFileName, modelFolder, pmfmodSampleModelContents(), monitor);
                             }
                             
                     } catch (CoreException e) {
@@ -230,11 +241,28 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
                     "" + LF +
                     "####" + LF +
                     "#" + LF +
+                    "# Business module properties" + LF +
+                    "#" + LF +                    
+                    "###" + LF +
+                    "businessModuleName=" + mainPage.getApplicationNameFieldValue() + "-business" + LF +
+                    "businessRootPackage=" + mainPage.getPackageNameFieldValue() + ".business" + LF +
+                    "" + LF +
+                    "####" + LF +
+                    "#" + LF +
                     "# Service module properties" + LF +
                     "#" + LF +
                     "####" + LF +
                     "serviceModuleName=" + mainPage.getApplicationNameFieldValue() + "-service" + LF +
-                    "serviceRootPackage=" + mainPage.getPackageNameFieldValue() + ".service";
+                    "serviceRootPackage=" + mainPage.getPackageNameFieldValue() + ".service" + LF +
+                    "" + LF +
+                    "####" + LF +
+                    "#" + LF +
+                    "# Presentation module properties" + LF +
+                    "#" + LF +
+                    "####" + LF +
+                    "presentationModuleName=" + mainPage.getApplicationNameFieldValue() + "-presentation" + LF +
+                    "presentationRootPackage=" + mainPage.getPackageNameFieldValue() + ".presentation" + LF + 
+                    "webAppPath=src/main/webapp";
 			
         }
 
@@ -262,6 +290,16 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
             LF +
             "/*" + LF +
             " * The Service model." + LF +
+            " */" + LF ;
+        }
+
+        
+        public String pmfmodSampleModelContents() {
+            return 
+            "presentation " + mainPage.getApplicationNameFieldValue() + "PresentationModel" + " ;" + LF +
+            LF +
+            "/*" + LF +
+            " * The Presentation model." + LF +
             " */" + LF ;
         }
 

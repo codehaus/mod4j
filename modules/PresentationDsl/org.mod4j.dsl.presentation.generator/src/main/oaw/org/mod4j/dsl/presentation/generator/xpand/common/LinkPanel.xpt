@@ -1,0 +1,77 @@
+«REM»
+      Copyright (c) 2009 Ordina and committers to Mod4j
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v1.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v10.html
+     
+      Contributors:
+          Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
+
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+
+«DEFINE LinkPanel FOR PresentationModel»
+package «getPresentationCommonPackage()».ext.components;
+
+import org.apache.wicket.AttributeModifier;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.model.IModel;
+
+@SuppressWarnings("serial")
+public abstract class LinkPanel<T> extends Panel {
+
+    /**
+     * Constructs a Wicket Panel with an AjaxFallbackLink.
+     * 
+     * @param id
+     *            @see {@link org.apache.wicket.Component#Component(String, IModel)}
+     * @param model
+     *            @see {@link org.apache.wicket.Component#Component(String, IModel)}
+     * @param labelText
+     *            The text for the Label on the link. Not null.
+     * @param titleText
+     *            The text for the title attribute on the link.
+     */
+    public LinkPanel(String id, IModel<T> model, IModel<String> labelText, IModel<String> titleText) {
+        super(id, model);
+
+        AjaxFallbackLink<T> link = new AjaxFallbackLink<T>("link") {
+
+            @Override
+            public void onClick(AjaxRequestTarget target) {
+                LinkPanel.this.onClick(target);
+            }
+        };
+        add(link);
+
+        if (titleText != null) {
+            link.add(new AttributeModifier("title", titleText));
+        }
+
+        link.add(new Label("text", labelText));
+    }
+
+    public abstract void onClick(AjaxRequestTarget target);
+}
+«ENDDEFINE»
+
+«DEFINE GenerateLinkPanelHtml FOR PresentationModel»
+<html xmlns:wicket="org.apache.wicket">
+<body>
+<wicket:panel>
+    <a wicket:id="link" title="Title" class="button"> <span wicket:id="text">[text goes
+    here]</span> </a>
+</wicket:panel>
+</body>
+</html>
+«ENDDEFINE»

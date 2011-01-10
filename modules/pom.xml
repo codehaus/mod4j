@@ -3,16 +3,16 @@
     <groupId>org.mod4j</groupId>
     <artifactId>mod4j</artifactId>
     <packaging>pom</packaging>
-    <version>1.4.0-SNAPSHOT</version>
-    <name>Mod4j</name>
+    <version>2.0-SNAPSHOT</version>
+    <name>mod4j</name>
     <url>http://mod4j.org</url>
     <properties>
-        <release.version.latest>1.3.0</release.version.latest>
+        <release.version.latest>1.2.1</release.version.latest>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <scm>
-        <connection>scm:svn:http://svn.codehaus.org/mod4j/trunk/modules</connection>
-        <developerConnection>scm:svn:https://svn.codehaus.org/mod4j/trunk/modules
+        <connection>scm:svn:http://svn.codehaus.org/mod4j/branches/mod4j-branch-2.0/modules</connection>
+        <developerConnection>scm:svn:https://svn.codehaus.org/mod4j/branches/mod4j-branch-2.0/modules
         </developerConnection>
     </scm>
     <organization>
@@ -131,9 +131,6 @@
     <profiles>
         <profile>
             <id>dev-environment</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <modules>
                 <module>org.mod4j.runtime.common</module>
                 <module>org.mod4j.common</module>
@@ -159,6 +156,10 @@
                 <module>ServiceDsl/org.mod4j.dsl.service.xtext</module>
                 <module>ServiceDsl/org.mod4j.dsl.service.validation</module>
                 <module>ServiceDsl/org.mod4j.dsl.service.generator</module>
+                <module>PresentationDsl/org.mod4j.dsl.presentation.mm</module>
+                <module>PresentationDsl/org.mod4j.dsl.presentation.xtext</module>
+                <module>PresentationDsl/org.mod4j.dsl.presentation.validation</module>
+                <module>PresentationDsl/org.mod4j.dsl.presentation.generator</module>
             </modules>
         </profile>
         <profile>
@@ -188,6 +189,10 @@
                 <module>ServiceDsl/org.mod4j.dsl.service.xtext</module>
                 <module>ServiceDsl/org.mod4j.dsl.service.validation</module>
                 <module>ServiceDsl/org.mod4j.dsl.service.generator</module>
+                <module>PresentationDsl/org.mod4j.dsl.presentation.mm</module>
+                <module>PresentationDsl/org.mod4j.dsl.presentation.xtext</module>
+                <module>PresentationDsl/org.mod4j.dsl.presentation.validation</module>
+                <module>PresentationDsl/org.mod4j.dsl.presentation.generator</module>
                 <module>docs</module>
             </modules>
         </profile>
@@ -218,6 +223,10 @@
                 <module>ServiceDsl/org.mod4j.dsl.service.xtext</module>
                 <module>ServiceDsl/org.mod4j.dsl.service.validation</module>
                 <module>ServiceDsl/org.mod4j.dsl.service.generator</module>
+                <module>PresentationDsl/org.mod4j.dsl.presentation.mm</module>
+                <module>PresentationDsl/org.mod4j.dsl.presentation.xtext</module>
+                <module>PresentationDsl/org.mod4j.dsl.presentation.validation</module>
+                <module>PresentationDsl/org.mod4j.dsl.presentation.generator</module>
                 <module>Examples/RecordShop-ExampleProject</module>
             </modules>
         </profile>
@@ -325,6 +334,11 @@
         <extensions>
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh-external</artifactId>
+                <version>1.0-alpha-5</version>
+            </extension>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
                 <artifactId>wagon-webdav</artifactId>
                 <version>1.0-beta-2</version>
             </extension>
@@ -373,13 +387,6 @@
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
                 <version>1.2.14</version>
-            </dependency>
-            <dependency>
-            	<groupId>org.codehaus.mojo</groupId>
-            	<artifactId>build-helper-maven-plugin</artifactId>
-            	<version>1.5</version>
-            	<type>maven-plugin</type>
-            	<scope>compile</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

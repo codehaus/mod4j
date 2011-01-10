@@ -1,0 +1,176 @@
+«REM»
+ Copyright (c) 2010 Ordina and committers to Mod4j
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+  Contributors:
+     Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::webapp»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::dataproviders» 
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::process» 
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::log4j»
+
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+
+«DEFINE Generate FOR PresentationModel»
+    «print("MOD4J INFO: Running Presentation generator on model [" + this.name + "]")»
+    
+    «EXPAND PresentationLayerApplication::GenerateApplicationWide FOR this»
+    «EXPAND DataProviders::GenerateDataProviders FOR this»
+    
+    «print("MOD4J INFO: Running Presentation generator panels")»
+    «FOREACH this.elements.typeSelect(View).select(cf | ! cf.collectionContext) AS cf»
+	    «print("MOD4J INFO: ContentForm [" + cf.name + "] isCollection [" + cf.collectionContext + "]")»
+	    «EXPAND generateViewPanels FOR cf»
+	«ENDFOREACH»
+
+    «FOREACH this.elements.typeSelect(View).select(cf | (cf.baseView != null) && (! cf.baseView.collectionContext) ) AS cf»
+	    «print("MOD4J INFO: ContentForm [" + cf.name + "] isCollection [" + cf.collectionContext + "]")»
+	    «EXPAND generateActiveViewPanels FOR cf»
+	«ENDFOREACH»
+	    
+	«FOREACH this.elements.typeSelect(View).select(c | (c.baseView != null) && (c.collectionContext) ) AS cf»
+		«REM»The CollectionPanel Java and HTML and properties file«ENDREM»
+        «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.name.toFirstUpper()))»
+        	«EXPAND ObjectDataTableSubView::GenerateObjectDataTableSubView FOR cf»
+        «ENDFILE»
+        «FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name.toFirstUpper() + ".html")»
+            «EXPAND ObjectDataTableSubViewHtml::GenerateObjectDataTableSubViewHtml FOR cf»
+        «ENDFILE»
+        «FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name.toFirstUpper() + ".properties")»
+            «EXPAND SubViewProperties::GenerateProperties FOR cf»
+        «ENDFILE»
+	«ENDFOREACH»
+    «print("MOD4J INFO: Running Presentation generator collection panels")»
+	«FOREACH this.elements.typeSelect(View).select(c | (c.baseView == null) && c.collectionContext) AS cf»
+        «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.name.toFirstUpper() ))»
+            «EXPAND ObjectDataTableView::GenerateObjectDataTableView FOR cf»
+        «ENDFILE»
+        «FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name.toFirstUpper() + ".html")»
+            «EXPAND ObjectDataTableViewHtml::GenerateObjectDataTableViewHtml FOR cf»
+        «ENDFILE»
+        «FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name.toFirstUpper() + ".properties")»
+            «EXPAND ViewProperties::GenerateProperties FOR cf»
+        «ENDFILE»
+	«ENDFOREACH»
+
+    
+    «print("MOD4J INFO: Running Presentation generator pmfprocess")»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".actions." + "PmfProcess"))»
+        «EXPAND Action::GeneratePmfProcess FOR this»
+    «ENDFILE»
+    «print("MOD4J INFO: Running Presentation generator processtype")»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".processes." + "ProcessType"))»
+        «EXPAND ProcessType::ProcessType FOR this»
+    «ENDFILE»
+	«EXPAND Action::GenerateActions FOR this»
+    
+	«REM»The page containing the Dialogue referred to in the process«ENDREM»
+    «print("MOD4J INFO: Running Presentation generator process pages")»
+	«FOREACH this.elements.typeSelect(Page) AS page»
+        «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + page.name.toFirstUpper() + "Page"))»
+            «EXPAND Page::GeneratePage FOR page» 
+        «ENDFILE»
+		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + page.name.toFirstUpper() + "Page.html")-»
+    	    «EXPAND PageHtml::GeneratePageHtml FOR page-»
+		«ENDFILE»
+	«ENDFOREACH»
+
+    «print("MOD4J INFO: Running Presentation generator Operations")»
+    «FOREACH this.elements.typeSelect(View) AS view»
+	    «FOREACH view.actions.select(call | call.condition != null).condition AS condition»
+	        «LET javaPathFileName(getPresentationRootPackage() + ".operations." + "Operation" + condition.name ) AS filePath»
+		    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""),  filePath)) -»
+		        «FILE extend( getPresentationModuleName(""), filePath)-»
+		            «EXPAND Operation::generateOperation(view.contextRef.name) FOR condition»
+		        «ENDFILE»
+		    «ELSE»
+		        «retain(getPresentationModuleName(""), filePath)»
+	        «ENDIF» 
+		    «ENDLET»
+	    «ENDFOREACH»
+    «ENDFOREACH»
+    «LET javaPathFileName(getPresentationRootPackage() + ".operations.PmfOperation" ) AS filePath»
+    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""),  filePath)) -»
+        «FILE extend( getPresentationModuleName(""), filePath)-»
+            «EXPAND Operation::generatePmfOperation FOR this»
+        «ENDFILE»
+    «ELSE»
+        «retain(getPresentationModuleName(""), filePath)»
+    «ENDIF» 
+    «ENDLET»
+    «LET javaPathFileName(getPresentationRootPackage() + ".operations.AlwaysTrue" ) AS filePath»
+    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""),  filePath)) -»
+        «FILE extend( getPresentationModuleName(""), filePath)-»
+            «EXPAND Operation::generateAlwaysTrueOperation FOR this»
+        «ENDFILE»
+    «ELSE»
+        «retain(getPresentationModuleName(""), filePath)»
+    «ENDIF» 
+    «ENDLET»
+    	
+    «print("MOD4J INFO: Running Presentation generator common")»
+	«EXPAND PresentationLayerCommon::GenerateCommon FOR this»
+
+    «print("MOD4J INFO: Running Presentation generator: log4j.properties for [" + this.name + "]")»
+    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""),  "log4j.properties")) -»
+        «FILE extend( getPresentationModuleName(""), "log4j.properties" )-»
+            «EXPAND Log4j::createLog4jProperties»
+        «ENDFILE»
+    «ELSE»
+        «retain(getPresentationModuleName(""), "log4j.properties" )»
+    «ENDIF»	
+	
+«ENDDEFINE» «REM»Generate«ENDREM»
+
+«REM»
+    Generation of Maven configuration files. 
+«ENDREM»
+«DEFINE generateMavenConfiguration FOR PresentationModel»
+    «print("MOD4J INFO: Running Presentation Maven generator on model [" + this.name + "]")»
+    «IF shouldRegenerate(getPresentationModulePath("") + "/pom.xml")»
+        «FILE extend( getPresentationModuleName(""), "pom.xml" )-»
+            «EXPAND PresentationModulePom::createPresentationModulePom»
+        «ENDFILE»
+    «ELSE»
+        «retain(getPresentationModuleName(""), "pom.xml" )»
+    «ENDIF»
+«ENDDEFINE»
+
+«REM»The ViewPanel Java and HTML and properties file«ENDREM»
+«DEFINE generateViewPanels FOR View»
+	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + this.name.toFirstUpper() ))»
+	    «EXPAND ObjectPanelView::GenerateObjectPanelView FOR this»
+	«ENDFILE»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name.toFirstUpper() + ".html")»
+	    «EXPAND ObjectPanelViewHtml::GenerateObjectPanelViewHtml FOR this»
+	«ENDFILE»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name.toFirstUpper() + ".properties")»
+	    «EXPAND ViewProperties::GenerateProperties FOR this»
+	«ENDFILE»
+«ENDDEFINE»
+
+«REM»The ViewPanel Java and HTML and properties file«ENDREM»
+«DEFINE generateActiveViewPanels FOR View»
+	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + this.name.toFirstUpper()))»
+	    «EXPAND ObjectPanelSubView::GenerateObjectPanelSubView FOR this»
+	«ENDFILE»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name.toFirstUpper() + ".html")»
+	    «EXPAND ObjectPanelSubViewHtml::GenerateObjectPanelSubViewHtml FOR this»
+	«ENDFILE»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name.toFirstUpper() + ".properties")»
+	    «EXPAND SubViewProperties::GenerateProperties FOR this»
+	«ENDFILE»
+«ENDDEFINE»
+
+«ENDDEFINE»

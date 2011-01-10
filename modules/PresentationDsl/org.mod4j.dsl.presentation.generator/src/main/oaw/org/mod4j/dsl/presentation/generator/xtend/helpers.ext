@@ -1,0 +1,93 @@
+import PresentationDsl;
+import crossx;
+
+extension org::mod4j::crossx::broker::xtend::Crossx;
+extension org::mod4j::dslcommon::xtend::ProjectProperties;
+extension org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers;
+
+//String javaClass(AbstractProcess p) :
+//    p.name.toFirstUpper() + "Process";
+
+//String javaClass(ProcessCall pc) :
+//    pc.referredProcess.name.toFirstUpper() + "Process";
+
+//String javaBaseClass(AbstractProcess p) :
+//    p.name.toFirstUpper() + "ProcessImplBase";
+    
+//String javaBaseClass(ProcessCall pc) :
+//    pc.referredProcess.name.toFirstUpper() + "ProcessImplBase";
+    
+String escapePropertyKey(String key) :
+    key.replaceAll(" ",  "\\ ")
+ ;
+  
+String businessClassName(View form) :
+    lookupSymbol(form.contextRef.modelName, 
+                  form.contextRef.name,
+                  "Dto").
+                   getPropertyValue("businessClass")
+;
+
+String businessClassName(String modelName, String dtoName) :
+    lookupSymbol(modelName, 
+                  dtoName,
+                  "Dto").
+                   getPropertyValue("businessClass")
+;
+
+findType(Action process, AssociationRoleReference roleRef) :
+    let dtoSymbol = lookupSymbol(process.contextRef.modelName, process.contextRef.name, "Dto") :
+    let symbol = dtoSymbol.subSymbols.select(s|s.type.matches("AssociationRoleReference")).select(sym | sym.name == roleRef.name).first() :
+    let reference = getReferenceProperty(symbol, "ReferencedDto") :
+    reference.symbolname;  
+    
+String findCreateMethodFor(View form) :
+    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith("Create") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+    
+String findUpdateMethodFor(View form) :
+    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith("UPDATE") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+    
+String findDeleteMethodFor(View form) :
+    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith("DELETE") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+    
+//String findReadMethodFor(View form) :
+//    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
+//    select( method | method.getPropertyValue("methodType").endsWith("READ") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+    
+String findListAllMethodFor(View form) :
+    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith("LISTALL") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+    
+String findSpecialMethod(View form, String methodType) :
+    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith(methodType) && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+
+String findSpecialMethod(String dtoName, String methodType) :
+    let methods =
+    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith(methodType) && method.getPropertyValue("dto").endsWith(dtoName)) :
+    (methods.isEmpty ? null : methods.first().name);
+    
+String findSpecialMethodInService(String dtoName, String methodType, String serviceName) :
+    findAllSymbols(getProject(), "Service").select(s | s.name.endsWith(serviceName)).findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith(methodType) && method.getPropertyValue("dto").endsWith(dtoName)).first().name;
+    
+// returns the name of a service that contains a special method of "methodType" for the referred DTO in "form"
+String findServiceWithMethod(String dtoName, String methodType) :
+    findAllSymbols(getProject(), "Service").select( s | findSpecialMethodInService(dtoName, methodType, s.name) != null ).first().name;
+
+// returns the symbol of the special method of "methodType" for the referred DTO 
+Symbol findServiceMethod(String dtoName, String methodType) :
+    findAllSymbols(getProject(), "Service").select( s | findSpecialMethodInService(dtoName, methodType, s.name) != null ).first();
+
+Symbol findMethodInService(String serviceName, String methodName) :
+    findAllSymbols(getProject(), "Service").select(s | s.name.endsWith(serviceName)).findAllSubSymbols("ServiceMethod").
+    selectFirst( method | method.name == methodName);
+    
+List[Symbol] findAllServices() :
+    findAllSymbols(getProject(), "Service");
+ 
+ 

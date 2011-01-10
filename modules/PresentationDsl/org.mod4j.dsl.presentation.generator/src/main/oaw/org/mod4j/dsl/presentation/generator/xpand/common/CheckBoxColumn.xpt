@@ -1,0 +1,111 @@
+«REM»
+      Copyright (c) 2009 Ordina and committers to Mod4j
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v1.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v10.html
+     
+      Contributors:
+          Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
+
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+
+«DEFINE CheckBoxColumn FOR PresentationModel»
+package «getPresentationCommonPackage()».ext.components;
+
+import java.io.Serializable;
+import java.util.Collection;
+
+import org.apache.wicket.Component;
+import org.apache.wicket.MarkupContainer;
+import org.apache.wicket.extensions.markup.html.repeater.data.grid.ICellPopulator;
+import org.apache.wicket.extensions.markup.html.repeater.data.table.DataTable;
+import org.apache.wicket.extensions.markup.html.repeater.data.table.IStyledColumn;
+import org.apache.wicket.markup.IMarkupResourceStreamProvider;
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.markup.repeater.Item;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
+import org.apache.wicket.util.resource.IResourceStream;
+import org.apache.wicket.util.resource.StringResourceStream;
+
+/**
+ * Checkbox column for {@link DataTable}
+ * 
+ * @see CheckBoxDtpModel
+ */
+@SuppressWarnings("serial")
+public abstract class CheckBoxColumn<T> implements IStyledColumn<T> {
+
+    private final IModel<Collection<Serializable>> selectionModel;
+
+    /**
+     * Constructor.
+     * 
+     * @param selectionModel
+     *            model that represents a collection of selected tokens.
+     */
+    public CheckBoxColumn(IModel<Collection<Serializable>> selectionModel) {
+        this.selectionModel = selectionModel;
+    }
+
+    public void populateItem(Item<ICellPopulator<T>> cellItem, String componentId,
+            IModel<T> rowModel) {
+
+        cellItem.add(new CheckBoxPanel(componentId));
+    }
+
+    /**
+     * @see org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn#getHeader(java.lang.String)
+     */
+    public Component getHeader(String componentId) {
+
+        return new Label(componentId, new Model<String>("&nbsp;")).setEscapeModelStrings(false);
+    }
+
+    /**
+     * @see org.apache.wicket.model.IDetachable#detach()
+     */
+    public void detach() {
+        if (selectionModel != null) {
+            selectionModel.detach();
+        }
+    }
+
+    /**
+     * @ssee {@link IStyledColumn#getCssClass()}
+     */
+    public String getCssClass() {
+        return null;
+    }
+
+    public static class CheckBoxPanel extends Panel implements IMarkupResourceStreamProvider {
+
+        public CheckBoxPanel(String id) {
+            super(id);
+        }
+
+        public IResourceStream getMarkupResourceStream(MarkupContainer container,
+                Class<?> containerClass) {
+            return new StringResourceStream(
+                    "<wicket:panel><input wicket:id=\"checkbox\" type=\"checkbox\"/></wicket:panel>");
+        }
+    }
+
+    public String getSortProperty() {
+        return null;
+    }
+
+    public boolean isSortable() {
+        return false;
+    }
+}
+«ENDDEFINE»

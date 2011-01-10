@@ -1,0 +1,5 @@
+import PresentationDsl;
+import crossx;
+
+Symbol lookupServiceMethod(String dtoName, String methodType) :
+JAVA org.mod4j.dsl.presentation.validation.ValidationUtils.lookupServiceMethod(java.lang.String, java.lang.String);

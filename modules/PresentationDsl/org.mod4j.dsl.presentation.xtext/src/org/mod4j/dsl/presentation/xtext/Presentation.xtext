@@ -1,0 +1,195 @@
+grammar org.mod4j.dsl.presentation.xtext.Presentation with org.eclipse.xtext.common.Terminals
+
+import "platform:/resource/org.mod4j.dsl.presentation.mm/model/PresentationDsl.ecore"
+
+//IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
+
+PresentationModel :
+    ApplicationModel | FormsAndProcesses;
+   
+
+ApplicationModel returns PresentationModel :
+    (description=STRING )?
+    "application" name = ID ";"
+    
+    (externalReferences += ExternalReference)*
+    (mainMenu = Menu)
+;
+
+//ProcessReference : 
+//    "from" modelName = ID "process" name = ID ";"
+//    ;
+
+FormsAndProcesses returns PresentationModel :
+	(description=STRING )?
+	"presentation" name = ID ";"
+	
+	(externalReferences += ExternalReference)*
+//    (mainMenu = Menu)
+
+
+	(elements += ModelElementWithContext)*
+	;
+
+Menu :
+    "menu" "["
+    (startActions += MenuAction)* 
+    "]"
+;
+
+ExternalReference :
+    DtoReference | 
+    PageReference |
+//    ProcessReference | 
+//    DialogueReference | 
+    ServiceReference
+;
+
+DtoReference : 
+    "from" modelName = ID "dto" name = ID ";"
+; 
+
+PageReference : 
+    "from" modelName = ID "page" name = ID ";"
+    ;
+    
+ServiceReference : 
+    "from" modelName = ID "service" name = ID ";"
+    ;
+    
+ModelElementWithContext :
+	UIModelElement //| Link
+	;
+	
+UIModelElement :
+	AbstractDialogue
+	;
+		
+AbstractDialogue :
+	View |Page
+	;
+	
+View :
+	(description=STRING )?
+    "panel" name = ID 
+	(
+	    ("extends" baseView = [View] "["
+	    	(
+			    "actions" "["
+				    (actions += Action)*
+			    "]"
+			)?
+		  "]"
+	    )
+	    |
+	    ( "context" (collectionContext ?= "list")? contextRef = [DtoReference]
+			"["
+				(formElements += FormElement)*
+			
+				(
+				    "actions" "["
+					    (actions += Action)*
+				    "]"
+				)?
+			"]"
+		 )
+	)
+	;
+    
+MenuAction  returns Action :
+	(description=STRING )? 
+    name=ID 
+    ("label" label = STRING)?
+    ":" 
+    (
+        ( 
+	        (type=ProcessType) 
+	        |
+	        (type = ProcessTypeLink contextExp = NavigationExpression)
+	    )
+      |
+        (contextExp = Expression)   
+    )
+    ("-->" "page" nextPage = [Page])?
+    ";"
+    ;
+  	
+Action  :
+	(description=STRING )? 
+    name=ID 
+    ("label" label = STRING)?
+    ":" 
+    (
+        ( 
+	        (type=ProcessType) 
+	        |
+	        (type = ProcessTypeLink contextExp = NavigationExpression)
+	    )
+        |
+        (
+		    contextExp = Expression
+        )   
+    )
+    ("-->" "page" nextPage = [Page])?
+    (collectionContext ?= "collection")?
+    ";"
+    ;
+  	
+Page :
+    "page" name=ID "shows" dialogue = [View] ";"
+    ;
+    
+enum ProcessType :
+    NEW = "new" | SAVE = "save" | EDIT = "edit" | DELETE = "delete" | CANCEL = "cancel" |
+    REMOVEFROM = "removefrom" | ADDTO = "addto" | CUSTOM = "custom" // | PREVIOUS = "back"
+;
+
+enum ProcessTypeLink returns ProcessType :
+    LINK = "link"
+;
+
+FormElement :
+	(description=STRING )?
+//	("navigate" LinkRef "to")? 
+	references = DtoPropertyReference 
+	("label" label = STRING )?
+	("readonly" ((readonly?="true") | "false") )?
+	";"
+	;
+
+MenuExpression returns Expression :
+    ServiceExpression | StandardExpression | OperationExpression
+;
+
+Expression :
+    ServiceExpression | NavigationExpression | StandardExpression | OperationExpression
+    ;
+   	
+OperationExpression :
+    "call" name = ID;
+    
+StandardExpression :
+    type = ExpressionType
+    (contextRef = [DtoReference])
+    ;
+    
+enum ExpressionType :
+    ALL = "all" | FIND = "find";
+
+ServiceExpression :
+    "service"  service = [ServiceReference] 
+    ;
+
+NavigationExpression :
+    "navigate" references += AssociationRoleReference  
+// TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
+    ;
+
+DtoPropertyReference :
+	( name = ID ) ( "." subname = ID)?
+	;
+
+AssociationRoleReference :
+	name = ID
+	;
+	

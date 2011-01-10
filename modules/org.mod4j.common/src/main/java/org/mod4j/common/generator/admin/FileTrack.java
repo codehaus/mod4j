@@ -57,7 +57,6 @@ public class FileTrack {
     }
 
     public GeneratedFile generatedFile(String filename) {
-    	
     	// Check whether the resource already exists
     	for(GeneratedFile ext : generatedFiles){
     		if( ext.getSourcePath().equals(filename)){
@@ -71,7 +70,6 @@ public class FileTrack {
     }
 
     public GeneratedFile extensionFile(String filename) {
-    	
     	// Check whether the resource already exists
     	for(GeneratedFile ext : extensionFiles){
     		if( ext.getSourcePath().equals(filename)){

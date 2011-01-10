@@ -1,0 +1,94 @@
+«REM»
+ Copyright (c) 2010 Ordina and committers to Mod4j
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+  Contributors:
+     Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+ 
+«DEFINE GenerateObjectDataTableSubView FOR View -»
+«EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectDataTableActiveView.xpt") FOR this-»
+«LET this.name.toFirstUpper()  AS className»
+package «getPresentationRootPackage()».panels;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.Collection;
+
+import «javaDtoClassPath(this.contextRef.name)»;
+«FOREACH this.baseView.formElements.dataProperty AS dp -»
+	«IF dp.isEnumeration -»
+	import «javaDtoClassPath(dp.dataType)»;
+	«ENDIF»
+«ENDFOREACH»
+import «getPresentationRootPackage()».actions.PmfProcess;
+«FOREACH this.actions AS process -»
+import «getPresentationRootPackage()».actions.«process.actionClass()»;
+«ENDFOREACH»
+import «getPresentationCommonPackage()».processes.ProcessType;
+
+import «getPresentationCommonPackage()».ext.components.CheckBoxColumn;
+import «getPresentationCommonPackage()».ext.components.CheckBoxDtoModel;
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
+import «getPresentationCommonPackage()».ext.components.ModalWindow;
+import «getPresentationCommonPackage()».dataproviders.ModelBasedListDataProvider;
+import «getPresentationCommonPackage()».ext.components.ListElementModel;
+import «getPresentationCommonPackage()».ext.components.LinkPanel;
+
+import org.apache.wicket.Page;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.form.AjaxCheckBox;
+import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
+import org.apache.wicket.ajax.markup.html.navigation.paging.AjaxPagingNavigator;
+import org.apache.wicket.extensions.ajax.markup.html.repeater.data.table.AjaxFallbackDefaultDataTable;
+import org.apache.wicket.extensions.markup.html.repeater.data.table.HeaderlessColumn;
+import org.apache.wicket.extensions.markup.html.repeater.data.grid.ICellPopulator;
+import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
+import org.apache.wicket.extensions.markup.html.repeater.data.table.PropertyColumn;
+import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.markup.repeater.Item;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
+import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.model.ResourceModel;
+
+/**
+ * A panel that shows a list of «this.contextRef.name», not editable.
+ */
+@SuppressWarnings("serial")
+public class «className» extends «this.baseView.name.toFirstUpper() » {
+
+    public «className»(String id, IModel<«this.contextRef.name»> context, 
+              Integer maxItemsPerPage, «getWicketMasterPageClass()» owner, boolean multiple, boolean usedToAdd )
+	{
+	    super(id, context, maxItemsPerPage, owner, multiple, usedToAdd);
+		«EXPAND ObjectDataTableView::addButtons FOR this»
+	}
+		
+    /**
+     * @return Returns a List of contstructed columns for the DataTable.
+     */
+    @Override
+    protected List<IColumn<«this.contextRef.name»>> createColumns() {
+		super.createColumns();
+	«EXPAND ObjectDataTableView::addColumnsView(className) FOR this»
+		return columns;
+	}
+}
+«ENDLET»
+«ENDDEFINE»

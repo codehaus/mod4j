@@ -69,6 +69,30 @@ String javaLocalServiceBaseClass(String cls) : JAVA
 String javaLocalServiceBaseClassPath(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaLocalServiceBaseClassPath(java.lang.String);
 
+String javaDomainServiceInterface(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainServiceInterface(java.lang.String);
+
+String javaDomainServiceInterfacePath(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainServiceInterfacePath(java.lang.String);
+
+String javaDomainServiceBaseInterface(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainServiceBaseInterface(java.lang.String);
+
+String javaDomainServiceBaseInterfacePath(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainServiceBaseInterfacePath(java.lang.String);
+
+String javaDomainServiceClass(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainServiceClass(java.lang.String);
+
+String javaDomainServiceClassPath(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainServiceClassPath(java.lang.String);
+
+String javaDomainServiceBaseClass(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainServiceBaseClass(java.lang.String);
+
+String javaDomainServiceBaseClassPath(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainServiceBaseClassPath(java.lang.String);
+
 String javaDtoClass(String cls) : JAVA 
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaDtoClass(java.lang.String);
 

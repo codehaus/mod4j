@@ -59,14 +59,13 @@ String getDslModelsModulePath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDslModelsModulePath();
 
 /* 
- * Businessdomain layer properties 
+ * domain layer properties 
  */
- // domain package
-String getBusinessDomainModuleName() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessDomainModuleName();
+String getDomainModuleName() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainModuleName();
 
-String getBusinessDomainModulePath() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessDomainModulePath();
+String getDomainModulePath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainModulePath();
 
 String getDomainRootPackage() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainRootPackage();
@@ -74,7 +73,16 @@ String getDomainRootPackage() :
 String getDomainRootPackageAsPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainRootPackageAsPath();
 
-// data package
+
+/* 
+ * data layer properties 
+ */
+String getDataModuleName() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDataModuleName();
+
+String getDataModulePath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDataModulePath();
+
 String getDataRootPackage() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDataRootPackage();
 
@@ -98,6 +106,22 @@ String getHibernate_mapping_class_id_generator_class() :
  
 String getHibernate_InheritanceMappingStrategy() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getHibernate_InheritanceMappingStrategy();
+
+ 
+/* 
+ * business layer properties 
+ */
+String getBusinessModuleName() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessModuleName();
+
+String getBusinessModulePath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessModulePath();
+
+String getBusinessRootPackage() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessRootPackage();
+
+String getBusinessRootPackageAsPath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessRootPackageAsPath();
 
 
 /* 

@@ -1,0 +1,328 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Model Element With Context</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ModelElementWithContextImpl#getContextRef <em>Context Ref</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ModelElementWithContextImpl#getPresentationModel <em>Presentation Model</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ModelElementWithContextImpl#isCollectionContext <em>Collection Context</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @generated
+ */
+public abstract class ModelElementWithContextImpl extends ModelElementImpl implements ModelElementWithContext {
+	/**
+	 * The cached value of the '{@link #getContextRef() <em>Context Ref</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContextRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected DtoReference contextRef;
+
+	/**
+	 * The default value of the '{@link #isCollectionContext() <em>Collection Context</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCollectionContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean COLLECTION_CONTEXT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isCollectionContext() <em>Collection Context</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCollectionContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean collectionContext = COLLECTION_CONTEXT_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ModelElementWithContextImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PresentationDslPackage.Literals.MODEL_ELEMENT_WITH_CONTEXT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DtoReference getContextRef() {
+		if (contextRef != null && contextRef.eIsProxy()) {
+			InternalEObject oldContextRef = (InternalEObject)contextRef;
+			contextRef = (DtoReference)eResolveProxy(oldContextRef);
+			if (contextRef != oldContextRef) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__CONTEXT_REF, oldContextRef, contextRef));
+			}
+		}
+		return contextRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DtoReference basicGetContextRef() {
+		return contextRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContextRef(DtoReference newContextRef) {
+		DtoReference oldContextRef = contextRef;
+		contextRef = newContextRef;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__CONTEXT_REF, oldContextRef, contextRef));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PresentationModel getPresentationModel() {
+		if (eContainerFeatureID() != PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL) return null;
+		return (PresentationModel)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPresentationModel(PresentationModel newPresentationModel, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newPresentationModel, PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPresentationModel(PresentationModel newPresentationModel) {
+		if (newPresentationModel != eInternalContainer() || (eContainerFeatureID() != PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL && newPresentationModel != null)) {
+			if (EcoreUtil.isAncestor(this, newPresentationModel))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newPresentationModel != null)
+				msgs = ((InternalEObject)newPresentationModel).eInverseAdd(this, PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS, PresentationModel.class, msgs);
+			msgs = basicSetPresentationModel(newPresentationModel, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL, newPresentationModel, newPresentationModel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isCollectionContext() {
+		return collectionContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCollectionContext(boolean newCollectionContext) {
+		boolean oldCollectionContext = collectionContext;
+		collectionContext = newCollectionContext;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__COLLECTION_CONTEXT, oldCollectionContext, collectionContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetPresentationModel((PresentationModel)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL:
+				return basicSetPresentationModel(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL:
+				return eInternalContainer().eInverseRemove(this, PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS, PresentationModel.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__CONTEXT_REF:
+				if (resolve) return getContextRef();
+				return basicGetContextRef();
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL:
+				return getPresentationModel();
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__COLLECTION_CONTEXT:
+				return isCollectionContext();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__CONTEXT_REF:
+				setContextRef((DtoReference)newValue);
+				return;
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL:
+				setPresentationModel((PresentationModel)newValue);
+				return;
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__COLLECTION_CONTEXT:
+				setCollectionContext((Boolean)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__CONTEXT_REF:
+				setContextRef((DtoReference)null);
+				return;
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL:
+				setPresentationModel((PresentationModel)null);
+				return;
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__COLLECTION_CONTEXT:
+				setCollectionContext(COLLECTION_CONTEXT_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__CONTEXT_REF:
+				return contextRef != null;
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL:
+				return getPresentationModel() != null;
+			case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__COLLECTION_CONTEXT:
+				return collectionContext != COLLECTION_CONTEXT_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (collectionContext: ");
+		result.append(collectionContext);
+		result.append(')');
+		return result.toString();
+	}
+
+} //ModelElementWithContextImpl

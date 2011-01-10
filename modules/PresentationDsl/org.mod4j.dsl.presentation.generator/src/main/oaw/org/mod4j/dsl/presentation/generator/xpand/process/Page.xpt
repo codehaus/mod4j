@@ -1,0 +1,119 @@
+«REM»
+ Copyright (c) 2010 Ordina and committers to Mod4j
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+  Contributors:
+     Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+
+«DEFINE GeneratePage FOR Page-»
+«EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Page.xpt") FOR this-»
+package «getPresentationRootPackage()».pages;
+
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+import «javaDtoClassPath(this.dialogue.contextRef.name)»;
+import «getPresentationRootPackage()».actions.PmfProcess;
+import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
+import «getPresentationRootPackage()».panels.«this.dialogue.name»;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.wicket.model.CompoundPropertyModel;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
+import org.apache.wicket.Page;
+import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.markup.repeater.data.IDataProvider;
+import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.mod4j.common.wicket.ext.components.ComponentsFeedbackMessageFilter;
+
+public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass()» 
+{
+    private Integer maxItemsPerPage = 8;
+
+    protected IModel model;
+    
+    Panel «dialogue.name.toFirstLower()»Panel ;
+
+«IF this.collectionContext»
+    public «this.name.toFirstUpper()»Page (final PmfProcess owner, IModel<«this.dialogue.contextRef.name»> context, boolean usedToAdd)
+«ELSE»
+    public «this.name.toFirstUpper()»Page (final PmfProcess owner, IModel<«this.dialogue.contextRef.name»> context)
+«ENDIF»
+    {
+        super(owner);
+        this.model = context;
+        System.out.println("«this.name.toFirstUpper()»Page model [ " + model.toString() + " ]");
+        
+        // Add an error panel to display errors from called processes
+        ComponentsFeedbackMessageFilter filter = new ComponentsFeedbackMessageFilter();
+        FeedbackPanel errorMessages = new FeedbackPanel("errorMessages", filter);
+        filter.addComponent(this);
+        errorMessages.setOutputMarkupId(true);
+        add(errorMessages);
+
+        «EXPAND createPanel FOR dialogue -»
+        add( «dialogue.name.toFirstLower()»Panel );
+
+         
+    }
+
+    @Override
+    public String getPageTitle()
+    {
+        return "«this.name»";
+//      return getLocalizer().getString("lbl.breakfast",this);
+    }
+
+}
+«ENDDEFINE» 
+
+
+«REM»
+    Generate the creation of the panel ConmtentForm
+«ENDREM»
+«DEFINE createPanel FOR AbstractDialogue»
+    «IF this.collectionContext»
+        «this.name.toFirstLower()»Panel = new «this.name.toFirstUpper()»("panel", model, maxItemsPerPage, this, true, usedToAdd);
+    «ELSE»
+        «this.name.toFirstLower()»Panel = new «this.name.toFirstUpper()»("panel", model);
+    «ENDIF»
+    «this.name.toFirstLower()»Panel .setOutputMarkupPlaceholderTag(true);
+«ENDDEFINE»
+
+«REM»
+    Create the model that is needed for the referred panel, based on the context expression
+
+«DEFINE createModel2 FOR Action»
+    «IF this.getNavigationExpression() != null»
+        panelModel = new PropertyModel(model, "«this.getNavigationExpression().references.get(0).name»");
+    «ELSEIF this.getStandardExpression() != null»
+        «IF ((this.getStandardExpression().type == ExpressionType::ALL) || (this.getStandardExpression().type == ExpressionType::FIND))»
+            «LET getWicketDataProviderClass(this.activeView.contextRef.name) AS providerType»
+	        «providerType» provider = new «providerType»();
+	        panelModel = new Model(provider);
+	        «ENDLET»
+        «ENDIF»
+    «ELSEIF this.getServiceExpression() != null»
+        «getWicketServiceDataProviderClass(this.contextRef.name)» p = new «getWicketServiceDataProviderClass(this.activeView.contextRef.name)»(context.getObject());
+        panelModel = new Model(p);
+        // TODO add Service providder IModel
+    «ELSE»    
+        panelModel = model;
+    «ENDIF»
+«ENDDEFINE»
+«ENDREM»

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.mod4j.dsl.presentation.mm/src"
+    modelPluginID="org.mod4j.dsl.presentation.mm" modelName="PresentationDsl" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>PresentationDsl.ecore</foreignModel>
+  <genPackages prefix="PresentationDsl" basePackage="org.mod4j.dsl.presentation.mm"
+      disposableProviderFactory="true" fileExtensions="pmfmod" ecorePackage="PresentationDsl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="PresentationDsl.ecore#//ProcessType">
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/NEW"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/SAVE"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/EDIT"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/DELETE"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/CUSTOM"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/CANCEL"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/ADDTO"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/REMOVEFROM"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/LINK"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/PREVIOUS"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="PresentationDsl.ecore#//ExpressionType">
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ExpressionType/ALL"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ExpressionType/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ExpressionType/FIND"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ExpressionType/SELECTION"/>
+    </genEnums>
+    <genClasses ecoreClass="PresentationDsl.ecore#//AssociationRoleReference"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//View">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//View/formElements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//View/baseView"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//View/actions"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//DataProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//DataProperty/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//DataProperty/isEnumeration"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//DataProperty/formElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//DataProperty/editable"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//DtoPropertyReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//DtoPropertyReference/subname"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PresentationDsl.ecore#//ExternalReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ExternalReference/modelName"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//FormElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//FormElement/references"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//FormElement/readonly"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//FormElement/form"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//FormElement/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//FormElement/dataProperty"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PresentationDsl.ecore#//ModelElementWithContext">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ModelElementWithContext/contextRef"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ModelElementWithContext/presentationModel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ModelElementWithContext/collectionContext"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PresentationDsl.ecore#//ModelElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ModelElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ModelElement/description"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//PresentationModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//PresentationModel/elements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//PresentationModel/externalReferences"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//PresentationModel/mainMenu"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//Action">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Action/link"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Action/nextPage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Action/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Action/contextExp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Action/arguments"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Action/view"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Action/menu"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UIModelElement"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//ServiceExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ServiceExpression/service"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//NavigationExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//NavigationExpression/references"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//Expression"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//StandardExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//StandardExpression/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//StandardExpression/contextRef"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//OperationExpression"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//Menu">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Menu/startActions"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//AbstractProcess">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//AbstractProcess/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//AbstractProcess/label"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//AbstractDialogue"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//DtoReference"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//ServiceReference"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//Page">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Page/dialogue"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//PageReference"/>
+  </genPackages>
+</genmodel:GenModel>

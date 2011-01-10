@@ -26,7 +26,7 @@
     <version>«getApplicationVersion()»</version>
     <name>«getApplicationName()»</name>
     <properties>
-        <mod4j.version>1.3.0</mod4j.version>
+        <mod4j.version>2.0-SNAPSHOT</mod4j.version>
         <spring.version>2.5</spring.version>
         <generated-sources-dir>«getSrcGenPath()»</generated-sources-dir>
         <generated-resources-dir>«getResourceGenPath()»</generated-resources-dir>
@@ -34,8 +34,11 @@
     </properties>
     <modules>
         <module>«getDslModelsModuleName()»</module>
-        <module>«getBusinessDomainModuleName()»</module>
-        <module>«getServiceModuleName()»</module>
+        <module>«getDomainModuleName()»</module>
+        <module>«getDataModuleName()»</module>
+        <module>«getBusinessModuleName()»</module>
+        <module>«getServiceModuleName()»</module>       
+        <module>«getPresentationModuleName("")»</module>
     </modules>
     <build>
         <resources>

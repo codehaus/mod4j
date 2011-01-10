@@ -18,16 +18,6 @@
             <table>
                 <tbody>
                     <tr>
-                        <td>Mod4j 1.3.0 (201005151105)</td>
-                        <td>
-                            <a href="1.3.0/releasenotes.html">Release Notes</a>
-                        </td>
-                        <td>
-                            <a href="1.3.0/upgradenotes.html">Upgrade Notes</a>
-                        </td>
-                        <td>16 May 2010</td>
-                    </tr>
-                    <tr>
                         <td>Mod4j 1.2.1 (201004101622)</td>
                         <td>
                             <a href="1.2.1/releasenotes.html">Release Notes</a>

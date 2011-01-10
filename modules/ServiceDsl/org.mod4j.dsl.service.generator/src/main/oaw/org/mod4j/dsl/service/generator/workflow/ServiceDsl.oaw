@@ -65,6 +65,21 @@
        <metaModel idRef="crossx"/>
        <invoke value="org::mod4j::dsl::service::generator::xtend::CompleteSvc::completeModel(serviceModel)"/>
     </component>
+    
+    <!--
+        Generation of Service sources and resources for the BUSINESS layer
+    -->
+    <component id="ServiceWorkflow-Generator" class="org.eclipse.xpand2.Generator">
+        <metaModel idRef="sm" />
+        <metaModel idRef="crossx"/>
+        <metaModel idRef="ecore"/>
+        <fileEncoding value="${fileEncoding}"/>
+        <expand value="org::mod4j::dsl::service::generator::xpand::BusinessLayer::Generate FOR serviceModel" />
+        <outlet path="${applicationPath}/">
+            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
 
     <!--
         Generation of Service sources and resources for the SERVICE layer
@@ -76,6 +91,20 @@
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::service::generator::xpand::ServiceLayer::Generate FOR serviceModel" />
         <outlet path="${applicationPath}/">
+            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
+    
+    <!-- 
+        Generation of Maven configuration files.
+    -->  
+    <component id="ServiceDslWorkflow-MavenConfigGenerator" class="org.eclipse.xpand2.Generator">
+        <metaModel idRef="sm" />
+        <metaModel idRef="ecore"/>
+        <fileEncoding value="${fileEncoding}"/>
+        <expand value="org::mod4j::dsl::service::generator::xpand::BusinessLayer::generateMavenConfiguration FOR serviceModel"/>
+        <outlet path="${applicationPath}">
             <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>

@@ -10,28 +10,14 @@ from RecordShopDomainModel import Record;
 from RecordShopDomainModel import OrderLine;
 from RecordShopDomainModel import Product;
 from RecordShopDomainModel import SexeEnum;
-from RecordShopDomainModel import RecordTypeEnum;
-from RecordShopDomainModel import Address;
+from RecordShopDomainModel import RecordTypeEnum;     
   
     /*     
      * Transfer objects for BusinessClasses 
      */
-     
+	
 	"Full Customer transfer object with all the Customer attributes (no associations)."
 	class FullCustomerDto represents Customer;
-	
-	class CustomerWithAddressDto represents Customer [
-	    firstName;
-	    lastName;
-	    birthDate;
-	    customerNr; 
-	    references [
-	        // Add inherited reference from Person 
-	        homeAddress as AddressDto;
-	    ]
-	]
-
-    class AddressDto represents Address; 
 
     "A simple Customer transfer object with a subset of Customer attributes."
 	class SimpleCustomerDto represents Customer [  

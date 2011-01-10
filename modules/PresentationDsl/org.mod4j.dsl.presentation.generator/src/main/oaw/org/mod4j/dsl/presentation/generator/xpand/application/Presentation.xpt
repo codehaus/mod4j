@@ -1,0 +1,401 @@
+«REM»
+ Copyright (c) 2010 Ordina and committers to Mod4j
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+  Contributors:
+     Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+«IMPORT org::mod4j::dslcommon::xpand::xml»
+
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::crossx::broker::xtend::Crossx»
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+
+«DEFINE GenerateApplication FOR PresentationModel -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
+package «getPresentationRootPackage()»;
+
+import «getPresentationRootPackage()».pages.exceptions.«getWicketPageNotFoundPageClass()»;
+import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
+
+import org.apache.wicket.Request;
+import org.apache.wicket.RequestCycle;
+import org.apache.wicket.Response;
+import org.apache.wicket.Session;
+import org.apache.wicket.protocol.http.WebApplication;
+import org.apache.wicket.protocol.http.WebRequest;
+import org.apache.wicket.protocol.http.WebResponse;
+import org.apache.wicket.request.target.coding.HybridUrlCodingStrategy;
+import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
+import org.apache.wicket.util.lang.PackageName;
+
+public class «getWicketApplicationClass()» extends WebApplication {
+
+    public «getWicketApplicationClass()»() {
+    }
+
+    public void init() {
+        super.init();
+        addComponentInstantiationListener(new SpringComponentInjector(this));
+        mount(new HybridUrlCodingStrategy("/404", «getWicketPageNotFoundPageClass()».class));
+        mount("/pages", PackageName.forPackage(«getWicketHomePageClass()».class.getPackage()));
+    }
+
+    @Override
+    public Session newSession(Request request, Response response) {
+        return new «getWicketSesssionClass()»(request);
+    }
+
+    @Override
+    public final RequestCycle newRequestCycle(final Request request, final Response response) {
+        return new «getWicketRequestCycleClass()»(this, (WebRequest) request, (WebResponse) response);
+    }
+
+    public Class<«getWicketHomePageClass()»> getHomePage() {
+        return «getWicketHomePageClass()».class;
+    }
+
+}
+«ENDDEFINE»
+
+«DEFINE GenerateSession FOR PresentationModel -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
+package «getPresentationRootPackage()»;
+
+import java.util.Locale;
+
+import org.apache.wicket.Request;
+import org.apache.wicket.Session;
+import org.apache.wicket.protocol.http.WebSession;
+
+public class «getWicketSesssionClass()» extends WebSession {
+    private static final long serialVersionUID = 1L;
+
+    // session is to be serialized, so don't declare a dao as property
+
+    public «getWicketSesssionClass()»(Request request) {
+        super(request);
+        setLocale(Locale.ENGLISH);
+    }
+
+    public static «getWicketSesssionClass()» getXDSLSession() {
+        return («getWicketSesssionClass()») Session.get();
+    }
+}
+«ENDDEFINE»
+
+«DEFINE GenerateRequestCycle FOR PresentationModel -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
+package «getPresentationRootPackage()»;
+
+import «getPresentationRootPackage()».pages.exceptions.«getWicketExceptionPageClass()»;
+
+import org.apache.wicket.Page;
+import org.apache.wicket.Response;
+import org.apache.wicket.protocol.http.WebApplication;
+import org.apache.wicket.protocol.http.WebRequest;
+import org.apache.wicket.protocol.http.WebRequestCycle;
+
+public class «getWicketRequestCycleClass()» extends WebRequestCycle {
+
+    public «getWicketRequestCycleClass()»(WebApplication application, WebRequest request, Response response) {
+        super(application, request, response);
+    }
+
+    @Override
+    public Page onRuntimeException(Page page, RuntimeException e) {
+        return new «getWicketExceptionPageClass()»(e);
+    }
+}
+«ENDDEFINE»
+
+«DEFINE GenerateDummyPage FOR PresentationModel -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateDummyPage in Presentation.xpt") FOR this»
+package «getPresentationRootPackage()».pages;
+
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+import org.apache.wicket.PageParameters;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.apache.wicket.spring.injection.annot.SpringBean;
+
+public class «getWicketHomePageClass()»Dummy  extends «getWicketMasterPageClass()» {
+
+    public «getWicketHomePageClass()»Dummy() {
+        this(new PageParameters());
+    }
+
+    public «getWicketHomePageClass()»Dummy(PageParameters parameters) {
+        super(null);
+        add(new FeedbackPanel("feedback"));
+    }
+
+    @Override
+    public String getPageTitle() {
+        return "Dummy page, action or process should be manually implemented";
+    }
+}
+«ENDDEFINE»
+
+«DEFINE GenerateHomePage FOR PresentationModel -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
+package «getPresentationRootPackage()».pages;
+
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+
+import org.apache.wicket.PageParameters;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.apache.wicket.spring.injection.annot.SpringBean;
+import «getPresentationServiceFacadeClassPath(this.findModel().name)»;
+
+public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()» {
+
+    public «getWicketHomePageClass()»() {
+        this(new PageParameters());
+    }
+
+    public «getWicketHomePageClass()»(PageParameters parameters) {
+        super(null);
+        add(new FeedbackPanel("feedback"));
+         // need to create an instance to initialize the SPring injection in the service facade
+        new «getPresentationServiceFacadeClass()»();
+    }
+
+    @Override
+    public String getPageTitle() {
+        return getLocalizer().getString("lbl.home", this);
+    }
+    
+}
+«ENDDEFINE»
+
+«DEFINE GenerateHomePageHtml FOR PresentationModel -»
+«EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this-»
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"  
+      xml:lang="en"  
+      lang="en"> 
+<body>
+<wicket:extend>
+	<wicket:message key="home.msg"/>
+	<br/><br/>
+	<span wicket:id="feedback"/>
+</wicket:extend>
+</body>
+</html>
+«ENDDEFINE»
+
+«DEFINE GenerateDummyPageHtml FOR PresentationModel -»
+«EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateDummyPageHtml in Presentation.xpt") FOR this-»
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"  
+      xml:lang="en"  
+      lang="en"> 
+<body>
+<wicket:extend>
+    Dummy Page
+	<br/><br/>
+	<span wicket:id="feedback"/>
+</wicket:extend>
+</body>
+</html>
+«ENDDEFINE»
+
+
+«DEFINE GenerateMasterPage FOR PresentationModel -»
+«EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: XPresentation.xpt") FOR this»
+«LET this.mainMenu.startActions AS processes»
+package «getPresentationRootPackage()».pages;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import «getPresentationRootPackage()».panels.«getWicketHtmlPanelClass()»;
+
+import «getPresentationRootPackage()».actions.PmfProcess;
+import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
+«IF this.mainMenu != null»
+    «FOREACH processes AS process-»
+	import «getPresentationRootPackage()».actions.«process.actionClass()»;
+«REM»
+	import «javaDtoClassPath(process.activeView.view.contextRef.name)»;
+«ENDREM»
+	«ENDFOREACH»
+«ENDIF»
+import «getPresentationRootPackage()».«getWicketSesssionClass()»;
+import «getPresentationRootPackage()».«getWicketApplicationClass()»;
+
+import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.AbstractLink;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.list.ListItem;
+import org.apache.wicket.markup.html.list.ListView;
+import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.model.IModel;
+
+public abstract class «getWicketMasterPageClass()» extends WebPage {
+    protected «getWicketSesssionClass()» session;
+
+    protected PmfProcess owningProcess = null;
+
+    public void setProcess(PmfProcess  p) {
+        owningProcess  = p;
+    }
+
+    public PmfProcess getProcess() {
+        return owningProcess ;
+    }
+
+    private List<AbstractLink> menuItems = new ArrayList<AbstractLink>();
+	/** Only used to allow reference from within the unnamed inner class for Link to thuis page
+	*/
+	private «getWicketMasterPageClass()» myself = null;
+
+    protected «getWicketMasterPageClass()»(PmfProcess owner) {
+    	myself = this;
+		this.owningProcess = owner;
+        session = «getWicketSesssionClass()».getXDSLSession();
+
+        add(new «getWicketHtmlPanelClass()»("htmlHeader"));
+        add(new BookmarkablePageLink<«getWicketHomePageClass()»>("logo", «getWicketApplicationClass()».get().getHomePage()));
+        add(new Label("pageTitle", new PropertyModel<String>(this, "pageTitle")));
+
+        BookmarkablePageLink<«getWicketHomePageClass()»> homeLink = new BookmarkablePageLink<«getWicketHomePageClass()»>("link", «getWicketApplicationClass()».get().getHomePage());
+        homeLink.setAutoEnable(true);
+        homeLink.add(new Label("name", getLocalizer().getString("lbl.home", this)) );
+        menuItems.add(homeLink);
+
+    «IF this.mainMenu != null»        
+		«FOREACH processes AS processCall-»
+			Link «processCall.name»Link = new Link("link") {
+				public void onClick() {
+					«processCall.actionClass()» process = new «processCall.actionClass()»(null);
+					process.setOwningPage(myself);
+					setResponsePage(process.nextPage());
+				}
+			};
+			«processCall.name»Link.add( new Label( "name", "«processCall.label»"  )); //getLocalizer().getString("lbl.comestibles", this)));
+			«processCall.name»Link.setAutoEnable(true);
+	        menuItems.add(«processCall.name»Link);
+	    «ENDFOREACH»         
+    «ENDIF»        
+        add(new ListView<AbstractLink>("menu", new PropertyModel<List<AbstractLink>>(this, "menuItems")) {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            protected void populateItem(ListItem<AbstractLink> item) {
+                item.add(item.getModelObject());
+            }
+
+        });
+    }
+
+    public abstract String getPageTitle();
+    
+//    public void startProcess(String string, List<DtoType> selectedElements) {
+//        throw new RuntimeException("SELECTION SIZE: " + selectedElements.size() + " elements " + selectedElements.toString());
+//    }
+//    
+//    public abstract void startProcess(String string, DtoType element);
+
+}
+«ENDLET»
+«ENDDEFINE»
+
+«DEFINE GenerateMasterPageHtml FOR PresentationModel -»
+«EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this-»
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"  
+      xml:lang="en"  
+      lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<wicket:panel wicket:id="htmlHeader"/>
+</head>
+<body>
+
+	<div class="frameTop">
+		<a class="logo" href="#" wicket:id="logo">Generated Master page terug naar de homepage</a>
+	</div>
+
+	<div class="frame">
+
+        <div id="topEdge"/>
+		
+		<h1 wicket:id="pageTitle">No Title</h1>
+		
+		<div class="frameLeft">
+			<div class="menu">
+				<ul>
+					<li wicket:id="menu">
+						<a href="#" wicket:id="link"><span wicket:id="name"/></a>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+		<div class="frameRight">
+			<wicket:child/>
+		</div>
+		
+		<div id="bottomEdge"/>
+	</div>
+	
+	<div class="frameBottom">
+		<div class="footerContent">&nbsp;</div>
+	</div>
+
+</body>
+</html>
+«ENDDEFINE»
+
+«DEFINE GenerateHtmlPanel FOR PresentationModel -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
+package «getPresentationRootPackage()».panels;
+
+import org.apache.wicket.markup.html.panel.Panel;
+
+public class «getWicketHtmlPanelClass()» extends Panel {
+    public «getWicketHtmlPanelClass()»(String id) {
+        super(id);
+    }
+
+    private static final long serialVersionUID = 1L;
+
+}
+«ENDDEFINE»
+
+«DEFINE GenerateHtmlPanelHtml FOR PresentationModel -»
+«EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateHtmlPanelHtml in Presentation.xpt") FOR this-»
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"  
+      xml:lang="en"  
+      lang="en"> 
+<wicket:head>
+	<title><wicket:message key="app.title"/></title>
+	<link type="text/css" rel="stylesheet" href="css/main.css" media="screen" />
+	<link type="text/css" rel="stylesheet" href="css/custom.css" media="screen" />
+	<!--[if IE 6]>
+		<link rel="stylesheet" type="text/css" href="css/ie6-screen.css">
+	<![endif]-->
+	<!--[if IE 7]>
+		<link rel="stylesheet" type="text/css" href="css/ie7-screen.css">
+	<![endif]-->
+    <script type="text/javascript">Wicket.Window.unloadConfirmation = false;</script>.
+</wicket:head>
+<wicket:panel>
+</wicket:panel>
+</html>
+«ENDDEFINE»

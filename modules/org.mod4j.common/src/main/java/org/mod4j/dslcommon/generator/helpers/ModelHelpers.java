@@ -84,10 +84,9 @@ public class ModelHelpers {
     }
 
     /**
-     * Determines if the extension file, given by the <code>absoluteFilePath</code>, should be generated. 
-     * Initially extension Files will be (re)generated if the file takes part in the Generation Gap pattern. 
-     * Extension files will not be regenerated if the file already exist in the source folder for 
-     * manually maintained (re)sources. So the user changes will not get lost.
+     * Determines if the file, given by the <code>absoluteFilePath</code>, should be generated again. If the file is
+     * manually changed by the user, the file may not be regenerated so the user changes will not get lost. The
+     * Mod4jTracker will be consulted, to check if the file has been modified (by the user).
      * 
      * @param absoluteFilePath
      *            The complete path from the root of the file-system including the file name.
@@ -95,8 +94,9 @@ public class ModelHelpers {
      */
     public static boolean shouldRegenerate(String absoluteFilePath) {
 
-        if (fileExist(absoluteFilePath)) {
-            return false;
+        if (!fileExist(absoluteFilePath)) {
+            // System.err.println("["+ path + "] REGENERATE: ! exists " + path + " ==> true");
+            return true;
         }
 
         // Do not regenerate existing pom.xml files

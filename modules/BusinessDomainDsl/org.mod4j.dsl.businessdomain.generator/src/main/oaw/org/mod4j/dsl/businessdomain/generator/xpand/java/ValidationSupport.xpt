@@ -13,20 +13,20 @@
 «DEFINE addValidationInstance FOR BusinessClass»
     /**
      * validation : Responsible for validating attribute constraints and businessrules for this business class.
-     *
+     * 
      */
-    protected final BusinessRuleValidationSupport validation = new BusinessRuleValidationSupport(this);
+    protected BusinessRuleValidationSupport validation = new BusinessRuleValidationSupport(this);
 «ENDDEFINE»
 
 «DEFINE addValidationSwitch FOR BusinessClass»
     /**
      * Activate/deactivate validation for this business class.
      * When set to active the validation will immediately be executed.
-     *
-     * @param value (boolean)
+     * 
+     * @param value (boolean) 
      */
      public void activateValidation(boolean value) {
-
+        
         this.validation.setActive(value);
         if (value) {
             validation.validate();

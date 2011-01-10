@@ -9,21 +9,19 @@ from RecordShopDataContract import OrderDto;
 from RecordShopDataContract import OrderNumberAndDateDto;
 from RecordShopDataContract import OrderWithOrderLinesDto;  
 from RecordShopDataContract import OrderLineDto;
-from RecordShopDataContract import CustomerWithOrdersAndOrderLines;
-from RecordShopDataContract import CustomerWithAddressDto; 
+from RecordShopDataContract import CustomerWithOrdersAndOrderLines; 
 from RecordShopDataContract import ProductWithCustomersDto;
 from RecordShopDataContract import FullProductDto;
 from RecordShopDataContract import ArtistDto;
 from RecordShopDataContract import PersonDto;   
 from RecordShopDataContract import RelationDto;
-from RecordShopDataContract import AddressDto;
 
 crud RelationDto;
 crud PersonDto;
 find findPersons for PersonDto;
 
 read readOrder     for OrderDto ; 
-read readOrderLine for OrderLineDto;                
+read readOrderLine for OrderLineDto  ;                
 for OrderDto reference orderLines add OrderLineDto ;
 for OrderDto reference orderLines remove OrderLineDto;
             
@@ -33,25 +31,28 @@ crud ProductWithCustomersDto;
 crud FullProductDto;
 
 crud CustomerWithOrdersAndOrderLines;
-crud ArtistDto;           
+read readArtistAsArtistDto for ArtistDto;           
+//update updateArtist for ArtistDto;
+delete deleteArtist for ArtistDto;
+
 /*              
  * Explicit definded crud servicemethods         
  */         
 create createCustomer for SimpleCustomerDto ;             
 read   readCustomer for SimpleCustomerDto ;   
 update updateCustomer for SimpleCustomerDto ;         
-delete deleteCustomer for SimpleCustomerDto ;
-create createAddress for AddressDto;
-read readAddress for AddressDto;
-create createCustomerWithAddress for CustomerWithAddressDto;          
+delete deleteCustomer for SimpleCustomerDto ;           
 
 listall listCustomers for SimpleCustomerDto ;
 listall listFullCustomers for FullCustomerDto;
 listall listAllArtists for ArtistDto;
-      
+listall listAllProducts for FullProductDto;
+     
 find findCustomers for SimpleCustomerDto ;  
 find findCustomersFull for FullCustomerDto;
-find findCustomerWithAddress for CustomerWithAddressDto;
+find findProducts for FullProductDto;
+
+find findArtists for ArtistDto;
 
 for SimpleCustomerDto reference orders add OrderDto ;
 for SimpleCustomerDto reference orders remove OrderDto   ;
@@ -64,7 +65,7 @@ for OrderDto reference customer add SimpleCustomerDto;
 method voidreturn in ( OrderDto ord ) ; 
   
 "add order to customer"     
-method addToOrders in ( 
+method addToOrdersa in ( 
                          "The order to add"
                           OrderDto order, 
                          "The customer to which the orders is added"

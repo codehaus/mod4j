@@ -24,10 +24,10 @@
                     </li>
                     <li>
                         Install
-                        <b>Eclipse 3.5 (Galileo SR1 or SR2) for Java EE developers</b>
+                        <b>Eclipse 3.5 SR1 (Galileo) for Java EE developers</b>
                         . You can
                         download one from the
-                        <a href="http://www.eclipse.org/downloads/packages/release/galileo/sr2">Eclipse
+                        <a href="http://www.eclipse.org/downloads">Eclipse
                             download site</a>
                         . If you've already installed Eclipse Galileo, you can
                         check if it is the right version, by checking the
@@ -39,8 +39,10 @@
                         <br />
                     </li>
                     <li>
-                        Install, using the Update Manager*) in Eclipse, at least the following
-                        plug-ins into Eclipse (in the specified order):
+                        Install, using the
+                        <a href="../../eclipse-update-manager.html">Update Manager</a>
+                        in Eclipse, at least the following
+                        plug-ins into Eclipse:
                         <table>
                             <thead>
                                 <tr>
@@ -52,37 +54,27 @@
                             <tr>
                                 <td>Eclipse Xtext and Xpand plug-ins</td>
                                 <td>
+                                    <b> - Xtext Antlr Support 0.7.2</b>
+                                    <br />
                                     <b> - TMF XTEXT SDK (Incubation) 0.7.2</b>
                                     <br />
                                     <b> - M2T XPAND SDK (Incubation) 0.7.2</b>
-                                    <br />
-                                    <b> - MWE SDK (Incubation) 0.7.2</b>
-                                </td>
-                                <td>
-                                    <b>
-                                        <code>http://download.eclipse.org/releases/galileo</code>
-                                    </b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Eclipse Xtext Antlr plug-ins</td>
-                                <td>
-                                    <b> - Xtext Antlr Support 0.7.2</b>
                                 </td>
                                 <td>
                                     <b>
                                         <code>http://download.itemis.com/updates/releases</code>
                                     </b>
                                 </td>
-                            </tr>                            
+                            </tr>
                             <tr>
-                                <td>Eclipse Maven plug-in: m2eclipse</td>
+                                <td>Eclipse IAM (Integration for Apache Maven), formerly called
+                                    Q4E</td>
                                 <td>
-                                    - Maven Integration for Eclipse 0.10.2
+                                    Select all features
                                 </td>
                                 <td>
                                     <b>
-                                        <code>http://m2eclipse.sonatype.org/sites/m2e</code>
+                                        <code>http://q4e.googlecode.com/svn/trunk/updatesite-iam</code>
                                     </b>
                                 </td>
                             </tr>
@@ -98,8 +90,6 @@
                                 </td>
                             </tr>
                         </table>
-                        *) <a href="../../eclipse-update-manager.html">Here</a> you find more info about how to use the Eclipse Update Manager.
-                        <br />
                         <br />
                     </li>
                     <li>

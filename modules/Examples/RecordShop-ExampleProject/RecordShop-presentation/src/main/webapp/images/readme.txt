@@ -1,0 +1,35 @@
+             
+***
+*
+* readme.txt
+*
+***
+
+###########################################
+#                                         #
+#              pageheader                 #
+#                                         #
+###########################################
+$$$$$$$$$$$$ frame-edge-top $$$$$$$$$$$$$$$
+$                                         $
+$                                         $
+$                                         $
+$                                         $
+$           frame-background              $
+$                                         $
+$                                         $
+$                                         $
+$                                         $
+$$$$$$$$$$$ frame-edge-botom $$$$$$$$$$$$$$
+
+
+** pageheader.jpg (970 * 100 px)
+To place a header above all web-page's, put a jpg image in this folder with
+the name "pageheader.jpg".
+
+** frame-background.jpg (970 * 10 px)
+** frame-edge-top.jpg (970 * 25 px)
+** frame-edge-bottom.jpg (970 * 25 px)
+
+
+        

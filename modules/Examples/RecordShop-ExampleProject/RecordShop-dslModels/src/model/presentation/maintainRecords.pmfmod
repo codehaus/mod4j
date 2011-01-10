@@ -1,0 +1,68 @@
+presentation MaintainRecords;
+
+from RecordShopDataContract dto FullRecordDto;
+from RecordShopDataContract dto FullProductDto;    
+from RecordShopDataContract dto FullCustomerDto;
+
+from RecordShopDataContract dto ArtistDto;
+    
+//process showAllRecords context list FullRecordDto [
+//    all form RecordsForm; // <--MODFORJ-205: ERROR if required services do not exist
+//] 
+ 
+//process new addRecord context FullRecordDto [ form NewRecordForm; ]
+//process save saveRecord context FullRecordDto;
+//process delete deleteRecord context FullRecordDto;
+//process cancel cancelRecord context FullRecordDto [ form RecordsForm; ]
+//process edit editRecord context FullRecordDto [ form NewRecordForm; ]
+ 
+ panel ArtistListPanel context list ArtistDto [
+      actions [
+          showArtist : edit --> page ArtistPage;
+//          newA       : new  --> page ArtistPage; // TODO No creatable DTO cannot have a Save option
+      ] 
+ ]
+ 
+ panel ArtistPanel context ArtistDto [
+     actions [
+         terug : cancel;
+         saveA : save; 
+     ]
+ ]
+ 
+ page ArtistPage shows ArtistPanel;
+ page ArtistListPage shows ArtistListPanel;
+
+panel RecordsForm context list FullRecordDto [
+    actions [ 
+        addRecord  label "Add New Record" : new --> page RecordPage ;
+        editRecord label "Edit"           : edit --> page RecordPage;
+        deleteRecord label "Delete" : delete;
+    ]
+]
+
+panel NewRecordForm context FullRecordDto [
+    actions[ 
+        saveRecord label "Save" : save;
+        cancelRecord label "Cancel" : cancel;
+//        showArtists : navigate artists --> ArtistListPage;
+    ]
+ ]
+ 
+ page RecordPage shows NewRecordForm;
+ page RecordListPage shows RecordsForm ;
+ 
+panel FullProductList context list FullProductDto [
+ 	actions [
+ 		newProduct label "New Product" : new --> page FullProductPage; 
+ 	]
+ ]
+ 
+ panel FullProduct context FullProductDto [
+ 	actions [
+ 		saveProduct label "Save Product" : save; 
+ 	]
+ ]
+ 
+ page FullProductListPage shows FullProductList; 
+ page FullProductPage shows FullProduct;

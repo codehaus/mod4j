@@ -11,13 +11,20 @@
 package org.mod4j.eclipse.views.filetracker;
 
 import java.text.DateFormat;
+import java.util.Map;
 
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.mod4j.common.generator.admin.FileTrack;
-import org.mod4j.common.generator.admin.GeneratedFile;
 import org.mod4j.common.generator.admin.Mod4jTracker;
+import org.mod4j.common.generator.admin.FileType;
+import org.mod4j.common.generator.admin.GeneratedFile;
 import org.mod4j.common.generator.admin.ProjectTrack;
+import org.mod4j.crossx.broker.CrossxLocation;
+import org.mod4j.crossx.mm.crossx.LiteralSymbolProperty;
+import org.mod4j.crossx.mm.crossx.ModelInfo;
+import org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty;
+import org.mod4j.crossx.mm.crossx.Symbol;
 import org.mod4j.eclipse.util.UiHelper;
 
 /**
@@ -34,7 +41,6 @@ public class FileTrackerLabelProvider extends LabelProvider {
      * @see org.eclipse.jface.viewers.ILabelProvider#getText(java.lang.Object)
      */
     public String getText(Object element) {
-    	
         if (element instanceof ProjectTrack) {
             ProjectTrack p = (ProjectTrack) element;
             return p.getProjectPath();
@@ -45,18 +51,13 @@ public class FileTrackerLabelProvider extends LabelProvider {
             return f.getResource();
         } else if (element instanceof GeneratedFile) {
             GeneratedFile file = (GeneratedFile) element;
-            if (file.isRetained()) {
-            	return "[ Retained ] " + file.getSourcePath();
-            } else {
-                return "[ Generated (" + DateFormat.getInstance().format(file.getModifiedDate())  + 
-                   ") ] " + file.getSourcePath();
-            }
+            return DateFormat.getInstance().format(file.getModifiedDate())  + 
+                   " [" + file.isChanged() + "," + file.isRetained() + "] "+ file.getSourcePath();
         }
         return element.toString();
     }
 
     public Image getImage(Object element) {
-    	
         if (element instanceof ProjectTrack) {
             return UiHelper.projectImg;
         } else if (element instanceof Mod4jTracker) {

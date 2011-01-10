@@ -1,0 +1,16 @@
+application RecordShopApp;
+
+from MaintainRecords page RecordListPage;
+from RecordShopDataContract dto FullRecordDto;
+from MaintainRecords page ArtistListPage; 
+from RecordShopDataContract dto ArtistDto;
+from MaintainRecords page FullProductListPage; 
+from RecordShopDataContract dto FullProductDto;
+
+menu [     
+    showAllRecords label "Maintain Records" : all FullRecordDto --> page RecordListPage;    
+    showAllArtists label "Maintain Artist"  : all ArtistDto     --> page ArtistListPage;    
+    showAllProducts label "Maintain Products"  : all FullProductDto --> page FullProductListPage;    
+]    
+
+  

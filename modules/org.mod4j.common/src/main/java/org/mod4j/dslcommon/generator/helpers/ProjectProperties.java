@@ -43,10 +43,13 @@ public class ProjectProperties {
         applicationVersion = properties.getProperty("applicationVersion");
         applicationPath = properties.getProperty("applicationPath");
         dslModelsModuleName = properties.getProperty("dslModelsModuleName");
-        businessDomainModuleName = properties.getProperty("businessdomainModuleName");
+        domainModuleName = properties.getProperty("domainModuleName");
+        dataModuleName = properties.getProperty("dataModuleName");
+        businessModuleName = properties.getProperty("businessModuleName");
         serviceModuleName = properties.getProperty("serviceModuleName");
         presentationModuleName = properties.getProperty("presentationModuleName");
         rootPackage = properties.getProperty("rootPackage");
+        businessRootPackage = properties.getProperty("businessRootPackage");
         serviceRootPackage = properties.getProperty("serviceRootPackage");
         domainRootPackage = properties.getProperty("domainRootPackage");
         dataRootPackage = properties.getProperty("dataRootPackage");
@@ -56,6 +59,7 @@ public class ProjectProperties {
         srcManPath = properties.getProperty("srcManPath");
         resourceManPath = properties.getProperty("resourceManPath");
         webAppPath = properties.getProperty("webAppPath");
+        //environmentPropertiesFileName = properties.getProperty("environmentPropertiesFileName");
         fileEncoding = properties.getProperty("fileEncoding");
         hibernate_hbm2ddl_auto = properties.getProperty("hibernate.hbm2ddl.auto");
         hibernate_mapping_class_id_generator_class = properties
@@ -76,13 +80,19 @@ public class ProjectProperties {
 
     private static final String SRC_MODEL_PATH = "src/model";
 
+    private static String dataModuleName = "DEFAULT";
+
+    private static String businessModuleName = "DEFAULT";
+
     private static String serviceModuleName = "DEFAULT";
 
-    private static String businessDomainModuleName = "DEFAULT";
+    private static String domainModuleName = "DEFAULT";
     
     private static String presentationModuleName = "DEFAULT";
 
     private static String rootPackage = "DEFAULT";
+
+    private static String businessRootPackage = "DEFAULT";
 
     private static String serviceRootPackage = "DEFAULT";
     
@@ -165,12 +175,16 @@ public class ProjectProperties {
         return dslModelsModuleName;
     }
 
-    public static String getBusinessDomainModulePath() {
-        return getApplicationPath() + "/" + getBusinessDomainModuleName();
+    public static String getDomainModulePath() {
+        return getApplicationPath() + "/" + getDomainModuleName();
     }
 
-    public static String getBusinessDomainModuleName() {
-        return businessDomainModuleName;
+    public static String getDomainModuleName() {
+        return domainModuleName;
+    }
+
+    public static String getBusinessModuleName() {
+        return businessModuleName;
     }
     
     public static String getPresentationModuleName(String targetPlatform) {
@@ -189,8 +203,28 @@ public class ProjectProperties {
         return getApplicationPath() + "/" + getServiceModuleName();
     }
 
+    public static String getBusinessModulePath() {
+        return getApplicationPath() + "/" + getBusinessModuleName();
+    }
+
+    public static String getDataModulePath() {
+        return getApplicationPath() + "/" + getDataModuleName();
+    }
+
+    public static String getDataModuleName() {
+        return dataModuleName;
+    }
+
     public static String getRootPackage() {
         return rootPackage;
+    }
+
+    public static String getBusinessRootPackage() {
+        return businessRootPackage;
+    }
+
+    public static String getBusinessRootPackageAsPath() {
+        return getBusinessRootPackage().replaceAll("\\.", "/");
     }
 
     public static String getServiceRootPackage() {

@@ -39,13 +39,13 @@ public class NameMapper {
     /**
      * Domain
      */
-//    private static final String DOMAIN_SERVICE_INTERFACE_POSTFIX = "DomainService";
-//
-//    private static final String DOMAIN_SERVICE_CLASS_POSTFIX = "DomainServiceImpl";
-//
-//    private static final String DOMAIN_SERVICE_BASE_INTERFACE_POSTFIX = "DomainServiceBase";
+    private static final String DOMAIN_SERVICE_INTERFACE_POSTFIX = "DomainService";
 
-//    private static final String DOMAIN_SERVICE_BASE_CLASS_POSTFIX = "DomainServiceImplBase";
+    private static final String DOMAIN_SERVICE_CLASS_POSTFIX = "DomainServiceImpl";
+
+    private static final String DOMAIN_SERVICE_BASE_INTERFACE_POSTFIX = "DomainServiceBase";
+
+    private static final String DOMAIN_SERVICE_BASE_CLASS_POSTFIX = "DomainServiceImplBase";
 
     private static final String TRANSLATOR_CLASS_POSTFIX = "Translator";
 
@@ -179,42 +179,42 @@ public class NameMapper {
         return packageName + "." + javaLocalServiceBaseClass(classname);
     }
 
-//    // DOMAIN SERVICES
-//    public static String javaDomainServiceInterface(String classname) {
-//        return StringHelpers.firstCharToUpper(classname) + DOMAIN_SERVICE_INTERFACE_POSTFIX;
-//    }
+    // DOMAIN SERVICES
+    public static String javaDomainServiceInterface(String classname) {
+        return StringHelpers.firstCharToUpper(classname) + DOMAIN_SERVICE_INTERFACE_POSTFIX;
+    }
 
-//    public static String javaDomainServiceInterfacePath(String classname) {
-//        String packageName = ProjectProperties.getBusinessRootPackage();
-//        return packageName + "." + javaDomainServiceInterface(classname);
-//    }
+    public static String javaDomainServiceInterfacePath(String classname) {
+        String packageName = ProjectProperties.getBusinessRootPackage();
+        return packageName + "." + javaDomainServiceInterface(classname);
+    }
 
-//    public static String javaDomainServiceBaseInterface(String classname) {
-//        return StringHelpers.firstCharToUpper(classname) + DOMAIN_SERVICE_BASE_INTERFACE_POSTFIX;
-//    }
+    public static String javaDomainServiceBaseInterface(String classname) {
+        return StringHelpers.firstCharToUpper(classname) + DOMAIN_SERVICE_BASE_INTERFACE_POSTFIX;
+    }
 
-//    public static String javaDomainServiceBaseInterfacePath(String classname) {
-//        String packageName = ProjectProperties.getBusinessRootPackage();
-//        return packageName + "." + javaDomainServiceBaseInterface(classname);
-//    }
+    public static String javaDomainServiceBaseInterfacePath(String classname) {
+        String packageName = ProjectProperties.getBusinessRootPackage();
+        return packageName + "." + javaDomainServiceBaseInterface(classname);
+    }
 
-//    public static String javaDomainServiceClass(String classname) {
-//        return StringHelpers.firstCharToUpper(classname) + DOMAIN_SERVICE_CLASS_POSTFIX;
-//    }
+    public static String javaDomainServiceClass(String classname) {
+        return StringHelpers.firstCharToUpper(classname) + DOMAIN_SERVICE_CLASS_POSTFIX;
+    }
 
-//    public static String javaDomainServiceClassPath(String classname) {
-//        String packageName = ProjectProperties.getBusinessRootPackage();
-//        return packageName + "." + javaDomainServiceClass(classname);
-//    }
+    public static String javaDomainServiceClassPath(String classname) {
+        String packageName = ProjectProperties.getBusinessRootPackage();
+        return packageName + "." + javaDomainServiceClass(classname);
+    }
 
-//    public static String javaDomainServiceBaseClass(String classname) {
-//        return StringHelpers.firstCharToUpper(classname) + DOMAIN_SERVICE_BASE_CLASS_POSTFIX;
-//    }
+    public static String javaDomainServiceBaseClass(String classname) {
+        return StringHelpers.firstCharToUpper(classname) + DOMAIN_SERVICE_BASE_CLASS_POSTFIX;
+    }
 
-//    public static String javaDomainServiceBaseClassPath(String model) {
-//        String packageName = ProjectProperties.getBusinessRootPackage();
-//        return packageName + "." + javaDomainServiceBaseClass(model);
-//    }
+    public static String javaDomainServiceBaseClassPath(String model) {
+        String packageName = ProjectProperties.getBusinessRootPackage();
+        return packageName + "." + javaDomainServiceBaseClass(model);
+    }
 
     public static String javaTranslatorClass(String classname) {
         return StringHelpers.firstCharToUpper(classname) + TRANSLATOR_CLASS_POSTFIX;

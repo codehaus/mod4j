@@ -1,12 +1,12 @@
 «REM»
-      Copyright (c) 2009 Ordina and committers to Mod4j
-      All rights reserved. This program and the accompanying materials
-      are made available under the terms of the Eclipse Public License v1.0
-      which accompanies this distribution, and is available at
-      http://www.eclipse.org/legal/epl-v10.html
-
-      Contributors:
-          Ordina - initial implementation
+	  Copyright (c) 2009 Ordina and committers to Mod4j
+	  All rights reserved. This program and the accompanying materials
+	  are made available under the terms of the Eclipse Public License v1.0
+	  which accompanies this distribution, and is available at
+	  http://www.eclipse.org/legal/epl-v10.html
+	 
+	  Contributors:
+	      Ordina - initial implementation
 «ENDREM»
 «IMPORT DataContractDsl»
 «IMPORT Crossx»
@@ -17,7 +17,7 @@
 «DEFINE addIdAndVersionConstructor FOR Dto»
     /**
      * Constructor for use by the DTO Translator.
-     *
+     * 
      * @param id
      *            The ID of the referenced business object.
      * @param version
@@ -25,18 +25,6 @@
      */
      public  «javaClassName(name) -» (final Long id, final Integer version) {
          super(id, version);
-     }
-«ENDDEFINE»
-
-«DEFINE addIdConstructor FOR Dto»
-    /**
-     * Creates an object for use as a parameter for a query.
-     *
-     * @param id
-     *            The ID of the referenced business object.
-     */
-     public  «javaClassName(name) -» (final Long id) {
-         super(id, null);
      }
 «ENDDEFINE»
 

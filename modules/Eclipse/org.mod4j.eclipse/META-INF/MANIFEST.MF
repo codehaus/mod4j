@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Mod4j Eclipse integration
 Bundle-SymbolicName: org.mod4j.eclipse; singleton:=true
-Bundle-Version: 1.3.0.qualifier
+Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: org.mod4j.eclipse.Activator
 Bundle-Vendor: org.mod4j
 Require-Bundle: org.mod4j.crossx.broker;bundle-version="1.1.0",
@@ -28,6 +28,5 @@ Export-Package: org.mod4j.eclipse,
  org.mod4j.eclipse.views.filetracker,
  org.mod4j.eclipse.wizards,
  org.mod4j.eclipse.xtend
-Import-Package: org.apache.commons.logging,
- org.eclipse.ui.actions,
+Import-Package: org.eclipse.ui.actions,
  org.eclipse.ui.part

@@ -23,7 +23,7 @@
 «ENDDEFINE»
 
 «DEFINE BusinessRuleImplBase (BusinessClass bc) FOR BusinessRule»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: NewBusinessRules.xpt") FOR this»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl genrator: NewBusinessRules.xpt") FOR this»
  
     package «getBusinessRulesPackage()»;
     
@@ -49,7 +49,7 @@
 
 «DEFINE BusinessRuleExtensionPoint FOR BusinessRule»
 
-    «EXPAND JavaComments::extensionPointHeader ("Mod4j BusinessDomainDsl generator: NewBusinessRules.xpt") FOR this»
+    «EXPAND JavaComments::extensionPointHeader ("Mod4j BusinessDomainDsl genrator: NewBusinessRules.xpt") FOR this»
 
     package «getBusinessRulesPackage()»;
             

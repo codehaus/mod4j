@@ -1,0 +1,79 @@
+«REM»
+      Copyright (c) 2009 Ordina and committers to Mod4j
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v1.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v10.html
+     
+      Contributors:
+          Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
+
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+
+«DEFINE GenerateConfirmAjaxButton FOR PresentationModel»
+package «getPresentationCommonPackage()».ext.components;
+
+import org.apache.wicket.ajax.IAjaxCallDecorator;
+import org.apache.wicket.ajax.IAjaxIndicatorAware;
+import org.apache.wicket.ajax.calldecorator.AjaxPreprocessingCallDecorator;
+import org.apache.wicket.ajax.markup.html.form.AjaxFallbackButton;
+import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.model.IModel;
+
+/**
+ * An Ajax enabled button asking confirmation for a message
+ * @author jwa11799
+ *
+ */
+@SuppressWarnings("serial")
+public abstract class ConfirmAjaxButton extends AjaxFallbackButton implements IAjaxIndicatorAware {
+    private String message;
+
+    private String ajaxIndicatorMarkupId;
+
+    public ConfirmAjaxButton(String id, String message, Form<?> form) {
+        this(id, message, form, "ajaxIndicator");
+    }
+
+    public ConfirmAjaxButton(String id, String message, Form<?> form, String ajaxIndicatorMarkupId) {
+        super(id, form);
+        this.message = message;
+        this.ajaxIndicatorMarkupId = ajaxIndicatorMarkupId;
+    }
+
+    public ConfirmAjaxButton(String id, String message, IModel<String> model, Form<?> form) {
+        this(id, message, model, form, "ajaxIndicator");
+    }
+
+    public ConfirmAjaxButton(String id, String message, IModel<String> model, Form<?> form,
+            String ajaxIndicatorMarkupId) {
+        super(id, model, form);
+        this.message = message;
+        this.ajaxIndicatorMarkupId = ajaxIndicatorMarkupId;
+    }
+
+    @Override
+    protected IAjaxCallDecorator getAjaxCallDecorator() {
+        return new AjaxPreprocessingCallDecorator(super.getAjaxCallDecorator()) {
+            private static final long serialVersionUID = 1L;
+
+            public CharSequence preDecorateScript(CharSequence script) {
+                // return "return confirm('" + message + "')" + script;
+                return "if (confirm('" + message + "')) {" + script + "}";
+            }
+        };
+    }
+
+    public String getAjaxIndicatorMarkupId() {
+        return ajaxIndicatorMarkupId;
+    }
+
+}
+«ENDDEFINE»

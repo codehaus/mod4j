@@ -18,6 +18,7 @@ import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.mod4j.runtime.exception.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.ExpectedException;
 
@@ -53,8 +54,6 @@ public class AssociationsServiceTest extends AbstractServiceTestCase {
         order.setOrderNumber("ISO 001");
         order.setDiscountPercentage(50);
         createdOrder = orderService.readOrderAsOrderDto(orderService.createOrder(order));
-        flush();
-        clear();
     }
 
     public void setupMore() {
@@ -75,8 +74,6 @@ public class AssociationsServiceTest extends AbstractServiceTestCase {
         order2.setOrderDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
         createdOrder2 = orderService.readOrderAsOrderDto(orderService.createOrder(order2));
         customerService.addToOrders(createdCustomer, createdOrder2);
-        flush();
-        clear();
     }
 
     @Test
@@ -96,8 +93,9 @@ public class AssociationsServiceTest extends AbstractServiceTestCase {
         List<SimpleCustomerDto> all = customerService.listCustomers();
 
         for (SimpleCustomerDto simpleCustomerDto : all) {
+            int nr = simpleCustomerDto.getCustomerNr();
             List<OrderNumberAndDateDto> orders = customerService.getOrders(simpleCustomerDto);
-            if (createdCustomer.getId().equals(simpleCustomerDto.getId())) {
+            if (createdCustomer.getId() == simpleCustomerDto.getId()) {
                 Assert.assertTrue(orders.size() == 3);
                 for (OrderNumberAndDateDto order : orders) {
                     OrderDto orderDto = new OrderDto(order.getId(), order.getVersion());
@@ -105,7 +103,7 @@ public class AssociationsServiceTest extends AbstractServiceTestCase {
                     Assert.assertTrue(simpleCustomerDto.getId() == customer.getId());
                 }
             } else {
-                Assert.assertEquals(0,orders.size());
+                Assert.assertTrue(orders.size() == 0);
             }
         }
         Assert.assertEquals(all.size(), 3);
@@ -115,29 +113,31 @@ public class AssociationsServiceTest extends AbstractServiceTestCase {
     public final void testFindByExample() {
         SimpleCustomerDto example = new SimpleCustomerDto();
         example.clear();
-        List<SimpleCustomerDto> result = customerService.findByExample(example);
+        List<SimpleCustomerDto> result = customerService.findCustomers(example);
         assertEquals(3, result.size());
 
         example.setBlackListed(false);
-        result = customerService.findByExample(example);
+        result = customerService.findCustomers(example);
         assertEquals(3, result.size());
 
         example.setBlackListed(true);
-        result = customerService.findByExample(example);
+        result = customerService.findCustomers(example);
         assertEquals(0, result.size());
 
         example.setBlackListed(null);
         example.setFirstName("Jo");
-        result = customerService.findByExample(example);
+        result = customerService.findCustomers(example);
         assertEquals(2, result.size());
     }
 
     @Test
     public final void testAddOrder() {
+        Long id = createdOrder.getId();
         customerService.addToOrders(createdCustomer, createdOrder);
 
         OrderNumberAndDateDto o = orderService.readOrderAsOrderNumberAndDateDto(createdOrder
                 .getId());
+        SimpleCustomerDto orderCustomer = o.getCustomer();
         Assert.assertEquals(o.getCustomer().getId(), createdCustomer.getId());
         Assert.assertTrue(o.getCustomer().getOrders().size() == 1);
     }
@@ -262,6 +262,7 @@ public class AssociationsServiceTest extends AbstractServiceTestCase {
 
         OrderNumberAndDateDto order = orderService.readOrderAsOrderNumberAndDateDto(createdOrder
                 .getId());
+        SimpleCustomerDto orderCustomer = order.getCustomer();
         Assert.assertEquals(order.getCustomer().getId(), createdCustomer.getId());
 
         Set<OrderNumberAndDateDto> orders = order.getCustomer().getOrders();

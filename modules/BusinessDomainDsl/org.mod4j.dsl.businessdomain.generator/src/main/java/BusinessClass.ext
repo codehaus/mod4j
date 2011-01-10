@@ -21,16 +21,7 @@ List[Association] getAllAssociationsTo(BusinessClass cls) :
 
 List[Association] getAllAssociationsFrom(BusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.getAllAssociationsFrom(BusinessDomainDsl.BusinessClass);
- 
-List[Association] getToOneAssociationsFromInHierarchy(BusinessClass cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.getToOneAssociationsFromInHierarchy(BusinessDomainDsl.BusinessClass);
- 
-List[Association] getToOneAssociationsToInHierarchy(BusinessClass cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.getToOneAssociationsToInHierarchy(BusinessDomainDsl.BusinessClass);
- 
-List[Association] getAllToOneAssociationsInHierarchy(BusinessClass cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.getAllToOneAssociationsInHierarchy(BusinessDomainDsl.BusinessClass);
-  
+
 String javaType(Property p) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaType(BusinessDomainDsl.Property);
 

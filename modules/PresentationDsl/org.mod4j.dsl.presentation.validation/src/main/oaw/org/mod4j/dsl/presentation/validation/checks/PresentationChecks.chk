@@ -1,0 +1,89 @@
+/*******************************************************************************
+ * Copyright (c) 2008 Ordina and committers to Mod4j
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Ordina - initial implementation
+ *******************************************************************************/
+import PresentationDsl;
+import crossx;
+import ecore;
+
+extension org::mod4j::dslcommon::xtend::generatorutil;
+extension org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers;
+extension org::eclipse::xtend::util::stdlib::elementprops;
+extension org::mod4j::crossx::broker::xtend::Crossx;
+extension org::mod4j::dslcommon::xtend::ProjectProperties;
+
+
+context Action ERROR "Action on single object view cannot have a collection context" :
+((this.view != null) && (!this.view.collectionContext) ) implies (! this.collectionContext );
+
+context Action if (this.type == ProcessType::ADDTO) ||
+                  (this.type == ProcessType::EDIT) || (this.type == ProcessType::NEW)
+	ERROR "A " + this.type + " action must have a page" :
+    (this.nextPage!= null);
+
+context Action if (this.contextExp != null) && (this.contextExp.metaType.isAssignableFrom(StandardExpression)) && 
+                  (((StandardExpression)this.contextExp).type == ExpressionType::ALL) && 
+                  (((StandardExpression)this.contextExp).contextRef != null)
+	ERROR "A " + "ALL" + " action must have a page" :
+    (this.nextPage!= null);
+
+context Action if (this.contextExp != null) && (this.contextExp.metaType.isAssignableFrom(NavigationExpression)) 
+	ERROR "A " + "navigation" + " action must have a page" :
+    (this.nextPage!= null);
+
+context Action if (this.type == ProcessType::DELETE) || 
+                  (this.type == ProcessType::SAVE ) || (this.type == ProcessType::REMOVEFROM)
+	ERROR "A " + this.type + " action cannot have a page " :
+    (this.nextPage == null) ;
+
+context Action if this.type == ProcessType::SAVE 
+    ERROR "A 'save' action cannot used on a view with a 'list'  context ":
+    ! this.collectionContext;
+
+context Action if this.type == ProcessType::EDIT 
+    ERROR "A 'edit' action cannot used on a view with a 'list'  context ":
+    ! this.collectionContext;
+    
+context Action // if this.type != ProcessType::CUSTOM
+    ERROR "Action: " + this.getProperty("ERROR") :
+    let result = checkAction(this) :       
+    (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
+      ;
+
+/*  
+context Process if this.type == ProcessType::LINK
+    ERROR "A link process must have exactly one form" :
+    (this.processElements.size == 1) &&
+    (this.processElements.typeSelect(DialogueCall).size == 1);
+
+context Process if (this.type != ProcessType::CUSTOM) && (this.contentForm != null) 
+    ERROR "11 A Content Form may have at most one '" + this.type + "' action or process" :
+    hasDouble(this, this.type);
+
+*/
+/* INCORRECT FOR EXTERNAL PROCESSCALL
+context ProcessCall if (this.referredProcess.type != ProcessType::CUSTOM) && (this.owningDialogue != null) 
+    ERROR "12 A Content Form may have at most one " + this.referredProcess.type + "' action or process" :
+    hasDouble(this, this.referredProcess.type);
+*/
+
+//context Process 
+//    ERROR "Process error " + this.getProperty("ERROR") :
+//    let result = checkProcess(this) :       
+//    (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
+//     ;
+
+/*
+
+context DialogueCall if referredDialogue != null
+    ERROR "DialogueCall error " + this.getProperty("ERROR") :
+    let result = checkDialogueCall(this) :       
+    (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
+     ;
+*/

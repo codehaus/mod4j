@@ -13,22 +13,22 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE addToReferenceVariable FOR Association»
-    /**
+	/**
      *  «targetRoleName»: «description»
-     */
+     */ 
     «IF isOne2One(this) -»
-        private «target.name» «targetRoleName»;
-          «EXPAND AssociationsOne2One::one2OneAccessorsTo FOR this»
+		private «target.name» «targetRoleName»;
+  		«EXPAND AssociationsOne2One::one2OneAccessorsTo FOR this»
     «ELSEIF isMany2One() -»
         private «target.name» «targetRoleName»;
         «EXPAND AssociationsMany2One::many2OneAccessorsTo FOR this»
     «ELSEIF isOne2Many() -»
-        private final «getCollectionInterface()»<«javaDomainClass(target.name)»> «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
+		private «getCollectionInterface()»<«javaDomainClass(target.name)»> «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
         «EXPAND AssociationsOne2Many::one2ManyAccessorsTo FOR this»
     «ELSEIF isMany2Many() -»
-        private final «getCollectionInterface()»<«javaDomainClass(target.name)»> «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
+        private «getCollectionInterface()»<«javaDomainClass(target.name)»> «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
         «EXPAND AssociationsMany2Many::many2ManyAccessorsTo FOR this»
-    «ENDIF»
+	«ENDIF»
 «ENDDEFINE»
 
 «DEFINE addFromReferenceVariable FOR Association»
@@ -36,13 +36,13 @@
         private «source.name» «sourceRoleName»;
         «EXPAND AssociationsOne2One::one2OneAccessorsFrom FOR this»
     «ELSEIF isMany2One() -»
-        private final Set<«javaDomainClass(source.name)»> «sourceRoleName» = new HashSet<«javaDomainClass(source.name)»>();
+        private Set<«javaDomainClass(source.name)»> «sourceRoleName» = new HashSet<«javaDomainClass(source.name)»>();
         «EXPAND AssociationsMany2One::many2OneAccessorsFrom FOR this»
     «ELSEIF isOne2Many() -»
         private «source.name» «sourceRoleName»;
         «EXPAND AssociationsOne2Many::one2ManyAccessorsFrom FOR this»
     «ELSEIF isMany2Many() -»
-        private final Set<«javaDomainClass(source.name)»> «sourceRoleName» = new HashSet<«javaDomainClass(source.name)»>();
+        private Set<«javaDomainClass(source.name)»> «sourceRoleName» = new HashSet<«javaDomainClass(source.name)»>();
         «EXPAND AssociationsMany2Many::many2ManyAccessorsFrom FOR this»
     «ENDIF»
 «ENDDEFINE»

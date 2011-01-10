@@ -1,0 +1,80 @@
+«REM»
+      Copyright (c) 2009 Ordina and committers to Mod4j
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v1.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v10.html
+     
+      Contributors:
+          Ordina - initial implementation
+«ENDREM»
+
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::xml»
+
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+
+«DEFINE generateWebXml FOR PresentationModel»
+<?xml version="1.0" encoding="UTF-8"?>
+«EXPAND XmlComments::extensionPointHeader ("Mod4j PresentationDsl generator: WebXml.xpt") FOR this»
+
+<web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <javaee:display-name>«getApplicationName()» «getApplicationVersion()»</javaee:display-name>
+  <context-param>
+    <param-name>configuration</param-name>
+    <param-value>development</param-value>
+  </context-param>
+  <context-param>
+    <javaee:param-name>parentContextKey</javaee:param-name>
+    <javaee:param-value>«getServiceRootPackage()».Context</javaee:param-value>
+  </context-param>
+  <context-param>
+    <javaee:param-name>locatorFactorySelector</javaee:param-name>
+    <javaee:param-value>classpath*:/«getRootPackage().replaceAll("\\.", "/")»/*/beanRefContext.xml</javaee:param-value>
+  </context-param>
+  <filter>
+    <filter-name>Wicket</filter-name>
+    <filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+    <init-param>
+      <javaee:param-name>applicationFactoryClassName</javaee:param-name>
+      <javaee:param-value>
+                org.apache.wicket.spring.SpringWebApplicationFactory
+            </javaee:param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>Wicket</filter-name>
+    <url-pattern>/«getApplicationName()»/*</url-pattern>
+  </filter-mapping>
+  <listener>
+    <javaee:listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </javaee:listener-class>
+  </listener>
+  <javaee:resource-ref>
+    <javaee:res-ref-name>jdbc/«getApplicationName()»DS</javaee:res-ref-name>
+    <javaee:res-type>javax.sql.DataSource</javaee:res-type>
+    <javaee:res-auth>Container</javaee:res-auth>
+  </javaee:resource-ref>
+</web-app>
+«ENDDEFINE»
+
+«DEFINE generateSunWebXml FOR PresentationModel»
+<?xml version="1.0" encoding="UTF-8"?>
+«EXPAND XmlComments::extensionPointHeader ("Mod4j PresentationDsl generator: WebXml.xpt") FOR this»
+
+<!DOCTYPE sun-web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Application Server 9.0 Servlet 2.5//EN" "http://www.sun.com/software/appserver/dtds/sun-web-app_2_5-0.dtd">
+<sun-web-app error-url="">
+    <context-root>/«getApplicationName()»-web</context-root>
+    <resource-ref>
+        <res-ref-name>jdbc/«getApplicationName()»DS</res-ref-name>
+        <jndi-name>jdbc/«getApplicationName()»Datasource</jndi-name>
+    </resource-ref>
+    <class-loader delegate="true"/>
+    <jsp-config>
+        <property name="keepgenerated" value="true">
+            <description>Keep a copy of the generated servlet class java code.</description>
+        </property>
+    </jsp-config>
+</sun-web-app>
+«ENDDEFINE»

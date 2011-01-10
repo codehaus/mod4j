@@ -1,0 +1,514 @@
+«REM»
+ Copyright (c) 2010 Ordina and committers to Mod4j
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+  Contributors:
+     Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+ 
+«DEFINE GenerateObjectDataTableView FOR View -»
+«EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectDataTableView.xpt") FOR this-»
+«REM»«LET (ContentForm)(this.dialogues.first().referredElement) AS cf»«ENDREM»
+«LET this.name.toFirstUpper()  AS className»
+package «getPresentationRootPackage()».panels;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.Collection;
+
+import «javaDtoClassPath(this.contextRef.name)»;
+«FOREACH this.formElements.dataProperty AS dp -»
+	«IF dp.isEnumeration -»
+	import «javaDtoClassPath(dp.dataType)»;
+	«ENDIF»
+«ENDFOREACH»
+import «getPresentationRootPackage()».actions.PmfProcess;
+import «getPresentationCommonPackage()».processes.ProcessType;
+«FOREACH this.actions AS process -»
+import «getPresentationRootPackage()».actions.«process.actionClass()»;
+«ENDFOREACH»
+
+import «getPresentationCommonPackage()».ext.components.CheckBoxColumn;
+import «getPresentationCommonPackage()».ext.components.CheckBoxDtoModel;
+import «getPresentationCommonPackage()».ext.components.ModalWindow;
+import «getPresentationCommonPackage()».ext.components.ListElementModel;
+import «getPresentationCommonPackage()».ext.components.LinkPanel;
+
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
+// import «getPresentationRootPackage()».dataproviders.«getWicketDataProviderClass(this.contextRef.name)»;
+import «getPresentationCommonPackage()».dataproviders.ModelBasedListDataProvider;
+
+import org.apache.wicket.Page;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.form.AjaxCheckBox;
+import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
+import org.apache.wicket.ajax.markup.html.navigation.paging.AjaxPagingNavigator;
+import org.apache.wicket.extensions.ajax.markup.html.repeater.data.table.AjaxFallbackDefaultDataTable;
+import org.apache.wicket.extensions.markup.html.repeater.data.table.HeaderlessColumn;
+import org.apache.wicket.extensions.markup.html.repeater.data.grid.ICellPopulator;
+import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
+import org.apache.wicket.extensions.markup.html.repeater.data.table.PropertyColumn;
+import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;
+import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.apache.wicket.markup.repeater.Item;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
+import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.model.ResourceModel;
+
+/**
+ * A panel that shows a list of «this.contextRef.name», not editable.
+ */
+@SuppressWarnings("serial")
+public class «className» extends Panel {
+
+    public List<«this.contextRef.name»> selectedElements = new ArrayList<«this.contextRef.name»>();
+    
+    protected «getWicketMasterPageClass()» page = null;
+
+    protected AjaxFallbackDefaultDataTable<«this.contextRef.name»> dataTable;
+    
+    protected «className» myself;
+
+    protected Mod4jDataProvider<«this.contextRef.name»> dataProvider;
+    
+    protected IModel<«this.contextRef.name»> model;
+
+    protected boolean multiple  = true;
+    protected boolean usedToAdd = false;
+	protected FeedbackPanel listMsgs = null;
+    
+    public «className»(String id, IModel<«this.contextRef.name»> context, 
+              Integer maxItemsPerPage, «getWicketMasterPageClass()» owner, boolean multiple, boolean usedToAdd )
+	{
+	    super(id);
+	    myself = this;
+	    this.multiple = multiple;
+	    this.model = context;
+	    this.page = owner;
+	    this.usedToAdd = usedToAdd;
+
+        System.out.println("«className» model [ " + model.toString() + " ]");
+	    
+        // Find the dataprovider
+        Object object = model.getObject();
+        if( object instanceof Mod4jDataProvider){
+            dataProvider = (Mod4jDataProvider<«this.contextRef.name»>) object;
+            if( dataProvider instanceof SortableDataProvider ){
+                ( ( SortableDataProvider )dataProvider).
+                setSort("«this.formElements.selectFirst(e | e.dataProperty != null).dataProperty.name»", true); // set default sort
+			}            
+        } else if( object instanceof Set<?> ) {
+            dataProvider = new ModelBasedListDataProvider<«this.contextRef.name»>(model);
+        }
+        
+		listMsgs = new FeedbackPanel("listMessages");
+		listMsgs.setOutputMarkupId(true);
+		add(listMsgs);
+
+        dataTable = new AjaxFallbackDefaultDataTable<«this.contextRef.name»>("table", createColumns(), dataProvider, maxItemsPerPage);
+        add(dataTable);
+        
+        «REM»
+                 Add a reset button that operates on the checkbox column of the datatable.
+        «ENDREM»
+        add(new AjaxFallbackLink<Object>("resetAll") {
+
+            @Override
+            public boolean isEnabled() {
+                return selectedElements.size() > 0;
+            }
+
+            @Override
+            public void onClick(AjaxRequestTarget target) {
+                selectedElements.clear();
+                if (target != null) {
+                    target.addComponent(this);
+                    target.addComponent(dataTable);
+                    //target.addComponent(myself.get("delete-selected"));
+                }
+            }
+        });
+        
+        Link addLink = new Link<Object>("addLink") {
+			@Override
+			public void onClick() {
+				PmfProcess process = myself.page.getProcess();
+				process.add(selectedElements);
+				selectedElements.clear();
+			}
+		};
+		add(addLink);
+		addLink.setVisible(usedToAdd);
+        
+        «EXPAND addButtons FOR this»
+	}
+	
+	protected «getWicketMasterPageClass()» page() {
+		return («getWicketMasterPageClass()») findPage();
+	}
+
+	protected void handleAnyException(Exception e) {
+		listMsgs.error(e.getMessage());
+	}
+		
+	«EXPAND createColumns(className) FOR this -»
+}
+«ENDLET»
+«ENDDEFINE»
+
+«DEFINE createColumns(String className) FOR View  -»
+	List<IColumn<«this.contextRef.name»>> columns = new ArrayList<IColumn<«this.contextRef.name»>>();
+
+    /**
+     * @return Returns a List of contstructed columns for the DataTable.
+     */
+    protected List<IColumn<«this.contextRef.name»>> createColumns() {
+
+        columns.add(new CheckBoxColumn<«this.contextRef.name»>(
+            new PropertyModel<Collection<Serializable>>(this, "selectedElements")) {
+
+            @Override
+            public void populateItem(Item<ICellPopulator<«this.contextRef.name»>> item, String componentId,
+                    IModel<«this.contextRef.name»> rowModel) {
+                
+                CheckBoxDtoModel checkBoxModel =  new CheckBoxDtoModel<«this.contextRef.name»>(selectedElements, rowModel.getObject());
+                checkBoxModel.setMultiple(multiple);
+                AjaxCheckBox checkBox = new AjaxCheckBox("checkbox", checkBoxModel) {
+                    @Override
+                    protected void onUpdate(AjaxRequestTarget target) {
+                        target.addComponent(dataTable);
+                        //target.addComponent(myself.get("delete-selected"));
+                        target.addComponent(myself.get("resetAll"));
+                    }
+                };
+                item.add(new CheckBoxPanel(componentId).add(checkBox));
+            }
+        });
+    
+	«LET this.formElements.toList() AS list -»
+	«LET list.first() AS first -»
+	    «EXPAND firstCell(this.contextRef.name, "TODO No idea yet", className) FOR first -»
+		«FOREACH list AS fe -»
+		    «EXPAND cell(first, this.contextRef.name, className) FOR fe -»
+		«ENDFOREACH»
+	«ENDLET»
+	«ENDLET»
+
+    «EXPAND addColumnsView(className) FOR this»
+	return columns;
+	}
+«ENDDEFINE»
+
+«DEFINE firstCell(String contextRefName, String responsePageName, String className) FOR FormElement -»
+		columns.add(new PropertyColumn<«contextRefName»>(
+            new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»",«className».this)),
+    		"«this.dataProperty.name»", "«this.dataProperty.name»") {
+            @Override
+            public void populateItem(Item<ICellPopulator<«contextRefName»>> item, String componentId,
+                    final IModel<«contextRefName»> rowModel) {
+
+                LinkPanel<«contextRefName»> link = new LinkPanel<«contextRefName»>(componentId, rowModel,
+                        new PropertyModel<String>(rowModel, "«this.dataProperty.name»"), 
+                        new Model<String>("To «contextRefName»")) {
+                    @Override
+                    public void onClick(AjaxRequestTarget target) {
+                        //TODO setResponsePage(new «responsePageName»(rowModel));
+                    }
+                };
+                item.add(link);
+            }
+        });
+«ENDDEFINE»
+
+«DEFINE cell(FormElement first, String contextRefName, String className) FOR FormElement -»
+	«IF this != first -»
+		//item.add(new Label("«this.dataProperty.name»"));
+		columns.add(new PropertyColumn<«contextRefName»>(
+             new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»",«className».this)),
+            "«this.dataProperty.name»", "«this.dataProperty.name»"));
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE addColumnsView(String className) FOR View»
+	    «FOREACH this.actions.select(pp| pp != null) AS pp -»
+		   «LET pp AS process»
+		   «IF ! process.collectionContext && (process.type==ProcessType::CUSTOM) -»
+		       // Custom process on single instance
+		       columns.add(new HeaderlessColumn<«this.contextRef.name»>() {
+                   
+                   public void populateItem(final Item<ICellPopulator<«this.contextRef.name»>> item,
+                       String componentId, final IModel<«this.contextRef.name»> rowModel) {
+                       
+                       LinkPanel<«this.contextRef.name»> link = new LinkPanel<«this.contextRef.name»>(componentId, rowModel,
+                           new Model<String>( getLocalizer().getString("cmd.«process.name»", «className».this) ) ,
+                           new Model<String>("«pp.label»")) {
+                           @Override
+                           public void onClick(AjaxRequestTarget target) {
+		                       «process.actionClass()» process = new «process.actionClass()»(rowModel);
+		                       process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
+//                             Page next = process.nextPage(rowModel.getObject());
+							   try {
+//	                               Page next = process.nextPage();
+//			                       if (next != null) {
+//			                           setResponsePage(next);
+//			                       }
+									process.run(null);
+								} catch (Exception e){
+									handleAnyException(e);
+									target.addComponent(listMsgs);
+								}		                       
+                           }
+                       };
+                       item.add(link);
+                       if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                           link.setEnabled(false);
+                       }
+			    	   link.setVisible(!usedToAdd);
+                   }
+               });		   		   
+			«ENDIF»
+    		«IF process.type==ProcessType::EDIT»
+
+            // Edit process
+            columns.add(new HeaderlessColumn<«this.contextRef.name»>() {
+                  
+               public void populateItem(final Item<ICellPopulator<«this.contextRef.name»>> item,
+                   String componentId, final IModel<«this.contextRef.name»> rowModel) {
+                   
+                   LinkPanel<«this.contextRef.name»> link = new LinkPanel<«this.contextRef.name»>(componentId, rowModel,
+                       new Model<String>( getLocalizer().getString("cmd.«process.name»", «className».this) ) ,
+                       new Model<String>("«pp.label»")) {
+                       @Override
+                       public void onClick(AjaxRequestTarget target) {
+	                        «this.contextRef.name» dto = rowModel.getObject();
+	                        IModel elementModel = null;
+	                        Object o = model.getObject();
+	                        if (o instanceof Mod4jDataProvider<?>) {
+	                            elementModel = new Model(dto);
+	                        } else if (o instanceof Set<?>) {
+	                            elementModel = new ListElementModel("id", dto.getId(),model);
+	                        }
+	
+	                        «process.actionClass()» process = new «process.actionClass()» (elementModel);
+		                    process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
+//		                    Page next = process.nextPage();
+//		                    if (next != null) {
+//		                        setResponsePage(next);
+//		                    }
+		                    process.run(null);
+                       }
+                   };
+                   item.add(link);
+                   if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                       link.setEnabled(false);
+                   }
+		    	   link.setVisible(!usedToAdd);
+               }
+           });  
+	    «ENDIF»
+        «IF (process.type==ProcessType::DELETE) && (! process.collectionContext) »
+            «IF ! process.collectionContext»
+            // Delete process on collection
+            columns.add(new HeaderlessColumn<«this.contextRef.name»>() {
+                  
+               public void populateItem(final Item<ICellPopulator<«this.contextRef.name»>> item,
+                   String componentId, final IModel<«this.contextRef.name»> rowModel) {
+                   
+                   LinkPanel<«this.contextRef.name»> link = new LinkPanel<«this.contextRef.name»>(componentId, rowModel,
+                       new Model<String>( getLocalizer().getString("cmd.«process.name»", «className».this) ) ,
+                       new Model<String>("«pp.label»")) {
+                       @Override
+                       public void onClick(AjaxRequestTarget target) {
+                           «process.actionClass()» process = new «process.actionClass()»(rowModel);
+                           process.setOwningPage((«getWicketMasterPageClass()») this.getPage());
+                           process.run(rowModel.getObject());
+                           target.addComponent(dataTable);
+                       }
+                   };
+                   item.add(link);
+                   if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                       link.setEnabled(false);
+                   }
+		    	   link.setVisible(!usedToAdd);
+               }
+           });  
+           «ENDIF»
+        «ENDIF»
+        «IF (process.type==ProcessType::REMOVEFROM) && (! process.collectionContext)»
+            // Remove from process on collection
+            columns.add(new HeaderlessColumn<«this.contextRef.name»>() {
+                  
+               public void populateItem(final Item<ICellPopulator<«this.contextRef.name»>> item,
+                   String componentId, final IModel<«this.contextRef.name»> rowModel) {
+                   
+                   LinkPanel<«this.contextRef.name»> link = new LinkPanel<«this.contextRef.name»>(componentId, rowModel,
+                       new Model<String>( getLocalizer().getString("cmd.«process.name»", «className».this) ) ,
+                       new Model<String>("«pp.label»")) {
+                       @Override
+                       public void onClick(AjaxRequestTarget target) {
+                           «process.actionClass()» process = new «process.actionClass()»(model);
+                           process.setOwningPage((«getWicketMasterPageClass()») this.getPage());
+                           process.run(rowModel.getObject());
+                           target.addComponent(dataTable);
+                       }
+                   };
+                   item.add(link);
+                   if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                       link.setEnabled(false);
+                   }
+		    	   link.setVisible(!usedToAdd);
+               }
+           });  
+        «ENDIF»
+        «ENDLET»
+        «ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE addButtons FOR View»
+    «FOREACH this.actions.select(pp| pp != null) AS pp -»
+        «LET pp AS process»
+        «IF process.type==ProcessType::NEW »
+            // New process 
+            Link «process.name»Link = new Link<Object>("«process.name»") {
+                @Override
+                public void onClick() {
+                    «process.actionClass()» process = new «process.actionClass()»(model);
+                    process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
+//                    Page next = process.nextPage();
+//                    if (next != null) {
+//                        setResponsePage(next);
+//                    }
+                    process.run(null);
+                }
+            };
+            add(«process.name»Link);
+            if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                «process.name»Link.setEnabled(false);
+            }
+    	    «process.name»Link.setVisible(!usedToAdd);
+        «ELSEIF process.type == ProcessType::CANCEL»
+            Link «process.name»CancelLink = new Link<Object>("«process.name»") {
+	            @Override
+	            public void onClick() {
+					page().getProcess().cancel();
+//                    «process.actionClass()» process = new «process.actionClass()»(model);
+//					process.setOwningPage((RosasMasterPage) this.getPage());
+//					process.run(null);
+	             }
+	        };
+	        add(«process.name»CancelLink );
+        «ELSEIF process.collectionContext »
+            «IF process.type == ProcessType::ADDTO»
+                // AddTo process 
+                Link «process.name»Link = new Link<Object>("«process.name»") {
+                    @Override
+                    public void onClick() {
+                        «process.actionClass()» process = new «process.actionClass()»(model);
+                        process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
+//	                            Page next = process.nextPage();
+//	                            if (next != null) {
+//	                                setResponsePage(next);
+//	                            }
+	                            process.run(null);
+/*
+                                List<«this.contextRef.name»> dtoList = new ArrayList<«this.contextRef.name»>();
+                        for (IModel<«this.contextRef.name»> dtoModel : selectedElements) {
+                            «this.contextRef.name» elem = dtoModel.getObject();
+                            dtoList .add(elem);
+                        }
+                        «process.actionClass()» process = new «process.actionClass()»(model);
+                        process.setOwningPage((«getWicketMasterPageClass()») this.getPage());
+                                process.run(dtoList);
+                                selectedElements.clear();
+*/
+                            }
+                        };
+                        add(«process.name»Link);
+                if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                    «process.name»Link.setEnabled(false);
+                }
+        	    «process.name»Link.setVisible(!usedToAdd);
+            «ELSEIF ((process.type == ProcessType::REMOVEFROM) || (process.type == ProcessType::DELETE)) »
+                // RemoveFrom or Delete process on single instance
+                Link «process.name»Link = new Link<Object>("«process.name»") {
+                    @Override
+                    public void onClick() {
+		                «process.actionClass()» process = new «process.actionClass()»(model);
+		                process.setOwningPage((«getWicketMasterPageClass()») this.getPage());
+		                process.run(selectedElements);
+		                selectedElements.clear();
+		            }
+		        };
+                add(«process.name»Link);
+                if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                    «process.name»Link.setEnabled(false);
+                }
+	    	    «process.name»Link.setVisible(!usedToAdd);
+            «ELSEIF process.nextPage != null»
+                // Interactive process 
+                Link «process.name»Link = new Link<Object>("«process.name»") {
+                    @Override
+                    public void onClick() {
+                        «process.actionClass()» process = new «process.actionClass()»(model);
+                        process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
+
+						try{
+//							Page next = process.nextPage();
+//							if (next != null) {
+//								setResponsePage(next);
+//							}
+							process.run(null);
+						} catch (Exception e) {
+							handleAnyException(e);
+						}
+                    }
+                };
+                add(«process.name»Link);
+                if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                    «process.name»Link.setEnabled(false);
+                }
+	    	    «process.name»Link.setVisible(!usedToAdd);
+            «ELSEIF ! (process.nextPage != null)»
+                // Not Interactive
+                Link «process.name»Link = new Link<Object>("«process.name»") {
+                    @Override
+                    public void onClick() {
+                        «process.actionClass()» process = new «process.actionClass()»(model);
+                        process.setOwningPage((«getWicketMasterPageClass()») this.getPage());
+                        
+						try{
+	                        process.run(selectedElements);
+						} catch (Exception e) {
+							handleAnyException(e);
+						}
+                        selectedElements.clear();
+                    }
+                };
+                add(«process.name»Link);
+                if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                    «process.name»Link.setEnabled(false);
+                }
+	    	    «process.name»Link.setVisible(!usedToAdd);
+            «ENDIF» 
+        «ENDIF»
+        «ENDLET»
+    «ENDFOREACH»
+«ENDDEFINE»
+
