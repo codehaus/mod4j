@@ -157,7 +157,7 @@ public class NameMapper {
     }
 
     public static String javaLocalServiceInterfacePath(String classname) {
-        String packageName = ProjectProperties.getServiceRootPackage();
+        String packageName = ProjectProperties.getLocalServicePackage();
         return packageName + "." + javaLocalServiceInterface(classname);
     }
 
@@ -166,7 +166,7 @@ public class NameMapper {
     }
 
     public static String javaLocalServiceClassPath(String classname) {
-        String packageName = ProjectProperties.getServiceRootPackage();
+        String packageName = ProjectProperties.getLocalServicePackage();
         return packageName + "." + javaLocalServiceClass(classname);
     }
 
@@ -175,7 +175,7 @@ public class NameMapper {
     }
 
     public static String javaLocalServiceBaseClassPath(String classname) {
-        String packageName = ProjectProperties.getServiceRootPackage();
+        String packageName = ProjectProperties.getLocalServicePackage();
         return packageName + "." + javaLocalServiceBaseClass(classname);
     }
 

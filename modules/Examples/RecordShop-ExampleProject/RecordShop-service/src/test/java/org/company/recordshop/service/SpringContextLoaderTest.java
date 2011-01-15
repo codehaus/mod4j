@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import javax.sql.DataSource;
 import javax.transaction.UserTransaction;
 
+import org.company.recordshop.service.local.CustomerServiceModelLocalService;
 import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;

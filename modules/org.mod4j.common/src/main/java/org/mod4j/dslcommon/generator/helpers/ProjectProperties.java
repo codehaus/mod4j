@@ -111,6 +111,8 @@ public class ProjectProperties {
     public static final String DAO_PACKAGE = "";
 
     public static final String DAO_IMPL_PACKAGE = ".hibernate.spring";
+    
+    public static final String LOCALSERVICES_PACKAGE = ".local";
 
     public static final String DTO_PACKAGE = ".dto";
 
@@ -192,13 +194,17 @@ public class ProjectProperties {
     public static String getRootPackage() {
         return rootPackage;
     }
-
+    
     public static String getServiceRootPackage() {
         return serviceRootPackage;
     }
 
     public static String getServiceRootPackageAsPath() {
         return getServiceRootPackage().replaceAll("\\.", "/");
+    }
+    
+    public static String getLocalServicePackage() {
+        return serviceRootPackage + LOCALSERVICES_PACKAGE;
     }
     
     public static String getPresentationRootPackage() {

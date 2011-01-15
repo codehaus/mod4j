@@ -178,9 +178,9 @@ public class SearchParameters implements Serializable {
 	}
 
 	/**
-	 * Constrains the given <code>criteria</code> object. If set, applies this
-	 * objects pagination and sorting attributes (firstResult, maxResults,
-	 * sortProperty and ascending).
+	 * Constrains the given <code>criteria</code> object by applying the
+	 * pagination and sorting attributes (firstResult, maxResults,
+	 * sortProperty and ascending) to it.
 	 * 
 	 * @param criteria
 	 * @return The constrained <code>criteria</code> object.

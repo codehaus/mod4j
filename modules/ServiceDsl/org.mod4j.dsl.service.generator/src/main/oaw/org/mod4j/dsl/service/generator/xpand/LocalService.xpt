@@ -21,7 +21,7 @@
 «DEFINE LocalService FOR ServiceModel -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j ServiceDsl generator: LocalService.xpt") FOR this»
 
-	package «getServiceRootPackage()»;
+	package «getLocalServicePackage()»;
 
 	import java.util.List;
 	import org.mod4j.runtime.queries.SearchParameters;

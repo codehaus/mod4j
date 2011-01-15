@@ -23,7 +23,7 @@
 «DEFINE LocalServiceImplBase FOR ServiceModel»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j ServiceDsl generator: LocalServiceImplBase.xpt") FOR this»
 
-    package «getServiceRootPackage()»;
+    package «getLocalServicePackage()»;
 
     import java.util.List;
     import java.util.Set;

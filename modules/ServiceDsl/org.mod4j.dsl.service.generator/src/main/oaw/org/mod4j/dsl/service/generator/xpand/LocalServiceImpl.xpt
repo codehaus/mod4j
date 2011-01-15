@@ -22,7 +22,7 @@
 «DEFINE LocalServiceImpl FOR ServiceModel»
     «EXPAND JavaComments::extensionPointHeader ("Mod4j ServiceDsl generator: LocalServiceImpl.xpt") FOR this»
 
-	package «getServiceRootPackage()»;
+	package «getLocalServicePackage()»;
 
 	import java.util.List;
             

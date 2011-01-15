@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.company.recordshop.service.dto.AddressDto;
 import org.company.recordshop.service.dto.CustomerWithAddressDto;
 import org.company.recordshop.service.dto.SimpleCustomerDto;
+import org.company.recordshop.service.local.CustomerServiceModelLocalService;
 import org.hibernate.criterion.MatchMode;
 import org.joda.time.DateTime;
 import org.junit.Before;

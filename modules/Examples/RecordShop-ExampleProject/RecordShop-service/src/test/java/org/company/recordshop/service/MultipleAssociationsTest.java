@@ -4,6 +4,7 @@ import junit.framework.Assert;
 
 import org.company.recordshop.service.dto.PersonDto;
 import org.company.recordshop.service.dto.RelationDto;
+import org.company.recordshop.service.local.CustomerServiceModelLocalService;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

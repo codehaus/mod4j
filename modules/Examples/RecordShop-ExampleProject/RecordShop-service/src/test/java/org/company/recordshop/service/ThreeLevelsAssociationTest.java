@@ -7,6 +7,7 @@ import org.company.recordshop.service.dto.CustomerWithOrdersAndOrderLines;
 import org.company.recordshop.service.dto.FullProductDto;
 import org.company.recordshop.service.dto.OrderLineDto;
 import org.company.recordshop.service.dto.OrderWithOrderLinesDto;
+import org.company.recordshop.service.local.CustomerServiceModelLocalService;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
