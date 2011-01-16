@@ -10,9 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.company.recordshop.domain.Customer;
-import org.company.recordshop.domain.Order;
-import org.company.recordshop.domain.OrderLine;
+import org.company.recordshop.bd.domain.Customer;
+import org.company.recordshop.bd.domain.Order;
+import org.company.recordshop.bd.domain.OrderLine;
 import org.company.recordshop.service.AbstractServiceTestCase;
 import org.company.recordshop.service.dto.CustomerWithOrdersAndOrderLines;
 import org.company.recordshop.service.dto.FullProductDto;

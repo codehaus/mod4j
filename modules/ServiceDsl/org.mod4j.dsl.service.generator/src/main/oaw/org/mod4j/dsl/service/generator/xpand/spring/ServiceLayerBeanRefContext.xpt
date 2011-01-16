@@ -34,7 +34,7 @@
             </list>
         </constructor-arg>
         <constructor-arg>
-            <ref bean="«getDataRootPackage()».Context"/>
+            <ref bean="«getBusinessdomainRootPackage()».Context"/>
         </constructor-arg>
     </bean>
 </beans>

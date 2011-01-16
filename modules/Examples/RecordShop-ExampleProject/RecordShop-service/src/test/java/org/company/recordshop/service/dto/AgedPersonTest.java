@@ -1,6 +1,6 @@
 package org.company.recordshop.service.dto;
 
-import org.company.recordshop.domain.Person;
+import org.company.recordshop.bd.domain.Person;
 import org.company.recordshop.service.dto.translators.AgedPersonTranslator;
 import org.joda.time.DateTime;
 import org.junit.Assert;

@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import org.company.recordshop.data.CustomerDao;
-import org.company.recordshop.domain.Customer;
+import org.company.recordshop.bd.data.CustomerDao;
+import org.company.recordshop.bd.domain.Customer;
 import org.company.recordshop.service.dto.SimpleCustomerDto;
 import org.company.recordshop.service.local.CustomerServiceModelLocalService;
 import org.joda.time.DateTime;

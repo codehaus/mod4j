@@ -47,6 +47,7 @@ public class ProjectProperties {
         serviceModuleName = properties.getProperty("serviceModuleName");
         presentationModuleName = properties.getProperty("presentationModuleName");
         rootPackage = properties.getProperty("rootPackage");
+        businessdomainRootPackage = properties.getProperty("businessdomainRootPackage");
         serviceRootPackage = properties.getProperty("serviceRootPackage");
         domainRootPackage = properties.getProperty("domainRootPackage");
         dataRootPackage = properties.getProperty("dataRootPackage");
@@ -79,6 +80,8 @@ public class ProjectProperties {
     private static String serviceModuleName = "DEFAULT";
 
     private static String businessDomainModuleName = "DEFAULT";
+    
+    private static String businessdomainRootPackage = "DEFAULT";
     
     private static String presentationModuleName = "DEFAULT";
 
@@ -221,6 +224,14 @@ public class ProjectProperties {
 
     public static String getPresentationRootPackageAsPath() {
         return getPresentationRootPackage().replaceAll("\\.", "/");
+    }
+    
+    public static String getBusinessdomainRootPackageAsPath() {
+        return getBusinessdomainRootPackage().replaceAll("\\.", "/");
+    }
+    
+    public static String getBusinessdomainRootPackage() {
+        return businessdomainRootPackage;
     }
 
     public static String getDomainRootPackage() {

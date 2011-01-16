@@ -11,8 +11,8 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
  * @author Eric Jan Malotaux
  */
 @ContextConfiguration(locations = { "/Mod4jCommonContext.xml",
-        "/org/company/recordshop/data/sessionFactoryContext.xml",
-        "/org/company/recordshop/data/applicationContext.xml",
+        "/org/company/recordshop/bd/data/sessionFactoryContext.xml",
+        "/org/company/recordshop/bd/applicationContext.xml",
         "/org/company/recordshop/service/dtoTranslatorsContext.xml",
         "/org/company/recordshop/service/applicationContext.xml",
         "/org/company/recordshop/service/testContext.xml" })

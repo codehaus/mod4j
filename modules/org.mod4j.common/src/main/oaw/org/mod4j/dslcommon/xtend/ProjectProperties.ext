@@ -67,9 +67,15 @@ String getBusinessDomainModuleName() :
 
 String getBusinessDomainModulePath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessDomainModulePath();
+ 
+String getBusinessdomainRootPackage() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessdomainRootPackage();
 
 String getDomainRootPackage() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainRootPackage();
+
+String getBusinessdomainRootPackageAsPath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessdomainRootPackageAsPath();
 
 String getDomainRootPackageAsPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainRootPackageAsPath();

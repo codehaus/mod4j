@@ -66,6 +66,7 @@
     -->
     <component id="BusinessDomainWorkflow-DomainGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="bm" />
+        <metaModel idRef="crossx"/>
         <metaModel idRef="ecore"/>
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::businessdomain::generator::xpand::BusinessDomainLayer::Root FOR busModel" />

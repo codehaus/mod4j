@@ -1,10 +1,8 @@
 package org.company.recordshop.service.dto.translators;
 
-import static org.junit.Assert.fail;
-
 import java.lang.reflect.Field;
 
-import org.company.recordshop.domain.Customer;
+import org.company.recordshop.bd.domain.Customer;
 import org.company.recordshop.service.dto.FullCustomerDto;
 import org.joda.time.DateTime;
 import org.junit.Test;

@@ -25,7 +25,7 @@
         <version>«getApplicationVersion()»</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>«getDomainRootPackage()»</groupId>
+    <groupId>«getRootPackage()»</groupId>
     <artifactId>«getBusinessDomainModuleName()»</artifactId>
     <name>«getBusinessDomainModuleName()»</name>
     <version>«getApplicationVersion()»</version>

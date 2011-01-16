@@ -10,6 +10,7 @@
 «IMPORT BusinessDomainDsl»
 «IMPORT org::mod4j::dsl::businessdomain::generator::xpand::java»
 «IMPORT org::mod4j::dsl::businessdomain::generator::xpand::maven»
+«IMPORT org::mod4j::dsl::businessdomain::generator::xpand::spring»
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
@@ -19,6 +20,14 @@
 «DEFINE Root FOR BusinessDomainDsl::BusinessDomainModel »
 
 	«print("MOD4J INFO: Running Business Domain generator on model [" + this.name + "]")»
+	
+    «FILE generate(getBusinessDomainModuleName(), getBusinessdomainRootPackageAsPath() + "/beanRefContext.xml")-»
+		«EXPAND BusinessdomainLayerBeanRefContext::genBeanRefContext FOR this»
+	«ENDFILE»
+	
+	«FILE generate(getBusinessDomainModuleName(), getBusinessdomainRootPackageAsPath() + "/applicationContext.xml")-»
+    	«EXPAND ApplicationContext::genApplicationContext FOR this»
+	«ENDFILE»
 	
     «FOREACH types.typeSelect(BusinessClass) AS class»
         «FILE generate(getBusinessDomainModuleName(), javaPathFileName(javaDomainBaseClassPath(class.name) ))»

@@ -17,7 +17,7 @@
         <version>«getApplicationVersion()»</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>«getServiceRootPackage()»</groupId>
+    <groupId>«getRootPackage()»</groupId>
     <artifactId>«getServiceModuleName()»</artifactId>
     <name>«getServiceModuleName()»</name>
     <version>«getApplicationVersion()»</version>
@@ -33,7 +33,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>«getDomainRootPackage()»</groupId>
+            <groupId>«getRootPackage()»</groupId>
             <artifactId>«getBusinessDomainModuleName()»</artifactId>
             <version>«getApplicationVersion()»</version>
         </dependency>

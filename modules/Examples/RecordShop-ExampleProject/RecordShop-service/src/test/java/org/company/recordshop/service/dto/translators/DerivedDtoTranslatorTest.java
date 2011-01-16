@@ -2,9 +2,8 @@ package org.company.recordshop.service.dto.translators;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
-import org.company.recordshop.domain.Derived;
+import org.company.recordshop.bd.domain.Derived;
 import org.company.recordshop.service.dto.DerivedDto;
 import org.joda.time.DateTime;
 import org.junit.Test;
