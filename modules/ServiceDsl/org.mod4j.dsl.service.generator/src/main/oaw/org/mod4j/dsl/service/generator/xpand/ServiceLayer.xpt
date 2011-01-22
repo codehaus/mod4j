@@ -39,9 +39,13 @@
 	    «EXPAND  LocalServiceImplBase::LocalServiceImplBase FOR this» 
 	«ENDFILE»
 	
-	«FILE generate(getServiceModuleName(), getServiceRootPackageAsPath() + "/beanRefContext.xml")»
-	    «EXPAND  ServiceLayerBeanRefContext::GenBeanRefContext FOR this» 
-	«ENDFILE»
+	«IF !fileExist(fullExtendPath(getServiceModuleName(), getServiceRootPackageAsPath() + "/beanRefContext.xml"))»
+        «FILE generateToMain(getServiceModuleName(), getServiceRootPackageAsPath() + "/beanRefContext.xml")»
+            «EXPAND ServiceLayerBeanRefContext::GenBeanRefContext FOR this»
+        «ENDFILE»
+    «ELSE»
+        «retain(getServiceModuleName(), getServiceRootPackageAsPath() + "/beanRefContext.xml")»
+    «ENDIF»
 
 	«FILE generate(getServiceModuleName(), getServiceRootPackageAsPath() + "/applicationContext.xml")»
 	    «EXPAND  ServiceLayerImplBaseContext::GenServiceLayerImplBaseContext FOR this» 

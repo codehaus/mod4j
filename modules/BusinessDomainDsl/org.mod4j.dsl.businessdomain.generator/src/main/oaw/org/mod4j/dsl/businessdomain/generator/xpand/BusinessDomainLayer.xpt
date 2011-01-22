@@ -20,11 +20,15 @@
 «DEFINE Root FOR BusinessDomainDsl::BusinessDomainModel »
 
 	«print("MOD4J INFO: Running Business Domain generator on model [" + this.name + "]")»
-	
-    «FILE generate(getBusinessDomainModuleName(), getBusinessdomainRootPackageAsPath() + "/beanRefContext.xml")-»
-		«EXPAND BusinessdomainLayerBeanRefContext::genBeanRefContext FOR this»
-	«ENDFILE»
-	
+		
+    «IF !fileExist(fullExtendPath(getBusinessDomainModuleName(), getBusinessdomainRootPackageAsPath() + "/beanRefContext.xml"))»
+        «FILE generateToMain(getBusinessDomainModuleName(), getBusinessdomainRootPackageAsPath() + "/beanRefContext.xml")»
+            «EXPAND BusinessdomainLayerBeanRefContext::genBeanRefContext FOR this»
+        «ENDFILE»
+    «ELSE»
+        «retain(getBusinessDomainModuleName(), getBusinessdomainRootPackageAsPath() + "/beanRefContext.xml")»
+    «ENDIF»
+		
 	«FILE generate(getBusinessDomainModuleName(), getBusinessdomainRootPackageAsPath() + "/applicationContext.xml")-»
     	«EXPAND ApplicationContext::genApplicationContext FOR this»
 	«ENDFILE»
