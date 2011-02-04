@@ -53,29 +53,27 @@ find findCustomers for SimpleCustomerDto ;
 find findCustomersFull for FullCustomerDto;
 find findCustomerWithAddress for CustomerWithAddressDto;
 
-for SimpleCustomerDto reference orders add OrderDto ;
-for SimpleCustomerDto reference orders remove OrderDto   ;
-for SimpleCustomerDto reference orders get OrderNumberAndDateDto ;
-for OrderDto reference customer  get  SimpleCustomerDto ;
+for SimpleCustomerDto reference orders add OrderDto;
+for SimpleCustomerDto reference orders remove OrderDto;
+for SimpleCustomerDto reference orders get OrderNumberAndDateDto;
 
+for OrderDto reference customer  get  SimpleCustomerDto;
 for OrderDto reference customer add SimpleCustomerDto;
-    
+
 "test" 
-method voidreturn in ( OrderDto ord ) ; 
+method voidreturn in (OrderDto ord); 
   
 "add order to customer"     
-method addToOrders in ( 
-                         "The order to add"
-                          OrderDto order, 
-                         "The customer to which the orders is added"
-                          SimpleCustomerDto customer
-                       ) 
-                    out OrderDto; 
+method addToOrders in ("The order to add"
+                        OrderDto order, 
+                       "The customer to which the orders is added"
+                        SimpleCustomerDto customer) 
+                   out OrderDto; 
 
 "Find Customer by unique key attributes."
-method findCustomerByUniqueKey in ( UniqueCustomerDto cust )
+method findCustomerByUniqueKey in (UniqueCustomerDto cust)
                                out SimpleCustomerDto;
 
 "Find all Customers matching the given name."
-method findCustomerByName in ( StringDto name ) out list SimpleCustomerDto;
-method findCustomersByNames in ( list StringDto name ) out list SimpleCustomerDto;    
+method findCustomerByName in (StringDto name) out list SimpleCustomerDto;
+method findCustomersByNames in (list StringDto names) out list SimpleCustomerDto;    
