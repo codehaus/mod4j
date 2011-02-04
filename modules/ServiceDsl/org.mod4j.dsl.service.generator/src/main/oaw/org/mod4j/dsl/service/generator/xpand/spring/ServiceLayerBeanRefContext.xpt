@@ -19,7 +19,7 @@
 
 «DEFINE GenBeanRefContext FOR ServiceModel»
 <?xml version="1.0" encoding="UTF-8"?>
-«EXPAND XmlComments::regenerationWarningHeader ("Mod4j ServiceDsl generator: ServiceLayerBeanRefContext.xpt") FOR this»
+«EXPAND XmlComments::extensionPointHeader("Mod4j ServiceDsl generator: ServiceLayerBeanRefContext.xpt") FOR this»
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
