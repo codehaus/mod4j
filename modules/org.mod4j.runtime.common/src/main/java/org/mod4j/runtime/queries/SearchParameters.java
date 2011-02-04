@@ -143,7 +143,8 @@ public class SearchParameters implements Serializable {
 
 	/**
 	 * 
-	 * @return matchMode, the match mode that will be applied in the search.
+	 * @return matchMode
+	 *            the match mode that will be applied in the search.
 	 */
 	public MatchMode getMatchMode() {
 		return this.matchMode;
@@ -151,7 +152,7 @@ public class SearchParameters implements Serializable {
 
 	/**
 	 * @param matchMode
-	 *            , the match mode to be used in the search.
+	 *            the match mode to be used in the search.
 	 */
 	public void setMatchMode(final MatchMode matchMode) {
 		this.matchMode = matchMode;
@@ -159,7 +160,7 @@ public class SearchParameters implements Serializable {
 
 	/**
 	 * Creates an Example object based on the given <code>domainExample</code>.
-	 * If set, also this SearchParameters matchMode and ignoreCase will by
+	 * If set, also this SearchParameters matchMode and ignoreCase will be
 	 * applied to the returned Example.
 	 * 
 	 * @param domainExample
@@ -179,8 +180,8 @@ public class SearchParameters implements Serializable {
 
 	/**
 	 * Constrains the given <code>criteria</code> object by applying the
-	 * pagination and sorting attributes (firstResult, maxResults,
-	 * sortProperty and ascending) to it.
+	 * pagination and sorting attributes (firstResult, maxResults, sortProperty
+	 * and ascending) to it.
 	 * 
 	 * @param criteria
 	 * @return The constrained <code>criteria</code> object.
@@ -204,7 +205,7 @@ public class SearchParameters implements Serializable {
 		}
 		return criteria;
 	}
-	
+
 	/**
 	 * Returns a String representation of the internal state of this object.
 	 */
