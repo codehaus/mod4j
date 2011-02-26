@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.mod4j</groupId>
     <artifactId>mod4j</artifactId>
@@ -221,7 +222,7 @@
                 <module>Examples/RecordShop-ExampleProject</module>
             </modules>
         </profile>
-	    <profile>
+        <profile>
             <id>recordshop-only</id>
             <modules>
                 <module>Examples/RecordShop-ExampleProject</module>
@@ -264,7 +265,7 @@
             </notifier>
         </notifiers>
     </ciManagement>
-    <distributionManagement> 
+    <distributionManagement>
         <repository>
             <id>dav.codehaus.org</id>
             <name>Mod4j Central Maven Repository</name>
@@ -336,21 +337,12 @@
         </extensions>
     </build>
     <repositories>
-        <!-- This repository automatically sync's with the central Maven repository
-        <repository>
-            <id>codehaus-repo</id>
-            <url>http://repository.codehaus.org</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>codehaus.snapshots-repo</id>
-            <url>http://snapshots.repository.codehaus.org</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
+        <!--
+            This repository automatically sync's with the central Maven repository <repository>
+            <id>codehaus-repo</id> <url>http://repository.codehaus.org</url> <snapshots>
+            <enabled>false</enabled> </snapshots> </repository> <repository>
+            <id>codehaus.snapshots-repo</id> <url>http://snapshots.repository.codehaus.org</url>
+            <snapshots> <enabled>true</enabled> </snapshots> </repository>
         -->
     </repositories>
     <pluginRepositories>
@@ -375,11 +367,45 @@
                 <version>1.2.14</version>
             </dependency>
             <dependency>
-            	<groupId>org.codehaus.mojo</groupId>
-            	<artifactId>build-helper-maven-plugin</artifactId>
-            	<version>1.5</version>
-            	<type>maven-plugin</type>
-            	<scope>compile</scope>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.5</version>
+                <type>maven-plugin</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mod4j.org.eclipse</groupId>
+                <artifactId>xtext</artifactId>
+                <version>0.7.2</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.mod4j.com.google</groupId>
+                        <artifactId>guice</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.mod4j.org.eclipse.xtext</groupId>
+                <artifactId>xtend</artifactId>
+                <version>0.7.2</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.mod4j.org.eclipse.xtext.ui</groupId>
+                        <artifactId>core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.mod4j.org.eclipse.equinox.p2</groupId>
+                        <artifactId>engine</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.mod4j.org.eclipse.equinox.p2</groupId>
+                        <artifactId>metadata</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.mod4j.org.eclipse.equinox.p2</groupId>
+                        <artifactId>core</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>
