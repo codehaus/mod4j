@@ -12,7 +12,7 @@ public class SearchParametersTest {
 
 		SearchParameters sp = new SearchParameters();
 		assertEquals(
-				"org.mod4j.runtime.queries.SearchParameters[firstResult=null, maxResults=null, sortProperty=null, matchMode=ANYWHERE, ignoreCase=null]",
+				"org.mod4j.runtime.queries.SearchParameters[firstResult=null, maxResults=null, sortProperty=null, ascending=null, matchMode=ANYWHERE, ignoreCase=null]",
 				sp.toString());
 
 		sp.setAscending(true);
@@ -23,7 +23,7 @@ public class SearchParametersTest {
 		sp.setSortProperty("mySort");
 
 		assertEquals(
-				"org.mod4j.runtime.queries.SearchParameters[firstResult=10, maxResults=20, sortProperty=mySort, matchMode=EXACT, ignoreCase=false]",
+				"org.mod4j.runtime.queries.SearchParameters[firstResult=10, maxResults=20, sortProperty=mySort, ascending=true, matchMode=EXACT, ignoreCase=false]",
 				sp.toString());
 
 	}

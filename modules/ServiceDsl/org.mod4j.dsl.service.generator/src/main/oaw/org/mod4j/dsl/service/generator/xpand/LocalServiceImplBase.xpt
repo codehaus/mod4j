@@ -89,9 +89,7 @@
      * {@inheritDoc}
      */
     public Long «this.name»(«JavaType(this.dto)» object){
-        Long result = «javaDaoInterface(dto.businessClass()).toFirstLower()».add(
-                «javaTranslatorClass(dto.name).toFirstLower()».fromDto(object));
-        return result;
+        return «javaDaoInterface(dto.businessClass()).toFirstLower()».add(«javaTranslatorClass(dto.name).toFirstLower()».fromDto(object));
     }
 «ENDDEFINE»
 

@@ -13,6 +13,7 @@ import java.io.Serializable;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Order;
 
 /**
  * Container object for common search parameters.
@@ -43,7 +44,9 @@ public class SearchParameters implements Serializable {
 	private Boolean ascending;
 
 	/**
-	 * @see org.hibernate.criterion.MatchMode Defaults to MatchMode.ANYWHERE
+	 * Defaults to MatchMode.ANYWHERE
+	 * 
+	 * @see org.hibernate.criterion.MatchMode 
 	 */
 	private MatchMode matchMode = MatchMode.ANYWHERE;
 
@@ -187,7 +190,7 @@ public class SearchParameters implements Serializable {
 	 * @return The constrained <code>criteria</code> object.
 	 */
 	public Criteria constrainCriteria(final Criteria criteria) {
-
+		
 		if (this.firstResult != null) {
 			criteria.setFirstResult(this.firstResult);
 		}
@@ -195,13 +198,11 @@ public class SearchParameters implements Serializable {
 			criteria.setMaxResults(this.maxResults);
 		}
 		if (this.sortProperty != null) {
-			org.hibernate.criterion.Order order;
 			if (this.ascending != null && this.ascending) {
-				order = org.hibernate.criterion.Order.asc(this.sortProperty);
+				criteria.addOrder(Order.asc(this.sortProperty));
 			} else {
-				order = org.hibernate.criterion.Order.desc(this.sortProperty);
+				criteria.addOrder(Order.desc(this.sortProperty));
 			}
-			criteria.addOrder(order);
 		}
 		return criteria;
 	}
@@ -221,6 +222,9 @@ public class SearchParameters implements Serializable {
 		result.append(", ");
 		result.append("sortProperty=");
 		result.append(sortProperty);
+		result.append(", ");
+		result.append("ascending=");
+		result.append(ascending);
 		result.append(", ");
 		result.append("matchMode=");
 		result.append(matchMode.toString());
