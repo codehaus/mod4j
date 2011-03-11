@@ -22,7 +22,7 @@ public class OneEarDiscount extends OneEarDiscountImplBase {
 
         Customer cust = (Customer) target;
         if (cust.getNumberOfEars() == 1 && cust.getDiscountPercentage() != 50) {
-            errors.rejectValue("discountPercentage", "businessrule.OneEarDiscount.not.valid", new Integer[] {Integer.valueOf(50), new Integer(cust.getDiscountPercentage()) },
+            errors.rejectValue("discountPercentage", "businessrule.OneEarDiscount.not.valid", new Integer[] {Integer.valueOf(50), Integer.valueOf(cust.getDiscountPercentage()) },
                     "discountPercentage" + " for Customers with one ear should be " + 50 + ", but was " + cust.getDiscountPercentage());
         }
 
