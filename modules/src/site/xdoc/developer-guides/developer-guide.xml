@@ -18,21 +18,23 @@
             <subsection name="Getting started">
                 <ol>
                     <li>
-                        Make sure you've installed Java JDK version 5 (1.5.0_15 or higher). You can download one from the
+                        Make sure you've installed Java JDK version 5 or 6. You can download one from the
                         <a href="http://java.sun.com/javase/downloads/index.jsp">Sun download site</a>
                         .
                         <br />
                         <br />
                     </li>
-                    <li>
+                     <li>
                         Install
-                        <b>Eclipse 3.5 SR1 (Galileo) for Java EE developers</b>
-                        . You can download one from the
-                        <a href="http://www.eclipse.org/downloads">Eclipse download site</a>
-                        . If you've already installed Eclipse Galileo, you can check if it is the right version, by checking
-                        the
-                        About box from the menu: Help -> About Eclipse. Somewhat surprisingly you should see "Eclipse Java EE
-                        IDE for Web Developers."
+                        <b>Eclipse Helios SR2 for Java EE developers</b>
+                        . You can
+                        download one from the
+                        <a href="http://www.eclipse.org/downloads/packages/release/helios/sr2">Eclipse
+                            download site</a>
+                        . If you've already installed Eclipse, you can
+                        check if it is the right version, by checking the
+                        About box from the menu:
+                        Help -> About Eclipse. You should see "Eclipse Java EE IDE for Web Developers. Version: Helios Service Release 2."
                         <br />
                         <br />
                     </li>
@@ -75,7 +77,7 @@
                             <tr>
                                 <td>Eclipse Maven plug-in: m2eclipse</td>
                                 <td>
-                                    - Maven Integration for Eclipse 0.12.1 of higher
+                                    - Maven Integration for Eclipse 0.12.1 or higher
                                 </td>
                                 <td>
                                     <b>
@@ -92,7 +94,8 @@
                                     <b>Ecore Tools SDK</b>
                                 </td>
                                 <td>
-                                    <code>Galileo - http://download.eclipse.org/releases/galileo</code>
+                                
+                                    <code>Helios - http://download.eclipse.org/releases/helios</code>
                                 </td>
                             </tr>
                             <tr>
