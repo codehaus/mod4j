@@ -64,8 +64,6 @@ public class AssociationTest extends AbstractDaoTestCase {
 
     private List<Product> allProducts = new ArrayList<Product>();
 
-    private List<Artist> allArtists = new ArrayList<Artist>();
-
 	protected DateTime date() {
 		return new DateTime(2008, 11, 6, 0, 0, 0, 0);
 	}
@@ -195,7 +193,7 @@ public class AssociationTest extends AbstractDaoTestCase {
         return artist;
     }
 
-    public Customer lookup(Collection<Customer> coll, String name) {
+    public Customer lookupCustomer(Collection<Customer> coll, String name) {
         for (Customer customer : coll) {
             if (customer.getFirstName() != null) {
                 if (customer.getFirstName().equals(name)) {
@@ -208,7 +206,7 @@ public class AssociationTest extends AbstractDaoTestCase {
         return null;
     }
 
-    public Order lookup(Collection<Order> coll, String name) {
+    public Order lookupOrder(Collection<Order> coll, String name) {
         for (Order order : coll) {
             if (order.getOrderNumber() != null) {
                 if (order.getOrderNumber().equals(name)) {
@@ -221,7 +219,7 @@ public class AssociationTest extends AbstractDaoTestCase {
         return null;
     }
 
-    public Record lookup(Collection<Record> coll, String name) {
+    public Record lookupRecord(Collection<Record> coll, String name) {
         for (Record record : coll) {
             if (record.getAsin() != null) {
                 if (record.getAsin().equals(name)) {
@@ -234,7 +232,7 @@ public class AssociationTest extends AbstractDaoTestCase {
         return null;
     }
 
-    public Product lookup(Collection<Product> coll, String name) {
+    public Product lookupProduct(Collection<Product> coll, String name) {
         for (Product product : coll) {
             if (product.getProductNumber() != null) {
                 if (product.getProductNumber().equals(name)) {
@@ -271,18 +269,18 @@ public class AssociationTest extends AbstractDaoTestCase {
 
         allCustomers = customerDao.listAll();
         assertEquals(4, allCustomers.size());
-        c01 = lookup(allCustomers, "Jos");
-        c02 = lookup(allCustomers, "Piet");
-        c03 = lookup(allCustomers, "Joanna");
-        c04 = lookup(allCustomers, "Karen");
+        c01 = lookupCustomer(allCustomers, "Jos");
+        c02 = lookupCustomer(allCustomers, "Piet");
+        c03 = lookupCustomer(allCustomers, "Joanna");
+        c04 = lookupCustomer(allCustomers, "Karen");
 
         allOrders = orderDao.listAll();
         assertEquals(5, allOrders.size());
-        oder01 = lookup(allOrders, "order01");
-        order02 = lookup(allOrders, "order02");
-        order03 = lookup(allOrders, "order03");
-        o04 = lookup(allOrders, "order04");
-        o05 = lookup(allOrders, "order05");
+        oder01 = lookupOrder(allOrders, "order01");
+        order02 = lookupOrder(allOrders, "order02");
+        order03 = lookupOrder(allOrders, "order03");
+        o04 = lookupOrder(allOrders, "order04");
+        o05 = lookupOrder(allOrders, "order05");
 
         allOrderLines = orderLineDao.listAll();
         line01 = lookup(allOrderLines, 1);
@@ -293,18 +291,18 @@ public class AssociationTest extends AbstractDaoTestCase {
         line06 = lookup(allOrderLines, 6);
 
         allRecords = recordDao.listAll();
-        record01 = lookup(allRecords, "rec 01");
-        record02 = lookup(allRecords, "rec 02");
-        record03 = lookup(allRecords, "rec 03");
-        record04 = lookup(allRecords, "rec 04");
-        record05 = lookup(allRecords, "rec 05");
-        record06 = lookup(allRecords, "rec 06");
+        record01 = lookupRecord(allRecords, "rec 01");
+        record02 = lookupRecord(allRecords, "rec 02");
+        record03 = lookupRecord(allRecords, "rec 03");
+        record04 = lookupRecord(allRecords, "rec 04");
+        record05 = lookupRecord(allRecords, "rec 05");
+        record06 = lookupRecord(allRecords, "rec 06");
 
         allProducts = productDao.listAll();
-        pr01 = lookup(allProducts, "product 01");
-        pr02 = lookup(allProducts, "product 02");
-        pr03 = lookup(allProducts, "product 03");
-        pr04 = lookup(allProducts, "product 04");
+        pr01 = lookupProduct(allProducts, "product 01");
+        pr02 = lookupProduct(allProducts, "product 02");
+        pr03 = lookupProduct(allProducts, "product 03");
+        pr04 = lookupProduct(allProducts, "product 04");
 
         instances();
 
