@@ -50,9 +50,7 @@ public class OutletDirectoryCleaner {
         Map<String, String> result = ModelHelpers.getProperties(propertiesFilePath);
 
         String applicationPath = result.get("applicationPath");
-        String domainModuleName = result.get("domainModuleName");
-        String dataModuleName = result.get("dataModuleName");
-        String businessModuleName = result.get("businessModuleName");
+        String businessdomainModuleName = result.get("businessdomainModuleName");
         String serviceModuleName = result.get("serviceModuleName");
         String presentationModuleName = result.get("presentationModuleName");
         String srcGenPath = result.get("srcGenPath");
@@ -65,12 +63,8 @@ public class OutletDirectoryCleaner {
         String absAppPath = workDir + "/" + applicationPath;
 
         directories = 
-            absAppPath + "/" + dataModuleName + "/" + srcGenPath + ", " + 
-            absAppPath + "/" + dataModuleName + "/" + resourceGenPath + ", " + 
-            absAppPath + "/" + domainModuleName + "/" + srcGenPath + ", " + 
-            absAppPath + "/" + domainModuleName + "/" + resourceGenPath + ", " +
-            absAppPath + "/" + businessModuleName + "/" + srcGenPath + ", " + 
-            absAppPath + "/" + businessModuleName + "/" + resourceGenPath + ", " +
+            absAppPath + "/" + businessdomainModuleName + "/" + srcGenPath + ", " + 
+            absAppPath + "/" + businessdomainModuleName + "/" + resourceGenPath + ", " +
             absAppPath + "/" + serviceModuleName + "/" + srcGenPath + ", " + 
             absAppPath + "/" + serviceModuleName + "/" + resourceGenPath + ", " +
             absAppPath + "/" + presentationModuleName + "/" + srcGenPath + ", " + 
@@ -79,12 +73,8 @@ public class OutletDirectoryCleaner {
         if ((overwriteExtensionpoints != null) && overwriteExtensionpoints.equals("true")) {
             logger.info("cleaning extension points");
             directories = directories + ", " + 
-            absAppPath + "/" + dataModuleName + "/" + srcManPath + ", " + 
-            absAppPath + "/" + dataModuleName + "/" + resourceManPath + ", " + 
-            absAppPath + "/" + domainModuleName + "/" + srcManPath + ", " + 
-            absAppPath + "/" + domainModuleName + "/" + resourceManPath + ", " +
-            absAppPath + "/" + businessModuleName + "/" + srcManPath + ", " + 
-            absAppPath + "/" + businessModuleName + "/" + resourceManPath + ", " + 
+            absAppPath + "/" + businessdomainModuleName + "/" + srcManPath + ", " + 
+            absAppPath + "/" + businessdomainModuleName + "/" + resourceManPath + ", " + 
             absAppPath + "/" + serviceModuleName + "/" + srcManPath + ", " + 
             absAppPath + "/" + serviceModuleName + "/" + resourceManPath + ", " +
             absAppPath + "/" + presentationModuleName + "/" + srcManPath + ", " + 
