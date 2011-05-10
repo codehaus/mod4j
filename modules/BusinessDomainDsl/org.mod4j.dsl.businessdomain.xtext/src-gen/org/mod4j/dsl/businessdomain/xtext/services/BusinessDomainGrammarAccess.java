@@ -124,38 +124,57 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final RuleCall cSourceBusinessClassIDTerminalRuleCall_2_0_1 = (RuleCall)cSourceBusinessClassCrossReference_2_0.eContents().get(1);
 		private final Assignment cSourceRoleNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cSourceRoleNameIDTerminalRuleCall_3_0 = (RuleCall)cSourceRoleNameAssignment_3.eContents().get(0);
-		private final Assignment cSourceMultiplicityAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cSourceMultiplicityMultiplicityEnumRuleCall_4_0 = (RuleCall)cSourceMultiplicityAssignment_4.eContents().get(0);
-		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
-		private final Assignment cBidirectionalAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
-		private final Keyword cBidirectionalLessThanSignHyphenMinusGreaterThanSignKeyword_5_0_0 = (Keyword)cBidirectionalAssignment_5_0.eContents().get(0);
-		private final Keyword cHyphenMinusGreaterThanSignKeyword_5_1 = (Keyword)cAlternatives_5.eContents().get(1);
-		private final Assignment cTargetMultiplicityAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cTargetMultiplicityMultiplicityEnumRuleCall_6_0 = (RuleCall)cTargetMultiplicityAssignment_6.eContents().get(0);
-		private final Assignment cTargetAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final CrossReference cTargetAbstractBusinessClassCrossReference_7_0 = (CrossReference)cTargetAssignment_7.eContents().get(0);
-		private final RuleCall cTargetAbstractBusinessClassIDTerminalRuleCall_7_0_1 = (RuleCall)cTargetAbstractBusinessClassCrossReference_7_0.eContents().get(1);
-		private final Assignment cTargetRoleNameAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cTargetRoleNameIDTerminalRuleCall_8_0 = (RuleCall)cTargetRoleNameAssignment_8.eContents().get(0);
-		private final Assignment cOrderedAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final Keyword cOrderedOrderedKeyword_9_0 = (Keyword)cOrderedAssignment_9.eContents().get(0);
-		private final Keyword cSemicolonKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cForeignKeyKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cSourceForeignKeyAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cSourceForeignKeyIDTerminalRuleCall_4_1_0 = (RuleCall)cSourceForeignKeyAssignment_4_1.eContents().get(0);
+		private final Assignment cSourceMultiplicityAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cSourceMultiplicityMultiplicityEnumRuleCall_5_0 = (RuleCall)cSourceMultiplicityAssignment_5.eContents().get(0);
+		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
+		private final Assignment cBidirectionalAssignment_6_0 = (Assignment)cAlternatives_6.eContents().get(0);
+		private final Keyword cBidirectionalLessThanSignHyphenMinusGreaterThanSignKeyword_6_0_0 = (Keyword)cBidirectionalAssignment_6_0.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_6_1 = (Keyword)cAlternatives_6.eContents().get(1);
+		private final Assignment cTargetMultiplicityAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTargetMultiplicityMultiplicityEnumRuleCall_7_0 = (RuleCall)cTargetMultiplicityAssignment_7.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cTableKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cTableAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cTableIDTerminalRuleCall_8_1_0 = (RuleCall)cTableAssignment_8_1.eContents().get(0);
+		private final Assignment cTargetAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final CrossReference cTargetAbstractBusinessClassCrossReference_9_0 = (CrossReference)cTargetAssignment_9.eContents().get(0);
+		private final RuleCall cTargetAbstractBusinessClassIDTerminalRuleCall_9_0_1 = (RuleCall)cTargetAbstractBusinessClassCrossReference_9_0.eContents().get(1);
+		private final Assignment cTargetRoleNameAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cTargetRoleNameIDTerminalRuleCall_10_0 = (RuleCall)cTargetRoleNameAssignment_10.eContents().get(0);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cForeignKeyKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cTargetForeignKeyAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final RuleCall cTargetForeignKeyIDTerminalRuleCall_11_1_0 = (RuleCall)cTargetForeignKeyAssignment_11_1.eContents().get(0);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Assignment cOrderedAssignment_12_0 = (Assignment)cGroup_12.eContents().get(0);
+		private final Keyword cOrderedOrderedKeyword_12_0_0 = (Keyword)cOrderedAssignment_12_0.eContents().get(0);
+		private final Group cGroup_12_1 = (Group)cGroup_12.eContents().get(1);
+		private final Keyword cColumnKeyword_12_1_0 = (Keyword)cGroup_12_1.eContents().get(0);
+		private final Assignment cOrderingColumnAssignment_12_1_1 = (Assignment)cGroup_12_1.eContents().get(1);
+		private final RuleCall cOrderingColumnIDTerminalRuleCall_12_1_1_0 = (RuleCall)cOrderingColumnAssignment_12_1_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_13 = (Keyword)cGroup.eContents().get(13);
 		
 		//Association:
-		//  description=STRING? "association" source=[BusinessClass] sourceRoleName=ID
-		//  sourceMultiplicity=Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=
-		//  Multiplicity target=[AbstractBusinessClass] targetRoleName=ID ordered?="ordered"?
-		//  ";"; 
+		//  description=STRING? "association" source=[BusinessClass] sourceRoleName=ID (
+		//  "foreign key" sourceForeignKey=ID)? sourceMultiplicity=Multiplicity (bidirectional
+		//  ?="<->"|"->") targetMultiplicity=Multiplicity ("table" table=ID)? target=[
+		//  AbstractBusinessClass] targetRoleName=ID ("foreign key" targetForeignKey=ID)? (
+		//  ordered?="ordered" ("column" orderingColumn=ID)?)? ";"; 
 		//// COMMETNED OUT: import does not work correctly, therefore should not be possible at all.
 		////BusinessClassReference:
 		////    "from" referredModel=ID "import" name=ID  ";" 
 		////    ;
 		public ParserRule getRule() { return rule; }
 
-		//description=STRING? "association" source=[BusinessClass] sourceRoleName=ID
-		//sourceMultiplicity=Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=
-		//Multiplicity target=[AbstractBusinessClass] targetRoleName=ID ordered?="ordered"?
-		//";"
+		//description=STRING? "association" source=[BusinessClass] sourceRoleName=ID (
+		//"foreign key" sourceForeignKey=ID)? sourceMultiplicity=Multiplicity (bidirectional
+		//?="<->"|"->") targetMultiplicity=Multiplicity ("table" table=ID)? target=[
+		//AbstractBusinessClass] targetRoleName=ID ("foreign key" targetForeignKey=ID)? (
+		//ordered?="ordered" ("column" orderingColumn=ID)?)? ";"
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -182,53 +201,104 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		//ID
 		public RuleCall getSourceRoleNameIDTerminalRuleCall_3_0() { return cSourceRoleNameIDTerminalRuleCall_3_0; }
 
+		//("foreign key" sourceForeignKey=ID)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"foreign key"
+		public Keyword getForeignKeyKeyword_4_0() { return cForeignKeyKeyword_4_0; }
+
+		//sourceForeignKey=ID
+		public Assignment getSourceForeignKeyAssignment_4_1() { return cSourceForeignKeyAssignment_4_1; }
+
+		//ID
+		public RuleCall getSourceForeignKeyIDTerminalRuleCall_4_1_0() { return cSourceForeignKeyIDTerminalRuleCall_4_1_0; }
+
 		//sourceMultiplicity=Multiplicity
-		public Assignment getSourceMultiplicityAssignment_4() { return cSourceMultiplicityAssignment_4; }
+		public Assignment getSourceMultiplicityAssignment_5() { return cSourceMultiplicityAssignment_5; }
 
 		//Multiplicity
-		public RuleCall getSourceMultiplicityMultiplicityEnumRuleCall_4_0() { return cSourceMultiplicityMultiplicityEnumRuleCall_4_0; }
+		public RuleCall getSourceMultiplicityMultiplicityEnumRuleCall_5_0() { return cSourceMultiplicityMultiplicityEnumRuleCall_5_0; }
 
 		//bidirectional?="<->"|"->"
-		public Alternatives getAlternatives_5() { return cAlternatives_5; }
+		public Alternatives getAlternatives_6() { return cAlternatives_6; }
 
 		//bidirectional?="<->"
-		public Assignment getBidirectionalAssignment_5_0() { return cBidirectionalAssignment_5_0; }
+		public Assignment getBidirectionalAssignment_6_0() { return cBidirectionalAssignment_6_0; }
 
 		//"<->"
-		public Keyword getBidirectionalLessThanSignHyphenMinusGreaterThanSignKeyword_5_0_0() { return cBidirectionalLessThanSignHyphenMinusGreaterThanSignKeyword_5_0_0; }
+		public Keyword getBidirectionalLessThanSignHyphenMinusGreaterThanSignKeyword_6_0_0() { return cBidirectionalLessThanSignHyphenMinusGreaterThanSignKeyword_6_0_0; }
 
 		//"->"
-		public Keyword getHyphenMinusGreaterThanSignKeyword_5_1() { return cHyphenMinusGreaterThanSignKeyword_5_1; }
+		public Keyword getHyphenMinusGreaterThanSignKeyword_6_1() { return cHyphenMinusGreaterThanSignKeyword_6_1; }
 
 		//targetMultiplicity=Multiplicity
-		public Assignment getTargetMultiplicityAssignment_6() { return cTargetMultiplicityAssignment_6; }
+		public Assignment getTargetMultiplicityAssignment_7() { return cTargetMultiplicityAssignment_7; }
 
 		//Multiplicity
-		public RuleCall getTargetMultiplicityMultiplicityEnumRuleCall_6_0() { return cTargetMultiplicityMultiplicityEnumRuleCall_6_0; }
+		public RuleCall getTargetMultiplicityMultiplicityEnumRuleCall_7_0() { return cTargetMultiplicityMultiplicityEnumRuleCall_7_0; }
+
+		//("table" table=ID)?
+		public Group getGroup_8() { return cGroup_8; }
+
+		//"table"
+		public Keyword getTableKeyword_8_0() { return cTableKeyword_8_0; }
+
+		//table=ID
+		public Assignment getTableAssignment_8_1() { return cTableAssignment_8_1; }
+
+		//ID
+		public RuleCall getTableIDTerminalRuleCall_8_1_0() { return cTableIDTerminalRuleCall_8_1_0; }
 
 		//target=[AbstractBusinessClass]
-		public Assignment getTargetAssignment_7() { return cTargetAssignment_7; }
+		public Assignment getTargetAssignment_9() { return cTargetAssignment_9; }
 
 		//[AbstractBusinessClass]
-		public CrossReference getTargetAbstractBusinessClassCrossReference_7_0() { return cTargetAbstractBusinessClassCrossReference_7_0; }
+		public CrossReference getTargetAbstractBusinessClassCrossReference_9_0() { return cTargetAbstractBusinessClassCrossReference_9_0; }
 
 		//ID
-		public RuleCall getTargetAbstractBusinessClassIDTerminalRuleCall_7_0_1() { return cTargetAbstractBusinessClassIDTerminalRuleCall_7_0_1; }
+		public RuleCall getTargetAbstractBusinessClassIDTerminalRuleCall_9_0_1() { return cTargetAbstractBusinessClassIDTerminalRuleCall_9_0_1; }
 
 		//targetRoleName=ID
-		public Assignment getTargetRoleNameAssignment_8() { return cTargetRoleNameAssignment_8; }
+		public Assignment getTargetRoleNameAssignment_10() { return cTargetRoleNameAssignment_10; }
 
 		//ID
-		public RuleCall getTargetRoleNameIDTerminalRuleCall_8_0() { return cTargetRoleNameIDTerminalRuleCall_8_0; }
+		public RuleCall getTargetRoleNameIDTerminalRuleCall_10_0() { return cTargetRoleNameIDTerminalRuleCall_10_0; }
 
-		//ordered?="ordered"?
-		public Assignment getOrderedAssignment_9() { return cOrderedAssignment_9; }
+		//("foreign key" targetForeignKey=ID)?
+		public Group getGroup_11() { return cGroup_11; }
+
+		//"foreign key"
+		public Keyword getForeignKeyKeyword_11_0() { return cForeignKeyKeyword_11_0; }
+
+		//targetForeignKey=ID
+		public Assignment getTargetForeignKeyAssignment_11_1() { return cTargetForeignKeyAssignment_11_1; }
+
+		//ID
+		public RuleCall getTargetForeignKeyIDTerminalRuleCall_11_1_0() { return cTargetForeignKeyIDTerminalRuleCall_11_1_0; }
+
+		//(ordered?="ordered" ("column" orderingColumn=ID)?)?
+		public Group getGroup_12() { return cGroup_12; }
+
+		//ordered?="ordered"
+		public Assignment getOrderedAssignment_12_0() { return cOrderedAssignment_12_0; }
 
 		//"ordered"
-		public Keyword getOrderedOrderedKeyword_9_0() { return cOrderedOrderedKeyword_9_0; }
+		public Keyword getOrderedOrderedKeyword_12_0_0() { return cOrderedOrderedKeyword_12_0_0; }
+
+		//("column" orderingColumn=ID)?
+		public Group getGroup_12_1() { return cGroup_12_1; }
+
+		//"column"
+		public Keyword getColumnKeyword_12_1_0() { return cColumnKeyword_12_1_0; }
+
+		//orderingColumn=ID
+		public Assignment getOrderingColumnAssignment_12_1_1() { return cOrderingColumnAssignment_12_1_1; }
+
+		//ID
+		public RuleCall getOrderingColumnIDTerminalRuleCall_12_1_1_0() { return cOrderingColumnIDTerminalRuleCall_12_1_1_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_10() { return cSemicolonKeyword_10; }
+		public Keyword getSemicolonKeyword_13() { return cSemicolonKeyword_13; }
 	}
 
 	public class BusinessClassElements implements IParserRuleAccess {
@@ -244,24 +314,30 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final Assignment cSuperclassAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final CrossReference cSuperclassBusinessClassCrossReference_3_1_0 = (CrossReference)cSuperclassAssignment_3_1.eContents().get(0);
 		private final RuleCall cSuperclassBusinessClassIDTerminalRuleCall_3_1_0_1 = (RuleCall)cSuperclassBusinessClassCrossReference_3_1_0.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cPropertiesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cPropertiesPropertyParserRuleCall_5_0 = (RuleCall)cPropertiesAssignment_5.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cRulesKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Assignment cBusinessRulesAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cBusinessRulesAbstractBusinessRuleParserRuleCall_6_2_0 = (RuleCall)cBusinessRulesAssignment_6_2.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
-		private final Keyword cRightSquareBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cTableKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cTableAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cTableIDTerminalRuleCall_4_1_0 = (RuleCall)cTableAssignment_4_1.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cPropertiesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cPropertiesPropertyParserRuleCall_6_0 = (RuleCall)cPropertiesAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cRulesKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Assignment cBusinessRulesAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
+		private final RuleCall cBusinessRulesAbstractBusinessRuleParserRuleCall_7_2_0 = (RuleCall)cBusinessRulesAssignment_7_2.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_7_3 = (Keyword)cGroup_7.eContents().get(3);
+		private final Keyword cRightSquareBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//BusinessClass:
-		//  description=STRING? "class" name=ID ("inherits" superclass=[BusinessClass])? "["
-		//  properties+=Property* ("rules" "[" businessRules+=AbstractBusinessRule* "]")? "]";
+		//  description=STRING? "class" name=ID ("inherits" superclass=[BusinessClass])? ("table"
+		//  table=ID)? "[" properties+=Property* ("rules" "[" businessRules+=AbstractBusinessRule
+		//  * "]")? "]";
 		public ParserRule getRule() { return rule; }
 
-		//description=STRING? "class" name=ID ("inherits" superclass=[BusinessClass])? "["
-		//properties+=Property* ("rules" "[" businessRules+=AbstractBusinessRule* "]")? "]"
+		//description=STRING? "class" name=ID ("inherits" superclass=[BusinessClass])? ("table"
+		//table=ID)? "[" properties+=Property* ("rules" "[" businessRules+=AbstractBusinessRule
+		// * "]")? "]"
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -294,35 +370,47 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		//ID
 		public RuleCall getSuperclassBusinessClassIDTerminalRuleCall_3_1_0_1() { return cSuperclassBusinessClassIDTerminalRuleCall_3_1_0_1; }
 
+		//("table" table=ID)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"table"
+		public Keyword getTableKeyword_4_0() { return cTableKeyword_4_0; }
+
+		//table=ID
+		public Assignment getTableAssignment_4_1() { return cTableAssignment_4_1; }
+
+		//ID
+		public RuleCall getTableIDTerminalRuleCall_4_1_0() { return cTableIDTerminalRuleCall_4_1_0; }
+
 		//"["
-		public Keyword getLeftSquareBracketKeyword_4() { return cLeftSquareBracketKeyword_4; }
+		public Keyword getLeftSquareBracketKeyword_5() { return cLeftSquareBracketKeyword_5; }
 
 		//properties+=Property*
-		public Assignment getPropertiesAssignment_5() { return cPropertiesAssignment_5; }
+		public Assignment getPropertiesAssignment_6() { return cPropertiesAssignment_6; }
 
 		//Property
-		public RuleCall getPropertiesPropertyParserRuleCall_5_0() { return cPropertiesPropertyParserRuleCall_5_0; }
+		public RuleCall getPropertiesPropertyParserRuleCall_6_0() { return cPropertiesPropertyParserRuleCall_6_0; }
 
 		//("rules" "[" businessRules+=AbstractBusinessRule* "]")?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_7() { return cGroup_7; }
 
 		//"rules"
-		public Keyword getRulesKeyword_6_0() { return cRulesKeyword_6_0; }
+		public Keyword getRulesKeyword_7_0() { return cRulesKeyword_7_0; }
 
 		//"["
-		public Keyword getLeftSquareBracketKeyword_6_1() { return cLeftSquareBracketKeyword_6_1; }
+		public Keyword getLeftSquareBracketKeyword_7_1() { return cLeftSquareBracketKeyword_7_1; }
 
 		//businessRules+=AbstractBusinessRule*
-		public Assignment getBusinessRulesAssignment_6_2() { return cBusinessRulesAssignment_6_2; }
+		public Assignment getBusinessRulesAssignment_7_2() { return cBusinessRulesAssignment_7_2; }
 
 		//AbstractBusinessRule
-		public RuleCall getBusinessRulesAbstractBusinessRuleParserRuleCall_6_2_0() { return cBusinessRulesAbstractBusinessRuleParserRuleCall_6_2_0; }
+		public RuleCall getBusinessRulesAbstractBusinessRuleParserRuleCall_7_2_0() { return cBusinessRulesAbstractBusinessRuleParserRuleCall_7_2_0; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_6_3() { return cRightSquareBracketKeyword_6_3; }
+		public Keyword getRightSquareBracketKeyword_7_3() { return cRightSquareBracketKeyword_7_3; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_7() { return cRightSquareBracketKeyword_7; }
+		public Keyword getRightSquareBracketKeyword_8() { return cRightSquareBracketKeyword_8; }
 	}
 
 	public class EnumerationElements implements IParserRuleAccess {
@@ -558,28 +646,34 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final Keyword cDerivedDerivedKeyword_2_0_0 = (Keyword)cDerivedAssignment_2_0.eContents().get(0);
 		private final Assignment cWritableAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final Keyword cWritableWritableKeyword_2_1_0 = (Keyword)cWritableAssignment_2_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cColumnKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cColumnAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cColumnIDTerminalRuleCall_3_1_0 = (RuleCall)cColumnAssignment_3_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Property:
 		//  (BoolProperty|StringProperty|DateTimeProperty|IntegerProperty|DecimalProperty|
 		//  EnumerationProperty) nullable?="nullable"? (derived?="derived" writable?="writable"
-		//  ?)? ";"; 
+		//  ?)? ("column" column=ID)? ";"; 
 		//
 		//
 		//                  
 		//	      
 		//	
 		//	  
+		//      
 		////	("persistency" persistency=PersistencyMode)?
 		public ParserRule getRule() { return rule; }
 
 		//(BoolProperty|StringProperty|DateTimeProperty|IntegerProperty|DecimalProperty|
 		//EnumerationProperty) nullable?="nullable"? (derived?="derived" writable?="writable"
-		//?)? ";" 
+		//?)? ("column" column=ID)? ";" 
 		//                  
 		//	      
 		//	
 		//	  
+		//      
 		////	("persistency" persistency=PersistencyMode)?
 		public Group getGroup() { return cGroup; }
 
@@ -626,9 +720,21 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		//"writable"
 		public Keyword getWritableWritableKeyword_2_1_0() { return cWritableWritableKeyword_2_1_0; }
 
+		//("column" column=ID)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"column"
+		public Keyword getColumnKeyword_3_0() { return cColumnKeyword_3_0; }
+
+		//column=ID
+		public Assignment getColumnAssignment_3_1() { return cColumnAssignment_3_1; }
+
+		//ID
+		public RuleCall getColumnIDTerminalRuleCall_3_1_0() { return cColumnIDTerminalRuleCall_3_1_0; }
+
 		//";" 
 		////	("persistency" persistency=PersistencyMode)?
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 
 	public class BoolPropertyElements implements IParserRuleAccess {
@@ -1296,10 +1402,11 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 	}
 
 	//Association:
-	//  description=STRING? "association" source=[BusinessClass] sourceRoleName=ID
-	//  sourceMultiplicity=Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=
-	//  Multiplicity target=[AbstractBusinessClass] targetRoleName=ID ordered?="ordered"?
-	//  ";"; 
+	//  description=STRING? "association" source=[BusinessClass] sourceRoleName=ID (
+	//  "foreign key" sourceForeignKey=ID)? sourceMultiplicity=Multiplicity (bidirectional
+	//  ?="<->"|"->") targetMultiplicity=Multiplicity ("table" table=ID)? target=[
+	//  AbstractBusinessClass] targetRoleName=ID ("foreign key" targetForeignKey=ID)? (
+	//  ordered?="ordered" ("column" orderingColumn=ID)?)? ";"; 
 	//// COMMETNED OUT: import does not work correctly, therefore should not be possible at all.
 	////BusinessClassReference:
 	////    "from" referredModel=ID "import" name=ID  ";" 
@@ -1326,8 +1433,9 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 	}
 
 	//BusinessClass:
-	//  description=STRING? "class" name=ID ("inherits" superclass=[BusinessClass])? "["
-	//  properties+=Property* ("rules" "[" businessRules+=AbstractBusinessRule* "]")? "]";
+	//  description=STRING? "class" name=ID ("inherits" superclass=[BusinessClass])? ("table"
+	//  table=ID)? "[" properties+=Property* ("rules" "[" businessRules+=AbstractBusinessRule
+	//  * "]")? "]";
 	public BusinessClassElements getBusinessClassAccess() {
 		return (pBusinessClass != null) ? pBusinessClass : (pBusinessClass = new BusinessClassElements());
 	}
@@ -1391,13 +1499,14 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 	//Property:
 	//  (BoolProperty|StringProperty|DateTimeProperty|IntegerProperty|DecimalProperty|
 	//  EnumerationProperty) nullable?="nullable"? (derived?="derived" writable?="writable"
-	//  ?)? ";"; 
+	//  ?)? ("column" column=ID)? ";"; 
 	//
 	//
 	//                  
 	//	      
 	//	
 	//	  
+	//      
 	////	("persistency" persistency=PersistencyMode)?
 	public PropertyElements getPropertyAccess() {
 		return (pProperty != null) ? pProperty : (pProperty = new PropertyElements());

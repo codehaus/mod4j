@@ -40,6 +40,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#isBidirectional <em>Bidirectional</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#isOrdered <em>Ordered</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#getSourceForeignKey <em>Source Foreign Key</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#getTargetForeignKey <em>Target Foreign Key</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#getOrderingColumn <em>Ordering Column</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#getTable <em>Table</em>}</li>
  * </ul>
  * </p>
  *
@@ -207,6 +211,86 @@ public class AssociationImpl extends ModelElementImpl implements Association {
 	protected boolean ordered = ORDERED_EDEFAULT;
 
 	/**
+     * The default value of the '{@link #getSourceForeignKey() <em>Source Foreign Key</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getSourceForeignKey()
+     * @generated
+     * @ordered
+     */
+    protected static final String SOURCE_FOREIGN_KEY_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getSourceForeignKey() <em>Source Foreign Key</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getSourceForeignKey()
+     * @generated
+     * @ordered
+     */
+    protected String sourceForeignKey = SOURCE_FOREIGN_KEY_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getTargetForeignKey() <em>Target Foreign Key</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTargetForeignKey()
+     * @generated
+     * @ordered
+     */
+    protected static final String TARGET_FOREIGN_KEY_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getTargetForeignKey() <em>Target Foreign Key</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTargetForeignKey()
+     * @generated
+     * @ordered
+     */
+    protected String targetForeignKey = TARGET_FOREIGN_KEY_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getOrderingColumn() <em>Ordering Column</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOrderingColumn()
+     * @generated
+     * @ordered
+     */
+    protected static final String ORDERING_COLUMN_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getOrderingColumn() <em>Ordering Column</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOrderingColumn()
+     * @generated
+     * @ordered
+     */
+    protected String orderingColumn = ORDERING_COLUMN_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getTable() <em>Table</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTable()
+     * @generated
+     * @ordered
+     */
+    protected static final String TABLE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getTable() <em>Table</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTable()
+     * @generated
+     * @ordered
+     */
+    protected String table = TABLE_EDEFAULT;
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -535,6 +619,90 @@ public class AssociationImpl extends ModelElementImpl implements Association {
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getSourceForeignKey() {
+        return sourceForeignKey;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setSourceForeignKey(String newSourceForeignKey) {
+        String oldSourceForeignKey = sourceForeignKey;
+        sourceForeignKey = newSourceForeignKey;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__SOURCE_FOREIGN_KEY, oldSourceForeignKey, sourceForeignKey));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getTargetForeignKey() {
+        return targetForeignKey;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setTargetForeignKey(String newTargetForeignKey) {
+        String oldTargetForeignKey = targetForeignKey;
+        targetForeignKey = newTargetForeignKey;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__TARGET_FOREIGN_KEY, oldTargetForeignKey, targetForeignKey));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getOrderingColumn() {
+        return orderingColumn;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOrderingColumn(String newOrderingColumn) {
+        String oldOrderingColumn = orderingColumn;
+        orderingColumn = newOrderingColumn;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__ORDERING_COLUMN, oldOrderingColumn, orderingColumn));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getTable() {
+        return table;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setTable(String newTable) {
+        String oldTable = table;
+        table = newTable;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__TABLE, oldTable, table));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -619,6 +787,14 @@ public class AssociationImpl extends ModelElementImpl implements Association {
                 return isOrdered();
             case BusinessDomainDslPackage.ASSOCIATION__MODEL:
                 return getModel();
+            case BusinessDomainDslPackage.ASSOCIATION__SOURCE_FOREIGN_KEY:
+                return getSourceForeignKey();
+            case BusinessDomainDslPackage.ASSOCIATION__TARGET_FOREIGN_KEY:
+                return getTargetForeignKey();
+            case BusinessDomainDslPackage.ASSOCIATION__ORDERING_COLUMN:
+                return getOrderingColumn();
+            case BusinessDomainDslPackage.ASSOCIATION__TABLE:
+                return getTable();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -660,6 +836,18 @@ public class AssociationImpl extends ModelElementImpl implements Association {
                 return;
             case BusinessDomainDslPackage.ASSOCIATION__MODEL:
                 setModel((BusinessDomainModel)newValue);
+                return;
+            case BusinessDomainDslPackage.ASSOCIATION__SOURCE_FOREIGN_KEY:
+                setSourceForeignKey((String)newValue);
+                return;
+            case BusinessDomainDslPackage.ASSOCIATION__TARGET_FOREIGN_KEY:
+                setTargetForeignKey((String)newValue);
+                return;
+            case BusinessDomainDslPackage.ASSOCIATION__ORDERING_COLUMN:
+                setOrderingColumn((String)newValue);
+                return;
+            case BusinessDomainDslPackage.ASSOCIATION__TABLE:
+                setTable((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -703,6 +891,18 @@ public class AssociationImpl extends ModelElementImpl implements Association {
             case BusinessDomainDslPackage.ASSOCIATION__MODEL:
                 setModel((BusinessDomainModel)null);
                 return;
+            case BusinessDomainDslPackage.ASSOCIATION__SOURCE_FOREIGN_KEY:
+                setSourceForeignKey(SOURCE_FOREIGN_KEY_EDEFAULT);
+                return;
+            case BusinessDomainDslPackage.ASSOCIATION__TARGET_FOREIGN_KEY:
+                setTargetForeignKey(TARGET_FOREIGN_KEY_EDEFAULT);
+                return;
+            case BusinessDomainDslPackage.ASSOCIATION__ORDERING_COLUMN:
+                setOrderingColumn(ORDERING_COLUMN_EDEFAULT);
+                return;
+            case BusinessDomainDslPackage.ASSOCIATION__TABLE:
+                setTable(TABLE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -735,6 +935,14 @@ public class AssociationImpl extends ModelElementImpl implements Association {
                 return ordered != ORDERED_EDEFAULT;
             case BusinessDomainDslPackage.ASSOCIATION__MODEL:
                 return getModel() != null;
+            case BusinessDomainDslPackage.ASSOCIATION__SOURCE_FOREIGN_KEY:
+                return SOURCE_FOREIGN_KEY_EDEFAULT == null ? sourceForeignKey != null : !SOURCE_FOREIGN_KEY_EDEFAULT.equals(sourceForeignKey);
+            case BusinessDomainDslPackage.ASSOCIATION__TARGET_FOREIGN_KEY:
+                return TARGET_FOREIGN_KEY_EDEFAULT == null ? targetForeignKey != null : !TARGET_FOREIGN_KEY_EDEFAULT.equals(targetForeignKey);
+            case BusinessDomainDslPackage.ASSOCIATION__ORDERING_COLUMN:
+                return ORDERING_COLUMN_EDEFAULT == null ? orderingColumn != null : !ORDERING_COLUMN_EDEFAULT.equals(orderingColumn);
+            case BusinessDomainDslPackage.ASSOCIATION__TABLE:
+                return TABLE_EDEFAULT == null ? table != null : !TABLE_EDEFAULT.equals(table);
         }
         return super.eIsSet(featureID);
     }
@@ -763,6 +971,14 @@ public class AssociationImpl extends ModelElementImpl implements Association {
         result.append(bidirectional);
         result.append(", ordered: ");
         result.append(ordered);
+        result.append(", sourceForeignKey: ");
+        result.append(sourceForeignKey);
+        result.append(", targetForeignKey: ");
+        result.append(targetForeignKey);
+        result.append(", orderingColumn: ");
+        result.append(orderingColumn);
+        result.append(", table: ");
+        result.append(table);
         result.append(')');
         return result.toString();
     }

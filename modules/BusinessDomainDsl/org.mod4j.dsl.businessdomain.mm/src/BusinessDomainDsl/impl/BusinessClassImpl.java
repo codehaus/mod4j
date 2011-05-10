@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link BusinessDomainDsl.impl.BusinessClassImpl#getBusinessRules <em>Business Rules</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.BusinessClassImpl#getSuperclass <em>Superclass</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.BusinessClassImpl#getAssociationsTo <em>Associations To</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.BusinessClassImpl#getTable <em>Table</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,6 +75,26 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
 	protected EList<Association> associationsTo;
 
 	/**
+     * The default value of the '{@link #getTable() <em>Table</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTable()
+     * @generated
+     * @ordered
+     */
+    protected static final String TABLE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getTable() <em>Table</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTable()
+     * @generated
+     * @ordered
+     */
+    protected String table = TABLE_EDEFAULT;
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -156,6 +177,27 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getTable() {
+        return table;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setTable(String newTable) {
+        String oldTable = table;
+        table = newTable;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.BUSINESS_CLASS__TABLE, oldTable, table));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -202,6 +244,8 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
                 return basicGetSuperclass();
             case BusinessDomainDslPackage.BUSINESS_CLASS__ASSOCIATIONS_TO:
                 return getAssociationsTo();
+            case BusinessDomainDslPackage.BUSINESS_CLASS__TABLE:
+                return getTable();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -226,6 +270,9 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
                 getAssociationsTo().clear();
                 getAssociationsTo().addAll((Collection<? extends Association>)newValue);
                 return;
+            case BusinessDomainDslPackage.BUSINESS_CLASS__TABLE:
+                setTable((String)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -247,6 +294,9 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
             case BusinessDomainDslPackage.BUSINESS_CLASS__ASSOCIATIONS_TO:
                 getAssociationsTo().clear();
                 return;
+            case BusinessDomainDslPackage.BUSINESS_CLASS__TABLE:
+                setTable(TABLE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -265,8 +315,26 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
                 return superclass != null;
             case BusinessDomainDslPackage.BUSINESS_CLASS__ASSOCIATIONS_TO:
                 return associationsTo != null && !associationsTo.isEmpty();
+            case BusinessDomainDslPackage.BUSINESS_CLASS__TABLE:
+                return TABLE_EDEFAULT == null ? table != null : !TABLE_EDEFAULT.equals(table);
         }
         return super.eIsSet(featureID);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString() {
+        if (eIsProxy()) return super.toString();
+
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (table: ");
+        result.append(table);
+        result.append(')');
+        return result.toString();
     }
 
 } //BusinessClassImpl

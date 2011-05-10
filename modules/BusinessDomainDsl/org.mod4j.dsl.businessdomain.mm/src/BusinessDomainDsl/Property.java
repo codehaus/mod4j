@@ -22,6 +22,7 @@ package BusinessDomainDsl;
  *   <li>{@link BusinessDomainDsl.Property#getPersistency <em>Persistency</em>}</li>
  *   <li>{@link BusinessDomainDsl.Property#isHasDefault <em>Has Default</em>}</li>
  *   <li>{@link BusinessDomainDsl.Property#getOwningType <em>Owning Type</em>}</li>
+ *   <li>{@link BusinessDomainDsl.Property#getColumn <em>Column</em>}</li>
  * </ul>
  * </p>
  *
@@ -220,5 +221,31 @@ public interface Property extends ModelElement {
      * @generated
      */
 	void setOwningType(AbstractType value);
+
+    /**
+     * Returns the value of the '<em><b>Column</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Column</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Column</em>' attribute.
+     * @see #setColumn(String)
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getProperty_Column()
+     * @model
+     * @generated
+     */
+    String getColumn();
+
+    /**
+     * Sets the value of the '{@link BusinessDomainDsl.Property#getColumn <em>Column</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Column</em>' attribute.
+     * @see #getColumn()
+     * @generated
+     */
+    void setColumn(String value);
 
 } // Property

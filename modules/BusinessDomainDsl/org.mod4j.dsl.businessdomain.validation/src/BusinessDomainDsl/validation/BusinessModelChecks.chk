@@ -56,6 +56,20 @@ context Association ERROR "An ordered association source may not be bidirectiona
      this.ordered implies ( ! this.bidirectional )
 ;
 
+// Only the "one" side of an association should have a "foreign key" column name.
+context Association ERROR "Only the 'one' side of a one-to-many association may have a foreign key" :
+    (sourceMultiplicity.toString().equalsIgnoreCase("ZeroOne") || targetMultiplicity.toString().equalsIgnoreCase("ZeroOne"))
+    implies (
+        (sourceMultiplicity.toString().equalsIgnoreCase("ZeroMany") implies (sourceForeignKey == null)) &&
+        (targetMultiplicity.toString().equalsIgnoreCase("ZeroMany") implies (targetForeignKey == null))
+    );
+    
+context Association ERROR "Only a many-to-many association may have a table name: for the link table." :
+    (table != null) implies (
+        sourceMultiplicity.toString().equalsIgnoreCase("ZeroMany")
+        && targetMultiplicity.toString().equalsIgnoreCase("ZeroMany")
+    );
+
 // TODO: the test for an upper bound for the target multiplicity of "Many"
 // using string comparison is ugly. This must be improved!
 context Association ERROR "[" + this.targetRoleName + "/" + this.targetMultiplicity +

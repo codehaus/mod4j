@@ -25,6 +25,10 @@ package BusinessDomainDsl;
  *   <li>{@link BusinessDomainDsl.Association#isBidirectional <em>Bidirectional</em>}</li>
  *   <li>{@link BusinessDomainDsl.Association#isOrdered <em>Ordered</em>}</li>
  *   <li>{@link BusinessDomainDsl.Association#getModel <em>Model</em>}</li>
+ *   <li>{@link BusinessDomainDsl.Association#getSourceForeignKey <em>Source Foreign Key</em>}</li>
+ *   <li>{@link BusinessDomainDsl.Association#getTargetForeignKey <em>Target Foreign Key</em>}</li>
+ *   <li>{@link BusinessDomainDsl.Association#getOrderingColumn <em>Ordering Column</em>}</li>
+ *   <li>{@link BusinessDomainDsl.Association#getTable <em>Table</em>}</li>
  * </ul>
  * </p>
  *
@@ -311,5 +315,109 @@ public interface Association extends ModelElement {
      * @generated
      */
 	void setModel(BusinessDomainModel value);
+
+    /**
+     * Returns the value of the '<em><b>Source Foreign Key</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Source Foreign Key</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Source Foreign Key</em>' attribute.
+     * @see #setSourceForeignKey(String)
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getAssociation_SourceForeignKey()
+     * @model
+     * @generated
+     */
+    String getSourceForeignKey();
+
+    /**
+     * Sets the value of the '{@link BusinessDomainDsl.Association#getSourceForeignKey <em>Source Foreign Key</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Source Foreign Key</em>' attribute.
+     * @see #getSourceForeignKey()
+     * @generated
+     */
+    void setSourceForeignKey(String value);
+
+    /**
+     * Returns the value of the '<em><b>Target Foreign Key</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Target Foreign Key</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Target Foreign Key</em>' attribute.
+     * @see #setTargetForeignKey(String)
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getAssociation_TargetForeignKey()
+     * @model
+     * @generated
+     */
+    String getTargetForeignKey();
+
+    /**
+     * Sets the value of the '{@link BusinessDomainDsl.Association#getTargetForeignKey <em>Target Foreign Key</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Target Foreign Key</em>' attribute.
+     * @see #getTargetForeignKey()
+     * @generated
+     */
+    void setTargetForeignKey(String value);
+
+    /**
+     * Returns the value of the '<em><b>Ordering Column</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Ordering Column</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Ordering Column</em>' attribute.
+     * @see #setOrderingColumn(String)
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getAssociation_OrderingColumn()
+     * @model
+     * @generated
+     */
+    String getOrderingColumn();
+
+    /**
+     * Sets the value of the '{@link BusinessDomainDsl.Association#getOrderingColumn <em>Ordering Column</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Ordering Column</em>' attribute.
+     * @see #getOrderingColumn()
+     * @generated
+     */
+    void setOrderingColumn(String value);
+
+    /**
+     * Returns the value of the '<em><b>Table</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Table</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Table</em>' attribute.
+     * @see #setTable(String)
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getAssociation_Table()
+     * @model
+     * @generated
+     */
+    String getTable();
+
+    /**
+     * Sets the value of the '{@link BusinessDomainDsl.Association#getTable <em>Table</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Table</em>' attribute.
+     * @see #getTable()
+     * @generated
+     */
+    void setTable(String value);
 
 } // Association

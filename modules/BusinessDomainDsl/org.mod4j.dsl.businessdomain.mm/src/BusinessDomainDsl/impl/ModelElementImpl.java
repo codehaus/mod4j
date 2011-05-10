@@ -6,15 +6,13 @@
  */
 package BusinessDomainDsl.impl;
 
-import BusinessDomainDsl.BusinessDomainDslPackage;
-import BusinessDomainDsl.ModelElement;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import BusinessDomainDsl.BusinessDomainDslPackage;
+import BusinessDomainDsl.ModelElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -153,7 +151,8 @@ public class ModelElementImpl extends EObjectImpl implements ModelElement {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	@SuppressWarnings("unchecked")
+    @Override
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case BusinessDomainDslPackage.MODEL_ELEMENT__NAME:

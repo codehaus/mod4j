@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link BusinessDomainDsl.BusinessClass#getBusinessRules <em>Business Rules</em>}</li>
  *   <li>{@link BusinessDomainDsl.BusinessClass#getSuperclass <em>Superclass</em>}</li>
  *   <li>{@link BusinessDomainDsl.BusinessClass#getAssociationsTo <em>Associations To</em>}</li>
+ *   <li>{@link BusinessDomainDsl.BusinessClass#getTable <em>Table</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,5 +89,31 @@ public interface BusinessClass extends AbstractBusinessClass {
      * @generated
      */
 	EList<Association> getAssociationsTo();
+
+    /**
+     * Returns the value of the '<em><b>Table</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Table</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Table</em>' attribute.
+     * @see #setTable(String)
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessClass_Table()
+     * @model
+     * @generated
+     */
+    String getTable();
+
+    /**
+     * Sets the value of the '{@link BusinessDomainDsl.BusinessClass#getTable <em>Table</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Table</em>' attribute.
+     * @see #getTable()
+     * @generated
+     */
+    void setTable(String value);
 
 } // BusinessClass

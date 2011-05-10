@@ -6,6 +6,13 @@
  */
 package BusinessDomainDsl.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import BusinessDomainDsl.AbstractBusinessClass;
 import BusinessDomainDsl.AbstractBusinessRule;
 import BusinessDomainDsl.AbstractType;
@@ -32,14 +39,6 @@ import BusinessDomainDsl.PersistencyMode;
 import BusinessDomainDsl.Property;
 import BusinessDomainDsl.StringProperty;
 import BusinessDomainDsl.UniqueRule;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -378,6 +377,15 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getBusinessClass_Table() {
+        return (EAttribute)businessClassEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -449,6 +457,15 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProperty_Column() {
+        return (EAttribute)propertyEClass.getEStructuralFeatures().get(7);
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -819,6 +836,42 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAssociation_SourceForeignKey() {
+        return (EAttribute)associationEClass.getEStructuralFeatures().get(10);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAssociation_TargetForeignKey() {
+        return (EAttribute)associationEClass.getEStructuralFeatures().get(11);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAssociation_OrderingColumn() {
+        return (EAttribute)associationEClass.getEStructuralFeatures().get(12);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAssociation_Table() {
+        return (EAttribute)associationEClass.getEStructuralFeatures().get(13);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -1002,6 +1055,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         createEReference(businessClassEClass, BUSINESS_CLASS__BUSINESS_RULES);
         createEReference(businessClassEClass, BUSINESS_CLASS__SUPERCLASS);
         createEReference(businessClassEClass, BUSINESS_CLASS__ASSOCIATIONS_TO);
+        createEAttribute(businessClassEClass, BUSINESS_CLASS__TABLE);
 
         propertyEClass = createEClass(PROPERTY);
         createEAttribute(propertyEClass, PROPERTY__DATA_TYPE);
@@ -1011,6 +1065,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         createEAttribute(propertyEClass, PROPERTY__PERSISTENCY);
         createEAttribute(propertyEClass, PROPERTY__HAS_DEFAULT);
         createEReference(propertyEClass, PROPERTY__OWNING_TYPE);
+        createEAttribute(propertyEClass, PROPERTY__COLUMN);
 
         enumerationEClass = createEClass(ENUMERATION);
         createEReference(enumerationEClass, ENUMERATION__ENUMERATION_LITERALS);
@@ -1064,6 +1119,10 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         createEAttribute(associationEClass, ASSOCIATION__BIDIRECTIONAL);
         createEAttribute(associationEClass, ASSOCIATION__ORDERED);
         createEReference(associationEClass, ASSOCIATION__MODEL);
+        createEAttribute(associationEClass, ASSOCIATION__SOURCE_FOREIGN_KEY);
+        createEAttribute(associationEClass, ASSOCIATION__TARGET_FOREIGN_KEY);
+        createEAttribute(associationEClass, ASSOCIATION__ORDERING_COLUMN);
+        createEAttribute(associationEClass, ASSOCIATION__TABLE);
 
         decimalPropertyEClass = createEClass(DECIMAL_PROPERTY);
         createEAttribute(decimalPropertyEClass, DECIMAL_PROPERTY__MIN_VALUE);
@@ -1152,6 +1211,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         initEReference(getBusinessClass_BusinessRules(), this.getAbstractBusinessRule(), this.getAbstractBusinessRule_BusinessClass(), "businessRules", null, 0, -1, BusinessClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBusinessClass_Superclass(), this.getBusinessClass(), null, "superclass", null, 0, 1, BusinessClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBusinessClass_AssociationsTo(), this.getAssociation(), this.getAssociation_Source(), "associationsTo", null, 0, -1, BusinessClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getBusinessClass_Table(), ecorePackage.getEString(), "table", null, 0, 1, BusinessClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getProperty_DataType(), ecorePackage.getEString(), "dataType", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1161,6 +1221,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         initEAttribute(getProperty_Persistency(), this.getPersistencyMode(), "persistency", "ReadWrite", 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getProperty_HasDefault(), ecorePackage.getEBoolean(), "hasDefault", "false", 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getProperty_OwningType(), this.getAbstractType(), this.getAbstractType_Properties(), "owningType", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getProperty_Column(), ecorePackage.getEString(), "column", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getEnumeration_EnumerationLiterals(), this.getEnumerationLiteral(), this.getEnumerationLiteral_Enumeration(), "enumerationLiterals", null, 0, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1214,6 +1275,10 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         initEAttribute(getAssociation_Bidirectional(), ecorePackage.getEBoolean(), "bidirectional", "false", 1, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getAssociation_Ordered(), ecorePackage.getEBoolean(), "ordered", "false", 1, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getAssociation_Model(), this.getBusinessDomainModel(), this.getBusinessDomainModel_Associations(), "model", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAssociation_SourceForeignKey(), ecorePackage.getEString(), "sourceForeignKey", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAssociation_TargetForeignKey(), ecorePackage.getEString(), "targetForeignKey", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAssociation_OrderingColumn(), ecorePackage.getEString(), "orderingColumn", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAssociation_Table(), ecorePackage.getEString(), "table", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(decimalPropertyEClass, DecimalProperty.class, "DecimalProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getDecimalProperty_MinValue(), ecorePackage.getEFloat(), "minValue", "-2147483648", 0, 1, DecimalProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

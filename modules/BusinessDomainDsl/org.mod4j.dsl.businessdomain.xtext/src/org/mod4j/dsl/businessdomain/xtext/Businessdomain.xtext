@@ -31,12 +31,17 @@ BusinessDomainModel :
 Association:
 	(description=STRING )?
     "association" 
-    source=[BusinessClass] sourceRoleName=ID 
+    source=[BusinessClass]
+    sourceRoleName=ID
+    ("foreign key" sourceForeignKey=ID)?
     sourceMultiplicity=Multiplicity
     ((bidirectional?="<->") | ("->"))
     targetMultiplicity=Multiplicity
-    target=[AbstractBusinessClass]  targetRoleName=ID 
-    (ordered?="ordered")? ";"
+    ("table" table=ID)?
+    target=[AbstractBusinessClass]
+    targetRoleName=ID
+    ("foreign key" targetForeignKey=ID)?
+    (ordered?="ordered" ("column" orderingColumn=ID)?)? ";"
     ;
 
 enum Multiplicity:
@@ -47,12 +52,13 @@ BusinessClass:
 	(description=STRING)?
     "class" name=ID
     ("inherits" superclass=[BusinessClass])?
+    ("table" table=ID)?
     "["
         (properties += Property)*
         ("rules" "[" (businessRules += AbstractBusinessRule)* "]")?
     "]"
      ;
-
+    
 Enumeration:
 	(description=STRING)?
     "enumeration" name=ID
@@ -85,6 +91,7 @@ Property:
 	 DecimalProperty | EnumerationProperty) 
 	(nullable?="nullable")?
 	(derived?="derived" (writable?="writable")?)?
+    ("column" column=ID)?
 //	("persistency" persistency=PersistencyMode)?
 	";"
 	;

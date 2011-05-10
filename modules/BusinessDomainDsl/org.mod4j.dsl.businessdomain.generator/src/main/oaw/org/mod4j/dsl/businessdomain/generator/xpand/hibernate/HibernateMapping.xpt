@@ -52,6 +52,9 @@
 
 «DEFINE rootClassMapping FOR BusinessDomainDsl::BusinessClass -»
     <class name="«javaDomainClass(this.name)»"
+    «IF table != null»
+           table="«table»"
+    «ENDIF»
            optimistic-lock="version">
         <cache usage="read-write" />
         <id name="id" type="java.lang.Long">
@@ -65,6 +68,9 @@
 «DEFINE concreteClassMapping FOR BusinessDomainDsl::BusinessClass -»
     <union-subclass
         name="«javaDomainClass(this.name)»"
+    «IF table != null»
+        table="«table»"
+    «ENDIF»
         extends="«javaDomainClass(this.superclass.name)»">
         «EXPAND featureMappings FOR this -»
     </union-subclass>
@@ -73,6 +79,9 @@
 «DEFINE subclassMapping FOR BusinessDomainDsl::BusinessClass -»
     <joined-subclass
         name="«javaDomainClass(name)»"
+    «IF table != null»
+        table="«table»"
+    «ENDIF»
         extends="«javaDomainClass(superclass.name)»">
         <key column="ID"/>
         «EXPAND featureMappings FOR this -»
@@ -86,7 +95,10 @@
 «ENDDEFINE»
 
 «DEFINE mapping FOR BusinessDomainDsl::Property -»
-        <property name="«this.name»" 
+        <property name="«this.name»"
+        «IF column != null»
+           column="«column»"
+        «ENDIF»
         «IF this.uniqueRule() != null -»
             unique-key="«uniqueRule().name»"
         «ENDIF -»
@@ -98,6 +110,9 @@
 
 «DEFINE mapping FOR BusinessDomainDsl::StringProperty -»
         <property name="«this.name»" «IF maxLength > -1»length="«maxLength»"«ENDIF» 
+        «IF column != null»
+           column="«column»"
+        «ENDIF»
         «IF this.uniqueRule() != null -»
             unique-key="«uniqueRule().name»"
         «ENDIF -»
@@ -108,7 +123,10 @@
 «ENDDEFINE»
 
 «DEFINE mapping FOR EnumerationProperty -»
-        <property name="«this.name»"        
+        <property name="«this.name»"  
+        «IF column != null»
+           column="«column»"
+        «ENDIF»
         «IF this.uniqueRule() != null -»
             unique-key="«uniqueRule().name»"
         «ENDIF -»
@@ -122,7 +140,10 @@
 «ENDDEFINE»
 
 «DEFINE mapping FOR DateTimeProperty -»
-        <property name="«this.name»"      
+        <property name="«this.name»"   
+        «IF column != null»
+           column="«column»"
+        «ENDIF»
         «IF this.uniqueRule() != null -»
             unique-key="«uniqueRule().name»"
         «ENDIF -»
@@ -175,7 +196,7 @@
 		<!-- one2manyMappingTo«IF bidirectional», bi-directional«ENDIF» -->
         <set name="«this.targetRoleName»"
             cascade="save-update" «IF bidirectional»inverse="true"«ENDIF»>
-            <key column="«this.sourceRoleName»_ID"/>
+            <key column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»_ID«ENDIF»"/>
             <one-to-many
                 class="«javaDomainClass(this.target.name)»" 
              />
@@ -186,8 +207,8 @@
         <!-- orderedOne2manyMappingTo «IF bidirectional», bi-directional«ENDIF» -->
         <list name="«this.targetRoleName»"
             cascade="save-update" «IF bidirectional»inverse="true"«ENDIF»>
-            <key column="«this.sourceRoleName»_ID"/>
-            <list-index column="orderFor«sourceRoleName.toFirstUpper()»" />
+            <key column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»_ID«ENDIF»"/>
+            <list-index column="«IF orderingColumn != null»«orderingColumn»«ELSE»orderFor«sourceRoleName.toFirstUpper()»«ENDIF»" />
             <one-to-many
                 class="«javaDomainClass(this.target.name)»" 
              />
@@ -201,7 +222,8 @@
 		<!-- one2manyMappingFrom, bi-directional -->
         <many-to-one name="«sourceRoleName»"
             class="«javaDomainClass(this.source.name)»"
-            not-null="false" column="«this.sourceRoleName»_ID" />
+            not-null="false"
+            column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»_ID«ENDIF»" />
 «ENDDEFINE»
 
 «DEFINE many2oneMappingTo FOR Association -»
@@ -209,7 +231,8 @@
         <many-to-one name="«targetRoleName»"
             cascade="save-update"
             class="«javaDomainClass(this.target.name)»" 
-            not-null="false" column="«this.targetRoleName»_ID"
+            not-null="false"
+            column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»_ID«ENDIF»"
         />
 «ENDDEFINE»
 
@@ -220,7 +243,7 @@
         <!-- many2oneMappingFrom, bi-directional -->
         <set name="«this.sourceRoleName»" inverse="true"
             cascade="save-update">
-            <key column="«this.targetRoleName»_ID"/>
+            <key column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»_ID«ENDIF»"/>
             <one-to-many
                 class="«javaDomainClass(this.source.name)»" 
              />
@@ -230,7 +253,7 @@
 «DEFINE one2oneMappingTo FOR Association -»
 		<!-- one2oneMappingTo «IF bidirectional», bi-directional«ENDIF» -->
         <many-to-one name="«targetRoleName»" 
-                    column="«this.targetRoleName»_ID"
+                    column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»_ID«ENDIF»"
                     cascade="save-update"
                     unique="true"
                     class="«javaDomainClass(this.target.name)»"
@@ -247,26 +270,35 @@
 
 «DEFINE many2manyMappingTo FOR Association -»
         <!-- many2manyMappingTo «IF bidirectional», bi-directional«ENDIF» -->
-        <set name="«this.targetRoleName»" table="«this.sourceRoleName»_«this.targetRoleName»">
-            <key column="«this.sourceRoleName»_ID" not-null="true" />
-            <many-to-many class="«javaDomainClass(this.target.name)»" column="«this.targetRoleName»_ID" />
+        <set name="«this.targetRoleName»"
+             table="«IF table != null»«table»«ELSE»«this.sourceRoleName»_«this.targetRoleName»«ENDIF»">
+            <key column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»_ID«ENDIF»"
+                 not-null="true" />
+            <many-to-many class="«javaDomainClass(this.target.name)»"
+                          column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»_ID«ENDIF»" />
         </set>
 «ENDDEFINE»
 
 «DEFINE orderedMany2manyMappingTo FOR Association -»
         <!-- orderedMany2manyMappingTo «IF bidirectional», bi-directional«ENDIF» -->
-        <list name="«this.targetRoleName»" table="«this.sourceRoleName»_«this.targetRoleName»">
-            <key column="«this.sourceRoleName»_ID" not-null="true" />
-            <list-index column="orderFor«sourceRoleName.toFirstUpper()»" />
-            <many-to-many class="«javaDomainClass(this.target.name)»" column="«this.targetRoleName»_ID" />
+        <list name="«this.targetRoleName»"
+             table="«IF table != null»«table»«ELSE»«this.sourceRoleName»_«this.targetRoleName»«ENDIF»">
+            <key column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»_ID«ENDIF»"
+                 not-null="true" />
+            <list-index column="«IF orderingColumn != null»«orderingColumn»«ELSE»orderFor«sourceRoleName.toFirstUpper()»«ENDIF»" />
+            <many-to-many class="«javaDomainClass(this.target.name)»"
+                          column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»_ID«ENDIF»" />
         </list>
 «ENDDEFINE»
 
 
 «DEFINE many2manyMappingFrom FOR Association -»
         <!-- many2manyMappingFrom, bi-directional -->
-        <set name="«this.sourceRoleName»" inverse="true" table="«this.sourceRoleName»_«this.targetRoleName»">
-            <key column="«this.targetRoleName»_ID" not-null="true" />
-            <many-to-many class="«javaDomainClass(this.source.name)»" column="«this.sourceRoleName»_ID" />
+        <set name="«this.sourceRoleName»" inverse="true"
+             table="«IF table != null»«table»«ELSE»«this.sourceRoleName»_«this.targetRoleName»«ENDIF»">
+            <key column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»_ID«ENDIF»"
+                 not-null="true" />
+            <many-to-many class="«javaDomainClass(this.source.name)»"
+                          column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»_ID«ENDIF»" />
         </set>
 «ENDDEFINE»

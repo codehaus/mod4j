@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link BusinessDomainDsl.impl.PropertyImpl#getPersistency <em>Persistency</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.PropertyImpl#isHasDefault <em>Has Default</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.PropertyImpl#getOwningType <em>Owning Type</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.PropertyImpl#getColumn <em>Column</em>}</li>
  * </ul>
  * </p>
  *
@@ -162,6 +163,26 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 	protected boolean hasDefault = HAS_DEFAULT_EDEFAULT;
 
 	/**
+     * The default value of the '{@link #getColumn() <em>Column</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getColumn()
+     * @generated
+     * @ordered
+     */
+    protected static final String COLUMN_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getColumn() <em>Column</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getColumn()
+     * @generated
+     * @ordered
+     */
+    protected String column = COLUMN_EDEFAULT;
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -349,6 +370,27 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getColumn() {
+        return column;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setColumn(String newColumn) {
+        String oldColumn = column;
+        column = newColumn;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.PROPERTY__COLUMN, oldColumn, column));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -413,6 +455,8 @@ public class PropertyImpl extends ModelElementImpl implements Property {
                 return isHasDefault();
             case BusinessDomainDslPackage.PROPERTY__OWNING_TYPE:
                 return getOwningType();
+            case BusinessDomainDslPackage.PROPERTY__COLUMN:
+                return getColumn();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -445,6 +489,9 @@ public class PropertyImpl extends ModelElementImpl implements Property {
                 return;
             case BusinessDomainDslPackage.PROPERTY__OWNING_TYPE:
                 setOwningType((AbstractType)newValue);
+                return;
+            case BusinessDomainDslPackage.PROPERTY__COLUMN:
+                setColumn((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -479,6 +526,9 @@ public class PropertyImpl extends ModelElementImpl implements Property {
             case BusinessDomainDslPackage.PROPERTY__OWNING_TYPE:
                 setOwningType((AbstractType)null);
                 return;
+            case BusinessDomainDslPackage.PROPERTY__COLUMN:
+                setColumn(COLUMN_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -505,6 +555,8 @@ public class PropertyImpl extends ModelElementImpl implements Property {
                 return hasDefault != HAS_DEFAULT_EDEFAULT;
             case BusinessDomainDslPackage.PROPERTY__OWNING_TYPE:
                 return getOwningType() != null;
+            case BusinessDomainDslPackage.PROPERTY__COLUMN:
+                return COLUMN_EDEFAULT == null ? column != null : !COLUMN_EDEFAULT.equals(column);
         }
         return super.eIsSet(featureID);
     }
@@ -531,6 +583,8 @@ public class PropertyImpl extends ModelElementImpl implements Property {
         result.append(persistency);
         result.append(", hasDefault: ");
         result.append(hasDefault);
+        result.append(", column: ");
+        result.append(column);
         result.append(')');
         return result.toString();
     }

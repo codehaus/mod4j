@@ -53,6 +53,12 @@
         <tokens xsi:type="xtext:Assignment" feature="sourceRoleName" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="foreign key"/>
+          <tokens xsi:type="xtext:Assignment" feature="sourceForeignKey" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+          </tokens>
+        </tokens>
         <tokens xsi:type="xtext:Assignment" feature="sourceMultiplicity" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
         </tokens>
@@ -65,6 +71,12 @@
         <tokens xsi:type="xtext:Assignment" feature="targetMultiplicity" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
         </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="table"/>
+          <tokens xsi:type="xtext:Assignment" feature="table" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+          </tokens>
+        </tokens>
         <tokens xsi:type="xtext:Assignment" feature="target" operator="=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="/0/@metamodelDeclarations.0">
@@ -76,8 +88,22 @@
         <tokens xsi:type="xtext:Assignment" feature="targetRoleName" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
-        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="ordered" operator="?=">
-          <terminal xsi:type="xtext:Keyword" value="ordered"/>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="foreign key"/>
+          <tokens xsi:type="xtext:Assignment" feature="targetForeignKey" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Assignment" feature="ordered" operator="?=">
+            <terminal xsi:type="xtext:Keyword" value="ordered"/>
+          </tokens>
+          <tokens xsi:type="xtext:Group" cardinality="?">
+            <tokens xsi:type="xtext:Keyword" value="column"/>
+            <tokens xsi:type="xtext:Assignment" feature="orderingColumn" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+            </tokens>
+          </tokens>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value=";"/>
       </alternatives>
@@ -118,6 +144,12 @@
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
             </terminal>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="table"/>
+          <tokens xsi:type="xtext:Assignment" feature="table" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </tokens>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="["/>
@@ -251,6 +283,12 @@
           </tokens>
           <tokens xsi:type="xtext:Assignment" cardinality="?" feature="writable" operator="?=">
             <terminal xsi:type="xtext:Keyword" value="writable"/>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="column"/>
+          <tokens xsi:type="xtext:Assignment" feature="column" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </tokens>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value=";"/>

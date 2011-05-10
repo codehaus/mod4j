@@ -363,13 +363,22 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int BUSINESS_CLASS__ASSOCIATIONS_TO = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 2;
 
 	/**
+     * The feature id for the '<em><b>Table</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUSINESS_CLASS__TABLE = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Business Class</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int BUSINESS_CLASS_FEATURE_COUNT = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 3;
+	int BUSINESS_CLASS_FEATURE_COUNT = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 4;
 
 	/**
      * The meta object id for the '{@link BusinessDomainDsl.impl.PropertyImpl <em>Property</em>}' class.
@@ -463,13 +472,22 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int PROPERTY__OWNING_TYPE = MODEL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
+     * The feature id for the '<em><b>Column</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY__COLUMN = MODEL_ELEMENT_FEATURE_COUNT + 7;
+
+    /**
      * The number of structural features of the '<em>Property</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int PROPERTY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 7;
+	int PROPERTY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
      * The meta object id for the '{@link BusinessDomainDsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
@@ -719,6 +737,15 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int BOOL_PROPERTY__OWNING_TYPE = PROPERTY__OWNING_TYPE;
 
 	/**
+     * The feature id for the '<em><b>Column</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOOL_PROPERTY__COLUMN = PROPERTY__COLUMN;
+
+    /**
      * The feature id for the '<em><b>Default Value</b></em>' attribute.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -828,6 +855,15 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int DATE_TIME_PROPERTY__OWNING_TYPE = PROPERTY__OWNING_TYPE;
 
 	/**
+     * The feature id for the '<em><b>Column</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATE_TIME_PROPERTY__COLUMN = PROPERTY__COLUMN;
+
+    /**
      * The feature id for the '<em><b>Accuracy</b></em>' attribute.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -946,6 +982,15 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int ENUMERATION_PROPERTY__OWNING_TYPE = PROPERTY__OWNING_TYPE;
 
 	/**
+     * The feature id for the '<em><b>Column</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION_PROPERTY__COLUMN = PROPERTY__COLUMN;
+
+    /**
      * The feature id for the '<em><b>Type</b></em>' reference.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1064,6 +1109,15 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int INTEGER_PROPERTY__OWNING_TYPE = PROPERTY__OWNING_TYPE;
 
 	/**
+     * The feature id for the '<em><b>Column</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INTEGER_PROPERTY__COLUMN = PROPERTY__COLUMN;
+
+    /**
      * The feature id for the '<em><b>Min Value</b></em>' attribute.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1191,6 +1245,15 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int STRING_PROPERTY__OWNING_TYPE = PROPERTY__OWNING_TYPE;
 
 	/**
+     * The feature id for the '<em><b>Column</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_PROPERTY__COLUMN = PROPERTY__COLUMN;
+
+    /**
      * The feature id for the '<em><b>Regular Expression</b></em>' attribute.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1327,6 +1390,15 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int BLOB_BINARY_PROPERTY__OWNING_TYPE = PROPERTY__OWNING_TYPE;
 
 	/**
+     * The feature id for the '<em><b>Column</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BLOB_BINARY_PROPERTY__COLUMN = PROPERTY__COLUMN;
+
+    /**
      * The number of structural features of the '<em>Blob Binary Property</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1427,6 +1499,15 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int BLOB_TEXT_PROPERTY__OWNING_TYPE = PROPERTY__OWNING_TYPE;
 
 	/**
+     * The feature id for the '<em><b>Column</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BLOB_TEXT_PROPERTY__COLUMN = PROPERTY__COLUMN;
+
+    /**
      * The number of structural features of the '<em>Blob Text Property</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1554,13 +1635,49 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int ASSOCIATION__MODEL = MODEL_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
+     * The feature id for the '<em><b>Source Foreign Key</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSOCIATION__SOURCE_FOREIGN_KEY = MODEL_ELEMENT_FEATURE_COUNT + 10;
+
+    /**
+     * The feature id for the '<em><b>Target Foreign Key</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSOCIATION__TARGET_FOREIGN_KEY = MODEL_ELEMENT_FEATURE_COUNT + 11;
+
+    /**
+     * The feature id for the '<em><b>Ordering Column</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSOCIATION__ORDERING_COLUMN = MODEL_ELEMENT_FEATURE_COUNT + 12;
+
+    /**
+     * The feature id for the '<em><b>Table</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSOCIATION__TABLE = MODEL_ELEMENT_FEATURE_COUNT + 13;
+
+    /**
      * The number of structural features of the '<em>Association</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int ASSOCIATION_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 10;
+	int ASSOCIATION_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 14;
 
 	/**
      * The meta object id for the '{@link BusinessDomainDsl.impl.DecimalPropertyImpl <em>Decimal Property</em>}' class.
@@ -1654,6 +1771,15 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int DECIMAL_PROPERTY__OWNING_TYPE = PROPERTY__OWNING_TYPE;
 
 	/**
+     * The feature id for the '<em><b>Column</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DECIMAL_PROPERTY__COLUMN = PROPERTY__COLUMN;
+
+    /**
      * The feature id for the '<em><b>Min Value</b></em>' attribute.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2031,6 +2157,17 @@ public interface BusinessDomainDslPackage extends EPackage {
 	EReference getBusinessClass_AssociationsTo();
 
 	/**
+     * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessClass#getTable <em>Table</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Table</em>'.
+     * @see BusinessDomainDsl.BusinessClass#getTable()
+     * @see #getBusinessClass()
+     * @generated
+     */
+    EAttribute getBusinessClass_Table();
+
+    /**
      * Returns the meta object for class '{@link BusinessDomainDsl.Property <em>Property</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2118,6 +2255,17 @@ public interface BusinessDomainDslPackage extends EPackage {
 	EReference getProperty_OwningType();
 
 	/**
+     * Returns the meta object for the attribute '{@link BusinessDomainDsl.Property#getColumn <em>Column</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Column</em>'.
+     * @see BusinessDomainDsl.Property#getColumn()
+     * @see #getProperty()
+     * @generated
+     */
+    EAttribute getProperty_Column();
+
+    /**
      * Returns the meta object for class '{@link BusinessDomainDsl.Enumeration <em>Enumeration</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2557,6 +2705,50 @@ public interface BusinessDomainDslPackage extends EPackage {
 	EReference getAssociation_Model();
 
 	/**
+     * Returns the meta object for the attribute '{@link BusinessDomainDsl.Association#getSourceForeignKey <em>Source Foreign Key</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Source Foreign Key</em>'.
+     * @see BusinessDomainDsl.Association#getSourceForeignKey()
+     * @see #getAssociation()
+     * @generated
+     */
+    EAttribute getAssociation_SourceForeignKey();
+
+    /**
+     * Returns the meta object for the attribute '{@link BusinessDomainDsl.Association#getTargetForeignKey <em>Target Foreign Key</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Target Foreign Key</em>'.
+     * @see BusinessDomainDsl.Association#getTargetForeignKey()
+     * @see #getAssociation()
+     * @generated
+     */
+    EAttribute getAssociation_TargetForeignKey();
+
+    /**
+     * Returns the meta object for the attribute '{@link BusinessDomainDsl.Association#getOrderingColumn <em>Ordering Column</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Ordering Column</em>'.
+     * @see BusinessDomainDsl.Association#getOrderingColumn()
+     * @see #getAssociation()
+     * @generated
+     */
+    EAttribute getAssociation_OrderingColumn();
+
+    /**
+     * Returns the meta object for the attribute '{@link BusinessDomainDsl.Association#getTable <em>Table</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Table</em>'.
+     * @see BusinessDomainDsl.Association#getTable()
+     * @see #getAssociation()
+     * @generated
+     */
+    EAttribute getAssociation_Table();
+
+    /**
      * Returns the meta object for class '{@link BusinessDomainDsl.DecimalProperty <em>Decimal Property</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2841,6 +3033,14 @@ public interface BusinessDomainDslPackage extends EPackage {
 		EReference BUSINESS_CLASS__ASSOCIATIONS_TO = eINSTANCE.getBusinessClass_AssociationsTo();
 
 		/**
+         * The meta object literal for the '<em><b>Table</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BUSINESS_CLASS__TABLE = eINSTANCE.getBusinessClass_Table();
+
+        /**
          * The meta object literal for the '{@link BusinessDomainDsl.impl.PropertyImpl <em>Property</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2907,6 +3107,14 @@ public interface BusinessDomainDslPackage extends EPackage {
 		EReference PROPERTY__OWNING_TYPE = eINSTANCE.getProperty_OwningType();
 
 		/**
+         * The meta object literal for the '<em><b>Column</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROPERTY__COLUMN = eINSTANCE.getProperty_Column();
+
+        /**
          * The meta object literal for the '{@link BusinessDomainDsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3259,6 +3467,38 @@ public interface BusinessDomainDslPackage extends EPackage {
 		EReference ASSOCIATION__MODEL = eINSTANCE.getAssociation_Model();
 
 		/**
+         * The meta object literal for the '<em><b>Source Foreign Key</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ASSOCIATION__SOURCE_FOREIGN_KEY = eINSTANCE.getAssociation_SourceForeignKey();
+
+        /**
+         * The meta object literal for the '<em><b>Target Foreign Key</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ASSOCIATION__TARGET_FOREIGN_KEY = eINSTANCE.getAssociation_TargetForeignKey();
+
+        /**
+         * The meta object literal for the '<em><b>Ordering Column</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ASSOCIATION__ORDERING_COLUMN = eINSTANCE.getAssociation_OrderingColumn();
+
+        /**
+         * The meta object literal for the '<em><b>Table</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ASSOCIATION__TABLE = eINSTANCE.getAssociation_Table();
+
+        /**
          * The meta object literal for the '{@link BusinessDomainDsl.impl.DecimalPropertyImpl <em>Decimal Property</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

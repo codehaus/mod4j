@@ -1,0 +1,32 @@
+domain ProfileDomainMod;
+
+class BeautifulName table LEGACY [
+    string beautifulName column UGLY;
+    boolean secondo;
+    integer fourth;
+    decimal fifth;
+]
+
+class BeautifulSubClass inherits BeautifulName table SUBTABLE [
+    boolean yesNo;
+]
+
+class ReferencedClass table REF_CLASS [
+    string oneProperty;
+]
+
+association
+    BeautifulName name foreign key NAME_FK
+    one -> many
+    ReferencedClass references
+        ordered column ORDERING;
+        
+association
+    BeautifulSubClass subclasses
+    many -> one
+    ReferencedClass reference foreign key REFERENCE_FK;
+    
+association
+    BeautifulName name foreign key BEAUTIFUL_NAME_FK
+    many -> many table LINK_TABLE
+    ReferencedClass referencedClasses foreign key REFERENCE_FK;
