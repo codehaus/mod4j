@@ -10,10 +10,7 @@
 «IMPORT BusinessDomainDsl»
 «IMPORT org::mod4j::dslcommon::xpand::java»
 
-«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
-«EXTENSION org::mod4j::common::xtend::FileTracker»
-«EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE createGenericEnumUserType FOR BusinessDomainDsl::BusinessDomainModel»
         «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: GenericEnumUserType.xpt") FOR this»

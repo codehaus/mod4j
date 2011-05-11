@@ -33,7 +33,7 @@
     /**
      * Creates a «javaDomainBaseClass(this.name)» with the specified ID.
      */
-    protected «javaDomainBaseClass(this.name) -»(Long id) {
+    protected «javaDomainBaseClass(this.name) -»(«getHibernatePrimaryKeyClass()» id) {
        «IF superclass != null -»super(id);«ENDIF»
        «IF superclass == null -»this.id = id;«ENDIF»
     }
@@ -68,7 +68,7 @@
     /**
      * Creates a «javaDomainClass(this.name)» with the specified ID.
      */
-    protected «javaDomainClass(this.name) -»(Long id) {
+    protected «javaDomainClass(this.name) -»(«getHibernatePrimaryKeyClass()» id) {
         super(id);
     }
 «ENDDEFINE»

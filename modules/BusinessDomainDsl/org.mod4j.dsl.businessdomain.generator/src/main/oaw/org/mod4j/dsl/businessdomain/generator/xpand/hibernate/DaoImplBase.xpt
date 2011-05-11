@@ -60,7 +60,7 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
     /**
      * {@inheritDoc}
      */
-    public «javaDomainClass(this.name)» retrieve(Long id) {
+    public «javaDomainClass(this.name)» retrieve(«getHibernatePrimaryKeyClass()» id) {
         Object o = getHibernateTemplate().get(«javaDomainClass(this.name)».class, id);
         if (o == null) {
             return null;
@@ -71,8 +71,8 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
     /**
      * {@inheritDoc}
      */
-    public Long add(«javaDomainClass(this.name)» object) {
-        Long result = (Long) getHibernateTemplate().save(object);
+    public «getHibernatePrimaryKeyClass()» add(«javaDomainClass(this.name)» object) {
+        «getHibernatePrimaryKeyClass()» result = («getHibernatePrimaryKeyClass()») getHibernateTemplate().save(object);
         return result;
     }
 

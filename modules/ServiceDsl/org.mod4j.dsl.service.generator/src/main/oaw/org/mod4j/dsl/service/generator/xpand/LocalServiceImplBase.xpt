@@ -88,7 +88,7 @@
     /**
      * {@inheritDoc}
      */
-    public Long «this.name»(«JavaType(this.dto)» object){
+    public «getHibernatePrimaryKeyClass()» «this.name»(«JavaType(this.dto)» object){
         return «javaDaoInterface(dto.businessClass()).toFirstLower()».add(«javaTranslatorClass(dto.name).toFirstLower()».fromDto(object));
     }
 «ENDDEFINE»
@@ -97,7 +97,7 @@
     /**
      * {@inheritDoc}
      */
-    public «JavaType(this.dto)» «this.name»(Long id) {
+    public «JavaType(this.dto)» «this.name»(«getHibernatePrimaryKeyClass()» id) {
         «javaDomainClass(dto.businessClass())» result =
               «javaDaoInterface(dto.businessClass()).toFirstLower()».retrieve(id);
         return (result == null) ? null : «javaTranslatorClass(dto.name).toFirstLower()».toDto(result);

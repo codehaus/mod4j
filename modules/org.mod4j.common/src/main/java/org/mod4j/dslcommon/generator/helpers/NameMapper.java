@@ -133,6 +133,15 @@ public class NameMapper {
         return packageName + "." + javaGenericEnumClass();
     }
 
+    public static String javaAbstractDtoClass() {
+        return "AbstractDto";
+    }
+
+    public static String javaAbstractDtoClassPath() {
+        String packageName = ProjectProperties.getDtoPackage();
+        return packageName + "." + javaAbstractDtoClass();
+    }
+
     public static String javaDaoBaseInterface(String cls) {
         return javaDomainClass(cls) + DAO_BASE_INTERFACE_POSTFIX;
     }

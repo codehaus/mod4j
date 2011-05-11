@@ -155,7 +155,7 @@
          * @param id
          *            The identifier of the new object.
          */
-        public «javaDomainExampleClass(name)»(Long id) {
+        public «javaDomainExampleClass(name)»(«getHibernatePrimaryKeyClass()» id) {
             super(id);
 
             activateValidation(false);

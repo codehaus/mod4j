@@ -57,7 +57,7 @@
     «ENDIF»
            optimistic-lock="version">
         <cache usage="read-write" />
-        <id name="id" type="java.lang.Long">
+        <id name="id" type="«getHibernatePrimaryKeyClass()»">
             <generator class="«getHibernate_mapping_class_id_generator_class()»" />
         </id>
         <version name="version" unsaved-value="negative" />

@@ -32,10 +32,12 @@ public class ProjectProperties {
         try {
             properties.load(new FileInputStream(propertyFile));
         } catch (FileNotFoundException e) {
-            System.err.println("PropjectProperties: cannot find properties file [" + propertyFile + "]");
+            System.err.println("PropjectProperties: cannot find properties file [" + propertyFile
+                    + "]");
             e.printStackTrace();
         } catch (IOException e) {
-            System.err.println("PropjectProperties: cannot read properties file [" + propertyFile + "]");
+            System.err.println("PropjectProperties: cannot read properties file [" + propertyFile
+                    + "]");
             e.printStackTrace();
         }
 
@@ -61,7 +63,10 @@ public class ProjectProperties {
         hibernate_hbm2ddl_auto = properties.getProperty("hibernate.hbm2ddl.auto");
         hibernate_mapping_class_id_generator_class = properties
                 .getProperty("hibernate-mapping.class.id.generator.class");
-        hibernate_mapping_inheritance_strategy = properties.getProperty("hibernate-mapping.inheritance.strategy");
+        hibernate_mapping_primary_key_class = properties
+                .getProperty("hibernate-mapping.primary-key-class", "java.lang.Long");
+        hibernate_mapping_inheritance_strategy = properties
+                .getProperty("hibernate-mapping.inheritance.strategy");
 
     }
 
@@ -80,15 +85,15 @@ public class ProjectProperties {
     private static String serviceModuleName = "DEFAULT";
 
     private static String businessDomainModuleName = "DEFAULT";
-    
+
     private static String businessdomainRootPackage = "DEFAULT";
-    
+
     private static String presentationModuleName = "DEFAULT";
 
     private static String rootPackage = "DEFAULT";
 
     private static String serviceRootPackage = "DEFAULT";
-    
+
     private static String presentationRootPackage = "DEFAULT";
 
     private static String domainRootPackage = "DEFAULT";
@@ -100,11 +105,11 @@ public class ProjectProperties {
     private static String resourceGenPath = "DEFAULT";
 
     private static String srcManPath = "DEFAULT";
-    
+
     private static String webAppPath = "src/main/webapp";
 
     private static String resourceManPath = "DEFAULT";
-    
+
     private static final String environmentPropertiesFileName = "environment.properties";
 
     private static String fileEncoding = "UTF-8";
@@ -114,7 +119,7 @@ public class ProjectProperties {
     public static final String DAO_PACKAGE = "";
 
     public static final String DAO_IMPL_PACKAGE = ".hibernate.spring";
-    
+
     public static final String LOCALSERVICES_PACKAGE = ".local";
 
     public static final String DTO_PACKAGE = ".dto";
@@ -128,7 +133,8 @@ public class ProjectProperties {
     private static String hibernate_mapping_class_id_generator_class = "native";
 
     private static String hibernate_mapping_inheritance_strategy = "table.per.concrete.class";
-    
+
+    private static String hibernate_mapping_primary_key_class = "java.lang.Long";
 
     public static void setWorkDir(String dir) {
         workDir = dir;
@@ -143,22 +149,22 @@ public class ProjectProperties {
     }
 
     public static String getApplicationPath() {
-    	if( applicationPath != null ){
-	    	if( applicationPath.startsWith("..")){
-	    		if( applicationPath.equals("..")) {
-             		int last = workDir.lastIndexOf("/");
-             		if( last == -1 ){
-                 		last = workDir.lastIndexOf("\\");
-             		}
-	            	if( last > -1){
-	            		return workDir.substring(0, last)  ;
-	            	}
-	    		} else {
-	        		int last = workDir.lastIndexOf("/");
-	        		return workDir.substring(0, last) + applicationPath.substring(2) ;
-	    		}
-	    	}
-    	}
+        if (applicationPath != null) {
+            if (applicationPath.startsWith("..")) {
+                if (applicationPath.equals("..")) {
+                    int last = workDir.lastIndexOf("/");
+                    if (last == -1) {
+                        last = workDir.lastIndexOf("\\");
+                    }
+                    if (last > -1) {
+                        return workDir.substring(0, last);
+                    }
+                } else {
+                    int last = workDir.lastIndexOf("/");
+                    return workDir.substring(0, last) + applicationPath.substring(2);
+                }
+            }
+        }
         return workDir + "/" + applicationPath;
     }
 
@@ -177,9 +183,9 @@ public class ProjectProperties {
     public static String getBusinessDomainModuleName() {
         return businessDomainModuleName;
     }
-    
+
     public static String getPresentationModuleName(String targetPlatform) {
-        return presentationModuleName ; //+ (targetPlatform != null ? "-" + targetPlatform : "");
+        return presentationModuleName; // + (targetPlatform != null ? "-" + targetPlatform : "");
     }
 
     public static String getServiceModuleName() {
@@ -197,7 +203,7 @@ public class ProjectProperties {
     public static String getRootPackage() {
         return rootPackage;
     }
-    
+
     public static String getServiceRootPackage() {
         return serviceRootPackage;
     }
@@ -205,11 +211,11 @@ public class ProjectProperties {
     public static String getServiceRootPackageAsPath() {
         return getServiceRootPackage().replaceAll("\\.", "/");
     }
-    
+
     public static String getLocalServicePackage() {
         return serviceRootPackage + LOCALSERVICES_PACKAGE;
     }
-    
+
     public static String getPresentationRootPackage() {
         return presentationRootPackage;
     }
@@ -225,11 +231,11 @@ public class ProjectProperties {
     public static String getPresentationRootPackageAsPath() {
         return getPresentationRootPackage().replaceAll("\\.", "/");
     }
-    
+
     public static String getBusinessdomainRootPackageAsPath() {
         return getBusinessdomainRootPackage().replaceAll("\\.", "/");
     }
-    
+
     public static String getBusinessdomainRootPackage() {
         return businessdomainRootPackage;
     }
@@ -293,11 +299,11 @@ public class ProjectProperties {
     public static String getResourceManPath() {
         return resourceManPath;
     }
-    
+
     public static String getWebAppPath() {
         return webAppPath;
     }
-    
+
     public static String getEnvPropFileName() {
         return environmentPropertiesFileName;
     }
@@ -314,6 +320,10 @@ public class ProjectProperties {
         return hibernate_mapping_class_id_generator_class;
     }
 
+    public static String getHibernatePrimaryKeyClass() {
+        return hibernate_mapping_primary_key_class;
+    }
+
     public static String getHibernate_InheritanceMappingStrategy() {
         return hibernate_mapping_inheritance_strategy;
     }
@@ -325,14 +335,14 @@ public class ProjectProperties {
     }
 
     public static String getProjectForEObject(EObject object) {
-        if( project.equals("/") ){ 
+        if (project.equals("/")) {
             URI uri = object.eResource().getURI();
             return uri.segment(1);
         } else {
             return project;
         }
     }
-    
+
     public static void setProject(String project) {
         ProjectProperties.project = project;
     }

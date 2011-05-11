@@ -11,6 +11,7 @@
 «IMPORT DataContractDsl»
 «IMPORT Crossx»
 
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dsl::datacontract::generator::xtend::Dto»
 
@@ -23,7 +24,7 @@
      * @param version
      *            The version of the referenced business object.
      */
-     public  «javaClassName(name) -» (final Long id, final Integer version) {
+     public  «javaClassName(name) -» (final «getHibernatePrimaryKeyClass()» id, final Integer version) {
          super(id, version);
      }
 «ENDDEFINE»
@@ -35,7 +36,7 @@
      * @param id
      *            The ID of the referenced business object.
      */
-     public  «javaClassName(name) -» (final Long id) {
+     public  «javaClassName(name) -» (final «getHibernatePrimaryKeyClass()» id) {
          super(id, null);
      }
 «ENDDEFINE»

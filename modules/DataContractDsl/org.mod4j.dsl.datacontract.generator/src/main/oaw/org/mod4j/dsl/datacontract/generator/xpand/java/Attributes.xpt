@@ -10,6 +10,7 @@
 «ENDREM»
 «IMPORT DataContractDsl»
 
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::dsl::datacontract::generator::xtend::Dto»
 
 «DEFINE instanceVariable FOR DtoDataProperty»
@@ -116,7 +117,7 @@
      * @return «dtoType.name.toFirstLower()» («dtoType.name.toFirstUpper()»)
      *         with the given id.
      */
-    public «dtoType.name.toFirstUpper()» getFrom«this.name.toFirstUpper()»(Long id) {
+    public «dtoType.name.toFirstUpper()» getFrom«this.name.toFirstUpper()»(«getHibernatePrimaryKeyClass()» id) {
         if (id == null) {
             return null;
         }
@@ -146,7 +147,7 @@
      * @return «dtoType.name.toFirstLower()» («dtoType.name.toFirstUpper()»)
      *         with the given id.
      */
-    public «dtoType.name.toFirstUpper()» getFrom«this.name.toFirstUpper()» (Long id) {
+    public «dtoType.name.toFirstUpper()» getFrom«this.name.toFirstUpper()» («getHibernatePrimaryKeyClass()» id) {
         if (id == null) {
             return null;
         }

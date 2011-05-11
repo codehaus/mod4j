@@ -11,6 +11,7 @@
 
 
 «EXTENSION Association»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «REM»
@@ -25,7 +26,7 @@
      * @return «targetRoleName» («javaDomainClass(target.name)»)
      *         with the given id.
      */
-    public «javaDomainClass(target.name)» getFrom«targetRoleName.toFirstUpper()» (Long id) {
+    public «javaDomainClass(target.name)» getFrom«targetRoleName.toFirstUpper()» («getHibernatePrimaryKeyClass()» id) {
         if (id == null) {
             return null;
         }

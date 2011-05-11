@@ -9,6 +9,7 @@
 «ENDREM»
 «IMPORT BusinessDomainDsl»
 
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION Association»
 
@@ -74,7 +75,7 @@
     }
 «ENDDEFINE»
 
-«REM»  Defines the getForm***(Long id) operation for bioth ends of the association
+«REM»  Defines the getForm***(«getHibernatePrimaryKeyClass()» id) operation for bioth ends of the association
 «ENDREM»
 «DEFINE getFrom(String type, String roleName) FOR Association»
     /**
@@ -85,7 +86,7 @@
      * @return «roleName» («getCollectionInterface()»<«type»>)
      *         with the given id.
      */
-    public «type» getFrom«roleName.toFirstUpper()» (Long id) {
+    public «type» getFrom«roleName.toFirstUpper()» («getHibernatePrimaryKeyClass()» id) {
         if (id == null) {
             return null;
         }

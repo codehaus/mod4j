@@ -101,6 +101,9 @@ String getHibernate_hbm2ddl_auto() :
  
 String getHibernate_mapping_class_id_generator_class() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getHibernate_mapping_class_id_generator_class();
+
+String getHibernatePrimaryKeyClass() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getHibernatePrimaryKeyClass();
  
 String getHibernate_InheritanceMappingStrategy() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getHibernate_InheritanceMappingStrategy();

@@ -40,7 +40,7 @@ public interface «javaDaoBaseInterface(this.name)» {
      * @param id id of the «javaDomainClass(this.name)» to retrieve.
      * @return «javaDomainClass(this.name)» retrieved or null when no «javaDomainClass(this.name)» was found.
      */
-    «javaDomainClass(this.name)» retrieve(Long id);
+    «javaDomainClass(this.name)» retrieve(«getHibernatePrimaryKeyClass()» id);
 
     /**
      * Adds a new «javaDomainClass(this.name)» to the database
@@ -49,7 +49,7 @@ public interface «javaDaoBaseInterface(this.name)» {
      *                the «javaDomainClass(this.name)» to add to the database.
      * @return the stored «this.name».
      */
-    Long add(«javaDomainClass(this.name)» object);
+    «getHibernatePrimaryKeyClass()» add(«javaDomainClass(this.name)» object);
 
     /**
      * Deletes a «this.name» from the database.

@@ -22,6 +22,10 @@
 
 	«print("MOD4J INFO: Running Data Contract generator on model [" + this.name + "]")»
 
+    «FILE generate(getServiceModuleName(), javaPathFileName(javaAbstractDtoClassPath()))»
+        «EXPAND AbstractDto::createAbstractDto FOR this»
+    «ENDFILE»
+    
     «FOREACH enumerations AS enum»
 		«FILE generate(getServiceModuleName(), javaPathFileName(javaDtoClassPath(enum.name)))»
 		    «EXPAND Enumeration::createEnumDto FOR enum»

@@ -92,7 +92,7 @@
      *            The «this.dto.name» to create.
      * @return the id of the «this.dto.name» created.
      */
-    public Long «this.name»(«JavaType(this.dto)» object);
+    public «getHibernatePrimaryKeyClass()» «this.name»(«JavaType(this.dto)» object);
 «ENDDEFINE»
 
 «DEFINE ReadMethod FOR SpecialMethod -»
@@ -103,7 +103,7 @@
      *            The id of the «this.dto.name» to read.
      * @return The «this.dto.name» with id, or null if no object with id exists.
      */
-    public «JavaType(this.dto)» «this.name»(Long id);
+    public «JavaType(this.dto)» «this.name»(«getHibernatePrimaryKeyClass()» id);
 «ENDDEFINE»
 
 «DEFINE UpdateMethod FOR SpecialMethod -»
