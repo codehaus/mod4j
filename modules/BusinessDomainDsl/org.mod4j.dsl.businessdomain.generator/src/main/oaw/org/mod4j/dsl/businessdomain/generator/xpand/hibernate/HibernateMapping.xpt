@@ -223,7 +223,10 @@
         <many-to-one name="«sourceRoleName»"
             class="«javaDomainClass(this.source.name)»"
             not-null="false"
-            column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»«ENDIF»" />
+        «IF sourceForeignKey != null»
+            column="«sourceForeignKey»"
+        «ENDIF»
+        />
 «ENDDEFINE»
 
 «DEFINE many2oneMappingTo FOR Association -»
@@ -232,7 +235,9 @@
             cascade="save-update"
             class="«javaDomainClass(this.target.name)»" 
             not-null="false"
-            column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»«ENDIF»"
+        «IF targetForeignKey != null»
+            column="«targetForeignKey»"
+        «ENDIF»
         />
 «ENDDEFINE»
 
@@ -252,8 +257,10 @@
 
 «DEFINE one2oneMappingTo FOR Association -»
 		<!-- one2oneMappingTo «IF bidirectional», bi-directional«ENDIF» -->
-        <many-to-one name="«targetRoleName»" 
-                    column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»«ENDIF»"
+        <many-to-one name="«targetRoleName»"
+            «IF targetForeignKey != null»
+                    column="«targetForeignKey»"
+            «ENDIF»
                     cascade="save-update"
                     unique="true"
                     class="«javaDomainClass(this.target.name)»"
