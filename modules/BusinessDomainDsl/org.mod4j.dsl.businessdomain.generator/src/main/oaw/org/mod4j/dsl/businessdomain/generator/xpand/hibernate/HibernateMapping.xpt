@@ -196,7 +196,7 @@
 		<!-- one2manyMappingTo«IF bidirectional», bi-directional«ENDIF» -->
         <set name="«this.targetRoleName»"
             cascade="save-update" «IF bidirectional»inverse="true"«ENDIF»>
-            <key column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»_ID«ENDIF»"/>
+            <key column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»«ENDIF»"/>
             <one-to-many
                 class="«javaDomainClass(this.target.name)»" 
              />
@@ -207,7 +207,7 @@
         <!-- orderedOne2manyMappingTo «IF bidirectional», bi-directional«ENDIF» -->
         <list name="«this.targetRoleName»"
             cascade="save-update" «IF bidirectional»inverse="true"«ENDIF»>
-            <key column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»_ID«ENDIF»"/>
+            <key column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»«ENDIF»"/>
             <list-index column="«IF orderingColumn != null»«orderingColumn»«ELSE»orderFor«sourceRoleName.toFirstUpper()»«ENDIF»" />
             <one-to-many
                 class="«javaDomainClass(this.target.name)»" 
@@ -223,7 +223,7 @@
         <many-to-one name="«sourceRoleName»"
             class="«javaDomainClass(this.source.name)»"
             not-null="false"
-            column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»_ID«ENDIF»" />
+            column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»«ENDIF»" />
 «ENDDEFINE»
 
 «DEFINE many2oneMappingTo FOR Association -»
@@ -232,7 +232,7 @@
             cascade="save-update"
             class="«javaDomainClass(this.target.name)»" 
             not-null="false"
-            column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»_ID«ENDIF»"
+            column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»«ENDIF»"
         />
 «ENDDEFINE»
 
@@ -243,7 +243,7 @@
         <!-- many2oneMappingFrom, bi-directional -->
         <set name="«this.sourceRoleName»" inverse="true"
             cascade="save-update">
-            <key column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»_ID«ENDIF»"/>
+            <key column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»«ENDIF»"/>
             <one-to-many
                 class="«javaDomainClass(this.source.name)»" 
              />
@@ -253,7 +253,7 @@
 «DEFINE one2oneMappingTo FOR Association -»
 		<!-- one2oneMappingTo «IF bidirectional», bi-directional«ENDIF» -->
         <many-to-one name="«targetRoleName»" 
-                    column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»_ID«ENDIF»"
+                    column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»«ENDIF»"
                     cascade="save-update"
                     unique="true"
                     class="«javaDomainClass(this.target.name)»"
@@ -272,10 +272,10 @@
         <!-- many2manyMappingTo «IF bidirectional», bi-directional«ENDIF» -->
         <set name="«this.targetRoleName»"
              table="«IF table != null»«table»«ELSE»«this.sourceRoleName»_«this.targetRoleName»«ENDIF»">
-            <key column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»_ID«ENDIF»"
+            <key column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»«ENDIF»"
                  not-null="true" />
             <many-to-many class="«javaDomainClass(this.target.name)»"
-                          column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»_ID«ENDIF»" />
+                          column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»«ENDIF»" />
         </set>
 «ENDDEFINE»
 
@@ -283,11 +283,11 @@
         <!-- orderedMany2manyMappingTo «IF bidirectional», bi-directional«ENDIF» -->
         <list name="«this.targetRoleName»"
              table="«IF table != null»«table»«ELSE»«this.sourceRoleName»_«this.targetRoleName»«ENDIF»">
-            <key column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»_ID«ENDIF»"
+            <key column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»«ENDIF»"
                  not-null="true" />
             <list-index column="«IF orderingColumn != null»«orderingColumn»«ELSE»orderFor«sourceRoleName.toFirstUpper()»«ENDIF»" />
             <many-to-many class="«javaDomainClass(this.target.name)»"
-                          column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»_ID«ENDIF»" />
+                          column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»«ENDIF»" />
         </list>
 «ENDDEFINE»
 
@@ -296,9 +296,9 @@
         <!-- many2manyMappingFrom, bi-directional -->
         <set name="«this.sourceRoleName»" inverse="true"
              table="«IF table != null»«table»«ELSE»«this.sourceRoleName»_«this.targetRoleName»«ENDIF»">
-            <key column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»_ID«ENDIF»"
+            <key column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»«ENDIF»"
                  not-null="true" />
             <many-to-many class="«javaDomainClass(this.source.name)»"
-                          column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»_ID«ENDIF»" />
+                          column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»«ENDIF»" />
         </set>
 «ENDDEFINE»
