@@ -118,7 +118,7 @@ public class DerivedNotYetImplementedDaoTest extends AbstractDaoTestCase {
     @Test
     public void testSetFifth() {
         try {
-            read.setFifth(5.0F);
+            read.setFifth(5.0D);
             fail("Expected UnsupportedOperationException");
         } catch (UnsupportedOperationException e) {
             assertEquals("Not implemented", e.getMessage());

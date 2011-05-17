@@ -302,13 +302,37 @@ ruleAssociation returns [EObject current=null]
 	        }
 	    }
 	
+))?('references' 
+    {
+        createLeafNode(grammarAccess.getAssociationAccess().getReferencesKeyword_5_0(), null); 
+    }
+(	
+	
+	    lv_sourceAlternateKey_7=	RULE_ID
+	{
+		createLeafNode(grammarAccess.getAssociationAccess().getSourceAlternateKeyIDTerminalRuleCall_5_1_0(), "sourceAlternateKey"); 
+	}
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAssociationRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "sourceAlternateKey", lv_sourceAlternateKey_7, "ID", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+	
 ))?(	
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getAssociationAccess().getSourceMultiplicityMultiplicityEnumRuleCall_5_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getAssociationAccess().getSourceMultiplicityMultiplicityEnumRuleCall_6_0(), currentNode); 
 	    }
-	    lv_sourceMultiplicity_6=ruleMultiplicity 
+	    lv_sourceMultiplicity_8=ruleMultiplicity 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getAssociationRule().getType().getClassifier());
@@ -316,7 +340,7 @@ ruleAssociation returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "sourceMultiplicity", lv_sourceMultiplicity_6, "Multiplicity", lastConsumedNode);
+	       		set($current, "sourceMultiplicity", lv_sourceMultiplicity_8, "Multiplicity", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -325,9 +349,9 @@ ruleAssociation returns [EObject current=null]
 	
 )((	
 	
-	    lv_bidirectional_7='<->' 
+	    lv_bidirectional_9='<->' 
     {
-        createLeafNode(grammarAccess.getAssociationAccess().getBidirectionalLessThanSignHyphenMinusGreaterThanSignKeyword_6_0_0(), "bidirectional"); 
+        createLeafNode(grammarAccess.getAssociationAccess().getBidirectionalLessThanSignHyphenMinusGreaterThanSignKeyword_7_0_0(), "bidirectional"); 
     }
 
  
@@ -347,15 +371,15 @@ ruleAssociation returns [EObject current=null]
 )
     |'->' 
     {
-        createLeafNode(grammarAccess.getAssociationAccess().getHyphenMinusGreaterThanSignKeyword_6_1(), null); 
+        createLeafNode(grammarAccess.getAssociationAccess().getHyphenMinusGreaterThanSignKeyword_7_1(), null); 
     }
 )(	
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getAssociationAccess().getTargetMultiplicityMultiplicityEnumRuleCall_7_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getAssociationAccess().getTargetMultiplicityMultiplicityEnumRuleCall_8_0(), currentNode); 
 	    }
-	    lv_targetMultiplicity_9=ruleMultiplicity 
+	    lv_targetMultiplicity_11=ruleMultiplicity 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getAssociationRule().getType().getClassifier());
@@ -363,7 +387,7 @@ ruleAssociation returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "targetMultiplicity", lv_targetMultiplicity_9, "Multiplicity", lastConsumedNode);
+	       		set($current, "targetMultiplicity", lv_targetMultiplicity_11, "Multiplicity", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -372,13 +396,13 @@ ruleAssociation returns [EObject current=null]
 	
 )('table' 
     {
-        createLeafNode(grammarAccess.getAssociationAccess().getTableKeyword_8_0(), null); 
+        createLeafNode(grammarAccess.getAssociationAccess().getTableKeyword_9_0(), null); 
     }
 (	
 	
-	    lv_table_11=	RULE_ID
+	    lv_table_13=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getAssociationAccess().getTableIDTerminalRuleCall_8_1_0(), "table"); 
+		createLeafNode(grammarAccess.getAssociationAccess().getTableIDTerminalRuleCall_9_1_0(), "table"); 
 	}
  
 	    {
@@ -388,7 +412,7 @@ ruleAssociation returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "table", lv_table_11, "ID", lastConsumedNode);
+	       		set($current, "table", lv_table_13, "ID", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -405,16 +429,16 @@ ruleAssociation returns [EObject current=null]
         }
 	RULE_ID
 	{
-		createLeafNode(grammarAccess.getAssociationAccess().getTargetAbstractBusinessClassCrossReference_9_0(), "target"); 
+		createLeafNode(grammarAccess.getAssociationAccess().getTargetAbstractBusinessClassCrossReference_10_0(), "target"); 
 	}
 
 		// TODO assign feature to currentNode
 	
 )(	
 	
-	    lv_targetRoleName_13=	RULE_ID
+	    lv_targetRoleName_15=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getAssociationAccess().getTargetRoleNameIDTerminalRuleCall_10_0(), "targetRoleName"); 
+		createLeafNode(grammarAccess.getAssociationAccess().getTargetRoleNameIDTerminalRuleCall_11_0(), "targetRoleName"); 
 	}
  
 	    {
@@ -424,7 +448,7 @@ ruleAssociation returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "targetRoleName", lv_targetRoleName_13, "ID", lastConsumedNode);
+	       		set($current, "targetRoleName", lv_targetRoleName_15, "ID", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -432,13 +456,13 @@ ruleAssociation returns [EObject current=null]
 	
 )('foreign key' 
     {
-        createLeafNode(grammarAccess.getAssociationAccess().getForeignKeyKeyword_11_0(), null); 
+        createLeafNode(grammarAccess.getAssociationAccess().getForeignKeyKeyword_12_0(), null); 
     }
 (	
 	
-	    lv_targetForeignKey_15=	RULE_ID
+	    lv_targetForeignKey_17=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getAssociationAccess().getTargetForeignKeyIDTerminalRuleCall_11_1_0(), "targetForeignKey"); 
+		createLeafNode(grammarAccess.getAssociationAccess().getTargetForeignKeyIDTerminalRuleCall_12_1_0(), "targetForeignKey"); 
 	}
  
 	    {
@@ -448,7 +472,31 @@ ruleAssociation returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "targetForeignKey", lv_targetForeignKey_15, "ID", lastConsumedNode);
+	       		set($current, "targetForeignKey", lv_targetForeignKey_17, "ID", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+	
+))?('references' 
+    {
+        createLeafNode(grammarAccess.getAssociationAccess().getReferencesKeyword_13_0(), null); 
+    }
+(	
+	
+	    lv_targetAlternateKey_19=	RULE_ID
+	{
+		createLeafNode(grammarAccess.getAssociationAccess().getTargetAlternateKeyIDTerminalRuleCall_13_1_0(), "targetAlternateKey"); 
+	}
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAssociationRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "targetAlternateKey", lv_targetAlternateKey_19, "ID", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -456,9 +504,9 @@ ruleAssociation returns [EObject current=null]
 	
 ))?((	
 	
-	    lv_ordered_16='ordered' 
+	    lv_ordered_20='ordered' 
     {
-        createLeafNode(grammarAccess.getAssociationAccess().getOrderedOrderedKeyword_12_0_0(), "ordered"); 
+        createLeafNode(grammarAccess.getAssociationAccess().getOrderedOrderedKeyword_14_0_0(), "ordered"); 
     }
 
  
@@ -477,13 +525,13 @@ ruleAssociation returns [EObject current=null]
 	
 )('column' 
     {
-        createLeafNode(grammarAccess.getAssociationAccess().getColumnKeyword_12_1_0(), null); 
+        createLeafNode(grammarAccess.getAssociationAccess().getColumnKeyword_14_1_0(), null); 
     }
 (	
 	
-	    lv_orderingColumn_18=	RULE_ID
+	    lv_orderingColumn_22=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getAssociationAccess().getOrderingColumnIDTerminalRuleCall_12_1_1_0(), "orderingColumn"); 
+		createLeafNode(grammarAccess.getAssociationAccess().getOrderingColumnIDTerminalRuleCall_14_1_1_0(), "orderingColumn"); 
 	}
  
 	    {
@@ -493,7 +541,7 @@ ruleAssociation returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "orderingColumn", lv_orderingColumn_18, "ID", lastConsumedNode);
+	       		set($current, "orderingColumn", lv_orderingColumn_22, "ID", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -501,7 +549,7 @@ ruleAssociation returns [EObject current=null]
 	
 ))?)?';' 
     {
-        createLeafNode(grammarAccess.getAssociationAccess().getSemicolonKeyword_13(), null); 
+        createLeafNode(grammarAccess.getAssociationAccess().getSemicolonKeyword_15(), null); 
     }
 );
 

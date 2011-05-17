@@ -57,7 +57,7 @@ public class DerivedNotYetImplementedTest {
     public void testSetFifth() {
         DerivedNotYetImplemented derived = new DerivedNotYetImplemented();
         try {
-            derived.setFifth(5.0F);
+            derived.setFifth(5.0D);
             fail("Expected UnsupportedOperationException");
         } catch (UnsupportedOperationException e) {
             assertEquals("Not implemented", e.getMessage());

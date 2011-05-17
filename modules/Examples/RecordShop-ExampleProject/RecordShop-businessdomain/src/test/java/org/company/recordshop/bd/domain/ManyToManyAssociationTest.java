@@ -20,9 +20,9 @@ public class ManyToManyAssociationTest {
 
     @Before
     public void setUp() throws Exception {
-        record1 = new Record("1234", 24.95F, RecordTypeEnum.BLUERAY);
-        record2 = new Record("1234", 24.95F, RecordTypeEnum.BLUERAY);
-        record3 = new Record("1234", 24.95F, RecordTypeEnum.BLUERAY);
+        record1 = new Record("1234", 24.95D, RecordTypeEnum.BLUERAY);
+        record2 = new Record("1234", 24.95D, RecordTypeEnum.BLUERAY);
+        record3 = new Record("1234", 24.95D, RecordTypeEnum.BLUERAY);
 
         artist1 = new Artist("A1", "L1", date(), "A1");
         artist2 = new Artist("A2", "L2", date(), "A2");

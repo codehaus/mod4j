@@ -17,7 +17,7 @@ public class ProductMinQuantityBusinessRuleValidationTest {
 	@Test
 	public final void testUpdateOrderLineQauntity() {
 		
-		Product product = new Product("1234", 1F, true);
+		Product product = new Product("1234", 1D, true);
 		product.setMinimalQuantity(2);
 		OrderLine orderline = new OrderLine(1, "Test line");
 		orderline.setQuantity(1);

@@ -73,8 +73,8 @@ public class Derived extends DerivedImplBase {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Float getFifth() {
-		return 5.0F;
+	public Double getFifth() {
+		return 5.0D;
 	}
 
 	/**

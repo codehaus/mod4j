@@ -1644,13 +1644,31 @@ public interface BusinessDomainDslPackage extends EPackage {
     int ASSOCIATION__SOURCE_FOREIGN_KEY = MODEL_ELEMENT_FEATURE_COUNT + 10;
 
     /**
+     * The feature id for the '<em><b>Source Alternate Key</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSOCIATION__SOURCE_ALTERNATE_KEY = MODEL_ELEMENT_FEATURE_COUNT + 11;
+
+    /**
      * The feature id for the '<em><b>Target Foreign Key</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ASSOCIATION__TARGET_FOREIGN_KEY = MODEL_ELEMENT_FEATURE_COUNT + 11;
+    int ASSOCIATION__TARGET_FOREIGN_KEY = MODEL_ELEMENT_FEATURE_COUNT + 12;
+
+    /**
+     * The feature id for the '<em><b>Target Alternate Key</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSOCIATION__TARGET_ALTERNATE_KEY = MODEL_ELEMENT_FEATURE_COUNT + 13;
 
     /**
      * The feature id for the '<em><b>Ordering Column</b></em>' attribute.
@@ -1659,7 +1677,7 @@ public interface BusinessDomainDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSOCIATION__ORDERING_COLUMN = MODEL_ELEMENT_FEATURE_COUNT + 12;
+    int ASSOCIATION__ORDERING_COLUMN = MODEL_ELEMENT_FEATURE_COUNT + 14;
 
     /**
      * The feature id for the '<em><b>Table</b></em>' attribute.
@@ -1668,7 +1686,7 @@ public interface BusinessDomainDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSOCIATION__TABLE = MODEL_ELEMENT_FEATURE_COUNT + 13;
+    int ASSOCIATION__TABLE = MODEL_ELEMENT_FEATURE_COUNT + 15;
 
     /**
      * The number of structural features of the '<em>Association</em>' class.
@@ -1677,7 +1695,7 @@ public interface BusinessDomainDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-	int ASSOCIATION_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 14;
+	int ASSOCIATION_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 16;
 
 	/**
      * The meta object id for the '{@link BusinessDomainDsl.impl.DecimalPropertyImpl <em>Decimal Property</em>}' class.
@@ -2716,6 +2734,17 @@ public interface BusinessDomainDslPackage extends EPackage {
     EAttribute getAssociation_SourceForeignKey();
 
     /**
+     * Returns the meta object for the attribute '{@link BusinessDomainDsl.Association#getSourceAlternateKey <em>Source Alternate Key</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Source Alternate Key</em>'.
+     * @see BusinessDomainDsl.Association#getSourceAlternateKey()
+     * @see #getAssociation()
+     * @generated
+     */
+    EAttribute getAssociation_SourceAlternateKey();
+
+    /**
      * Returns the meta object for the attribute '{@link BusinessDomainDsl.Association#getTargetForeignKey <em>Target Foreign Key</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2725,6 +2754,17 @@ public interface BusinessDomainDslPackage extends EPackage {
      * @generated
      */
     EAttribute getAssociation_TargetForeignKey();
+
+    /**
+     * Returns the meta object for the attribute '{@link BusinessDomainDsl.Association#getTargetAlternateKey <em>Target Alternate Key</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Target Alternate Key</em>'.
+     * @see BusinessDomainDsl.Association#getTargetAlternateKey()
+     * @see #getAssociation()
+     * @generated
+     */
+    EAttribute getAssociation_TargetAlternateKey();
 
     /**
      * Returns the meta object for the attribute '{@link BusinessDomainDsl.Association#getOrderingColumn <em>Ordering Column</em>}'.
@@ -3475,12 +3515,28 @@ public interface BusinessDomainDslPackage extends EPackage {
         EAttribute ASSOCIATION__SOURCE_FOREIGN_KEY = eINSTANCE.getAssociation_SourceForeignKey();
 
         /**
+         * The meta object literal for the '<em><b>Source Alternate Key</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ASSOCIATION__SOURCE_ALTERNATE_KEY = eINSTANCE.getAssociation_SourceAlternateKey();
+
+        /**
          * The meta object literal for the '<em><b>Target Foreign Key</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
         EAttribute ASSOCIATION__TARGET_FOREIGN_KEY = eINSTANCE.getAssociation_TargetForeignKey();
+
+        /**
+         * The meta object literal for the '<em><b>Target Alternate Key</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ASSOCIATION__TARGET_ALTERNATE_KEY = eINSTANCE.getAssociation_TargetAlternateKey();
 
         /**
          * The meta object literal for the '<em><b>Ordering Column</b></em>' attribute feature.

@@ -167,7 +167,7 @@ public class AssociationsServiceTest extends AbstractServiceTestCase {
     public final void testAddExistingProduct() {
         ProductWithCustomersDto p001 = new ProductWithCustomersDto();
         p001.setProductNumber("p001");
-        p001.setPrice(new Float(8));
+        p001.setPrice(8D);
         p001.setOrderable(true);
         ProductWithCustomersDto createdP001 = customerService
                 .readProductAsProductWithCustomersDto(customerService.createProduct(p001));
@@ -219,7 +219,7 @@ public class AssociationsServiceTest extends AbstractServiceTestCase {
     public final void testAddExistingCustomer() {
         ProductWithCustomersDto p001 = new ProductWithCustomersDto();
         p001.setProductNumber("p001");
-        p001.setPrice(new Float(8));
+        p001.setPrice(8D);
         p001.setOrderable(true);
         ProductWithCustomersDto createdP001 = customerService
                 .readProductAsProductWithCustomersDto(customerService.createProduct(p001));

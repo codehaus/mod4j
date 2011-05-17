@@ -275,11 +275,15 @@
          /> 
 «ENDDEFINE»
 
+«REM»assocation <source> <sourceRoleName> ["foreign key" <foreign key>] many [<]-> many <target> <targetRoleName>«ENDREM»
 «DEFINE many2manyMappingTo FOR Association -»
         <!-- many2manyMappingTo «IF bidirectional», bi-directional«ENDIF» -->
         <set name="«this.targetRoleName»"
              table="«IF table != null»«table»«ELSE»«this.sourceRoleName»_«this.targetRoleName»«ENDIF»">
             <key column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»«ENDIF»"
+            «IF sourceAlternateKey != null -»
+                 property-ref="«sourceAlternateKey»"
+            «ENDIF»
                  not-null="true" />
             <many-to-many class="«javaDomainClass(this.target.name)»"
                           column="«IF targetForeignKey != null»«targetForeignKey»«ELSE»«targetRoleName»«ENDIF»" />
@@ -291,6 +295,9 @@
         <list name="«this.targetRoleName»"
              table="«IF table != null»«table»«ELSE»«this.sourceRoleName»_«this.targetRoleName»«ENDIF»">
             <key column="«IF sourceForeignKey != null»«sourceForeignKey»«ELSE»«this.sourceRoleName»«ENDIF»"
+            «IF sourceAlternateKey != null -»
+                 property-ref="«sourceAlternateKey»"
+            «ENDIF»
                  not-null="true" />
             <list-index column="«IF orderingColumn != null»«orderingColumn»«ELSE»orderFor«sourceRoleName.toFirstUpper()»«ENDIF»" />
             <many-to-many class="«javaDomainClass(this.target.name)»"

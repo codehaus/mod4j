@@ -27,4 +27,9 @@ public abstract class AbstractDaoTestCase extends
 	protected void clear() {
 		sessionFactory.getCurrentSession().clear();
 	}
+	
+	protected void flushAndClear() {
+	    flush();
+	    clear();
+	}
 }

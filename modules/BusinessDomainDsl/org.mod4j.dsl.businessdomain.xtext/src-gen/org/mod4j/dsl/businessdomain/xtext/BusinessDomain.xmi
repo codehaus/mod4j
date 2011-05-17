@@ -59,6 +59,12 @@
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </tokens>
         </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="references"/>
+          <tokens xsi:type="xtext:Assignment" feature="sourceAlternateKey" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+          </tokens>
+        </tokens>
         <tokens xsi:type="xtext:Assignment" feature="sourceMultiplicity" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
         </tokens>
@@ -91,6 +97,12 @@
         <tokens xsi:type="xtext:Group" cardinality="?">
           <tokens xsi:type="xtext:Keyword" value="foreign key"/>
           <tokens xsi:type="xtext:Assignment" feature="targetForeignKey" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="references"/>
+          <tokens xsi:type="xtext:Assignment" feature="targetAlternateKey" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </tokens>
         </tokens>

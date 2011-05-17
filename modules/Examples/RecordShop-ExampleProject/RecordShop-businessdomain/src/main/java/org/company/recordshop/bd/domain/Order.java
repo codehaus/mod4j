@@ -37,8 +37,8 @@ public class Order extends OrderImplBase {
      * @see org.company.recordshop.domain.OrderImplBase#getTotalAmount()
      */
     @Override
-    public Float getTotalAmount() {
-       float totalAmount = 0;
+    public Double getTotalAmount() {
+       Double totalAmount = 0D;
        for (OrderLine line : getOrderLines()){
            totalAmount += line.getLineAmount();
        }

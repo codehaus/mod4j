@@ -77,8 +77,8 @@
         «EXPAND Attributes::addVersionAccessors FOR this»
     «ENDIF»
     «EXPAND StandardOverrides::addToStringMethod FOR this»
-     «EXPAND Attributes::addAttribute FOREACH properties.reject(e|e.derived)»
-     «EXPAND Associations::addToReferenceVariable FOREACH associationsTo»
+    «EXPAND Attributes::addAttribute FOREACH properties.reject(e|e.derived)»
+    «EXPAND Associations::addToReferenceVariable FOREACH associationsTo»
     «EXPAND Associations::addFromReferenceVariable FOREACH associationsFrom.select(e|e.bidirectional)»
     «EXPAND Constructors::createAddValidators FOR this»
     «IF !getAllProperties().reject(e|e.nullable || e.hasDefault || e.derived).isEmpty»

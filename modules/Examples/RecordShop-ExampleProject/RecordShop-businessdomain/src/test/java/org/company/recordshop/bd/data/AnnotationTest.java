@@ -2,6 +2,8 @@ package org.company.recordshop.bd.data;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Set;
+
 import org.company.recordshop.bd.domain.BeautifulName;
 import org.company.recordshop.bd.domain.BeautifulSubClass;
 import org.company.recordshop.bd.domain.ReferencedClass;
@@ -46,7 +48,7 @@ public class AnnotationTest extends AbstractDaoTestCase {
     @Test
     public void testAddBeautifulSubClass() {
         assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "SUBTABLE"));
-        BeautifulSubClass beautifulName = new BeautifulSubClass("Vermeer", true, 4, 5.0F, false);
+        BeautifulSubClass beautifulName = new BeautifulSubClass("Vermeer", true, 4, 5.0D, false);
         beautifulNameDao.add(beautifulName);
         flush();
         assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "SUBTABLE"));
@@ -63,7 +65,7 @@ public class AnnotationTest extends AbstractDaoTestCase {
     @Test
     public void testAddBeautifulName() {
         assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "LEGACY"));
-        BeautifulName beautifulName = new BeautifulName("Vermeer", true, 4, 5.0F);
+        BeautifulName beautifulName = new BeautifulName("Vermeer", true, 4, 5.0D);
         beautifulNameDao.add(beautifulName);
         flush();
         assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "LEGACY"));
@@ -77,20 +79,18 @@ public class AnnotationTest extends AbstractDaoTestCase {
      */
     @Test
     public void testAnnotatedAssociation() {
-        BeautifulName beautifulName = new BeautifulName("Vermeer", true, 4, 5.0F);
+        BeautifulName beautifulName = new BeautifulName("Vermeer", true, 4, 5.0D);
         ReferencedClass referencedClass = new ReferencedClass("a property");
         beautifulNameDao.add(beautifulName);
         referencedClassDao.add(referencedClass);
         flush();
-        beautifulName.addToReferences(referencedClass);
+        beautifulName.addToRefs(referencedClass);
         flush();
-        assertEquals(1,
-                SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "REF_CLASS"));
+        assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "REF_CLASS"));
         beautifulName = beautifulNameDao.retrieve(beautifulName.getId());
         Assert.assertNotNull(beautifulName);
-        Assert.assertEquals(1, beautifulName.getReferences().size());
-        simpleJdbcTemplate
-                .queryForLong("select NAME_FK from REF_CLASS order by ORDERING");
+        Assert.assertEquals(1, beautifulName.getRefs().size());
+        simpleJdbcTemplate.queryForLong("select NAME_FK from REF_CLASS order by ORDERING");
     }
 
     /**
@@ -98,7 +98,8 @@ public class AnnotationTest extends AbstractDaoTestCase {
      */
     @Test
     public void testManyToOneWithFK() {
-        BeautifulSubClass beautifulSubClass = new BeautifulSubClass("Beautiful", true, 4, 5.0F, false);
+        BeautifulSubClass beautifulSubClass = new BeautifulSubClass("Beautiful", true, 4, 5.0D,
+                false);
         ReferencedClass referencedClass = new ReferencedClass("Nothing");
         beautifulSubClassDao.add(beautifulSubClass);
         referencedClassDao.add(referencedClass);
@@ -112,7 +113,7 @@ public class AnnotationTest extends AbstractDaoTestCase {
      */
     @Test
     public void testManyToManyWithFKAndLinkTable() {
-        BeautifulName beautifulName = new BeautifulName("Beautiful", true, 4, 5.0F);
+        BeautifulName beautifulName = new BeautifulName("Beautiful", true, 4, 5.0D);
         ReferencedClass referencedClass = new ReferencedClass("Nothing");
         beautifulNameDao.add(beautifulName);
         referencedClassDao.add(referencedClass);
@@ -120,5 +121,22 @@ public class AnnotationTest extends AbstractDaoTestCase {
         flush();
         simpleJdbcTemplate.queryForLong("select BEAUTIFUL_NAME_FK from LINK_TABLE");
         simpleJdbcTemplate.queryForLong("select REFERENCE_FK from LINK_TABLE");
+    }
+
+    /**
+     * Test many-to-many with foreign key and alternate key.
+     */
+    public void testMany2ManyWithFKAndAlternateKey () {
+        BeautifulName beautifulName = new BeautifulName("Beautiful", true, 4, 5.0D);
+        ReferencedClass referencedClass = new ReferencedClass("Nothing");
+        beautifulNameDao.add(beautifulName);
+        referencedClassDao.add(referencedClass);
+        beautifulName.addToRefers(referencedClass);
+        flushAndClear();
+        beautifulName = beautifulNameDao.retrieve(beautifulName.getId());
+        Assert.assertNotNull(beautifulName);
+        Assert.assertEquals(1, beautifulName.getRefers().size());
+        Set<ReferencedClass> classes = beautifulName.getRefers();
+        Assert.assertEquals("Nothing", ((ReferencedClass)classes.toArray()[0]).getOneProperty());
     }
 }

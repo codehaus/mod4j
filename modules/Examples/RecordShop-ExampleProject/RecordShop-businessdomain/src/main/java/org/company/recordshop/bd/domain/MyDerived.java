@@ -79,9 +79,9 @@ public class MyDerived extends MyDerivedImplBase {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Float getFifth() {
+	public Double getFifth() {
 		// TODO Mod4j: add derivation rule for derived attribute fifth
-		return 0F;
+		return 0D;
 	}
 
 	/**

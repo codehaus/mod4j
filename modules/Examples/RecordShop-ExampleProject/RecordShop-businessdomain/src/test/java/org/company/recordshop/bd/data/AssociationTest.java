@@ -90,14 +90,14 @@ public class AssociationTest extends AbstractDaoTestCase {
         return result;
     }
 
-    protected Record createRecord(int i, String asin, Float ff) {
+    protected Record createRecord(int i, String asin, Double ff) {
         Record result = new Record(asin, ff, RecordTypeEnum.BLUERAY);
         allRecords.add(result);
         recordDao.add(result);
         return result;
     }
 
-    protected Product createProduct(String prodNr, float price) {
+    protected Product createProduct(String prodNr, double price) {
         Product result = new Product(prodNr, price, false);
         allProducts.add(result);
         productDao.add(result);
@@ -148,12 +148,12 @@ public class AssociationTest extends AbstractDaoTestCase {
         order02.addToOrderLines(line05);
         order03.addToOrderLines(line06);
 
-        record01 = createRecord(1, "rec 01", 2F);
-        record02 = createRecord(1, "rec 02", 2F);
-        record03 = createRecord(1, "rec 03", 2F);
-        record04 = createRecord(1, "rec 04", 2F);
-        record05 = createRecord(1, "rec 05", 2F);
-        record06 = createRecord(1, "rec 06", 2F);
+        record01 = createRecord(1, "rec 01", 2D);
+        record02 = createRecord(1, "rec 02", 2D);
+        record03 = createRecord(1, "rec 03", 2D);
+        record04 = createRecord(1, "rec 04", 2D);
+        record05 = createRecord(1, "rec 05", 2D);
+        record06 = createRecord(1, "rec 06", 2D);
 
         pr01 = createProduct("product 01", 1);
         pr02 = createProduct("product 02", 2);

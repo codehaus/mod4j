@@ -26,7 +26,9 @@ package BusinessDomainDsl;
  *   <li>{@link BusinessDomainDsl.Association#isOrdered <em>Ordered</em>}</li>
  *   <li>{@link BusinessDomainDsl.Association#getModel <em>Model</em>}</li>
  *   <li>{@link BusinessDomainDsl.Association#getSourceForeignKey <em>Source Foreign Key</em>}</li>
+ *   <li>{@link BusinessDomainDsl.Association#getSourceAlternateKey <em>Source Alternate Key</em>}</li>
  *   <li>{@link BusinessDomainDsl.Association#getTargetForeignKey <em>Target Foreign Key</em>}</li>
+ *   <li>{@link BusinessDomainDsl.Association#getTargetAlternateKey <em>Target Alternate Key</em>}</li>
  *   <li>{@link BusinessDomainDsl.Association#getOrderingColumn <em>Ordering Column</em>}</li>
  *   <li>{@link BusinessDomainDsl.Association#getTable <em>Table</em>}</li>
  * </ul>
@@ -343,6 +345,32 @@ public interface Association extends ModelElement {
     void setSourceForeignKey(String value);
 
     /**
+     * Returns the value of the '<em><b>Source Alternate Key</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Source Alternate Key</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Source Alternate Key</em>' attribute.
+     * @see #setSourceAlternateKey(String)
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getAssociation_SourceAlternateKey()
+     * @model
+     * @generated
+     */
+    String getSourceAlternateKey();
+
+    /**
+     * Sets the value of the '{@link BusinessDomainDsl.Association#getSourceAlternateKey <em>Source Alternate Key</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Source Alternate Key</em>' attribute.
+     * @see #getSourceAlternateKey()
+     * @generated
+     */
+    void setSourceAlternateKey(String value);
+
+    /**
      * Returns the value of the '<em><b>Target Foreign Key</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
@@ -367,6 +395,32 @@ public interface Association extends ModelElement {
      * @generated
      */
     void setTargetForeignKey(String value);
+
+    /**
+     * Returns the value of the '<em><b>Target Alternate Key</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Target Alternate Key</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Target Alternate Key</em>' attribute.
+     * @see #setTargetAlternateKey(String)
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getAssociation_TargetAlternateKey()
+     * @model
+     * @generated
+     */
+    String getTargetAlternateKey();
+
+    /**
+     * Sets the value of the '{@link BusinessDomainDsl.Association#getTargetAlternateKey <em>Target Alternate Key</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Target Alternate Key</em>' attribute.
+     * @see #getTargetAlternateKey()
+     * @generated
+     */
+    void setTargetAlternateKey(String value);
 
     /**
      * Returns the value of the '<em><b>Ordering Column</b></em>' attribute.

@@ -20,7 +20,7 @@ public class OrderlineDaoTest extends AbstractDaoTestCase {
 	@Test
 	public void testAddAndRetrieve() {
        
-	    Product product = new Product("PRODNR-1234", 99.99f, true);
+	    Product product = new Product("PRODNR-1234", 99.99D, true);
         
         OrderLine orderLine = new OrderLine(1, "ORDERLINE-1");
         orderLine.setProduct(product);

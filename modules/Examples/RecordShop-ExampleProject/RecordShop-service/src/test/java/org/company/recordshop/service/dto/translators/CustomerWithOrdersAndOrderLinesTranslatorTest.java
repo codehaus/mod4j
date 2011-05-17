@@ -133,7 +133,7 @@ public class CustomerWithOrdersAndOrderLinesTranslatorTest extends AbstractServi
         line.setLineNumber(i);
         FullProductDto product = new FullProductDto();
         product.setProductNumber(productNumber);
-        product.setPrice(15.0F);
+        product.setPrice(15.0D);
         product.setOrderable(true);
         line.setProduct(product);
         return line;

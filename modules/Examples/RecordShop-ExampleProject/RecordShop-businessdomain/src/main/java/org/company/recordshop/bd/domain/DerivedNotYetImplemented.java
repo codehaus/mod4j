@@ -60,7 +60,7 @@ public class DerivedNotYetImplemented extends DerivedNotYetImplementedImplBase {
 	/**
 	 * @return fifth (float)
 	 */
-	public Float getFifth() {
+	public Double getFifth() {
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
@@ -100,8 +100,7 @@ public class DerivedNotYetImplemented extends DerivedNotYetImplementedImplBase {
 	 * @param fifth
 	 *            (float)
 	 */
-	public void setFifth(final Float fifth) {
+	public void setFifth(final Double fifth) {
 		throw new UnsupportedOperationException("Not implemented");
 	}
-
 }

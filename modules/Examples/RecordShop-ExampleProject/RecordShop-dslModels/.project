@@ -61,7 +61,7 @@
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.mod4j.crossx.broker.CrossxNature</nature>
-		<nature>org.mod4j.eclipse.Mod4jNature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
+		<nature>org.mod4j.eclipse.Mod4jNature</nature>
 	</natures>
 </projectDescription>

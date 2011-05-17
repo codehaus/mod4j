@@ -11,6 +11,7 @@
 
 «EXTENSION Association»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
 «DEFINE addToReferenceVariable FOR Association»
     /**
@@ -29,6 +30,14 @@
         private final «getCollectionInterface()»<«javaDomainClass(target.name)»> «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
         «EXPAND AssociationsMany2Many::many2ManyAccessorsTo FOR this»
     «ENDIF»
+«ENDDEFINE»
+
+«DEFINE addAlternateIdentifier FOR Association»
+        /**
+         * Alternate identifier for the {@link #«targetRoleName»} («target.name») association.
+         */
+        protected «getHibernatePrimaryKeyClass()» «sourceAlternateKey»«sourceForeignKey» =
+            («getHibernatePrimaryKeyClass()») «getHibernate_mapping_class_id_generator_class()».generateIdentifier();
 «ENDDEFINE»
 
 «DEFINE addFromReferenceVariable FOR Association»

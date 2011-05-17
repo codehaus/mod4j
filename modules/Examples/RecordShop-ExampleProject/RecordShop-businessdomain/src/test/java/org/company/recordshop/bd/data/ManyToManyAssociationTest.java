@@ -32,9 +32,9 @@ public class ManyToManyAssociationTest extends AbstractDaoTestCase {
 
 	@Before
 	public void setUp() throws Exception {
-		record1 = new Record("1234", 24.95F, RecordTypeEnum.BLUERAY);
-		record2 = new Record("1234", 24.95F, RecordTypeEnum.BLUERAY);
-		record3 = new Record("1234", 24.95F, RecordTypeEnum.BLUERAY);
+		record1 = new Record("1234", 24.95D, RecordTypeEnum.BLUERAY);
+		record2 = new Record("1234", 24.95D, RecordTypeEnum.BLUERAY);
+		record3 = new Record("1234", 24.95D, RecordTypeEnum.BLUERAY);
 		recordDao.add(record1);
 		recordDao.add(record2);
 		recordDao.add(record3);

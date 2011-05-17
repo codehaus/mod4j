@@ -848,7 +848,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getAssociation_TargetForeignKey() {
+    public EAttribute getAssociation_SourceAlternateKey() {
         return (EAttribute)associationEClass.getEStructuralFeatures().get(11);
     }
 
@@ -857,7 +857,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getAssociation_OrderingColumn() {
+    public EAttribute getAssociation_TargetForeignKey() {
         return (EAttribute)associationEClass.getEStructuralFeatures().get(12);
     }
 
@@ -866,8 +866,26 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getAssociation_Table() {
+    public EAttribute getAssociation_TargetAlternateKey() {
         return (EAttribute)associationEClass.getEStructuralFeatures().get(13);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAssociation_OrderingColumn() {
+        return (EAttribute)associationEClass.getEStructuralFeatures().get(14);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAssociation_Table() {
+        return (EAttribute)associationEClass.getEStructuralFeatures().get(15);
     }
 
     /**
@@ -1120,7 +1138,9 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         createEAttribute(associationEClass, ASSOCIATION__ORDERED);
         createEReference(associationEClass, ASSOCIATION__MODEL);
         createEAttribute(associationEClass, ASSOCIATION__SOURCE_FOREIGN_KEY);
+        createEAttribute(associationEClass, ASSOCIATION__SOURCE_ALTERNATE_KEY);
         createEAttribute(associationEClass, ASSOCIATION__TARGET_FOREIGN_KEY);
+        createEAttribute(associationEClass, ASSOCIATION__TARGET_ALTERNATE_KEY);
         createEAttribute(associationEClass, ASSOCIATION__ORDERING_COLUMN);
         createEAttribute(associationEClass, ASSOCIATION__TABLE);
 
@@ -1276,7 +1296,9 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         initEAttribute(getAssociation_Ordered(), ecorePackage.getEBoolean(), "ordered", "false", 1, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getAssociation_Model(), this.getBusinessDomainModel(), this.getBusinessDomainModel_Associations(), "model", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getAssociation_SourceForeignKey(), ecorePackage.getEString(), "sourceForeignKey", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAssociation_SourceAlternateKey(), ecorePackage.getEString(), "sourceAlternateKey", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getAssociation_TargetForeignKey(), ecorePackage.getEString(), "targetForeignKey", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAssociation_TargetAlternateKey(), ecorePackage.getEString(), "targetAlternateKey", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getAssociation_OrderingColumn(), ecorePackage.getEString(), "orderingColumn", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getAssociation_Table(), ecorePackage.getEString(), "table", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

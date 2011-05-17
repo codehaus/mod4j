@@ -28,7 +28,7 @@ public class RecordDaoTest extends AbstractDaoTestCase {
 
 	@Test
 	public void testRetrieve() {
-		Record record = new Record("Abbey Road", 25.50F, RecordTypeEnum.BLUERAY);
+		Record record = new Record("Abbey Road", 25.50D, RecordTypeEnum.BLUERAY);
 		recordDao.add(record);
 		flush();
 		clear();
@@ -42,7 +42,7 @@ public class RecordDaoTest extends AbstractDaoTestCase {
 		assertEquals(0, countRowsInTable("Record_TABLE"));
 		assertEquals(0, countRowsInTable("Artist_TABLE"));
 		assertEquals(0, countRowsInTable("records_contributors"));
-		Record record = new Record("Abbey Road", 25.50F, RecordTypeEnum.BLUERAY);
+		Record record = new Record("Abbey Road", 25.50D, RecordTypeEnum.BLUERAY);
 		Artist john = new Artist("John", "Lennon", date(), 
 				"singer/guitarist/songwriter");
 		Artist paul = new Artist("Paul", "McCartney", date(), "singer/bass/songwriter");

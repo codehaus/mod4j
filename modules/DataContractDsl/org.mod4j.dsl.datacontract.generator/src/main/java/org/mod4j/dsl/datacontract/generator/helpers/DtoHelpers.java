@@ -81,7 +81,7 @@ public class DtoHelpers {
 
     public static String javaType(DtoDecimalProperty p) {
         // return p.isNullable() ? "Float" : "float";
-        return "Float";
+        return "Double";
     }
 
     public static List<DtoProperty> getAllProperties(BusinessClassDto cls) {

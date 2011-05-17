@@ -18,7 +18,7 @@ public class ProductDaoTest extends AbstractDaoTestCase {
     @Test
     public void testAddAndRetrieve() {
 
-        Product product = new Product("PRODNR-1234", 99.99f, true);
+        Product product = new Product("PRODNR-1234", 99.99D, true);
 
         productDao.add(product);
         flush();

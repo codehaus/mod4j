@@ -37,10 +37,10 @@ public class OrderLine extends OrderLineImplBase {
     /**
 	 * @return lineAmount (Float)
 	 */
-	public Float getLineAmount() {
+	public Double getLineAmount() {
 
 		if (getProduct() == null) {
-			return 0F;
+			return 0D;
 		}
 		return getProduct().getPrice() * getQuantity();
 

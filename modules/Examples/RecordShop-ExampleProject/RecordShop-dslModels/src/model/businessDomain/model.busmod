@@ -6,7 +6,7 @@ domain RecordShopDomainModel ;
  */
       
 "A Person represents a legal person."  
-class Person [  
+class Person [
 
     "First name of the person."   
     string firstName; 

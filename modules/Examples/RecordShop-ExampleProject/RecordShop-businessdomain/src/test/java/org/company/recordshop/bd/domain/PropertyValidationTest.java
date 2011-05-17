@@ -110,11 +110,11 @@ public class PropertyValidationTest {
      */
     // TODO @Test
     public void testDecimalPropertyMinValueValidation() {
-        Record record = new Record("Saterdaynight", 24.95F, RecordTypeEnum.BLUERAY);
+        Record record = new Record("Saterdaynight", 24.95D, RecordTypeEnum.BLUERAY);
 
         try {
-            record.setPrice(0F);
-            record.setPrice(-1F);
+            record.setPrice(0D);
+            record.setPrice(-1D);
             fail("Expected BusinessRuleException, wrapped in a RuntimeException");
         } catch (BusinessRuleException e) {
             assertTrue(e.getMessage().contains("todo"));
@@ -124,7 +124,7 @@ public class PropertyValidationTest {
     @Test
     public void testNotNullablePropertyInConstructor() {
         try {
-            new Record(null, 12.50F, RecordTypeEnum.BLUERAY);
+            new Record(null, 12.50D, RecordTypeEnum.BLUERAY);
             fail("Expected BusinessRuleException");
         } catch (BusinessRuleException e) {
             Errors b = (Errors) e.getCause();
@@ -135,7 +135,7 @@ public class PropertyValidationTest {
 
     @Test
     public void testNotNullableAsin() {
-        Record record = new Record("record", 12.50F, RecordTypeEnum.BLUERAY);
+        Record record = new Record("record", 12.50D, RecordTypeEnum.BLUERAY);
         try {
             record.setAsin(null);
         } catch (BusinessRuleException ex) {
@@ -147,7 +147,7 @@ public class PropertyValidationTest {
 
     @Test
     public void testNotNullableTitle() {
-        Record record = new Record("record", 12.50F, RecordTypeEnum.BLUERAY);
+        Record record = new Record("record", 12.50D, RecordTypeEnum.BLUERAY);
         try {
             record.setTitle(null);
         } catch (BusinessRuleException ex) {
@@ -159,7 +159,7 @@ public class PropertyValidationTest {
 
     @Test
     public void testNotNullableType() {
-        Record record = new Record("record", 12.50F, RecordTypeEnum.BLUERAY);
+        Record record = new Record("record", 12.50D, RecordTypeEnum.BLUERAY);
         try {
             record.setType(null);
         } catch (BusinessRuleException ex) {

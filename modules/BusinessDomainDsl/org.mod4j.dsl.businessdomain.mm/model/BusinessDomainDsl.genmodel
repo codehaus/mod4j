@@ -103,7 +103,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Association/ordered"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//Association/model"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Association/sourceForeignKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Association/sourceAlternateKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Association/targetForeignKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Association/targetAlternateKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Association/orderingColumn"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Association/table"/>
     </genClasses>

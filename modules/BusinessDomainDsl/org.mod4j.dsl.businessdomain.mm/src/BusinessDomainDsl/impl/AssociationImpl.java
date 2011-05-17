@@ -41,7 +41,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#isOrdered <em>Ordered</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#getModel <em>Model</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#getSourceForeignKey <em>Source Foreign Key</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#getSourceAlternateKey <em>Source Alternate Key</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#getTargetForeignKey <em>Target Foreign Key</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#getTargetAlternateKey <em>Target Alternate Key</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#getOrderingColumn <em>Ordering Column</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#getTable <em>Table</em>}</li>
  * </ul>
@@ -231,6 +233,26 @@ public class AssociationImpl extends ModelElementImpl implements Association {
     protected String sourceForeignKey = SOURCE_FOREIGN_KEY_EDEFAULT;
 
     /**
+     * The default value of the '{@link #getSourceAlternateKey() <em>Source Alternate Key</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getSourceAlternateKey()
+     * @generated
+     * @ordered
+     */
+    protected static final String SOURCE_ALTERNATE_KEY_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getSourceAlternateKey() <em>Source Alternate Key</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getSourceAlternateKey()
+     * @generated
+     * @ordered
+     */
+    protected String sourceAlternateKey = SOURCE_ALTERNATE_KEY_EDEFAULT;
+
+    /**
      * The default value of the '{@link #getTargetForeignKey() <em>Target Foreign Key</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -249,6 +271,26 @@ public class AssociationImpl extends ModelElementImpl implements Association {
      * @ordered
      */
     protected String targetForeignKey = TARGET_FOREIGN_KEY_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getTargetAlternateKey() <em>Target Alternate Key</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTargetAlternateKey()
+     * @generated
+     * @ordered
+     */
+    protected static final String TARGET_ALTERNATE_KEY_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getTargetAlternateKey() <em>Target Alternate Key</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTargetAlternateKey()
+     * @generated
+     * @ordered
+     */
+    protected String targetAlternateKey = TARGET_ALTERNATE_KEY_EDEFAULT;
 
     /**
      * The default value of the '{@link #getOrderingColumn() <em>Ordering Column</em>}' attribute.
@@ -643,6 +685,27 @@ public class AssociationImpl extends ModelElementImpl implements Association {
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getSourceAlternateKey() {
+        return sourceAlternateKey;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setSourceAlternateKey(String newSourceAlternateKey) {
+        String oldSourceAlternateKey = sourceAlternateKey;
+        sourceAlternateKey = newSourceAlternateKey;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__SOURCE_ALTERNATE_KEY, oldSourceAlternateKey, sourceAlternateKey));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public String getTargetForeignKey() {
         return targetForeignKey;
     }
@@ -657,6 +720,27 @@ public class AssociationImpl extends ModelElementImpl implements Association {
         targetForeignKey = newTargetForeignKey;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__TARGET_FOREIGN_KEY, oldTargetForeignKey, targetForeignKey));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getTargetAlternateKey() {
+        return targetAlternateKey;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setTargetAlternateKey(String newTargetAlternateKey) {
+        String oldTargetAlternateKey = targetAlternateKey;
+        targetAlternateKey = newTargetAlternateKey;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__TARGET_ALTERNATE_KEY, oldTargetAlternateKey, targetAlternateKey));
     }
 
     /**
@@ -789,8 +873,12 @@ public class AssociationImpl extends ModelElementImpl implements Association {
                 return getModel();
             case BusinessDomainDslPackage.ASSOCIATION__SOURCE_FOREIGN_KEY:
                 return getSourceForeignKey();
+            case BusinessDomainDslPackage.ASSOCIATION__SOURCE_ALTERNATE_KEY:
+                return getSourceAlternateKey();
             case BusinessDomainDslPackage.ASSOCIATION__TARGET_FOREIGN_KEY:
                 return getTargetForeignKey();
+            case BusinessDomainDslPackage.ASSOCIATION__TARGET_ALTERNATE_KEY:
+                return getTargetAlternateKey();
             case BusinessDomainDslPackage.ASSOCIATION__ORDERING_COLUMN:
                 return getOrderingColumn();
             case BusinessDomainDslPackage.ASSOCIATION__TABLE:
@@ -840,8 +928,14 @@ public class AssociationImpl extends ModelElementImpl implements Association {
             case BusinessDomainDslPackage.ASSOCIATION__SOURCE_FOREIGN_KEY:
                 setSourceForeignKey((String)newValue);
                 return;
+            case BusinessDomainDslPackage.ASSOCIATION__SOURCE_ALTERNATE_KEY:
+                setSourceAlternateKey((String)newValue);
+                return;
             case BusinessDomainDslPackage.ASSOCIATION__TARGET_FOREIGN_KEY:
                 setTargetForeignKey((String)newValue);
+                return;
+            case BusinessDomainDslPackage.ASSOCIATION__TARGET_ALTERNATE_KEY:
+                setTargetAlternateKey((String)newValue);
                 return;
             case BusinessDomainDslPackage.ASSOCIATION__ORDERING_COLUMN:
                 setOrderingColumn((String)newValue);
@@ -894,8 +988,14 @@ public class AssociationImpl extends ModelElementImpl implements Association {
             case BusinessDomainDslPackage.ASSOCIATION__SOURCE_FOREIGN_KEY:
                 setSourceForeignKey(SOURCE_FOREIGN_KEY_EDEFAULT);
                 return;
+            case BusinessDomainDslPackage.ASSOCIATION__SOURCE_ALTERNATE_KEY:
+                setSourceAlternateKey(SOURCE_ALTERNATE_KEY_EDEFAULT);
+                return;
             case BusinessDomainDslPackage.ASSOCIATION__TARGET_FOREIGN_KEY:
                 setTargetForeignKey(TARGET_FOREIGN_KEY_EDEFAULT);
+                return;
+            case BusinessDomainDslPackage.ASSOCIATION__TARGET_ALTERNATE_KEY:
+                setTargetAlternateKey(TARGET_ALTERNATE_KEY_EDEFAULT);
                 return;
             case BusinessDomainDslPackage.ASSOCIATION__ORDERING_COLUMN:
                 setOrderingColumn(ORDERING_COLUMN_EDEFAULT);
@@ -937,8 +1037,12 @@ public class AssociationImpl extends ModelElementImpl implements Association {
                 return getModel() != null;
             case BusinessDomainDslPackage.ASSOCIATION__SOURCE_FOREIGN_KEY:
                 return SOURCE_FOREIGN_KEY_EDEFAULT == null ? sourceForeignKey != null : !SOURCE_FOREIGN_KEY_EDEFAULT.equals(sourceForeignKey);
+            case BusinessDomainDslPackage.ASSOCIATION__SOURCE_ALTERNATE_KEY:
+                return SOURCE_ALTERNATE_KEY_EDEFAULT == null ? sourceAlternateKey != null : !SOURCE_ALTERNATE_KEY_EDEFAULT.equals(sourceAlternateKey);
             case BusinessDomainDslPackage.ASSOCIATION__TARGET_FOREIGN_KEY:
                 return TARGET_FOREIGN_KEY_EDEFAULT == null ? targetForeignKey != null : !TARGET_FOREIGN_KEY_EDEFAULT.equals(targetForeignKey);
+            case BusinessDomainDslPackage.ASSOCIATION__TARGET_ALTERNATE_KEY:
+                return TARGET_ALTERNATE_KEY_EDEFAULT == null ? targetAlternateKey != null : !TARGET_ALTERNATE_KEY_EDEFAULT.equals(targetAlternateKey);
             case BusinessDomainDslPackage.ASSOCIATION__ORDERING_COLUMN:
                 return ORDERING_COLUMN_EDEFAULT == null ? orderingColumn != null : !ORDERING_COLUMN_EDEFAULT.equals(orderingColumn);
             case BusinessDomainDslPackage.ASSOCIATION__TABLE:
@@ -973,8 +1077,12 @@ public class AssociationImpl extends ModelElementImpl implements Association {
         result.append(ordered);
         result.append(", sourceForeignKey: ");
         result.append(sourceForeignKey);
+        result.append(", sourceAlternateKey: ");
+        result.append(sourceAlternateKey);
         result.append(", targetForeignKey: ");
         result.append(targetForeignKey);
+        result.append(", targetAlternateKey: ");
+        result.append(targetAlternateKey);
         result.append(", orderingColumn: ");
         result.append(orderingColumn);
         result.append(", table: ");

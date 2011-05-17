@@ -34,6 +34,7 @@ Association:
     source=[BusinessClass]
     sourceRoleName=ID
     ("foreign key" sourceForeignKey=ID)?
+    ("references" sourceAlternateKey=ID)?
     sourceMultiplicity=Multiplicity
     ((bidirectional?="<->") | ("->"))
     targetMultiplicity=Multiplicity
@@ -41,6 +42,7 @@ Association:
     target=[AbstractBusinessClass]
     targetRoleName=ID
     ("foreign key" targetForeignKey=ID)?
+    ("references" targetAlternateKey=ID)?
     (ordered?="ordered" ("column" orderingColumn=ID)?)? ";"
     ;
 
