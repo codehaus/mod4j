@@ -22,17 +22,13 @@
 «DEFINE LocalServiceImpl FOR ServiceModel»
     «EXPAND JavaComments::extensionPointHeader ("Mod4j ServiceDsl generator: LocalServiceImpl.xpt") FOR this»
 
-	package «getLocalServicePackage()»;
+	package «getLocalServicePackage(name)»;
 
 	import java.util.List;
             
-	import «javaLocalServiceBaseClassPath(name)»;
+	import «getFqnLocalServiceBaseClass(name)»;
     «FOREACH this.dtoReferences AS dto -»
-		import «getDtoPackage()».«javaClassName(dto.name)»;
-	«ENDFOREACH»
-	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
-		import «javaTranslatorClassPath(dto.name)»;
-		import «javaDomainClassPath(dto.businessClass())»;
+		import «getFqnDtoClass(dto.modelname, dto.name)»;
 	«ENDFOREACH»
 	
 	/**

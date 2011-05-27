@@ -19,15 +19,15 @@
 «DEFINE daoImplementationBase FOR BusinessDomainDsl::BusinessClass»
 «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: DaoImplBase.xpt") FOR this»
 
-package «getDaoImplPackage()»;
+package «getDaoImplPackage(model.name)»;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
 import java.util.HashSet;
 
-import «javaDomainClassPath(this.name)»;
-import «javaDaoBaseInterfacePath(this.name)»;
+import «getFqnDomainClass(model.name, name)»;
+import «getFqnDaoBaseInterface(model.name, name)»;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -43,8 +43,8 @@ import org.springframework.util.Assert;
 import org.mod4j.runtime.queries.SearchParameters;
 «FOREACH (getToOneAssociationsToInHierarchy().target.addAll(getToOneAssociationsFromInHierarchy().source)).toSet() AS e -»
 «IF e != this»
-    import «javaDomainClassPath(e.name)»;
-    import «javaDaoBaseClassPath(e.name)»;
+    import «getFqnDomainClass(e.model.name, e.name)»;
+    import «getFqnDaoBaseImplClass(e.model.name, e.name)»;
 «ENDIF»
 «ENDFOREACH»
 

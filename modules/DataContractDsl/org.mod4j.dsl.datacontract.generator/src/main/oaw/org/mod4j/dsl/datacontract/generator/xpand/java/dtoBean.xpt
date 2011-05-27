@@ -23,7 +23,7 @@
 «DEFINE createDto FOR BusinessClassDto»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j DataContractDsl generator: dtoBean.xpt") FOR this»
 
-     package «getDtoPackage()»;
+     package «getDtoPackage(datacontractModel.name)»;
 
      import org.mod4j.runtime.dto.AbstractDto;
      «REM»Add import statements for DtoDataProperties. If a dataType occurs more then once, the import statement will be added just once.«ENDREM»
@@ -66,7 +66,7 @@
 «DEFINE createDto FOR CustomDto»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: dtoBean.xpt") FOR this»
 
-     package «getDtoPackage()»;
+     package «getDtoPackage(datacontractModel.name)»;
 
      import java.io.Serializable;
      «REM»Add import statements for DtoDataProperties. If a dataType occurs more then once, the import statement will be added just once.«ENDREM»

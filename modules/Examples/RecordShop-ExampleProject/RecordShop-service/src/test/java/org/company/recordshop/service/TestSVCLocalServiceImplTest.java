@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import org.company.recordshop.service.dto.DerivedDto;
-import org.company.recordshop.service.local.TestSVCLocalService;
+import org.company.recordshop.service.TestSVC.local.TestSVCLocalService;
+import org.company.recordshop.service.dto.TestDC.DerivedDto;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

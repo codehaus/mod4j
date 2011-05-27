@@ -2,10 +2,10 @@ package org.company.recordshop.service;
 
 import static org.junit.Assert.assertEquals;
 
-import org.company.recordshop.service.dto.AddressDto;
-import org.company.recordshop.service.dto.CustomerWithAddressDto;
-import org.company.recordshop.service.dto.SimpleCustomerDto;
-import org.company.recordshop.service.local.CustomerServiceModelLocalService;
+import org.company.recordshop.service.customers.local.CustomersLocalService;
+import org.company.recordshop.service.dto.common.AddressDto;
+import org.company.recordshop.service.dto.common.CustomerWithAddressDto;
+import org.company.recordshop.service.dto.common.SimpleCustomerDto;
 import org.hibernate.criterion.MatchMode;
 import org.joda.time.DateTime;
 import org.junit.Before;
@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class FindByExampleServiceTest extends AbstractServiceTestCase {
 
     @Autowired
-    private CustomerServiceModelLocalService custService;
+    private CustomersLocalService custService;
 
     @Before
     public void setup() {

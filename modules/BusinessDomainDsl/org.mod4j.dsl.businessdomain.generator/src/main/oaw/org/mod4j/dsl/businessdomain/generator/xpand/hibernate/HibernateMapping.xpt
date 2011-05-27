@@ -38,7 +38,7 @@
 
     <hibernate-mapping
         default-access="field"
-        package="«getDomainRootPackage()»">
+        package="«getBusinessModelDomainPackage(model.name)»">
         
         «IF superclass == null -»
             «EXPAND rootClassMapping FOR this -»
@@ -115,8 +115,8 @@
         «IF !this.nullable»
             not-null="true"
         «ENDIF -»>
-            <type name="«getDataRootPackage()».GenericEnumUserType">
-                <param name="enumClass">«getDomainRootPackage()».«this.type.name»</param>
+            <type name="«getFqnGenericEnumUserType()»">
+                <param name="enumClass">«getFqnDomainClass(owningType.model.name, type.name)»</param>
             </type>
         </property>
 «ENDDEFINE»

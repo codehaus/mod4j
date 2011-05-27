@@ -7,15 +7,15 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 
-import org.company.recordshop.service.dto.FullProductDto;
-import org.company.recordshop.service.dto.OrderDto;
-import org.company.recordshop.service.dto.OrderLineDto;
-import org.company.recordshop.service.dto.OrderNumberAndDateDto;
-import org.company.recordshop.service.dto.OrderWithOrderLinesDto;
-import org.company.recordshop.service.dto.ProductWithCustomersDto;
-import org.company.recordshop.service.dto.SimpleCustomerDto;
-import org.company.recordshop.service.local.CustomerServiceModelLocalService;
-import org.company.recordshop.service.local.OrderServiceModelLocalService;
+import org.company.recordshop.service.customers.local.CustomersLocalService;
+import org.company.recordshop.service.dto.common.FullProductDto;
+import org.company.recordshop.service.dto.common.OrderDto;
+import org.company.recordshop.service.dto.common.OrderLineDto;
+import org.company.recordshop.service.dto.common.OrderNumberAndDateDto;
+import org.company.recordshop.service.dto.common.OrderWithOrderLinesDto;
+import org.company.recordshop.service.dto.common.ProductWithCustomersDto;
+import org.company.recordshop.service.dto.common.SimpleCustomerDto;
+import org.company.recordshop.service.orders.local.OrdersLocalService;
 import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,10 +26,10 @@ import org.springframework.test.annotation.ExpectedException;
 public class AssociationsServiceTest extends AbstractServiceTestCase {
 
     @Autowired
-    CustomerServiceModelLocalService customerService;
+    CustomersLocalService customerService;
 
     @Autowired
-    OrderServiceModelLocalService orderService;
+    OrdersLocalService orderService;
 
     SimpleCustomerDto createdCustomer = null;
 

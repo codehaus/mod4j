@@ -166,6 +166,23 @@ public class CrossxBroker {
         return result;
     }
 
+    
+    /**
+     * Find ModelInfos 
+     * 
+     * @param 
+     * @return
+     */
+    public static ModelInfo findModel(String dslName, String symbolName, String symbolType) {
+        System.out.println("findModel[" + dslName + ", " + symbolName + ", " + symbolType  + "]");
+        List<ModelInfo> models = CrossxEnvironment.findModels(dslName, symbolName, symbolType);
+        if (models == null || models.isEmpty()){
+        	return null;
+        }
+        return models.get(0);
+    }
+
+    
     /**
       */
     public static Symbol lookupSymbolWithProperty(String model, String symbolname, String type, String propertyName,

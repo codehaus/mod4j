@@ -175,6 +175,25 @@ public class CrossxEnvironment {
         return result;
     }
 
+    
+    /**
+     * Find all models in the current environment.
+     * 
+     * @return a list of names of all of the models
+     */
+    public static List<ModelInfo> findModels(String dslName, String symbolName, String symbolType) {
+        List<ModelInfo> result = new ArrayList<ModelInfo>();
+        for (CrossxLocation location : environment.values()) {
+        	ModelInfo modelInfo = location.lookupModelInfo(dslName, symbolName, symbolType);
+              if ( modelInfo != null) {
+                logger.info("FindModels [" + modelInfo.getModelname() + "]");
+                result.add(modelInfo);
+            }
+        }
+        return result;
+    }
+
+    
     /**
      * Find all symbols of type 'elemType' in model named 'modelname' in project named 'project'.
      * 

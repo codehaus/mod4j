@@ -17,7 +17,7 @@
 
 «DEFINE createEnum FOR Enumeration»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: Enumeration.xpt") FOR this»
-    package «getDomainRootPackage()»;
+    package «getBusinessModelDomainPackage(model.name)»;
     
     «EXPAND Imports::addImports FOR this»
             

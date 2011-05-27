@@ -3,11 +3,11 @@ package org.company.recordshop.service;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.company.recordshop.service.dto.CustomerWithOrdersAndOrderLines;
-import org.company.recordshop.service.dto.FullProductDto;
-import org.company.recordshop.service.dto.OrderLineDto;
-import org.company.recordshop.service.dto.OrderWithOrderLinesDto;
-import org.company.recordshop.service.local.CustomerServiceModelLocalService;
+import org.company.recordshop.service.customers.local.CustomersLocalService;
+import org.company.recordshop.service.dto.common.CustomerWithOrdersAndOrderLines;
+import org.company.recordshop.service.dto.common.FullProductDto;
+import org.company.recordshop.service.dto.common.OrderLineDto;
+import org.company.recordshop.service.dto.common.OrderWithOrderLinesDto;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class ThreeLevelsAssociationTest extends AbstractServiceTestCase {
 
     @Autowired
-    private CustomerServiceModelLocalService customerServiceModelService;
+    private CustomersLocalService customerServiceModelService;
 
     CustomerWithOrdersAndOrderLines customerDto;
 

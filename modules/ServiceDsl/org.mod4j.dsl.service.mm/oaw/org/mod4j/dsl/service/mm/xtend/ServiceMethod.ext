@@ -36,7 +36,8 @@ Set[Symbol] getAllBusinessClassDtoSymbols(ServiceModel model) :
     businessClassListDtoSymbols.toSet()
     ;
     
-/** Get the name of the businessclass for dto, returns "void" if the dto does not have a businessclass
+/** 
+ * Get the name of the businessclass for dto, returns "void" if the dto does not have a businessclass
  */
 String businessClass(DtoReference dto) :
     let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
@@ -44,6 +45,15 @@ String businessClass(DtoReference dto) :
     (businessClass == null) ? "void": businessClass
 ;
 
+/** 
+ * Gets the name of the model of the businessclass for dto.
+ * Return void if the dtoref doesn't have a modelname as property.
+ */
+String modelname(DtoReference dto) :
+    let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
+    let modelname = dtoSymbol.getPropertyValue("modelname") :
+    (modelname == null) ? "void": modelname
+;
 
 Symbol baseDtoSymbol(DtoReference dto) :
     let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :

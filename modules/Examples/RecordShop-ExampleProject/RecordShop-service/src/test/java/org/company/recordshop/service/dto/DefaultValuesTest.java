@@ -2,6 +2,11 @@ package org.company.recordshop.service.dto;
 
 import static org.junit.Assert.assertTrue;
 
+import org.company.recordshop.service.dto.common.FullProductDto;
+import org.company.recordshop.service.dto.common.FullRecordDto;
+import org.company.recordshop.service.dto.common.OrderDto;
+import org.company.recordshop.service.dto.common.SexeEnumDto;
+import org.company.recordshop.service.dto.common.SimpleCustomerDto;
 import org.joda.time.DateTime;
 import org.junit.Test;
 

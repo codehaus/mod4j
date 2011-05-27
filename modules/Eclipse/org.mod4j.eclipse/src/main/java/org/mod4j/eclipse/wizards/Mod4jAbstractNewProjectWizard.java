@@ -224,7 +224,7 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
                     "dataModuleName=" + mainPage.getApplicationNameFieldValue() + "-data" + LF +
                     "dataRootPackage=" + mainPage.getPackageNameFieldValue() + ".data" + LF +
                     "hibernate.hbm2ddl.auto=update" + LF +
-                    "#hibernate-mapping.inheritance.strategy=[table.per.concrete.class|table.per.subclass]" + LF +
+                    "#hibernate-mapping.inheritance.strategy=[table.per.concrete.class | table.per.subclass]" + LF +
                     "hibernate-mapping.inheritance.strategy=table.per.concrete.class" + LF +
                     "hibernate-mapping.class.id.generator.class=native" + LF +
                     "" + LF +

@@ -16,12 +16,12 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION org::mod4j::dsl::datacontract::generator::xtend::Dto»
 
-«DEFINE createTranslator FOR EnumerationDto»
+«DEFINE createEnumTranslator FOR EnumerationDto»
         «EXPAND JavaComments::regenerationWarningHeader ("Mod4j DatacontractDsl generator: EnumTranslators.xpt") FOR this»
-         package «getTranslatorsPackage()»;
+         package «getTranslatorsPackage(datacontractModel.name)»;
          
-         import «getDomainRootPackage()».«javaClassName(base.name)»;
-         import «getDtoPackage()».«javaClassName(name)»;
+         import «getFqnDomainClass(base.modelname, base.name)»;
+         import «getFqnDtoClass(datacontractModel.name, name)»;
 
         /**
          * Translator for translating «javaClassName(base.name)» business classes from- and to «javaClassName(name)» data transfer objects. 

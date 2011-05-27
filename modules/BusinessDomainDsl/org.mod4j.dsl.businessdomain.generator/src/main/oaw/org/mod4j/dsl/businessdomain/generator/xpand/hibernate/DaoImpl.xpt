@@ -18,12 +18,12 @@
 
 «EXPAND JavaComments::extensionPointHeader ("Mod4j BusinessDomainDsl generator: DaoImpl.xpt") FOR this»
 
-package «getDaoImplPackage()»;
+package «getDaoImplPackage(model.name)»;
 
-import «getDaoPackage()».«javaDaoInterface(this.name)»;
+import «getFqnDaoInterface(model.name, this.name)»;
 
 /**
- * «javaDomainClass(this.name)» Data Access Object (DAO) Implementation. Responsible for Creating,
+ * «javaDomainClass(this.name)» Data Access Object implementation. Responsible for Creating,
  * Reading, Updating and Deleting «javaDomainClass(this.name)» objects in the database.
  * All database access is done here.
  *  

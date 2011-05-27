@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import javax.sql.DataSource;
 import javax.transaction.UserTransaction;
 
-import org.company.recordshop.service.local.CustomerServiceModelLocalService;
+import org.company.recordshop.service.customers.local.CustomersLocalService;
 import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,8 +43,8 @@ public class SpringContextLoaderTest {
 				.getInstance("classpath*:/org/company/recordshop/*/beanRefContext.xml");
 		BeanFactoryReference reference = locator
 				.useBeanFactory("org.company.recordshop.service.Context");
-		CustomerServiceModelLocalService service = (CustomerServiceModelLocalService) reference
-				.getFactory().getBean("customerServiceModelService");
+		CustomersLocalService service = (CustomersLocalService) reference
+				.getFactory().getBean("customersService");
 	}
 
 	@Test

@@ -40,6 +40,7 @@ create Symbol toElement(BusinessClassDto dto) :
     this.setType("Dto") ->
     this.properties.add( addDtoTypeProperty(dto) ) ->
     this.properties.add( businessClassProperty(dto) )->
+    this.properties.add( modelnameProperty(dto) )->
     this.properties.add( newProperty("Creatable", (dto.creatable ? "true" : "false" ) ))->
     this.properties.add( newRefProperty("BaseClass", dto.base.modelname, dto.base.name, "BusinessClass"))->
     this.subSymbols.addAll(dto.properties.toElement())
@@ -107,6 +108,11 @@ create LiteralSymbolProperty addDtoTypeProperty(Dto dto) :
 create LiteralSymbolProperty businessClassProperty(BusinessClassDto dto) :
     this.setName("businessClass")->
     this.setValue(dto.base.name)
+    ;
+
+create LiteralSymbolProperty modelnameProperty(BusinessClassDto dto) :
+    this.setName("modelname")->
+    this.setValue(dto.base.modelname)
     ;
 
     

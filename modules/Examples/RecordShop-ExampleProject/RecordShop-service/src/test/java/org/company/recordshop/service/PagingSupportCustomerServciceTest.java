@@ -4,10 +4,10 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import org.company.recordshop.bd.data.CustomerDao;
-import org.company.recordshop.bd.domain.Customer;
-import org.company.recordshop.service.dto.SimpleCustomerDto;
-import org.company.recordshop.service.local.CustomerServiceModelLocalService;
+import org.company.recordshop.business.recordshopcore.data.CustomerDao;
+import org.company.recordshop.business.recordshopcore.domain.Customer;
+import org.company.recordshop.service.customers.local.CustomersLocalService;
+import org.company.recordshop.service.dto.common.SimpleCustomerDto;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class PagingSupportCustomerServciceTest extends AbstractServiceTestCase {
     private CustomerDao customerDao;
 
     @Autowired
-    private CustomerServiceModelLocalService customerServiceModelService;
+    private CustomersLocalService customerServiceModelService;
 
     private final byte NUMBER_OF_ITEMS = 15;
 

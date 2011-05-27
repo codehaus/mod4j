@@ -18,19 +18,10 @@ import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty;
 import org.mod4j.crossx.mm.crossx.Symbol;
 
-
 public class ServiceUtil {
 
-//    static public String javaClassName(String className){
-//        return className;
-//    }
-//
-//    static public String javaBaseClassName(String className){
-//        return javaClassName(className) + ProjectProperties.IMPLBASE_SUFFIX;
-//    }
-
     /**
-     * Get the BusinessClassDto that are is referenced by roleRerference
+     * Gets the BusinessClassDto that is referenced by roleRerference.
      * @param roleReference
      * @return
      */
@@ -48,7 +39,7 @@ public class ServiceUtil {
     }
 
     /**
-     * Get the BusinessClassDto that are is referenced by roleRerference
+     * Gets the BusinessClassDto that is referenced by roleRerference.
      * @param roleReference
      * @return
      */
@@ -57,17 +48,17 @@ public class ServiceUtil {
         Symbol referredDtoSymbol = CrossxBroker.lookupSymbol(referredDto.getModelname(),
                                                              referredDto.getSymbolname(), "Dto") ;
 
-//        if( CrossxBroker.getPropertyValue(referredDtoSymbol, "dtoType").equals("ListDto") ) {
-//            
-//            ReferenceSymbolProperty ref = CrossxBroker.getReferenceProperty(referredDtoSymbol, "BaseDto");
-//            Symbol dto = CrossxBroker.lookupReference(ref);
-//            return CrossxBroker.getPropertyValue(dto, "businessClass");
-//        } else {
-            // dtoType must be BusinessClassDto
             return CrossxBroker.getPropertyValue(referredDtoSymbol, "businessClass");
-//        }
     }
 
+//  if( CrossxBroker.getPropertyValue(referredDtoSymbol, "dtoType").equals("ListDto") ) {
+//  
+//  ReferenceSymbolProperty ref = CrossxBroker.getReferenceProperty(referredDtoSymbol, "BaseDto");
+//  Symbol dto = CrossxBroker.lookupReference(ref);
+//  return CrossxBroker.getPropertyValue(dto, "businessClass");
+//  } else {
+//  dtoType must be BusinessClassDto
+    
     static public Collection<Symbol> makeUnique(Collection<Symbol> symbols) {
         List<Symbol> result = new ArrayList<Symbol>();
         

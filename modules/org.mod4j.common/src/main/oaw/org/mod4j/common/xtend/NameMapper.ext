@@ -9,11 +9,29 @@
  *     Ordina - initial implementation
  *******************************************************************************/
 
+String getBusinessModelDomainPackage(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getBusinessModelDomainPackage(java.lang.String);
+
+String getBusinessModelDomainPackageAsPath(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getBusinessModelDomainPackageAsPath(java.lang.String);
+
+String getBusinessModelDataPackage(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getBusinessModelDataPackage(java.lang.String);
+
 String javaDomainClass(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainClass(java.lang.String);
 
-String javaDomainClassPath(String cls) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainClassPath(java.lang.String);
+String getFqnDomainClass(String modelPackage, String clsName) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnDomainClass(java.lang.String, java.lang.String);
+  
+String lookupFQNDomainClass(String clsName) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.lookupFQNDomainClass(java.lang.String);
+  
+String lookupFQNDomainExample(String clsName) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.lookupFQNDomainExample(java.lang.String);
+
+String getFqnDomainBaseClass(String modelPackage, String clsName) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnDomainBaseClass(java.lang.String, java.lang.String);
 
 String javaDomainBaseClass(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainBaseClass(java.lang.String);
@@ -21,75 +39,80 @@ String javaDomainBaseClass(String cls) : JAVA
 String javaDomainExampleClass(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainExampleClass(java.lang.String);
 
-String javaDomainExampleClassPath(String cls) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainExampleClassPath(java.lang.String);
-
-String javaDomainBaseClassPath(String cls) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainBaseClassPath(java.lang.String);
+String getFqnDomainExampleClass(String modelPackage, String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnDomainExampleClass(java.lang.String, java.lang.String);
 
 String javaDaoInterface(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoInterface(java.lang.String);
 
-String javaDaoInterfacePath(String cls) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoInterfacePath(java.lang.String);
+String getFqnDaoInterface(String modelName, String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnDaoInterface(java.lang.String, java.lang.String);
 
 String javaDaoClass(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoClass(java.lang.String);
 
-String javaDaoClassPath(String cls) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoClassPath(java.lang.String);
+String getFqnDaoImplClass(String modelName, String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnDaoImplClass(java.lang.String, java.lang.String);
 
 String javaDaoBaseInterface(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoBaseInterface(java.lang.String);
 
-String javaDaoBaseInterfacePath(String cls) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoBaseInterfacePath(java.lang.String);
+String getFqnDaoBaseInterface(String modelName, String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnDaoBaseInterface(java.lang.String, java.lang.String);
 
 String javaDaoBaseClass(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoBaseClass(java.lang.String);
 
-String javaDaoBaseClassPath(String cls) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoBaseClassPath(java.lang.String);
+String getFqnDaoBaseImplClass(String modelName, String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnDaoBaseImplClass(java.lang.String, java.lang.String);
+  
+String getDaoImplPackage(String modelName) : JAVA  
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getDaoImplPackage(java.lang.String);
+  
+String getDaoPackage(String modelName) : JAVA  
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getDaoPackage(java.lang.String);
 
 String javaLocalServiceInterface(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaLocalServiceInterface(java.lang.String);
 
-String javaLocalServiceInterfacePath(String cls) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaLocalServiceInterfacePath(java.lang.String);
+String getFqnLocalServiceInterface(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnLocalServiceInterface(java.lang.String);
 
 String javaLocalServiceClass(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaLocalServiceClass(java.lang.String);
 
-String javaLocalServiceClassPath(String cls) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaLocalServiceClassPath(java.lang.String);
+String getLocalServicePackage(String modelName) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getLocalServicePackage(java.lang.String);
+
+String getFqnLocalServiceClass(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnLocalServiceClass(java.lang.String);
 
 String javaLocalServiceBaseClass(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaLocalServiceBaseClass(java.lang.String);
 
-String javaLocalServiceBaseClassPath(String cls) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaLocalServiceBaseClassPath(java.lang.String);
+String getFqnLocalServiceBaseClass(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnLocalServiceBaseClass(java.lang.String);
+
+String getDtoPackage(String modelName) : JAVA 
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getDtoPackage(java.lang.String);
+
+String getTranslatorsPackage(String modelName) : JAVA 
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getTranslatorsPackage(java.lang.String);
 
 String javaDtoClass(String cls) : JAVA 
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaDtoClass(java.lang.String);
 
-String javaDtoClassPath(String cls) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDtoClassPath(java.lang.String);
+String getFqnDtoClass(String modelName, String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnDtoClass(java.lang.String, java.lang.String);
 
 String javaTranslatorClass(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaTranslatorClass(java.lang.String);
 
-String javaTranslatorClassPath(String cls) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaTranslatorClassPath(java.lang.String);
+String getFqnTranslatorClass(String modelName, String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnTranslatorClass(java.lang.String, java.lang.String);
 
-// TODO galileo: seems to be a nonexisting Java method
-//String javaPrimitiveType(String typename) : JAVA
-//  org.mod4j.dslcommon.generator.helpers.JavaTypeHelpers.javaPrimitiveType(java.lang.String);
-
-String javaGenericEnumClass() : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaGenericEnumClass();
-
-String javaGenericEnumClassPath() : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaGenericEnumClassPath();
+String getFqnGenericEnumUserType() : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnGenericEnumUserType();
   
 String hibernateMappingFile(String classname) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.hibernateMappingFile(java.lang.String);
@@ -97,17 +120,18 @@ String hibernateMappingFile(String classname) : JAVA
 String javaBusinessRuleBaseClass(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaBusinessRuleBaseClass(java.lang.String);
 
-String javaBusinessRuleBaseClassPath(String cls) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaBusinessRuleBaseClassPath(java.lang.String);
+String getFqnBusinessRuleBaseClass(String modelName, String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnBusinessRuleBaseClass(java.lang.String, java.lang.String);
+
+String getFqnBusinessRuleClass(String modelName, String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getFqnBusinessRuleClass(java.lang.String, java.lang.String);
 
 String javaBusinessRuleClass(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaBusinessRuleClass(java.lang.String);
 
-String javaBusinessRuleClassPath(String cls) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaBusinessRuleClassPath(java.lang.String);
 
-String getBusinessRulesPackage() : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.getBusinessRulesPackage();
+String getBusinessRulePackage(String modelName) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getBusinessRulePackage(java.lang.String);
 
 // PRESENATTION
 String getPresentationPackage()  : JAVA

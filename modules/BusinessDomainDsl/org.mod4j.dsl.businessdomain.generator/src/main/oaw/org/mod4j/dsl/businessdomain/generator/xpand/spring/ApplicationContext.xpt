@@ -29,7 +29,7 @@
     <!-- Aspects -->
     <aop:config>
         <aop:pointcut id="«getApplicationName().toFirstLower()»DataMethods" 
-                      expression="execution(* «getDaoImplPackage()».*DaoImpl.*(..))"/>
+                      expression="execution(* «getDataPackageName()».*.*DaoImpl.*(..))"/>
         <aop:aspect ref="loggingAspect">
             <aop:before pointcut-ref="«getApplicationName().toFirstLower()»DataMethods" method="logBefore" />
             <aop:after pointcut-ref="«getApplicationName().toFirstLower()»DataMethods" method="logAfter" />
@@ -41,8 +41,7 @@
 
     <!--  Data layer part of infrastructure -->
 «FOREACH findAllSymbols( getProject(), "BusinessClass" ).name AS clsName -»
-    <bean id="«clsName.toFirstLower()»Dao"
-        class="«getDaoImplPackage()».«clsName»DaoImpl">
+    <bean id="«clsName.toFirstLower()»Dao" class="«getDaoImplPackage(findModel("BusinessDomainDsl", clsName, "BusinessClass").modelname)».«clsName»DaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 «ENDFOREACH»
@@ -54,7 +53,7 @@
         <constructor-arg>
             <list>
 «FOREACH findAllSymbols( getProject(), "BusinessClass" ).name AS clsName -»
-                <value>«getDomainRootPackageAsPath()»/«clsName».hbm.xml</value>
+                <value>«getBusinessModelDomainPackage(findModel("BusinessDomainDsl", clsName, "BusinessClass").modelname)»/«clsName».hbm.xml</value>
 «ENDFOREACH -»
             </list>
         </constructor-arg>

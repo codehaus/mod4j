@@ -3,9 +3,9 @@ package org.company.recordshop.service;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.company.recordshop.service.dto.FullCustomerDto;
-import org.company.recordshop.service.dto.SimpleCustomerDto;
-import org.company.recordshop.service.local.CustomerServiceModelLocalService;
+import org.company.recordshop.service.customers.local.CustomersLocalService;
+import org.company.recordshop.service.dto.common.FullCustomerDto;
+import org.company.recordshop.service.dto.common.SimpleCustomerDto;
 import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,7 +17,7 @@ import org.springframework.test.annotation.Rollback;
 public class CustomerServiceTest extends AbstractServiceTestCase {
 
     @Autowired
-    CustomerServiceModelLocalService customerServiceModelService;
+    CustomersLocalService customerServiceModelService;
 
     @Test
     @Rollback(true)

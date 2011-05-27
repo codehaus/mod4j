@@ -1,7 +1,8 @@
 package org.company.recordshop.service.dto;
 
-import org.company.recordshop.bd.domain.Person;
-import org.company.recordshop.service.dto.translators.AgedPersonTranslator;
+import org.company.recordshop.business.recordshopcore.domain.Person;
+import org.company.recordshop.service.dto.common.AgedPerson;
+import org.company.recordshop.service.dto.common.translators.AgedPersonTranslator;
 import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Before;

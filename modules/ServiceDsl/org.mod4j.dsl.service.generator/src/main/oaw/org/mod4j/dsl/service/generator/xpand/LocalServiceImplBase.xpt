@@ -23,21 +23,21 @@
 «DEFINE LocalServiceImplBase FOR ServiceModel»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j ServiceDsl generator: LocalServiceImplBase.xpt") FOR this»
 
-    package «getLocalServicePackage()»;
+    package «getLocalServicePackage(name)»;
 
     import java.util.List;
     import java.util.Set;
     import java.util.ArrayList;
     import org.springframework.util.Assert;
     import org.mod4j.runtime.queries.SearchParameters;
-    «FOREACH this.dtoReferences AS dto -»
-    import «getDtoPackage()».«javaClassName(dto.name)»;
+    «FOREACH this.dtoReferences AS dtoRef -»
+    import «getFqnDtoClass(dtoRef.modelname, dtoRef.name)»;
     «ENDFOREACH»
-    «FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
-    import «javaDaoInterfacePath(dto.businessClass())»; 
-    import «javaTranslatorClassPath(dto.name)»;
-    import «javaDomainClassPath(dto.businessClass())»;
-    import «javaDomainExampleClassPath(dto.businessClass())»;
+    «FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dtoRef -»
+    import «getFqnTranslatorClass(dtoRef.modelname, dtoRef.name)»;
+    import «getFqnDaoInterface(dtoRef.modelname(), dtoRef.businessClass())»; 
+    import «getFqnDomainClass(dtoRef.modelname(), dtoRef.businessClass())»;
+    import «getFqnDomainExampleClass(dtoRef.modelname(), dtoRef.businessClass())»;
     «ENDFOREACH»
 
     /**

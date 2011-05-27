@@ -34,18 +34,18 @@
 	«ENDFILE»
 	
     «FOREACH types.typeSelect(BusinessClass) AS class»
-        «FILE generate(getBusinessDomainModuleName(), javaPathFileName(javaDomainBaseClassPath(class.name) ))»
+        «FILE generate(getBusinessDomainModuleName(), javaPathFileName(getFqnDomainBaseClass(class.model.name, class.name) ))»
             «EXPAND NewJavaBean::BeanClassImplBase FOR class»
         «ENDFILE»
 	    «FOREACH class.businessRules.typeSelect(BusinessRule) AS br»
-		    «FILE generate(getBusinessDomainModuleName(), javaPathFileName(javaBusinessRuleBaseClassPath(br.name) ))»
+		    «FILE generate(getBusinessDomainModuleName(), javaPathFileName(getFqnBusinessRuleBaseClass(class.model.name, br.name) ))»
 		        «EXPAND NewBusinessRules::BusinessRuleImplBase (class) FOR br»
 			«ENDFILE»
 	    «ENDFOREACH»
     «ENDFOREACH»
     
 	«FOREACH enumerations AS enum»
-	    «FILE generate(getBusinessDomainModuleName(), javaPathFileName(javaDomainClassPath(enum.name) ))»
+	    «FILE generate(getBusinessDomainModuleName(), javaPathFileName(getFqnDomainClass(enum.model.name, enum.name) ))»
 			«EXPAND Enumeration::createEnum FOR enum»
 		«ENDFILE»
 	«ENDFOREACH»
@@ -63,27 +63,27 @@
     «FOREACH types.typeSelect(BusinessClass) AS class»
 
 		«REM»Extension points for business domain classes.«ENDREM»
-		«IF !fileExist(fullExtendPath(getBusinessDomainModuleName(), javaPathFileName(javaDomainClassPath(class.name) )))»
-			«FILE generate(getBusinessDomainModuleName(), javaPathFileName(javaDomainClassPath(class.name) ))»
+		«IF !fileExist(fullExtendPath(getBusinessDomainModuleName(), javaPathFileName(getFqnDomainClass(class.model.name, class.name) )))»
+			«FILE generate(getBusinessDomainModuleName(), javaPathFileName(getFqnDomainClass(class.model.name, class.name) ))»
 	            «EXPAND NewJavaBean::BeanClassExtensionPoint FOR class»
 	        «ENDFILE»
 		«ELSE»
-			«retain(getBusinessDomainModuleName(), javaPathFileName(javaDomainClassPath(class.name) ))»
+			«retain(getBusinessDomainModuleName(), javaPathFileName(getFqnDomainClass(class.model.name, class.name) ))»
 	    «ENDIF»
 
 		«REM»ExampleClasses for business domain classes to enable query bu example.«ENDREM»
-	    «FILE generate(getBusinessDomainModuleName(), javaPathFileName(javaDomainExampleClassPath(class.name) ))»
+	    «FILE generate(getBusinessDomainModuleName(), javaPathFileName(getFqnDomainExampleClass(class.model.name, class.name) ))»
 		    «EXPAND NewJavaBean::BeanClassQueryExample FOR class»
 		«ENDFILE»
         
         «REM»Extension points for businessrule classes.«ENDREM»
 	    «FOREACH class.businessRules.typeSelect(BusinessRule) AS br»
-			«IF !fileExist(fullExtendPath(getBusinessDomainModuleName(), javaPathFileName(javaBusinessRuleClassPath(br.name) )))»
-				«FILE generate(getBusinessDomainModuleName(), javaPathFileName(javaBusinessRuleClassPath(br.name) ))»
+			«IF !fileExist(fullExtendPath(getBusinessDomainModuleName(), javaPathFileName(getFqnBusinessRuleClass(class.model.name, br.name) )))»
+				«FILE generate(getBusinessDomainModuleName(), javaPathFileName(getFqnBusinessRuleClass(class.model.name, br.name) ))»
 					«EXPAND NewBusinessRules::BusinessRuleExtensionPoint  FOR br»
 				«ENDFILE»
 			«ELSE»
-				«retain(getBusinessDomainModuleName(), javaPathFileName(javaBusinessRuleClassPath(br.name) ))»
+				«retain(getBusinessDomainModuleName(), javaPathFileName(getFqnBusinessRuleClass(class.model.name, br.name) ))»
 			«ENDIF»
 	    «ENDFOREACH»
     «ENDFOREACH»

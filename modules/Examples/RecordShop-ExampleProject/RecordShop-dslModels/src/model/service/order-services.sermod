@@ -1,13 +1,13 @@
 "The RecordShop Order Service Model. Contains all services for handling and maintaining Orders"
-service OrderServiceModel ;
+service orders ;
 
-from RecordShopDataContract import OrderDto;
-from RecordShopDataContract import SimpleCustomerDto;
-//from RecordShopDataContract import OrderNumberAndDateList;
-from RecordShopDataContract import DateDto;
-from RecordShopDataContract import OrderNumberAndDateDto ;
-from RecordShopDataContract import OrderWithOrderLinesDto ;
-from RecordShopDataContract import OrderLineDto ;
+from common import OrderDto;
+from common import SimpleCustomerDto;
+//from common import OrderNumberAndDateList;
+from common import DateDto;
+from common import OrderNumberAndDateDto ;
+from common import OrderWithOrderLinesDto ;
+from common import OrderLineDto ;
   
 read   readCustomerAAA  for SimpleCustomerDto ;  
   

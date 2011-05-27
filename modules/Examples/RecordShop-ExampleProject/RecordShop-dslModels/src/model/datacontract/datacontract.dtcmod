@@ -1,22 +1,22 @@
 "The RecordShop data contract."
-datacontract RecordShopDataContract  ; 
+datacontract common; 
   
-from RecordShopDomainModel import Customer;
-from RecordShopDomainModel import Person;
-from RecordShopDomainModel import Relation;
-from RecordShopDomainModel import Artist;
-from RecordShopDomainModel import Order;
-from RecordShopDomainModel import Record;
-from RecordShopDomainModel import OrderLine;
-from RecordShopDomainModel import Product;
-from RecordShopDomainModel import SexeEnum;
-from RecordShopDomainModel import RecordTypeEnum;
-from RecordShopDomainModel import Address;
+from recordshopcore import Customer;
+from recordshopcore import Person;
+from recordshopcore import Relation;
+from recordshopcore import Artist;
+from recordshopcore import Order;
+from recordshopcore import Record;
+from recordshopcore import OrderLine;
+from recordshopcore import Product;
+from recordshopcore import SexeEnum;
+from recordshopcore import RecordTypeEnum;
+from recordshopcore import Address;
   
-    /*     
+    /*    
      * Transfer objects for BusinessClasses 
      */
-     
+    
 	"Full Customer transfer object with all the Customer attributes (no associations)."
 	class FullCustomerDto represents Customer;
 	
@@ -158,7 +158,7 @@ from RecordShopDomainModel import Address;
 	    "lastName"
 	    string lastName;
 	]
-	
+
     /* 
      * Enumeration Dto's
      */

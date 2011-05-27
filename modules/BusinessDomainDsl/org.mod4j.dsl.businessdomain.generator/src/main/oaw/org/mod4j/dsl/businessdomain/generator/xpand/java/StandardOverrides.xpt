@@ -20,7 +20,7 @@
     @Override
     public String toString() {
         StringBuffer result = new StringBuffer();
-        result.append("«getDomainRootPackage()».«javaDomainClass(name)»[");
+        result.append("«getFqnDomainClass(this.model.name, this.name)»[");
         result.append("id=");
         result.append(getId());
         result.append(",");

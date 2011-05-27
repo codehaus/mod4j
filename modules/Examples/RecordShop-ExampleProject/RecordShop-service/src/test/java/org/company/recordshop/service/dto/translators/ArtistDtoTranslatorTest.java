@@ -3,7 +3,8 @@ package org.company.recordshop.service.dto.translators;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import org.company.recordshop.service.dto.ArtistDto;
+import org.company.recordshop.service.dto.common.ArtistDto;
+import org.company.recordshop.service.dto.common.translators.ArtistDtoTranslator;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,7 +23,7 @@ public class ArtistDtoTranslatorTest {
 			assertEquals(
 					"This source dto does not contain all non-nullable properties"
 							+ " of the domain object to be created: org.company.recordshop."
-							+ "service.dto.ArtistDto[id=null,version=null,firstName=null,"
+							+ "service.dto.common.ArtistDto[id=null,version=null,firstName=null,"
 							+ "lastName=null,age=null,artistName=null]", e
 							.getMessage());
 		}

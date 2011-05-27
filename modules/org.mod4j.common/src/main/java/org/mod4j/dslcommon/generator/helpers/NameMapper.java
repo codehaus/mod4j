@@ -12,7 +12,7 @@ package org.mod4j.dslcommon.generator.helpers;
 
 public class NameMapper {
 
-    private static final String IMPL_POSTFIX = "ImplBase";
+	private static final String IMPL_POSTFIX = "ImplBase";
 
     private static final String EXAMPLE_POSTFIX = "Example";
 
@@ -26,26 +26,26 @@ public class NameMapper {
     private static final String DAO_BASE_INTERFACE_POSTFIX = "DaoBase";
 
     private static final String DAO_BASE_CLASS_POSTFIX = "DaoImplBase";
+    
+    public static final String DAO_IMPL_PACKAGE = "hibernate.spring";
+    
+    /**
+     * Dto 
+     */
+    public static final String DTO_PACKAGE = "dto";
+
+    public static final String TRANSLATORS_PACKAGE = "translators";
 
     /**
      * Local Services
      */
+    private static final String LOCALSERVICES_PACKAGE = "local";
+    
     private static final String LOCAL_SERVICE_INTERFACE_POSTFIX = "LocalService";
 
     private static final String LOCAL_SERVICE_CLASS_POSTFIX = "LocalServiceImpl";
 
     private static final String LOCAL_SERVICE_BASE_CLASS_POSTFIX = "LocalServiceImplBase";
-
-    /**
-     * Domain
-     */
-//    private static final String DOMAIN_SERVICE_INTERFACE_POSTFIX = "DomainService";
-//
-//    private static final String DOMAIN_SERVICE_CLASS_POSTFIX = "DomainServiceImpl";
-//
-//    private static final String DOMAIN_SERVICE_BASE_INTERFACE_POSTFIX = "DomainServiceBase";
-
-//    private static final String DOMAIN_SERVICE_BASE_CLASS_POSTFIX = "DomainServiceImplBase";
 
     private static final String TRANSLATOR_CLASS_POSTFIX = "Translator";
 
@@ -53,26 +53,50 @@ public class NameMapper {
 
     public static final String IMPLBASE_SUFFIX = "ImplBase";
 
+    
     /**
      * @param cls
      * @return The name of the Java class for name cls
      */
     public static String javaDomainClass(String cls) {
-        return StringHelpers.firstCharToUpper(cls);
+    	return StringHelpers.firstCharToUpper(cls);
     }
 
     /**
-     * @param cls
-     * @return The name of the Java class for name cls
+     * Determines the Fully Qualified Name of the domain class that corresponds with the given className.
+     * The Fully Qualified Name is constructed from the following parts: <br>
+     * - business module name + modelName + domainPackageName<br>
+     * - the java class name <br>
+     * 
+     * @param modelName
+     * @param className
+     * @return The Fully Qualified Name of the corresponding domain class.
      */
-    public static String javaDomainClassPath(String cls) {
-        String packageName = ProjectProperties.getDomainRootPackage();
-        return packageName + "." + javaDomainClass(cls);
+    public static String getFqnDomainClass(String modelName, String className) {
+        return getBusinessModelDomainPackage(modelName) + "." + javaDomainClass(className);
+    }
+    
+    public static String getBusinessModelPackage(final String modelName){
+    	return ProjectProperties.getBusinessdomainRootPackage() + "." + modelName;
+    }
+    
+    public static String getBusinessModelDomainPackage(final String modelName){
+    	return getBusinessModelPackage(modelName) + "." + ProjectProperties.getDomainPackageName();
     }
 
-    public static String javaDomainClassFolder(String cls) {
-        String packageName = ProjectProperties.getDomainRootPackage();
-        return packageName + "." + javaDomainClass(cls);
+    public static String getBusinessModelDomainPackageAsPath(final String modelName){
+    	return getBusinessModelPackage(modelName).replaceAll("\\.", "/");
+    }
+    
+    /**
+     * Determines the Fully Qualified Name of the domain base class that corresponds with the given className.
+     * 
+     * @param modelName
+     * @param className
+     * @return The Fully Qualified Name of the corresponding domain base class.
+     */
+    public static String getFqnDomainBaseClass(String modelName, String className) {
+    	return getBusinessModelDomainPackage(modelName) + "." + javaDomainBaseClass(className);
     }
 
     /**
@@ -91,137 +115,99 @@ public class NameMapper {
         return javaDomainClass(cls) + EXAMPLE_POSTFIX;
     }
 
-    public static String javaDomainExampleClassPath(String cls) {
-        String packageName = ProjectProperties.getDomainRootPackage();
-        return packageName + "." + javaDomainExampleClass(cls);
-    }
-
     /**
-     * @param cls
-     * @return The name of the Java class for name cls
+     * Determines the Fully Qualified Name of the example class that corresponds with the given className.
+     * @param modelname
+     * @param className
+     * @return The Fully Qualified Name of the corresponding example class.
      */
-
-    public static String javaDomainBaseClassPath(String cls) {
-        String packageName = ProjectProperties.getDomainRootPackage();
-        return packageName + "." + javaDomainBaseClass(cls);
+    public static String getFqnDomainExampleClass(String modelName, String className) {
+        return getBusinessModelDomainPackage(modelName) + "." + javaDomainExampleClass(className);
     }
 
     public static String javaDaoInterface(String cls) {
         return javaDomainClass(cls) + DAO_INTERFACE_POSTFIX;
     }
 
-    public static String javaDaoInterfacePath(String cls) {
-        String packageName = ProjectProperties.getDaoPackage();
-        return packageName + "." + javaDaoInterface(cls);
+    public static String getFqnDaoInterface(String modelName, String cls) {
+    	return getBusinessModelDataPackage(modelName) + "." + javaDaoInterface(cls);
     }
 
-    public static String javaDaoClass(String cls) {
+    public static String getBusinessModelDataPackage(String modelName) {
+    	return getBusinessModelPackage(modelName) + "." + ProjectProperties.getDataPackageName();
+	}
+
+	public static String javaDaoClass(String cls) {
         return javaDomainClass(cls) + DAO_CLASS_POSTFIX;
     }
 
-    public static String javaDaoClassPath(String cls) {
-        String packageName = ProjectProperties.getDaoImplPackage();
-        return packageName + "." + javaDaoClass(cls);
+    public static String getFqnDaoImplClass(String modelName, String cls) {
+        return getDaoImplPackage(modelName) + "." + javaDaoClass(cls);
     }
 
-    public static String javaGenericEnumClass() {
-        return "GenericEnumUserType";
-    }
-
-    public static String javaGenericEnumClassPath() {
-        String packageName = ProjectProperties.getDataRootPackage();
-        return packageName + "." + javaGenericEnumClass();
+    public static String getFqnGenericEnumUserType() {
+        return ProjectProperties.getGenericEnumUserTypeClass();
     }
 
     public static String javaDaoBaseInterface(String cls) {
         return javaDomainClass(cls) + DAO_BASE_INTERFACE_POSTFIX;
     }
 
-    public static String javaDaoBaseInterfacePath(String cls) {
-        String packageName = ProjectProperties.getDaoPackage();
-        return packageName + "." + javaDaoBaseInterface(cls);
+    public static String getFqnDaoBaseInterface(String modelName, String cls) {
+        return getBusinessModelDataPackage(modelName) + "." + javaDaoBaseInterface(cls);
+    }
+    
+    public static String getDaoPackage(String modelName){
+    	return ProjectProperties.getDataPackageName() + "." + modelName;
     }
 
     public static String javaDaoBaseClass(String cls) {
         return javaDomainClass(cls) + DAO_BASE_CLASS_POSTFIX;
     }
 
-    public static String javaDaoBaseClassPath(String cls) {
-        String packageName = ProjectProperties.getDaoImplPackage();
-        return packageName + "." + javaDaoBaseClass(cls);
+    public static String getFqnDaoBaseImplClass(String modelName, String cls) {
+        return getDaoImplPackage(modelName) + "." + javaDaoBaseClass(cls);
     }
+    
+    public static String getDaoImplPackage(String modelName) {
+    	return getBusinessModelDataPackage(modelName) + "." + DAO_IMPL_PACKAGE;
+	}
 
     // LOCAL SERVICES
     public static String javaLocalServiceInterface(String classname) {
         return StringHelpers.firstCharToUpper(classname) + LOCAL_SERVICE_INTERFACE_POSTFIX;
     }
 
-    public static String javaLocalServiceInterfacePath(String classname) {
-        String packageName = ProjectProperties.getLocalServicePackage();
-        return packageName + "." + javaLocalServiceInterface(classname);
+    public static String getFqnLocalServiceInterface(String classname) {
+        return getLocalServicePackage(classname) + "." + javaLocalServiceInterface(classname);
     }
 
     public static String javaLocalServiceClass(String classname) {
         return StringHelpers.firstCharToUpper(classname) + LOCAL_SERVICE_CLASS_POSTFIX;
     }
 
-    public static String javaLocalServiceClassPath(String classname) {
-        String packageName = ProjectProperties.getLocalServicePackage();
-        return packageName + "." + javaLocalServiceClass(classname);
+    public static String getFqnLocalServiceClass(String classname) {
+        return getLocalServicePackage(classname) + "." + javaLocalServiceClass(classname);
+    }
+    
+    public static String getLocalServicePackage(String modelName){
+    	return ProjectProperties.getServiceRootPackage() + "." + modelName + "." + LOCALSERVICES_PACKAGE;
     }
 
     public static String javaLocalServiceBaseClass(String classname) {
         return StringHelpers.firstCharToUpper(classname) + LOCAL_SERVICE_BASE_CLASS_POSTFIX;
     }
 
-    public static String javaLocalServiceBaseClassPath(String classname) {
-        String packageName = ProjectProperties.getLocalServicePackage();
-        return packageName + "." + javaLocalServiceBaseClass(classname);
+    public static String getFqnLocalServiceBaseClass(String classname) {
+        return getLocalServicePackage(classname) + "." + javaLocalServiceBaseClass(classname);
     }
-
-//    // DOMAIN SERVICES
-//    public static String javaDomainServiceInterface(String classname) {
-//        return StringHelpers.firstCharToUpper(classname) + DOMAIN_SERVICE_INTERFACE_POSTFIX;
-//    }
-
-//    public static String javaDomainServiceInterfacePath(String classname) {
-//        String packageName = ProjectProperties.getBusinessRootPackage();
-//        return packageName + "." + javaDomainServiceInterface(classname);
-//    }
-
-//    public static String javaDomainServiceBaseInterface(String classname) {
-//        return StringHelpers.firstCharToUpper(classname) + DOMAIN_SERVICE_BASE_INTERFACE_POSTFIX;
-//    }
-
-//    public static String javaDomainServiceBaseInterfacePath(String classname) {
-//        String packageName = ProjectProperties.getBusinessRootPackage();
-//        return packageName + "." + javaDomainServiceBaseInterface(classname);
-//    }
-
-//    public static String javaDomainServiceClass(String classname) {
-//        return StringHelpers.firstCharToUpper(classname) + DOMAIN_SERVICE_CLASS_POSTFIX;
-//    }
-
-//    public static String javaDomainServiceClassPath(String classname) {
-//        String packageName = ProjectProperties.getBusinessRootPackage();
-//        return packageName + "." + javaDomainServiceClass(classname);
-//    }
-
-//    public static String javaDomainServiceBaseClass(String classname) {
-//        return StringHelpers.firstCharToUpper(classname) + DOMAIN_SERVICE_BASE_CLASS_POSTFIX;
-//    }
-
-//    public static String javaDomainServiceBaseClassPath(String model) {
-//        String packageName = ProjectProperties.getBusinessRootPackage();
-//        return packageName + "." + javaDomainServiceBaseClass(model);
-//    }
 
     public static String javaTranslatorClass(String classname) {
         return StringHelpers.firstCharToUpper(classname) + TRANSLATOR_CLASS_POSTFIX;
     }
 
-    public static String javaDtoClassPath(String classname) {
-        String packageName = ProjectProperties.getDtoPackage();
+    public static String getFqnDtoClass(String modelName, String classname) {
+        String packageName = getDtoPackage(modelName);
         return packageName + "." + javaDtoClass(classname);
     }
 
@@ -229,39 +215,40 @@ public class NameMapper {
         return StringHelpers.firstCharToUpper(classname);
     }
 
-    public static String javaTranslatorClassPath(String classname) {
-        String packageName = ProjectProperties.getDtoPackage() + ".translators";
-        return packageName + "." + javaTranslatorClass(classname);
+    public static String getFqnTranslatorClass(String modelName, String classname) {
+        return getTranslatorsPackage(modelName) + "." + javaTranslatorClass(classname);
+    }
+    
+    public static String getDtoPackage(String modelName){
+    	return ProjectProperties.getServiceRootPackage() + "." + DTO_PACKAGE + "." + modelName;
+    }
+    
+    public static String getTranslatorsPackage(String modelName) {
+        return getDtoPackage(modelName) + "." + TRANSLATORS_PACKAGE;
     }
 
     public static String hibernateMappingFile(String classname) {
         return javaDomainClass(classname) + ".hbm.xml";
     }
 
-    /**
-     * 
-     * @return The full packagename of business rules
-     */
-    public static String getBusinessRulesPackage() {
-        return ProjectProperties.getDomainRootPackage() + "." + BUSINESSRULES_PACKAGE;
-    }
-
     public static String javaBusinessRuleBaseClass(String classname) {
         return javaDomainClass(classname) + IMPLBASE_SUFFIX;
     }
 
-    public static String javaBusinessRuleBaseClassPath(String classname) {
-        String packageName = ProjectProperties.getDomainRootPackage() + "." + BUSINESSRULES_PACKAGE;
-        return packageName + "." + javaBusinessRuleBaseClass(classname);
+    public static String getFqnBusinessRuleBaseClass(String modelName, String classname) {
+        return getBusinessRulePackage(modelName) + "." + javaBusinessRuleBaseClass(classname);
+    }
+    
+    public static String getFqnBusinessRuleClass(String modelName, String classname) {
+        return getBusinessRulePackage(modelName) + "." + javaBusinessRuleClass(classname);
+    }
+    
+    public static String getBusinessRulePackage(String modelName){
+    	return getBusinessModelDomainPackage(modelName) + "." + BUSINESSRULES_PACKAGE;
     }
 
     public static String javaBusinessRuleClass(String classname) {
         return javaDomainClass(classname);
-    }
-
-    public static String javaBusinessRuleClassPath(String classname) {
-        String packageName = ProjectProperties.getDomainRootPackage() + "." + BUSINESSRULES_PACKAGE;
-        return packageName + "." + javaBusinessRuleClass(classname);
     }
 
     // Presentation

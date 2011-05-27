@@ -11,6 +11,7 @@
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE addToStringMethod FOR BusinessClassDto»
     /**
@@ -19,7 +20,7 @@
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        result.append("«getDtoPackage()».«javaClassName(name)»[");
+        result.append("«getFqnDtoClass(datacontractModel.name, name)»[");
         result.append("id=");
         result.append(getId());
         result.append(",");

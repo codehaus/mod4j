@@ -28,7 +28,10 @@ List[crossx::Symbol] findAllFromModel(String modelname, String symbolName, List[
 
 List[crossx::ModelInfo] findAllModels() :
   JAVA org.mod4j.crossx.broker.CrossxBroker.findAllModels() ;
-
+  
+crossx::ModelInfo findModel(String dslname, String symbolName, String symbolType) :
+    JAVA org.mod4j.crossx.broker.CrossxBroker.findModel(java.lang.String, java.lang.String, java.lang.String) ;
+    
 String getPropertyValue(crossx::Symbol symbol, String propertyName) :
   JAVA org.mod4j.crossx.broker.CrossxBroker.getPropertyValue(org.mod4j.crossx.mm.crossx.Symbol, java.lang.String) ;
 

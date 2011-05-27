@@ -28,41 +28,36 @@
         «retain(getBusinessDomainModuleName(), getEnvPropFileName())»
     «ENDIF»
 	
-	«IF !fileExist(fullExtendPath(getBusinessDomainModuleName(), getDataRootPackageAsPath() + "/sessionFactoryContext.xml"))»
-        «FILE generateToMain(getBusinessDomainModuleName(), getDataRootPackageAsPath() + "/sessionFactoryContext.xml")»
+	«IF !fileExist(fullExtendPath(getBusinessDomainModuleName(), getBusinessdomainRootPackageAsPath() + "/sessionFactoryContext.xml"))»
+        «FILE generateToMain(getBusinessDomainModuleName(), getBusinessdomainRootPackageAsPath() + "/sessionFactoryContext.xml")»
             «EXPAND HibernateDataLayerContext::sessionFactoryContext FOR this»
         «ENDFILE»
     «ELSE»
-        «retain(getBusinessDomainModuleName(), getDataRootPackageAsPath() + "/sessionFactoryContext.xml")»
+        «retain(getBusinessDomainModuleName(), getBusinessdomainRootPackageAsPath() + "/sessionFactoryContext.xml")»
     «ENDIF»
     
-    «IF !fileExist(fullExtendPath(getBusinessDomainModuleName(), getDataRootPackageAsPath() + "/dataSourceContext.xml"))»
-        «FILE generateToMain(getBusinessDomainModuleName(), getDataRootPackageAsPath() + "/dataSourceContext.xml")»
+    «IF !fileExist(fullExtendPath(getBusinessDomainModuleName(), getBusinessdomainRootPackageAsPath() + "/dataSourceContext.xml"))»
+        «FILE generateToMain(getBusinessDomainModuleName(), getBusinessdomainRootPackageAsPath() + "/dataSourceContext.xml")»
             «EXPAND HibernateDataLayerContext::dataSourceContext FOR this»
         «ENDFILE»
     «ELSE»
-        «retain(getBusinessDomainModuleName(), getDataRootPackageAsPath() + "/dataSourceContext.xml")»
+        «retain(getBusinessDomainModuleName(), getBusinessdomainRootPackageAsPath() + "/dataSourceContext.xml")»
     «ENDIF»
 
    	«FOREACH this.types.typeSelect(BusinessClass) AS class»
-		«FILE generate(getBusinessDomainModuleName(), getDomainRootPackageAsPath() + "/" + hibernateMappingFile(class.name) )»
+		«FILE generate(getBusinessDomainModuleName(), getBusinessModelDomainPackage(class.model.name) + "/" + hibernateMappingFile(class.name) )»
 	    	«EXPAND HibernateMapping::mapping FOR class »
 		«ENDFILE»
 	«ENDFOREACH»
 «ENDDEFINE»
 
 «DEFINE genDao FOR BusinessDomainDsl::BusinessDomainModel»
-	«print("MOD4J INFO: Running Business Domain Enumerationtype and Dao generator on model [" + this.name + "]")»
-    «FILE generate(getBusinessDomainModuleName(), javaPathFileName(javaGenericEnumClassPath()) )»
-	    «EXPAND GenericEnumUserType::createGenericEnumUserType FOR this»
-	«ENDFILE»
-	«FOREACH this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls)) AS class»
-		«FILE generate(getBusinessDomainModuleName(), javaPathFileName(javaDaoBaseClassPath(class.name) ))»
+	«print("MOD4J INFO: Running Business Dao generator on model [" + this.name + "]")»
+	«FOREACH this.types.typeSelect(BusinessClass).select(cls | !isCompositePart(cls)) AS class»	
+		«FILE generate(getBusinessDomainModuleName(), javaPathFileName(getFqnDaoBaseImplClass(class.model.name, class.name) ))»
 			«EXPAND DaoImplBase::daoImplementationBase  FOR class »
 		«ENDFILE»
-	«ENDFOREACH»
-	«FOREACH this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls)) AS class»
-		«FILE generate(getBusinessDomainModuleName(), javaPathFileName(javaDaoBaseInterfacePath(this.name) ))»
+		«FILE generate(getBusinessDomainModuleName(), javaPathFileName(getFqnDaoBaseInterface(class.model.name, class.name) ))»
 			«EXPAND DaoInterfaceBase::daoInterfaceBase  FOR class»
 		«ENDFILE»
 	«ENDFOREACH»
@@ -70,22 +65,22 @@
 
 «DEFINE genDaoExtensions FOR BusinessDomainDsl::BusinessDomainModel»
 	«print("MOD4J INFO: Running Business Domain Dao Extension points generator on model [" + this.name + "]")»
-	«FOREACH this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls)) AS class»
-		«IF !fileExist(fullExtendPath(getBusinessDomainModuleName(), javaPathFileName(javaDaoClassPath(class.name))))»
-			«FILE generate(getBusinessDomainModuleName(), javaPathFileName(javaDaoClassPath(class.name)))»
+	«FOREACH this.types.typeSelect(BusinessClass).select(cls | !isCompositePart(cls)) AS class»
+		«IF !fileExist(fullExtendPath(getBusinessDomainModuleName(), javaPathFileName(getFqnDaoImplClass(class.model.name, class.name))))»
+			«FILE generate(getBusinessDomainModuleName(), javaPathFileName(getFqnDaoImplClass(class.model.name, class.name)))»
 			    «EXPAND DaoImpl::daoImplementation  FOR class»
             «ENDFILE»
 		«ELSE»
-			«retain(getBusinessDomainModuleName(), javaPathFileName(javaDaoClassPath(class.name)))»
+			«retain(getBusinessDomainModuleName(), javaPathFileName(getFqnDaoImplClass(class.model.name, class.name)))»
         «ENDIF»
     «ENDFOREACH»
-    «FOREACH this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls)) AS class»
-		«IF !fileExist(fullExtendPath(getBusinessDomainModuleName(), javaPathFileName(javaDaoInterfacePath(class.name))))»
-			«FILE generate(getBusinessDomainModuleName(), javaPathFileName( javaDaoInterfacePath(class.name)))»
+    «FOREACH this.types.typeSelect(BusinessClass).select(cls | !isCompositePart(cls)) AS class»
+		«IF !fileExist(fullExtendPath(getBusinessDomainModuleName(), javaPathFileName(getFqnDaoInterface(class.model.name, class.name))))»
+			«FILE generate(getBusinessDomainModuleName(), javaPathFileName( getFqnDaoInterface(class.model.name, class.name)))»
 			    «EXPAND DaoInterface::daoInterface  FOR class»
 			«ENDFILE»
 		«ELSE»
-		     «retain(getBusinessDomainModuleName(), javaPathFileName(javaDaoInterfacePath(class.name)))»
+		     «retain(getBusinessDomainModuleName(), javaPathFileName(getFqnDaoInterface(class.model.name, class.name)))»
         «ENDIF»
     «ENDFOREACH»
 «ENDDEFINE»

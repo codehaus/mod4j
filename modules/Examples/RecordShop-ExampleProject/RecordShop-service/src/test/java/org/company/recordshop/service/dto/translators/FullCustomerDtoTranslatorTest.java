@@ -5,9 +5,10 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.company.recordshop.bd.domain.Customer;
-import org.company.recordshop.service.dto.FullCustomerDto;
-import org.company.recordshop.service.dto.SexeEnumDto;
+import org.company.recordshop.business.recordshopcore.domain.Customer;
+import org.company.recordshop.service.dto.common.FullCustomerDto;
+import org.company.recordshop.service.dto.common.SexeEnumDto;
+import org.company.recordshop.service.dto.common.translators.FullCustomerDtoTranslator;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.mod4j.runtime.exception.BusinessRuleException;

@@ -1,22 +1,22 @@
 "The RecordShop Customer Service Model. Contains all services needed to maintain Customers."
-service CustomerServiceModel   ;
-          
-from RecordShopDataContract import SimpleCustomerDto; 
-from RecordShopDataContract import UniqueCustomerDto; 
-from RecordShopDataContract import StringDto;
-from RecordShopDataContract import FullCustomerDto; 
-from RecordShopDataContract import OrderDto; 
-from RecordShopDataContract import OrderNumberAndDateDto;
-from RecordShopDataContract import OrderWithOrderLinesDto;  
-from RecordShopDataContract import OrderLineDto;
-from RecordShopDataContract import CustomerWithOrdersAndOrderLines;
-from RecordShopDataContract import CustomerWithAddressDto; 
-from RecordShopDataContract import ProductWithCustomersDto;
-from RecordShopDataContract import FullProductDto;
-from RecordShopDataContract import ArtistDto;
-from RecordShopDataContract import PersonDto;   
-from RecordShopDataContract import RelationDto;
-from RecordShopDataContract import AddressDto;
+service customers;
+
+from common import SimpleCustomerDto; 
+from common import UniqueCustomerDto; 
+from common import StringDto;
+from common import FullCustomerDto; 
+from common import OrderDto; 
+from common import OrderNumberAndDateDto;
+from common import OrderWithOrderLinesDto;  
+from common import OrderLineDto;
+from common import CustomerWithOrdersAndOrderLines;
+from common import CustomerWithAddressDto; 
+from common import ProductWithCustomersDto;
+from common import FullProductDto;
+from common import ArtistDto;
+from common import PersonDto;   
+from common import RelationDto;
+from common import AddressDto;
 
 crud RelationDto;
 crud PersonDto;

@@ -23,19 +23,19 @@
 
 	«print("MOD4J INFO: Running Service generator on model [" + this.name + "]")»
 
-	«FILE generate(getServiceModuleName(), javaPathFileName(javaLocalServiceInterfacePath(name)))»
+	«FILE generate(getServiceModuleName(), javaPathFileName(getFqnLocalServiceInterface(name)))»
 		«EXPAND  LocalService::LocalService FOR this» 
 	«ENDFILE»
 	
-	«IF !fileExist(fullExtendPath(getServiceModuleName(), javaPathFileName(javaLocalServiceClassPath(name))))»
-		«FILE generate(getServiceModuleName(), javaPathFileName(javaLocalServiceClassPath(name)))» 
+	«IF !fileExist(fullExtendPath(getServiceModuleName(), javaPathFileName(getFqnLocalServiceClass(name))))»
+		«FILE generate(getServiceModuleName(), javaPathFileName(getFqnLocalServiceClass(name)))» 
     		«EXPAND  LocalServiceImpl::LocalServiceImpl FOR this» 
     	«ENDFILE»
 	«ELSE»
-	    «retain(getServiceModuleName(), javaPathFileName(javaLocalServiceInterfacePath(name)))»
+	    «retain(getServiceModuleName(), javaPathFileName(getFqnLocalServiceInterface(name)))»
     «ENDIF»
 
-	«FILE generate(getServiceModuleName(), javaPathFileName(javaLocalServiceBaseClassPath(name)))»
+	«FILE generate(getServiceModuleName(), javaPathFileName(getFqnLocalServiceBaseClass(name)))»
 	    «EXPAND  LocalServiceImplBase::LocalServiceImplBase FOR this» 
 	«ENDFILE»
 	

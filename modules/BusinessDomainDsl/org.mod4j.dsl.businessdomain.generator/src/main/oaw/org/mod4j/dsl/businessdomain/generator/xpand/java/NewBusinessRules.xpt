@@ -25,10 +25,10 @@
 «DEFINE BusinessRuleImplBase (BusinessClass bc) FOR BusinessRule»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: NewBusinessRules.xpt") FOR this»
  
-    package «getBusinessRulesPackage()»;
+    package «getBusinessRulePackage(this.businessClass.model.name)»;
     
     «EXPAND Imports::addImports»
-    import «javaDomainClassPath(bc.name)» ;
+    import «getFqnDomainClass(bc.model.name, bc.name)» ;
     
     /**
      * «description»
@@ -51,7 +51,7 @@
 
     «EXPAND JavaComments::extensionPointHeader ("Mod4j BusinessDomainDsl generator: NewBusinessRules.xpt") FOR this»
 
-    package «getBusinessRulesPackage()»;
+    package «getBusinessRulePackage(this.businessClass.model.name)»;
             
     import org.springframework.validation.Errors;
 

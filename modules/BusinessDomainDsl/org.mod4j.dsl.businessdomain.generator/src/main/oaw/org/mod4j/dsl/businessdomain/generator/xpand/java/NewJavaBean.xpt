@@ -20,7 +20,7 @@
 «DEFINE BeanClassImplBase FOR AbstractType»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: NewJavaBean.xpt") FOR this»
 
-    package «getDomainRootPackage()»;
+    package «getBusinessModelDomainPackage(model.name)»;
 
     «REM»
         Add import statements for Attributes. If a dataType occurs more then once,
@@ -44,7 +44,7 @@
 «DEFINE BeanClassImplBase FOR BusinessClass»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: NewJavaBean.xpt") FOR this»
 
-    package «getDomainRootPackage()»;
+    package «getBusinessModelDomainPackage(model.name)»;
 
     «IF superclass == null »
         «EXPAND Imports::addTopLevelClassImports FOR this»
@@ -58,7 +58,7 @@
         «EXPAND Imports::addImports FOR this.getAllProperties().selectFirst(e|e.dataType == dataType)»
     «ENDFOREACH»
     «FOREACH businessRules.typeSelect(BusinessRule) AS br»
-        import «javaBusinessRuleClassPath(br.name)»;
+        import «getFqnBusinessRuleClass(model.name, br.name)»;
     «ENDFOREACH»
 
     /**
@@ -101,7 +101,7 @@
 «DEFINE BeanClassExtensionPoint FOR BusinessClass-»
     «EXPAND JavaComments::extensionPointHeader ("Mod4j BusinessDomainDsl generator: NewJavaBean.xpt") FOR this»
 
-    package «getDomainRootPackage()»;
+    package «getBusinessModelDomainPackage(model.name)»;
 
     «REM»
         Add import statements for Attributes. If a dataType occurs more then once,
@@ -131,7 +131,7 @@
 «DEFINE BeanClassQueryExample FOR BusinessClass»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: NewJavaBean.xpt") FOR this»
 
-    package «getDomainRootPackage()»;
+    package «getBusinessModelDomainPackage(model.name)»;
 
     /**
      * A subclass of «javaDomainClass(name)» to be used as example object

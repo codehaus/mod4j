@@ -7,11 +7,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.company.recordshop.service.dto.CustomerWithOrdersAndOrderLines;
-import org.company.recordshop.service.dto.FullProductDto;
-import org.company.recordshop.service.dto.OrderLineDto;
-import org.company.recordshop.service.dto.OrderWithOrderLinesDto;
-import org.company.recordshop.service.local.CustomerServiceModelLocalService;
+import org.company.recordshop.service.customers.local.CustomersLocalService;
+import org.company.recordshop.service.dto.common.CustomerWithOrdersAndOrderLines;
+import org.company.recordshop.service.dto.common.FullProductDto;
+import org.company.recordshop.service.dto.common.OrderLineDto;
+import org.company.recordshop.service.dto.common.OrderWithOrderLinesDto;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class CustomerWithOrdersAndOrderLinesServiceTest extends AbstractServiceTestCase {
 
     @Autowired
-    private CustomerServiceModelLocalService customerServiceModelService;
+    private CustomersLocalService customerServiceModelService;
 
     public class OrderDtoComparator implements Comparator<OrderWithOrderLinesDto> {
 

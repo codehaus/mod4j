@@ -29,8 +29,8 @@
         <constructor-arg>
             <list>
                 <value>/«getBusinessdomainRootPackageAsPath()»/applicationContext.xml</value>
-                <value>/«getDataRootPackageAsPath()»/dataSourceContext.xml</value>
-                <value>/«getDataRootPackageAsPath()»/sessionFactoryContext.xml</value>
+                <value>/«getBusinessdomainRootPackageAsPath()»/dataSourceContext.xml</value>
+                <value>/«getBusinessdomainRootPackageAsPath()»/sessionFactoryContext.xml</value>
             </list>
         </constructor-arg>
         <constructor-arg>

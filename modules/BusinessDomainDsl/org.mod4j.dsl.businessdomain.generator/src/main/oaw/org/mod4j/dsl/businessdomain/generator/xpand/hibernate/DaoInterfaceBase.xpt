@@ -16,15 +16,14 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE daoInterfaceBase  FOR BusinessDomainDsl::BusinessClass»
-«FILE generate(getBusinessDomainModuleName(), javaPathFileName(javaDaoBaseInterfacePath(this.name) ))»
 «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: DaoInterfaceBase.xpt") FOR this»
 
-package «getDaoPackage()»;
+package «getBusinessModelDataPackage(model.name)»;
 
 import java.util.List;
 import org.mod4j.runtime.queries.SearchParameters;
 
-import «javaDomainClassPath(this.name)»;
+import «getFqnDomainClass(model.name, this.name)»;
 
 /**
  * «javaDaoBaseInterface(this.name)»Data Access Object (DAO). Responsible for accessing database.
@@ -183,5 +182,4 @@ public interface «javaDaoBaseInterface(this.name)» {
      */
     List<«javaDomainClass(this.name)»> findByExample(«javaDomainClass(this.name)» example, SearchParameters parameters);
 }
-«ENDFILE»
 «ENDDEFINE»

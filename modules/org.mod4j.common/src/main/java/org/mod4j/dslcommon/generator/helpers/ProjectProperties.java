@@ -49,8 +49,9 @@ public class ProjectProperties {
         rootPackage = properties.getProperty("rootPackage");
         businessdomainRootPackage = properties.getProperty("businessdomainRootPackage");
         serviceRootPackage = properties.getProperty("serviceRootPackage");
-        domainRootPackage = properties.getProperty("domainRootPackage");
-        dataRootPackage = properties.getProperty("dataRootPackage");
+        domainPackageName = properties.getProperty("domainPackageName");
+        dataPackageName = properties.getProperty("dataPackageName");
+        genericEnumUserTypeClass = properties.getProperty("genericEnumUserType");
         presentationRootPackage = properties.getProperty("presentationRootPackage");
         srcGenPath = properties.getProperty("srcGenPath");
         resourceGenPath = properties.getProperty("resourceGenPath");
@@ -91,9 +92,11 @@ public class ProjectProperties {
     
     private static String presentationRootPackage = "DEFAULT";
 
-    private static String domainRootPackage = "DEFAULT";
+    private static String domainPackageName = "DEFAULT";
 
-    private static String dataRootPackage = "DEFAULT";
+    private static String dataPackageName = "DEFAULT";
+    
+    private static String genericEnumUserTypeClass = "DEFAULT";
 
     private static String srcGenPath = "DEFAULT";
 
@@ -112,14 +115,6 @@ public class ProjectProperties {
     public static final String IMPLBASE_SUFFIX = "ImplBase";
 
     public static final String DAO_PACKAGE = "";
-
-    public static final String DAO_IMPL_PACKAGE = ".hibernate.spring";
-    
-    public static final String LOCALSERVICES_PACKAGE = ".local";
-
-    public static final String DTO_PACKAGE = ".dto";
-
-    public static final String TRANSLATORS_PACKAGE = ".translators";
 
     private static String workDir = "/";
 
@@ -206,10 +201,6 @@ public class ProjectProperties {
         return getServiceRootPackage().replaceAll("\\.", "/");
     }
     
-    public static String getLocalServicePackage() {
-        return serviceRootPackage + LOCALSERVICES_PACKAGE;
-    }
-    
     public static String getPresentationRootPackage() {
         return presentationRootPackage;
     }
@@ -234,44 +225,24 @@ public class ProjectProperties {
         return businessdomainRootPackage;
     }
 
-    public static String getDomainRootPackage() {
-        return domainRootPackage;
+    public static String getDomainPackageName() {
+        return domainPackageName;
     }
 
-    public static String getDomainRootPackageAsPath() {
-        return getDomainRootPackage().replaceAll("\\.", "/");
+    public static String getDataPackageName() {
+        return dataPackageName;
     }
 
-    public static String getDataRootPackage() {
-        return dataRootPackage;
-    }
-
-    public static String getDataRootPackageAsPath() {
-        return getDataRootPackage().replaceAll("\\.", "/");
-    }
-
-    public static String getDaoPackage() {
-        return getDataRootPackage() + DAO_PACKAGE;
+    public static String getDataPackageNameAsPath() {
+        return getDataPackageName().replaceAll("\\.", "/");
     }
 
     public static String getDaoPackageAsPath() {
-        return getDaoPackage().replaceAll("\\.", "/");
-    }
-
-    public static String getDaoImplPackage() {
-        return getDataRootPackage() + DAO_IMPL_PACKAGE;
+        return getDataPackageName().replaceAll("\\.", "/");
     }
 
     public static String getDaoImplPackageAsPath() {
-        return getDaoPackage().replaceAll("\\.", "/");
-    }
-
-    public static String getDtoPackage() {
-        return getServiceRootPackage() + DTO_PACKAGE;
-    }
-
-    public static String getTranslatorsPackage() {
-        return getDtoPackage() + TRANSLATORS_PACKAGE;
+        return getDataPackageName().replaceAll("\\.", "/");
     }
 
     public static String getSrcModelPath() {
@@ -336,4 +307,8 @@ public class ProjectProperties {
     public static void setProject(String project) {
         ProjectProperties.project = project;
     }
+
+	public static String getGenericEnumUserTypeClass() {
+		return genericEnumUserTypeClass;
+	}
 }

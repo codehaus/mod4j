@@ -1,9 +1,9 @@
 package org.company.recordshop.service;
 
-import org.company.recordshop.service.dto.CasusOverlegDto;
-import org.company.recordshop.service.dto.KaderDto;
-import org.company.recordshop.service.dto.OrganisatieDto;
-import org.company.recordshop.service.local.StateChangeBusinessRuleLocalService;
+import org.company.recordshop.service.StateChangeBusinessRule.local.StateChangeBusinessRuleLocalService;
+import org.company.recordshop.service.dto.StateChangeBusinessRule.CasusOverlegDto;
+import org.company.recordshop.service.dto.StateChangeBusinessRule.KaderDto;
+import org.company.recordshop.service.dto.StateChangeBusinessRule.OrganisatieDto;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;

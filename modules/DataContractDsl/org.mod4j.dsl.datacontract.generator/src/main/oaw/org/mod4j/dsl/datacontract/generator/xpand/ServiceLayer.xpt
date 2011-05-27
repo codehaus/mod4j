@@ -23,19 +23,19 @@
 	«print("MOD4J INFO: Running Data Contract generator on model [" + this.name + "]")»
 
     «FOREACH enumerations AS enum»
-		«FILE generate(getServiceModuleName(), javaPathFileName(javaDtoClassPath(enum.name)))»
+		«FILE generate(getServiceModuleName(), javaPathFileName(getFqnDtoClass(name, enum.name)))»
 		    «EXPAND Enumeration::createEnumDto FOR enum»
 		«ENDFILE»
-		«FILE generate(getServiceModuleName(), javaPathFileName(javaTranslatorClassPath(enum.name)))»
-		  	«EXPAND EnumTranslators::createTranslator FOR enum»
+		«FILE generate(getServiceModuleName(), javaPathFileName(getFqnTranslatorClass(name, enum.name)))»
+		  	«EXPAND EnumTranslators::createEnumTranslator FOR enum»
 		«ENDFILE»
 	«ENDFOREACH»
 	
     «FOREACH dtos AS dto»
-		«FILE generate(getServiceModuleName(), javaPathFileName(javaDtoClassPath(dto.name)))»
+		«FILE generate(getServiceModuleName(), javaPathFileName(getFqnDtoClass(name, dto.name)))»
 		  	«EXPAND dtoBean::createDto FOR dto»
 		«ENDFILE»
-		«FILE generate(getServiceModuleName(), javaPathFileName(javaTranslatorClassPath(dto.name)))»
+		«FILE generate(getServiceModuleName(), javaPathFileName(getFqnTranslatorClass(name, dto.name)))»
 		  	«EXPAND Translators::createTranslator FOR dto»
 		«ENDFILE»
 	«ENDFOREACH»

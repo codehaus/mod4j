@@ -30,7 +30,7 @@
 
 «FOREACH findAllSymbols( getProject(), "Dto") AS dtoSymbol-»
     «IF getPropertyValue(dtoSymbol, "dtoType") == "BusinessClassDto"-»
-    <bean id="«javaTranslatorClass(dtoSymbol.name).toFirstLower()»" class="«javaTranslatorClassPath(dtoSymbol.name)»">
+    <bean id="«javaTranslatorClass(dtoSymbol.name).toFirstLower()»" class="«getFqnTranslatorClass(dtoSymbol.owner.modelname, dtoSymbol.name)»">
    «FOREACH findAllSubSymbols(dtoSymbol, "AssociationRoleReference").getReferenceProperty("ReferencedDto").
                  collect(ref | lookupSymbol(ref.modelname, ref.symbolname, "Dto") ).toSet() AS referredType-»
        <property name="«referredType.name.toFirstLower()»Translator" ref="«referredType.name.toFirstLower()»Translator"/>

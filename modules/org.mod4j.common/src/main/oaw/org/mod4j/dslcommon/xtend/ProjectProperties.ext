@@ -71,28 +71,16 @@ String getBusinessDomainModulePath() :
 String getBusinessdomainRootPackage() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessdomainRootPackage();
 
-String getDomainRootPackage() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainRootPackage();
-
 String getBusinessdomainRootPackageAsPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessdomainRootPackageAsPath();
 
-String getDomainRootPackageAsPath() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainRootPackageAsPath();
-
 // data package
-String getDataRootPackage() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDataRootPackage();
+String getDataPackageName() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDataPackageName();
 
-String getDataRootPackageAsPath() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDataRootPackageAsPath();
-
-String getDaoPackage() : 
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDaoPackage();
+String getDataPackageNameAsPath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDataPackageNameAsPath();
  
-String getDaoImplPackage() : 
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDaoImplPackage();
-
 String getDaoPackageAsPath() : 
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDaoPackageAsPath();
 
@@ -120,16 +108,6 @@ String getServiceRootPackage() :
 
 String getServiceRootPackageAsPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getServiceRootPackageAsPath();
- 
-String getLocalServicePackage() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getLocalServicePackage();
-
-String getDtoPackage() : 
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDtoPackage();
- 
-String getTranslatorsPackage() : 
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getTranslatorsPackage();
-
  
 /* 
  * presentation layer properties 

@@ -17,9 +17,9 @@
 
 «DEFINE daoInterface  FOR BusinessDomainDsl::BusinessClass»
     
-    «EXPAND JavaComments::extensionPointHeader ("Mod4j BusinessDomainDsl generator: DaoImpl.xpt") FOR this»
+    «EXPAND JavaComments::extensionPointHeader ("Mod4j BusinessDomainDsl generator: DaoInterface.xpt") FOR this»
     
-    package «getDaoPackage()»;
+    package «getBusinessModelDataPackage(model.name)»;
 
     /**
      * «javaDaoInterface(this.name)» Data Access Object (DAO). Responsible for accessing the database.

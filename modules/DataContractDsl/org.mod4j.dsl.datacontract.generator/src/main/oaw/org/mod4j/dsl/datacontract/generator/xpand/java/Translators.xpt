@@ -24,7 +24,7 @@
     «LET this.properties.typeSelect(DtoAssociationRoleProperty) AS associationProperties»
         «EXPAND JavaComments::regenerationWarningHeader ("Mod4j DatacontractDsl generator: Translators.xpt") FOR this»
 
-         package «getTranslatorsPackage()»;
+         package «getTranslatorsPackage(datacontractModel.name)»;
 
          import java.util.HashMap;
          import java.util.Map;
@@ -32,15 +32,15 @@
          import java.util.Set;
          import org.springframework.util.Assert;
          import org.mod4j.runtime.exception.ConcurrentUpdateException;
-         import «getDomainRootPackage()».«javaClassName(base.name)»;
-         import «getDomainRootPackage()».«javaClassName(base.name)»Example;
-         import «getDtoPackage()».«javaClassName(name)»;
+         import «getFqnDomainClass(base.modelname, base.name)»;
+         import «getFqnDomainExampleClass(base.modelname, base.name)»;
+         import «getFqnDtoClass(datacontractModel.name, name)»;
          «FOREACH associationProperties AS assRef -»
-             import «getDomainRootPackage()».«assRef.dtoType.getBaseDtoBusinessClassName()»;
-             import «getDtoPackage()».«assRef.dtoType.getBaseDtoName()»;
+             import «getFqnDomainClass(base.modelname, assRef.dtoType.getBaseDtoBusinessClassName())»;
+             import «getFqnDtoClass(datacontractModel.name, assRef.dtoType.getBaseDtoName())»;
          «ENDFOREACH»
         «FOREACH associationProperties AS assRef»
-            import «getDataRootPackage()».«assRef.dtoType.getBaseDtoBusinessClassName()»Dao;
+            import «getFqnDaoInterface(base.modelname, assRef.dtoType.getBaseDtoBusinessClassName())»;
         «ENDFOREACH»
 
         /**

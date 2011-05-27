@@ -1,6 +1,6 @@
-service Records;
+service records;
 
-from RecordShopDataContract import FullRecordDto;
+from common import FullRecordDto;
 
 crud FullRecordDto;
 listall listRecords for FullRecordDto;

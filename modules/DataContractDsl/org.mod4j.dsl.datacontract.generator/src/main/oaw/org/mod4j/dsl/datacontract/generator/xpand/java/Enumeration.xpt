@@ -17,7 +17,7 @@
 
 «DEFINE createEnumDto FOR EnumerationDto»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j DatcontractDsl generator: Enumeration.xpt") FOR this»
-    package «getDtoPackage()»;
+    package «getDtoPackage(datacontractModel.name)»;
     
     «EXPAND Imports::addImports FOR this»
             

@@ -40,7 +40,7 @@
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
     «FOREACH allServices AS service»
     <aop:config>
-        <aop:pointcut id="«service.name»ServiceMethods" expression="execution(* «javaLocalServiceInterfacePath(service.name)».*(..))"/>
+        <aop:pointcut id="«service.name»ServiceMethods" expression="execution(* «getFqnLocalServiceInterface(service.name)».*(..))"/>
         <aop:advisor advice-ref="txAdvice«service.name.toFirstLower()»Service" pointcut-ref="«service.name»ServiceMethods" order="30"/>
         <aop:aspect ref="loggingAspect">
             <aop:before pointcut-ref="«service.name»ServiceMethods" method="logBefore" />
@@ -67,7 +67,7 @@
     <!-- Application Layer  -->
     «FOREACH allServices AS service»
     <!-- service.name = «service.name»  this.name = «this.name»-->
-    <bean id="«service.name.toFirstLower()»Service" class="«javaLocalServiceClassPath(service.name)»">
+    <bean id="«service.name.toFirstLower()»Service" class="«getFqnLocalServiceClass(service.name)»">
         «IF service.getPropertyValue("UniqueBusinessClasses").length > 0»
             «FOREACH service.getPropertyValue("UniqueBusinessClasses").split(",") AS bcName»
         	    <property name="«javaDaoInterface(bcName).toFirstLower()»" ref="«javaDaoInterface(bcName).toFirstLower()»" />

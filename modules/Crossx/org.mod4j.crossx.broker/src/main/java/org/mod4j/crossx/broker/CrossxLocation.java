@@ -122,8 +122,41 @@ public class CrossxLocation {
         }
         return null;
     }
-
+    
     /**
+     * Find the ModelInfo for the symbol with the given name and symbolType.
+     * 
+     * @param name
+     * @param symbolType
+     * @return The name of the resource if the element is found, null if it isn't found
+     */
+    public ModelInfo lookupModelInfo(String dslName, String symbolName, String symbolType) {
+       
+        for (ModelInfo modelinfo : findAllModelInfoByDslName(dslName)) {
+            for (Symbol symbol : modelinfo.getSymbols()) {
+                if (symbol.getName().equals(symbolName) && symbol.getType().equals(symbolType)) {
+                    return modelinfo;
+                }
+            }
+        }
+        return null;
+    }
+
+    public List<ModelInfo> findAllModelInfoByDslName(String dslName) {
+        if (information == null) {
+            System.err.println("CrossxLocation::lookup information = null");
+        }
+        List<ModelInfo> result = new ArrayList<ModelInfo>();
+        for (ModelInfo modelinfo : information) {
+            if (modelinfo.getDslname().equals(dslName)) {
+                result.add(modelinfo);
+            }
+        }
+        return result;
+    }
+	   
+
+	/**
      * Find all names of symbols of type 'elemType'.
      * 
      * @param symbolType

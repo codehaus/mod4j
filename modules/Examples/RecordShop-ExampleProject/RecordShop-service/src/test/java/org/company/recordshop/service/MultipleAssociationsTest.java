@@ -2,9 +2,9 @@ package org.company.recordshop.service;
 
 import junit.framework.Assert;
 
-import org.company.recordshop.service.dto.PersonDto;
-import org.company.recordshop.service.dto.RelationDto;
-import org.company.recordshop.service.local.CustomerServiceModelLocalService;
+import org.company.recordshop.service.customers.local.CustomersLocalService;
+import org.company.recordshop.service.dto.common.PersonDto;
+import org.company.recordshop.service.dto.common.RelationDto;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class MultipleAssociationsTest extends AbstractServiceTestCase {
 
     @Autowired
-    private CustomerServiceModelLocalService customerServiceModelService;
+    private CustomersLocalService customerServiceModelService;
 
     @Test
     public void testCreateCrossRelations() {
