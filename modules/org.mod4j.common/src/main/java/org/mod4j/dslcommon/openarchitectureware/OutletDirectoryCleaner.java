@@ -50,7 +50,7 @@ public class OutletDirectoryCleaner {
         Map<String, String> result = ModelHelpers.getProperties(propertiesFilePath);
 
         String applicationPath = result.get("applicationPath");
-        String businessdomainModuleName = result.get("businessdomainModuleName");
+        String businessModuleName = result.get("businessModuleName");
         String serviceModuleName = result.get("serviceModuleName");
         String presentationModuleName = result.get("presentationModuleName");
         String srcGenPath = result.get("srcGenPath");
@@ -63,8 +63,8 @@ public class OutletDirectoryCleaner {
         String absAppPath = workDir + "/" + applicationPath;
 
         directories = 
-            absAppPath + "/" + businessdomainModuleName + "/" + srcGenPath + ", " + 
-            absAppPath + "/" + businessdomainModuleName + "/" + resourceGenPath + ", " +
+            absAppPath + "/" + businessModuleName + "/" + srcGenPath + ", " + 
+            absAppPath + "/" + businessModuleName + "/" + resourceGenPath + ", " +
             absAppPath + "/" + serviceModuleName + "/" + srcGenPath + ", " + 
             absAppPath + "/" + serviceModuleName + "/" + resourceGenPath + ", " +
             absAppPath + "/" + presentationModuleName + "/" + srcGenPath + ", " + 
@@ -73,8 +73,8 @@ public class OutletDirectoryCleaner {
         if ((overwriteExtensionpoints != null) && overwriteExtensionpoints.equals("true")) {
             logger.info("cleaning extension points");
             directories = directories + ", " + 
-            absAppPath + "/" + businessdomainModuleName + "/" + srcManPath + ", " + 
-            absAppPath + "/" + businessdomainModuleName + "/" + resourceManPath + ", " + 
+            absAppPath + "/" + businessModuleName + "/" + srcManPath + ", " + 
+            absAppPath + "/" + businessModuleName + "/" + resourceManPath + ", " + 
             absAppPath + "/" + serviceModuleName + "/" + srcManPath + ", " + 
             absAppPath + "/" + serviceModuleName + "/" + resourceManPath + ", " +
             absAppPath + "/" + presentationModuleName + "/" + srcManPath + ", " + 

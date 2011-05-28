@@ -43,11 +43,11 @@ public class ProjectProperties {
         applicationVersion = properties.getProperty("applicationVersion");
         applicationPath = properties.getProperty("applicationPath");
         dslModelsModuleName = properties.getProperty("dslModelsModuleName");
-        businessDomainModuleName = properties.getProperty("businessdomainModuleName");
+        businessDomainModuleName = properties.getProperty("businessModuleName");
         serviceModuleName = properties.getProperty("serviceModuleName");
         presentationModuleName = properties.getProperty("presentationModuleName");
         rootPackage = properties.getProperty("rootPackage");
-        businessdomainRootPackage = properties.getProperty("businessdomainRootPackage");
+        businessRootPackage = properties.getProperty("businessRootPackage");
         serviceRootPackage = properties.getProperty("serviceRootPackage");
         domainPackageName = properties.getProperty("domainPackageName");
         dataPackageName = properties.getProperty("dataPackageName");
@@ -82,7 +82,7 @@ public class ProjectProperties {
 
     private static String businessDomainModuleName = "DEFAULT";
     
-    private static String businessdomainRootPackage = "DEFAULT";
+    private static String businessRootPackage = "DEFAULT";
     
     private static String presentationModuleName = "DEFAULT";
 
@@ -222,7 +222,7 @@ public class ProjectProperties {
     }
     
     public static String getBusinessdomainRootPackage() {
-        return businessdomainRootPackage;
+        return businessRootPackage;
     }
 
     public static String getDomainPackageName() {

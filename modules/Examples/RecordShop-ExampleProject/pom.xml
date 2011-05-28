@@ -20,7 +20,7 @@
     </properties>
     <modules>
         <module>RecordShop-dslModels</module>
-        <module>RecordShop-businessdomain</module>
+        <module>RecordShop-business</module>
         <module>RecordShop-service</module>
     </modules>
     <build>
