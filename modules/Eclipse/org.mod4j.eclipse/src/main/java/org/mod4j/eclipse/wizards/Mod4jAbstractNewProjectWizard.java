@@ -46,7 +46,7 @@ import org.mod4j.eclipse.util.UiHelper;
 public class Mod4jAbstractNewProjectWizard extends Wizard implements
 			INewWizard {
 
-    protected static final String BUSDOMAIN_PACKAGE = "businessdomain";
+    protected static final String BUSDOMAIN_PACKAGE = "business";
 
     protected static final String DATACONTRACT_PACKAGE = "datacontract";
 
@@ -141,17 +141,17 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
 							String modelFileName ;
 							modelFolder = pr.getFolder(MODEL_DIR + "/" + BUSDOMAIN_PACKAGE);
 							if( createSamples ){
-    							modelFileName = appname + ".busmod";
+    							modelFileName = "example.busmod";
     							Mod4jProjectCreator.createFile(modelFileName, modelFolder, busmodSampleModelContents(), monitor);
 							}
 							modelFolder = pr.getFolder(MODEL_DIR + "/" + DATACONTRACT_PACKAGE);
                             if( createSamples ){
-                                modelFileName = appname + ".dtcmod";
+                                modelFileName = "example.dtcmod";
                                 Mod4jProjectCreator.createFile(modelFileName, modelFolder, dtcmodSampleModelContents(), monitor);
                             }
                             modelFolder = pr.getFolder(MODEL_DIR + "/" + SERVICE_PACKAGE);
                             if( createSamples ){
-                                modelFileName = appname + ".sermod";
+                                modelFileName = "example.sermod";
                                 Mod4jProjectCreator.createFile(modelFileName, modelFolder, sermodSampleModelContents(), monitor);
                             }
                             
@@ -210,23 +210,19 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
                     "" + LF +
                     "####" + LF +
                     "#" + LF +
-                    "# Domain module properties" + LF +
+                    "# Business module properties" + LF +
                     "#" + LF +
                     "####" + LF +
-                    "domainModuleName=" + mainPage.getApplicationNameFieldValue() + "-domain" + LF +
-                    "domainRootPackage=" + mainPage.getPackageNameFieldValue() + ".domain" + LF +
-                    "" + LF +
-                    "####" + LF +
-                    "#" + LF +
-                    "# Data module properties" + LF +
-                    "#" + LF +
-                    "####" + LF +
-                    "dataModuleName=" + mainPage.getApplicationNameFieldValue() + "-data" + LF +
-                    "dataRootPackage=" + mainPage.getPackageNameFieldValue() + ".data" + LF +
+                    "businessModuleName=" + mainPage.getApplicationNameFieldValue() + "-business" + LF +
+                    "businessRootPackage=" + mainPage.getPackageNameFieldValue() + ".business" + LF +
+                    "domainPackageName=domain" + LF +
+                    "domainservicesPackageName=domainservices" + LF +
+                    "dataPackageName=data" + LF +
                     "hibernate.hbm2ddl.auto=update" + LF +
                     "#hibernate-mapping.inheritance.strategy=[table.per.concrete.class | table.per.subclass]" + LF +
                     "hibernate-mapping.inheritance.strategy=table.per.concrete.class" + LF +
                     "hibernate-mapping.class.id.generator.class=native" + LF +
+                    "genericEnumUserType=org.mod4j.runtime.hibernate.GenericEnumUserType" + LF +
                     "" + LF +
                     "####" + LF +
                     "#" + LF +
@@ -240,16 +236,16 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
 
 		public String busmodSampleModelContents() {
             return 
-            "domain " + mainPage.getApplicationNameFieldValue() + "DomainModel" + " ;" + LF +
+            "domain example;" + LF +
             LF +
             "/*" + LF +
-            " * The Business Domain model." + LF +
+            " * The Business model." + LF +
             " */" + LF ;
         }
 		
 		public String dtcmodSampleModelContents() {
 		    return   
-		    "datacontract " + mainPage.getApplicationNameFieldValue() + "DataContractModel" + " ;" + LF +
+		    "datacontract example;" + LF +
 		    LF +
             "/*" + LF +
             " * The Datacontract model." + LF +
@@ -258,7 +254,7 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
 		
         public String sermodSampleModelContents() {
             return 
-            "service " + mainPage.getApplicationNameFieldValue() + "ServiceModel" + " ;" + LF +
+            "service example;" + LF +
             LF +
             "/*" + LF +
             " * The Service model." + LF +
