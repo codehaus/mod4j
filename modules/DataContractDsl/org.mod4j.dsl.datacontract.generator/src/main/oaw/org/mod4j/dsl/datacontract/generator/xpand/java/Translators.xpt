@@ -266,10 +266,8 @@
            private void validateVersion(final «javaClassName(name)» source, final «javaClassName(base.name)» target) {
                final Integer sourceVersion = source.getVersion();
                final Integer targetVersion = target.getVersion();
-
-                       // FIXME the DTO translator should not know that -1 is the default unpersisted value!
-                       final boolean equals = (sourceVersion == null) ? targetVersion == -1
-                                                                      : sourceVersion.equals(targetVersion);
+               «REM»FIXME the DTO translator should not know that -1 is the default unpersisted value!comment«ENDREM»
+               final boolean equals = (sourceVersion == null) ? targetVersion == -1 : sourceVersion.equals(targetVersion);
 
                if (!equals) {
                    throw new ConcurrentUpdateException("Versions of source and target do not match for dto " + source +
