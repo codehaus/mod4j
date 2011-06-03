@@ -124,13 +124,22 @@ context StringProperty ERROR "The minimum lenght of Property ["+ name + "] must 
 // context EnumerationProperty ERROR "The default value of Property ["+ name + "] must be an enumeration literal of [" + type.name + "]." :
 //    (hasDefault ? this.type.enumerationLiterals.name.contains(defaultValue) : true);
  
-context IntegerEnumeration ERROR "IntegerEnumeration literals must be unique" :
+context Enumeration ERROR "Enumeration literals must be unique" :
       enumerationLiterals.forAll(e1 | 
          enumerationLiterals.forAll( e2 | e1 != e2 implies e1.name != e2.name) );
 
-context IntegerEnumeration ERROR "IntegerEnumeration numeric values must be unique" :
+context Enumeration ERROR "Enumeration literals must be of the same type" :
       enumerationLiterals.forAll(e1 | 
-         enumerationLiterals.forAll( e2 | e1 != e2 implies e1.persistedValue!= e2.persistedValue) );
+         enumerationLiterals.forAll( e2 | e1.metaType == e2.metaType) );
+
+context Enumeration ERROR "Enumeration numeric values must be unique" :
+      enumerationLiterals.typeSelect(IntegerEnumerationLiteral).forAll(e1 | 
+         enumerationLiterals.typeSelect(IntegerEnumerationLiteral).forAll( e2 |
+         e1 != e2 implies e1.persistedValue!= e2.persistedValue) ) &&
+      enumerationLiterals.typeSelect(StringEnumerationLiteral).forAll(e1 | 
+         enumerationLiterals.typeSelect(StringEnumerationLiteral).forAll( e2 |
+         e1 != e2 implies e1.persistedValue!= e2.persistedValue) )
+         ;
 
 context EnumerationProperty ERROR "Default value [" + this.defaultValueAsString + "] is not a literal of enumeration " + type.name :
     this.hasDefault implies this.type.enumerationLiterals.exists(lit | lit.name == this.defaultValueAsString);

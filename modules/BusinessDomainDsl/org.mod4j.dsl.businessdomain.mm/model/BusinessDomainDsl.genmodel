@@ -52,13 +52,18 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//Property/owningType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Property/column"/>
     </genClasses>
-    <genClasses ecoreClass="BusinessDomainDsl.ecore#//IntegerEnumeration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//IntegerEnumeration/enumerationLiterals"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//IntegerEnumeration/model"/>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//Enumeration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//Enumeration/enumerationLiterals"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//Enumeration/model"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//EnumerationLiteral">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//EnumerationLiteral/enumeration"/>
     </genClasses>
     <genClasses ecoreClass="BusinessDomainDsl.ecore#//IntegerEnumerationLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//IntegerEnumerationLiteral/persistedValue"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//IntegerEnumerationLiteral/enumeration"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//StringEnumerationLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//StringEnumerationLiteral/persistedValue"/>
     </genClasses>
     <genClasses ecoreClass="BusinessDomainDsl.ecore#//AbstractBusinessRule">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//AbstractBusinessRule/businessClass"/>

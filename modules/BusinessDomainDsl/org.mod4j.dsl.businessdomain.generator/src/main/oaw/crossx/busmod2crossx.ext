@@ -28,7 +28,7 @@ create ModelInfo exportModel(BusinessDomainModel busModel, String modelFile) :
     this.symbols.addAll(busModel.types.typeSelect(BusinessClass).toElement())->
     this.symbols.addAll(busModel.enumerations.toElement());
     
-Symbol toElement(IntegerEnumeration enum) :
+Symbol toElement(Enumeration enum) :
     let result = new Symbol :
     result.setName(enum.name) ->
     result.setType("Enumeration")->
@@ -36,11 +36,25 @@ Symbol toElement(IntegerEnumeration enum) :
     result
     ;
 
+Symbol toElement(EnumerationLiteral lit) :
+    if lit.metaType == StringEnumerationLiteral then toElement((StringEnumerationLiteral)lit)
+    else
+    if lit.metaType == IntegerEnumerationLiteral then toElement((IntegerEnumerationLiteral)lit)
+    ;
+
+Symbol toElement(StringEnumerationLiteral lit) :
+    let result = new Symbol :
+    result.setName(lit.name) ->
+    result.setType("StringEnumerationLiteral")->
+    result.properties.add( newProperty("value", ((StringEnumerationLiteral)lit).persistedValue)) ->
+    result
+    ;
+
 Symbol toElement(IntegerEnumerationLiteral lit) :
     let result = new Symbol :
     result.setName(lit.name) ->
-    result.setType("EnumerationLiteral")->
-    result.properties.add( newProperty("value", lit.persistedValue.toString()))->
+    result.setType("IntegerEnumerationLiteral")->
+    result.properties.add( newProperty("value", ((IntegerEnumerationLiteral)lit).persistedValue.toString())) ->
     result
     ;
 

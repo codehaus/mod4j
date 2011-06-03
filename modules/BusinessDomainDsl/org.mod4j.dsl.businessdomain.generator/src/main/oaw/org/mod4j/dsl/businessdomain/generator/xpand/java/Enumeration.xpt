@@ -14,8 +14,9 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::FileTracker»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION Enumeration»
 
-«DEFINE createEnum FOR IntegerEnumeration»
+«DEFINE createEnum FOR Enumeration»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: Enumeration.xpt") FOR this»
     package «getDomainRootPackage()»;
     
@@ -27,28 +28,40 @@
     */
    public enum «name» {
     
-        «FOREACH enumerationLiterals AS enumlit ITERATOR enumlitIter SEPARATOR "," »
-            «enumlit.name.toUpperCase()»(«enumlit.persistedValue»)
+        «FOREACH enumerationLiterals AS enumlit ITERATOR enumlitIter SEPARATOR "," -»
+            «EXPAND enumerationLiteral FOR enumlit -»
         «ENDFOREACH»;
         
-        private static final Map<Integer, «name»> lookup = new HashMap<Integer, «name»>();
+        private static final Map<«enumerationLiteralType()», «name»> lookup = new HashMap<«enumerationLiteralType()», «name»>();
         static {
             for(«name» s : EnumSet.allOf(«name».class))
                    lookup.put(s.id(), s);
             }
 
-            private Integer id;
+            private «enumerationLiteralType()» id;
             
-            private «name»(Integer id) {
+            private «name»(«enumerationLiteralType()» id) {
             this.id = id;
         }
         
-        public Integer id() {
+        public «enumerationLiteralType()» id() {
             return id;
         }
         
-        public static «name» value(Integer id) {
+        public static «name» value(«enumerationLiteralType()» id) {
             return lookup.get(id); 
         }                  
     }
+«ENDDEFINE»
+
+«DEFINE enumerationLiteral FOR EnumerationLiteral -»
+    «REM»EnumerationLiteral is Abstract«ENDREM»
+«ENDDEFINE»
+
+«DEFINE enumerationLiteral FOR IntegerEnumerationLiteral -»
+            «name.toUpperCase()»(«persistedValue»)
+«ENDDEFINE»
+
+«DEFINE enumerationLiteral FOR StringEnumerationLiteral -»
+            «name.toUpperCase()»("«persistedValue»")
 «ENDDEFINE»

@@ -30,7 +30,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessDomainModel" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumerations" upperBound="-1"
-        eType="#//IntegerEnumeration" containment="true" eOpposite="#//IntegerEnumeration/model"/>
+        eType="#//Enumeration" containment="true" eOpposite="#//Enumeration/model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//AbstractType" containment="true" eOpposite="#//AbstractType/model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associations" ordered="false"
@@ -59,16 +59,22 @@
         eOpposite="#//AbstractType/properties"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="column" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerEnumeration" eSuperTypes="#//ModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumerationLiterals" upperBound="-1"
-        eType="#//IntegerEnumerationLiteral" containment="true" eOpposite="#//IntegerEnumerationLiteral/enumeration"/>
+        eType="#//EnumerationLiteral" containment="true" eOpposite="#//EnumerationLiteral/enumeration"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//BusinessDomainModel"
         eOpposite="#//BusinessDomainModel/enumerations"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerEnumerationLiteral" eSuperTypes="#//ModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="EnumerationLiteral" abstract="true"
+      eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumeration" eType="#//Enumeration"
+        eOpposite="#//Enumeration/enumerationLiterals"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerEnumerationLiteral" eSuperTypes="#//EnumerationLiteral">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistedValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="enumeration" eType="#//IntegerEnumeration"
-        eOpposite="#//IntegerEnumeration/enumerationLiterals"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringEnumerationLiteral" eSuperTypes="#//EnumerationLiteral">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistedValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractBusinessRule" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="businessClass" eType="#//BusinessClass"
@@ -85,7 +91,7 @@
         defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumerationProperty" eSuperTypes="#//Property">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//IntegerEnumeration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Enumeration"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValueAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntegerProperty" eSuperTypes="#//Property">

@@ -1,0 +1,11 @@
+domain enumerations;
+
+enumeration StringEnum [
+	ONE = "one";
+	TWO = "two";
+	THREE = "three";
+]
+
+class StringEnumClass [
+	StringEnum theEnum;
+]

@@ -44,6 +44,7 @@ public class BusinessDomainParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getBusinessDomainModelAccess().getAlternatives_4(), "rule__BusinessDomainModel__Alternatives_4");
 					put(grammarAccess.getAssociationAccess().getAlternatives_7(), "rule__Association__Alternatives_7");
+					put(grammarAccess.getEnumerationAccess().getEnumerationLiteralsAlternatives_4_0(), "rule__Enumeration__EnumerationLiteralsAlternatives_4_0");
 					put(grammarAccess.getAbstractBusinessRuleAccess().getAlternatives(), "rule__AbstractBusinessRule__Alternatives");
 					put(grammarAccess.getPropertyAccess().getAlternatives_0(), "rule__Property__Alternatives_0");
 					put(grammarAccess.getBoolPropertyAccess().getAlternatives_3_1(), "rule__BoolProperty__Alternatives_3_1");
@@ -63,9 +64,11 @@ public class BusinessDomainParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBusinessClassAccess().getGroup_3(), "rule__BusinessClass__Group_3__0");
 					put(grammarAccess.getBusinessClassAccess().getGroup_4(), "rule__BusinessClass__Group_4__0");
 					put(grammarAccess.getBusinessClassAccess().getGroup_7(), "rule__BusinessClass__Group_7__0");
-					put(grammarAccess.getIntegerEnumerationAccess().getGroup(), "rule__IntegerEnumeration__Group__0");
+					put(grammarAccess.getEnumerationAccess().getGroup(), "rule__Enumeration__Group__0");
 					put(grammarAccess.getIntegerEnumerationLiteralAccess().getGroup(), "rule__IntegerEnumerationLiteral__Group__0");
 					put(grammarAccess.getIntegerEnumerationLiteralAccess().getGroup_1(), "rule__IntegerEnumerationLiteral__Group_1__0");
+					put(grammarAccess.getStringEnumerationLiteralAccess().getGroup(), "rule__StringEnumerationLiteral__Group__0");
+					put(grammarAccess.getStringEnumerationLiteralAccess().getGroup_1(), "rule__StringEnumerationLiteral__Group_1__0");
 					put(grammarAccess.getBusinessRuleAccess().getGroup(), "rule__BusinessRule__Group__0");
 					put(grammarAccess.getUniqueRuleAccess().getGroup(), "rule__UniqueRule__Group__0");
 					put(grammarAccess.getUniqueRuleAccess().getGroup_5(), "rule__UniqueRule__Group_5__0");
@@ -114,11 +117,13 @@ public class BusinessDomainParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBusinessClassAccess().getTableAssignment_4_1(), "rule__BusinessClass__TableAssignment_4_1");
 					put(grammarAccess.getBusinessClassAccess().getPropertiesAssignment_6(), "rule__BusinessClass__PropertiesAssignment_6");
 					put(grammarAccess.getBusinessClassAccess().getBusinessRulesAssignment_7_2(), "rule__BusinessClass__BusinessRulesAssignment_7_2");
-					put(grammarAccess.getIntegerEnumerationAccess().getDescriptionAssignment_0(), "rule__IntegerEnumeration__DescriptionAssignment_0");
-					put(grammarAccess.getIntegerEnumerationAccess().getNameAssignment_2(), "rule__IntegerEnumeration__NameAssignment_2");
-					put(grammarAccess.getIntegerEnumerationAccess().getEnumerationLiteralsAssignment_4(), "rule__IntegerEnumeration__EnumerationLiteralsAssignment_4");
+					put(grammarAccess.getEnumerationAccess().getDescriptionAssignment_0(), "rule__Enumeration__DescriptionAssignment_0");
+					put(grammarAccess.getEnumerationAccess().getNameAssignment_2(), "rule__Enumeration__NameAssignment_2");
+					put(grammarAccess.getEnumerationAccess().getEnumerationLiteralsAssignment_4(), "rule__Enumeration__EnumerationLiteralsAssignment_4");
 					put(grammarAccess.getIntegerEnumerationLiteralAccess().getNameAssignment_0(), "rule__IntegerEnumerationLiteral__NameAssignment_0");
 					put(grammarAccess.getIntegerEnumerationLiteralAccess().getPersistedValueAssignment_1_1(), "rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1");
+					put(grammarAccess.getStringEnumerationLiteralAccess().getNameAssignment_0(), "rule__StringEnumerationLiteral__NameAssignment_0");
+					put(grammarAccess.getStringEnumerationLiteralAccess().getPersistedValueAssignment_1_1(), "rule__StringEnumerationLiteral__PersistedValueAssignment_1_1");
 					put(grammarAccess.getBusinessRuleAccess().getDescriptionAssignment_0(), "rule__BusinessRule__DescriptionAssignment_0");
 					put(grammarAccess.getBusinessRuleAccess().getNameAssignment_1(), "rule__BusinessRule__NameAssignment_1");
 					put(grammarAccess.getUniqueRuleAccess().getDescriptionAssignment_0(), "rule__UniqueRule__DescriptionAssignment_0");

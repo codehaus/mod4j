@@ -35,18 +35,19 @@ protected class ThisRootNode extends RootToken {
 			case 0: return new BusinessDomainModel_Group(this, this, 0, inst);
 			case 1: return new Association_Group(this, this, 1, inst);
 			case 2: return new BusinessClass_Group(this, this, 2, inst);
-			case 3: return new IntegerEnumeration_Group(this, this, 3, inst);
+			case 3: return new Enumeration_Group(this, this, 3, inst);
 			case 4: return new IntegerEnumerationLiteral_Group(this, this, 4, inst);
-			case 5: return new AbstractBusinessRule_Alternatives(this, this, 5, inst);
-			case 6: return new BusinessRule_Group(this, this, 6, inst);
-			case 7: return new UniqueRule_Group(this, this, 7, inst);
-			case 8: return new Property_Group(this, this, 8, inst);
-			case 9: return new BoolProperty_Group(this, this, 9, inst);
-			case 10: return new StringProperty_Group(this, this, 10, inst);
-			case 11: return new DateTimeProperty_Group(this, this, 11, inst);
-			case 12: return new IntegerProperty_Group(this, this, 12, inst);
-			case 13: return new DecimalProperty_Group(this, this, 13, inst);
-			case 14: return new EnumerationProperty_Group(this, this, 14, inst);
+			case 5: return new StringEnumerationLiteral_Group(this, this, 5, inst);
+			case 6: return new AbstractBusinessRule_Alternatives(this, this, 6, inst);
+			case 7: return new BusinessRule_Group(this, this, 7, inst);
+			case 8: return new UniqueRule_Group(this, this, 8, inst);
+			case 9: return new Property_Group(this, this, 9, inst);
+			case 10: return new BoolProperty_Group(this, this, 10, inst);
+			case 11: return new StringProperty_Group(this, this, 11, inst);
+			case 12: return new DateTimeProperty_Group(this, this, 12, inst);
+			case 13: return new IntegerProperty_Group(this, this, 13, inst);
+			case 14: return new DecimalProperty_Group(this, this, 14, inst);
+			case 15: return new EnumerationProperty_Group(this, this, 15, inst);
 			default: return null;
 		}	
 	}	
@@ -57,7 +58,7 @@ protected class ThisRootNode extends RootToken {
  *
  * BusinessDomainModel:
  *   description=STRING? "domain" name=ID ";" (types+=BusinessClass|enumerations+=
- *   IntegerEnumeration|associations+=Association)*; 
+ *   Enumeration|associations+=Association)*; 
  * 
  * / *******************************************************************************
  *  * Copyright (c) 2009 Ordina and committers to Mod4j
@@ -87,7 +88,7 @@ protected class ThisRootNode extends RootToken {
  **/
 
 // description=STRING? "domain" name=ID ";" (types+=BusinessClass|enumerations+=
-// IntegerEnumeration|associations+=Association)* 
+// Enumeration|associations+=Association)* 
 // 	  
 // 	        
 // //	(types+= BusinessClassReference)*
@@ -217,8 +218,7 @@ protected class BusinessDomainModel_SemicolonKeyword_3 extends KeywordToken  {
 		
 }
 
-// (types+=BusinessClass|enumerations+=IntegerEnumeration|associations+=Association
-// )* 
+// (types+=BusinessClass|enumerations+=Enumeration|associations+=Association)* 
 // //	(types+= BusinessClassReference)*
 protected class BusinessDomainModel_Alternatives_4 extends AlternativesToken {
 
@@ -284,7 +284,7 @@ protected class BusinessDomainModel_TypesAssignment_4_0 extends AssignmentToken 
 	}	
 }
 
-// enumerations+=IntegerEnumeration
+// enumerations+=Enumeration
 protected class BusinessDomainModel_EnumerationsAssignment_4_1 extends AssignmentToken  {
 	
 	public BusinessDomainModel_EnumerationsAssignment_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -297,7 +297,7 @@ protected class BusinessDomainModel_EnumerationsAssignment_4_1 extends Assignmen
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new IntegerEnumeration_Group(this, this, 0, inst);
+			case 0: return new Enumeration_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -307,9 +307,9 @@ protected class BusinessDomainModel_EnumerationsAssignment_4_1 extends Assignmen
 		IInstanceDescription obj = current.cloneAndConsume("enumerations");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getIntegerEnumerationRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getEnumerationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBusinessDomainModelAccess().getEnumerationsIntegerEnumerationParserRuleCall_4_1_0(); 
+				element = grammarAccess.getBusinessDomainModelAccess().getEnumerationsEnumerationParserRuleCall_4_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -1735,48 +1735,48 @@ protected class BusinessClass_RightSquareBracketKeyword_8 extends KeywordToken  
 /************ end Rule BusinessClass ****************/
 
 
-/************ begin Rule IntegerEnumeration ****************
+/************ begin Rule Enumeration ****************
  *
- * IntegerEnumeration:
- *   description=STRING? "enumeration" name=ID "[" enumerationLiterals+=
- *   IntegerEnumerationLiteral+ "]";
+ * Enumeration:
+ *   description=STRING? "enumeration" name=ID "[" enumerationLiterals+=(
+ *   IntegerEnumerationLiteral | StringEnumerationLiteral )+ "]";
  *
  **/
 
-// description=STRING? "enumeration" name=ID "[" enumerationLiterals+=
-// IntegerEnumerationLiteral+ "]"
-protected class IntegerEnumeration_Group extends GroupToken {
+// description=STRING? "enumeration" name=ID "[" enumerationLiterals+=(
+// IntegerEnumerationLiteral | StringEnumerationLiteral )+ "]"
+protected class Enumeration_Group extends GroupToken {
 	
-	public IntegerEnumeration_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Enumeration_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Group getGrammarElement() {
-		return grammarAccess.getIntegerEnumerationAccess().getGroup();
+		return grammarAccess.getEnumerationAccess().getGroup();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new IntegerEnumeration_RightSquareBracketKeyword_5(parent, this, 0, inst);
+			case 0: return new Enumeration_RightSquareBracketKeyword_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
 	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getIntegerEnumerationRule().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getEnumerationRule().getType().getClassifier())) return null;
 		return tryConsumeVal();
 	}
 }
 
 // description=STRING?
-protected class IntegerEnumeration_DescriptionAssignment_0 extends AssignmentToken  {
+protected class Enumeration_DescriptionAssignment_0 extends AssignmentToken  {
 	
-	public IntegerEnumeration_DescriptionAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Enumeration_DescriptionAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getIntegerEnumerationAccess().getDescriptionAssignment_0();
+		return grammarAccess.getEnumerationAccess().getDescriptionAssignment_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -1790,7 +1790,7 @@ protected class IntegerEnumeration_DescriptionAssignment_0 extends AssignmentTok
 		IInstanceDescription obj = current.cloneAndConsume("description");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getIntegerEnumerationAccess().getDescriptionSTRINGTerminalRuleCall_0_0();
+			element = grammarAccess.getEnumerationAccess().getDescriptionSTRINGTerminalRuleCall_0_0();
 			return obj;
 		}
 		return null;
@@ -1799,19 +1799,19 @@ protected class IntegerEnumeration_DescriptionAssignment_0 extends AssignmentTok
 }
 
 // "enumeration"
-protected class IntegerEnumeration_EnumerationKeyword_1 extends KeywordToken  {
+protected class Enumeration_EnumerationKeyword_1 extends KeywordToken  {
 	
-	public IntegerEnumeration_EnumerationKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Enumeration_EnumerationKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getIntegerEnumerationAccess().getEnumerationKeyword_1();
+		return grammarAccess.getEnumerationAccess().getEnumerationKeyword_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new IntegerEnumeration_DescriptionAssignment_0(parent, this, 0, inst);
+			case 0: return new Enumeration_DescriptionAssignment_0(parent, this, 0, inst);
 			default: return parent.createParentFollower(this, index, index - 1, inst);
 		}	
 	}	
@@ -1819,19 +1819,19 @@ protected class IntegerEnumeration_EnumerationKeyword_1 extends KeywordToken  {
 }
 
 // name=ID
-protected class IntegerEnumeration_NameAssignment_2 extends AssignmentToken  {
+protected class Enumeration_NameAssignment_2 extends AssignmentToken  {
 	
-	public IntegerEnumeration_NameAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Enumeration_NameAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getIntegerEnumerationAccess().getNameAssignment_2();
+		return grammarAccess.getEnumerationAccess().getNameAssignment_2();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new IntegerEnumeration_EnumerationKeyword_1(parent, this, 0, inst);
+			case 0: return new Enumeration_EnumerationKeyword_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1841,7 +1841,7 @@ protected class IntegerEnumeration_NameAssignment_2 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getIntegerEnumerationAccess().getNameIDTerminalRuleCall_2_0();
+			element = grammarAccess.getEnumerationAccess().getNameIDTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -1850,39 +1850,40 @@ protected class IntegerEnumeration_NameAssignment_2 extends AssignmentToken  {
 }
 
 // "["
-protected class IntegerEnumeration_LeftSquareBracketKeyword_3 extends KeywordToken  {
+protected class Enumeration_LeftSquareBracketKeyword_3 extends KeywordToken  {
 	
-	public IntegerEnumeration_LeftSquareBracketKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Enumeration_LeftSquareBracketKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getIntegerEnumerationAccess().getLeftSquareBracketKeyword_3();
+		return grammarAccess.getEnumerationAccess().getLeftSquareBracketKeyword_3();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new IntegerEnumeration_NameAssignment_2(parent, this, 0, inst);
+			case 0: return new Enumeration_NameAssignment_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
 }
 
-// enumerationLiterals+=IntegerEnumerationLiteral+
-protected class IntegerEnumeration_EnumerationLiteralsAssignment_4 extends AssignmentToken  {
+// enumerationLiterals+=( IntegerEnumerationLiteral | StringEnumerationLiteral )+
+protected class Enumeration_EnumerationLiteralsAssignment_4 extends AssignmentToken  {
 	
-	public IntegerEnumeration_EnumerationLiteralsAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Enumeration_EnumerationLiteralsAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getIntegerEnumerationAccess().getEnumerationLiteralsAssignment_4();
+		return grammarAccess.getEnumerationAccess().getEnumerationLiteralsAssignment_4();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new IntegerEnumerationLiteral_Group(this, this, 0, inst);
+			case 1: return new StringEnumerationLiteral_Group(this, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -1894,7 +1895,16 @@ protected class IntegerEnumeration_EnumerationLiteralsAssignment_4 extends Assig
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getIntegerEnumerationLiteralRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getIntegerEnumerationAccess().getEnumerationLiteralsIntegerEnumerationLiteralParserRuleCall_4_0(); 
+				element = grammarAccess.getEnumerationAccess().getEnumerationLiteralsIntegerEnumerationLiteralParserRuleCall_4_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getStringEnumerationLiteralRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getEnumerationAccess().getEnumerationLiteralsStringEnumerationLiteralParserRuleCall_4_0_1(); 
 				consumed = obj;
 				return param;
 			}
@@ -1905,27 +1915,27 @@ protected class IntegerEnumeration_EnumerationLiteralsAssignment_4 extends Assig
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new IntegerEnumeration_EnumerationLiteralsAssignment_4(parent, next, actIndex, consumed);
-			case 1: return new IntegerEnumeration_LeftSquareBracketKeyword_3(parent, next, actIndex, consumed);
+			case 0: return new Enumeration_EnumerationLiteralsAssignment_4(parent, next, actIndex, consumed);
+			case 1: return new Enumeration_LeftSquareBracketKeyword_3(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "]"
-protected class IntegerEnumeration_RightSquareBracketKeyword_5 extends KeywordToken  {
+protected class Enumeration_RightSquareBracketKeyword_5 extends KeywordToken  {
 	
-	public IntegerEnumeration_RightSquareBracketKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Enumeration_RightSquareBracketKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getIntegerEnumerationAccess().getRightSquareBracketKeyword_5();
+		return grammarAccess.getEnumerationAccess().getRightSquareBracketKeyword_5();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new IntegerEnumeration_EnumerationLiteralsAssignment_4(parent, this, 0, inst);
+			case 0: return new Enumeration_EnumerationLiteralsAssignment_4(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1933,7 +1943,7 @@ protected class IntegerEnumeration_RightSquareBracketKeyword_5 extends KeywordTo
 }
 
 
-/************ end Rule IntegerEnumeration ****************/
+/************ end Rule Enumeration ****************/
 
 
 /************ begin Rule IntegerEnumerationLiteral ****************
@@ -2091,6 +2101,163 @@ protected class IntegerEnumerationLiteral_SemicolonKeyword_2 extends KeywordToke
 
 
 /************ end Rule IntegerEnumerationLiteral ****************/
+
+
+/************ begin Rule StringEnumerationLiteral ****************
+ *
+ * StringEnumerationLiteral:
+ *   name=ID ("=" persistedValue=STRING) ";";
+ *
+ **/
+
+// name=ID ("=" persistedValue=STRING) ";"
+protected class StringEnumerationLiteral_Group extends GroupToken {
+	
+	public StringEnumerationLiteral_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getStringEnumerationLiteralAccess().getGroup();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new StringEnumerationLiteral_SemicolonKeyword_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getStringEnumerationLiteralRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// name=ID
+protected class StringEnumerationLiteral_NameAssignment_0 extends AssignmentToken  {
+	
+	public StringEnumerationLiteral_NameAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getStringEnumerationLiteralAccess().getNameAssignment_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("name",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("name");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getStringEnumerationLiteralAccess().getNameIDTerminalRuleCall_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// "=" persistedValue=STRING
+protected class StringEnumerationLiteral_Group_1 extends GroupToken {
+	
+	public StringEnumerationLiteral_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getStringEnumerationLiteralAccess().getGroup_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new StringEnumerationLiteral_PersistedValueAssignment_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "="
+protected class StringEnumerationLiteral_EqualsSignKeyword_1_0 extends KeywordToken  {
+	
+	public StringEnumerationLiteral_EqualsSignKeyword_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getStringEnumerationLiteralAccess().getEqualsSignKeyword_1_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new StringEnumerationLiteral_NameAssignment_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// persistedValue=STRING
+protected class StringEnumerationLiteral_PersistedValueAssignment_1_1 extends AssignmentToken  {
+	
+	public StringEnumerationLiteral_PersistedValueAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getStringEnumerationLiteralAccess().getPersistedValueAssignment_1_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new StringEnumerationLiteral_EqualsSignKeyword_1_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("persistedValue",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("persistedValue");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getStringEnumerationLiteralAccess().getPersistedValueSTRINGTerminalRuleCall_1_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// ";"
+protected class StringEnumerationLiteral_SemicolonKeyword_2 extends KeywordToken  {
+	
+	public StringEnumerationLiteral_SemicolonKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getStringEnumerationLiteralAccess().getSemicolonKeyword_2();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new StringEnumerationLiteral_Group_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+/************ end Rule StringEnumerationLiteral ****************/
 
 
 /************ begin Rule AbstractBusinessRule ****************
@@ -4479,12 +4646,12 @@ protected class DecimalProperty_NameAssignment_2 extends AssignmentToken  {
 /************ begin Rule EnumerationProperty ****************
  *
  * EnumerationProperty:
- *   description=STRING? type=[IntegerEnumeration] name=ID (hasDefault?="default"
+ *   description=STRING? type=[Enumeration] name=ID (hasDefault?="default"
  *   defaultValueAsString=ID)?;
  *
  **/
 
-// description=STRING? type=[IntegerEnumeration] name=ID (hasDefault?="default"
+// description=STRING? type=[Enumeration] name=ID (hasDefault?="default"
 // defaultValueAsString=ID)?
 protected class EnumerationProperty_Group extends GroupToken {
 	
@@ -4540,7 +4707,7 @@ protected class EnumerationProperty_DescriptionAssignment_0 extends AssignmentTo
 
 }
 
-// type=[IntegerEnumeration]
+// type=[Enumeration]
 protected class EnumerationProperty_TypeAssignment_1 extends AssignmentToken  {
 	
 	public EnumerationProperty_TypeAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -4563,9 +4730,9 @@ protected class EnumerationProperty_TypeAssignment_1 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("type");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getEnumerationPropertyAccess().getTypeIntegerEnumerationCrossReference_1_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getEnumerationPropertyAccess().getTypeEnumerationCrossReference_1_0().getType().getClassifier())) {
 				type = AssignmentType.CR;
-				element = grammarAccess.getEnumerationPropertyAccess().getTypeIntegerEnumerationCrossReference_1_0(); 
+				element = grammarAccess.getEnumerationPropertyAccess().getTypeEnumerationCrossReference_1_0(); 
 				return obj;
 			}
 		}

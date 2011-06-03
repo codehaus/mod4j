@@ -166,22 +166,22 @@
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="["/>
         <tokens xsi:type="xtext:Assignment" cardinality="*" feature="properties" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
         </tokens>
         <tokens xsi:type="xtext:Group" cardinality="?">
           <tokens xsi:type="xtext:Keyword" value="rules"/>
           <tokens xsi:type="xtext:Keyword" value="["/>
           <tokens xsi:type="xtext:Assignment" cardinality="*" feature="businessRules" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
           </tokens>
           <tokens xsi:type="xtext:Keyword" value="]"/>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="]"/>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="IntegerEnumeration">
+    <rules xsi:type="xtext:ParserRule" name="Enumeration">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/busmod#//IntegerEnumeration"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/busmod#//Enumeration"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Assignment" cardinality="?" feature="description" operator="=">
@@ -193,7 +193,10 @@
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="["/>
         <tokens xsi:type="xtext:Assignment" cardinality="+" feature="enumerationLiterals" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+          <terminal xsi:type="xtext:Alternatives">
+            <groups xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+            <groups xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+          </terminal>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="]"/>
       </alternatives>
@@ -215,13 +218,30 @@
         <tokens xsi:type="xtext:Keyword" value=";"/>
       </alternatives>
     </rules>
+    <rules xsi:type="xtext:ParserRule" name="StringEnumerationLiteral">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/busmod#//StringEnumerationLiteral"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="="/>
+          <tokens xsi:type="xtext:Assignment" feature="persistedValue" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </alternatives>
+    </rules>
     <rules xsi:type="xtext:ParserRule" name="AbstractBusinessRule">
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/busmod#//AbstractBusinessRule"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
         <groups xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="BusinessRule">
@@ -279,12 +299,12 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Alternatives">
-          <groups xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
           <groups xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
           <groups xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
-          <groups xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+          <groups xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
           <groups xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
           <groups xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+          <groups xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
         </tokens>
         <tokens xsi:type="xtext:Assignment" cardinality="?" feature="nullable" operator="?=">
           <terminal xsi:type="xtext:Keyword" value="nullable"/>
@@ -497,7 +517,7 @@
         <tokens xsi:type="xtext:Assignment" feature="type" operator="=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="/0/@metamodelDeclarations.0">
-              <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/busmod#//IntegerEnumeration"/>
+              <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/busmod#//Enumeration"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </terminal>

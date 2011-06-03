@@ -30,7 +30,7 @@ addCreatable(BusinessClassDto dto) :
 // Literals are always implicitly taken from the businessclassmodel
 addLiterals(EnumerationDto enum) :
     let symbol = lookupSymbol(enum.base.modelname, enum.base.name, "Enumeration") :
-    let props = symbol.subSymbols.select(s|s.type.matches("EnumerationLiteral")) :
+    let props = symbol.subSymbols.select(s|s.type.matches(".*EnumerationLiteral")) :
     enum.literals.addAll( props.toEnumLiteral()   )->
     null
     ;
