@@ -21,22 +21,22 @@ import org.eclipse.emf.ecore.EClass;
  * @generated
  */
 public class BusinessRuleImpl extends AbstractBusinessRuleImpl implements BusinessRule {
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected BusinessRuleImpl() {
+    protected BusinessRuleImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return BusinessDomainDslPackage.Literals.BUSINESS_RULE;
     }
 

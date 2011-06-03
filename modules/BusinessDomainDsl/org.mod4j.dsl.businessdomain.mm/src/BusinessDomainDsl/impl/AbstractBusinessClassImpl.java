@@ -36,55 +36,55 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class AbstractBusinessClassImpl extends AbstractTypeImpl implements AbstractBusinessClass {
-	/**
+    /**
      * The cached value of the '{@link #getAssociationsFrom() <em>Associations From</em>}' reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getAssociationsFrom()
      * @generated
      * @ordered
      */
-	protected EList<Association> associationsFrom;
+    protected EList<Association> associationsFrom;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected AbstractBusinessClassImpl() {
+    protected AbstractBusinessClassImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return BusinessDomainDslPackage.Literals.ABSTRACT_BUSINESS_CLASS;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<Association> getAssociationsFrom() {
+    public EList<Association> getAssociationsFrom() {
         if (associationsFrom == null) {
             associationsFrom = new EObjectWithInverseResolvingEList<Association>(Association.class, this, BusinessDomainDslPackage.ABSTRACT_BUSINESS_CLASS__ASSOCIATIONS_FROM, BusinessDomainDslPackage.ASSOCIATION__TARGET);
         }
         return associationsFrom;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_BUSINESS_CLASS__ASSOCIATIONS_FROM:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getAssociationsFrom()).basicAdd(otherEnd, msgs);
@@ -92,13 +92,13 @@ public class AbstractBusinessClassImpl extends AbstractTypeImpl implements Abstr
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_BUSINESS_CLASS__ASSOCIATIONS_FROM:
                 return ((InternalEList<?>)getAssociationsFrom()).basicRemove(otherEnd, msgs);
@@ -106,13 +106,13 @@ public class AbstractBusinessClassImpl extends AbstractTypeImpl implements Abstr
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_BUSINESS_CLASS__ASSOCIATIONS_FROM:
                 return getAssociationsFrom();
@@ -120,14 +120,14 @@ public class AbstractBusinessClassImpl extends AbstractTypeImpl implements Abstr
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_BUSINESS_CLASS__ASSOCIATIONS_FROM:
                 getAssociationsFrom().clear();
@@ -137,13 +137,13 @@ public class AbstractBusinessClassImpl extends AbstractTypeImpl implements Abstr
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_BUSINESS_CLASS__ASSOCIATIONS_FROM:
                 getAssociationsFrom().clear();
@@ -152,13 +152,13 @@ public class AbstractBusinessClassImpl extends AbstractTypeImpl implements Abstr
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_BUSINESS_CLASS__ASSOCIATIONS_FROM:
                 return associationsFrom != null && !associationsFrom.isEmpty();

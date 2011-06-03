@@ -44,37 +44,37 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class BusinessClassImpl extends AbstractBusinessClassImpl implements BusinessClass {
-	/**
+    /**
      * The cached value of the '{@link #getBusinessRules() <em>Business Rules</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getBusinessRules()
      * @generated
      * @ordered
      */
-	protected EList<AbstractBusinessRule> businessRules;
+    protected EList<AbstractBusinessRule> businessRules;
 
-	/**
+    /**
      * The cached value of the '{@link #getSuperclass() <em>Superclass</em>}' reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getSuperclass()
      * @generated
      * @ordered
      */
-	protected BusinessClass superclass;
+    protected BusinessClass superclass;
 
-	/**
+    /**
      * The cached value of the '{@link #getAssociationsTo() <em>Associations To</em>}' reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getAssociationsTo()
      * @generated
      * @ordered
      */
-	protected EList<Association> associationsTo;
+    protected EList<Association> associationsTo;
 
-	/**
+    /**
      * The default value of the '{@link #getTable() <em>Table</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -96,41 +96,41 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected BusinessClassImpl() {
+    protected BusinessClassImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return BusinessDomainDslPackage.Literals.BUSINESS_CLASS;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<AbstractBusinessRule> getBusinessRules() {
+    public EList<AbstractBusinessRule> getBusinessRules() {
         if (businessRules == null) {
             businessRules = new EObjectContainmentWithInverseEList<AbstractBusinessRule>(AbstractBusinessRule.class, this, BusinessDomainDslPackage.BUSINESS_CLASS__BUSINESS_RULES, BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS);
         }
         return businessRules;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusinessClass getSuperclass() {
+    public BusinessClass getSuperclass() {
         if (superclass != null && superclass.eIsProxy()) {
             InternalEObject oldSuperclass = (InternalEObject)superclass;
             superclass = (BusinessClass)eResolveProxy(oldSuperclass);
@@ -142,40 +142,40 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
         return superclass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusinessClass basicGetSuperclass() {
+    public BusinessClass basicGetSuperclass() {
         return superclass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setSuperclass(BusinessClass newSuperclass) {
+    public void setSuperclass(BusinessClass newSuperclass) {
         BusinessClass oldSuperclass = superclass;
         superclass = newSuperclass;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.BUSINESS_CLASS__SUPERCLASS, oldSuperclass, superclass));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<Association> getAssociationsTo() {
+    public EList<Association> getAssociationsTo() {
         if (associationsTo == null) {
             associationsTo = new EObjectWithInverseResolvingEList<Association>(Association.class, this, BusinessDomainDslPackage.BUSINESS_CLASS__ASSOCIATIONS_TO, BusinessDomainDslPackage.ASSOCIATION__SOURCE);
         }
         return associationsTo;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -198,12 +198,12 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_CLASS__BUSINESS_RULES:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getBusinessRules()).basicAdd(otherEnd, msgs);
@@ -213,13 +213,13 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_CLASS__BUSINESS_RULES:
                 return ((InternalEList<?>)getBusinessRules()).basicRemove(otherEnd, msgs);
@@ -229,13 +229,13 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_CLASS__BUSINESS_RULES:
                 return getBusinessRules();
@@ -250,14 +250,14 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_CLASS__BUSINESS_RULES:
                 getBusinessRules().clear();
@@ -277,13 +277,13 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_CLASS__BUSINESS_RULES:
                 getBusinessRules().clear();
@@ -301,13 +301,13 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_CLASS__BUSINESS_RULES:
                 return businessRules != null && !businessRules.isEmpty();

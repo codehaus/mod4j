@@ -52,167 +52,167 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public class AssociationImpl extends ModelElementImpl implements Association {
-	/**
+    /**
      * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getSource()
      * @generated
      * @ordered
      */
-	protected BusinessClass source;
+    protected BusinessClass source;
 
-	/**
+    /**
      * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getTarget()
      * @generated
      * @ordered
      */
-	protected AbstractBusinessClass target;
+    protected AbstractBusinessClass target;
 
-	/**
+    /**
      * The default value of the '{@link #getSourceRoleName() <em>Source Role Name</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getSourceRoleName()
      * @generated
      * @ordered
      */
-	protected static final String SOURCE_ROLE_NAME_EDEFAULT = "sourceRoleName";
+    protected static final String SOURCE_ROLE_NAME_EDEFAULT = "sourceRoleName";
 
-	/**
+    /**
      * The cached value of the '{@link #getSourceRoleName() <em>Source Role Name</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getSourceRoleName()
      * @generated
      * @ordered
      */
-	protected String sourceRoleName = SOURCE_ROLE_NAME_EDEFAULT;
+    protected String sourceRoleName = SOURCE_ROLE_NAME_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #getSourceMultiplicity() <em>Source Multiplicity</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getSourceMultiplicity()
      * @generated
      * @ordered
      */
-	protected static final Multiplicity SOURCE_MULTIPLICITY_EDEFAULT = Multiplicity.ONE;
+    protected static final Multiplicity SOURCE_MULTIPLICITY_EDEFAULT = Multiplicity.ONE;
 
-	/**
+    /**
      * The cached value of the '{@link #getSourceMultiplicity() <em>Source Multiplicity</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getSourceMultiplicity()
      * @generated
      * @ordered
      */
-	protected Multiplicity sourceMultiplicity = SOURCE_MULTIPLICITY_EDEFAULT;
+    protected Multiplicity sourceMultiplicity = SOURCE_MULTIPLICITY_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #getTargetRoleName() <em>Target Role Name</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getTargetRoleName()
      * @generated
      * @ordered
      */
-	protected static final String TARGET_ROLE_NAME_EDEFAULT = "targetRoleName";
+    protected static final String TARGET_ROLE_NAME_EDEFAULT = "targetRoleName";
 
-	/**
+    /**
      * The cached value of the '{@link #getTargetRoleName() <em>Target Role Name</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getTargetRoleName()
      * @generated
      * @ordered
      */
-	protected String targetRoleName = TARGET_ROLE_NAME_EDEFAULT;
+    protected String targetRoleName = TARGET_ROLE_NAME_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #getTargetMultiplicity() <em>Target Multiplicity</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getTargetMultiplicity()
      * @generated
      * @ordered
      */
-	protected static final Multiplicity TARGET_MULTIPLICITY_EDEFAULT = Multiplicity.ZERO_MANY;
+    protected static final Multiplicity TARGET_MULTIPLICITY_EDEFAULT = Multiplicity.ZERO_MANY;
 
-	/**
+    /**
      * The cached value of the '{@link #getTargetMultiplicity() <em>Target Multiplicity</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getTargetMultiplicity()
      * @generated
      * @ordered
      */
-	protected Multiplicity targetMultiplicity = TARGET_MULTIPLICITY_EDEFAULT;
+    protected Multiplicity targetMultiplicity = TARGET_MULTIPLICITY_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #isComposite() <em>Composite</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isComposite()
      * @generated
      * @ordered
      */
-	protected static final boolean COMPOSITE_EDEFAULT = false;
+    protected static final boolean COMPOSITE_EDEFAULT = false;
 
-	/**
+    /**
      * The cached value of the '{@link #isComposite() <em>Composite</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isComposite()
      * @generated
      * @ordered
      */
-	protected boolean composite = COMPOSITE_EDEFAULT;
+    protected boolean composite = COMPOSITE_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #isBidirectional() <em>Bidirectional</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isBidirectional()
      * @generated
      * @ordered
      */
-	protected static final boolean BIDIRECTIONAL_EDEFAULT = false;
+    protected static final boolean BIDIRECTIONAL_EDEFAULT = false;
 
-	/**
+    /**
      * The cached value of the '{@link #isBidirectional() <em>Bidirectional</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isBidirectional()
      * @generated
      * @ordered
      */
-	protected boolean bidirectional = BIDIRECTIONAL_EDEFAULT;
+    protected boolean bidirectional = BIDIRECTIONAL_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #isOrdered() <em>Ordered</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isOrdered()
      * @generated
      * @ordered
      */
-	protected static final boolean ORDERED_EDEFAULT = false;
+    protected static final boolean ORDERED_EDEFAULT = false;
 
-	/**
+    /**
      * The cached value of the '{@link #isOrdered() <em>Ordered</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isOrdered()
      * @generated
      * @ordered
      */
-	protected boolean ordered = ORDERED_EDEFAULT;
+    protected boolean ordered = ORDERED_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #getSourceForeignKey() <em>Source Foreign Key</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -334,29 +334,29 @@ public class AssociationImpl extends ModelElementImpl implements Association {
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected AssociationImpl() {
+    protected AssociationImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return BusinessDomainDslPackage.Literals.ASSOCIATION;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusinessClass getSource() {
+    public BusinessClass getSource() {
         if (source != null && source.eIsProxy()) {
             InternalEObject oldSource = (InternalEObject)source;
             source = (BusinessClass)eResolveProxy(oldSource);
@@ -368,21 +368,21 @@ public class AssociationImpl extends ModelElementImpl implements Association {
         return source;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusinessClass basicGetSource() {
+    public BusinessClass basicGetSource() {
         return source;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public NotificationChain basicSetSource(BusinessClass newSource, NotificationChain msgs) {
+    public NotificationChain basicSetSource(BusinessClass newSource, NotificationChain msgs) {
         BusinessClass oldSource = source;
         source = newSource;
         if (eNotificationRequired()) {
@@ -392,12 +392,12 @@ public class AssociationImpl extends ModelElementImpl implements Association {
         return msgs;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setSource(BusinessClass newSource) {
+    public void setSource(BusinessClass newSource) {
         if (newSource != source) {
             NotificationChain msgs = null;
             if (source != null)
@@ -411,12 +411,12 @@ public class AssociationImpl extends ModelElementImpl implements Association {
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__SOURCE, newSource, newSource));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public AbstractBusinessClass getTarget() {
+    public AbstractBusinessClass getTarget() {
         if (target != null && target.eIsProxy()) {
             InternalEObject oldTarget = (InternalEObject)target;
             target = (AbstractBusinessClass)eResolveProxy(oldTarget);
@@ -428,21 +428,21 @@ public class AssociationImpl extends ModelElementImpl implements Association {
         return target;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public AbstractBusinessClass basicGetTarget() {
+    public AbstractBusinessClass basicGetTarget() {
         return target;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public NotificationChain basicSetTarget(AbstractBusinessClass newTarget, NotificationChain msgs) {
+    public NotificationChain basicSetTarget(AbstractBusinessClass newTarget, NotificationChain msgs) {
         AbstractBusinessClass oldTarget = target;
         target = newTarget;
         if (eNotificationRequired()) {
@@ -452,12 +452,12 @@ public class AssociationImpl extends ModelElementImpl implements Association {
         return msgs;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setTarget(AbstractBusinessClass newTarget) {
+    public void setTarget(AbstractBusinessClass newTarget) {
         if (newTarget != target) {
             NotificationChain msgs = null;
             if (target != null)
@@ -471,179 +471,179 @@ public class AssociationImpl extends ModelElementImpl implements Association {
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__TARGET, newTarget, newTarget));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getSourceRoleName() {
+    public String getSourceRoleName() {
         return sourceRoleName;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setSourceRoleName(String newSourceRoleName) {
+    public void setSourceRoleName(String newSourceRoleName) {
         String oldSourceRoleName = sourceRoleName;
         sourceRoleName = newSourceRoleName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__SOURCE_ROLE_NAME, oldSourceRoleName, sourceRoleName));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public Multiplicity getSourceMultiplicity() {
+    public Multiplicity getSourceMultiplicity() {
         return sourceMultiplicity;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setSourceMultiplicity(Multiplicity newSourceMultiplicity) {
+    public void setSourceMultiplicity(Multiplicity newSourceMultiplicity) {
         Multiplicity oldSourceMultiplicity = sourceMultiplicity;
         sourceMultiplicity = newSourceMultiplicity == null ? SOURCE_MULTIPLICITY_EDEFAULT : newSourceMultiplicity;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__SOURCE_MULTIPLICITY, oldSourceMultiplicity, sourceMultiplicity));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getTargetRoleName() {
+    public String getTargetRoleName() {
         return targetRoleName;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setTargetRoleName(String newTargetRoleName) {
+    public void setTargetRoleName(String newTargetRoleName) {
         String oldTargetRoleName = targetRoleName;
         targetRoleName = newTargetRoleName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__TARGET_ROLE_NAME, oldTargetRoleName, targetRoleName));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public Multiplicity getTargetMultiplicity() {
+    public Multiplicity getTargetMultiplicity() {
         return targetMultiplicity;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setTargetMultiplicity(Multiplicity newTargetMultiplicity) {
+    public void setTargetMultiplicity(Multiplicity newTargetMultiplicity) {
         Multiplicity oldTargetMultiplicity = targetMultiplicity;
         targetMultiplicity = newTargetMultiplicity == null ? TARGET_MULTIPLICITY_EDEFAULT : newTargetMultiplicity;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__TARGET_MULTIPLICITY, oldTargetMultiplicity, targetMultiplicity));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public boolean isComposite() {
+    public boolean isComposite() {
         return composite;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setComposite(boolean newComposite) {
+    public void setComposite(boolean newComposite) {
         boolean oldComposite = composite;
         composite = newComposite;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__COMPOSITE, oldComposite, composite));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public boolean isBidirectional() {
+    public boolean isBidirectional() {
         return bidirectional;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setBidirectional(boolean newBidirectional) {
+    public void setBidirectional(boolean newBidirectional) {
         boolean oldBidirectional = bidirectional;
         bidirectional = newBidirectional;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__BIDIRECTIONAL, oldBidirectional, bidirectional));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public boolean isOrdered() {
+    public boolean isOrdered() {
         return ordered;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setOrdered(boolean newOrdered) {
+    public void setOrdered(boolean newOrdered) {
         boolean oldOrdered = ordered;
         ordered = newOrdered;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__ORDERED, oldOrdered, ordered));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusinessDomainModel getModel() {
+    public BusinessDomainModel getModel() {
         if (eContainerFeatureID() != BusinessDomainDslPackage.ASSOCIATION__MODEL) return null;
         return (BusinessDomainModel)eContainer();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public NotificationChain basicSetModel(BusinessDomainModel newModel, NotificationChain msgs) {
+    public NotificationChain basicSetModel(BusinessDomainModel newModel, NotificationChain msgs) {
         msgs = eBasicSetContainer((InternalEObject)newModel, BusinessDomainDslPackage.ASSOCIATION__MODEL, msgs);
         return msgs;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setModel(BusinessDomainModel newModel) {
+    public void setModel(BusinessDomainModel newModel) {
         if (newModel != eInternalContainer() || (eContainerFeatureID() != BusinessDomainDslPackage.ASSOCIATION__MODEL && newModel != null)) {
             if (EcoreUtil.isAncestor(this, newModel))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -659,7 +659,7 @@ public class AssociationImpl extends ModelElementImpl implements Association {
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__MODEL, newModel, newModel));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -787,11 +787,11 @@ public class AssociationImpl extends ModelElementImpl implements Association {
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case BusinessDomainDslPackage.ASSOCIATION__SOURCE:
                 if (source != null)
@@ -809,13 +809,13 @@ public class AssociationImpl extends ModelElementImpl implements Association {
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case BusinessDomainDslPackage.ASSOCIATION__SOURCE:
                 return basicSetSource(null, msgs);
@@ -827,13 +827,13 @@ public class AssociationImpl extends ModelElementImpl implements Association {
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
             case BusinessDomainDslPackage.ASSOCIATION__MODEL:
                 return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ASSOCIATIONS, BusinessDomainModel.class, msgs);
@@ -841,13 +841,13 @@ public class AssociationImpl extends ModelElementImpl implements Association {
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case BusinessDomainDslPackage.ASSOCIATION__SOURCE:
                 if (resolve) return getSource();
@@ -887,13 +887,13 @@ public class AssociationImpl extends ModelElementImpl implements Association {
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case BusinessDomainDslPackage.ASSOCIATION__SOURCE:
                 setSource((BusinessClass)newValue);
@@ -947,13 +947,13 @@ public class AssociationImpl extends ModelElementImpl implements Association {
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.ASSOCIATION__SOURCE:
                 setSource((BusinessClass)null);
@@ -1007,13 +1007,13 @@ public class AssociationImpl extends ModelElementImpl implements Association {
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.ASSOCIATION__SOURCE:
                 return source != null;
@@ -1051,13 +1051,13 @@ public class AssociationImpl extends ModelElementImpl implements Association {
         return super.eIsSet(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public String toString() {
+    @Override
+    public String toString() {
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());

@@ -42,73 +42,73 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public abstract class AbstractTypeImpl extends ModelElementImpl implements AbstractType {
-	/**
+    /**
      * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getProperties()
      * @generated
      * @ordered
      */
-	protected EList<Property> properties;
+    protected EList<Property> properties;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected AbstractTypeImpl() {
+    protected AbstractTypeImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return BusinessDomainDslPackage.Literals.ABSTRACT_TYPE;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<Property> getProperties() {
+    public EList<Property> getProperties() {
         if (properties == null) {
             properties = new EObjectContainmentWithInverseEList<Property>(Property.class, this, BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES, BusinessDomainDslPackage.PROPERTY__OWNING_TYPE);
         }
         return properties;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusinessDomainModel getModel() {
+    public BusinessDomainModel getModel() {
         if (eContainerFeatureID() != BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL) return null;
         return (BusinessDomainModel)eContainer();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public NotificationChain basicSetModel(BusinessDomainModel newModel, NotificationChain msgs) {
+    public NotificationChain basicSetModel(BusinessDomainModel newModel, NotificationChain msgs) {
         msgs = eBasicSetContainer((InternalEObject)newModel, BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL, msgs);
         return msgs;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setModel(BusinessDomainModel newModel) {
+    public void setModel(BusinessDomainModel newModel) {
         if (newModel != eInternalContainer() || (eContainerFeatureID() != BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL && newModel != null)) {
             if (EcoreUtil.isAncestor(this, newModel))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -124,14 +124,14 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL, newModel, newModel));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
@@ -143,13 +143,13 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
                 return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
@@ -159,13 +159,13 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
             case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
                 return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES, BusinessDomainModel.class, msgs);
@@ -173,13 +173,13 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
                 return getProperties();
@@ -189,14 +189,14 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
                 getProperties().clear();
@@ -209,13 +209,13 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
                 getProperties().clear();
@@ -227,13 +227,13 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
                 return properties != null && !properties.isEmpty();

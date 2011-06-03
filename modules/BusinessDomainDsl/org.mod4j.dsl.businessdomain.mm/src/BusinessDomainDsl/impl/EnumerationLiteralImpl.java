@@ -6,9 +6,9 @@
  */
 package BusinessDomainDsl.impl;
 
-import BusinessDomainDsl.AbstractBusinessRule;
-import BusinessDomainDsl.BusinessClass;
 import BusinessDomainDsl.BusinessDomainDslPackage;
+import BusinessDomainDsl.Enumeration;
+import BusinessDomainDsl.EnumerationLiteral;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,24 +22,24 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstract Business Rule</b></em>'.
+ * An implementation of the model object '<em><b>Enumeration Literal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link BusinessDomainDsl.impl.AbstractBusinessRuleImpl#getBusinessClass <em>Business Class</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.EnumerationLiteralImpl#getEnumeration <em>Enumeration</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AbstractBusinessRuleImpl extends ModelElementImpl implements AbstractBusinessRule {
+public abstract class EnumerationLiteralImpl extends ModelElementImpl implements EnumerationLiteral {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected AbstractBusinessRuleImpl() {
+    protected EnumerationLiteralImpl() {
         super();
     }
 
@@ -50,7 +50,7 @@ public class AbstractBusinessRuleImpl extends ModelElementImpl implements Abstra
      */
     @Override
     protected EClass eStaticClass() {
-        return BusinessDomainDslPackage.Literals.ABSTRACT_BUSINESS_RULE;
+        return BusinessDomainDslPackage.Literals.ENUMERATION_LITERAL;
     }
 
     /**
@@ -58,9 +58,9 @@ public class AbstractBusinessRuleImpl extends ModelElementImpl implements Abstra
      * <!-- end-user-doc -->
      * @generated
      */
-    public BusinessClass getBusinessClass() {
-        if (eContainerFeatureID() != BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS) return null;
-        return (BusinessClass)eContainer();
+    public Enumeration getEnumeration() {
+        if (eContainerFeatureID() != BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION) return null;
+        return (Enumeration)eContainer();
     }
 
     /**
@@ -68,8 +68,8 @@ public class AbstractBusinessRuleImpl extends ModelElementImpl implements Abstra
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetBusinessClass(BusinessClass newBusinessClass, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newBusinessClass, BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS, msgs);
+    public NotificationChain basicSetEnumeration(Enumeration newEnumeration, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject)newEnumeration, BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION, msgs);
         return msgs;
     }
 
@@ -78,20 +78,20 @@ public class AbstractBusinessRuleImpl extends ModelElementImpl implements Abstra
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setBusinessClass(BusinessClass newBusinessClass) {
-        if (newBusinessClass != eInternalContainer() || (eContainerFeatureID() != BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS && newBusinessClass != null)) {
-            if (EcoreUtil.isAncestor(this, newBusinessClass))
+    public void setEnumeration(Enumeration newEnumeration) {
+        if (newEnumeration != eInternalContainer() || (eContainerFeatureID() != BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION && newEnumeration != null)) {
+            if (EcoreUtil.isAncestor(this, newEnumeration))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
-            if (newBusinessClass != null)
-                msgs = ((InternalEObject)newBusinessClass).eInverseAdd(this, BusinessDomainDslPackage.BUSINESS_CLASS__BUSINESS_RULES, BusinessClass.class, msgs);
-            msgs = basicSetBusinessClass(newBusinessClass, msgs);
+            if (newEnumeration != null)
+                msgs = ((InternalEObject)newEnumeration).eInverseAdd(this, BusinessDomainDslPackage.ENUMERATION__ENUMERATION_LITERALS, Enumeration.class, msgs);
+            msgs = basicSetEnumeration(newEnumeration, msgs);
             if (msgs != null) msgs.dispatch();
         }
         else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS, newBusinessClass, newBusinessClass));
+            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION, newEnumeration, newEnumeration));
     }
 
     /**
@@ -102,10 +102,10 @@ public class AbstractBusinessRuleImpl extends ModelElementImpl implements Abstra
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS:
+            case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
                 if (eInternalContainer() != null)
                     msgs = eBasicRemoveFromContainer(msgs);
-                return basicSetBusinessClass((BusinessClass)otherEnd, msgs);
+                return basicSetEnumeration((Enumeration)otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -118,8 +118,8 @@ public class AbstractBusinessRuleImpl extends ModelElementImpl implements Abstra
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS:
-                return basicSetBusinessClass(null, msgs);
+            case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
+                return basicSetEnumeration(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -132,8 +132,8 @@ public class AbstractBusinessRuleImpl extends ModelElementImpl implements Abstra
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
-            case BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS:
-                return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.BUSINESS_CLASS__BUSINESS_RULES, BusinessClass.class, msgs);
+            case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
+                return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.ENUMERATION__ENUMERATION_LITERALS, Enumeration.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -146,8 +146,8 @@ public class AbstractBusinessRuleImpl extends ModelElementImpl implements Abstra
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS:
-                return getBusinessClass();
+            case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
+                return getEnumeration();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -160,8 +160,8 @@ public class AbstractBusinessRuleImpl extends ModelElementImpl implements Abstra
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS:
-                setBusinessClass((BusinessClass)newValue);
+            case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
+                setEnumeration((Enumeration)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -175,8 +175,8 @@ public class AbstractBusinessRuleImpl extends ModelElementImpl implements Abstra
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS:
-                setBusinessClass((BusinessClass)null);
+            case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
+                setEnumeration((Enumeration)null);
                 return;
         }
         super.eUnset(featureID);
@@ -190,10 +190,10 @@ public class AbstractBusinessRuleImpl extends ModelElementImpl implements Abstra
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS:
-                return getBusinessClass() != null;
+            case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
+                return getEnumeration() != null;
         }
         return super.eIsSet(featureID);
     }
 
-} //AbstractBusinessRuleImpl
+} //EnumerationLiteralImpl

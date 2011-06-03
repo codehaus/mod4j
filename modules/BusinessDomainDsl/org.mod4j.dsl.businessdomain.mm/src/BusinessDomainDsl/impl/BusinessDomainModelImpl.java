@@ -10,7 +10,7 @@ import BusinessDomainDsl.AbstractType;
 import BusinessDomainDsl.Association;
 import BusinessDomainDsl.BusinessDomainDslPackage;
 import BusinessDomainDsl.BusinessDomainModel;
-import BusinessDomainDsl.IntegerEnumeration;
+import BusinessDomainDsl.Enumeration;
 
 import java.util.Collection;
 
@@ -48,7 +48,7 @@ public class BusinessDomainModelImpl extends ModelElementImpl implements Busines
      * @generated
      * @ordered
      */
-    protected EList<IntegerEnumeration> enumerations;
+    protected EList<Enumeration> enumerations;
 
     /**
      * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
@@ -94,9 +94,9 @@ public class BusinessDomainModelImpl extends ModelElementImpl implements Busines
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<IntegerEnumeration> getEnumerations() {
+    public EList<Enumeration> getEnumerations() {
         if (enumerations == null) {
-            enumerations = new EObjectContainmentWithInverseEList<IntegerEnumeration>(IntegerEnumeration.class, this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ENUMERATIONS, BusinessDomainDslPackage.INTEGER_ENUMERATION__MODEL);
+            enumerations = new EObjectContainmentWithInverseEList<Enumeration>(Enumeration.class, this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ENUMERATIONS, BusinessDomainDslPackage.ENUMERATION__MODEL);
         }
         return enumerations;
     }
@@ -191,7 +191,7 @@ public class BusinessDomainModelImpl extends ModelElementImpl implements Busines
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ENUMERATIONS:
                 getEnumerations().clear();
-                getEnumerations().addAll((Collection<? extends IntegerEnumeration>)newValue);
+                getEnumerations().addAll((Collection<? extends Enumeration>)newValue);
                 return;
             case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES:
                 getTypes().clear();

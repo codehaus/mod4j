@@ -6,8 +6,8 @@
  */
 package BusinessDomainDsl.impl;
 
-import BusinessDomainDsl.BoolProperty;
 import BusinessDomainDsl.BusinessDomainDslPackage;
+import BusinessDomainDsl.StringEnumerationLiteral;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -17,44 +17,44 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Bool Property</b></em>'.
+ * An implementation of the model object '<em><b>String Enumeration Literal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link BusinessDomainDsl.impl.BoolPropertyImpl#isDefaultValue <em>Default Value</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.StringEnumerationLiteralImpl#getPersistedValue <em>Persisted Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class BoolPropertyImpl extends PropertyImpl implements BoolProperty {
+public class StringEnumerationLiteralImpl extends EnumerationLiteralImpl implements StringEnumerationLiteral {
     /**
-     * The default value of the '{@link #isDefaultValue() <em>Default Value</em>}' attribute.
+     * The default value of the '{@link #getPersistedValue() <em>Persisted Value</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isDefaultValue()
+     * @see #getPersistedValue()
      * @generated
      * @ordered
      */
-    protected static final boolean DEFAULT_VALUE_EDEFAULT = false;
+    protected static final String PERSISTED_VALUE_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #isDefaultValue() <em>Default Value</em>}' attribute.
+     * The cached value of the '{@link #getPersistedValue() <em>Persisted Value</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isDefaultValue()
+     * @see #getPersistedValue()
      * @generated
      * @ordered
      */
-    protected boolean defaultValue = DEFAULT_VALUE_EDEFAULT;
+    protected String persistedValue = PERSISTED_VALUE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected BoolPropertyImpl() {
+    protected StringEnumerationLiteralImpl() {
         super();
     }
 
@@ -65,7 +65,7 @@ public class BoolPropertyImpl extends PropertyImpl implements BoolProperty {
      */
     @Override
     protected EClass eStaticClass() {
-        return BusinessDomainDslPackage.Literals.BOOL_PROPERTY;
+        return BusinessDomainDslPackage.Literals.STRING_ENUMERATION_LITERAL;
     }
 
     /**
@@ -73,8 +73,8 @@ public class BoolPropertyImpl extends PropertyImpl implements BoolProperty {
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isDefaultValue() {
-        return defaultValue;
+    public String getPersistedValue() {
+        return persistedValue;
     }
 
     /**
@@ -82,11 +82,11 @@ public class BoolPropertyImpl extends PropertyImpl implements BoolProperty {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDefaultValue(boolean newDefaultValue) {
-        boolean oldDefaultValue = defaultValue;
-        defaultValue = newDefaultValue;
+    public void setPersistedValue(String newPersistedValue) {
+        String oldPersistedValue = persistedValue;
+        persistedValue = newPersistedValue;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE, oldDefaultValue, defaultValue));
+            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.STRING_ENUMERATION_LITERAL__PERSISTED_VALUE, oldPersistedValue, persistedValue));
     }
 
     /**
@@ -97,8 +97,8 @@ public class BoolPropertyImpl extends PropertyImpl implements BoolProperty {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE:
-                return isDefaultValue();
+            case BusinessDomainDslPackage.STRING_ENUMERATION_LITERAL__PERSISTED_VALUE:
+                return getPersistedValue();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -111,8 +111,8 @@ public class BoolPropertyImpl extends PropertyImpl implements BoolProperty {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE:
-                setDefaultValue((Boolean)newValue);
+            case BusinessDomainDslPackage.STRING_ENUMERATION_LITERAL__PERSISTED_VALUE:
+                setPersistedValue((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -126,8 +126,8 @@ public class BoolPropertyImpl extends PropertyImpl implements BoolProperty {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE:
-                setDefaultValue(DEFAULT_VALUE_EDEFAULT);
+            case BusinessDomainDslPackage.STRING_ENUMERATION_LITERAL__PERSISTED_VALUE:
+                setPersistedValue(PERSISTED_VALUE_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -141,8 +141,8 @@ public class BoolPropertyImpl extends PropertyImpl implements BoolProperty {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE:
-                return defaultValue != DEFAULT_VALUE_EDEFAULT;
+            case BusinessDomainDslPackage.STRING_ENUMERATION_LITERAL__PERSISTED_VALUE:
+                return PERSISTED_VALUE_EDEFAULT == null ? persistedValue != null : !PERSISTED_VALUE_EDEFAULT.equals(persistedValue);
         }
         return super.eIsSet(featureID);
     }
@@ -157,10 +157,10 @@ public class BoolPropertyImpl extends PropertyImpl implements BoolProperty {
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (defaultValue: ");
-        result.append(defaultValue);
+        result.append(" (persistedValue: ");
+        result.append(persistedValue);
         result.append(')');
         return result.toString();
     }
 
-} //BoolPropertyImpl
+} //StringEnumerationLiteralImpl

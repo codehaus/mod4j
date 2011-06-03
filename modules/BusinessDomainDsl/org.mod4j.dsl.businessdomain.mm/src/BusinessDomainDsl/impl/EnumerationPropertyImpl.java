@@ -7,8 +7,8 @@
 package BusinessDomainDsl.impl;
 
 import BusinessDomainDsl.BusinessDomainDslPackage;
+import BusinessDomainDsl.Enumeration;
 import BusinessDomainDsl.EnumerationProperty;
-import BusinessDomainDsl.IntegerEnumeration;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -40,7 +40,7 @@ public class EnumerationPropertyImpl extends PropertyImpl implements Enumeration
      * @generated
      * @ordered
      */
-    protected IntegerEnumeration type;
+    protected Enumeration type;
 
     /**
      * The default value of the '{@link #getDefaultValueAsString() <em>Default Value As String</em>}' attribute.
@@ -86,10 +86,10 @@ public class EnumerationPropertyImpl extends PropertyImpl implements Enumeration
      * <!-- end-user-doc -->
      * @generated
      */
-    public IntegerEnumeration getType() {
+    public Enumeration getType() {
         if (type != null && type.eIsProxy()) {
             InternalEObject oldType = (InternalEObject)type;
-            type = (IntegerEnumeration)eResolveProxy(oldType);
+            type = (Enumeration)eResolveProxy(oldType);
             if (type != oldType) {
                 if (eNotificationRequired())
                     eNotify(new ENotificationImpl(this, Notification.RESOLVE, BusinessDomainDslPackage.ENUMERATION_PROPERTY__TYPE, oldType, type));
@@ -103,7 +103,7 @@ public class EnumerationPropertyImpl extends PropertyImpl implements Enumeration
      * <!-- end-user-doc -->
      * @generated
      */
-    public IntegerEnumeration basicGetType() {
+    public Enumeration basicGetType() {
         return type;
     }
 
@@ -112,8 +112,8 @@ public class EnumerationPropertyImpl extends PropertyImpl implements Enumeration
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setType(IntegerEnumeration newType) {
-        IntegerEnumeration oldType = type;
+    public void setType(Enumeration newType) {
+        Enumeration oldType = type;
         type = newType;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ENUMERATION_PROPERTY__TYPE, oldType, type));
@@ -166,7 +166,7 @@ public class EnumerationPropertyImpl extends PropertyImpl implements Enumeration
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case BusinessDomainDslPackage.ENUMERATION_PROPERTY__TYPE:
-                setType((IntegerEnumeration)newValue);
+                setType((Enumeration)newValue);
                 return;
             case BusinessDomainDslPackage.ENUMERATION_PROPERTY__DEFAULT_VALUE_AS_STRING:
                 setDefaultValueAsString((String)newValue);
@@ -184,7 +184,7 @@ public class EnumerationPropertyImpl extends PropertyImpl implements Enumeration
     public void eUnset(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.ENUMERATION_PROPERTY__TYPE:
-                setType((IntegerEnumeration)null);
+                setType((Enumeration)null);
                 return;
             case BusinessDomainDslPackage.ENUMERATION_PROPERTY__DEFAULT_VALUE_AS_STRING:
                 setDefaultValueAsString(DEFAULT_VALUE_AS_STRING_EDEFAULT);

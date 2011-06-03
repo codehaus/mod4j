@@ -8,8 +8,8 @@ package BusinessDomainDsl.impl;
 
 import BusinessDomainDsl.BusinessDomainDslPackage;
 import BusinessDomainDsl.BusinessDomainModel;
-import BusinessDomainDsl.IntegerEnumeration;
-import BusinessDomainDsl.IntegerEnumerationLiteral;
+import BusinessDomainDsl.Enumeration;
+import BusinessDomainDsl.EnumerationLiteral;
 
 import java.util.Collection;
 
@@ -29,19 +29,19 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Integer Enumeration</b></em>'.
+ * An implementation of the model object '<em><b>Enumeration</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link BusinessDomainDsl.impl.IntegerEnumerationImpl#getEnumerationLiterals <em>Enumeration Literals</em>}</li>
- *   <li>{@link BusinessDomainDsl.impl.IntegerEnumerationImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.EnumerationImpl#getEnumerationLiterals <em>Enumeration Literals</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.EnumerationImpl#getModel <em>Model</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerEnumeration {
+public class EnumerationImpl extends ModelElementImpl implements Enumeration {
     /**
      * The cached value of the '{@link #getEnumerationLiterals() <em>Enumeration Literals</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -50,14 +50,14 @@ public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerE
      * @generated
      * @ordered
      */
-    protected EList<IntegerEnumerationLiteral> enumerationLiterals;
+    protected EList<EnumerationLiteral> enumerationLiterals;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IntegerEnumerationImpl() {
+    protected EnumerationImpl() {
         super();
     }
 
@@ -68,7 +68,7 @@ public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerE
      */
     @Override
     protected EClass eStaticClass() {
-        return BusinessDomainDslPackage.Literals.INTEGER_ENUMERATION;
+        return BusinessDomainDslPackage.Literals.ENUMERATION;
     }
 
     /**
@@ -76,9 +76,9 @@ public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerE
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<IntegerEnumerationLiteral> getEnumerationLiterals() {
+    public EList<EnumerationLiteral> getEnumerationLiterals() {
         if (enumerationLiterals == null) {
-            enumerationLiterals = new EObjectContainmentWithInverseEList<IntegerEnumerationLiteral>(IntegerEnumerationLiteral.class, this, BusinessDomainDslPackage.INTEGER_ENUMERATION__ENUMERATION_LITERALS, BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__ENUMERATION);
+            enumerationLiterals = new EObjectContainmentWithInverseEList<EnumerationLiteral>(EnumerationLiteral.class, this, BusinessDomainDslPackage.ENUMERATION__ENUMERATION_LITERALS, BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION);
         }
         return enumerationLiterals;
     }
@@ -89,7 +89,7 @@ public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerE
      * @generated
      */
     public BusinessDomainModel getModel() {
-        if (eContainerFeatureID() != BusinessDomainDslPackage.INTEGER_ENUMERATION__MODEL) return null;
+        if (eContainerFeatureID() != BusinessDomainDslPackage.ENUMERATION__MODEL) return null;
         return (BusinessDomainModel)eContainer();
     }
 
@@ -99,7 +99,7 @@ public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerE
      * @generated
      */
     public NotificationChain basicSetModel(BusinessDomainModel newModel, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newModel, BusinessDomainDslPackage.INTEGER_ENUMERATION__MODEL, msgs);
+        msgs = eBasicSetContainer((InternalEObject)newModel, BusinessDomainDslPackage.ENUMERATION__MODEL, msgs);
         return msgs;
     }
 
@@ -109,7 +109,7 @@ public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerE
      * @generated
      */
     public void setModel(BusinessDomainModel newModel) {
-        if (newModel != eInternalContainer() || (eContainerFeatureID() != BusinessDomainDslPackage.INTEGER_ENUMERATION__MODEL && newModel != null)) {
+        if (newModel != eInternalContainer() || (eContainerFeatureID() != BusinessDomainDslPackage.ENUMERATION__MODEL && newModel != null)) {
             if (EcoreUtil.isAncestor(this, newModel))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -121,7 +121,7 @@ public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerE
             if (msgs != null) msgs.dispatch();
         }
         else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.INTEGER_ENUMERATION__MODEL, newModel, newModel));
+            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ENUMERATION__MODEL, newModel, newModel));
     }
 
     /**
@@ -133,9 +133,9 @@ public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerE
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION__ENUMERATION_LITERALS:
+            case BusinessDomainDslPackage.ENUMERATION__ENUMERATION_LITERALS:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getEnumerationLiterals()).basicAdd(otherEnd, msgs);
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION__MODEL:
+            case BusinessDomainDslPackage.ENUMERATION__MODEL:
                 if (eInternalContainer() != null)
                     msgs = eBasicRemoveFromContainer(msgs);
                 return basicSetModel((BusinessDomainModel)otherEnd, msgs);
@@ -151,9 +151,9 @@ public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerE
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION__ENUMERATION_LITERALS:
+            case BusinessDomainDslPackage.ENUMERATION__ENUMERATION_LITERALS:
                 return ((InternalEList<?>)getEnumerationLiterals()).basicRemove(otherEnd, msgs);
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION__MODEL:
+            case BusinessDomainDslPackage.ENUMERATION__MODEL:
                 return basicSetModel(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -167,7 +167,7 @@ public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerE
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION__MODEL:
+            case BusinessDomainDslPackage.ENUMERATION__MODEL:
                 return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ENUMERATIONS, BusinessDomainModel.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -181,9 +181,9 @@ public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerE
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION__ENUMERATION_LITERALS:
+            case BusinessDomainDslPackage.ENUMERATION__ENUMERATION_LITERALS:
                 return getEnumerationLiterals();
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION__MODEL:
+            case BusinessDomainDslPackage.ENUMERATION__MODEL:
                 return getModel();
         }
         return super.eGet(featureID, resolve, coreType);
@@ -198,11 +198,11 @@ public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerE
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION__ENUMERATION_LITERALS:
+            case BusinessDomainDslPackage.ENUMERATION__ENUMERATION_LITERALS:
                 getEnumerationLiterals().clear();
-                getEnumerationLiterals().addAll((Collection<? extends IntegerEnumerationLiteral>)newValue);
+                getEnumerationLiterals().addAll((Collection<? extends EnumerationLiteral>)newValue);
                 return;
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION__MODEL:
+            case BusinessDomainDslPackage.ENUMERATION__MODEL:
                 setModel((BusinessDomainModel)newValue);
                 return;
         }
@@ -217,10 +217,10 @@ public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerE
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION__ENUMERATION_LITERALS:
+            case BusinessDomainDslPackage.ENUMERATION__ENUMERATION_LITERALS:
                 getEnumerationLiterals().clear();
                 return;
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION__MODEL:
+            case BusinessDomainDslPackage.ENUMERATION__MODEL:
                 setModel((BusinessDomainModel)null);
                 return;
         }
@@ -235,12 +235,12 @@ public class IntegerEnumerationImpl extends ModelElementImpl implements IntegerE
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION__ENUMERATION_LITERALS:
+            case BusinessDomainDslPackage.ENUMERATION__ENUMERATION_LITERALS:
                 return enumerationLiterals != null && !enumerationLiterals.isEmpty();
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION__MODEL:
+            case BusinessDomainDslPackage.ENUMERATION__MODEL:
                 return getModel() != null;
         }
         return super.eIsSet(featureID);
     }
 
-} //IntegerEnumerationImpl
+} //EnumerationImpl

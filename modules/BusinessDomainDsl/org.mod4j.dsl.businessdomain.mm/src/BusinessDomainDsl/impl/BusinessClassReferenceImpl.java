@@ -29,73 +29,73 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class BusinessClassReferenceImpl extends AbstractBusinessClassImpl implements BusinessClassReference {
-	/**
+    /**
      * The default value of the '{@link #getReferredModel() <em>Referred Model</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getReferredModel()
      * @generated
      * @ordered
      */
-	protected static final String REFERRED_MODEL_EDEFAULT = null;
+    protected static final String REFERRED_MODEL_EDEFAULT = null;
 
-	/**
+    /**
      * The cached value of the '{@link #getReferredModel() <em>Referred Model</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getReferredModel()
      * @generated
      * @ordered
      */
-	protected String referredModel = REFERRED_MODEL_EDEFAULT;
+    protected String referredModel = REFERRED_MODEL_EDEFAULT;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected BusinessClassReferenceImpl() {
+    protected BusinessClassReferenceImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return BusinessDomainDslPackage.Literals.BUSINESS_CLASS_REFERENCE;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getReferredModel() {
+    public String getReferredModel() {
         return referredModel;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setReferredModel(String newReferredModel) {
+    public void setReferredModel(String newReferredModel) {
         String oldReferredModel = referredModel;
         referredModel = newReferredModel;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.BUSINESS_CLASS_REFERENCE__REFERRED_MODEL, oldReferredModel, referredModel));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_CLASS_REFERENCE__REFERRED_MODEL:
                 return getReferredModel();
@@ -103,13 +103,13 @@ public class BusinessClassReferenceImpl extends AbstractBusinessClassImpl implem
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_CLASS_REFERENCE__REFERRED_MODEL:
                 setReferredModel((String)newValue);
@@ -118,13 +118,13 @@ public class BusinessClassReferenceImpl extends AbstractBusinessClassImpl implem
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_CLASS_REFERENCE__REFERRED_MODEL:
                 setReferredModel(REFERRED_MODEL_EDEFAULT);
@@ -133,13 +133,13 @@ public class BusinessClassReferenceImpl extends AbstractBusinessClassImpl implem
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_CLASS_REFERENCE__REFERRED_MODEL:
                 return REFERRED_MODEL_EDEFAULT == null ? referredModel != null : !REFERRED_MODEL_EDEFAULT.equals(referredModel);
@@ -147,13 +147,13 @@ public class BusinessClassReferenceImpl extends AbstractBusinessClassImpl implem
         return super.eIsSet(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public String toString() {
+    @Override
+    public String toString() {
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());

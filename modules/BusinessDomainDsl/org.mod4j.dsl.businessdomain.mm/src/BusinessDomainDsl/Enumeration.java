@@ -10,26 +10,26 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Integer Enumeration</b></em>'.
+ * A representation of the model object '<em><b>Enumeration</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link BusinessDomainDsl.IntegerEnumeration#getEnumerationLiterals <em>Enumeration Literals</em>}</li>
- *   <li>{@link BusinessDomainDsl.IntegerEnumeration#getModel <em>Model</em>}</li>
+ *   <li>{@link BusinessDomainDsl.Enumeration#getEnumerationLiterals <em>Enumeration Literals</em>}</li>
+ *   <li>{@link BusinessDomainDsl.Enumeration#getModel <em>Model</em>}</li>
  * </ul>
  * </p>
  *
- * @see BusinessDomainDsl.BusinessDomainDslPackage#getIntegerEnumeration()
+ * @see BusinessDomainDsl.BusinessDomainDslPackage#getEnumeration()
  * @model
  * @generated
  */
-public interface IntegerEnumeration extends ModelElement {
+public interface Enumeration extends ModelElement {
     /**
      * Returns the value of the '<em><b>Enumeration Literals</b></em>' containment reference list.
-     * The list contents are of type {@link BusinessDomainDsl.IntegerEnumerationLiteral}.
-     * It is bidirectional and its opposite is '{@link BusinessDomainDsl.IntegerEnumerationLiteral#getEnumeration <em>Enumeration</em>}'.
+     * The list contents are of type {@link BusinessDomainDsl.EnumerationLiteral}.
+     * It is bidirectional and its opposite is '{@link BusinessDomainDsl.EnumerationLiteral#getEnumeration <em>Enumeration</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Enumeration Literals</em>' containment reference list isn't clear,
@@ -37,12 +37,12 @@ public interface IntegerEnumeration extends ModelElement {
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Enumeration Literals</em>' containment reference list.
-     * @see BusinessDomainDsl.BusinessDomainDslPackage#getIntegerEnumeration_EnumerationLiterals()
-     * @see BusinessDomainDsl.IntegerEnumerationLiteral#getEnumeration
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getEnumeration_EnumerationLiterals()
+     * @see BusinessDomainDsl.EnumerationLiteral#getEnumeration
      * @model opposite="enumeration" containment="true"
      * @generated
      */
-    EList<IntegerEnumerationLiteral> getEnumerationLiterals();
+    EList<EnumerationLiteral> getEnumerationLiterals();
 
     /**
      * Returns the value of the '<em><b>Model</b></em>' container reference.
@@ -55,7 +55,7 @@ public interface IntegerEnumeration extends ModelElement {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Model</em>' container reference.
      * @see #setModel(BusinessDomainModel)
-     * @see BusinessDomainDsl.BusinessDomainDslPackage#getIntegerEnumeration_Model()
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getEnumeration_Model()
      * @see BusinessDomainDsl.BusinessDomainModel#getEnumerations
      * @model opposite="enumerations" transient="false"
      * @generated
@@ -63,7 +63,7 @@ public interface IntegerEnumeration extends ModelElement {
     BusinessDomainModel getModel();
 
     /**
-     * Sets the value of the '{@link BusinessDomainDsl.IntegerEnumeration#getModel <em>Model</em>}' container reference.
+     * Sets the value of the '{@link BusinessDomainDsl.Enumeration#getModel <em>Model</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Model</em>' container reference.
@@ -72,4 +72,4 @@ public interface IntegerEnumeration extends ModelElement {
      */
     void setModel(BusinessDomainModel value);
 
-} // IntegerEnumeration
+} // Enumeration

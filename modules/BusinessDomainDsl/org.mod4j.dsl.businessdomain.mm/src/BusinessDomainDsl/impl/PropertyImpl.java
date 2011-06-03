@@ -42,47 +42,47 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public class PropertyImpl extends ModelElementImpl implements Property {
-	/**
+    /**
      * The default value of the '{@link #getDataType() <em>Data Type</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getDataType()
      * @generated
      * @ordered
      */
-	protected static final String DATA_TYPE_EDEFAULT = null;
+    protected static final String DATA_TYPE_EDEFAULT = null;
 
-	/**
+    /**
      * The cached value of the '{@link #getDataType() <em>Data Type</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getDataType()
      * @generated
      * @ordered
      */
-	protected String dataType = DATA_TYPE_EDEFAULT;
+    protected String dataType = DATA_TYPE_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #isNullable() <em>Nullable</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isNullable()
      * @generated
      * @ordered
      */
-	protected static final boolean NULLABLE_EDEFAULT = false;
+    protected static final boolean NULLABLE_EDEFAULT = false;
 
-	/**
+    /**
      * The cached value of the '{@link #isNullable() <em>Nullable</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isNullable()
      * @generated
      * @ordered
      */
-	protected boolean nullable = NULLABLE_EDEFAULT;
+    protected boolean nullable = NULLABLE_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #isDerived() <em>Derived</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -105,64 +105,64 @@ public class PropertyImpl extends ModelElementImpl implements Property {
     /**
      * The default value of the '{@link #isWritable() <em>Writable</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isWritable()
      * @generated
      * @ordered
      */
-	protected static final boolean WRITABLE_EDEFAULT = false;
+    protected static final boolean WRITABLE_EDEFAULT = false;
 
-				/**
+    /**
      * The cached value of the '{@link #isWritable() <em>Writable</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isWritable()
      * @generated
      * @ordered
      */
-	protected boolean writable = WRITABLE_EDEFAULT;
+    protected boolean writable = WRITABLE_EDEFAULT;
 
-				/**
+    /**
      * The default value of the '{@link #getPersistency() <em>Persistency</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getPersistency()
      * @generated
      * @ordered
      */
-	protected static final PersistencyMode PERSISTENCY_EDEFAULT = PersistencyMode.READ_WRITE;
+    protected static final PersistencyMode PERSISTENCY_EDEFAULT = PersistencyMode.READ_WRITE;
 
-	/**
+    /**
      * The cached value of the '{@link #getPersistency() <em>Persistency</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getPersistency()
      * @generated
      * @ordered
      */
-	protected PersistencyMode persistency = PERSISTENCY_EDEFAULT;
+    protected PersistencyMode persistency = PERSISTENCY_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #isHasDefault() <em>Has Default</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isHasDefault()
      * @generated
      * @ordered
      */
-	protected static final boolean HAS_DEFAULT_EDEFAULT = false;
+    protected static final boolean HAS_DEFAULT_EDEFAULT = false;
 
-	/**
+    /**
      * The cached value of the '{@link #isHasDefault() <em>Has Default</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isHasDefault()
      * @generated
      * @ordered
      */
-	protected boolean hasDefault = HAS_DEFAULT_EDEFAULT;
+    protected boolean hasDefault = HAS_DEFAULT_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #getColumn() <em>Column</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -184,66 +184,66 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected PropertyImpl() {
+    protected PropertyImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return BusinessDomainDslPackage.Literals.PROPERTY;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getDataType() {
+    public String getDataType() {
         return dataType;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setDataType(String newDataType) {
+    public void setDataType(String newDataType) {
         String oldDataType = dataType;
         dataType = newDataType;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.PROPERTY__DATA_TYPE, oldDataType, dataType));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public boolean isNullable() {
+    public boolean isNullable() {
         return nullable;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setNullable(boolean newNullable) {
+    public void setNullable(boolean newNullable) {
         boolean oldNullable = nullable;
         nullable = newNullable;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.PROPERTY__NULLABLE, oldNullable, nullable));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -266,93 +266,93 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public boolean isWritable() {
+    public boolean isWritable() {
         return writable;
     }
 
-				/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setWritable(boolean newWritable) {
+    public void setWritable(boolean newWritable) {
         boolean oldWritable = writable;
         writable = newWritable;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.PROPERTY__WRITABLE, oldWritable, writable));
     }
 
-				/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public PersistencyMode getPersistency() {
+    public PersistencyMode getPersistency() {
         return persistency;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setPersistency(PersistencyMode newPersistency) {
+    public void setPersistency(PersistencyMode newPersistency) {
         PersistencyMode oldPersistency = persistency;
         persistency = newPersistency == null ? PERSISTENCY_EDEFAULT : newPersistency;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.PROPERTY__PERSISTENCY, oldPersistency, persistency));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public boolean isHasDefault() {
+    public boolean isHasDefault() {
         return hasDefault;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setHasDefault(boolean newHasDefault) {
+    public void setHasDefault(boolean newHasDefault) {
         boolean oldHasDefault = hasDefault;
         hasDefault = newHasDefault;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.PROPERTY__HAS_DEFAULT, oldHasDefault, hasDefault));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public AbstractType getOwningType() {
+    public AbstractType getOwningType() {
         if (eContainerFeatureID() != BusinessDomainDslPackage.PROPERTY__OWNING_TYPE) return null;
         return (AbstractType)eContainer();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public NotificationChain basicSetOwningType(AbstractType newOwningType, NotificationChain msgs) {
+    public NotificationChain basicSetOwningType(AbstractType newOwningType, NotificationChain msgs) {
         msgs = eBasicSetContainer((InternalEObject)newOwningType, BusinessDomainDslPackage.PROPERTY__OWNING_TYPE, msgs);
         return msgs;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setOwningType(AbstractType newOwningType) {
+    public void setOwningType(AbstractType newOwningType) {
         if (newOwningType != eInternalContainer() || (eContainerFeatureID() != BusinessDomainDslPackage.PROPERTY__OWNING_TYPE && newOwningType != null)) {
             if (EcoreUtil.isAncestor(this, newOwningType))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -368,7 +368,7 @@ public class PropertyImpl extends ModelElementImpl implements Property {
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.PROPERTY__OWNING_TYPE, newOwningType, newOwningType));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -391,11 +391,11 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case BusinessDomainDslPackage.PROPERTY__OWNING_TYPE:
                 if (eInternalContainer() != null)
@@ -405,13 +405,13 @@ public class PropertyImpl extends ModelElementImpl implements Property {
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case BusinessDomainDslPackage.PROPERTY__OWNING_TYPE:
                 return basicSetOwningType(null, msgs);
@@ -419,13 +419,13 @@ public class PropertyImpl extends ModelElementImpl implements Property {
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
             case BusinessDomainDslPackage.PROPERTY__OWNING_TYPE:
                 return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES, AbstractType.class, msgs);
@@ -433,13 +433,13 @@ public class PropertyImpl extends ModelElementImpl implements Property {
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case BusinessDomainDslPackage.PROPERTY__DATA_TYPE:
                 return getDataType();
@@ -461,13 +461,13 @@ public class PropertyImpl extends ModelElementImpl implements Property {
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case BusinessDomainDslPackage.PROPERTY__DATA_TYPE:
                 setDataType((String)newValue);
@@ -497,13 +497,13 @@ public class PropertyImpl extends ModelElementImpl implements Property {
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.PROPERTY__DATA_TYPE:
                 setDataType(DATA_TYPE_EDEFAULT);
@@ -533,13 +533,13 @@ public class PropertyImpl extends ModelElementImpl implements Property {
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.PROPERTY__DATA_TYPE:
                 return DATA_TYPE_EDEFAULT == null ? dataType != null : !DATA_TYPE_EDEFAULT.equals(dataType);
@@ -561,13 +561,13 @@ public class PropertyImpl extends ModelElementImpl implements Property {
         return super.eIsSet(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public String toString() {
+    @Override
+    public String toString() {
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());

@@ -17,58 +17,58 @@ import org.eclipse.emf.ecore.EFactory;
  * @generated
  */
 public interface BusinessDomainDslFactory extends EFactory {
-	/**
+    /**
      * The singleton instance of the factory.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	BusinessDomainDslFactory eINSTANCE = BusinessDomainDsl.impl.BusinessDomainDslFactoryImpl.init();
+    BusinessDomainDslFactory eINSTANCE = BusinessDomainDsl.impl.BusinessDomainDslFactoryImpl.init();
 
-	/**
+    /**
      * Returns a new object of class '<em>Model Element</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Model Element</em>'.
      * @generated
      */
-	ModelElement createModelElement();
+    ModelElement createModelElement();
 
-	/**
+    /**
      * Returns a new object of class '<em>Business Domain Model</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Business Domain Model</em>'.
      * @generated
      */
-	BusinessDomainModel createBusinessDomainModel();
+    BusinessDomainModel createBusinessDomainModel();
 
-	/**
+    /**
      * Returns a new object of class '<em>Business Class</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Business Class</em>'.
      * @generated
      */
-	BusinessClass createBusinessClass();
+    BusinessClass createBusinessClass();
 
-	/**
+    /**
      * Returns a new object of class '<em>Property</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Property</em>'.
      * @generated
      */
-	Property createProperty();
+    Property createProperty();
 
-	/**
-     * Returns a new object of class '<em>Integer Enumeration</em>'.
+    /**
+     * Returns a new object of class '<em>Enumeration</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Integer Enumeration</em>'.
+     * @return a new object of class '<em>Enumeration</em>'.
      * @generated
      */
-    IntegerEnumeration createIntegerEnumeration();
+    Enumeration createEnumeration();
 
     /**
      * Returns a new object of class '<em>Integer Enumeration Literal</em>'.
@@ -80,138 +80,147 @@ public interface BusinessDomainDslFactory extends EFactory {
     IntegerEnumerationLiteral createIntegerEnumerationLiteral();
 
     /**
+     * Returns a new object of class '<em>String Enumeration Literal</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>String Enumeration Literal</em>'.
+     * @generated
+     */
+    StringEnumerationLiteral createStringEnumerationLiteral();
+
+    /**
      * Returns a new object of class '<em>Abstract Business Rule</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Abstract Business Rule</em>'.
      * @generated
      */
-	AbstractBusinessRule createAbstractBusinessRule();
+    AbstractBusinessRule createAbstractBusinessRule();
 
-	/**
+    /**
      * Returns a new object of class '<em>Bool Property</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Bool Property</em>'.
      * @generated
      */
-	BoolProperty createBoolProperty();
+    BoolProperty createBoolProperty();
 
-	/**
+    /**
      * Returns a new object of class '<em>Date Time Property</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Date Time Property</em>'.
      * @generated
      */
-	DateTimeProperty createDateTimeProperty();
+    DateTimeProperty createDateTimeProperty();
 
-	/**
+    /**
      * Returns a new object of class '<em>Enumeration Property</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Enumeration Property</em>'.
      * @generated
      */
-	EnumerationProperty createEnumerationProperty();
+    EnumerationProperty createEnumerationProperty();
 
-	/**
+    /**
      * Returns a new object of class '<em>Integer Property</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Integer Property</em>'.
      * @generated
      */
-	IntegerProperty createIntegerProperty();
+    IntegerProperty createIntegerProperty();
 
-	/**
+    /**
      * Returns a new object of class '<em>String Property</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>String Property</em>'.
      * @generated
      */
-	StringProperty createStringProperty();
+    StringProperty createStringProperty();
 
-	/**
+    /**
      * Returns a new object of class '<em>Blob Binary Property</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Blob Binary Property</em>'.
      * @generated
      */
-	BlobBinaryProperty createBlobBinaryProperty();
+    BlobBinaryProperty createBlobBinaryProperty();
 
-	/**
+    /**
      * Returns a new object of class '<em>Blob Text Property</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Blob Text Property</em>'.
      * @generated
      */
-	BlobTextProperty createBlobTextProperty();
+    BlobTextProperty createBlobTextProperty();
 
-	/**
+    /**
      * Returns a new object of class '<em>Association</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Association</em>'.
      * @generated
      */
-	Association createAssociation();
+    Association createAssociation();
 
-	/**
+    /**
      * Returns a new object of class '<em>Decimal Property</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Decimal Property</em>'.
      * @generated
      */
-	DecimalProperty createDecimalProperty();
+    DecimalProperty createDecimalProperty();
 
-	/**
+    /**
      * Returns a new object of class '<em>Abstract Business Class</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Abstract Business Class</em>'.
      * @generated
      */
-	AbstractBusinessClass createAbstractBusinessClass();
+    AbstractBusinessClass createAbstractBusinessClass();
 
-	/**
+    /**
      * Returns a new object of class '<em>Business Class Reference</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Business Class Reference</em>'.
      * @generated
      */
-	BusinessClassReference createBusinessClassReference();
+    BusinessClassReference createBusinessClassReference();
 
-	/**
+    /**
      * Returns a new object of class '<em>Unique Rule</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Unique Rule</em>'.
      * @generated
      */
-	UniqueRule createUniqueRule();
+    UniqueRule createUniqueRule();
 
-	/**
+    /**
      * Returns a new object of class '<em>Business Rule</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Business Rule</em>'.
      * @generated
      */
-	BusinessRule createBusinessRule();
+    BusinessRule createBusinessRule();
 
-	/**
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the package supported by this factory.
      * @generated
      */
-	BusinessDomainDslPackage getBusinessDomainDslPackage();
+    BusinessDomainDslPackage getBusinessDomainDslPackage();
 
 } //BusinessDomainDslFactory

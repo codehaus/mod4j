@@ -65,8 +65,9 @@ public class BusinessDomainDslFactoryImpl extends EFactoryImpl implements Busine
             case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL: return createBusinessDomainModel();
             case BusinessDomainDslPackage.BUSINESS_CLASS: return createBusinessClass();
             case BusinessDomainDslPackage.PROPERTY: return createProperty();
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION: return createIntegerEnumeration();
+            case BusinessDomainDslPackage.ENUMERATION: return createEnumeration();
             case BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL: return createIntegerEnumerationLiteral();
+            case BusinessDomainDslPackage.STRING_ENUMERATION_LITERAL: return createStringEnumerationLiteral();
             case BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE: return createAbstractBusinessRule();
             case BusinessDomainDslPackage.BOOL_PROPERTY: return createBoolProperty();
             case BusinessDomainDslPackage.DATE_TIME_PROPERTY: return createDateTimeProperty();
@@ -169,9 +170,9 @@ public class BusinessDomainDslFactoryImpl extends EFactoryImpl implements Busine
      * <!-- end-user-doc -->
      * @generated
      */
-    public IntegerEnumeration createIntegerEnumeration() {
-        IntegerEnumerationImpl integerEnumeration = new IntegerEnumerationImpl();
-        return integerEnumeration;
+    public Enumeration createEnumeration() {
+        EnumerationImpl enumeration = new EnumerationImpl();
+        return enumeration;
     }
 
     /**
@@ -182,6 +183,16 @@ public class BusinessDomainDslFactoryImpl extends EFactoryImpl implements Busine
     public IntegerEnumerationLiteral createIntegerEnumerationLiteral() {
         IntegerEnumerationLiteralImpl integerEnumerationLiteral = new IntegerEnumerationLiteralImpl();
         return integerEnumerationLiteral;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public StringEnumerationLiteral createStringEnumerationLiteral() {
+        StringEnumerationLiteralImpl stringEnumerationLiteral = new StringEnumerationLiteralImpl();
+        return stringEnumerationLiteral;
     }
 
     /**

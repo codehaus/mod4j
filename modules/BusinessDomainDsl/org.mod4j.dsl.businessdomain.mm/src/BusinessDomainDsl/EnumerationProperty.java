@@ -25,23 +25,23 @@ package BusinessDomainDsl;
  * @generated
  */
 public interface EnumerationProperty extends Property {
-	/**
+    /**
      * Returns the value of the '<em><b>Type</b></em>' reference.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Type</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @return the value of the '<em>Type</em>' reference.
-     * @see #setType(IntegerEnumeration)
+     * @see #setType(Enumeration)
      * @see BusinessDomainDsl.BusinessDomainDslPackage#getEnumerationProperty_Type()
      * @model required="true"
      * @generated
      */
-	IntegerEnumeration getType();
+    Enumeration getType();
 
-	/**
+    /**
      * Sets the value of the '{@link BusinessDomainDsl.EnumerationProperty#getType <em>Type</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -49,32 +49,32 @@ public interface EnumerationProperty extends Property {
      * @see #getType()
      * @generated
      */
-    void setType(IntegerEnumeration value);
+    void setType(Enumeration value);
 
     /**
      * Returns the value of the '<em><b>Default Value As String</b></em>' attribute.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Default Value As String</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Default Value As String</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @return the value of the '<em>Default Value As String</em>' attribute.
      * @see #setDefaultValueAsString(String)
      * @see BusinessDomainDsl.BusinessDomainDslPackage#getEnumerationProperty_DefaultValueAsString()
      * @model
      * @generated
      */
-	String getDefaultValueAsString();
+    String getDefaultValueAsString();
 
-	/**
+    /**
      * Sets the value of the '{@link BusinessDomainDsl.EnumerationProperty#getDefaultValueAsString <em>Default Value As String</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param value the new value of the '<em>Default Value As String</em>' attribute.
      * @see #getDefaultValueAsString()
      * @generated
      */
-	void setDefaultValueAsString(String value);
+    void setDefaultValueAsString(String value);
 
 } // EnumerationProperty

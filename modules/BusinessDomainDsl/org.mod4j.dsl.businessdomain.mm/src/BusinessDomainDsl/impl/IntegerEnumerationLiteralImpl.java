@@ -7,18 +7,13 @@
 package BusinessDomainDsl.impl;
 
 import BusinessDomainDsl.BusinessDomainDslPackage;
-import BusinessDomainDsl.IntegerEnumeration;
 import BusinessDomainDsl.IntegerEnumerationLiteral;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,13 +23,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link BusinessDomainDsl.impl.IntegerEnumerationLiteralImpl#getPersistedValue <em>Persisted Value</em>}</li>
- *   <li>{@link BusinessDomainDsl.impl.IntegerEnumerationLiteralImpl#getEnumeration <em>Enumeration</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class IntegerEnumerationLiteralImpl extends ModelElementImpl implements IntegerEnumerationLiteral {
+public class IntegerEnumerationLiteralImpl extends EnumerationLiteralImpl implements IntegerEnumerationLiteral {
     /**
      * The default value of the '{@link #getPersistedValue() <em>Persisted Value</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -100,98 +94,11 @@ public class IntegerEnumerationLiteralImpl extends ModelElementImpl implements I
      * <!-- end-user-doc -->
      * @generated
      */
-    public IntegerEnumeration getEnumeration() {
-        if (eContainerFeatureID() != BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__ENUMERATION) return null;
-        return (IntegerEnumeration)eContainer();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicSetEnumeration(IntegerEnumeration newEnumeration, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newEnumeration, BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__ENUMERATION, msgs);
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setEnumeration(IntegerEnumeration newEnumeration) {
-        if (newEnumeration != eInternalContainer() || (eContainerFeatureID() != BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__ENUMERATION && newEnumeration != null)) {
-            if (EcoreUtil.isAncestor(this, newEnumeration))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-            NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newEnumeration != null)
-                msgs = ((InternalEObject)newEnumeration).eInverseAdd(this, BusinessDomainDslPackage.INTEGER_ENUMERATION__ENUMERATION_LITERALS, IntegerEnumeration.class, msgs);
-            msgs = basicSetEnumeration(newEnumeration, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__ENUMERATION, newEnumeration, newEnumeration));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__ENUMERATION:
-                if (eInternalContainer() != null)
-                    msgs = eBasicRemoveFromContainer(msgs);
-                return basicSetEnumeration((IntegerEnumeration)otherEnd, msgs);
-        }
-        return super.eInverseAdd(otherEnd, featureID, msgs);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__ENUMERATION:
-                return basicSetEnumeration(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__ENUMERATION:
-                return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.INTEGER_ENUMERATION__ENUMERATION_LITERALS, IntegerEnumeration.class, msgs);
-        }
-        return super.eBasicRemoveFromContainerFeature(msgs);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__PERSISTED_VALUE:
                 return getPersistedValue();
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__ENUMERATION:
-                return getEnumeration();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -206,9 +113,6 @@ public class IntegerEnumerationLiteralImpl extends ModelElementImpl implements I
         switch (featureID) {
             case BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__PERSISTED_VALUE:
                 setPersistedValue((Integer)newValue);
-                return;
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__ENUMERATION:
-                setEnumeration((IntegerEnumeration)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -225,9 +129,6 @@ public class IntegerEnumerationLiteralImpl extends ModelElementImpl implements I
             case BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__PERSISTED_VALUE:
                 setPersistedValue(PERSISTED_VALUE_EDEFAULT);
                 return;
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__ENUMERATION:
-                setEnumeration((IntegerEnumeration)null);
-                return;
         }
         super.eUnset(featureID);
     }
@@ -242,8 +143,6 @@ public class IntegerEnumerationLiteralImpl extends ModelElementImpl implements I
         switch (featureID) {
             case BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__PERSISTED_VALUE:
                 return persistedValue != PERSISTED_VALUE_EDEFAULT;
-            case BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL__ENUMERATION:
-                return getEnumeration() != null;
         }
         return super.eIsSet(featureID);
     }
