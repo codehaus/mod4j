@@ -108,6 +108,14 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
                 return createEnumerationDtoLiteralAdapter();
             }
             @Override
+            public Adapter caseEnumerationDtoIntegerLiteral(EnumerationDtoIntegerLiteral object) {
+                return createEnumerationDtoIntegerLiteralAdapter();
+            }
+            @Override
+            public Adapter caseEnumerationDtoStringLiteral(EnumerationDtoStringLiteral object) {
+                return createEnumerationDtoStringLiteralAdapter();
+            }
+            @Override
             public Adapter caseModelElement(ModelElement object) {
                 return createModelElementAdapter();
             }
@@ -294,6 +302,34 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
     }
 
 	/**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoIntegerLiteral <em>Enumeration Dto Integer Literal</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoIntegerLiteral
+     * @generated
+     */
+    public Adapter createEnumerationDtoIntegerLiteralAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoStringLiteral <em>Enumeration Dto String Literal</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoStringLiteral
+     * @generated
+     */
+    public Adapter createEnumerationDtoStringLiteralAdapter() {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ModelElement <em>Model Element</em>}'.
      * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;

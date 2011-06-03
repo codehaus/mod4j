@@ -1,0 +1,7 @@
+datacontract Enumerations;
+
+from enumerations enumeration StringEnum;
+from enumerations businessclass StringEnumClass;
+
+enumeration StringEnumDto represents StringEnum;
+class StringEnumClassDto represents StringEnumClass;

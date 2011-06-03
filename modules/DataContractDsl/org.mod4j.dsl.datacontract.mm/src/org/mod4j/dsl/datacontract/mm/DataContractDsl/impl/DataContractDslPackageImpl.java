@@ -32,7 +32,9 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoIntegerProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoStringProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoIntegerLiteral;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoLiteral;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoStringLiteral;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ModelElement;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Multiplicity;
@@ -106,6 +108,20 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      * @generated
      */
     private EClass enumerationDtoLiteralEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass enumerationDtoIntegerLiteralEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass enumerationDtoStringLiteralEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -520,8 +536,35 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getEnumerationDtoLiteral_Value() {
-        return (EAttribute)enumerationDtoLiteralEClass.getEStructuralFeatures().get(0);
+    public EClass getEnumerationDtoIntegerLiteral() {
+        return enumerationDtoIntegerLiteralEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getEnumerationDtoIntegerLiteral_Value() {
+        return (EAttribute)enumerationDtoIntegerLiteralEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getEnumerationDtoStringLiteral() {
+        return enumerationDtoStringLiteralEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getEnumerationDtoStringLiteral_Value() {
+        return (EAttribute)enumerationDtoStringLiteralEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -842,7 +885,12 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         createEReference(enumerationDtoEClass, ENUMERATION_DTO__DATACONTRACT_MODEL);
 
         enumerationDtoLiteralEClass = createEClass(ENUMERATION_DTO_LITERAL);
-        createEAttribute(enumerationDtoLiteralEClass, ENUMERATION_DTO_LITERAL__VALUE);
+
+        enumerationDtoIntegerLiteralEClass = createEClass(ENUMERATION_DTO_INTEGER_LITERAL);
+        createEAttribute(enumerationDtoIntegerLiteralEClass, ENUMERATION_DTO_INTEGER_LITERAL__VALUE);
+
+        enumerationDtoStringLiteralEClass = createEClass(ENUMERATION_DTO_STRING_LITERAL);
+        createEAttribute(enumerationDtoStringLiteralEClass, ENUMERATION_DTO_STRING_LITERAL__VALUE);
 
         modelElementEClass = createEClass(MODEL_ELEMENT);
         createEAttribute(modelElementEClass, MODEL_ELEMENT__NAME);
@@ -922,6 +970,8 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         dtoBooleanPropertyEClass.getESuperTypes().add(this.getDtoDataProperty());
         enumerationDtoEClass.getESuperTypes().add(this.getModelElement());
         enumerationDtoLiteralEClass.getESuperTypes().add(this.getModelElement());
+        enumerationDtoIntegerLiteralEClass.getESuperTypes().add(this.getEnumerationDtoLiteral());
+        enumerationDtoStringLiteralEClass.getESuperTypes().add(this.getEnumerationDtoLiteral());
         customDtoEClass.getESuperTypes().add(this.getDto());
         dtoIntegerPropertyEClass.getESuperTypes().add(this.getDtoDataProperty());
         dtoDecimalPropertyEClass.getESuperTypes().add(this.getDtoDataProperty());
@@ -971,7 +1021,12 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         initEReference(getEnumerationDto_DatacontractModel(), this.getDataContractModel(), this.getDataContractModel_Enumerations(), "datacontractModel", null, 0, 1, EnumerationDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(enumerationDtoLiteralEClass, EnumerationDtoLiteral.class, "EnumerationDtoLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getEnumerationDtoLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, EnumerationDtoLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(enumerationDtoIntegerLiteralEClass, EnumerationDtoIntegerLiteral.class, "EnumerationDtoIntegerLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getEnumerationDtoIntegerLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, EnumerationDtoIntegerLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(enumerationDtoStringLiteralEClass, EnumerationDtoStringLiteral.class, "EnumerationDtoStringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getEnumerationDtoStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, EnumerationDtoStringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(modelElementEClass, ModelElement.class, "ModelElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getModelElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

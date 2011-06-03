@@ -1,0 +1,5 @@
+service Enumeration;
+
+from Enumerations import StringEnumClassDto;
+
+crud StringEnumClassDto;

@@ -49,8 +49,12 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//EnumerationDto/base"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference DataContractDsl.ecore#//EnumerationDto/datacontractModel"/>
     </genClasses>
-    <genClasses ecoreClass="DataContractDsl.ecore#//EnumerationDtoLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//EnumerationDtoLiteral/value"/>
+    <genClasses ecoreClass="DataContractDsl.ecore#//EnumerationDtoLiteral"/>
+    <genClasses ecoreClass="DataContractDsl.ecore#//EnumerationDtoIntegerLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//EnumerationDtoIntegerLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="DataContractDsl.ecore#//EnumerationDtoStringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//EnumerationDtoStringLiteral/value"/>
     </genClasses>
     <genClasses ecoreClass="DataContractDsl.ecore#//ModelElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//ModelElement/name"/>

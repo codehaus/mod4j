@@ -70,6 +70,8 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
             case DataContractDslPackage.DTO_BOOLEAN_PROPERTY: return createDtoBooleanProperty();
             case DataContractDslPackage.ENUMERATION_DTO: return createEnumerationDto();
             case DataContractDslPackage.ENUMERATION_DTO_LITERAL: return createEnumerationDtoLiteral();
+            case DataContractDslPackage.ENUMERATION_DTO_INTEGER_LITERAL: return createEnumerationDtoIntegerLiteral();
+            case DataContractDslPackage.ENUMERATION_DTO_STRING_LITERAL: return createEnumerationDtoStringLiteral();
             case DataContractDslPackage.MODEL_ELEMENT: return createModelElement();
             case DataContractDslPackage.CUSTOM_DTO: return createCustomDto();
             case DataContractDslPackage.DTO_INTEGER_PROPERTY: return createDtoIntegerProperty();
@@ -206,6 +208,26 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EnumerationDtoIntegerLiteral createEnumerationDtoIntegerLiteral() {
+        EnumerationDtoIntegerLiteralImpl enumerationDtoIntegerLiteral = new EnumerationDtoIntegerLiteralImpl();
+        return enumerationDtoIntegerLiteral;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EnumerationDtoStringLiteral createEnumerationDtoStringLiteral() {
+        EnumerationDtoStringLiteralImpl enumerationDtoStringLiteral = new EnumerationDtoStringLiteralImpl();
+        return enumerationDtoStringLiteral;
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated

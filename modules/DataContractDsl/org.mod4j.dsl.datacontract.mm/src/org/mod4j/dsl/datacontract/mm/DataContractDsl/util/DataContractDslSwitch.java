@@ -156,6 +156,22 @@ public class DataContractDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case DataContractDslPackage.ENUMERATION_DTO_INTEGER_LITERAL: {
+                EnumerationDtoIntegerLiteral enumerationDtoIntegerLiteral = (EnumerationDtoIntegerLiteral)theEObject;
+                T result = caseEnumerationDtoIntegerLiteral(enumerationDtoIntegerLiteral);
+                if (result == null) result = caseEnumerationDtoLiteral(enumerationDtoIntegerLiteral);
+                if (result == null) result = caseModelElement(enumerationDtoIntegerLiteral);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DataContractDslPackage.ENUMERATION_DTO_STRING_LITERAL: {
+                EnumerationDtoStringLiteral enumerationDtoStringLiteral = (EnumerationDtoStringLiteral)theEObject;
+                T result = caseEnumerationDtoStringLiteral(enumerationDtoStringLiteral);
+                if (result == null) result = caseEnumerationDtoLiteral(enumerationDtoStringLiteral);
+                if (result == null) result = caseModelElement(enumerationDtoStringLiteral);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             case DataContractDslPackage.MODEL_ELEMENT: {
                 ModelElement modelElement = (ModelElement)theEObject;
                 T result = caseModelElement(modelElement);
@@ -375,6 +391,36 @@ public class DataContractDslSwitch<T> {
     }
 
 	/**
+     * Returns the result of interpreting the object as an instance of '<em>Enumeration Dto Integer Literal</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Enumeration Dto Integer Literal</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEnumerationDtoIntegerLiteral(EnumerationDtoIntegerLiteral object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Enumeration Dto String Literal</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Enumeration Dto String Literal</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEnumerationDtoStringLiteral(EnumerationDtoStringLiteral object) {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
      * <!-- begin-user-doc -->
 	 * This implementation returns null;

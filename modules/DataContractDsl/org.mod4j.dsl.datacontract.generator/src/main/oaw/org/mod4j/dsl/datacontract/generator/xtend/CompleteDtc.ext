@@ -31,16 +31,22 @@ addCreatable(BusinessClassDto dto) :
 addLiterals(EnumerationDto enum) :
     let symbol = lookupSymbol(enum.base.modelname, enum.base.name, "Enumeration") :
     let props = symbol.subSymbols.select(s|s.type.matches(".*EnumerationLiteral")) :
-    enum.literals.addAll( props.toEnumLiteral()   )->
+    enum.literals.addAll(props.toEnumLiteral())->
     null
     ;
 
 EnumerationDtoLiteral toEnumLiteral(Symbol literalProperty) :
-   let result = (      //print("TO ENUM LITERAL [" + literalProperty.name + "]")->
-        new EnumerationDtoLiteral) :
-   result.setName( literalProperty.name )->
-   result.setValue( literalProperty.getPropertyValue("value").asInteger() )->
-   result
+   if literalProperty.type.equalsIgnoreCase("IntegerEnumerationLiteral") then (
+       let result = new EnumerationDtoIntegerLiteral :
+       result.setValue(literalProperty.getPropertyValue("value").asInteger())->
+       result.setName(literalProperty.name)->
+       result
+   ) else if literalProperty.type.equalsIgnoreCase("StringEnumerationLiteral") then (
+       let result = new EnumerationDtoStringLiteral :
+       result.setValue(literalProperty.getPropertyValue("value"))->
+       result.setName(literalProperty.name)->
+       result
+   )
    ;
    
 // resolvbe all references from DtoEnumerationProperties to their type

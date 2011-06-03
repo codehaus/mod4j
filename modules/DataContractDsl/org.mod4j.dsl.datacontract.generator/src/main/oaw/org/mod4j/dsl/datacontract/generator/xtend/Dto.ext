@@ -42,3 +42,14 @@ List[String] getConstructArguments(BusinessClassDto dto):
     let prop   = symbol.getPropertyValue("ConstructorOrder") :
     prop.split(",")
     ;
+
+boolean isStringEnumeration(EnumerationDto dto):
+    dto.literals.exists(e|e.metaType == EnumerationDtoStringLiteral)
+    ;
+
+boolean isIntegerEnumeration(EnumerationDto dto):
+    dto.literals.exists(e|e.metaType == EnumerationDtoIntegerLiteral)
+    ;
+
+String enumerationLiteralType(EnumerationDto dto) :
+    dto.isStringEnumeration() ? "String" : "Integer";

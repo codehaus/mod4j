@@ -14,6 +14,7 @@
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dsl::datacontract::generator::xtend::Dto»
 
 «DEFINE createEnumDto FOR EnumerationDto»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j DatcontractDsl generator: Enumeration.xpt") FOR this»
@@ -29,27 +30,39 @@
    public enum «javaClassName(name)» {
     
         «FOREACH literals AS enumlit ITERATOR enumlitIter SEPARATOR "," »
-            «enumlit.name.toUpperCase()»(«enumlit.value»)
+            «EXPAND enumlit FOR enumlit -»
         «ENDFOREACH»;
         
-        private static final Map<Integer, «javaClassName(name)»> lookup = new HashMap<Integer, «javaClassName(name)»>();
+        private static final Map<«enumerationLiteralType()», «javaClassName(name)»> lookup = new HashMap<«enumerationLiteralType()», «javaClassName(name)»>();
         static {
             for(«javaClassName(name)» s : EnumSet.allOf(«javaClassName(name)».class))
                    lookup.put(s.id(), s);
             }
 
-            private Integer id;
+            private «enumerationLiteralType()» id;
             
-            private «javaClassName(name)»(Integer id) {
+            private «javaClassName(name)»(«enumerationLiteralType()» id) {
             this.id = id;
         }
         
-        public Integer id() {
+        public «enumerationLiteralType()» id() {
             return id;
         }
         
-        public static «javaClassName(name)» value(Integer id) {
+        public static «javaClassName(name)» value(«enumerationLiteralType()» id) {
             return lookup.get(id); 
         }                  
     }
+«ENDDEFINE»
+
+«DEFINE enumlit FOR EnumerationDtoLiteral»
+«REM»EnumerationDtoLiteral is abstract«ENDREM»
+«ENDDEFINE»
+
+«DEFINE enumlit FOR EnumerationDtoIntegerLiteral -»
+            «name.toUpperCase()»(«value»)
+«ENDDEFINE»
+
+«DEFINE enumlit FOR EnumerationDtoStringLiteral -»
+            «name.toUpperCase()»("«value»")
 «ENDDEFINE»

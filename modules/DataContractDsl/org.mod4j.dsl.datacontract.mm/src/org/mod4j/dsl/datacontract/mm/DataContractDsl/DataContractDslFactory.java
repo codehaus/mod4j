@@ -107,6 +107,24 @@ public interface DataContractDslFactory extends EFactory {
 	EnumerationDtoLiteral createEnumerationDtoLiteral();
 
 	/**
+     * Returns a new object of class '<em>Enumeration Dto Integer Literal</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Enumeration Dto Integer Literal</em>'.
+     * @generated
+     */
+    EnumerationDtoIntegerLiteral createEnumerationDtoIntegerLiteral();
+
+    /**
+     * Returns a new object of class '<em>Enumeration Dto String Literal</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Enumeration Dto String Literal</em>'.
+     * @generated
+     */
+    EnumerationDtoStringLiteral createEnumerationDtoStringLiteral();
+
+    /**
      * Returns a new object of class '<em>Model Element</em>'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

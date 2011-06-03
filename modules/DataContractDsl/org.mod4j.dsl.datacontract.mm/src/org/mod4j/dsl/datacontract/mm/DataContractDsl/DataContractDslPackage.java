@@ -68,7 +68,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getModelElement()
      * @generated
      */
-	int MODEL_ELEMENT = 9;
+	int MODEL_ELEMENT = 11;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -800,24 +800,107 @@ public interface DataContractDslPackage extends EPackage {
 	int ENUMERATION_DTO_LITERAL__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
 
 	/**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int ENUMERATION_DTO_LITERAL__VALUE = MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
      * The number of structural features of the '<em>Enumeration Dto Literal</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int ENUMERATION_DTO_LITERAL_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int ENUMERATION_DTO_LITERAL_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationDtoIntegerLiteralImpl <em>Enumeration Dto Integer Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationDtoIntegerLiteralImpl
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getEnumerationDtoIntegerLiteral()
+     * @generated
+     */
+    int ENUMERATION_DTO_INTEGER_LITERAL = 9;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION_DTO_INTEGER_LITERAL__NAME = ENUMERATION_DTO_LITERAL__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION_DTO_INTEGER_LITERAL__DESCRIPTION = ENUMERATION_DTO_LITERAL__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION_DTO_INTEGER_LITERAL__VALUE = ENUMERATION_DTO_LITERAL_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Enumeration Dto Integer Literal</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION_DTO_INTEGER_LITERAL_FEATURE_COUNT = ENUMERATION_DTO_LITERAL_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationDtoStringLiteralImpl <em>Enumeration Dto String Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationDtoStringLiteralImpl
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getEnumerationDtoStringLiteral()
+     * @generated
+     */
+    int ENUMERATION_DTO_STRING_LITERAL = 10;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION_DTO_STRING_LITERAL__NAME = ENUMERATION_DTO_LITERAL__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION_DTO_STRING_LITERAL__DESCRIPTION = ENUMERATION_DTO_LITERAL__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION_DTO_STRING_LITERAL__VALUE = ENUMERATION_DTO_LITERAL_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Enumeration Dto String Literal</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENUMERATION_DTO_STRING_LITERAL_FEATURE_COUNT = ENUMERATION_DTO_LITERAL_FEATURE_COUNT + 1;
+
+    /**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.CustomDtoImpl <em>Custom Dto</em>}' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -825,7 +908,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getCustomDto()
      * @generated
      */
-	int CUSTOM_DTO = 10;
+	int CUSTOM_DTO = 12;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -880,7 +963,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoIntegerProperty()
      * @generated
      */
-	int DTO_INTEGER_PROPERTY = 11;
+	int DTO_INTEGER_PROPERTY = 13;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -989,7 +1072,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoDecimalProperty()
      * @generated
      */
-	int DTO_DECIMAL_PROPERTY = 12;
+	int DTO_DECIMAL_PROPERTY = 14;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1098,7 +1181,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoEnumerationProperty()
      * @generated
      */
-	int DTO_ENUMERATION_PROPERTY = 13;
+	int DTO_ENUMERATION_PROPERTY = 15;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1216,7 +1299,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoDateTimeProperty()
      * @generated
      */
-	int DTO_DATE_TIME_PROPERTY = 14;
+	int DTO_DATE_TIME_PROPERTY = 16;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1325,7 +1408,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getBusinessClassPropertyReference()
      * @generated
      */
-	int BUSINESS_CLASS_PROPERTY_REFERENCE = 15;
+	int BUSINESS_CLASS_PROPERTY_REFERENCE = 17;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1371,7 +1454,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getBusinessClassAssociationRoleReference()
      * @generated
      */
-	int BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE = 16;
+	int BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE = 18;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1426,7 +1509,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoAssociationRoleProperty()
      * @generated
      */
-	int DTO_ASSOCIATION_ROLE_PROPERTY = 17;
+	int DTO_ASSOCIATION_ROLE_PROPERTY = 19;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1544,7 +1627,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getExternalReference()
      * @generated
      */
-	int EXTERNAL_REFERENCE = 18;
+	int EXTERNAL_REFERENCE = 20;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1609,7 +1692,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getMultiplicity()
      * @generated
      */
-    int MULTIPLICITY = 19;
+    int MULTIPLICITY = 21;
 
 
     /**
@@ -1934,17 +2017,48 @@ public interface DataContractDslPackage extends EPackage {
 	EClass getEnumerationDtoLiteral();
 
 	/**
-     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoLiteral#getValue <em>Value</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoIntegerLiteral <em>Enumeration Dto Integer Literal</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Value</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoLiteral#getValue()
-     * @see #getEnumerationDtoLiteral()
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Enumeration Dto Integer Literal</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoIntegerLiteral
      * @generated
      */
-	EAttribute getEnumerationDtoLiteral_Value();
+    EClass getEnumerationDtoIntegerLiteral();
 
-	/**
+    /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoIntegerLiteral#getValue <em>Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Value</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoIntegerLiteral#getValue()
+     * @see #getEnumerationDtoIntegerLiteral()
+     * @generated
+     */
+    EAttribute getEnumerationDtoIntegerLiteral_Value();
+
+    /**
+     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoStringLiteral <em>Enumeration Dto String Literal</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Enumeration Dto String Literal</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoStringLiteral
+     * @generated
+     */
+    EClass getEnumerationDtoStringLiteral();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoStringLiteral#getValue <em>Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Value</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoStringLiteral#getValue()
+     * @see #getEnumerationDtoStringLiteral()
+     * @generated
+     */
+    EAttribute getEnumerationDtoStringLiteral_Value();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ModelElement <em>Model Element</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2522,14 +2636,42 @@ public interface DataContractDslPackage extends EPackage {
 		EClass ENUMERATION_DTO_LITERAL = eINSTANCE.getEnumerationDtoLiteral();
 
 		/**
-         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationDtoIntegerLiteralImpl <em>Enumeration Dto Integer Literal</em>}' class.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationDtoIntegerLiteralImpl
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getEnumerationDtoIntegerLiteral()
          * @generated
          */
-		EAttribute ENUMERATION_DTO_LITERAL__VALUE = eINSTANCE.getEnumerationDtoLiteral_Value();
+        EClass ENUMERATION_DTO_INTEGER_LITERAL = eINSTANCE.getEnumerationDtoIntegerLiteral();
 
-		/**
+        /**
+         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ENUMERATION_DTO_INTEGER_LITERAL__VALUE = eINSTANCE.getEnumerationDtoIntegerLiteral_Value();
+
+        /**
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationDtoStringLiteralImpl <em>Enumeration Dto String Literal</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationDtoStringLiteralImpl
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getEnumerationDtoStringLiteral()
+         * @generated
+         */
+        EClass ENUMERATION_DTO_STRING_LITERAL = eINSTANCE.getEnumerationDtoStringLiteral();
+
+        /**
+         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ENUMERATION_DTO_STRING_LITERAL__VALUE = eINSTANCE.getEnumerationDtoStringLiteral_Value();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ModelElementImpl <em>Model Element</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
