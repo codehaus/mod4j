@@ -19,7 +19,7 @@ BusinessDomainModel :
 	"domain" name = ID ";"
 //	(types+= BusinessClassReference)*
 	( (types        += BusinessClass) |
-	  (enumerations += Enumeration)   |
+	  (enumerations += IntegerEnumeration)   |
 	  (associations += Association)
 	 )*
 	;
@@ -61,13 +61,13 @@ BusinessClass:
     "]"
      ;
     
-Enumeration:
+IntegerEnumeration:
 	(description=STRING)?
     "enumeration" name=ID
-    "[" (enumerationLiterals += EnumerationLiteral)+ "]"
+    "[" (enumerationLiterals += IntegerEnumerationLiteral)+ "]"
     ;
 
-EnumerationLiteral:
+IntegerEnumerationLiteral:
     name=ID ("=" persistedValue=INT) ";"
     ;
 
@@ -141,7 +141,7 @@ DecimalProperty:
 
 EnumerationProperty:
     (description=STRING)?
-    type=[Enumeration] name=ID
+    type=[IntegerEnumeration] name=ID
     (hasDefault?="default" defaultValueAsString=ID)?
     ; 
 

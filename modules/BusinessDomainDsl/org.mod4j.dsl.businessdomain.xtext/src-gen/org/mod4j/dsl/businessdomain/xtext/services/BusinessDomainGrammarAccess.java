@@ -30,13 +30,13 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final Assignment cTypesAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
 		private final RuleCall cTypesBusinessClassParserRuleCall_4_0_0 = (RuleCall)cTypesAssignment_4_0.eContents().get(0);
 		private final Assignment cEnumerationsAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final RuleCall cEnumerationsEnumerationParserRuleCall_4_1_0 = (RuleCall)cEnumerationsAssignment_4_1.eContents().get(0);
+		private final RuleCall cEnumerationsIntegerEnumerationParserRuleCall_4_1_0 = (RuleCall)cEnumerationsAssignment_4_1.eContents().get(0);
 		private final Assignment cAssociationsAssignment_4_2 = (Assignment)cAlternatives_4.eContents().get(2);
 		private final RuleCall cAssociationsAssociationParserRuleCall_4_2_0 = (RuleCall)cAssociationsAssignment_4_2.eContents().get(0);
 		
 		//BusinessDomainModel:
 		//  description=STRING? "domain" name=ID ";" (types+=BusinessClass|enumerations+=
-		//  Enumeration|associations+=Association)*; 
+		//  IntegerEnumeration|associations+=Association)*; 
 		//
 		/// *******************************************************************************
 		// * Copyright (c) 2009 Ordina and committers to Mod4j
@@ -65,7 +65,7 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		public ParserRule getRule() { return rule; }
 
 		//description=STRING? "domain" name=ID ";" (types+=BusinessClass|enumerations+=
-		//Enumeration|associations+=Association)* 
+		//IntegerEnumeration|associations+=Association)* 
 		//	  
 		//	        
 		////	(types+= BusinessClassReference)*
@@ -90,7 +90,8 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		////	(types+= BusinessClassReference)*
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 
-		//(types+=BusinessClass|enumerations+=Enumeration|associations+=Association)* 
+		//(types+=BusinessClass|enumerations+=IntegerEnumeration|associations+=Association
+		//)* 
 		////	(types+= BusinessClassReference)*
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
@@ -100,11 +101,11 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		//BusinessClass
 		public RuleCall getTypesBusinessClassParserRuleCall_4_0_0() { return cTypesBusinessClassParserRuleCall_4_0_0; }
 
-		//enumerations+=Enumeration
+		//enumerations+=IntegerEnumeration
 		public Assignment getEnumerationsAssignment_4_1() { return cEnumerationsAssignment_4_1; }
 
-		//Enumeration
-		public RuleCall getEnumerationsEnumerationParserRuleCall_4_1_0() { return cEnumerationsEnumerationParserRuleCall_4_1_0; }
+		//IntegerEnumeration
+		public RuleCall getEnumerationsIntegerEnumerationParserRuleCall_4_1_0() { return cEnumerationsIntegerEnumerationParserRuleCall_4_1_0; }
 
 		//associations+=Association
 		public Assignment getAssociationsAssignment_4_2() { return cAssociationsAssignment_4_2; }
@@ -447,8 +448,8 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		public Keyword getRightSquareBracketKeyword_8() { return cRightSquareBracketKeyword_8; }
 	}
 
-	public class EnumerationElements implements IParserRuleAccess {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Enumeration");
+	public class IntegerEnumerationElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "IntegerEnumeration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDescriptionAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_0_0 = (RuleCall)cDescriptionAssignment_0.eContents().get(0);
@@ -457,16 +458,16 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cEnumerationLiteralsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cEnumerationLiteralsEnumerationLiteralParserRuleCall_4_0 = (RuleCall)cEnumerationLiteralsAssignment_4.eContents().get(0);
+		private final RuleCall cEnumerationLiteralsIntegerEnumerationLiteralParserRuleCall_4_0 = (RuleCall)cEnumerationLiteralsAssignment_4.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//Enumeration:
+		//IntegerEnumeration:
 		//  description=STRING? "enumeration" name=ID "[" enumerationLiterals+=
-		//  EnumerationLiteral+ "]";
+		//  IntegerEnumerationLiteral+ "]";
 		public ParserRule getRule() { return rule; }
 
 		//description=STRING? "enumeration" name=ID "[" enumerationLiterals+=
-		//EnumerationLiteral+ "]"
+		//IntegerEnumerationLiteral+ "]"
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -487,18 +488,18 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		//"["
 		public Keyword getLeftSquareBracketKeyword_3() { return cLeftSquareBracketKeyword_3; }
 
-		//enumerationLiterals+=EnumerationLiteral+
+		//enumerationLiterals+=IntegerEnumerationLiteral+
 		public Assignment getEnumerationLiteralsAssignment_4() { return cEnumerationLiteralsAssignment_4; }
 
-		//EnumerationLiteral
-		public RuleCall getEnumerationLiteralsEnumerationLiteralParserRuleCall_4_0() { return cEnumerationLiteralsEnumerationLiteralParserRuleCall_4_0; }
+		//IntegerEnumerationLiteral
+		public RuleCall getEnumerationLiteralsIntegerEnumerationLiteralParserRuleCall_4_0() { return cEnumerationLiteralsIntegerEnumerationLiteralParserRuleCall_4_0; }
 
 		//"]"
 		public Keyword getRightSquareBracketKeyword_5() { return cRightSquareBracketKeyword_5; }
 	}
 
-	public class EnumerationLiteralElements implements IParserRuleAccess {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EnumerationLiteral");
+	public class IntegerEnumerationLiteralElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "IntegerEnumerationLiteral");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
@@ -508,7 +509,7 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final RuleCall cPersistedValueINTTerminalRuleCall_1_1_0 = (RuleCall)cPersistedValueAssignment_1_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
-		//EnumerationLiteral:
+		//IntegerEnumerationLiteral:
 		//  name=ID ("=" persistedValue=INT) ";";
 		public ParserRule getRule() { return rule; }
 
@@ -1161,8 +1162,8 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final Assignment cDescriptionAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_0_0 = (RuleCall)cDescriptionAssignment_0.eContents().get(0);
 		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cTypeEnumerationCrossReference_1_0 = (CrossReference)cTypeAssignment_1.eContents().get(0);
-		private final RuleCall cTypeEnumerationIDTerminalRuleCall_1_0_1 = (RuleCall)cTypeEnumerationCrossReference_1_0.eContents().get(1);
+		private final CrossReference cTypeIntegerEnumerationCrossReference_1_0 = (CrossReference)cTypeAssignment_1.eContents().get(0);
+		private final RuleCall cTypeIntegerEnumerationIDTerminalRuleCall_1_0_1 = (RuleCall)cTypeIntegerEnumerationCrossReference_1_0.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
@@ -1172,11 +1173,11 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final RuleCall cDefaultValueAsStringIDTerminalRuleCall_3_1_0 = (RuleCall)cDefaultValueAsStringAssignment_3_1.eContents().get(0);
 		
 		//EnumerationProperty:
-		//  description=STRING? type=[Enumeration] name=ID (hasDefault?="default"
+		//  description=STRING? type=[IntegerEnumeration] name=ID (hasDefault?="default"
 		//  defaultValueAsString=ID)?;
 		public ParserRule getRule() { return rule; }
 
-		//description=STRING? type=[Enumeration] name=ID (hasDefault?="default"
+		//description=STRING? type=[IntegerEnumeration] name=ID (hasDefault?="default"
 		//defaultValueAsString=ID)?
 		public Group getGroup() { return cGroup; }
 
@@ -1186,14 +1187,14 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_0_0() { return cDescriptionSTRINGTerminalRuleCall_0_0; }
 
-		//type=[Enumeration]
+		//type=[IntegerEnumeration]
 		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
 
-		//[Enumeration]
-		public CrossReference getTypeEnumerationCrossReference_1_0() { return cTypeEnumerationCrossReference_1_0; }
+		//[IntegerEnumeration]
+		public CrossReference getTypeIntegerEnumerationCrossReference_1_0() { return cTypeIntegerEnumerationCrossReference_1_0; }
 
 		//ID
-		public RuleCall getTypeEnumerationIDTerminalRuleCall_1_0_1() { return cTypeEnumerationIDTerminalRuleCall_1_0_1; }
+		public RuleCall getTypeIntegerEnumerationIDTerminalRuleCall_1_0_1() { return cTypeIntegerEnumerationIDTerminalRuleCall_1_0_1; }
 
 		//name=ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
@@ -1363,8 +1364,8 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 	private AssociationElements pAssociation;
 	private MultiplicityElements unknownRuleMultiplicity;
 	private BusinessClassElements pBusinessClass;
-	private EnumerationElements pEnumeration;
-	private EnumerationLiteralElements pEnumerationLiteral;
+	private IntegerEnumerationElements pIntegerEnumeration;
+	private IntegerEnumerationLiteralElements pIntegerEnumerationLiteral;
 	private AbstractBusinessRuleElements pAbstractBusinessRule;
 	private BusinessRuleElements pBusinessRule;
 	private UniqueRuleElements pUniqueRule;
@@ -1401,7 +1402,7 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 	
 	//BusinessDomainModel:
 	//  description=STRING? "domain" name=ID ";" (types+=BusinessClass|enumerations+=
-	//  Enumeration|associations+=Association)*; 
+	//  IntegerEnumeration|associations+=Association)*; 
 	//
 	/// *******************************************************************************
 	// * Copyright (c) 2009 Ordina and committers to Mod4j
@@ -1479,25 +1480,25 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		return getBusinessClassAccess().getRule();
 	}
 
-	//Enumeration:
+	//IntegerEnumeration:
 	//  description=STRING? "enumeration" name=ID "[" enumerationLiterals+=
-	//  EnumerationLiteral+ "]";
-	public EnumerationElements getEnumerationAccess() {
-		return (pEnumeration != null) ? pEnumeration : (pEnumeration = new EnumerationElements());
+	//  IntegerEnumerationLiteral+ "]";
+	public IntegerEnumerationElements getIntegerEnumerationAccess() {
+		return (pIntegerEnumeration != null) ? pIntegerEnumeration : (pIntegerEnumeration = new IntegerEnumerationElements());
 	}
 	
-	public ParserRule getEnumerationRule() {
-		return getEnumerationAccess().getRule();
+	public ParserRule getIntegerEnumerationRule() {
+		return getIntegerEnumerationAccess().getRule();
 	}
 
-	//EnumerationLiteral:
+	//IntegerEnumerationLiteral:
 	//  name=ID ("=" persistedValue=INT) ";";
-	public EnumerationLiteralElements getEnumerationLiteralAccess() {
-		return (pEnumerationLiteral != null) ? pEnumerationLiteral : (pEnumerationLiteral = new EnumerationLiteralElements());
+	public IntegerEnumerationLiteralElements getIntegerEnumerationLiteralAccess() {
+		return (pIntegerEnumerationLiteral != null) ? pIntegerEnumerationLiteral : (pIntegerEnumerationLiteral = new IntegerEnumerationLiteralElements());
 	}
 	
-	public ParserRule getEnumerationLiteralRule() {
-		return getEnumerationLiteralAccess().getRule();
+	public ParserRule getIntegerEnumerationLiteralRule() {
+		return getIntegerEnumerationLiteralAccess().getRule();
 	}
 
 	//AbstractBusinessRule:
@@ -1629,7 +1630,7 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 	}
 
 	//EnumerationProperty:
-	//  description=STRING? type=[Enumeration] name=ID (hasDefault?="default"
+	//  description=STRING? type=[IntegerEnumeration] name=ID (hasDefault?="default"
 	//  defaultValueAsString=ID)?;
 	public EnumerationPropertyElements getEnumerationPropertyAccess() {
 		return (pEnumerationProperty != null) ? pEnumerationProperty : (pEnumerationProperty = new EnumerationPropertyElements());

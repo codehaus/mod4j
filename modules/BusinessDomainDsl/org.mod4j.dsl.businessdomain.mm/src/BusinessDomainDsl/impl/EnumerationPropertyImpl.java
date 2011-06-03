@@ -7,8 +7,8 @@
 package BusinessDomainDsl.impl;
 
 import BusinessDomainDsl.BusinessDomainDslPackage;
-import BusinessDomainDsl.Enumeration;
 import BusinessDomainDsl.EnumerationProperty;
+import BusinessDomainDsl.IntegerEnumeration;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -32,64 +32,64 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class EnumerationPropertyImpl extends PropertyImpl implements EnumerationProperty {
-	/**
+    /**
      * The cached value of the '{@link #getType() <em>Type</em>}' reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getType()
      * @generated
      * @ordered
      */
-	protected Enumeration type;
+    protected IntegerEnumeration type;
 
-	/**
+    /**
      * The default value of the '{@link #getDefaultValueAsString() <em>Default Value As String</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getDefaultValueAsString()
      * @generated
      * @ordered
      */
-	protected static final String DEFAULT_VALUE_AS_STRING_EDEFAULT = null;
+    protected static final String DEFAULT_VALUE_AS_STRING_EDEFAULT = null;
 
-	/**
+    /**
      * The cached value of the '{@link #getDefaultValueAsString() <em>Default Value As String</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getDefaultValueAsString()
      * @generated
      * @ordered
      */
-	protected String defaultValueAsString = DEFAULT_VALUE_AS_STRING_EDEFAULT;
+    protected String defaultValueAsString = DEFAULT_VALUE_AS_STRING_EDEFAULT;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected EnumerationPropertyImpl() {
+    protected EnumerationPropertyImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return BusinessDomainDslPackage.Literals.ENUMERATION_PROPERTY;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public Enumeration getType() {
+    public IntegerEnumeration getType() {
         if (type != null && type.eIsProxy()) {
             InternalEObject oldType = (InternalEObject)type;
-            type = (Enumeration)eResolveProxy(oldType);
+            type = (IntegerEnumeration)eResolveProxy(oldType);
             if (type != oldType) {
                 if (eNotificationRequired())
                     eNotify(new ENotificationImpl(this, Notification.RESOLVE, BusinessDomainDslPackage.ENUMERATION_PROPERTY__TYPE, oldType, type));
@@ -98,55 +98,55 @@ public class EnumerationPropertyImpl extends PropertyImpl implements Enumeration
         return type;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public Enumeration basicGetType() {
+    public IntegerEnumeration basicGetType() {
         return type;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setType(Enumeration newType) {
-        Enumeration oldType = type;
+    public void setType(IntegerEnumeration newType) {
+        IntegerEnumeration oldType = type;
         type = newType;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ENUMERATION_PROPERTY__TYPE, oldType, type));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getDefaultValueAsString() {
+    public String getDefaultValueAsString() {
         return defaultValueAsString;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setDefaultValueAsString(String newDefaultValueAsString) {
+    public void setDefaultValueAsString(String newDefaultValueAsString) {
         String oldDefaultValueAsString = defaultValueAsString;
         defaultValueAsString = newDefaultValueAsString;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ENUMERATION_PROPERTY__DEFAULT_VALUE_AS_STRING, oldDefaultValueAsString, defaultValueAsString));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case BusinessDomainDslPackage.ENUMERATION_PROPERTY__TYPE:
                 if (resolve) return getType();
@@ -157,16 +157,16 @@ public class EnumerationPropertyImpl extends PropertyImpl implements Enumeration
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case BusinessDomainDslPackage.ENUMERATION_PROPERTY__TYPE:
-                setType((Enumeration)newValue);
+                setType((IntegerEnumeration)newValue);
                 return;
             case BusinessDomainDslPackage.ENUMERATION_PROPERTY__DEFAULT_VALUE_AS_STRING:
                 setDefaultValueAsString((String)newValue);
@@ -175,16 +175,16 @@ public class EnumerationPropertyImpl extends PropertyImpl implements Enumeration
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.ENUMERATION_PROPERTY__TYPE:
-                setType((Enumeration)null);
+                setType((IntegerEnumeration)null);
                 return;
             case BusinessDomainDslPackage.ENUMERATION_PROPERTY__DEFAULT_VALUE_AS_STRING:
                 setDefaultValueAsString(DEFAULT_VALUE_AS_STRING_EDEFAULT);
@@ -193,13 +193,13 @@ public class EnumerationPropertyImpl extends PropertyImpl implements Enumeration
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.ENUMERATION_PROPERTY__TYPE:
                 return type != null;
@@ -209,13 +209,13 @@ public class EnumerationPropertyImpl extends PropertyImpl implements Enumeration
         return super.eIsSet(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public String toString() {
+    @Override
+    public String toString() {
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());

@@ -286,20 +286,20 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
     // $ANTLR end ruleBusinessClass
 
 
-    // $ANTLR start entryRuleEnumeration
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:141:1: entryRuleEnumeration : ruleEnumeration EOF ;
-    public final void entryRuleEnumeration() throws RecognitionException {
+    // $ANTLR start entryRuleIntegerEnumeration
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:141:1: entryRuleIntegerEnumeration : ruleIntegerEnumeration EOF ;
+    public final void entryRuleIntegerEnumeration() throws RecognitionException {
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:141:22: ( ruleEnumeration EOF )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:142:1: ruleEnumeration EOF
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:141:29: ( ruleIntegerEnumeration EOF )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:142:1: ruleIntegerEnumeration EOF
             {
-             before(grammarAccess.getEnumerationRule()); 
-            pushFollow(FOLLOW_ruleEnumeration_in_entryRuleEnumeration240);
-            ruleEnumeration();
+             before(grammarAccess.getIntegerEnumerationRule()); 
+            pushFollow(FOLLOW_ruleIntegerEnumeration_in_entryRuleIntegerEnumeration240);
+            ruleIntegerEnumeration();
             _fsp--;
 
-             after(grammarAccess.getEnumerationRule()); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumeration247); 
+             after(grammarAccess.getIntegerEnumerationRule()); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIntegerEnumeration247); 
 
             }
 
@@ -312,34 +312,34 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end entryRuleEnumeration
+    // $ANTLR end entryRuleIntegerEnumeration
 
 
-    // $ANTLR start ruleEnumeration
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:149:1: ruleEnumeration : ( ( rule__Enumeration__Group__0 ) ) ;
-    public final void ruleEnumeration() throws RecognitionException {
+    // $ANTLR start ruleIntegerEnumeration
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:149:1: ruleIntegerEnumeration : ( ( rule__IntegerEnumeration__Group__0 ) ) ;
+    public final void ruleIntegerEnumeration() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:153:2: ( ( ( rule__Enumeration__Group__0 ) ) )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:154:1: ( ( rule__Enumeration__Group__0 ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:153:2: ( ( ( rule__IntegerEnumeration__Group__0 ) ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:154:1: ( ( rule__IntegerEnumeration__Group__0 ) )
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:154:1: ( ( rule__Enumeration__Group__0 ) )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:155:1: ( rule__Enumeration__Group__0 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:154:1: ( ( rule__IntegerEnumeration__Group__0 ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:155:1: ( rule__IntegerEnumeration__Group__0 )
             {
-             before(grammarAccess.getEnumerationAccess().getGroup()); 
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:156:1: ( rule__Enumeration__Group__0 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:156:2: rule__Enumeration__Group__0
+             before(grammarAccess.getIntegerEnumerationAccess().getGroup()); 
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:156:1: ( rule__IntegerEnumeration__Group__0 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:156:2: rule__IntegerEnumeration__Group__0
             {
-            pushFollow(FOLLOW_rule__Enumeration__Group__0_in_ruleEnumeration274);
-            rule__Enumeration__Group__0();
+            pushFollow(FOLLOW_rule__IntegerEnumeration__Group__0_in_ruleIntegerEnumeration274);
+            rule__IntegerEnumeration__Group__0();
             _fsp--;
 
 
             }
 
-             after(grammarAccess.getEnumerationAccess().getGroup()); 
+             after(grammarAccess.getIntegerEnumerationAccess().getGroup()); 
 
             }
 
@@ -358,23 +358,23 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end ruleEnumeration
+    // $ANTLR end ruleIntegerEnumeration
 
 
-    // $ANTLR start entryRuleEnumerationLiteral
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:168:1: entryRuleEnumerationLiteral : ruleEnumerationLiteral EOF ;
-    public final void entryRuleEnumerationLiteral() throws RecognitionException {
+    // $ANTLR start entryRuleIntegerEnumerationLiteral
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:168:1: entryRuleIntegerEnumerationLiteral : ruleIntegerEnumerationLiteral EOF ;
+    public final void entryRuleIntegerEnumerationLiteral() throws RecognitionException {
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:168:29: ( ruleEnumerationLiteral EOF )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:169:1: ruleEnumerationLiteral EOF
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:168:36: ( ruleIntegerEnumerationLiteral EOF )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:169:1: ruleIntegerEnumerationLiteral EOF
             {
-             before(grammarAccess.getEnumerationLiteralRule()); 
-            pushFollow(FOLLOW_ruleEnumerationLiteral_in_entryRuleEnumerationLiteral300);
-            ruleEnumerationLiteral();
+             before(grammarAccess.getIntegerEnumerationLiteralRule()); 
+            pushFollow(FOLLOW_ruleIntegerEnumerationLiteral_in_entryRuleIntegerEnumerationLiteral300);
+            ruleIntegerEnumerationLiteral();
             _fsp--;
 
-             after(grammarAccess.getEnumerationLiteralRule()); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumerationLiteral307); 
+             after(grammarAccess.getIntegerEnumerationLiteralRule()); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIntegerEnumerationLiteral307); 
 
             }
 
@@ -387,34 +387,34 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end entryRuleEnumerationLiteral
+    // $ANTLR end entryRuleIntegerEnumerationLiteral
 
 
-    // $ANTLR start ruleEnumerationLiteral
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:176:1: ruleEnumerationLiteral : ( ( rule__EnumerationLiteral__Group__0 ) ) ;
-    public final void ruleEnumerationLiteral() throws RecognitionException {
+    // $ANTLR start ruleIntegerEnumerationLiteral
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:176:1: ruleIntegerEnumerationLiteral : ( ( rule__IntegerEnumerationLiteral__Group__0 ) ) ;
+    public final void ruleIntegerEnumerationLiteral() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:180:2: ( ( ( rule__EnumerationLiteral__Group__0 ) ) )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:181:1: ( ( rule__EnumerationLiteral__Group__0 ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:180:2: ( ( ( rule__IntegerEnumerationLiteral__Group__0 ) ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:181:1: ( ( rule__IntegerEnumerationLiteral__Group__0 ) )
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:181:1: ( ( rule__EnumerationLiteral__Group__0 ) )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:182:1: ( rule__EnumerationLiteral__Group__0 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:181:1: ( ( rule__IntegerEnumerationLiteral__Group__0 ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:182:1: ( rule__IntegerEnumerationLiteral__Group__0 )
             {
-             before(grammarAccess.getEnumerationLiteralAccess().getGroup()); 
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:183:1: ( rule__EnumerationLiteral__Group__0 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:183:2: rule__EnumerationLiteral__Group__0
+             before(grammarAccess.getIntegerEnumerationLiteralAccess().getGroup()); 
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:183:1: ( rule__IntegerEnumerationLiteral__Group__0 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:183:2: rule__IntegerEnumerationLiteral__Group__0
             {
-            pushFollow(FOLLOW_rule__EnumerationLiteral__Group__0_in_ruleEnumerationLiteral334);
-            rule__EnumerationLiteral__Group__0();
+            pushFollow(FOLLOW_rule__IntegerEnumerationLiteral__Group__0_in_ruleIntegerEnumerationLiteral334);
+            rule__IntegerEnumerationLiteral__Group__0();
             _fsp--;
 
 
             }
 
-             after(grammarAccess.getEnumerationLiteralAccess().getGroup()); 
+             after(grammarAccess.getIntegerEnumerationLiteralAccess().getGroup()); 
 
             }
 
@@ -433,7 +433,7 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end ruleEnumerationLiteral
+    // $ANTLR end ruleIntegerEnumerationLiteral
 
 
     // $ANTLR start entryRuleAbstractBusinessRule
@@ -4521,21 +4521,21 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
     // $ANTLR end rule__BusinessClass__Group_7__3
 
 
-    // $ANTLR start rule__Enumeration__Group__0
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1723:1: rule__Enumeration__Group__0 : ( ( rule__Enumeration__DescriptionAssignment_0 )? ) rule__Enumeration__Group__1 ;
-    public final void rule__Enumeration__Group__0() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumeration__Group__0
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1723:1: rule__IntegerEnumeration__Group__0 : ( ( rule__IntegerEnumeration__DescriptionAssignment_0 )? ) rule__IntegerEnumeration__Group__1 ;
+    public final void rule__IntegerEnumeration__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1727:1: ( ( ( rule__Enumeration__DescriptionAssignment_0 )? ) rule__Enumeration__Group__1 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1728:1: ( ( rule__Enumeration__DescriptionAssignment_0 )? ) rule__Enumeration__Group__1
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1727:1: ( ( ( rule__IntegerEnumeration__DescriptionAssignment_0 )? ) rule__IntegerEnumeration__Group__1 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1728:1: ( ( rule__IntegerEnumeration__DescriptionAssignment_0 )? ) rule__IntegerEnumeration__Group__1
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1728:1: ( ( rule__Enumeration__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1729:1: ( rule__Enumeration__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1728:1: ( ( rule__IntegerEnumeration__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1729:1: ( rule__IntegerEnumeration__DescriptionAssignment_0 )?
             {
-             before(grammarAccess.getEnumerationAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1730:1: ( rule__Enumeration__DescriptionAssignment_0 )?
+             before(grammarAccess.getIntegerEnumerationAccess().getDescriptionAssignment_0()); 
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1730:1: ( rule__IntegerEnumeration__DescriptionAssignment_0 )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -4544,10 +4544,10 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
             }
             switch (alt23) {
                 case 1 :
-                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1730:2: rule__Enumeration__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1730:2: rule__IntegerEnumeration__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__Enumeration__DescriptionAssignment_0_in_rule__Enumeration__Group__03453);
-                    rule__Enumeration__DescriptionAssignment_0();
+                    pushFollow(FOLLOW_rule__IntegerEnumeration__DescriptionAssignment_0_in_rule__IntegerEnumeration__Group__03453);
+                    rule__IntegerEnumeration__DescriptionAssignment_0();
                     _fsp--;
 
 
@@ -4556,12 +4556,12 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
 
             }
 
-             after(grammarAccess.getEnumerationAccess().getDescriptionAssignment_0()); 
+             after(grammarAccess.getIntegerEnumerationAccess().getDescriptionAssignment_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Enumeration__Group__1_in_rule__Enumeration__Group__03463);
-            rule__Enumeration__Group__1();
+            pushFollow(FOLLOW_rule__IntegerEnumeration__Group__1_in_rule__IntegerEnumeration__Group__03463);
+            rule__IntegerEnumeration__Group__1();
             _fsp--;
 
 
@@ -4579,30 +4579,30 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__Enumeration__Group__0
+    // $ANTLR end rule__IntegerEnumeration__Group__0
 
 
-    // $ANTLR start rule__Enumeration__Group__1
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1741:1: rule__Enumeration__Group__1 : ( 'enumeration' ) rule__Enumeration__Group__2 ;
-    public final void rule__Enumeration__Group__1() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumeration__Group__1
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1741:1: rule__IntegerEnumeration__Group__1 : ( 'enumeration' ) rule__IntegerEnumeration__Group__2 ;
+    public final void rule__IntegerEnumeration__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1745:1: ( ( 'enumeration' ) rule__Enumeration__Group__2 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1746:1: ( 'enumeration' ) rule__Enumeration__Group__2
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1745:1: ( ( 'enumeration' ) rule__IntegerEnumeration__Group__2 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1746:1: ( 'enumeration' ) rule__IntegerEnumeration__Group__2
             {
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1746:1: ( 'enumeration' )
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1747:1: 'enumeration'
             {
-             before(grammarAccess.getEnumerationAccess().getEnumerationKeyword_1()); 
-            match(input,27,FOLLOW_27_in_rule__Enumeration__Group__13492); 
-             after(grammarAccess.getEnumerationAccess().getEnumerationKeyword_1()); 
+             before(grammarAccess.getIntegerEnumerationAccess().getEnumerationKeyword_1()); 
+            match(input,27,FOLLOW_27_in_rule__IntegerEnumeration__Group__13492); 
+             after(grammarAccess.getIntegerEnumerationAccess().getEnumerationKeyword_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Enumeration__Group__2_in_rule__Enumeration__Group__13502);
-            rule__Enumeration__Group__2();
+            pushFollow(FOLLOW_rule__IntegerEnumeration__Group__2_in_rule__IntegerEnumeration__Group__13502);
+            rule__IntegerEnumeration__Group__2();
             _fsp--;
 
 
@@ -4620,39 +4620,39 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__Enumeration__Group__1
+    // $ANTLR end rule__IntegerEnumeration__Group__1
 
 
-    // $ANTLR start rule__Enumeration__Group__2
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1761:1: rule__Enumeration__Group__2 : ( ( rule__Enumeration__NameAssignment_2 ) ) rule__Enumeration__Group__3 ;
-    public final void rule__Enumeration__Group__2() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumeration__Group__2
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1761:1: rule__IntegerEnumeration__Group__2 : ( ( rule__IntegerEnumeration__NameAssignment_2 ) ) rule__IntegerEnumeration__Group__3 ;
+    public final void rule__IntegerEnumeration__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1765:1: ( ( ( rule__Enumeration__NameAssignment_2 ) ) rule__Enumeration__Group__3 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1766:1: ( ( rule__Enumeration__NameAssignment_2 ) ) rule__Enumeration__Group__3
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1765:1: ( ( ( rule__IntegerEnumeration__NameAssignment_2 ) ) rule__IntegerEnumeration__Group__3 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1766:1: ( ( rule__IntegerEnumeration__NameAssignment_2 ) ) rule__IntegerEnumeration__Group__3
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1766:1: ( ( rule__Enumeration__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1767:1: ( rule__Enumeration__NameAssignment_2 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1766:1: ( ( rule__IntegerEnumeration__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1767:1: ( rule__IntegerEnumeration__NameAssignment_2 )
             {
-             before(grammarAccess.getEnumerationAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1768:1: ( rule__Enumeration__NameAssignment_2 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1768:2: rule__Enumeration__NameAssignment_2
+             before(grammarAccess.getIntegerEnumerationAccess().getNameAssignment_2()); 
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1768:1: ( rule__IntegerEnumeration__NameAssignment_2 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1768:2: rule__IntegerEnumeration__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__Enumeration__NameAssignment_2_in_rule__Enumeration__Group__23530);
-            rule__Enumeration__NameAssignment_2();
+            pushFollow(FOLLOW_rule__IntegerEnumeration__NameAssignment_2_in_rule__IntegerEnumeration__Group__23530);
+            rule__IntegerEnumeration__NameAssignment_2();
             _fsp--;
 
 
             }
 
-             after(grammarAccess.getEnumerationAccess().getNameAssignment_2()); 
+             after(grammarAccess.getIntegerEnumerationAccess().getNameAssignment_2()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Enumeration__Group__3_in_rule__Enumeration__Group__23539);
-            rule__Enumeration__Group__3();
+            pushFollow(FOLLOW_rule__IntegerEnumeration__Group__3_in_rule__IntegerEnumeration__Group__23539);
+            rule__IntegerEnumeration__Group__3();
             _fsp--;
 
 
@@ -4670,30 +4670,30 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__Enumeration__Group__2
+    // $ANTLR end rule__IntegerEnumeration__Group__2
 
 
-    // $ANTLR start rule__Enumeration__Group__3
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1779:1: rule__Enumeration__Group__3 : ( '[' ) rule__Enumeration__Group__4 ;
-    public final void rule__Enumeration__Group__3() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumeration__Group__3
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1779:1: rule__IntegerEnumeration__Group__3 : ( '[' ) rule__IntegerEnumeration__Group__4 ;
+    public final void rule__IntegerEnumeration__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1783:1: ( ( '[' ) rule__Enumeration__Group__4 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1784:1: ( '[' ) rule__Enumeration__Group__4
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1783:1: ( ( '[' ) rule__IntegerEnumeration__Group__4 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1784:1: ( '[' ) rule__IntegerEnumeration__Group__4
             {
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1784:1: ( '[' )
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1785:1: '['
             {
-             before(grammarAccess.getEnumerationAccess().getLeftSquareBracketKeyword_3()); 
-            match(input,23,FOLLOW_23_in_rule__Enumeration__Group__33568); 
-             after(grammarAccess.getEnumerationAccess().getLeftSquareBracketKeyword_3()); 
+             before(grammarAccess.getIntegerEnumerationAccess().getLeftSquareBracketKeyword_3()); 
+            match(input,23,FOLLOW_23_in_rule__IntegerEnumeration__Group__33568); 
+             after(grammarAccess.getIntegerEnumerationAccess().getLeftSquareBracketKeyword_3()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Enumeration__Group__4_in_rule__Enumeration__Group__33578);
-            rule__Enumeration__Group__4();
+            pushFollow(FOLLOW_rule__IntegerEnumeration__Group__4_in_rule__IntegerEnumeration__Group__33578);
+            rule__IntegerEnumeration__Group__4();
             _fsp--;
 
 
@@ -4711,45 +4711,45 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__Enumeration__Group__3
+    // $ANTLR end rule__IntegerEnumeration__Group__3
 
 
-    // $ANTLR start rule__Enumeration__Group__4
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1799:1: rule__Enumeration__Group__4 : ( ( ( rule__Enumeration__EnumerationLiteralsAssignment_4 ) ) ( ( rule__Enumeration__EnumerationLiteralsAssignment_4 )* ) ) rule__Enumeration__Group__5 ;
-    public final void rule__Enumeration__Group__4() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumeration__Group__4
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1799:1: rule__IntegerEnumeration__Group__4 : ( ( ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 ) ) ( ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 )* ) ) rule__IntegerEnumeration__Group__5 ;
+    public final void rule__IntegerEnumeration__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1803:1: ( ( ( ( rule__Enumeration__EnumerationLiteralsAssignment_4 ) ) ( ( rule__Enumeration__EnumerationLiteralsAssignment_4 )* ) ) rule__Enumeration__Group__5 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1804:1: ( ( ( rule__Enumeration__EnumerationLiteralsAssignment_4 ) ) ( ( rule__Enumeration__EnumerationLiteralsAssignment_4 )* ) ) rule__Enumeration__Group__5
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1803:1: ( ( ( ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 ) ) ( ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 )* ) ) rule__IntegerEnumeration__Group__5 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1804:1: ( ( ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 ) ) ( ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 )* ) ) rule__IntegerEnumeration__Group__5
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1804:1: ( ( ( rule__Enumeration__EnumerationLiteralsAssignment_4 ) ) ( ( rule__Enumeration__EnumerationLiteralsAssignment_4 )* ) )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1805:1: ( ( rule__Enumeration__EnumerationLiteralsAssignment_4 ) ) ( ( rule__Enumeration__EnumerationLiteralsAssignment_4 )* )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1804:1: ( ( ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 ) ) ( ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 )* ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1805:1: ( ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 ) ) ( ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 )* )
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1805:1: ( ( rule__Enumeration__EnumerationLiteralsAssignment_4 ) )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1806:1: ( rule__Enumeration__EnumerationLiteralsAssignment_4 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1805:1: ( ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1806:1: ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 )
             {
-             before(grammarAccess.getEnumerationAccess().getEnumerationLiteralsAssignment_4()); 
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1807:1: ( rule__Enumeration__EnumerationLiteralsAssignment_4 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1807:2: rule__Enumeration__EnumerationLiteralsAssignment_4
+             before(grammarAccess.getIntegerEnumerationAccess().getEnumerationLiteralsAssignment_4()); 
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1807:1: ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1807:2: rule__IntegerEnumeration__EnumerationLiteralsAssignment_4
             {
-            pushFollow(FOLLOW_rule__Enumeration__EnumerationLiteralsAssignment_4_in_rule__Enumeration__Group__43608);
-            rule__Enumeration__EnumerationLiteralsAssignment_4();
+            pushFollow(FOLLOW_rule__IntegerEnumeration__EnumerationLiteralsAssignment_4_in_rule__IntegerEnumeration__Group__43608);
+            rule__IntegerEnumeration__EnumerationLiteralsAssignment_4();
             _fsp--;
 
 
             }
 
-             after(grammarAccess.getEnumerationAccess().getEnumerationLiteralsAssignment_4()); 
+             after(grammarAccess.getIntegerEnumerationAccess().getEnumerationLiteralsAssignment_4()); 
 
             }
 
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1810:1: ( ( rule__Enumeration__EnumerationLiteralsAssignment_4 )* )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1811:1: ( rule__Enumeration__EnumerationLiteralsAssignment_4 )*
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1810:1: ( ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 )* )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1811:1: ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 )*
             {
-             before(grammarAccess.getEnumerationAccess().getEnumerationLiteralsAssignment_4()); 
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1812:1: ( rule__Enumeration__EnumerationLiteralsAssignment_4 )*
+             before(grammarAccess.getIntegerEnumerationAccess().getEnumerationLiteralsAssignment_4()); 
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1812:1: ( rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 )*
             loop24:
             do {
                 int alt24=2;
@@ -4762,10 +4762,10 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
 
                 switch (alt24) {
             	case 1 :
-            	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1812:2: rule__Enumeration__EnumerationLiteralsAssignment_4
+            	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1812:2: rule__IntegerEnumeration__EnumerationLiteralsAssignment_4
             	    {
-            	    pushFollow(FOLLOW_rule__Enumeration__EnumerationLiteralsAssignment_4_in_rule__Enumeration__Group__43620);
-            	    rule__Enumeration__EnumerationLiteralsAssignment_4();
+            	    pushFollow(FOLLOW_rule__IntegerEnumeration__EnumerationLiteralsAssignment_4_in_rule__IntegerEnumeration__Group__43620);
+            	    rule__IntegerEnumeration__EnumerationLiteralsAssignment_4();
             	    _fsp--;
 
 
@@ -4777,15 +4777,15 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
                 }
             } while (true);
 
-             after(grammarAccess.getEnumerationAccess().getEnumerationLiteralsAssignment_4()); 
+             after(grammarAccess.getIntegerEnumerationAccess().getEnumerationLiteralsAssignment_4()); 
 
             }
 
 
             }
 
-            pushFollow(FOLLOW_rule__Enumeration__Group__5_in_rule__Enumeration__Group__43632);
-            rule__Enumeration__Group__5();
+            pushFollow(FOLLOW_rule__IntegerEnumeration__Group__5_in_rule__IntegerEnumeration__Group__43632);
+            rule__IntegerEnumeration__Group__5();
             _fsp--;
 
 
@@ -4803,12 +4803,12 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__Enumeration__Group__4
+    // $ANTLR end rule__IntegerEnumeration__Group__4
 
 
-    // $ANTLR start rule__Enumeration__Group__5
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1824:1: rule__Enumeration__Group__5 : ( ']' ) ;
-    public final void rule__Enumeration__Group__5() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumeration__Group__5
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1824:1: rule__IntegerEnumeration__Group__5 : ( ']' ) ;
+    public final void rule__IntegerEnumeration__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -4819,9 +4819,9 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1829:1: ( ']' )
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1830:1: ']'
             {
-             before(grammarAccess.getEnumerationAccess().getRightSquareBracketKeyword_5()); 
-            match(input,24,FOLLOW_24_in_rule__Enumeration__Group__53661); 
-             after(grammarAccess.getEnumerationAccess().getRightSquareBracketKeyword_5()); 
+             before(grammarAccess.getIntegerEnumerationAccess().getRightSquareBracketKeyword_5()); 
+            match(input,24,FOLLOW_24_in_rule__IntegerEnumeration__Group__53661); 
+             after(grammarAccess.getIntegerEnumerationAccess().getRightSquareBracketKeyword_5()); 
 
             }
 
@@ -4840,39 +4840,39 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__Enumeration__Group__5
+    // $ANTLR end rule__IntegerEnumeration__Group__5
 
 
-    // $ANTLR start rule__EnumerationLiteral__Group__0
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1855:1: rule__EnumerationLiteral__Group__0 : ( ( rule__EnumerationLiteral__NameAssignment_0 ) ) rule__EnumerationLiteral__Group__1 ;
-    public final void rule__EnumerationLiteral__Group__0() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumerationLiteral__Group__0
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1855:1: rule__IntegerEnumerationLiteral__Group__0 : ( ( rule__IntegerEnumerationLiteral__NameAssignment_0 ) ) rule__IntegerEnumerationLiteral__Group__1 ;
+    public final void rule__IntegerEnumerationLiteral__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1859:1: ( ( ( rule__EnumerationLiteral__NameAssignment_0 ) ) rule__EnumerationLiteral__Group__1 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1860:1: ( ( rule__EnumerationLiteral__NameAssignment_0 ) ) rule__EnumerationLiteral__Group__1
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1859:1: ( ( ( rule__IntegerEnumerationLiteral__NameAssignment_0 ) ) rule__IntegerEnumerationLiteral__Group__1 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1860:1: ( ( rule__IntegerEnumerationLiteral__NameAssignment_0 ) ) rule__IntegerEnumerationLiteral__Group__1
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1860:1: ( ( rule__EnumerationLiteral__NameAssignment_0 ) )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1861:1: ( rule__EnumerationLiteral__NameAssignment_0 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1860:1: ( ( rule__IntegerEnumerationLiteral__NameAssignment_0 ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1861:1: ( rule__IntegerEnumerationLiteral__NameAssignment_0 )
             {
-             before(grammarAccess.getEnumerationLiteralAccess().getNameAssignment_0()); 
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1862:1: ( rule__EnumerationLiteral__NameAssignment_0 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1862:2: rule__EnumerationLiteral__NameAssignment_0
+             before(grammarAccess.getIntegerEnumerationLiteralAccess().getNameAssignment_0()); 
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1862:1: ( rule__IntegerEnumerationLiteral__NameAssignment_0 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1862:2: rule__IntegerEnumerationLiteral__NameAssignment_0
             {
-            pushFollow(FOLLOW_rule__EnumerationLiteral__NameAssignment_0_in_rule__EnumerationLiteral__Group__03708);
-            rule__EnumerationLiteral__NameAssignment_0();
+            pushFollow(FOLLOW_rule__IntegerEnumerationLiteral__NameAssignment_0_in_rule__IntegerEnumerationLiteral__Group__03708);
+            rule__IntegerEnumerationLiteral__NameAssignment_0();
             _fsp--;
 
 
             }
 
-             after(grammarAccess.getEnumerationLiteralAccess().getNameAssignment_0()); 
+             after(grammarAccess.getIntegerEnumerationLiteralAccess().getNameAssignment_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__EnumerationLiteral__Group__1_in_rule__EnumerationLiteral__Group__03717);
-            rule__EnumerationLiteral__Group__1();
+            pushFollow(FOLLOW_rule__IntegerEnumerationLiteral__Group__1_in_rule__IntegerEnumerationLiteral__Group__03717);
+            rule__IntegerEnumerationLiteral__Group__1();
             _fsp--;
 
 
@@ -4890,39 +4890,39 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__EnumerationLiteral__Group__0
+    // $ANTLR end rule__IntegerEnumerationLiteral__Group__0
 
 
-    // $ANTLR start rule__EnumerationLiteral__Group__1
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1873:1: rule__EnumerationLiteral__Group__1 : ( ( rule__EnumerationLiteral__Group_1__0 ) ) rule__EnumerationLiteral__Group__2 ;
-    public final void rule__EnumerationLiteral__Group__1() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumerationLiteral__Group__1
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1873:1: rule__IntegerEnumerationLiteral__Group__1 : ( ( rule__IntegerEnumerationLiteral__Group_1__0 ) ) rule__IntegerEnumerationLiteral__Group__2 ;
+    public final void rule__IntegerEnumerationLiteral__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1877:1: ( ( ( rule__EnumerationLiteral__Group_1__0 ) ) rule__EnumerationLiteral__Group__2 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1878:1: ( ( rule__EnumerationLiteral__Group_1__0 ) ) rule__EnumerationLiteral__Group__2
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1877:1: ( ( ( rule__IntegerEnumerationLiteral__Group_1__0 ) ) rule__IntegerEnumerationLiteral__Group__2 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1878:1: ( ( rule__IntegerEnumerationLiteral__Group_1__0 ) ) rule__IntegerEnumerationLiteral__Group__2
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1878:1: ( ( rule__EnumerationLiteral__Group_1__0 ) )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1879:1: ( rule__EnumerationLiteral__Group_1__0 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1878:1: ( ( rule__IntegerEnumerationLiteral__Group_1__0 ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1879:1: ( rule__IntegerEnumerationLiteral__Group_1__0 )
             {
-             before(grammarAccess.getEnumerationLiteralAccess().getGroup_1()); 
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1880:1: ( rule__EnumerationLiteral__Group_1__0 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1880:2: rule__EnumerationLiteral__Group_1__0
+             before(grammarAccess.getIntegerEnumerationLiteralAccess().getGroup_1()); 
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1880:1: ( rule__IntegerEnumerationLiteral__Group_1__0 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1880:2: rule__IntegerEnumerationLiteral__Group_1__0
             {
-            pushFollow(FOLLOW_rule__EnumerationLiteral__Group_1__0_in_rule__EnumerationLiteral__Group__13745);
-            rule__EnumerationLiteral__Group_1__0();
+            pushFollow(FOLLOW_rule__IntegerEnumerationLiteral__Group_1__0_in_rule__IntegerEnumerationLiteral__Group__13745);
+            rule__IntegerEnumerationLiteral__Group_1__0();
             _fsp--;
 
 
             }
 
-             after(grammarAccess.getEnumerationLiteralAccess().getGroup_1()); 
+             after(grammarAccess.getIntegerEnumerationLiteralAccess().getGroup_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__EnumerationLiteral__Group__2_in_rule__EnumerationLiteral__Group__13754);
-            rule__EnumerationLiteral__Group__2();
+            pushFollow(FOLLOW_rule__IntegerEnumerationLiteral__Group__2_in_rule__IntegerEnumerationLiteral__Group__13754);
+            rule__IntegerEnumerationLiteral__Group__2();
             _fsp--;
 
 
@@ -4940,12 +4940,12 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__EnumerationLiteral__Group__1
+    // $ANTLR end rule__IntegerEnumerationLiteral__Group__1
 
 
-    // $ANTLR start rule__EnumerationLiteral__Group__2
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1891:1: rule__EnumerationLiteral__Group__2 : ( ';' ) ;
-    public final void rule__EnumerationLiteral__Group__2() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumerationLiteral__Group__2
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1891:1: rule__IntegerEnumerationLiteral__Group__2 : ( ';' ) ;
+    public final void rule__IntegerEnumerationLiteral__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -4956,9 +4956,9 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1896:1: ( ';' )
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1897:1: ';'
             {
-             before(grammarAccess.getEnumerationLiteralAccess().getSemicolonKeyword_2()); 
-            match(input,16,FOLLOW_16_in_rule__EnumerationLiteral__Group__23783); 
-             after(grammarAccess.getEnumerationLiteralAccess().getSemicolonKeyword_2()); 
+             before(grammarAccess.getIntegerEnumerationLiteralAccess().getSemicolonKeyword_2()); 
+            match(input,16,FOLLOW_16_in_rule__IntegerEnumerationLiteral__Group__23783); 
+             after(grammarAccess.getIntegerEnumerationLiteralAccess().getSemicolonKeyword_2()); 
 
             }
 
@@ -4977,30 +4977,30 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__EnumerationLiteral__Group__2
+    // $ANTLR end rule__IntegerEnumerationLiteral__Group__2
 
 
-    // $ANTLR start rule__EnumerationLiteral__Group_1__0
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1916:1: rule__EnumerationLiteral__Group_1__0 : ( '=' ) rule__EnumerationLiteral__Group_1__1 ;
-    public final void rule__EnumerationLiteral__Group_1__0() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumerationLiteral__Group_1__0
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1916:1: rule__IntegerEnumerationLiteral__Group_1__0 : ( '=' ) rule__IntegerEnumerationLiteral__Group_1__1 ;
+    public final void rule__IntegerEnumerationLiteral__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1920:1: ( ( '=' ) rule__EnumerationLiteral__Group_1__1 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1921:1: ( '=' ) rule__EnumerationLiteral__Group_1__1
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1920:1: ( ( '=' ) rule__IntegerEnumerationLiteral__Group_1__1 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1921:1: ( '=' ) rule__IntegerEnumerationLiteral__Group_1__1
             {
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1921:1: ( '=' )
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1922:1: '='
             {
-             before(grammarAccess.getEnumerationLiteralAccess().getEqualsSignKeyword_1_0()); 
-            match(input,28,FOLLOW_28_in_rule__EnumerationLiteral__Group_1__03825); 
-             after(grammarAccess.getEnumerationLiteralAccess().getEqualsSignKeyword_1_0()); 
+             before(grammarAccess.getIntegerEnumerationLiteralAccess().getEqualsSignKeyword_1_0()); 
+            match(input,28,FOLLOW_28_in_rule__IntegerEnumerationLiteral__Group_1__03825); 
+             after(grammarAccess.getIntegerEnumerationLiteralAccess().getEqualsSignKeyword_1_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__EnumerationLiteral__Group_1__1_in_rule__EnumerationLiteral__Group_1__03835);
-            rule__EnumerationLiteral__Group_1__1();
+            pushFollow(FOLLOW_rule__IntegerEnumerationLiteral__Group_1__1_in_rule__IntegerEnumerationLiteral__Group_1__03835);
+            rule__IntegerEnumerationLiteral__Group_1__1();
             _fsp--;
 
 
@@ -5018,34 +5018,34 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__EnumerationLiteral__Group_1__0
+    // $ANTLR end rule__IntegerEnumerationLiteral__Group_1__0
 
 
-    // $ANTLR start rule__EnumerationLiteral__Group_1__1
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1936:1: rule__EnumerationLiteral__Group_1__1 : ( ( rule__EnumerationLiteral__PersistedValueAssignment_1_1 ) ) ;
-    public final void rule__EnumerationLiteral__Group_1__1() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumerationLiteral__Group_1__1
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1936:1: rule__IntegerEnumerationLiteral__Group_1__1 : ( ( rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1 ) ) ;
+    public final void rule__IntegerEnumerationLiteral__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1940:1: ( ( ( rule__EnumerationLiteral__PersistedValueAssignment_1_1 ) ) )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1941:1: ( ( rule__EnumerationLiteral__PersistedValueAssignment_1_1 ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1940:1: ( ( ( rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1 ) ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1941:1: ( ( rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1 ) )
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1941:1: ( ( rule__EnumerationLiteral__PersistedValueAssignment_1_1 ) )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1942:1: ( rule__EnumerationLiteral__PersistedValueAssignment_1_1 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1941:1: ( ( rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1 ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1942:1: ( rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1 )
             {
-             before(grammarAccess.getEnumerationLiteralAccess().getPersistedValueAssignment_1_1()); 
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1943:1: ( rule__EnumerationLiteral__PersistedValueAssignment_1_1 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1943:2: rule__EnumerationLiteral__PersistedValueAssignment_1_1
+             before(grammarAccess.getIntegerEnumerationLiteralAccess().getPersistedValueAssignment_1_1()); 
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1943:1: ( rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1943:2: rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__EnumerationLiteral__PersistedValueAssignment_1_1_in_rule__EnumerationLiteral__Group_1__13863);
-            rule__EnumerationLiteral__PersistedValueAssignment_1_1();
+            pushFollow(FOLLOW_rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1_in_rule__IntegerEnumerationLiteral__Group_1__13863);
+            rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1();
             _fsp--;
 
 
             }
 
-             after(grammarAccess.getEnumerationLiteralAccess().getPersistedValueAssignment_1_1()); 
+             after(grammarAccess.getIntegerEnumerationLiteralAccess().getPersistedValueAssignment_1_1()); 
 
             }
 
@@ -5064,7 +5064,7 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__EnumerationLiteral__Group_1__1
+    // $ANTLR end rule__IntegerEnumerationLiteral__Group_1__1
 
 
     // $ANTLR start rule__BusinessRule__Group__0
@@ -8696,24 +8696,24 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start rule__BusinessDomainModel__EnumerationsAssignment_4_1
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3384:1: rule__BusinessDomainModel__EnumerationsAssignment_4_1 : ( ruleEnumeration ) ;
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3384:1: rule__BusinessDomainModel__EnumerationsAssignment_4_1 : ( ruleIntegerEnumeration ) ;
     public final void rule__BusinessDomainModel__EnumerationsAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3388:1: ( ( ruleEnumeration ) )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3389:1: ( ruleEnumeration )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3388:1: ( ( ruleIntegerEnumeration ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3389:1: ( ruleIntegerEnumeration )
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3389:1: ( ruleEnumeration )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3390:1: ruleEnumeration
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3389:1: ( ruleIntegerEnumeration )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3390:1: ruleIntegerEnumeration
             {
-             before(grammarAccess.getBusinessDomainModelAccess().getEnumerationsEnumerationParserRuleCall_4_1_0()); 
-            pushFollow(FOLLOW_ruleEnumeration_in_rule__BusinessDomainModel__EnumerationsAssignment_4_16666);
-            ruleEnumeration();
+             before(grammarAccess.getBusinessDomainModelAccess().getEnumerationsIntegerEnumerationParserRuleCall_4_1_0()); 
+            pushFollow(FOLLOW_ruleIntegerEnumeration_in_rule__BusinessDomainModel__EnumerationsAssignment_4_16666);
+            ruleIntegerEnumeration();
             _fsp--;
 
-             after(grammarAccess.getBusinessDomainModelAccess().getEnumerationsEnumerationParserRuleCall_4_1_0()); 
+             after(grammarAccess.getBusinessDomainModelAccess().getEnumerationsIntegerEnumerationParserRuleCall_4_1_0()); 
 
             }
 
@@ -9604,9 +9604,9 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
     // $ANTLR end rule__BusinessClass__BusinessRulesAssignment_7_2
 
 
-    // $ANTLR start rule__Enumeration__DescriptionAssignment_0
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3757:1: rule__Enumeration__DescriptionAssignment_0 : ( RULE_STRING ) ;
-    public final void rule__Enumeration__DescriptionAssignment_0() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumeration__DescriptionAssignment_0
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3757:1: rule__IntegerEnumeration__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    public final void rule__IntegerEnumeration__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -9617,9 +9617,9 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3762:1: ( RULE_STRING )
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3763:1: RULE_STRING
             {
-             before(grammarAccess.getEnumerationAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Enumeration__DescriptionAssignment_07429); 
-             after(grammarAccess.getEnumerationAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
+             before(grammarAccess.getIntegerEnumerationAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__IntegerEnumeration__DescriptionAssignment_07429); 
+             after(grammarAccess.getIntegerEnumerationAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
 
@@ -9638,12 +9638,12 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__Enumeration__DescriptionAssignment_0
+    // $ANTLR end rule__IntegerEnumeration__DescriptionAssignment_0
 
 
-    // $ANTLR start rule__Enumeration__NameAssignment_2
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3772:1: rule__Enumeration__NameAssignment_2 : ( RULE_ID ) ;
-    public final void rule__Enumeration__NameAssignment_2() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumeration__NameAssignment_2
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3772:1: rule__IntegerEnumeration__NameAssignment_2 : ( RULE_ID ) ;
+    public final void rule__IntegerEnumeration__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -9654,9 +9654,9 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3777:1: ( RULE_ID )
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3778:1: RULE_ID
             {
-             before(grammarAccess.getEnumerationAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Enumeration__NameAssignment_27460); 
-             after(grammarAccess.getEnumerationAccess().getNameIDTerminalRuleCall_2_0()); 
+             before(grammarAccess.getIntegerEnumerationAccess().getNameIDTerminalRuleCall_2_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__IntegerEnumeration__NameAssignment_27460); 
+             after(grammarAccess.getIntegerEnumerationAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
 
@@ -9675,28 +9675,28 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__Enumeration__NameAssignment_2
+    // $ANTLR end rule__IntegerEnumeration__NameAssignment_2
 
 
-    // $ANTLR start rule__Enumeration__EnumerationLiteralsAssignment_4
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3787:1: rule__Enumeration__EnumerationLiteralsAssignment_4 : ( ruleEnumerationLiteral ) ;
-    public final void rule__Enumeration__EnumerationLiteralsAssignment_4() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumeration__EnumerationLiteralsAssignment_4
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3787:1: rule__IntegerEnumeration__EnumerationLiteralsAssignment_4 : ( ruleIntegerEnumerationLiteral ) ;
+    public final void rule__IntegerEnumeration__EnumerationLiteralsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3791:1: ( ( ruleEnumerationLiteral ) )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3792:1: ( ruleEnumerationLiteral )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3791:1: ( ( ruleIntegerEnumerationLiteral ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3792:1: ( ruleIntegerEnumerationLiteral )
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3792:1: ( ruleEnumerationLiteral )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3793:1: ruleEnumerationLiteral
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3792:1: ( ruleIntegerEnumerationLiteral )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3793:1: ruleIntegerEnumerationLiteral
             {
-             before(grammarAccess.getEnumerationAccess().getEnumerationLiteralsEnumerationLiteralParserRuleCall_4_0()); 
-            pushFollow(FOLLOW_ruleEnumerationLiteral_in_rule__Enumeration__EnumerationLiteralsAssignment_47491);
-            ruleEnumerationLiteral();
+             before(grammarAccess.getIntegerEnumerationAccess().getEnumerationLiteralsIntegerEnumerationLiteralParserRuleCall_4_0()); 
+            pushFollow(FOLLOW_ruleIntegerEnumerationLiteral_in_rule__IntegerEnumeration__EnumerationLiteralsAssignment_47491);
+            ruleIntegerEnumerationLiteral();
             _fsp--;
 
-             after(grammarAccess.getEnumerationAccess().getEnumerationLiteralsEnumerationLiteralParserRuleCall_4_0()); 
+             after(grammarAccess.getIntegerEnumerationAccess().getEnumerationLiteralsIntegerEnumerationLiteralParserRuleCall_4_0()); 
 
             }
 
@@ -9715,12 +9715,12 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__Enumeration__EnumerationLiteralsAssignment_4
+    // $ANTLR end rule__IntegerEnumeration__EnumerationLiteralsAssignment_4
 
 
-    // $ANTLR start rule__EnumerationLiteral__NameAssignment_0
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3802:1: rule__EnumerationLiteral__NameAssignment_0 : ( RULE_ID ) ;
-    public final void rule__EnumerationLiteral__NameAssignment_0() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumerationLiteral__NameAssignment_0
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3802:1: rule__IntegerEnumerationLiteral__NameAssignment_0 : ( RULE_ID ) ;
+    public final void rule__IntegerEnumerationLiteral__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -9731,9 +9731,9 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3807:1: ( RULE_ID )
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3808:1: RULE_ID
             {
-             before(grammarAccess.getEnumerationLiteralAccess().getNameIDTerminalRuleCall_0_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EnumerationLiteral__NameAssignment_07522); 
-             after(grammarAccess.getEnumerationLiteralAccess().getNameIDTerminalRuleCall_0_0()); 
+             before(grammarAccess.getIntegerEnumerationLiteralAccess().getNameIDTerminalRuleCall_0_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__IntegerEnumerationLiteral__NameAssignment_07522); 
+             after(grammarAccess.getIntegerEnumerationLiteralAccess().getNameIDTerminalRuleCall_0_0()); 
 
             }
 
@@ -9752,12 +9752,12 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__EnumerationLiteral__NameAssignment_0
+    // $ANTLR end rule__IntegerEnumerationLiteral__NameAssignment_0
 
 
-    // $ANTLR start rule__EnumerationLiteral__PersistedValueAssignment_1_1
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3817:1: rule__EnumerationLiteral__PersistedValueAssignment_1_1 : ( RULE_INT ) ;
-    public final void rule__EnumerationLiteral__PersistedValueAssignment_1_1() throws RecognitionException {
+    // $ANTLR start rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3817:1: rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1 : ( RULE_INT ) ;
+    public final void rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -9768,9 +9768,9 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3822:1: ( RULE_INT )
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:3823:1: RULE_INT
             {
-             before(grammarAccess.getEnumerationLiteralAccess().getPersistedValueINTTerminalRuleCall_1_1_0()); 
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__EnumerationLiteral__PersistedValueAssignment_1_17553); 
-             after(grammarAccess.getEnumerationLiteralAccess().getPersistedValueINTTerminalRuleCall_1_1_0()); 
+             before(grammarAccess.getIntegerEnumerationLiteralAccess().getPersistedValueINTTerminalRuleCall_1_1_0()); 
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_17553); 
+             after(grammarAccess.getIntegerEnumerationLiteralAccess().getPersistedValueINTTerminalRuleCall_1_1_0()); 
 
             }
 
@@ -9789,7 +9789,7 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
         }
         return ;
     }
-    // $ANTLR end rule__EnumerationLiteral__PersistedValueAssignment_1_1
+    // $ANTLR end rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1
 
 
     // $ANTLR start rule__BusinessRule__DescriptionAssignment_0
@@ -11368,17 +11368,17 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4534:1: ( ( RULE_ID ) )
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4535:1: ( RULE_ID )
             {
-             before(grammarAccess.getEnumerationPropertyAccess().getTypeEnumerationCrossReference_1_0()); 
+             before(grammarAccess.getEnumerationPropertyAccess().getTypeIntegerEnumerationCrossReference_1_0()); 
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4536:1: ( RULE_ID )
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4537:1: RULE_ID
             {
-             before(grammarAccess.getEnumerationPropertyAccess().getTypeEnumerationIDTerminalRuleCall_1_0_1()); 
+             before(grammarAccess.getEnumerationPropertyAccess().getTypeIntegerEnumerationIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EnumerationProperty__TypeAssignment_18982); 
-             after(grammarAccess.getEnumerationPropertyAccess().getTypeEnumerationIDTerminalRuleCall_1_0_1()); 
+             after(grammarAccess.getEnumerationPropertyAccess().getTypeIntegerEnumerationIDTerminalRuleCall_1_0_1()); 
 
             }
 
-             after(grammarAccess.getEnumerationPropertyAccess().getTypeEnumerationCrossReference_1_0()); 
+             after(grammarAccess.getEnumerationPropertyAccess().getTypeIntegerEnumerationCrossReference_1_0()); 
 
             }
 
@@ -11530,12 +11530,12 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
     public static final BitSet FOLLOW_ruleBusinessClass_in_entryRuleBusinessClass180 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleBusinessClass187 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__BusinessClass__Group__0_in_ruleBusinessClass214 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumeration_in_entryRuleEnumeration240 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEnumeration247 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Enumeration__Group__0_in_ruleEnumeration274 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumerationLiteral_in_entryRuleEnumerationLiteral300 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEnumerationLiteral307 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EnumerationLiteral__Group__0_in_ruleEnumerationLiteral334 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntegerEnumeration_in_entryRuleIntegerEnumeration240 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIntegerEnumeration247 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__IntegerEnumeration__Group__0_in_ruleIntegerEnumeration274 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntegerEnumerationLiteral_in_entryRuleIntegerEnumerationLiteral300 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIntegerEnumerationLiteral307 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__IntegerEnumerationLiteral__Group__0_in_ruleIntegerEnumerationLiteral334 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAbstractBusinessRule_in_entryRuleAbstractBusinessRule360 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleAbstractBusinessRule367 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__AbstractBusinessRule__Alternatives_in_ruleAbstractBusinessRule394 = new BitSet(new long[]{0x0000000000000002L});
@@ -11675,26 +11675,26 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
     public static final BitSet FOLLOW_rule__BusinessClass__BusinessRulesAssignment_7_2_in_rule__BusinessClass__Group_7__23371 = new BitSet(new long[]{0x0000000021000030L});
     public static final BitSet FOLLOW_rule__BusinessClass__Group_7__3_in_rule__BusinessClass__Group_7__23381 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_24_in_rule__BusinessClass__Group_7__33410 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Enumeration__DescriptionAssignment_0_in_rule__Enumeration__Group__03453 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_rule__Enumeration__Group__1_in_rule__Enumeration__Group__03463 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_rule__Enumeration__Group__13492 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__Enumeration__Group__2_in_rule__Enumeration__Group__13502 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Enumeration__NameAssignment_2_in_rule__Enumeration__Group__23530 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_rule__Enumeration__Group__3_in_rule__Enumeration__Group__23539 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_rule__Enumeration__Group__33568 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__Enumeration__Group__4_in_rule__Enumeration__Group__33578 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Enumeration__EnumerationLiteralsAssignment_4_in_rule__Enumeration__Group__43608 = new BitSet(new long[]{0x0000000001000020L});
-    public static final BitSet FOLLOW_rule__Enumeration__EnumerationLiteralsAssignment_4_in_rule__Enumeration__Group__43620 = new BitSet(new long[]{0x0000000001000020L});
-    public static final BitSet FOLLOW_rule__Enumeration__Group__5_in_rule__Enumeration__Group__43632 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_rule__Enumeration__Group__53661 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EnumerationLiteral__NameAssignment_0_in_rule__EnumerationLiteral__Group__03708 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_rule__EnumerationLiteral__Group__1_in_rule__EnumerationLiteral__Group__03717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EnumerationLiteral__Group_1__0_in_rule__EnumerationLiteral__Group__13745 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_rule__EnumerationLiteral__Group__2_in_rule__EnumerationLiteral__Group__13754 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__EnumerationLiteral__Group__23783 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_rule__EnumerationLiteral__Group_1__03825 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_rule__EnumerationLiteral__Group_1__1_in_rule__EnumerationLiteral__Group_1__03835 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EnumerationLiteral__PersistedValueAssignment_1_1_in_rule__EnumerationLiteral__Group_1__13863 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__IntegerEnumeration__DescriptionAssignment_0_in_rule__IntegerEnumeration__Group__03453 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_rule__IntegerEnumeration__Group__1_in_rule__IntegerEnumeration__Group__03463 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_rule__IntegerEnumeration__Group__13492 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__IntegerEnumeration__Group__2_in_rule__IntegerEnumeration__Group__13502 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__IntegerEnumeration__NameAssignment_2_in_rule__IntegerEnumeration__Group__23530 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_rule__IntegerEnumeration__Group__3_in_rule__IntegerEnumeration__Group__23539 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_rule__IntegerEnumeration__Group__33568 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__IntegerEnumeration__Group__4_in_rule__IntegerEnumeration__Group__33578 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__IntegerEnumeration__EnumerationLiteralsAssignment_4_in_rule__IntegerEnumeration__Group__43608 = new BitSet(new long[]{0x0000000001000020L});
+    public static final BitSet FOLLOW_rule__IntegerEnumeration__EnumerationLiteralsAssignment_4_in_rule__IntegerEnumeration__Group__43620 = new BitSet(new long[]{0x0000000001000020L});
+    public static final BitSet FOLLOW_rule__IntegerEnumeration__Group__5_in_rule__IntegerEnumeration__Group__43632 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_rule__IntegerEnumeration__Group__53661 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__IntegerEnumerationLiteral__NameAssignment_0_in_rule__IntegerEnumerationLiteral__Group__03708 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_rule__IntegerEnumerationLiteral__Group__1_in_rule__IntegerEnumerationLiteral__Group__03717 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__IntegerEnumerationLiteral__Group_1__0_in_rule__IntegerEnumerationLiteral__Group__13745 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_rule__IntegerEnumerationLiteral__Group__2_in_rule__IntegerEnumerationLiteral__Group__13754 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_rule__IntegerEnumerationLiteral__Group__23783 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_rule__IntegerEnumerationLiteral__Group_1__03825 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__IntegerEnumerationLiteral__Group_1__1_in_rule__IntegerEnumerationLiteral__Group_1__03835 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_1_in_rule__IntegerEnumerationLiteral__Group_1__13863 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__BusinessRule__DescriptionAssignment_0_in_rule__BusinessRule__Group__03901 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_rule__BusinessRule__Group__1_in_rule__BusinessRule__Group__03911 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__BusinessRule__NameAssignment_1_in_rule__BusinessRule__Group__13939 = new BitSet(new long[]{0x0000000000010000L});
@@ -11814,7 +11814,7 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
     public static final BitSet FOLLOW_RULE_STRING_in_rule__BusinessDomainModel__DescriptionAssignment_06573 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__BusinessDomainModel__NameAssignment_26604 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBusinessClass_in_rule__BusinessDomainModel__TypesAssignment_4_06635 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumeration_in_rule__BusinessDomainModel__EnumerationsAssignment_4_16666 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntegerEnumeration_in_rule__BusinessDomainModel__EnumerationsAssignment_4_16666 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAssociation_in_rule__BusinessDomainModel__AssociationsAssignment_4_26697 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Association__DescriptionAssignment_06728 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Association__SourceAssignment_26763 = new BitSet(new long[]{0x0000000000000002L});
@@ -11837,11 +11837,11 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
     public static final BitSet FOLLOW_RULE_ID_in_rule__BusinessClass__TableAssignment_4_17336 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleProperty_in_rule__BusinessClass__PropertiesAssignment_67367 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAbstractBusinessRule_in_rule__BusinessClass__BusinessRulesAssignment_7_27398 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Enumeration__DescriptionAssignment_07429 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Enumeration__NameAssignment_27460 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumerationLiteral_in_rule__Enumeration__EnumerationLiteralsAssignment_47491 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__EnumerationLiteral__NameAssignment_07522 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_rule__EnumerationLiteral__PersistedValueAssignment_1_17553 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__IntegerEnumeration__DescriptionAssignment_07429 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__IntegerEnumeration__NameAssignment_27460 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntegerEnumerationLiteral_in_rule__IntegerEnumeration__EnumerationLiteralsAssignment_47491 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__IntegerEnumerationLiteral__NameAssignment_07522 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_rule__IntegerEnumerationLiteral__PersistedValueAssignment_1_17553 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__BusinessRule__DescriptionAssignment_07584 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__BusinessRule__NameAssignment_17615 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__UniqueRule__DescriptionAssignment_07646 = new BitSet(new long[]{0x0000000000000002L});

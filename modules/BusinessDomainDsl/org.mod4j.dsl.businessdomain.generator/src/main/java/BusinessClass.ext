@@ -44,5 +44,5 @@ boolean hasSubclasses(BusinessClass clazz) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.hasSubclasses(BusinessDomainDsl.BusinessClass);
 
  // Workaround for problem with optional references in xText
- EnumerationLiteral defaultValue(EnumerationProperty this) :
+ IntegerEnumerationLiteral defaultValue(EnumerationProperty this) :
    this.type.enumerationLiterals.select(a|a.name==this.defaultValueAsString).first();

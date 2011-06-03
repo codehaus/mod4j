@@ -88,12 +88,12 @@ public class BusinessDomainDslAdapterFactory extends AdapterFactoryImpl {
                 return createPropertyAdapter();
             }
             @Override
-            public Adapter caseEnumeration(Enumeration object) {
-                return createEnumerationAdapter();
+            public Adapter caseIntegerEnumeration(IntegerEnumeration object) {
+                return createIntegerEnumerationAdapter();
             }
             @Override
-            public Adapter caseEnumerationLiteral(EnumerationLiteral object) {
-                return createEnumerationLiteralAdapter();
+            public Adapter caseIntegerEnumerationLiteral(IntegerEnumerationLiteral object) {
+                return createIntegerEnumerationLiteralAdapter();
             }
             @Override
             public Adapter caseAbstractBusinessRule(AbstractBusinessRule object) {
@@ -232,34 +232,34 @@ public class BusinessDomainDslAdapterFactory extends AdapterFactoryImpl {
     }
 
 	/**
-     * Creates a new adapter for an object of class '{@link BusinessDomainDsl.Enumeration <em>Enumeration</em>}'.
+     * Creates a new adapter for an object of class '{@link BusinessDomainDsl.IntegerEnumeration <em>Integer Enumeration</em>}'.
      * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see BusinessDomainDsl.Enumeration
+     * @see BusinessDomainDsl.IntegerEnumeration
      * @generated
      */
-	public Adapter createEnumerationAdapter() {
+    public Adapter createIntegerEnumerationAdapter() {
         return null;
     }
 
-	/**
-     * Creates a new adapter for an object of class '{@link BusinessDomainDsl.EnumerationLiteral <em>Enumeration Literal</em>}'.
+    /**
+     * Creates a new adapter for an object of class '{@link BusinessDomainDsl.IntegerEnumerationLiteral <em>Integer Enumeration Literal</em>}'.
      * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see BusinessDomainDsl.EnumerationLiteral
+     * @see BusinessDomainDsl.IntegerEnumerationLiteral
      * @generated
      */
-	public Adapter createEnumerationLiteralAdapter() {
+    public Adapter createIntegerEnumerationLiteralAdapter() {
         return null;
     }
 
-	/**
+    /**
      * Creates a new adapter for an object of class '{@link BusinessDomainDsl.AbstractBusinessRule <em>Abstract Business Rule</em>}'.
      * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;

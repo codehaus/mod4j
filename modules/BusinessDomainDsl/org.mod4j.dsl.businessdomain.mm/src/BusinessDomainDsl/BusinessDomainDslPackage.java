@@ -490,116 +490,116 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int PROPERTY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
-     * The meta object id for the '{@link BusinessDomainDsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
+     * The meta object id for the '{@link BusinessDomainDsl.impl.IntegerEnumerationImpl <em>Integer Enumeration</em>}' class.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see BusinessDomainDsl.impl.EnumerationImpl
-     * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getEnumeration()
+     * <!-- end-user-doc -->
+     * @see BusinessDomainDsl.impl.IntegerEnumerationImpl
+     * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getIntegerEnumeration()
      * @generated
      */
-	int ENUMERATION = 4;
+    int INTEGER_ENUMERATION = 4;
 
-	/**
+    /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int ENUMERATION__NAME = MODEL_ELEMENT__NAME;
+    int INTEGER_ENUMERATION__NAME = MODEL_ELEMENT__NAME;
 
-	/**
+    /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int ENUMERATION__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+    int INTEGER_ENUMERATION__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
 
-	/**
+    /**
      * The feature id for the '<em><b>Enumeration Literals</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int ENUMERATION__ENUMERATION_LITERALS = MODEL_ELEMENT_FEATURE_COUNT + 0;
+    int INTEGER_ENUMERATION__ENUMERATION_LITERALS = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
-	/**
+    /**
      * The feature id for the '<em><b>Model</b></em>' container reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int ENUMERATION__MODEL = MODEL_ELEMENT_FEATURE_COUNT + 1;
+    int INTEGER_ENUMERATION__MODEL = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
-	/**
-     * The number of structural features of the '<em>Enumeration</em>' class.
+    /**
+     * The number of structural features of the '<em>Integer Enumeration</em>' class.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int ENUMERATION_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
+    int INTEGER_ENUMERATION_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
-	/**
-     * The meta object id for the '{@link BusinessDomainDsl.impl.EnumerationLiteralImpl <em>Enumeration Literal</em>}' class.
+    /**
+     * The meta object id for the '{@link BusinessDomainDsl.impl.IntegerEnumerationLiteralImpl <em>Integer Enumeration Literal</em>}' class.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see BusinessDomainDsl.impl.EnumerationLiteralImpl
-     * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getEnumerationLiteral()
+     * <!-- end-user-doc -->
+     * @see BusinessDomainDsl.impl.IntegerEnumerationLiteralImpl
+     * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getIntegerEnumerationLiteral()
      * @generated
      */
-	int ENUMERATION_LITERAL = 5;
+    int INTEGER_ENUMERATION_LITERAL = 5;
 
-	/**
+    /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int ENUMERATION_LITERAL__NAME = MODEL_ELEMENT__NAME;
+    int INTEGER_ENUMERATION_LITERAL__NAME = MODEL_ELEMENT__NAME;
 
-	/**
+    /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int ENUMERATION_LITERAL__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+    int INTEGER_ENUMERATION_LITERAL__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
 
-	/**
+    /**
      * The feature id for the '<em><b>Persisted Value</b></em>' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int ENUMERATION_LITERAL__PERSISTED_VALUE = MODEL_ELEMENT_FEATURE_COUNT + 0;
+    int INTEGER_ENUMERATION_LITERAL__PERSISTED_VALUE = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
-	/**
+    /**
      * The feature id for the '<em><b>Enumeration</b></em>' container reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int ENUMERATION_LITERAL__ENUMERATION = MODEL_ELEMENT_FEATURE_COUNT + 1;
+    int INTEGER_ENUMERATION_LITERAL__ENUMERATION = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
-	/**
-     * The number of structural features of the '<em>Enumeration Literal</em>' class.
+    /**
+     * The number of structural features of the '<em>Integer Enumeration Literal</em>' class.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int ENUMERATION_LITERAL_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
+    int INTEGER_ENUMERATION_LITERAL_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
-	/**
+    /**
      * The meta object id for the '{@link BusinessDomainDsl.impl.AbstractBusinessRuleImpl <em>Abstract Business Rule</em>}' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2284,70 +2284,70 @@ public interface BusinessDomainDslPackage extends EPackage {
     EAttribute getProperty_Column();
 
     /**
-     * Returns the meta object for class '{@link BusinessDomainDsl.Enumeration <em>Enumeration</em>}'.
+     * Returns the meta object for class '{@link BusinessDomainDsl.IntegerEnumeration <em>Integer Enumeration</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Enumeration</em>'.
-     * @see BusinessDomainDsl.Enumeration
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Integer Enumeration</em>'.
+     * @see BusinessDomainDsl.IntegerEnumeration
      * @generated
      */
-	EClass getEnumeration();
+    EClass getIntegerEnumeration();
 
-	/**
-     * Returns the meta object for the containment reference list '{@link BusinessDomainDsl.Enumeration#getEnumerationLiterals <em>Enumeration Literals</em>}'.
+    /**
+     * Returns the meta object for the containment reference list '{@link BusinessDomainDsl.IntegerEnumeration#getEnumerationLiterals <em>Enumeration Literals</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the meta object for the containment reference list '<em>Enumeration Literals</em>'.
-     * @see BusinessDomainDsl.Enumeration#getEnumerationLiterals()
-     * @see #getEnumeration()
+     * @see BusinessDomainDsl.IntegerEnumeration#getEnumerationLiterals()
+     * @see #getIntegerEnumeration()
      * @generated
      */
-	EReference getEnumeration_EnumerationLiterals();
+    EReference getIntegerEnumeration_EnumerationLiterals();
 
-	/**
-     * Returns the meta object for the container reference '{@link BusinessDomainDsl.Enumeration#getModel <em>Model</em>}'.
+    /**
+     * Returns the meta object for the container reference '{@link BusinessDomainDsl.IntegerEnumeration#getModel <em>Model</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the meta object for the container reference '<em>Model</em>'.
-     * @see BusinessDomainDsl.Enumeration#getModel()
-     * @see #getEnumeration()
+     * @see BusinessDomainDsl.IntegerEnumeration#getModel()
+     * @see #getIntegerEnumeration()
      * @generated
      */
-	EReference getEnumeration_Model();
+    EReference getIntegerEnumeration_Model();
 
-	/**
-     * Returns the meta object for class '{@link BusinessDomainDsl.EnumerationLiteral <em>Enumeration Literal</em>}'.
+    /**
+     * Returns the meta object for class '{@link BusinessDomainDsl.IntegerEnumerationLiteral <em>Integer Enumeration Literal</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Enumeration Literal</em>'.
-     * @see BusinessDomainDsl.EnumerationLiteral
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Integer Enumeration Literal</em>'.
+     * @see BusinessDomainDsl.IntegerEnumerationLiteral
      * @generated
      */
-	EClass getEnumerationLiteral();
+    EClass getIntegerEnumerationLiteral();
 
-	/**
-     * Returns the meta object for the attribute '{@link BusinessDomainDsl.EnumerationLiteral#getPersistedValue <em>Persisted Value</em>}'.
+    /**
+     * Returns the meta object for the attribute '{@link BusinessDomainDsl.IntegerEnumerationLiteral#getPersistedValue <em>Persisted Value</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Persisted Value</em>'.
-     * @see BusinessDomainDsl.EnumerationLiteral#getPersistedValue()
-     * @see #getEnumerationLiteral()
+     * @see BusinessDomainDsl.IntegerEnumerationLiteral#getPersistedValue()
+     * @see #getIntegerEnumerationLiteral()
      * @generated
      */
-	EAttribute getEnumerationLiteral_PersistedValue();
+    EAttribute getIntegerEnumerationLiteral_PersistedValue();
 
-	/**
-     * Returns the meta object for the container reference '{@link BusinessDomainDsl.EnumerationLiteral#getEnumeration <em>Enumeration</em>}'.
+    /**
+     * Returns the meta object for the container reference '{@link BusinessDomainDsl.IntegerEnumerationLiteral#getEnumeration <em>Enumeration</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the meta object for the container reference '<em>Enumeration</em>'.
-     * @see BusinessDomainDsl.EnumerationLiteral#getEnumeration()
-     * @see #getEnumerationLiteral()
+     * @see BusinessDomainDsl.IntegerEnumerationLiteral#getEnumeration()
+     * @see #getIntegerEnumerationLiteral()
      * @generated
      */
-	EReference getEnumerationLiteral_Enumeration();
+    EReference getIntegerEnumerationLiteral_Enumeration();
 
-	/**
+    /**
      * Returns the meta object for class '{@link BusinessDomainDsl.AbstractBusinessRule <em>Abstract Business Rule</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3155,58 +3155,58 @@ public interface BusinessDomainDslPackage extends EPackage {
         EAttribute PROPERTY__COLUMN = eINSTANCE.getProperty_Column();
 
         /**
-         * The meta object literal for the '{@link BusinessDomainDsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
+         * The meta object literal for the '{@link BusinessDomainDsl.impl.IntegerEnumerationImpl <em>Integer Enumeration</em>}' class.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @see BusinessDomainDsl.impl.EnumerationImpl
-         * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getEnumeration()
+         * <!-- end-user-doc -->
+         * @see BusinessDomainDsl.impl.IntegerEnumerationImpl
+         * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getIntegerEnumeration()
          * @generated
          */
-		EClass ENUMERATION = eINSTANCE.getEnumeration();
+        EClass INTEGER_ENUMERATION = eINSTANCE.getIntegerEnumeration();
 
-		/**
+        /**
          * The meta object literal for the '<em><b>Enumeration Literals</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-		EReference ENUMERATION__ENUMERATION_LITERALS = eINSTANCE.getEnumeration_EnumerationLiterals();
+        EReference INTEGER_ENUMERATION__ENUMERATION_LITERALS = eINSTANCE.getIntegerEnumeration_EnumerationLiterals();
 
-		/**
+        /**
          * The meta object literal for the '<em><b>Model</b></em>' container reference feature.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-		EReference ENUMERATION__MODEL = eINSTANCE.getEnumeration_Model();
+        EReference INTEGER_ENUMERATION__MODEL = eINSTANCE.getIntegerEnumeration_Model();
 
-		/**
-         * The meta object literal for the '{@link BusinessDomainDsl.impl.EnumerationLiteralImpl <em>Enumeration Literal</em>}' class.
+        /**
+         * The meta object literal for the '{@link BusinessDomainDsl.impl.IntegerEnumerationLiteralImpl <em>Integer Enumeration Literal</em>}' class.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @see BusinessDomainDsl.impl.EnumerationLiteralImpl
-         * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getEnumerationLiteral()
+         * <!-- end-user-doc -->
+         * @see BusinessDomainDsl.impl.IntegerEnumerationLiteralImpl
+         * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getIntegerEnumerationLiteral()
          * @generated
          */
-		EClass ENUMERATION_LITERAL = eINSTANCE.getEnumerationLiteral();
+        EClass INTEGER_ENUMERATION_LITERAL = eINSTANCE.getIntegerEnumerationLiteral();
 
-		/**
+        /**
          * The meta object literal for the '<em><b>Persisted Value</b></em>' attribute feature.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-		EAttribute ENUMERATION_LITERAL__PERSISTED_VALUE = eINSTANCE.getEnumerationLiteral_PersistedValue();
+        EAttribute INTEGER_ENUMERATION_LITERAL__PERSISTED_VALUE = eINSTANCE.getIntegerEnumerationLiteral_PersistedValue();
 
-		/**
+        /**
          * The meta object literal for the '<em><b>Enumeration</b></em>' container reference feature.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-		EReference ENUMERATION_LITERAL__ENUMERATION = eINSTANCE.getEnumerationLiteral_Enumeration();
+        EReference INTEGER_ENUMERATION_LITERAL__ENUMERATION = eINSTANCE.getIntegerEnumerationLiteral_Enumeration();
 
-		/**
+        /**
          * The meta object literal for the '{@link BusinessDomainDsl.impl.AbstractBusinessRuleImpl <em>Abstract Business Rule</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

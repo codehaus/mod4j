@@ -124,11 +124,11 @@ context StringProperty ERROR "The minimum lenght of Property ["+ name + "] must 
 // context EnumerationProperty ERROR "The default value of Property ["+ name + "] must be an enumeration literal of [" + type.name + "]." :
 //    (hasDefault ? this.type.enumerationLiterals.name.contains(defaultValue) : true);
  
-context Enumeration ERROR "Enumeration literals must be unique" :
+context IntegerEnumeration ERROR "IntegerEnumeration literals must be unique" :
       enumerationLiterals.forAll(e1 | 
          enumerationLiterals.forAll( e2 | e1 != e2 implies e1.name != e2.name) );
 
-context Enumeration ERROR "Enumeration numeric values must be unique" :
+context IntegerEnumeration ERROR "IntegerEnumeration numeric values must be unique" :
       enumerationLiterals.forAll(e1 | 
          enumerationLiterals.forAll( e2 | e1 != e2 implies e1.persistedValue!= e2.persistedValue) );
 

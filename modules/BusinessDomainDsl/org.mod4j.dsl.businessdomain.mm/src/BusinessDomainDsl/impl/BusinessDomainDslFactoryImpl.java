@@ -24,13 +24,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * @generated
  */
 public class BusinessDomainDslFactoryImpl extends EFactoryImpl implements BusinessDomainDslFactory {
-	/**
+    /**
      * Creates the default factory implementation.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public static BusinessDomainDslFactory init() {
+    public static BusinessDomainDslFactory init() {
         try {
             BusinessDomainDslFactory theBusinessDomainDslFactory = (BusinessDomainDslFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.mod4j.org/busmod"); 
             if (theBusinessDomainDslFactory != null) {
@@ -43,30 +43,30 @@ public class BusinessDomainDslFactoryImpl extends EFactoryImpl implements Busine
         return new BusinessDomainDslFactoryImpl();
     }
 
-	/**
+    /**
      * Creates an instance of the factory.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusinessDomainDslFactoryImpl() {
+    public BusinessDomainDslFactoryImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public EObject create(EClass eClass) {
+    @Override
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
             case BusinessDomainDslPackage.MODEL_ELEMENT: return createModelElement();
             case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL: return createBusinessDomainModel();
             case BusinessDomainDslPackage.BUSINESS_CLASS: return createBusinessClass();
             case BusinessDomainDslPackage.PROPERTY: return createProperty();
-            case BusinessDomainDslPackage.ENUMERATION: return createEnumeration();
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL: return createEnumerationLiteral();
+            case BusinessDomainDslPackage.INTEGER_ENUMERATION: return createIntegerEnumeration();
+            case BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL: return createIntegerEnumerationLiteral();
             case BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE: return createAbstractBusinessRule();
             case BusinessDomainDslPackage.BOOL_PROPERTY: return createBoolProperty();
             case BusinessDomainDslPackage.DATE_TIME_PROPERTY: return createDateTimeProperty();
@@ -86,13 +86,13 @@ public class BusinessDomainDslFactoryImpl extends EFactoryImpl implements Busine
         }
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
+    @Override
+    public Object createFromString(EDataType eDataType, String initialValue) {
         switch (eDataType.getClassifierID()) {
             case BusinessDomainDslPackage.MULTIPLICITY:
                 return createMultiplicityFromString(eDataType, initialValue);
@@ -105,13 +105,13 @@ public class BusinessDomainDslFactoryImpl extends EFactoryImpl implements Busine
         }
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
+    @Override
+    public String convertToString(EDataType eDataType, Object instanceValue) {
         switch (eDataType.getClassifierID()) {
             case BusinessDomainDslPackage.MULTIPLICITY:
                 return convertMultiplicityToString(eDataType, instanceValue);
@@ -124,283 +124,283 @@ public class BusinessDomainDslFactoryImpl extends EFactoryImpl implements Busine
         }
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public ModelElement createModelElement() {
+    public ModelElement createModelElement() {
         ModelElementImpl modelElement = new ModelElementImpl();
         return modelElement;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusinessDomainModel createBusinessDomainModel() {
+    public BusinessDomainModel createBusinessDomainModel() {
         BusinessDomainModelImpl businessDomainModel = new BusinessDomainModelImpl();
         return businessDomainModel;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusinessClass createBusinessClass() {
+    public BusinessClass createBusinessClass() {
         BusinessClassImpl businessClass = new BusinessClassImpl();
         return businessClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public Property createProperty() {
+    public Property createProperty() {
         PropertyImpl property = new PropertyImpl();
         return property;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public Enumeration createEnumeration() {
-        EnumerationImpl enumeration = new EnumerationImpl();
-        return enumeration;
+    public IntegerEnumeration createIntegerEnumeration() {
+        IntegerEnumerationImpl integerEnumeration = new IntegerEnumerationImpl();
+        return integerEnumeration;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EnumerationLiteral createEnumerationLiteral() {
-        EnumerationLiteralImpl enumerationLiteral = new EnumerationLiteralImpl();
-        return enumerationLiteral;
+    public IntegerEnumerationLiteral createIntegerEnumerationLiteral() {
+        IntegerEnumerationLiteralImpl integerEnumerationLiteral = new IntegerEnumerationLiteralImpl();
+        return integerEnumerationLiteral;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public AbstractBusinessRule createAbstractBusinessRule() {
+    public AbstractBusinessRule createAbstractBusinessRule() {
         AbstractBusinessRuleImpl abstractBusinessRule = new AbstractBusinessRuleImpl();
         return abstractBusinessRule;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BoolProperty createBoolProperty() {
+    public BoolProperty createBoolProperty() {
         BoolPropertyImpl boolProperty = new BoolPropertyImpl();
         return boolProperty;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public DateTimeProperty createDateTimeProperty() {
+    public DateTimeProperty createDateTimeProperty() {
         DateTimePropertyImpl dateTimeProperty = new DateTimePropertyImpl();
         return dateTimeProperty;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EnumerationProperty createEnumerationProperty() {
+    public EnumerationProperty createEnumerationProperty() {
         EnumerationPropertyImpl enumerationProperty = new EnumerationPropertyImpl();
         return enumerationProperty;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public IntegerProperty createIntegerProperty() {
+    public IntegerProperty createIntegerProperty() {
         IntegerPropertyImpl integerProperty = new IntegerPropertyImpl();
         return integerProperty;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public StringProperty createStringProperty() {
+    public StringProperty createStringProperty() {
         StringPropertyImpl stringProperty = new StringPropertyImpl();
         return stringProperty;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BlobBinaryProperty createBlobBinaryProperty() {
+    public BlobBinaryProperty createBlobBinaryProperty() {
         BlobBinaryPropertyImpl blobBinaryProperty = new BlobBinaryPropertyImpl();
         return blobBinaryProperty;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BlobTextProperty createBlobTextProperty() {
+    public BlobTextProperty createBlobTextProperty() {
         BlobTextPropertyImpl blobTextProperty = new BlobTextPropertyImpl();
         return blobTextProperty;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public Association createAssociation() {
+    public Association createAssociation() {
         AssociationImpl association = new AssociationImpl();
         return association;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public DecimalProperty createDecimalProperty() {
+    public DecimalProperty createDecimalProperty() {
         DecimalPropertyImpl decimalProperty = new DecimalPropertyImpl();
         return decimalProperty;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public AbstractBusinessClass createAbstractBusinessClass() {
+    public AbstractBusinessClass createAbstractBusinessClass() {
         AbstractBusinessClassImpl abstractBusinessClass = new AbstractBusinessClassImpl();
         return abstractBusinessClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusinessClassReference createBusinessClassReference() {
+    public BusinessClassReference createBusinessClassReference() {
         BusinessClassReferenceImpl businessClassReference = new BusinessClassReferenceImpl();
         return businessClassReference;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public UniqueRule createUniqueRule() {
+    public UniqueRule createUniqueRule() {
         UniqueRuleImpl uniqueRule = new UniqueRuleImpl();
         return uniqueRule;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusinessRule createBusinessRule() {
+    public BusinessRule createBusinessRule() {
         BusinessRuleImpl businessRule = new BusinessRuleImpl();
         return businessRule;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public Multiplicity createMultiplicityFromString(EDataType eDataType, String initialValue) {
+    public Multiplicity createMultiplicityFromString(EDataType eDataType, String initialValue) {
         Multiplicity result = Multiplicity.get(initialValue);
         if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
         return result;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String convertMultiplicityToString(EDataType eDataType, Object instanceValue) {
+    public String convertMultiplicityToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public DateTimeAccuracy createDateTimeAccuracyFromString(EDataType eDataType, String initialValue) {
+    public DateTimeAccuracy createDateTimeAccuracyFromString(EDataType eDataType, String initialValue) {
         DateTimeAccuracy result = DateTimeAccuracy.get(initialValue);
         if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
         return result;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String convertDateTimeAccuracyToString(EDataType eDataType, Object instanceValue) {
+    public String convertDateTimeAccuracyToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public PersistencyMode createPersistencyModeFromString(EDataType eDataType, String initialValue) {
+    public PersistencyMode createPersistencyModeFromString(EDataType eDataType, String initialValue) {
         PersistencyMode result = PersistencyMode.get(initialValue);
         if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
         return result;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String convertPersistencyModeToString(EDataType eDataType, Object instanceValue) {
+    public String convertPersistencyModeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusinessDomainDslPackage getBusinessDomainDslPackage() {
+    public BusinessDomainDslPackage getBusinessDomainDslPackage() {
         return (BusinessDomainDslPackage)getEPackage();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @deprecated
      * @generated
      */
-	@Deprecated
-	public static BusinessDomainDslPackage getPackage() {
+    @Deprecated
+    public static BusinessDomainDslPackage getPackage() {
         return BusinessDomainDslPackage.eINSTANCE;
     }
 

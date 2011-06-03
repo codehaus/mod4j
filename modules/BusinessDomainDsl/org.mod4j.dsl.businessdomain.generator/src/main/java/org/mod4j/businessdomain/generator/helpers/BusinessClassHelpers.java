@@ -20,8 +20,8 @@ import BusinessDomainDsl.BusinessClass;
 import BusinessDomainDsl.BusinessDomainModel;
 import BusinessDomainDsl.DateTimeProperty;
 import BusinessDomainDsl.DecimalProperty;
-import BusinessDomainDsl.Enumeration;
 import BusinessDomainDsl.EnumerationProperty;
+import BusinessDomainDsl.IntegerEnumeration;
 import BusinessDomainDsl.IntegerProperty;
 import BusinessDomainDsl.Multiplicity;
 import BusinessDomainDsl.Property;
@@ -156,7 +156,7 @@ public class BusinessClassHelpers {
     }
 
     public static String javaType(EnumerationProperty p) {
-        Enumeration e = p.getType();
+        IntegerEnumeration e = p.getType();
         if (e == null) {
             System.err.println("ERROR in javaType() for EnumerationProperty");
             return "Object";

@@ -29,8 +29,8 @@ import org.eclipse.emf.common.util.EList;
 public interface BusinessDomainModel extends ModelElement {
 	/**
      * Returns the value of the '<em><b>Enumerations</b></em>' containment reference list.
-     * The list contents are of type {@link BusinessDomainDsl.Enumeration}.
-     * It is bidirectional and its opposite is '{@link BusinessDomainDsl.Enumeration#getModel <em>Model</em>}'.
+     * The list contents are of type {@link BusinessDomainDsl.IntegerEnumeration}.
+     * It is bidirectional and its opposite is '{@link BusinessDomainDsl.IntegerEnumeration#getModel <em>Model</em>}'.
      * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Enumerations</em>' containment reference list isn't clear,
@@ -39,11 +39,11 @@ public interface BusinessDomainModel extends ModelElement {
 	 * <!-- end-user-doc -->
      * @return the value of the '<em>Enumerations</em>' containment reference list.
      * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessDomainModel_Enumerations()
-     * @see BusinessDomainDsl.Enumeration#getModel
+     * @see BusinessDomainDsl.IntegerEnumeration#getModel
      * @model opposite="model" containment="true"
      * @generated
      */
-	EList<Enumeration> getEnumerations();
+	EList<IntegerEnumeration> getEnumerations();
 
 	/**
      * Returns the value of the '<em><b>Types</b></em>' containment reference list.

@@ -6,13 +6,6 @@
  */
 package BusinessDomainDsl.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import BusinessDomainDsl.AbstractBusinessClass;
 import BusinessDomainDsl.AbstractBusinessRule;
 import BusinessDomainDsl.AbstractType;
@@ -29,9 +22,9 @@ import BusinessDomainDsl.BusinessRule;
 import BusinessDomainDsl.DateTimeAccuracy;
 import BusinessDomainDsl.DateTimeProperty;
 import BusinessDomainDsl.DecimalProperty;
-import BusinessDomainDsl.Enumeration;
-import BusinessDomainDsl.EnumerationLiteral;
 import BusinessDomainDsl.EnumerationProperty;
+import BusinessDomainDsl.IntegerEnumeration;
+import BusinessDomainDsl.IntegerEnumerationLiteral;
 import BusinessDomainDsl.IntegerProperty;
 import BusinessDomainDsl.ModelElement;
 import BusinessDomainDsl.Multiplicity;
@@ -40,6 +33,14 @@ import BusinessDomainDsl.Property;
 import BusinessDomainDsl.StringProperty;
 import BusinessDomainDsl.UniqueRule;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
@@ -47,175 +48,175 @@ import BusinessDomainDsl.UniqueRule;
  * @generated
  */
 public class BusinessDomainDslPackageImpl extends EPackageImpl implements BusinessDomainDslPackage {
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass modelElementEClass = null;
+    private EClass modelElementEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass businessDomainModelEClass = null;
+    private EClass businessDomainModelEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass businessClassEClass = null;
+    private EClass businessClassEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass propertyEClass = null;
+    private EClass propertyEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass enumerationEClass = null;
+    private EClass integerEnumerationEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass enumerationLiteralEClass = null;
+    private EClass integerEnumerationLiteralEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass abstractBusinessRuleEClass = null;
+    private EClass abstractBusinessRuleEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass boolPropertyEClass = null;
+    private EClass boolPropertyEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass dateTimePropertyEClass = null;
+    private EClass dateTimePropertyEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass enumerationPropertyEClass = null;
+    private EClass enumerationPropertyEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass integerPropertyEClass = null;
+    private EClass integerPropertyEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass stringPropertyEClass = null;
+    private EClass stringPropertyEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass abstractTypeEClass = null;
+    private EClass abstractTypeEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass blobBinaryPropertyEClass = null;
+    private EClass blobBinaryPropertyEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass blobTextPropertyEClass = null;
+    private EClass blobTextPropertyEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass associationEClass = null;
+    private EClass associationEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass decimalPropertyEClass = null;
+    private EClass decimalPropertyEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass abstractBusinessClassEClass = null;
+    private EClass abstractBusinessClassEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass businessClassReferenceEClass = null;
+    private EClass businessClassReferenceEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass uniqueRuleEClass = null;
+    private EClass uniqueRuleEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass businessRuleEClass = null;
+    private EClass businessRuleEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EEnum multiplicityEEnum = null;
+    private EEnum multiplicityEEnum = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EEnum dateTimeAccuracyEEnum = null;
+    private EEnum dateTimeAccuracyEEnum = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EEnum persistencyModeEEnum = null;
+    private EEnum persistencyModeEEnum = null;
 
-	/**
+    /**
      * Creates an instance of the model <b>Package</b>, registered with
      * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
      * package URI value.
@@ -224,36 +225,36 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
      * initialization of the package, or returns the registered package,
      * if one already exists.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see BusinessDomainDsl.BusinessDomainDslPackage#eNS_URI
      * @see #init()
      * @generated
      */
-	private BusinessDomainDslPackageImpl() {
+    private BusinessDomainDslPackageImpl() {
         super(eNS_URI, BusinessDomainDslFactory.eINSTANCE);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private static boolean isInited = false;
+    private static boolean isInited = false;
 
-	/**
+    /**
      * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
      * 
      * <p>This method is used to initialize {@link BusinessDomainDslPackage#eINSTANCE} when that field is accessed.
      * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
      * @generated
      */
-	public static BusinessDomainDslPackage init() {
+    public static BusinessDomainDslPackage init() {
         if (isInited) return (BusinessDomainDslPackage)EPackage.Registry.INSTANCE.getEPackage(BusinessDomainDslPackage.eNS_URI);
 
         // Obtain or create and register package
@@ -276,106 +277,106 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         return theBusinessDomainDslPackage;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getModelElement() {
+    public EClass getModelElement() {
         return modelElementEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getModelElement_Name() {
+    public EAttribute getModelElement_Name() {
         return (EAttribute)modelElementEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getModelElement_Description() {
+    public EAttribute getModelElement_Description() {
         return (EAttribute)modelElementEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getBusinessDomainModel() {
+    public EClass getBusinessDomainModel() {
         return businessDomainModelEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getBusinessDomainModel_Enumerations() {
+    public EReference getBusinessDomainModel_Enumerations() {
         return (EReference)businessDomainModelEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getBusinessDomainModel_Types() {
+    public EReference getBusinessDomainModel_Types() {
         return (EReference)businessDomainModelEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getBusinessDomainModel_Associations() {
+    public EReference getBusinessDomainModel_Associations() {
         return (EReference)businessDomainModelEClass.getEStructuralFeatures().get(2);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getBusinessClass() {
+    public EClass getBusinessClass() {
         return businessClassEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getBusinessClass_BusinessRules() {
+    public EReference getBusinessClass_BusinessRules() {
         return (EReference)businessClassEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getBusinessClass_Superclass() {
+    public EReference getBusinessClass_Superclass() {
         return (EReference)businessClassEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getBusinessClass_AssociationsTo() {
+    public EReference getBusinessClass_AssociationsTo() {
         return (EReference)businessClassEClass.getEStructuralFeatures().get(2);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -386,32 +387,32 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getProperty() {
+    public EClass getProperty() {
         return propertyEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getProperty_DataType() {
+    public EAttribute getProperty_DataType() {
         return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getProperty_Nullable() {
+    public EAttribute getProperty_Nullable() {
         return (EAttribute)propertyEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -422,41 +423,41 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getProperty_Writable() {
+    public EAttribute getProperty_Writable() {
         return (EAttribute)propertyEClass.getEStructuralFeatures().get(3);
     }
 
-				/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getProperty_Persistency() {
+    public EAttribute getProperty_Persistency() {
         return (EAttribute)propertyEClass.getEStructuralFeatures().get(4);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getProperty_HasDefault() {
+    public EAttribute getProperty_HasDefault() {
         return (EAttribute)propertyEClass.getEStructuralFeatures().get(5);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getProperty_OwningType() {
+    public EReference getProperty_OwningType() {
         return (EReference)propertyEClass.getEStructuralFeatures().get(6);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -467,374 +468,374 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getEnumeration() {
-        return enumerationEClass;
+    public EClass getIntegerEnumeration() {
+        return integerEnumerationEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getEnumeration_EnumerationLiterals() {
-        return (EReference)enumerationEClass.getEStructuralFeatures().get(0);
+    public EReference getIntegerEnumeration_EnumerationLiterals() {
+        return (EReference)integerEnumerationEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getEnumeration_Model() {
-        return (EReference)enumerationEClass.getEStructuralFeatures().get(1);
+    public EReference getIntegerEnumeration_Model() {
+        return (EReference)integerEnumerationEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getEnumerationLiteral() {
-        return enumerationLiteralEClass;
+    public EClass getIntegerEnumerationLiteral() {
+        return integerEnumerationLiteralEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getEnumerationLiteral_PersistedValue() {
-        return (EAttribute)enumerationLiteralEClass.getEStructuralFeatures().get(0);
+    public EAttribute getIntegerEnumerationLiteral_PersistedValue() {
+        return (EAttribute)integerEnumerationLiteralEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getEnumerationLiteral_Enumeration() {
-        return (EReference)enumerationLiteralEClass.getEStructuralFeatures().get(1);
+    public EReference getIntegerEnumerationLiteral_Enumeration() {
+        return (EReference)integerEnumerationLiteralEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getAbstractBusinessRule() {
+    public EClass getAbstractBusinessRule() {
         return abstractBusinessRuleEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getAbstractBusinessRule_BusinessClass() {
+    public EReference getAbstractBusinessRule_BusinessClass() {
         return (EReference)abstractBusinessRuleEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getBoolProperty() {
+    public EClass getBoolProperty() {
         return boolPropertyEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getBoolProperty_DefaultValue() {
+    public EAttribute getBoolProperty_DefaultValue() {
         return (EAttribute)boolPropertyEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getDateTimeProperty() {
+    public EClass getDateTimeProperty() {
         return dateTimePropertyEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getDateTimeProperty_Accuracy() {
+    public EAttribute getDateTimeProperty_Accuracy() {
         return (EAttribute)dateTimePropertyEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getDateTimeProperty_DefaultValue() {
+    public EAttribute getDateTimeProperty_DefaultValue() {
         return (EAttribute)dateTimePropertyEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getEnumerationProperty() {
+    public EClass getEnumerationProperty() {
         return enumerationPropertyEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getEnumerationProperty_Type() {
+    public EReference getEnumerationProperty_Type() {
         return (EReference)enumerationPropertyEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getEnumerationProperty_DefaultValueAsString() {
+    public EAttribute getEnumerationProperty_DefaultValueAsString() {
         return (EAttribute)enumerationPropertyEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getIntegerProperty() {
+    public EClass getIntegerProperty() {
         return integerPropertyEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getIntegerProperty_MinValue() {
+    public EAttribute getIntegerProperty_MinValue() {
         return (EAttribute)integerPropertyEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getIntegerProperty_MaxValue() {
+    public EAttribute getIntegerProperty_MaxValue() {
         return (EAttribute)integerPropertyEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getIntegerProperty_DefaultValue() {
+    public EAttribute getIntegerProperty_DefaultValue() {
         return (EAttribute)integerPropertyEClass.getEStructuralFeatures().get(2);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getStringProperty() {
+    public EClass getStringProperty() {
         return stringPropertyEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getStringProperty_RegularExpression() {
+    public EAttribute getStringProperty_RegularExpression() {
         return (EAttribute)stringPropertyEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getStringProperty_MinLength() {
+    public EAttribute getStringProperty_MinLength() {
         return (EAttribute)stringPropertyEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getStringProperty_MaxLength() {
+    public EAttribute getStringProperty_MaxLength() {
         return (EAttribute)stringPropertyEClass.getEStructuralFeatures().get(2);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getStringProperty_DefaultValue() {
+    public EAttribute getStringProperty_DefaultValue() {
         return (EAttribute)stringPropertyEClass.getEStructuralFeatures().get(3);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getAbstractType() {
+    public EClass getAbstractType() {
         return abstractTypeEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getAbstractType_Properties() {
+    public EReference getAbstractType_Properties() {
         return (EReference)abstractTypeEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getAbstractType_Model() {
+    public EReference getAbstractType_Model() {
         return (EReference)abstractTypeEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getBlobBinaryProperty() {
+    public EClass getBlobBinaryProperty() {
         return blobBinaryPropertyEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getBlobTextProperty() {
+    public EClass getBlobTextProperty() {
         return blobTextPropertyEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getAssociation() {
+    public EClass getAssociation() {
         return associationEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getAssociation_Source() {
+    public EReference getAssociation_Source() {
         return (EReference)associationEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getAssociation_Target() {
+    public EReference getAssociation_Target() {
         return (EReference)associationEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getAssociation_SourceRoleName() {
+    public EAttribute getAssociation_SourceRoleName() {
         return (EAttribute)associationEClass.getEStructuralFeatures().get(2);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getAssociation_SourceMultiplicity() {
+    public EAttribute getAssociation_SourceMultiplicity() {
         return (EAttribute)associationEClass.getEStructuralFeatures().get(3);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getAssociation_TargetRoleName() {
+    public EAttribute getAssociation_TargetRoleName() {
         return (EAttribute)associationEClass.getEStructuralFeatures().get(4);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getAssociation_TargetMultiplicity() {
+    public EAttribute getAssociation_TargetMultiplicity() {
         return (EAttribute)associationEClass.getEStructuralFeatures().get(5);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getAssociation_Composite() {
+    public EAttribute getAssociation_Composite() {
         return (EAttribute)associationEClass.getEStructuralFeatures().get(6);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getAssociation_Bidirectional() {
+    public EAttribute getAssociation_Bidirectional() {
         return (EAttribute)associationEClass.getEStructuralFeatures().get(7);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getAssociation_Ordered() {
+    public EAttribute getAssociation_Ordered() {
         return (EAttribute)associationEClass.getEStructuralFeatures().get(8);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getAssociation_Model() {
+    public EReference getAssociation_Model() {
         return (EReference)associationEClass.getEStructuralFeatures().get(9);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -890,172 +891,172 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getDecimalProperty() {
+    public EClass getDecimalProperty() {
         return decimalPropertyEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getDecimalProperty_MinValue() {
+    public EAttribute getDecimalProperty_MinValue() {
         return (EAttribute)decimalPropertyEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getDecimalProperty_MaxValue() {
+    public EAttribute getDecimalProperty_MaxValue() {
         return (EAttribute)decimalPropertyEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getDecimalProperty_MinInclusive() {
+    public EAttribute getDecimalProperty_MinInclusive() {
         return (EAttribute)decimalPropertyEClass.getEStructuralFeatures().get(2);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getDecimalProperty_MaxInclusive() {
+    public EAttribute getDecimalProperty_MaxInclusive() {
         return (EAttribute)decimalPropertyEClass.getEStructuralFeatures().get(3);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getDecimalProperty_DefaultValue() {
+    public EAttribute getDecimalProperty_DefaultValue() {
         return (EAttribute)decimalPropertyEClass.getEStructuralFeatures().get(4);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getAbstractBusinessClass() {
+    public EClass getAbstractBusinessClass() {
         return abstractBusinessClassEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getAbstractBusinessClass_AssociationsFrom() {
+    public EReference getAbstractBusinessClass_AssociationsFrom() {
         return (EReference)abstractBusinessClassEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getBusinessClassReference() {
+    public EClass getBusinessClassReference() {
         return businessClassReferenceEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getBusinessClassReference_ReferredModel() {
+    public EAttribute getBusinessClassReference_ReferredModel() {
         return (EAttribute)businessClassReferenceEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getUniqueRule() {
+    public EClass getUniqueRule() {
         return uniqueRuleEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getUniqueRule_Properties() {
+    public EReference getUniqueRule_Properties() {
         return (EReference)uniqueRuleEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getBusinessRule() {
+    public EClass getBusinessRule() {
         return businessRuleEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EEnum getMultiplicity() {
+    public EEnum getMultiplicity() {
         return multiplicityEEnum;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EEnum getDateTimeAccuracy() {
+    public EEnum getDateTimeAccuracy() {
         return dateTimeAccuracyEEnum;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EEnum getPersistencyMode() {
+    public EEnum getPersistencyMode() {
         return persistencyModeEEnum;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusinessDomainDslFactory getBusinessDomainDslFactory() {
+    public BusinessDomainDslFactory getBusinessDomainDslFactory() {
         return (BusinessDomainDslFactory)getEFactoryInstance();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private boolean isCreated = false;
+    private boolean isCreated = false;
 
-	/**
+    /**
      * Creates the meta-model objects for the package.  This method is
      * guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void createPackageContents() {
+    public void createPackageContents() {
         if (isCreated) return;
         isCreated = true;
 
@@ -1085,13 +1086,13 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         createEReference(propertyEClass, PROPERTY__OWNING_TYPE);
         createEAttribute(propertyEClass, PROPERTY__COLUMN);
 
-        enumerationEClass = createEClass(ENUMERATION);
-        createEReference(enumerationEClass, ENUMERATION__ENUMERATION_LITERALS);
-        createEReference(enumerationEClass, ENUMERATION__MODEL);
+        integerEnumerationEClass = createEClass(INTEGER_ENUMERATION);
+        createEReference(integerEnumerationEClass, INTEGER_ENUMERATION__ENUMERATION_LITERALS);
+        createEReference(integerEnumerationEClass, INTEGER_ENUMERATION__MODEL);
 
-        enumerationLiteralEClass = createEClass(ENUMERATION_LITERAL);
-        createEAttribute(enumerationLiteralEClass, ENUMERATION_LITERAL__PERSISTED_VALUE);
-        createEReference(enumerationLiteralEClass, ENUMERATION_LITERAL__ENUMERATION);
+        integerEnumerationLiteralEClass = createEClass(INTEGER_ENUMERATION_LITERAL);
+        createEAttribute(integerEnumerationLiteralEClass, INTEGER_ENUMERATION_LITERAL__PERSISTED_VALUE);
+        createEReference(integerEnumerationLiteralEClass, INTEGER_ENUMERATION_LITERAL__ENUMERATION);
 
         abstractBusinessRuleEClass = createEClass(ABSTRACT_BUSINESS_RULE);
         createEReference(abstractBusinessRuleEClass, ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS);
@@ -1168,21 +1169,21 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         persistencyModeEEnum = createEEnum(PERSISTENCY_MODE);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private boolean isInitialized = false;
+    private boolean isInitialized = false;
 
-	/**
+    /**
      * Complete the initialization of the package and its meta-model.  This
      * method is guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void initializePackageContents() {
+    public void initializePackageContents() {
         if (isInitialized) return;
         isInitialized = true;
 
@@ -1199,8 +1200,8 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         businessDomainModelEClass.getESuperTypes().add(this.getModelElement());
         businessClassEClass.getESuperTypes().add(this.getAbstractBusinessClass());
         propertyEClass.getESuperTypes().add(this.getModelElement());
-        enumerationEClass.getESuperTypes().add(this.getModelElement());
-        enumerationLiteralEClass.getESuperTypes().add(this.getModelElement());
+        integerEnumerationEClass.getESuperTypes().add(this.getModelElement());
+        integerEnumerationLiteralEClass.getESuperTypes().add(this.getModelElement());
         abstractBusinessRuleEClass.getESuperTypes().add(this.getModelElement());
         boolPropertyEClass.getESuperTypes().add(this.getProperty());
         dateTimePropertyEClass.getESuperTypes().add(this.getProperty());
@@ -1223,7 +1224,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         initEAttribute(getModelElement_Description(), ecorePackage.getEString(), "description", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(businessDomainModelEClass, BusinessDomainModel.class, "BusinessDomainModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getBusinessDomainModel_Enumerations(), this.getEnumeration(), this.getEnumeration_Model(), "enumerations", null, 0, -1, BusinessDomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getBusinessDomainModel_Enumerations(), this.getIntegerEnumeration(), this.getIntegerEnumeration_Model(), "enumerations", null, 0, -1, BusinessDomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBusinessDomainModel_Types(), this.getAbstractType(), this.getAbstractType_Model(), "types", null, 0, -1, BusinessDomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBusinessDomainModel_Associations(), this.getAssociation(), this.getAssociation_Model(), "associations", null, 0, -1, BusinessDomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -1243,13 +1244,13 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         initEReference(getProperty_OwningType(), this.getAbstractType(), this.getAbstractType_Properties(), "owningType", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getProperty_Column(), ecorePackage.getEString(), "column", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getEnumeration_EnumerationLiterals(), this.getEnumerationLiteral(), this.getEnumerationLiteral_Enumeration(), "enumerationLiterals", null, 0, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getEnumeration_Model(), this.getBusinessDomainModel(), this.getBusinessDomainModel_Enumerations(), "model", null, 0, 1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(integerEnumerationEClass, IntegerEnumeration.class, "IntegerEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getIntegerEnumeration_EnumerationLiterals(), this.getIntegerEnumerationLiteral(), this.getIntegerEnumerationLiteral_Enumeration(), "enumerationLiterals", null, 0, -1, IntegerEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getIntegerEnumeration_Model(), this.getBusinessDomainModel(), this.getBusinessDomainModel_Enumerations(), "model", null, 0, 1, IntegerEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(enumerationLiteralEClass, EnumerationLiteral.class, "EnumerationLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getEnumerationLiteral_PersistedValue(), ecorePackage.getEInt(), "persistedValue", null, 0, 1, EnumerationLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getEnumerationLiteral_Enumeration(), this.getEnumeration(), this.getEnumeration_EnumerationLiterals(), "enumeration", null, 0, 1, EnumerationLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(integerEnumerationLiteralEClass, IntegerEnumerationLiteral.class, "IntegerEnumerationLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getIntegerEnumerationLiteral_PersistedValue(), ecorePackage.getEInt(), "persistedValue", null, 0, 1, IntegerEnumerationLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getIntegerEnumerationLiteral_Enumeration(), this.getIntegerEnumeration(), this.getIntegerEnumeration_EnumerationLiterals(), "enumeration", null, 0, 1, IntegerEnumerationLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(abstractBusinessRuleEClass, AbstractBusinessRule.class, "AbstractBusinessRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getAbstractBusinessRule_BusinessClass(), this.getBusinessClass(), this.getBusinessClass_BusinessRules(), "businessClass", null, 0, 1, AbstractBusinessRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1262,7 +1263,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         initEAttribute(getDateTimeProperty_DefaultValue(), ecorePackage.getEString(), "defaultValue", "", 0, 1, DateTimeProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(enumerationPropertyEClass, EnumerationProperty.class, "EnumerationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getEnumerationProperty_Type(), this.getEnumeration(), null, "type", null, 1, 1, EnumerationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getEnumerationProperty_Type(), this.getIntegerEnumeration(), null, "type", null, 1, 1, EnumerationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getEnumerationProperty_DefaultValueAsString(), ecorePackage.getEString(), "defaultValueAsString", null, 0, 1, EnumerationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(integerPropertyEClass, IntegerProperty.class, "IntegerProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

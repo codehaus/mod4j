@@ -116,17 +116,17 @@ public class BusinessDomainDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case BusinessDomainDslPackage.ENUMERATION: {
-                Enumeration enumeration = (Enumeration)theEObject;
-                T result = caseEnumeration(enumeration);
-                if (result == null) result = caseModelElement(enumeration);
+            case BusinessDomainDslPackage.INTEGER_ENUMERATION: {
+                IntegerEnumeration integerEnumeration = (IntegerEnumeration)theEObject;
+                T result = caseIntegerEnumeration(integerEnumeration);
+                if (result == null) result = caseModelElement(integerEnumeration);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL: {
-                EnumerationLiteral enumerationLiteral = (EnumerationLiteral)theEObject;
-                T result = caseEnumerationLiteral(enumerationLiteral);
-                if (result == null) result = caseModelElement(enumerationLiteral);
+            case BusinessDomainDslPackage.INTEGER_ENUMERATION_LITERAL: {
+                IntegerEnumerationLiteral integerEnumerationLiteral = (IntegerEnumerationLiteral)theEObject;
+                T result = caseIntegerEnumerationLiteral(integerEnumerationLiteral);
+                if (result == null) result = caseModelElement(integerEnumerationLiteral);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -313,36 +313,36 @@ public class BusinessDomainDslSwitch<T> {
     }
 
 	/**
-     * Returns the result of interpreting the object as an instance of '<em>Enumeration</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Integer Enumeration</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Enumeration</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Integer Enumeration</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseEnumeration(Enumeration object) {
+    public T caseIntegerEnumeration(IntegerEnumeration object) {
         return null;
     }
 
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Enumeration Literal</em>'.
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Integer Enumeration Literal</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Enumeration Literal</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Integer Enumeration Literal</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseEnumerationLiteral(EnumerationLiteral object) {
+    public T caseIntegerEnumerationLiteral(IntegerEnumerationLiteral object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Abstract Business Rule</em>'.
      * <!-- begin-user-doc -->
 	 * This implementation returns null;

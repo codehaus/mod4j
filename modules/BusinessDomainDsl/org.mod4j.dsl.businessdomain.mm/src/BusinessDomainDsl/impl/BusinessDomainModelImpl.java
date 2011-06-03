@@ -10,7 +10,7 @@ import BusinessDomainDsl.AbstractType;
 import BusinessDomainDsl.Association;
 import BusinessDomainDsl.BusinessDomainDslPackage;
 import BusinessDomainDsl.BusinessDomainModel;
-import BusinessDomainDsl.Enumeration;
+import BusinessDomainDsl.IntegerEnumeration;
 
 import java.util.Collection;
 
@@ -40,99 +40,99 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class BusinessDomainModelImpl extends ModelElementImpl implements BusinessDomainModel {
-	/**
+    /**
      * The cached value of the '{@link #getEnumerations() <em>Enumerations</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getEnumerations()
      * @generated
      * @ordered
      */
-	protected EList<Enumeration> enumerations;
+    protected EList<IntegerEnumeration> enumerations;
 
-	/**
+    /**
      * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getTypes()
      * @generated
      * @ordered
      */
-	protected EList<AbstractType> types;
+    protected EList<AbstractType> types;
 
-	/**
+    /**
      * The cached value of the '{@link #getAssociations() <em>Associations</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getAssociations()
      * @generated
      * @ordered
      */
-	protected EList<Association> associations;
+    protected EList<Association> associations;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected BusinessDomainModelImpl() {
+    protected BusinessDomainModelImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return BusinessDomainDslPackage.Literals.BUSINESS_DOMAIN_MODEL;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<Enumeration> getEnumerations() {
+    public EList<IntegerEnumeration> getEnumerations() {
         if (enumerations == null) {
-            enumerations = new EObjectContainmentWithInverseEList<Enumeration>(Enumeration.class, this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ENUMERATIONS, BusinessDomainDslPackage.ENUMERATION__MODEL);
+            enumerations = new EObjectContainmentWithInverseEList<IntegerEnumeration>(IntegerEnumeration.class, this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ENUMERATIONS, BusinessDomainDslPackage.INTEGER_ENUMERATION__MODEL);
         }
         return enumerations;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<AbstractType> getTypes() {
+    public EList<AbstractType> getTypes() {
         if (types == null) {
             types = new EObjectContainmentWithInverseEList<AbstractType>(AbstractType.class, this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES, BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL);
         }
         return types;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<Association> getAssociations() {
+    public EList<Association> getAssociations() {
         if (associations == null) {
             associations = new EObjectContainmentWithInverseEList<Association>(Association.class, this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ASSOCIATIONS, BusinessDomainDslPackage.ASSOCIATION__MODEL);
         }
         return associations;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ENUMERATIONS:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getEnumerations()).basicAdd(otherEnd, msgs);
@@ -144,13 +144,13 @@ public class BusinessDomainModelImpl extends ModelElementImpl implements Busines
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ENUMERATIONS:
                 return ((InternalEList<?>)getEnumerations()).basicRemove(otherEnd, msgs);
@@ -162,13 +162,13 @@ public class BusinessDomainModelImpl extends ModelElementImpl implements Busines
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ENUMERATIONS:
                 return getEnumerations();
@@ -180,18 +180,18 @@ public class BusinessDomainModelImpl extends ModelElementImpl implements Busines
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ENUMERATIONS:
                 getEnumerations().clear();
-                getEnumerations().addAll((Collection<? extends Enumeration>)newValue);
+                getEnumerations().addAll((Collection<? extends IntegerEnumeration>)newValue);
                 return;
             case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES:
                 getTypes().clear();
@@ -205,13 +205,13 @@ public class BusinessDomainModelImpl extends ModelElementImpl implements Busines
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ENUMERATIONS:
                 getEnumerations().clear();
@@ -226,13 +226,13 @@ public class BusinessDomainModelImpl extends ModelElementImpl implements Busines
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ENUMERATIONS:
                 return enumerations != null && !enumerations.isEmpty();

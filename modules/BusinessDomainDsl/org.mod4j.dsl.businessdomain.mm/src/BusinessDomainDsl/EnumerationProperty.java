@@ -34,24 +34,24 @@ public interface EnumerationProperty extends Property {
 	 * </p>
 	 * <!-- end-user-doc -->
      * @return the value of the '<em>Type</em>' reference.
-     * @see #setType(Enumeration)
+     * @see #setType(IntegerEnumeration)
      * @see BusinessDomainDsl.BusinessDomainDslPackage#getEnumerationProperty_Type()
      * @model required="true"
      * @generated
      */
-	Enumeration getType();
+	IntegerEnumeration getType();
 
 	/**
      * Sets the value of the '{@link BusinessDomainDsl.EnumerationProperty#getType <em>Type</em>}' reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param value the new value of the '<em>Type</em>' reference.
      * @see #getType()
      * @generated
      */
-	void setType(Enumeration value);
+    void setType(IntegerEnumeration value);
 
-	/**
+    /**
      * Returns the value of the '<em><b>Default Value As String</b></em>' attribute.
      * <!-- begin-user-doc -->
 	 * <p>

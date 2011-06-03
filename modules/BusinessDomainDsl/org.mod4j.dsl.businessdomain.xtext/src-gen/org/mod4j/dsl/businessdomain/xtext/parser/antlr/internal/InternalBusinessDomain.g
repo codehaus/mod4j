@@ -158,9 +158,9 @@ ruleBusinessDomainModel returns [EObject current=null]
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getBusinessDomainModelAccess().getEnumerationsEnumerationParserRuleCall_4_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBusinessDomainModelAccess().getEnumerationsIntegerEnumerationParserRuleCall_4_1_0(), currentNode); 
 	    }
-	    lv_enumerations_5=ruleEnumeration 
+	    lv_enumerations_5=ruleIntegerEnumeration 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBusinessDomainModelRule().getType().getClassifier());
@@ -168,7 +168,7 @@ ruleBusinessDomainModel returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		add($current, "enumerations", lv_enumerations_5, "Enumeration", currentNode);
+	       		add($current, "enumerations", lv_enumerations_5, "IntegerEnumeration", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -728,16 +728,16 @@ ruleBusinessClass returns [EObject current=null]
 
 
 
-// Entry rule entryRuleEnumeration
-entryRuleEnumeration returns [EObject current=null] :
-	{ currentNode = createCompositeNode(grammarAccess.getEnumerationRule(), currentNode); }
-	 iv_ruleEnumeration=ruleEnumeration 
-	 { $current=$iv_ruleEnumeration.current; } 
+// Entry rule entryRuleIntegerEnumeration
+entryRuleIntegerEnumeration returns [EObject current=null] :
+	{ currentNode = createCompositeNode(grammarAccess.getIntegerEnumerationRule(), currentNode); }
+	 iv_ruleIntegerEnumeration=ruleIntegerEnumeration 
+	 { $current=$iv_ruleIntegerEnumeration.current; } 
 	 EOF 
 ;
 
-// Rule Enumeration
-ruleEnumeration returns [EObject current=null] 
+// Rule IntegerEnumeration
+ruleIntegerEnumeration returns [EObject current=null] 
     @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
     }
     @after { resetLookahead(); 
@@ -747,12 +747,12 @@ ruleEnumeration returns [EObject current=null]
 	
 	    lv_description_0=	RULE_STRING
 	{
-		createLeafNode(grammarAccess.getEnumerationAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
+		createLeafNode(grammarAccess.getIntegerEnumerationAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
 	}
  
 	    {
 	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getEnumerationRule().getType().getClassifier());
+	            $current = factory.create(grammarAccess.getIntegerEnumerationRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode, $current);
 	        }
 	        
@@ -765,18 +765,18 @@ ruleEnumeration returns [EObject current=null]
 	
 )?'enumeration' 
     {
-        createLeafNode(grammarAccess.getEnumerationAccess().getEnumerationKeyword_1(), null); 
+        createLeafNode(grammarAccess.getIntegerEnumerationAccess().getEnumerationKeyword_1(), null); 
     }
 (	
 	
 	    lv_name_2=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getEnumerationAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
+		createLeafNode(grammarAccess.getIntegerEnumerationAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
 	}
  
 	    {
 	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getEnumerationRule().getType().getClassifier());
+	            $current = factory.create(grammarAccess.getIntegerEnumerationRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode, $current);
 	        }
 	        
@@ -789,23 +789,23 @@ ruleEnumeration returns [EObject current=null]
 	
 )'[' 
     {
-        createLeafNode(grammarAccess.getEnumerationAccess().getLeftSquareBracketKeyword_3(), null); 
+        createLeafNode(grammarAccess.getIntegerEnumerationAccess().getLeftSquareBracketKeyword_3(), null); 
     }
 (	
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getEnumerationAccess().getEnumerationLiteralsEnumerationLiteralParserRuleCall_4_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getIntegerEnumerationAccess().getEnumerationLiteralsIntegerEnumerationLiteralParserRuleCall_4_0(), currentNode); 
 	    }
-	    lv_enumerationLiterals_4=ruleEnumerationLiteral 
+	    lv_enumerationLiterals_4=ruleIntegerEnumerationLiteral 
 	    {
 	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getEnumerationRule().getType().getClassifier());
+	            $current = factory.create(grammarAccess.getIntegerEnumerationRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        
 	        try {
-	       		add($current, "enumerationLiterals", lv_enumerationLiterals_4, "EnumerationLiteral", currentNode);
+	       		add($current, "enumerationLiterals", lv_enumerationLiterals_4, "IntegerEnumerationLiteral", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -814,7 +814,7 @@ ruleEnumeration returns [EObject current=null]
 	
 )+']' 
     {
-        createLeafNode(grammarAccess.getEnumerationAccess().getRightSquareBracketKeyword_5(), null); 
+        createLeafNode(grammarAccess.getIntegerEnumerationAccess().getRightSquareBracketKeyword_5(), null); 
     }
 );
 
@@ -822,16 +822,16 @@ ruleEnumeration returns [EObject current=null]
 
 
 
-// Entry rule entryRuleEnumerationLiteral
-entryRuleEnumerationLiteral returns [EObject current=null] :
-	{ currentNode = createCompositeNode(grammarAccess.getEnumerationLiteralRule(), currentNode); }
-	 iv_ruleEnumerationLiteral=ruleEnumerationLiteral 
-	 { $current=$iv_ruleEnumerationLiteral.current; } 
+// Entry rule entryRuleIntegerEnumerationLiteral
+entryRuleIntegerEnumerationLiteral returns [EObject current=null] :
+	{ currentNode = createCompositeNode(grammarAccess.getIntegerEnumerationLiteralRule(), currentNode); }
+	 iv_ruleIntegerEnumerationLiteral=ruleIntegerEnumerationLiteral 
+	 { $current=$iv_ruleIntegerEnumerationLiteral.current; } 
 	 EOF 
 ;
 
-// Rule EnumerationLiteral
-ruleEnumerationLiteral returns [EObject current=null] 
+// Rule IntegerEnumerationLiteral
+ruleIntegerEnumerationLiteral returns [EObject current=null] 
     @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
     }
     @after { resetLookahead(); 
@@ -841,12 +841,12 @@ ruleEnumerationLiteral returns [EObject current=null]
 	
 	    lv_name_0=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getEnumerationLiteralAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
+		createLeafNode(grammarAccess.getIntegerEnumerationLiteralAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
 	}
  
 	    {
 	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getEnumerationLiteralRule().getType().getClassifier());
+	            $current = factory.create(grammarAccess.getIntegerEnumerationLiteralRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode, $current);
 	        }
 	        
@@ -859,18 +859,18 @@ ruleEnumerationLiteral returns [EObject current=null]
 	
 )('=' 
     {
-        createLeafNode(grammarAccess.getEnumerationLiteralAccess().getEqualsSignKeyword_1_0(), null); 
+        createLeafNode(grammarAccess.getIntegerEnumerationLiteralAccess().getEqualsSignKeyword_1_0(), null); 
     }
 (	
 	
 	    lv_persistedValue_2=	RULE_INT
 	{
-		createLeafNode(grammarAccess.getEnumerationLiteralAccess().getPersistedValueINTTerminalRuleCall_1_1_0(), "persistedValue"); 
+		createLeafNode(grammarAccess.getIntegerEnumerationLiteralAccess().getPersistedValueINTTerminalRuleCall_1_1_0(), "persistedValue"); 
 	}
  
 	    {
 	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getEnumerationLiteralRule().getType().getClassifier());
+	            $current = factory.create(grammarAccess.getIntegerEnumerationLiteralRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode, $current);
 	        }
 	        
@@ -883,7 +883,7 @@ ruleEnumerationLiteral returns [EObject current=null]
 	
 ))';' 
     {
-        createLeafNode(grammarAccess.getEnumerationLiteralAccess().getSemicolonKeyword_2(), null); 
+        createLeafNode(grammarAccess.getIntegerEnumerationLiteralAccess().getSemicolonKeyword_2(), null); 
     }
 );
 
@@ -2022,7 +2022,7 @@ ruleEnumerationProperty returns [EObject current=null]
         }
 	RULE_ID
 	{
-		createLeafNode(grammarAccess.getEnumerationPropertyAccess().getTypeEnumerationCrossReference_1_0(), "type"); 
+		createLeafNode(grammarAccess.getEnumerationPropertyAccess().getTypeIntegerEnumerationCrossReference_1_0(), "type"); 
 	}
 
 		// TODO assign feature to currentNode

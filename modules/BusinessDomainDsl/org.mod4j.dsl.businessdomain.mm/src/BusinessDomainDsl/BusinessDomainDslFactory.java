@@ -62,24 +62,24 @@ public interface BusinessDomainDslFactory extends EFactory {
 	Property createProperty();
 
 	/**
-     * Returns a new object of class '<em>Enumeration</em>'.
+     * Returns a new object of class '<em>Integer Enumeration</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return a new object of class '<em>Enumeration</em>'.
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Integer Enumeration</em>'.
      * @generated
      */
-	Enumeration createEnumeration();
+    IntegerEnumeration createIntegerEnumeration();
 
-	/**
-     * Returns a new object of class '<em>Enumeration Literal</em>'.
+    /**
+     * Returns a new object of class '<em>Integer Enumeration Literal</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return a new object of class '<em>Enumeration Literal</em>'.
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Integer Enumeration Literal</em>'.
      * @generated
      */
-	EnumerationLiteral createEnumerationLiteral();
+    IntegerEnumerationLiteral createIntegerEnumerationLiteral();
 
-	/**
+    /**
      * Returns a new object of class '<em>Abstract Business Rule</em>'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
