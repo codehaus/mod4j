@@ -31,13 +31,6 @@ public class Derived extends DerivedImplBase {
 	}
 
 	/**
-	 * Creates a Derived with the specified ID.
-	 */
-	protected Derived(Long id) {
-		super(id);
-	}
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override

@@ -85,7 +85,6 @@
         «EXPAND Constructors::addDefaultImplBaseConstructor FOR this»
     «ENDIF»
     «EXPAND Constructors::addMinimalConstructor FOR this»
-    «EXPAND Constructors::addIDImplBaseConstructor FOR this»
     «EXPAND Attributes::addGetter FOREACH properties.reject(e|e.derived)»
     «EXPAND Attributes::addSetter FOREACH properties.reject(e|e.derived)»
     «EXPAND Attributes::addAbstractSetter FOREACH properties.select(e|e.derived && e.writable)»
@@ -121,7 +120,6 @@
         «EXPAND Constructors::addDefaultConstructor FOR this»
     «ENDIF»
     «EXPAND Constructors::addCallToSuperOnlyMinimalConstructor ("") FOR this»
-    «EXPAND Constructors::addIDConstructor FOR this»
 
     «EXPAND Attributes::addEmptyGetter FOREACH properties.select(e|e.derived)»
     «EXPAND Attributes::addEmptySetter FOREACH properties.select(e|e.derived && e.writable)»
@@ -145,19 +143,6 @@
          * Minimal public constructor
          */
         public «javaDomainExampleClass(name)»() {
-            activateValidation(false);
-            «EXPAND addNullSetters FOR this -»
-        }
-
-        /**
-         * Creates an example object with the specified ID.
-         *
-         * @param id
-         *            The identifier of the new object.
-         */
-        public «javaDomainExampleClass(name)»(«getHibernatePrimaryKeyClass()» id) {
-            super(id);
-
             activateValidation(false);
             «EXPAND addNullSetters FOR this -»
         }

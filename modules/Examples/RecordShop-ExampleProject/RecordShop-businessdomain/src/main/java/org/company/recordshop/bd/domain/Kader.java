@@ -53,12 +53,5 @@ public class Kader extends KaderImplBase {
     public Kader(String naam) {
         super(naam);
     }
-    
-    /**
-     * Creates a Kader with the specified ID.
-     */
-    protected Kader(Long id) {
-        super(id);
-    }
 
 }

@@ -848,9 +848,9 @@ ruleIntegerEnumerationLiteral returns [EObject current=null]
     }:
 ((	
 	
-	    lv_name_0=	RULE_ID
+	    lv_description_0=	RULE_STRING
 	{
-		createLeafNode(grammarAccess.getIntegerEnumerationLiteralAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
+		createLeafNode(grammarAccess.getIntegerEnumerationLiteralAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
 	}
  
 	    {
@@ -860,7 +860,27 @@ ruleIntegerEnumerationLiteral returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "name", lv_name_0, "ID", lastConsumedNode);
+	       		set($current, "description", lv_description_0, "STRING", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+	
+)?(	
+	
+	    lv_name_1=	RULE_ID
+	{
+		createLeafNode(grammarAccess.getIntegerEnumerationLiteralAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
+	}
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getIntegerEnumerationLiteralRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "name", lv_name_1, "ID", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -868,13 +888,13 @@ ruleIntegerEnumerationLiteral returns [EObject current=null]
 	
 )('=' 
     {
-        createLeafNode(grammarAccess.getIntegerEnumerationLiteralAccess().getEqualsSignKeyword_1_0(), null); 
+        createLeafNode(grammarAccess.getIntegerEnumerationLiteralAccess().getEqualsSignKeyword_2_0(), null); 
     }
 (	
 	
-	    lv_persistedValue_2=	RULE_INT
+	    lv_persistedValue_3=	RULE_INT
 	{
-		createLeafNode(grammarAccess.getIntegerEnumerationLiteralAccess().getPersistedValueINTTerminalRuleCall_1_1_0(), "persistedValue"); 
+		createLeafNode(grammarAccess.getIntegerEnumerationLiteralAccess().getPersistedValueINTTerminalRuleCall_2_1_0(), "persistedValue"); 
 	}
  
 	    {
@@ -884,7 +904,7 @@ ruleIntegerEnumerationLiteral returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "persistedValue", lv_persistedValue_2, "INT", lastConsumedNode);
+	       		set($current, "persistedValue", lv_persistedValue_3, "INT", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -892,7 +912,7 @@ ruleIntegerEnumerationLiteral returns [EObject current=null]
 	
 ))';' 
     {
-        createLeafNode(grammarAccess.getIntegerEnumerationLiteralAccess().getSemicolonKeyword_2(), null); 
+        createLeafNode(grammarAccess.getIntegerEnumerationLiteralAccess().getSemicolonKeyword_3(), null); 
     }
 );
 
@@ -917,9 +937,9 @@ ruleStringEnumerationLiteral returns [EObject current=null]
     }:
 ((	
 	
-	    lv_name_0=	RULE_ID
+	    lv_description_0=	RULE_STRING
 	{
-		createLeafNode(grammarAccess.getStringEnumerationLiteralAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
+		createLeafNode(grammarAccess.getStringEnumerationLiteralAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
 	}
  
 	    {
@@ -929,7 +949,27 @@ ruleStringEnumerationLiteral returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "name", lv_name_0, "ID", lastConsumedNode);
+	       		set($current, "description", lv_description_0, "STRING", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+	
+)?(	
+	
+	    lv_name_1=	RULE_ID
+	{
+		createLeafNode(grammarAccess.getStringEnumerationLiteralAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
+	}
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getStringEnumerationLiteralRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "name", lv_name_1, "ID", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -937,13 +977,13 @@ ruleStringEnumerationLiteral returns [EObject current=null]
 	
 )('=' 
     {
-        createLeafNode(grammarAccess.getStringEnumerationLiteralAccess().getEqualsSignKeyword_1_0(), null); 
+        createLeafNode(grammarAccess.getStringEnumerationLiteralAccess().getEqualsSignKeyword_2_0(), null); 
     }
 (	
 	
-	    lv_persistedValue_2=	RULE_STRING
+	    lv_persistedValue_3=	RULE_STRING
 	{
-		createLeafNode(grammarAccess.getStringEnumerationLiteralAccess().getPersistedValueSTRINGTerminalRuleCall_1_1_0(), "persistedValue"); 
+		createLeafNode(grammarAccess.getStringEnumerationLiteralAccess().getPersistedValueSTRINGTerminalRuleCall_2_1_0(), "persistedValue"); 
 	}
  
 	    {
@@ -953,7 +993,7 @@ ruleStringEnumerationLiteral returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "persistedValue", lv_persistedValue_2, "STRING", lastConsumedNode);
+	       		set($current, "persistedValue", lv_persistedValue_3, "STRING", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -961,7 +1001,7 @@ ruleStringEnumerationLiteral returns [EObject current=null]
 	
 ))';' 
     {
-        createLeafNode(grammarAccess.getStringEnumerationLiteralAccess().getSemicolonKeyword_2(), null); 
+        createLeafNode(grammarAccess.getStringEnumerationLiteralAccess().getSemicolonKeyword_3(), null); 
     }
 );
 

@@ -4,12 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
+import java.util.Set;
 
-import org.company.recordshop.bd.data.CustomerDao;
-import org.company.recordshop.bd.data.OrderDao;
-import org.company.recordshop.bd.data.OrderLineDao;
-import org.company.recordshop.bd.data.PersonDao;
-import org.company.recordshop.bd.data.RelationDao;
 import org.company.recordshop.bd.domain.Address;
 import org.company.recordshop.bd.domain.AddressExample;
 import org.company.recordshop.bd.domain.Customer;
@@ -126,25 +122,6 @@ public class FindByExampleWithMultipleAssociattionsTest extends AbstractDaoTestC
         
         custExample.setFirstName("DOES-NOT-EXIST");
         assertEquals(0, orderDao.findByExample(orderExample, new SearchParameters()).size());
-    }
-    
-    @Test
-    public void testToOneAssociationInHierachryFindById(){
-        
-        // Find all Orders for Customer 5 by id.
-        OrderExample orderExample = new OrderExample();
-        CustomerExample custExample = new CustomerExample();
-        custExample.setCustomerNr(5);
-        List<Customer> custList = customerDao.findByExample(custExample);
-        
-        custExample = new CustomerExample(custList.get(0).getId());
-        orderExample.setCustomer(custExample);
-        List<Order> orderList = orderDao.findByExample(orderExample, new SearchParameters()); 
-        assertEquals(NUMBER_OF_ITEMS, orderList.size());
-        
-        orderExample = new OrderExample(orderList.get(0).getId());
-        orderList = orderDao.findByExample(orderExample);
-        assertEquals(1, orderList.size());
     }
     
     /**

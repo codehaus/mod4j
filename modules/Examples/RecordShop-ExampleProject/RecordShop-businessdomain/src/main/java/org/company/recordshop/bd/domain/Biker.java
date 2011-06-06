@@ -33,11 +33,4 @@ public class Biker extends BikerImplBase {
 		super(name);
 	}
 
-	/**
-	 * Creates a Biker with the specified ID.
-	 */
-	protected Biker(Long id) {
-		super(id);
-	}
-
 }

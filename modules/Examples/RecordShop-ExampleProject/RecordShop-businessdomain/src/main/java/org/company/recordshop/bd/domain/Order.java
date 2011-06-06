@@ -28,10 +28,6 @@ public class Order extends OrderImplBase {
 		super(orderNumber);
 	}
 
-	protected Order(Long id) {
-	    super(id);
-    }
-
     /*
 	 * (non-Javadoc)
      * @see org.company.recordshop.domain.OrderImplBase#getTotalAmount()

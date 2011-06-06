@@ -68,11 +68,11 @@ Enumeration:
     ;
 
 IntegerEnumerationLiteral:
-    name=ID ("=" persistedValue=INT) ";"
+    (description=STRING)? name=ID ("=" persistedValue=INT) ";"
     ;
 
 StringEnumerationLiteral:
-    name=ID ("=" persistedValue=STRING) ";"
+    (description=STRING)? name=ID ("=" persistedValue=STRING) ";"
     ;
 
 AbstractBusinessRule:

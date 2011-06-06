@@ -32,10 +32,6 @@ public class Person extends PersonImplBase {
 		super(firstName, lastName, birthDate);
 	}
 
-	protected Person(Long id) {
-        super(id);
-    }
-
     @Override
 	public Integer getAge() {
 		

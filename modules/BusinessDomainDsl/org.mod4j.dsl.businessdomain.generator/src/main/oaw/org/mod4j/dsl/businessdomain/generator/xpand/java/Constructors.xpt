@@ -29,16 +29,6 @@
      }
 «ENDDEFINE»
 
-«DEFINE addIDImplBaseConstructor FOR BusinessClass »
-    /**
-     * Creates a «javaDomainBaseClass(this.name)» with the specified ID.
-     */
-    protected «javaDomainBaseClass(this.name) -»(«getHibernatePrimaryKeyClass()» id) {
-       «IF superclass != null -»super(id);«ENDIF»
-       «IF superclass == null -»this.id = id;«ENDIF»
-    }
-«ENDDEFINE»
-
 «DEFINE addDefaultConstructor FOR BusinessClass »
     /**
      * Default no-argument constructor for «javaDomainClass(this.name)»
@@ -61,15 +51,6 @@
      «EXPAND addConstructorAssignment FOREACH properties.reject(e|e.nullable || e.hasDefault || e.derived) -»
          addValidators();
         validation.validate();
-    }
-«ENDDEFINE»
-
-«DEFINE addIDConstructor FOR BusinessClass »
-    /**
-     * Creates a «javaDomainClass(this.name)» with the specified ID.
-     */
-    protected «javaDomainClass(this.name) -»(«getHibernatePrimaryKeyClass()» id) {
-        super(id);
     }
 «ENDDEFINE»
 

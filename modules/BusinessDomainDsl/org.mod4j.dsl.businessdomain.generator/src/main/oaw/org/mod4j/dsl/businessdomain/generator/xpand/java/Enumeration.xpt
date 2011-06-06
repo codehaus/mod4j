@@ -59,9 +59,9 @@
 «ENDDEFINE»
 
 «DEFINE enumerationLiteral FOR IntegerEnumerationLiteral -»
-            «name.toUpperCase()»(«persistedValue»)
+            «name»(«persistedValue»)
 «ENDDEFINE»
 
 «DEFINE enumerationLiteral FOR StringEnumerationLiteral -»
-            «name.toUpperCase()»("«persistedValue»")
+            «name»("«persistedValue»")
 «ENDDEFINE»

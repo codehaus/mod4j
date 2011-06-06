@@ -67,8 +67,12 @@ public class FindByExampleWithDoubleBiderectionalAssociattionsTest extends Abstr
         personExample.setFirstName("Johanna");
         relExample.setPersonTo(personExample);
         assertEquals(1, relationDao.findByExample(relExample).size());
-       
-        relExample.setPersonTo(new PersonExample(womanId));
+
+        relExample = new RelationExample();
+        relExample.setName("Husband");
+        woman = personDao.retrieve(womanId);
+        flushAndClear();
+		relExample.setPersonTo(woman);
         assertEquals(1, relationDao.findByExample(relExample).size());
         
         relExample = new RelationExample();

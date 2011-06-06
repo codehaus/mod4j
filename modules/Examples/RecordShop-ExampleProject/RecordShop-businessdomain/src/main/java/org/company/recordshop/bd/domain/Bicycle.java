@@ -33,11 +33,4 @@ public class Bicycle extends BicycleImplBase {
 		super(name);
 	}
 
-	/**
-	 * Creates a Bicycle with the specified ID.
-	 */
-	protected Bicycle(Long id) {
-		super(id);
-	}
-
 }

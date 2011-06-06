@@ -508,81 +508,97 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 	public class IntegerEnumerationLiteralElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "IntegerEnumerationLiteral");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cEqualsSignKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cPersistedValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cPersistedValueINTTerminalRuleCall_1_1_0 = (RuleCall)cPersistedValueAssignment_1_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDescriptionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_0_0 = (RuleCall)cDescriptionAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cEqualsSignKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cPersistedValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cPersistedValueINTTerminalRuleCall_2_1_0 = (RuleCall)cPersistedValueAssignment_2_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//IntegerEnumerationLiteral:
-		//  name=ID ("=" persistedValue=INT) ";";
+		//  description=STRING? name=ID ("=" persistedValue=INT) ";";
 		public ParserRule getRule() { return rule; }
 
-		//name=ID ("=" persistedValue=INT) ";"
+		//description=STRING? name=ID ("=" persistedValue=INT) ";"
 		public Group getGroup() { return cGroup; }
 
+		//description=STRING?
+		public Assignment getDescriptionAssignment_0() { return cDescriptionAssignment_0; }
+
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_0_0() { return cDescriptionSTRINGTerminalRuleCall_0_0; }
+
 		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"=" persistedValue=INT
-		public Group getGroup_1() { return cGroup_1; }
+		public Group getGroup_2() { return cGroup_2; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_1_0() { return cEqualsSignKeyword_1_0; }
+		public Keyword getEqualsSignKeyword_2_0() { return cEqualsSignKeyword_2_0; }
 
 		//persistedValue=INT
-		public Assignment getPersistedValueAssignment_1_1() { return cPersistedValueAssignment_1_1; }
+		public Assignment getPersistedValueAssignment_2_1() { return cPersistedValueAssignment_2_1; }
 
 		//INT
-		public RuleCall getPersistedValueINTTerminalRuleCall_1_1_0() { return cPersistedValueINTTerminalRuleCall_1_1_0; }
+		public RuleCall getPersistedValueINTTerminalRuleCall_2_1_0() { return cPersistedValueINTTerminalRuleCall_2_1_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
 
 	public class StringEnumerationLiteralElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "StringEnumerationLiteral");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cEqualsSignKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cPersistedValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cPersistedValueSTRINGTerminalRuleCall_1_1_0 = (RuleCall)cPersistedValueAssignment_1_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDescriptionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_0_0 = (RuleCall)cDescriptionAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cEqualsSignKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cPersistedValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cPersistedValueSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cPersistedValueAssignment_2_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//StringEnumerationLiteral:
-		//  name=ID ("=" persistedValue=STRING) ";";
+		//  description=STRING? name=ID ("=" persistedValue=STRING) ";";
 		public ParserRule getRule() { return rule; }
 
-		//name=ID ("=" persistedValue=STRING) ";"
+		//description=STRING? name=ID ("=" persistedValue=STRING) ";"
 		public Group getGroup() { return cGroup; }
 
-		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
-
-		//"=" persistedValue=STRING
-		public Group getGroup_1() { return cGroup_1; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_1_0() { return cEqualsSignKeyword_1_0; }
-
-		//persistedValue=STRING
-		public Assignment getPersistedValueAssignment_1_1() { return cPersistedValueAssignment_1_1; }
+		//description=STRING?
+		public Assignment getDescriptionAssignment_0() { return cDescriptionAssignment_0; }
 
 		//STRING
-		public RuleCall getPersistedValueSTRINGTerminalRuleCall_1_1_0() { return cPersistedValueSTRINGTerminalRuleCall_1_1_0; }
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_0_0() { return cDescriptionSTRINGTerminalRuleCall_0_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"=" persistedValue=STRING
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_2_0() { return cEqualsSignKeyword_2_0; }
+
+		//persistedValue=STRING
+		public Assignment getPersistedValueAssignment_2_1() { return cPersistedValueAssignment_2_1; }
+
+		//STRING
+		public RuleCall getPersistedValueSTRINGTerminalRuleCall_2_1_0() { return cPersistedValueSTRINGTerminalRuleCall_2_1_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
 
 	public class AbstractBusinessRuleElements implements IParserRuleAccess {
@@ -1540,7 +1556,7 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 	}
 
 	//IntegerEnumerationLiteral:
-	//  name=ID ("=" persistedValue=INT) ";";
+	//  description=STRING? name=ID ("=" persistedValue=INT) ";";
 	public IntegerEnumerationLiteralElements getIntegerEnumerationLiteralAccess() {
 		return (pIntegerEnumerationLiteral != null) ? pIntegerEnumerationLiteral : (pIntegerEnumerationLiteral = new IntegerEnumerationLiteralElements());
 	}
@@ -1550,7 +1566,7 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 	}
 
 	//StringEnumerationLiteral:
-	//  name=ID ("=" persistedValue=STRING) ";";
+	//  description=STRING? name=ID ("=" persistedValue=STRING) ";";
 	public StringEnumerationLiteralElements getStringEnumerationLiteralAccess() {
 		return (pStringEnumerationLiteral != null) ? pStringEnumerationLiteral : (pStringEnumerationLiteral = new StringEnumerationLiteralElements());
 	}

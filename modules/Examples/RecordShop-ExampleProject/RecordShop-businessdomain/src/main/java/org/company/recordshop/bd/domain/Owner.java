@@ -33,11 +33,4 @@ public class Owner extends OwnerImplBase {
 		super(name);
 	}
 
-	/**
-	 * Creates a Owner with the specified ID.
-	 */
-	protected Owner(Long id) {
-		super(id);
-	}
-
 }
