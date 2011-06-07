@@ -378,12 +378,12 @@ protected class BusinessDomainModel_AssociationsAssignment_4_2 extends Assignmen
 /************ begin Rule Association ****************
  *
  * Association:
- *   description=STRING? "association" source=[BusinessClass] sourceRoleName=ID (
- *   "foreign key" sourceForeignKey=ID)? ("references" sourceAlternateKey=ID)?
- *   sourceMultiplicity=Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=
- *   Multiplicity ("table" table=ID)? target=[AbstractBusinessClass] targetRoleName=ID (
- *   "foreign key" targetForeignKey=ID)? ("references" targetAlternateKey=ID)? (ordered?=
- *   "ordered" ("column" orderingColumn=ID)?)? ";"; 
+ *   description=STRING? "association" source=[BusinessClass] sourceRoleName=ID ("column"
+ *   sourceForeignKey=ID)? ("references" sourceAlternateKey=ID)? sourceMultiplicity=
+ *   Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=Multiplicity ("table"
+ *   table=ID)? target=[AbstractBusinessClass] targetRoleName=ID ("column"
+ *   targetForeignKey=ID)? ("references" targetAlternateKey=ID)? (ordered?="ordered" (
+ *   "on" orderingColumn=ID)?)? ";"; 
  * // COMMETNED OUT: import does not work correctly, therefore should not be possible at all.
  * //BusinessClassReference:
  * //    "from" referredModel=ID "import" name=ID  ";" 
@@ -391,12 +391,12 @@ protected class BusinessDomainModel_AssociationsAssignment_4_2 extends Assignmen
  *
  **/
 
-// description=STRING? "association" source=[BusinessClass] sourceRoleName=ID (
-// "foreign key" sourceForeignKey=ID)? ("references" sourceAlternateKey=ID)?
-// sourceMultiplicity=Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=
-// Multiplicity ("table" table=ID)? target=[AbstractBusinessClass] targetRoleName=ID (
-// "foreign key" targetForeignKey=ID)? ("references" targetAlternateKey=ID)? (ordered?=
-// "ordered" ("column" orderingColumn=ID)?)? ";"
+// description=STRING? "association" source=[BusinessClass] sourceRoleName=ID ("column"
+// sourceForeignKey=ID)? ("references" sourceAlternateKey=ID)? sourceMultiplicity=
+// Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=Multiplicity ("table"
+// table=ID)? target=[AbstractBusinessClass] targetRoleName=ID ("column"
+// targetForeignKey=ID)? ("references" targetAlternateKey=ID)? (ordered?="ordered" (
+// "on" orderingColumn=ID)?)? ";"
 protected class Association_Group extends GroupToken {
 	
 	public Association_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -535,7 +535,7 @@ protected class Association_SourceRoleNameAssignment_3 extends AssignmentToken  
 
 }
 
-// ("foreign key" sourceForeignKey=ID)?
+// ("column" sourceForeignKey=ID)?
 protected class Association_Group_4 extends GroupToken {
 	
 	public Association_Group_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -555,15 +555,15 @@ protected class Association_Group_4 extends GroupToken {
 		
 }
 
-// "foreign key"
-protected class Association_ForeignKeyKeyword_4_0 extends KeywordToken  {
+// "column"
+protected class Association_ColumnKeyword_4_0 extends KeywordToken  {
 	
-	public Association_ForeignKeyKeyword_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Association_ColumnKeyword_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getAssociationAccess().getForeignKeyKeyword_4_0();
+		return grammarAccess.getAssociationAccess().getColumnKeyword_4_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -588,7 +588,7 @@ protected class Association_SourceForeignKeyAssignment_4_1 extends AssignmentTok
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Association_ForeignKeyKeyword_4_0(parent, this, 0, inst);
+			case 0: return new Association_ColumnKeyword_4_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -955,7 +955,7 @@ protected class Association_TargetRoleNameAssignment_11 extends AssignmentToken 
 
 }
 
-// ("foreign key" targetForeignKey=ID)?
+// ("column" targetForeignKey=ID)?
 protected class Association_Group_12 extends GroupToken {
 	
 	public Association_Group_12(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -975,15 +975,15 @@ protected class Association_Group_12 extends GroupToken {
 		
 }
 
-// "foreign key"
-protected class Association_ForeignKeyKeyword_12_0 extends KeywordToken  {
+// "column"
+protected class Association_ColumnKeyword_12_0 extends KeywordToken  {
 	
-	public Association_ForeignKeyKeyword_12_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Association_ColumnKeyword_12_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getAssociationAccess().getForeignKeyKeyword_12_0();
+		return grammarAccess.getAssociationAccess().getColumnKeyword_12_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -1008,7 +1008,7 @@ protected class Association_TargetForeignKeyAssignment_12_1 extends AssignmentTo
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Association_ForeignKeyKeyword_12_0(parent, this, 0, inst);
+			case 0: return new Association_ColumnKeyword_12_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1100,7 +1100,7 @@ protected class Association_TargetAlternateKeyAssignment_13_1 extends Assignment
 }
 
 
-// (ordered?="ordered" ("column" orderingColumn=ID)?)?
+// (ordered?="ordered" ("on" orderingColumn=ID)?)?
 protected class Association_Group_14 extends GroupToken {
 	
 	public Association_Group_14(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1154,7 +1154,7 @@ protected class Association_OrderedAssignment_14_0 extends AssignmentToken  {
 
 }
 
-// ("column" orderingColumn=ID)?
+// ("on" orderingColumn=ID)?
 protected class Association_Group_14_1 extends GroupToken {
 	
 	public Association_Group_14_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1174,15 +1174,15 @@ protected class Association_Group_14_1 extends GroupToken {
 		
 }
 
-// "column"
-protected class Association_ColumnKeyword_14_1_0 extends KeywordToken  {
+// "on"
+protected class Association_OnKeyword_14_1_0 extends KeywordToken  {
 	
-	public Association_ColumnKeyword_14_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Association_OnKeyword_14_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getAssociationAccess().getColumnKeyword_14_1_0();
+		return grammarAccess.getAssociationAccess().getOnKeyword_14_1_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -1207,7 +1207,7 @@ protected class Association_OrderingColumnAssignment_14_1_1 extends AssignmentTo
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Association_ColumnKeyword_14_1_0(parent, this, 0, inst);
+			case 0: return new Association_OnKeyword_14_1_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	

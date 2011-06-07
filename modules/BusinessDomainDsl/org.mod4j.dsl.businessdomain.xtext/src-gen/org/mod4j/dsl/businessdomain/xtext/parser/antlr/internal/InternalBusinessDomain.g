@@ -278,9 +278,9 @@ ruleAssociation returns [EObject current=null]
 	        }
 	    }
 	
-)('foreign key' 
+)('column' 
     {
-        createLeafNode(grammarAccess.getAssociationAccess().getForeignKeyKeyword_4_0(), null); 
+        createLeafNode(grammarAccess.getAssociationAccess().getColumnKeyword_4_0(), null); 
     }
 (	
 	
@@ -454,9 +454,9 @@ ruleAssociation returns [EObject current=null]
 	        }
 	    }
 	
-)('foreign key' 
+)('column' 
     {
-        createLeafNode(grammarAccess.getAssociationAccess().getForeignKeyKeyword_12_0(), null); 
+        createLeafNode(grammarAccess.getAssociationAccess().getColumnKeyword_12_0(), null); 
     }
 (	
 	
@@ -523,9 +523,9 @@ ruleAssociation returns [EObject current=null]
 	        }
 	    }
 	
-)('column' 
+)('on' 
     {
-        createLeafNode(grammarAccess.getAssociationAccess().getColumnKeyword_14_1_0(), null); 
+        createLeafNode(grammarAccess.getAssociationAccess().getOnKeyword_14_1_0(), null); 
     }
 (	
 	

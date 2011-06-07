@@ -54,7 +54,7 @@
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
         <tokens xsi:type="xtext:Group" cardinality="?">
-          <tokens xsi:type="xtext:Keyword" value="foreign key"/>
+          <tokens xsi:type="xtext:Keyword" value="column"/>
           <tokens xsi:type="xtext:Assignment" feature="sourceForeignKey" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </tokens>
@@ -95,7 +95,7 @@
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
         <tokens xsi:type="xtext:Group" cardinality="?">
-          <tokens xsi:type="xtext:Keyword" value="foreign key"/>
+          <tokens xsi:type="xtext:Keyword" value="column"/>
           <tokens xsi:type="xtext:Assignment" feature="targetForeignKey" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </tokens>
@@ -111,7 +111,7 @@
             <terminal xsi:type="xtext:Keyword" value="ordered"/>
           </tokens>
           <tokens xsi:type="xtext:Group" cardinality="?">
-            <tokens xsi:type="xtext:Keyword" value="column"/>
+            <tokens xsi:type="xtext:Keyword" value="on"/>
             <tokens xsi:type="xtext:Assignment" feature="orderingColumn" operator="=">
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
             </tokens>

@@ -63,8 +63,11 @@ public class ProjectProperties {
         hibernate_hbm2ddl_auto = properties.getProperty("hibernate.hbm2ddl.auto");
         hibernate_mapping_class_id_generator_class = properties
                 .getProperty("hibernate-mapping.class.id.generator.class");
-        hibernate_mapping_primary_key_class = properties
-                .getProperty("hibernate-mapping.primary-key-class", "java.lang.Long");
+        hibernate_mapping_primary_key_class = properties.getProperty(
+                "hibernate-mapping.primary-key-class", "java.lang.Long");
+        hibernate_mapping_namingstrategy_class = properties.getProperty(
+                "hibernate-mapping.namingstrategy-class",
+                "org.mod4j.runtime.hibernate.Mod4jNamingStrategy");
         hibernate_mapping_inheritance_strategy = properties
                 .getProperty("hibernate-mapping.inheritance.strategy");
 
@@ -135,6 +138,8 @@ public class ProjectProperties {
     private static String hibernate_mapping_inheritance_strategy = "table.per.concrete.class";
 
     private static String hibernate_mapping_primary_key_class = "java.lang.Long";
+
+    private static String hibernate_mapping_namingstrategy_class;
 
     public static void setWorkDir(String dir) {
         workDir = dir;
@@ -322,6 +327,10 @@ public class ProjectProperties {
 
     public static String getHibernatePrimaryKeyClass() {
         return hibernate_mapping_primary_key_class;
+    }
+
+    public static String getHibernateNamingStrategy() {
+        return hibernate_mapping_namingstrategy_class;
     }
 
     public static String getHibernate_InheritanceMappingStrategy() {

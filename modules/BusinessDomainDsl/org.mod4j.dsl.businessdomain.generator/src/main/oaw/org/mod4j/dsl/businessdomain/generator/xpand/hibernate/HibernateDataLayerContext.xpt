@@ -59,7 +59,7 @@ hibernate.dialect=org.hibernate.dialect.DerbyDialect
             </props>
         </property>
         <property name="namingStrategy">
-            <bean class="org.mod4j.runtime.hibernate.Mod4jNamingStrategy" />
+            <bean class="«getHibernateNamingStrategy()»" />
         </property>
     </bean>
 </beans>

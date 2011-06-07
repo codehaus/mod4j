@@ -1138,11 +1138,11 @@ rule__Association__Group_4__0
     }
 :
 (
-{ before(grammarAccess.getAssociationAccess().getForeignKeyKeyword_4_0()); }
+{ before(grammarAccess.getAssociationAccess().getColumnKeyword_4_0()); }
 
-	'foreign key' 
+	'column' 
 
-{ after(grammarAccess.getAssociationAccess().getForeignKeyKeyword_4_0()); }
+{ after(grammarAccess.getAssociationAccess().getColumnKeyword_4_0()); }
 )
 
 	rule__Association__Group_4__1
@@ -1261,11 +1261,11 @@ rule__Association__Group_12__0
     }
 :
 (
-{ before(grammarAccess.getAssociationAccess().getForeignKeyKeyword_12_0()); }
+{ before(grammarAccess.getAssociationAccess().getColumnKeyword_12_0()); }
 
-	'foreign key' 
+	'column' 
 
-{ after(grammarAccess.getAssociationAccess().getForeignKeyKeyword_12_0()); }
+{ after(grammarAccess.getAssociationAccess().getColumnKeyword_12_0()); }
 )
 
 	rule__Association__Group_12__1
@@ -1382,11 +1382,11 @@ rule__Association__Group_14_1__0
     }
 :
 (
-{ before(grammarAccess.getAssociationAccess().getColumnKeyword_14_1_0()); }
+{ before(grammarAccess.getAssociationAccess().getOnKeyword_14_1_0()); }
 
-	'column' 
+	'on' 
 
-{ after(grammarAccess.getAssociationAccess().getColumnKeyword_14_1_0()); }
+{ after(grammarAccess.getAssociationAccess().getOnKeyword_14_1_0()); }
 )
 
 	rule__Association__Group_14_1__1

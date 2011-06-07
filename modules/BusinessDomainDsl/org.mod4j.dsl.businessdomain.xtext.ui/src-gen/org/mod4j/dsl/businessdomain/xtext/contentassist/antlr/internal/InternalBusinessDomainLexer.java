@@ -199,10 +199,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT18() throws RecognitionException {
         try {
             int _type = T18;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:17:5: ( 'foreign key' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:17:7: 'foreign key'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:17:5: ( 'column' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:17:7: 'column'
             {
-            match("foreign key"); 
+            match("column"); 
 
 
             }
@@ -256,10 +256,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT21() throws RecognitionException {
         try {
             int _type = T21;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:20:5: ( 'column' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:20:7: 'column'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:20:5: ( 'on' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:20:7: 'on'
             {
-            match("column"); 
+            match("on"); 
 
 
             }
@@ -1284,21 +1284,21 @@ public class InternalBusinessDomainLexer extends Lexer {
                 alt12=44;}
         }
         else if ( (LA12_0=='f') ) {
-            switch ( input.LA(2) ) {
-            case 'a':
-                {
+            int LA12_2 = input.LA(2);
+
+            if ( (LA12_2=='a') ) {
                 int LA12_32 = input.LA(3);
 
                 if ( (LA12_32=='l') ) {
-                    int LA12_67 = input.LA(4);
+                    int LA12_66 = input.LA(4);
 
-                    if ( (LA12_67=='s') ) {
-                        int LA12_95 = input.LA(5);
+                    if ( (LA12_66=='s') ) {
+                        int LA12_94 = input.LA(5);
 
-                        if ( (LA12_95=='e') ) {
-                            int LA12_125 = input.LA(6);
+                        if ( (LA12_94=='e') ) {
+                            int LA12_123 = input.LA(6);
 
-                            if ( ((LA12_125>='0' && LA12_125<='9')||(LA12_125>='A' && LA12_125<='Z')||LA12_125=='_'||(LA12_125>='a' && LA12_125<='z')) ) {
+                            if ( ((LA12_123>='0' && LA12_123<='9')||(LA12_123>='A' && LA12_123<='Z')||LA12_123=='_'||(LA12_123>='a' && LA12_123<='z')) ) {
                                 alt12=38;
                             }
                             else {
@@ -1312,81 +1312,38 @@ public class InternalBusinessDomainLexer extends Lexer {
                 }
                 else {
                     alt12=38;}
-                }
-                break;
-            case 'o':
-                {
-                int LA12_33 = input.LA(3);
-
-                if ( (LA12_33=='r') ) {
-                    int LA12_68 = input.LA(4);
-
-                    if ( (LA12_68=='e') ) {
-                        int LA12_96 = input.LA(5);
-
-                        if ( (LA12_96=='i') ) {
-                            int LA12_126 = input.LA(6);
-
-                            if ( (LA12_126=='g') ) {
-                                int LA12_153 = input.LA(7);
-
-                                if ( (LA12_153=='n') ) {
-                                    int LA12_177 = input.LA(8);
-
-                                    if ( (LA12_177==' ') ) {
-                                        alt12=8;
-                                    }
-                                    else {
-                                        alt12=38;}
-                                }
-                                else {
-                                    alt12=38;}
-                            }
-                            else {
-                                alt12=38;}
-                        }
-                        else {
-                            alt12=38;}
-                    }
-                    else {
-                        alt12=38;}
-                }
-                else {
-                    alt12=38;}
-                }
-                break;
-            default:
+            }
+            else {
                 alt12=38;}
-
         }
         else if ( (LA12_0=='m') ) {
             switch ( input.LA(2) ) {
             case 'i':
                 {
-                int LA12_35 = input.LA(3);
+                int LA12_34 = input.LA(3);
 
-                if ( (LA12_35=='n') ) {
+                if ( (LA12_34=='n') ) {
                     switch ( input.LA(4) ) {
                     case 'l':
                         {
-                        int LA12_97 = input.LA(5);
+                        int LA12_95 = input.LA(5);
 
-                        if ( (LA12_97=='e') ) {
-                            int LA12_127 = input.LA(6);
+                        if ( (LA12_95=='e') ) {
+                            int LA12_124 = input.LA(6);
 
-                            if ( (LA12_127=='n') ) {
-                                int LA12_154 = input.LA(7);
+                            if ( (LA12_124=='n') ) {
+                                int LA12_150 = input.LA(7);
 
-                                if ( (LA12_154=='g') ) {
-                                    int LA12_178 = input.LA(8);
+                                if ( (LA12_150=='g') ) {
+                                    int LA12_173 = input.LA(8);
 
-                                    if ( (LA12_178=='t') ) {
-                                        int LA12_199 = input.LA(9);
+                                    if ( (LA12_173=='t') ) {
+                                        int LA12_193 = input.LA(9);
 
-                                        if ( (LA12_199=='h') ) {
-                                            int LA12_214 = input.LA(10);
+                                        if ( (LA12_193=='h') ) {
+                                            int LA12_208 = input.LA(10);
 
-                                            if ( ((LA12_214>='0' && LA12_214<='9')||(LA12_214>='A' && LA12_214<='Z')||LA12_214=='_'||(LA12_214>='a' && LA12_214<='z')) ) {
+                                            if ( ((LA12_208>='0' && LA12_208<='9')||(LA12_208>='A' && LA12_208<='Z')||LA12_208=='_'||(LA12_208>='a' && LA12_208<='z')) ) {
                                                 alt12=38;
                                             }
                                             else {
@@ -1485,29 +1442,46 @@ public class InternalBusinessDomainLexer extends Lexer {
             case 'a':
                 {
                 switch ( input.LA(3) ) {
+                case 'n':
+                    {
+                    int LA12_68 = input.LA(4);
+
+                    if ( (LA12_68=='y') ) {
+                        int LA12_97 = input.LA(5);
+
+                        if ( ((LA12_97>='0' && LA12_97<='9')||(LA12_97>='A' && LA12_97<='Z')||LA12_97=='_'||(LA12_97>='a' && LA12_97<='z')) ) {
+                            alt12=38;
+                        }
+                        else {
+                            alt12=3;}
+                    }
+                    else {
+                        alt12=38;}
+                    }
+                    break;
                 case 'x':
                     {
                     switch ( input.LA(4) ) {
                     case 'l':
                         {
-                        int LA12_99 = input.LA(5);
+                        int LA12_98 = input.LA(5);
 
-                        if ( (LA12_99=='e') ) {
-                            int LA12_128 = input.LA(6);
+                        if ( (LA12_98=='e') ) {
+                            int LA12_126 = input.LA(6);
 
-                            if ( (LA12_128=='n') ) {
-                                int LA12_155 = input.LA(7);
+                            if ( (LA12_126=='n') ) {
+                                int LA12_151 = input.LA(7);
 
-                                if ( (LA12_155=='g') ) {
-                                    int LA12_179 = input.LA(8);
+                                if ( (LA12_151=='g') ) {
+                                    int LA12_174 = input.LA(8);
 
-                                    if ( (LA12_179=='t') ) {
-                                        int LA12_200 = input.LA(9);
+                                    if ( (LA12_174=='t') ) {
+                                        int LA12_194 = input.LA(9);
 
-                                        if ( (LA12_200=='h') ) {
-                                            int LA12_215 = input.LA(10);
+                                        if ( (LA12_194=='h') ) {
+                                            int LA12_209 = input.LA(10);
 
-                                            if ( ((LA12_215>='0' && LA12_215<='9')||(LA12_215>='A' && LA12_215<='Z')||LA12_215=='_'||(LA12_215>='a' && LA12_215<='z')) ) {
+                                            if ( ((LA12_209>='0' && LA12_209<='9')||(LA12_209>='A' && LA12_209<='Z')||LA12_209=='_'||(LA12_209>='a' && LA12_209<='z')) ) {
                                                 alt12=38;
                                             }
                                             else {
@@ -1600,23 +1574,6 @@ public class InternalBusinessDomainLexer extends Lexer {
 
                     }
                     break;
-                case 'n':
-                    {
-                    int LA12_71 = input.LA(4);
-
-                    if ( (LA12_71=='y') ) {
-                        int LA12_101 = input.LA(5);
-
-                        if ( ((LA12_101>='0' && LA12_101<='9')||(LA12_101>='A' && LA12_101<='Z')||LA12_101=='_'||(LA12_101>='a' && LA12_101<='z')) ) {
-                            alt12=38;
-                        }
-                        else {
-                            alt12=3;}
-                    }
-                    else {
-                        alt12=38;}
-                    }
-                    break;
                 default:
                     alt12=38;}
 
@@ -1630,24 +1587,24 @@ public class InternalBusinessDomainLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'r':
                 {
-                int LA12_37 = input.LA(3);
+                int LA12_36 = input.LA(3);
 
-                if ( (LA12_37=='d') ) {
-                    int LA12_72 = input.LA(4);
+                if ( (LA12_36=='d') ) {
+                    int LA12_70 = input.LA(4);
 
-                    if ( (LA12_72=='e') ) {
-                        int LA12_102 = input.LA(5);
+                    if ( (LA12_70=='e') ) {
+                        int LA12_100 = input.LA(5);
 
-                        if ( (LA12_102=='r') ) {
-                            int LA12_130 = input.LA(6);
+                        if ( (LA12_100=='r') ) {
+                            int LA12_127 = input.LA(6);
 
-                            if ( (LA12_130=='e') ) {
-                                int LA12_156 = input.LA(7);
+                            if ( (LA12_127=='e') ) {
+                                int LA12_152 = input.LA(7);
 
-                                if ( (LA12_156=='d') ) {
-                                    int LA12_180 = input.LA(8);
+                                if ( (LA12_152=='d') ) {
+                                    int LA12_175 = input.LA(8);
 
-                                    if ( ((LA12_180>='0' && LA12_180<='9')||(LA12_180>='A' && LA12_180<='Z')||LA12_180=='_'||(LA12_180>='a' && LA12_180<='z')) ) {
+                                    if ( ((LA12_175>='0' && LA12_175<='9')||(LA12_175>='A' && LA12_175<='Z')||LA12_175=='_'||(LA12_175>='a' && LA12_175<='z')) ) {
                                         alt12=38;
                                     }
                                     else {
@@ -1671,19 +1628,87 @@ public class InternalBusinessDomainLexer extends Lexer {
                 break;
             case 'n':
                 {
-                int LA12_38 = input.LA(3);
+                switch ( input.LA(3) ) {
+                case 'e':
+                    {
+                    int LA12_71 = input.LA(4);
 
-                if ( (LA12_38=='e') ) {
-                    int LA12_73 = input.LA(4);
-
-                    if ( ((LA12_73>='0' && LA12_73<='9')||(LA12_73>='A' && LA12_73<='Z')||LA12_73=='_'||(LA12_73>='a' && LA12_73<='z')) ) {
+                    if ( ((LA12_71>='0' && LA12_71<='9')||(LA12_71>='A' && LA12_71<='Z')||LA12_71=='_'||(LA12_71>='a' && LA12_71<='z')) ) {
                         alt12=38;
                     }
                     else {
                         alt12=4;}
-                }
-                else {
-                    alt12=38;}
+                    }
+                    break;
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                case 'A':
+                case 'B':
+                case 'C':
+                case 'D':
+                case 'E':
+                case 'F':
+                case 'G':
+                case 'H':
+                case 'I':
+                case 'J':
+                case 'K':
+                case 'L':
+                case 'M':
+                case 'N':
+                case 'O':
+                case 'P':
+                case 'Q':
+                case 'R':
+                case 'S':
+                case 'T':
+                case 'U':
+                case 'V':
+                case 'W':
+                case 'X':
+                case 'Y':
+                case 'Z':
+                case '_':
+                case 'a':
+                case 'b':
+                case 'c':
+                case 'd':
+                case 'f':
+                case 'g':
+                case 'h':
+                case 'i':
+                case 'j':
+                case 'k':
+                case 'l':
+                case 'm':
+                case 'n':
+                case 'o':
+                case 'p':
+                case 'q':
+                case 'r':
+                case 's':
+                case 't':
+                case 'u':
+                case 'v':
+                case 'w':
+                case 'x':
+                case 'y':
+                case 'z':
+                    {
+                    alt12=38;
+                    }
+                    break;
+                default:
+                    alt12=11;}
+
                 }
                 break;
             default:
@@ -1692,61 +1717,26 @@ public class InternalBusinessDomainLexer extends Lexer {
         }
         else if ( (LA12_0=='d') ) {
             switch ( input.LA(2) ) {
-            case 'o':
-                {
-                int LA12_39 = input.LA(3);
-
-                if ( (LA12_39=='m') ) {
-                    int LA12_74 = input.LA(4);
-
-                    if ( (LA12_74=='a') ) {
-                        int LA12_104 = input.LA(5);
-
-                        if ( (LA12_104=='i') ) {
-                            int LA12_131 = input.LA(6);
-
-                            if ( (LA12_131=='n') ) {
-                                int LA12_157 = input.LA(7);
-
-                                if ( ((LA12_157>='0' && LA12_157<='9')||(LA12_157>='A' && LA12_157<='Z')||LA12_157=='_'||(LA12_157>='a' && LA12_157<='z')) ) {
-                                    alt12=38;
-                                }
-                                else {
-                                    alt12=5;}
-                            }
-                            else {
-                                alt12=38;}
-                        }
-                        else {
-                            alt12=38;}
-                    }
-                    else {
-                        alt12=38;}
-                }
-                else {
-                    alt12=38;}
-                }
-                break;
             case 'e':
                 {
                 switch ( input.LA(3) ) {
                 case 'r':
                     {
-                    int LA12_75 = input.LA(4);
+                    int LA12_73 = input.LA(4);
 
-                    if ( (LA12_75=='i') ) {
-                        int LA12_105 = input.LA(5);
+                    if ( (LA12_73=='i') ) {
+                        int LA12_102 = input.LA(5);
 
-                        if ( (LA12_105=='v') ) {
-                            int LA12_132 = input.LA(6);
+                        if ( (LA12_102=='v') ) {
+                            int LA12_128 = input.LA(6);
 
-                            if ( (LA12_132=='e') ) {
-                                int LA12_158 = input.LA(7);
+                            if ( (LA12_128=='e') ) {
+                                int LA12_153 = input.LA(7);
 
-                                if ( (LA12_158=='d') ) {
-                                    int LA12_182 = input.LA(8);
+                                if ( (LA12_153=='d') ) {
+                                    int LA12_176 = input.LA(8);
 
-                                    if ( ((LA12_182>='0' && LA12_182<='9')||(LA12_182>='A' && LA12_182<='Z')||LA12_182=='_'||(LA12_182>='a' && LA12_182<='z')) ) {
+                                    if ( ((LA12_176>='0' && LA12_176<='9')||(LA12_176>='A' && LA12_176<='Z')||LA12_176=='_'||(LA12_176>='a' && LA12_176<='z')) ) {
                                         alt12=38;
                                     }
                                     else {
@@ -1767,21 +1757,21 @@ public class InternalBusinessDomainLexer extends Lexer {
                     break;
                 case 'f':
                     {
-                    int LA12_76 = input.LA(4);
+                    int LA12_74 = input.LA(4);
 
-                    if ( (LA12_76=='a') ) {
-                        int LA12_106 = input.LA(5);
+                    if ( (LA12_74=='a') ) {
+                        int LA12_103 = input.LA(5);
 
-                        if ( (LA12_106=='u') ) {
-                            int LA12_133 = input.LA(6);
+                        if ( (LA12_103=='u') ) {
+                            int LA12_129 = input.LA(6);
 
-                            if ( (LA12_133=='l') ) {
-                                int LA12_159 = input.LA(7);
+                            if ( (LA12_129=='l') ) {
+                                int LA12_154 = input.LA(7);
 
-                                if ( (LA12_159=='t') ) {
-                                    int LA12_183 = input.LA(8);
+                                if ( (LA12_154=='t') ) {
+                                    int LA12_177 = input.LA(8);
 
-                                    if ( ((LA12_183>='0' && LA12_183<='9')||(LA12_183>='A' && LA12_183<='Z')||LA12_183=='_'||(LA12_183>='a' && LA12_183<='z')) ) {
+                                    if ( ((LA12_177>='0' && LA12_177<='9')||(LA12_177>='A' && LA12_177<='Z')||LA12_177=='_'||(LA12_177>='a' && LA12_177<='z')) ) {
                                         alt12=38;
                                     }
                                     else {
@@ -1802,21 +1792,21 @@ public class InternalBusinessDomainLexer extends Lexer {
                     break;
                 case 'c':
                     {
-                    int LA12_77 = input.LA(4);
+                    int LA12_75 = input.LA(4);
 
-                    if ( (LA12_77=='i') ) {
-                        int LA12_107 = input.LA(5);
+                    if ( (LA12_75=='i') ) {
+                        int LA12_104 = input.LA(5);
 
-                        if ( (LA12_107=='m') ) {
-                            int LA12_134 = input.LA(6);
+                        if ( (LA12_104=='m') ) {
+                            int LA12_130 = input.LA(6);
 
-                            if ( (LA12_134=='a') ) {
-                                int LA12_160 = input.LA(7);
+                            if ( (LA12_130=='a') ) {
+                                int LA12_155 = input.LA(7);
 
-                                if ( (LA12_160=='l') ) {
-                                    int LA12_184 = input.LA(8);
+                                if ( (LA12_155=='l') ) {
+                                    int LA12_178 = input.LA(8);
 
-                                    if ( ((LA12_184>='0' && LA12_184<='9')||(LA12_184>='A' && LA12_184<='Z')||LA12_184=='_'||(LA12_184>='a' && LA12_184<='z')) ) {
+                                    if ( ((LA12_178>='0' && LA12_178<='9')||(LA12_178>='A' && LA12_178<='Z')||LA12_178=='_'||(LA12_178>='a' && LA12_178<='z')) ) {
                                         alt12=38;
                                     }
                                     else {
@@ -1840,29 +1830,64 @@ public class InternalBusinessDomainLexer extends Lexer {
 
                 }
                 break;
+            case 'o':
+                {
+                int LA12_39 = input.LA(3);
+
+                if ( (LA12_39=='m') ) {
+                    int LA12_76 = input.LA(4);
+
+                    if ( (LA12_76=='a') ) {
+                        int LA12_105 = input.LA(5);
+
+                        if ( (LA12_105=='i') ) {
+                            int LA12_131 = input.LA(6);
+
+                            if ( (LA12_131=='n') ) {
+                                int LA12_156 = input.LA(7);
+
+                                if ( ((LA12_156>='0' && LA12_156<='9')||(LA12_156>='A' && LA12_156<='Z')||LA12_156=='_'||(LA12_156>='a' && LA12_156<='z')) ) {
+                                    alt12=38;
+                                }
+                                else {
+                                    alt12=5;}
+                            }
+                            else {
+                                alt12=38;}
+                        }
+                        else {
+                            alt12=38;}
+                    }
+                    else {
+                        alt12=38;}
+                }
+                else {
+                    alt12=38;}
+                }
+                break;
             case 'a':
                 {
-                int LA12_41 = input.LA(3);
+                int LA12_40 = input.LA(3);
 
-                if ( (LA12_41=='t') ) {
-                    int LA12_78 = input.LA(4);
+                if ( (LA12_40=='t') ) {
+                    int LA12_77 = input.LA(4);
 
-                    if ( (LA12_78=='e') ) {
-                        int LA12_108 = input.LA(5);
+                    if ( (LA12_77=='e') ) {
+                        int LA12_106 = input.LA(5);
 
-                        if ( (LA12_108=='t') ) {
-                            int LA12_135 = input.LA(6);
+                        if ( (LA12_106=='t') ) {
+                            int LA12_132 = input.LA(6);
 
-                            if ( (LA12_135=='i') ) {
-                                int LA12_161 = input.LA(7);
+                            if ( (LA12_132=='i') ) {
+                                int LA12_157 = input.LA(7);
 
-                                if ( (LA12_161=='m') ) {
-                                    int LA12_185 = input.LA(8);
+                                if ( (LA12_157=='m') ) {
+                                    int LA12_180 = input.LA(8);
 
-                                    if ( (LA12_185=='e') ) {
-                                        int LA12_205 = input.LA(9);
+                                    if ( (LA12_180=='e') ) {
+                                        int LA12_199 = input.LA(9);
 
-                                        if ( ((LA12_205>='0' && LA12_205<='9')||(LA12_205>='A' && LA12_205<='Z')||LA12_205=='_'||(LA12_205>='a' && LA12_205<='z')) ) {
+                                        if ( ((LA12_199>='0' && LA12_199<='9')||(LA12_199>='A' && LA12_199<='Z')||LA12_199=='_'||(LA12_199>='a' && LA12_199<='z')) ) {
                                             alt12=38;
                                         }
                                         else {
@@ -1898,36 +1923,36 @@ public class InternalBusinessDomainLexer extends Lexer {
             int LA12_7 = input.LA(2);
 
             if ( (LA12_7=='s') ) {
-                int LA12_43 = input.LA(3);
+                int LA12_42 = input.LA(3);
 
-                if ( (LA12_43=='s') ) {
-                    int LA12_79 = input.LA(4);
+                if ( (LA12_42=='s') ) {
+                    int LA12_78 = input.LA(4);
 
-                    if ( (LA12_79=='o') ) {
-                        int LA12_109 = input.LA(5);
+                    if ( (LA12_78=='o') ) {
+                        int LA12_107 = input.LA(5);
 
-                        if ( (LA12_109=='c') ) {
-                            int LA12_136 = input.LA(6);
+                        if ( (LA12_107=='c') ) {
+                            int LA12_133 = input.LA(6);
 
-                            if ( (LA12_136=='i') ) {
-                                int LA12_162 = input.LA(7);
+                            if ( (LA12_133=='i') ) {
+                                int LA12_158 = input.LA(7);
 
-                                if ( (LA12_162=='a') ) {
-                                    int LA12_186 = input.LA(8);
+                                if ( (LA12_158=='a') ) {
+                                    int LA12_181 = input.LA(8);
 
-                                    if ( (LA12_186=='t') ) {
-                                        int LA12_206 = input.LA(9);
+                                    if ( (LA12_181=='t') ) {
+                                        int LA12_200 = input.LA(9);
 
-                                        if ( (LA12_206=='i') ) {
-                                            int LA12_217 = input.LA(10);
+                                        if ( (LA12_200=='i') ) {
+                                            int LA12_211 = input.LA(10);
 
-                                            if ( (LA12_217=='o') ) {
-                                                int LA12_225 = input.LA(11);
+                                            if ( (LA12_211=='o') ) {
+                                                int LA12_219 = input.LA(11);
 
-                                                if ( (LA12_225=='n') ) {
-                                                    int LA12_228 = input.LA(12);
+                                                if ( (LA12_219=='n') ) {
+                                                    int LA12_222 = input.LA(12);
 
-                                                    if ( ((LA12_228>='0' && LA12_228<='9')||(LA12_228>='A' && LA12_228<='Z')||LA12_228=='_'||(LA12_228>='a' && LA12_228<='z')) ) {
+                                                    if ( ((LA12_222>='0' && LA12_222<='9')||(LA12_222>='A' && LA12_222<='Z')||LA12_222=='_'||(LA12_222>='a' && LA12_222<='z')) ) {
                                                         alt12=38;
                                                     }
                                                     else {
@@ -1963,37 +1988,136 @@ public class InternalBusinessDomainLexer extends Lexer {
             else {
                 alt12=38;}
         }
+        else if ( (LA12_0=='c') ) {
+            switch ( input.LA(2) ) {
+            case 'o':
+                {
+                int LA12_43 = input.LA(3);
+
+                if ( (LA12_43=='l') ) {
+                    int LA12_79 = input.LA(4);
+
+                    if ( (LA12_79=='u') ) {
+                        int LA12_108 = input.LA(5);
+
+                        if ( (LA12_108=='m') ) {
+                            int LA12_134 = input.LA(6);
+
+                            if ( (LA12_134=='n') ) {
+                                int LA12_159 = input.LA(7);
+
+                                if ( ((LA12_159>='0' && LA12_159<='9')||(LA12_159>='A' && LA12_159<='Z')||LA12_159=='_'||(LA12_159>='a' && LA12_159<='z')) ) {
+                                    alt12=38;
+                                }
+                                else {
+                                    alt12=8;}
+                            }
+                            else {
+                                alt12=38;}
+                        }
+                        else {
+                            alt12=38;}
+                    }
+                    else {
+                        alt12=38;}
+                }
+                else {
+                    alt12=38;}
+                }
+                break;
+            case 'l':
+                {
+                int LA12_44 = input.LA(3);
+
+                if ( (LA12_44=='a') ) {
+                    int LA12_80 = input.LA(4);
+
+                    if ( (LA12_80=='s') ) {
+                        int LA12_109 = input.LA(5);
+
+                        if ( (LA12_109=='s') ) {
+                            int LA12_135 = input.LA(6);
+
+                            if ( ((LA12_135>='0' && LA12_135<='9')||(LA12_135>='A' && LA12_135<='Z')||LA12_135=='_'||(LA12_135>='a' && LA12_135<='z')) ) {
+                                alt12=38;
+                            }
+                            else {
+                                alt12=12;}
+                        }
+                        else {
+                            alt12=38;}
+                    }
+                    else {
+                        alt12=38;}
+                }
+                else {
+                    alt12=38;}
+                }
+                break;
+            default:
+                alt12=38;}
+
+        }
         else if ( (LA12_0=='r') ) {
             switch ( input.LA(2) ) {
             case 'e':
                 {
                 switch ( input.LA(3) ) {
-                case 'f':
+                case 'g':
                     {
-                    int LA12_80 = input.LA(4);
+                    int LA12_81 = input.LA(4);
 
-                    if ( (LA12_80=='e') ) {
+                    if ( (LA12_81=='e') ) {
                         int LA12_110 = input.LA(5);
 
-                        if ( (LA12_110=='r') ) {
+                        if ( (LA12_110=='x') ) {
+                            int LA12_136 = input.LA(6);
+
+                            if ( (LA12_136=='p') ) {
+                                int LA12_161 = input.LA(7);
+
+                                if ( ((LA12_161>='0' && LA12_161<='9')||(LA12_161>='A' && LA12_161<='Z')||LA12_161=='_'||(LA12_161>='a' && LA12_161<='z')) ) {
+                                    alt12=38;
+                                }
+                                else {
+                                    alt12=23;}
+                            }
+                            else {
+                                alt12=38;}
+                        }
+                        else {
+                            alt12=38;}
+                    }
+                    else {
+                        alt12=38;}
+                    }
+                    break;
+                case 'f':
+                    {
+                    int LA12_82 = input.LA(4);
+
+                    if ( (LA12_82=='e') ) {
+                        int LA12_111 = input.LA(5);
+
+                        if ( (LA12_111=='r') ) {
                             int LA12_137 = input.LA(6);
 
                             if ( (LA12_137=='e') ) {
-                                int LA12_163 = input.LA(7);
+                                int LA12_162 = input.LA(7);
 
-                                if ( (LA12_163=='n') ) {
-                                    int LA12_187 = input.LA(8);
+                                if ( (LA12_162=='n') ) {
+                                    int LA12_184 = input.LA(8);
 
-                                    if ( (LA12_187=='c') ) {
-                                        int LA12_207 = input.LA(9);
+                                    if ( (LA12_184=='c') ) {
+                                        int LA12_201 = input.LA(9);
 
-                                        if ( (LA12_207=='e') ) {
-                                            int LA12_218 = input.LA(10);
+                                        if ( (LA12_201=='e') ) {
+                                            int LA12_212 = input.LA(10);
 
-                                            if ( (LA12_218=='s') ) {
-                                                int LA12_226 = input.LA(11);
+                                            if ( (LA12_212=='s') ) {
+                                                int LA12_220 = input.LA(11);
 
-                                                if ( ((LA12_226>='0' && LA12_226<='9')||(LA12_226>='A' && LA12_226<='Z')||LA12_226=='_'||(LA12_226>='a' && LA12_226<='z')) ) {
+                                                if ( ((LA12_220>='0' && LA12_220<='9')||(LA12_220>='A' && LA12_220<='Z')||LA12_220=='_'||(LA12_220>='a' && LA12_220<='z')) ) {
                                                     alt12=38;
                                                 }
                                                 else {
@@ -2021,35 +2145,6 @@ public class InternalBusinessDomainLexer extends Lexer {
                         alt12=38;}
                     }
                     break;
-                case 'g':
-                    {
-                    int LA12_81 = input.LA(4);
-
-                    if ( (LA12_81=='e') ) {
-                        int LA12_111 = input.LA(5);
-
-                        if ( (LA12_111=='x') ) {
-                            int LA12_138 = input.LA(6);
-
-                            if ( (LA12_138=='p') ) {
-                                int LA12_164 = input.LA(7);
-
-                                if ( ((LA12_164>='0' && LA12_164<='9')||(LA12_164>='A' && LA12_164<='Z')||LA12_164=='_'||(LA12_164>='a' && LA12_164<='z')) ) {
-                                    alt12=38;
-                                }
-                                else {
-                                    alt12=23;}
-                            }
-                            else {
-                                alt12=38;}
-                        }
-                        else {
-                            alt12=38;}
-                    }
-                    else {
-                        alt12=38;}
-                    }
-                    break;
                 default:
                     alt12=38;}
 
@@ -2057,18 +2152,18 @@ public class InternalBusinessDomainLexer extends Lexer {
                 break;
             case 'u':
                 {
-                int LA12_45 = input.LA(3);
+                int LA12_46 = input.LA(3);
 
-                if ( (LA12_45=='l') ) {
-                    int LA12_82 = input.LA(4);
+                if ( (LA12_46=='l') ) {
+                    int LA12_83 = input.LA(4);
 
-                    if ( (LA12_82=='e') ) {
+                    if ( (LA12_83=='e') ) {
                         int LA12_112 = input.LA(5);
 
                         if ( (LA12_112=='s') ) {
-                            int LA12_139 = input.LA(6);
+                            int LA12_138 = input.LA(6);
 
-                            if ( ((LA12_139>='0' && LA12_139<='9')||(LA12_139>='A' && LA12_139<='Z')||LA12_139=='_'||(LA12_139>='a' && LA12_139<='z')) ) {
+                            if ( ((LA12_138>='0' && LA12_138<='9')||(LA12_138>='A' && LA12_138<='Z')||LA12_138=='_'||(LA12_138>='a' && LA12_138<='z')) ) {
                                 alt12=38;
                             }
                             else {
@@ -2092,18 +2187,18 @@ public class InternalBusinessDomainLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'a':
                 {
-                int LA12_46 = input.LA(3);
+                int LA12_47 = input.LA(3);
 
-                if ( (LA12_46=='b') ) {
-                    int LA12_83 = input.LA(4);
+                if ( (LA12_47=='b') ) {
+                    int LA12_84 = input.LA(4);
 
-                    if ( (LA12_83=='l') ) {
+                    if ( (LA12_84=='l') ) {
                         int LA12_113 = input.LA(5);
 
                         if ( (LA12_113=='e') ) {
-                            int LA12_140 = input.LA(6);
+                            int LA12_139 = input.LA(6);
 
-                            if ( ((LA12_140>='0' && LA12_140<='9')||(LA12_140>='A' && LA12_140<='Z')||LA12_140=='_'||(LA12_140>='a' && LA12_140<='z')) ) {
+                            if ( ((LA12_139>='0' && LA12_139<='9')||(LA12_139>='A' && LA12_139<='Z')||LA12_139=='_'||(LA12_139>='a' && LA12_139<='z')) ) {
                                 alt12=38;
                             }
                             else {
@@ -2121,12 +2216,12 @@ public class InternalBusinessDomainLexer extends Lexer {
                 break;
             case 'r':
                 {
-                int LA12_47 = input.LA(3);
+                int LA12_48 = input.LA(3);
 
-                if ( (LA12_47=='u') ) {
-                    int LA12_84 = input.LA(4);
+                if ( (LA12_48=='u') ) {
+                    int LA12_85 = input.LA(4);
 
-                    if ( (LA12_84=='e') ) {
+                    if ( (LA12_85=='e') ) {
                         int LA12_114 = input.LA(5);
 
                         if ( ((LA12_114>='0' && LA12_114<='9')||(LA12_114>='A' && LA12_114<='Z')||LA12_114=='_'||(LA12_114>='a' && LA12_114<='z')) ) {
@@ -2134,76 +2229,6 @@ public class InternalBusinessDomainLexer extends Lexer {
                         }
                         else {
                             alt12=33;}
-                    }
-                    else {
-                        alt12=38;}
-                }
-                else {
-                    alt12=38;}
-                }
-                break;
-            default:
-                alt12=38;}
-
-        }
-        else if ( (LA12_0=='c') ) {
-            switch ( input.LA(2) ) {
-            case 'o':
-                {
-                int LA12_48 = input.LA(3);
-
-                if ( (LA12_48=='l') ) {
-                    int LA12_85 = input.LA(4);
-
-                    if ( (LA12_85=='u') ) {
-                        int LA12_115 = input.LA(5);
-
-                        if ( (LA12_115=='m') ) {
-                            int LA12_142 = input.LA(6);
-
-                            if ( (LA12_142=='n') ) {
-                                int LA12_167 = input.LA(7);
-
-                                if ( ((LA12_167>='0' && LA12_167<='9')||(LA12_167>='A' && LA12_167<='Z')||LA12_167=='_'||(LA12_167>='a' && LA12_167<='z')) ) {
-                                    alt12=38;
-                                }
-                                else {
-                                    alt12=11;}
-                            }
-                            else {
-                                alt12=38;}
-                        }
-                        else {
-                            alt12=38;}
-                    }
-                    else {
-                        alt12=38;}
-                }
-                else {
-                    alt12=38;}
-                }
-                break;
-            case 'l':
-                {
-                int LA12_49 = input.LA(3);
-
-                if ( (LA12_49=='a') ) {
-                    int LA12_86 = input.LA(4);
-
-                    if ( (LA12_86=='s') ) {
-                        int LA12_116 = input.LA(5);
-
-                        if ( (LA12_116=='s') ) {
-                            int LA12_143 = input.LA(6);
-
-                            if ( ((LA12_143>='0' && LA12_143<='9')||(LA12_143>='A' && LA12_143<='Z')||LA12_143=='_'||(LA12_143>='a' && LA12_143<='z')) ) {
-                                alt12=38;
-                            }
-                            else {
-                                alt12=12;}
-                        }
-                        else {
-                            alt12=38;}
                     }
                     else {
                         alt12=38;}
@@ -2229,24 +2254,24 @@ public class InternalBusinessDomainLexer extends Lexer {
                 switch ( input.LA(3) ) {
                 case 'h':
                     {
-                    int LA12_87 = input.LA(4);
+                    int LA12_86 = input.LA(4);
 
-                    if ( (LA12_87=='e') ) {
-                        int LA12_117 = input.LA(5);
+                    if ( (LA12_86=='e') ) {
+                        int LA12_115 = input.LA(5);
 
-                        if ( (LA12_117=='r') ) {
-                            int LA12_144 = input.LA(6);
+                        if ( (LA12_115=='r') ) {
+                            int LA12_141 = input.LA(6);
 
-                            if ( (LA12_144=='i') ) {
-                                int LA12_169 = input.LA(7);
+                            if ( (LA12_141=='i') ) {
+                                int LA12_165 = input.LA(7);
 
-                                if ( (LA12_169=='t') ) {
-                                    int LA12_190 = input.LA(8);
+                                if ( (LA12_165=='t') ) {
+                                    int LA12_185 = input.LA(8);
 
-                                    if ( (LA12_190=='s') ) {
-                                        int LA12_208 = input.LA(9);
+                                    if ( (LA12_185=='s') ) {
+                                        int LA12_202 = input.LA(9);
 
-                                        if ( ((LA12_208>='0' && LA12_208<='9')||(LA12_208>='A' && LA12_208<='Z')||LA12_208=='_'||(LA12_208>='a' && LA12_208<='z')) ) {
+                                        if ( ((LA12_202>='0' && LA12_202<='9')||(LA12_202>='A' && LA12_202<='Z')||LA12_202=='_'||(LA12_202>='a' && LA12_202<='z')) ) {
                                             alt12=38;
                                         }
                                         else {
@@ -2270,21 +2295,21 @@ public class InternalBusinessDomainLexer extends Lexer {
                     break;
                 case 't':
                     {
-                    int LA12_88 = input.LA(4);
+                    int LA12_87 = input.LA(4);
 
-                    if ( (LA12_88=='e') ) {
-                        int LA12_118 = input.LA(5);
+                    if ( (LA12_87=='e') ) {
+                        int LA12_116 = input.LA(5);
 
-                        if ( (LA12_118=='g') ) {
-                            int LA12_145 = input.LA(6);
+                        if ( (LA12_116=='g') ) {
+                            int LA12_142 = input.LA(6);
 
-                            if ( (LA12_145=='e') ) {
-                                int LA12_170 = input.LA(7);
+                            if ( (LA12_142=='e') ) {
+                                int LA12_166 = input.LA(7);
 
-                                if ( (LA12_170=='r') ) {
-                                    int LA12_191 = input.LA(8);
+                                if ( (LA12_166=='r') ) {
+                                    int LA12_186 = input.LA(8);
 
-                                    if ( ((LA12_191>='0' && LA12_191<='9')||(LA12_191>='A' && LA12_191<='Z')||LA12_191=='_'||(LA12_191>='a' && LA12_191<='z')) ) {
+                                    if ( ((LA12_186>='0' && LA12_186<='9')||(LA12_186>='A' && LA12_186<='Z')||LA12_186=='_'||(LA12_186>='a' && LA12_186<='z')) ) {
                                         alt12=38;
                                     }
                                     else {
@@ -2314,36 +2339,36 @@ public class InternalBusinessDomainLexer extends Lexer {
             int LA12_14 = input.LA(2);
 
             if ( (LA12_14=='n') ) {
-                int LA12_53 = input.LA(3);
+                int LA12_52 = input.LA(3);
 
-                if ( (LA12_53=='u') ) {
-                    int LA12_89 = input.LA(4);
+                if ( (LA12_52=='u') ) {
+                    int LA12_88 = input.LA(4);
 
-                    if ( (LA12_89=='m') ) {
-                        int LA12_119 = input.LA(5);
+                    if ( (LA12_88=='m') ) {
+                        int LA12_117 = input.LA(5);
 
-                        if ( (LA12_119=='e') ) {
-                            int LA12_146 = input.LA(6);
+                        if ( (LA12_117=='e') ) {
+                            int LA12_143 = input.LA(6);
 
-                            if ( (LA12_146=='r') ) {
-                                int LA12_171 = input.LA(7);
+                            if ( (LA12_143=='r') ) {
+                                int LA12_167 = input.LA(7);
 
-                                if ( (LA12_171=='a') ) {
-                                    int LA12_192 = input.LA(8);
+                                if ( (LA12_167=='a') ) {
+                                    int LA12_187 = input.LA(8);
 
-                                    if ( (LA12_192=='t') ) {
-                                        int LA12_210 = input.LA(9);
+                                    if ( (LA12_187=='t') ) {
+                                        int LA12_204 = input.LA(9);
 
-                                        if ( (LA12_210=='i') ) {
-                                            int LA12_220 = input.LA(10);
+                                        if ( (LA12_204=='i') ) {
+                                            int LA12_214 = input.LA(10);
 
-                                            if ( (LA12_220=='o') ) {
-                                                int LA12_227 = input.LA(11);
+                                            if ( (LA12_214=='o') ) {
+                                                int LA12_221 = input.LA(11);
 
-                                                if ( (LA12_227=='n') ) {
-                                                    int LA12_230 = input.LA(12);
+                                                if ( (LA12_221=='n') ) {
+                                                    int LA12_224 = input.LA(12);
 
-                                                    if ( ((LA12_230>='0' && LA12_230<='9')||(LA12_230>='A' && LA12_230<='Z')||LA12_230=='_'||(LA12_230>='a' && LA12_230<='z')) ) {
+                                                    if ( ((LA12_224>='0' && LA12_224<='9')||(LA12_224>='A' && LA12_224<='Z')||LA12_224=='_'||(LA12_224>='a' && LA12_224<='z')) ) {
                                                         alt12=38;
                                                     }
                                                     else {
@@ -2386,21 +2411,21 @@ public class InternalBusinessDomainLexer extends Lexer {
             int LA12_16 = input.LA(2);
 
             if ( (LA12_16=='n') ) {
-                int LA12_55 = input.LA(3);
+                int LA12_54 = input.LA(3);
 
-                if ( (LA12_55=='i') ) {
-                    int LA12_90 = input.LA(4);
+                if ( (LA12_54=='i') ) {
+                    int LA12_89 = input.LA(4);
 
-                    if ( (LA12_90=='q') ) {
-                        int LA12_120 = input.LA(5);
+                    if ( (LA12_89=='q') ) {
+                        int LA12_118 = input.LA(5);
 
-                        if ( (LA12_120=='u') ) {
-                            int LA12_147 = input.LA(6);
+                        if ( (LA12_118=='u') ) {
+                            int LA12_144 = input.LA(6);
 
-                            if ( (LA12_147=='e') ) {
-                                int LA12_172 = input.LA(7);
+                            if ( (LA12_144=='e') ) {
+                                int LA12_168 = input.LA(7);
 
-                                if ( ((LA12_172>='0' && LA12_172<='9')||(LA12_172>='A' && LA12_172<='Z')||LA12_172=='_'||(LA12_172>='a' && LA12_172<='z')) ) {
+                                if ( ((LA12_168>='0' && LA12_168<='9')||(LA12_168>='A' && LA12_168<='Z')||LA12_168=='_'||(LA12_168>='a' && LA12_168<='z')) ) {
                                     alt12=38;
                                 }
                                 else {
@@ -2437,27 +2462,27 @@ public class InternalBusinessDomainLexer extends Lexer {
             int LA12_19 = input.LA(2);
 
             if ( (LA12_19=='u') ) {
-                int LA12_58 = input.LA(3);
+                int LA12_57 = input.LA(3);
 
-                if ( (LA12_58=='l') ) {
-                    int LA12_91 = input.LA(4);
+                if ( (LA12_57=='l') ) {
+                    int LA12_90 = input.LA(4);
 
-                    if ( (LA12_91=='l') ) {
-                        int LA12_121 = input.LA(5);
+                    if ( (LA12_90=='l') ) {
+                        int LA12_119 = input.LA(5);
 
-                        if ( (LA12_121=='a') ) {
-                            int LA12_148 = input.LA(6);
+                        if ( (LA12_119=='a') ) {
+                            int LA12_145 = input.LA(6);
 
-                            if ( (LA12_148=='b') ) {
-                                int LA12_173 = input.LA(7);
+                            if ( (LA12_145=='b') ) {
+                                int LA12_169 = input.LA(7);
 
-                                if ( (LA12_173=='l') ) {
-                                    int LA12_194 = input.LA(8);
+                                if ( (LA12_169=='l') ) {
+                                    int LA12_189 = input.LA(8);
 
-                                    if ( (LA12_194=='e') ) {
-                                        int LA12_211 = input.LA(9);
+                                    if ( (LA12_189=='e') ) {
+                                        int LA12_205 = input.LA(9);
 
-                                        if ( ((LA12_211>='0' && LA12_211<='9')||(LA12_211>='A' && LA12_211<='Z')||LA12_211=='_'||(LA12_211>='a' && LA12_211<='z')) ) {
+                                        if ( ((LA12_205>='0' && LA12_205<='9')||(LA12_205>='A' && LA12_205<='Z')||LA12_205=='_'||(LA12_205>='a' && LA12_205<='z')) ) {
                                             alt12=38;
                                         }
                                         else {
@@ -2488,27 +2513,27 @@ public class InternalBusinessDomainLexer extends Lexer {
             int LA12_20 = input.LA(2);
 
             if ( (LA12_20=='r') ) {
-                int LA12_59 = input.LA(3);
+                int LA12_58 = input.LA(3);
 
-                if ( (LA12_59=='i') ) {
-                    int LA12_92 = input.LA(4);
+                if ( (LA12_58=='i') ) {
+                    int LA12_91 = input.LA(4);
 
-                    if ( (LA12_92=='t') ) {
-                        int LA12_122 = input.LA(5);
+                    if ( (LA12_91=='t') ) {
+                        int LA12_120 = input.LA(5);
 
-                        if ( (LA12_122=='a') ) {
-                            int LA12_149 = input.LA(6);
+                        if ( (LA12_120=='a') ) {
+                            int LA12_146 = input.LA(6);
 
-                            if ( (LA12_149=='b') ) {
-                                int LA12_174 = input.LA(7);
+                            if ( (LA12_146=='b') ) {
+                                int LA12_170 = input.LA(7);
 
-                                if ( (LA12_174=='l') ) {
-                                    int LA12_195 = input.LA(8);
+                                if ( (LA12_170=='l') ) {
+                                    int LA12_190 = input.LA(8);
 
-                                    if ( (LA12_195=='e') ) {
-                                        int LA12_212 = input.LA(9);
+                                    if ( (LA12_190=='e') ) {
+                                        int LA12_206 = input.LA(9);
 
-                                        if ( ((LA12_212>='0' && LA12_212<='9')||(LA12_212>='A' && LA12_212<='Z')||LA12_212=='_'||(LA12_212>='a' && LA12_212<='z')) ) {
+                                        if ( ((LA12_206>='0' && LA12_206<='9')||(LA12_206>='A' && LA12_206<='Z')||LA12_206=='_'||(LA12_206>='a' && LA12_206<='z')) ) {
                                             alt12=38;
                                         }
                                         else {
@@ -2539,24 +2564,24 @@ public class InternalBusinessDomainLexer extends Lexer {
             int LA12_21 = input.LA(2);
 
             if ( (LA12_21=='o') ) {
-                int LA12_60 = input.LA(3);
+                int LA12_59 = input.LA(3);
 
-                if ( (LA12_60=='o') ) {
-                    int LA12_93 = input.LA(4);
+                if ( (LA12_59=='o') ) {
+                    int LA12_92 = input.LA(4);
 
-                    if ( (LA12_93=='l') ) {
-                        int LA12_123 = input.LA(5);
+                    if ( (LA12_92=='l') ) {
+                        int LA12_121 = input.LA(5);
 
-                        if ( (LA12_123=='e') ) {
-                            int LA12_150 = input.LA(6);
+                        if ( (LA12_121=='e') ) {
+                            int LA12_147 = input.LA(6);
 
-                            if ( (LA12_150=='a') ) {
-                                int LA12_175 = input.LA(7);
+                            if ( (LA12_147=='a') ) {
+                                int LA12_171 = input.LA(7);
 
-                                if ( (LA12_175=='n') ) {
-                                    int LA12_196 = input.LA(8);
+                                if ( (LA12_171=='n') ) {
+                                    int LA12_191 = input.LA(8);
 
-                                    if ( ((LA12_196>='0' && LA12_196<='9')||(LA12_196>='A' && LA12_196<='Z')||LA12_196=='_'||(LA12_196>='a' && LA12_196<='z')) ) {
+                                    if ( ((LA12_191>='0' && LA12_191<='9')||(LA12_191>='A' && LA12_191<='Z')||LA12_191=='_'||(LA12_191>='a' && LA12_191<='z')) ) {
                                         alt12=38;
                                     }
                                     else {
@@ -2584,21 +2609,21 @@ public class InternalBusinessDomainLexer extends Lexer {
             int LA12_22 = input.LA(2);
 
             if ( (LA12_22=='t') ) {
-                int LA12_61 = input.LA(3);
+                int LA12_60 = input.LA(3);
 
-                if ( (LA12_61=='r') ) {
-                    int LA12_94 = input.LA(4);
+                if ( (LA12_60=='r') ) {
+                    int LA12_93 = input.LA(4);
 
-                    if ( (LA12_94=='i') ) {
-                        int LA12_124 = input.LA(5);
+                    if ( (LA12_93=='i') ) {
+                        int LA12_122 = input.LA(5);
 
-                        if ( (LA12_124=='n') ) {
-                            int LA12_151 = input.LA(6);
+                        if ( (LA12_122=='n') ) {
+                            int LA12_148 = input.LA(6);
 
-                            if ( (LA12_151=='g') ) {
-                                int LA12_176 = input.LA(7);
+                            if ( (LA12_148=='g') ) {
+                                int LA12_172 = input.LA(7);
 
-                                if ( ((LA12_176>='0' && LA12_176<='9')||(LA12_176>='A' && LA12_176<='Z')||LA12_176=='_'||(LA12_176>='a' && LA12_176<='z')) ) {
+                                if ( ((LA12_172>='0' && LA12_172<='9')||(LA12_172>='A' && LA12_172<='Z')||LA12_172=='_'||(LA12_172>='a' && LA12_172<='z')) ) {
                                     alt12=38;
                                 }
                                 else {

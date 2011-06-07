@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class InternalBusinessDomainParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'domain'", "';'", "'association'", "'foreign key'", "'references'", "'<->'", "'->'", "'table'", "'ordered'", "'column'", "'class'", "'inherits'", "'['", "'rules'", "']'", "'enumeration'", "'='", "'unique'", "','", "'nullable'", "'derived'", "'writable'", "'boolean'", "'default'", "'true'", "'false'", "'string'", "'minlength'", "'maxlength'", "'regexp'", "'datetime'", "'integer'", "'min'", "'max'", "'decimal'", "'many'", "'one'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'domain'", "';'", "'association'", "'column'", "'references'", "'<->'", "'->'", "'table'", "'ordered'", "'on'", "'class'", "'inherits'", "'['", "'rules'", "']'", "'enumeration'", "'='", "'unique'", "','", "'nullable'", "'derived'", "'writable'", "'boolean'", "'default'", "'true'", "'false'", "'string'", "'minlength'", "'maxlength'", "'regexp'", "'datetime'", "'integer'", "'min'", "'max'", "'decimal'", "'many'", "'one'"
     };
     public static final int RULE_ID=5;
     public static final int RULE_STRING=4;
@@ -397,7 +397,7 @@ public class InternalBusinessDomainParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAssociation
-    // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:215:1: ruleAssociation returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'association' ( RULE_ID ) (lv_sourceRoleName_3= RULE_ID ) ( 'foreign key' (lv_sourceForeignKey_5= RULE_ID ) )? ( 'references' (lv_sourceAlternateKey_7= RULE_ID ) )? (lv_sourceMultiplicity_8= ruleMultiplicity ) ( (lv_bidirectional_9= '<->' ) | '->' ) (lv_targetMultiplicity_11= ruleMultiplicity ) ( 'table' (lv_table_13= RULE_ID ) )? ( RULE_ID ) (lv_targetRoleName_15= RULE_ID ) ( 'foreign key' (lv_targetForeignKey_17= RULE_ID ) )? ( 'references' (lv_targetAlternateKey_19= RULE_ID ) )? ( (lv_ordered_20= 'ordered' ) ( 'column' (lv_orderingColumn_22= RULE_ID ) )? )? ';' ) ;
+    // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:215:1: ruleAssociation returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'association' ( RULE_ID ) (lv_sourceRoleName_3= RULE_ID ) ( 'column' (lv_sourceForeignKey_5= RULE_ID ) )? ( 'references' (lv_sourceAlternateKey_7= RULE_ID ) )? (lv_sourceMultiplicity_8= ruleMultiplicity ) ( (lv_bidirectional_9= '<->' ) | '->' ) (lv_targetMultiplicity_11= ruleMultiplicity ) ( 'table' (lv_table_13= RULE_ID ) )? ( RULE_ID ) (lv_targetRoleName_15= RULE_ID ) ( 'column' (lv_targetForeignKey_17= RULE_ID ) )? ( 'references' (lv_targetAlternateKey_19= RULE_ID ) )? ( (lv_ordered_20= 'ordered' ) ( 'on' (lv_orderingColumn_22= RULE_ID ) )? )? ';' ) ;
     public final EObject ruleAssociation() throws RecognitionException {
         EObject current = null;
 
@@ -420,11 +420,11 @@ public class InternalBusinessDomainParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:220:6: ( ( (lv_description_0= RULE_STRING )? 'association' ( RULE_ID ) (lv_sourceRoleName_3= RULE_ID ) ( 'foreign key' (lv_sourceForeignKey_5= RULE_ID ) )? ( 'references' (lv_sourceAlternateKey_7= RULE_ID ) )? (lv_sourceMultiplicity_8= ruleMultiplicity ) ( (lv_bidirectional_9= '<->' ) | '->' ) (lv_targetMultiplicity_11= ruleMultiplicity ) ( 'table' (lv_table_13= RULE_ID ) )? ( RULE_ID ) (lv_targetRoleName_15= RULE_ID ) ( 'foreign key' (lv_targetForeignKey_17= RULE_ID ) )? ( 'references' (lv_targetAlternateKey_19= RULE_ID ) )? ( (lv_ordered_20= 'ordered' ) ( 'column' (lv_orderingColumn_22= RULE_ID ) )? )? ';' ) )
-            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:221:1: ( (lv_description_0= RULE_STRING )? 'association' ( RULE_ID ) (lv_sourceRoleName_3= RULE_ID ) ( 'foreign key' (lv_sourceForeignKey_5= RULE_ID ) )? ( 'references' (lv_sourceAlternateKey_7= RULE_ID ) )? (lv_sourceMultiplicity_8= ruleMultiplicity ) ( (lv_bidirectional_9= '<->' ) | '->' ) (lv_targetMultiplicity_11= ruleMultiplicity ) ( 'table' (lv_table_13= RULE_ID ) )? ( RULE_ID ) (lv_targetRoleName_15= RULE_ID ) ( 'foreign key' (lv_targetForeignKey_17= RULE_ID ) )? ( 'references' (lv_targetAlternateKey_19= RULE_ID ) )? ( (lv_ordered_20= 'ordered' ) ( 'column' (lv_orderingColumn_22= RULE_ID ) )? )? ';' )
+            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:220:6: ( ( (lv_description_0= RULE_STRING )? 'association' ( RULE_ID ) (lv_sourceRoleName_3= RULE_ID ) ( 'column' (lv_sourceForeignKey_5= RULE_ID ) )? ( 'references' (lv_sourceAlternateKey_7= RULE_ID ) )? (lv_sourceMultiplicity_8= ruleMultiplicity ) ( (lv_bidirectional_9= '<->' ) | '->' ) (lv_targetMultiplicity_11= ruleMultiplicity ) ( 'table' (lv_table_13= RULE_ID ) )? ( RULE_ID ) (lv_targetRoleName_15= RULE_ID ) ( 'column' (lv_targetForeignKey_17= RULE_ID ) )? ( 'references' (lv_targetAlternateKey_19= RULE_ID ) )? ( (lv_ordered_20= 'ordered' ) ( 'on' (lv_orderingColumn_22= RULE_ID ) )? )? ';' ) )
+            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:221:1: ( (lv_description_0= RULE_STRING )? 'association' ( RULE_ID ) (lv_sourceRoleName_3= RULE_ID ) ( 'column' (lv_sourceForeignKey_5= RULE_ID ) )? ( 'references' (lv_sourceAlternateKey_7= RULE_ID ) )? (lv_sourceMultiplicity_8= ruleMultiplicity ) ( (lv_bidirectional_9= '<->' ) | '->' ) (lv_targetMultiplicity_11= ruleMultiplicity ) ( 'table' (lv_table_13= RULE_ID ) )? ( RULE_ID ) (lv_targetRoleName_15= RULE_ID ) ( 'column' (lv_targetForeignKey_17= RULE_ID ) )? ( 'references' (lv_targetAlternateKey_19= RULE_ID ) )? ( (lv_ordered_20= 'ordered' ) ( 'on' (lv_orderingColumn_22= RULE_ID ) )? )? ';' )
             {
-            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:221:1: ( (lv_description_0= RULE_STRING )? 'association' ( RULE_ID ) (lv_sourceRoleName_3= RULE_ID ) ( 'foreign key' (lv_sourceForeignKey_5= RULE_ID ) )? ( 'references' (lv_sourceAlternateKey_7= RULE_ID ) )? (lv_sourceMultiplicity_8= ruleMultiplicity ) ( (lv_bidirectional_9= '<->' ) | '->' ) (lv_targetMultiplicity_11= ruleMultiplicity ) ( 'table' (lv_table_13= RULE_ID ) )? ( RULE_ID ) (lv_targetRoleName_15= RULE_ID ) ( 'foreign key' (lv_targetForeignKey_17= RULE_ID ) )? ( 'references' (lv_targetAlternateKey_19= RULE_ID ) )? ( (lv_ordered_20= 'ordered' ) ( 'column' (lv_orderingColumn_22= RULE_ID ) )? )? ';' )
-            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:221:2: (lv_description_0= RULE_STRING )? 'association' ( RULE_ID ) (lv_sourceRoleName_3= RULE_ID ) ( 'foreign key' (lv_sourceForeignKey_5= RULE_ID ) )? ( 'references' (lv_sourceAlternateKey_7= RULE_ID ) )? (lv_sourceMultiplicity_8= ruleMultiplicity ) ( (lv_bidirectional_9= '<->' ) | '->' ) (lv_targetMultiplicity_11= ruleMultiplicity ) ( 'table' (lv_table_13= RULE_ID ) )? ( RULE_ID ) (lv_targetRoleName_15= RULE_ID ) ( 'foreign key' (lv_targetForeignKey_17= RULE_ID ) )? ( 'references' (lv_targetAlternateKey_19= RULE_ID ) )? ( (lv_ordered_20= 'ordered' ) ( 'column' (lv_orderingColumn_22= RULE_ID ) )? )? ';'
+            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:221:1: ( (lv_description_0= RULE_STRING )? 'association' ( RULE_ID ) (lv_sourceRoleName_3= RULE_ID ) ( 'column' (lv_sourceForeignKey_5= RULE_ID ) )? ( 'references' (lv_sourceAlternateKey_7= RULE_ID ) )? (lv_sourceMultiplicity_8= ruleMultiplicity ) ( (lv_bidirectional_9= '<->' ) | '->' ) (lv_targetMultiplicity_11= ruleMultiplicity ) ( 'table' (lv_table_13= RULE_ID ) )? ( RULE_ID ) (lv_targetRoleName_15= RULE_ID ) ( 'column' (lv_targetForeignKey_17= RULE_ID ) )? ( 'references' (lv_targetAlternateKey_19= RULE_ID ) )? ( (lv_ordered_20= 'ordered' ) ( 'on' (lv_orderingColumn_22= RULE_ID ) )? )? ';' )
+            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:221:2: (lv_description_0= RULE_STRING )? 'association' ( RULE_ID ) (lv_sourceRoleName_3= RULE_ID ) ( 'column' (lv_sourceForeignKey_5= RULE_ID ) )? ( 'references' (lv_sourceAlternateKey_7= RULE_ID ) )? (lv_sourceMultiplicity_8= ruleMultiplicity ) ( (lv_bidirectional_9= '<->' ) | '->' ) (lv_targetMultiplicity_11= ruleMultiplicity ) ( 'table' (lv_table_13= RULE_ID ) )? ( RULE_ID ) (lv_targetRoleName_15= RULE_ID ) ( 'column' (lv_targetForeignKey_17= RULE_ID ) )? ( 'references' (lv_targetAlternateKey_19= RULE_ID ) )? ( (lv_ordered_20= 'ordered' ) ( 'on' (lv_orderingColumn_22= RULE_ID ) )? )? ';'
             {
             // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:221:2: (lv_description_0= RULE_STRING )?
             int alt3=2;
@@ -503,7 +503,7 @@ public class InternalBusinessDomainParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:281:2: ( 'foreign key' (lv_sourceForeignKey_5= RULE_ID ) )?
+            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:281:2: ( 'column' (lv_sourceForeignKey_5= RULE_ID ) )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -512,11 +512,11 @@ public class InternalBusinessDomainParser extends AbstractInternalAntlrParser {
             }
             switch (alt4) {
                 case 1 :
-                    // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:281:3: 'foreign key' (lv_sourceForeignKey_5= RULE_ID )
+                    // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:281:3: 'column' (lv_sourceForeignKey_5= RULE_ID )
                     {
                     match(input,14,FOLLOW_14_in_ruleAssociation489); 
 
-                            createLeafNode(grammarAccess.getAssociationAccess().getForeignKeyKeyword_4_0(), null); 
+                            createLeafNode(grammarAccess.getAssociationAccess().getColumnKeyword_4_0(), null); 
                         
                     // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:285:1: (lv_sourceForeignKey_5= RULE_ID )
                     // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:287:6: lv_sourceForeignKey_5= RULE_ID
@@ -785,7 +785,7 @@ public class InternalBusinessDomainParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:457:2: ( 'foreign key' (lv_targetForeignKey_17= RULE_ID ) )?
+            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:457:2: ( 'column' (lv_targetForeignKey_17= RULE_ID ) )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -794,11 +794,11 @@ public class InternalBusinessDomainParser extends AbstractInternalAntlrParser {
             }
             switch (alt8) {
                 case 1 :
-                    // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:457:3: 'foreign key' (lv_targetForeignKey_17= RULE_ID )
+                    // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:457:3: 'column' (lv_targetForeignKey_17= RULE_ID )
                     {
                     match(input,14,FOLLOW_14_in_ruleAssociation797); 
 
-                            createLeafNode(grammarAccess.getAssociationAccess().getForeignKeyKeyword_12_0(), null); 
+                            createLeafNode(grammarAccess.getAssociationAccess().getColumnKeyword_12_0(), null); 
                         
                     // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:461:1: (lv_targetForeignKey_17= RULE_ID )
                     // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:463:6: lv_targetForeignKey_17= RULE_ID
@@ -873,7 +873,7 @@ public class InternalBusinessDomainParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:505:4: ( (lv_ordered_20= 'ordered' ) ( 'column' (lv_orderingColumn_22= RULE_ID ) )? )?
+            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:505:4: ( (lv_ordered_20= 'ordered' ) ( 'on' (lv_orderingColumn_22= RULE_ID ) )? )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -882,7 +882,7 @@ public class InternalBusinessDomainParser extends AbstractInternalAntlrParser {
             }
             switch (alt11) {
                 case 1 :
-                    // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:505:5: (lv_ordered_20= 'ordered' ) ( 'column' (lv_orderingColumn_22= RULE_ID ) )?
+                    // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:505:5: (lv_ordered_20= 'ordered' ) ( 'on' (lv_orderingColumn_22= RULE_ID ) )?
                     {
                     // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:505:5: (lv_ordered_20= 'ordered' )
                     // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:507:6: lv_ordered_20= 'ordered'
@@ -907,7 +907,7 @@ public class InternalBusinessDomainParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:526:2: ( 'column' (lv_orderingColumn_22= RULE_ID ) )?
+                    // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:526:2: ( 'on' (lv_orderingColumn_22= RULE_ID ) )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -916,11 +916,11 @@ public class InternalBusinessDomainParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt10) {
                         case 1 :
-                            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:526:3: 'column' (lv_orderingColumn_22= RULE_ID )
+                            // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:526:3: 'on' (lv_orderingColumn_22= RULE_ID )
                             {
                             match(input,20,FOLLOW_20_in_ruleAssociation916); 
 
-                                    createLeafNode(grammarAccess.getAssociationAccess().getColumnKeyword_14_1_0(), null); 
+                                    createLeafNode(grammarAccess.getAssociationAccess().getOnKeyword_14_1_0(), null); 
                                 
                             // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:530:1: (lv_orderingColumn_22= RULE_ID )
                             // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:532:6: lv_orderingColumn_22= RULE_ID
@@ -2810,14 +2810,14 @@ public class InternalBusinessDomainParser extends AbstractInternalAntlrParser {
             int alt31=2;
             int LA31_0 = input.LA(1);
 
-            if ( (LA31_0==20) ) {
+            if ( (LA31_0==14) ) {
                 alt31=1;
             }
             switch (alt31) {
                 case 1 :
                     // ../org.mod4j.dsl.businessdomain.xtext/src-gen/org/mod4j/dsl/businessdomain/xtext/parser/antlr/internal/InternalBusinessDomain.g:1363:6: 'column' (lv_column_10= RULE_ID )
                     {
-                    match(input,20,FOLLOW_20_in_ruleProperty2681); 
+                    match(input,14,FOLLOW_14_in_ruleProperty2681); 
 
                             createLeafNode(grammarAccess.getPropertyAccess().getColumnKeyword_3_0(), null); 
                         
@@ -4564,16 +4564,16 @@ public class InternalBusinessDomainParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_25_in_ruleUniqueRule2338 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleProperty_in_entryRuleProperty2371 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleProperty2381 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBoolProperty_in_ruleProperty2429 = new BitSet(new long[]{0x00000000C0101000L});
-    public static final BitSet FOLLOW_ruleStringProperty_in_ruleProperty2456 = new BitSet(new long[]{0x00000000C0101000L});
-    public static final BitSet FOLLOW_ruleDateTimeProperty_in_ruleProperty2483 = new BitSet(new long[]{0x00000000C0101000L});
-    public static final BitSet FOLLOW_ruleIntegerProperty_in_ruleProperty2510 = new BitSet(new long[]{0x00000000C0101000L});
-    public static final BitSet FOLLOW_ruleDecimalProperty_in_ruleProperty2537 = new BitSet(new long[]{0x00000000C0101000L});
-    public static final BitSet FOLLOW_ruleEnumerationProperty_in_ruleProperty2564 = new BitSet(new long[]{0x00000000C0101000L});
-    public static final BitSet FOLLOW_30_in_ruleProperty2585 = new BitSet(new long[]{0x0000000080101000L});
-    public static final BitSet FOLLOW_31_in_ruleProperty2621 = new BitSet(new long[]{0x0000000100101000L});
-    public static final BitSet FOLLOW_32_in_ruleProperty2655 = new BitSet(new long[]{0x0000000000101000L});
-    public static final BitSet FOLLOW_20_in_ruleProperty2681 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleBoolProperty_in_ruleProperty2429 = new BitSet(new long[]{0x00000000C0005000L});
+    public static final BitSet FOLLOW_ruleStringProperty_in_ruleProperty2456 = new BitSet(new long[]{0x00000000C0005000L});
+    public static final BitSet FOLLOW_ruleDateTimeProperty_in_ruleProperty2483 = new BitSet(new long[]{0x00000000C0005000L});
+    public static final BitSet FOLLOW_ruleIntegerProperty_in_ruleProperty2510 = new BitSet(new long[]{0x00000000C0005000L});
+    public static final BitSet FOLLOW_ruleDecimalProperty_in_ruleProperty2537 = new BitSet(new long[]{0x00000000C0005000L});
+    public static final BitSet FOLLOW_ruleEnumerationProperty_in_ruleProperty2564 = new BitSet(new long[]{0x00000000C0005000L});
+    public static final BitSet FOLLOW_30_in_ruleProperty2585 = new BitSet(new long[]{0x0000000080005000L});
+    public static final BitSet FOLLOW_31_in_ruleProperty2621 = new BitSet(new long[]{0x0000000100005000L});
+    public static final BitSet FOLLOW_32_in_ruleProperty2655 = new BitSet(new long[]{0x0000000000005000L});
+    public static final BitSet FOLLOW_14_in_ruleProperty2681 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleProperty2703 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_ruleProperty2722 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBoolProperty_in_entryRuleBoolProperty2755 = new BitSet(new long[]{0x0000000000000000L});

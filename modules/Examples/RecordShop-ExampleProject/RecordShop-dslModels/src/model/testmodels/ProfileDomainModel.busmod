@@ -16,22 +16,22 @@ class ReferencedClass table REF_CLASS [
 ]
 
 association
-    BeautifulName name foreign key NAME_FK
+    BeautifulName name column NAME_FK
     one -> many
     ReferencedClass refs
-        ordered column ORDERING;
+        ordered on ORDERING;
         
 association
     BeautifulSubClass subclasses
     many -> one
-    ReferencedClass reference foreign key REFERENCE_FK;
+    ReferencedClass reference column REFERENCE_FK;
     
 association
-    BeautifulName name foreign key BEAUTIFUL_NAME_FK
+    BeautifulName name column BEAUTIFUL_NAME_FK
     many -> many table LINK_TABLE
-    ReferencedClass referencedClasses foreign key REFERENCE_FK;
+    ReferencedClass referencedClasses column REFERENCE_FK;
     
 association
-    BeautifulName beautifulName foreign key OID references beautifulName
+    BeautifulName beautifulName column OID references beautifulName
     many -> many table BEAUTY_REF
-    ReferencedClass refers foreign key ELEMENT;
+    ReferencedClass refers column ELEMENT;

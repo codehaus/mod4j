@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class InternalBusinessDomainParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'->'", "'false'", "'many'", "'one'", "'domain'", "';'", "'association'", "'foreign key'", "'references'", "'table'", "'column'", "'class'", "'['", "']'", "'inherits'", "'rules'", "'enumeration'", "'='", "'unique'", "','", "'minlength'", "'maxlength'", "'regexp'", "'min'", "'max'", "'<->'", "'ordered'", "'nullable'", "'derived'", "'writable'", "'boolean'", "'default'", "'true'", "'string'", "'datetime'", "'integer'", "'decimal'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'->'", "'false'", "'many'", "'one'", "'domain'", "';'", "'association'", "'column'", "'references'", "'table'", "'on'", "'class'", "'['", "']'", "'inherits'", "'rules'", "'enumeration'", "'='", "'unique'", "','", "'minlength'", "'maxlength'", "'regexp'", "'min'", "'max'", "'<->'", "'ordered'", "'nullable'", "'derived'", "'writable'", "'boolean'", "'default'", "'true'", "'string'", "'datetime'", "'integer'", "'decimal'"
     };
     public static final int RULE_ID=5;
     public static final int RULE_STRING=4;
@@ -3259,21 +3259,21 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start rule__Association__Group_4__0
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1135:1: rule__Association__Group_4__0 : ( 'foreign key' ) rule__Association__Group_4__1 ;
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1135:1: rule__Association__Group_4__0 : ( 'column' ) rule__Association__Group_4__1 ;
     public final void rule__Association__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1139:1: ( ( 'foreign key' ) rule__Association__Group_4__1 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1140:1: ( 'foreign key' ) rule__Association__Group_4__1
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1139:1: ( ( 'column' ) rule__Association__Group_4__1 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1140:1: ( 'column' ) rule__Association__Group_4__1
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1140:1: ( 'foreign key' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1141:1: 'foreign key'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1140:1: ( 'column' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1141:1: 'column'
             {
-             before(grammarAccess.getAssociationAccess().getForeignKeyKeyword_4_0()); 
+             before(grammarAccess.getAssociationAccess().getColumnKeyword_4_0()); 
             match(input,18,FOLLOW_18_in_rule__Association__Group_4__02352); 
-             after(grammarAccess.getAssociationAccess().getForeignKeyKeyword_4_0()); 
+             after(grammarAccess.getAssociationAccess().getColumnKeyword_4_0()); 
 
             }
 
@@ -3520,21 +3520,21 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start rule__Association__Group_12__0
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1258:1: rule__Association__Group_12__0 : ( 'foreign key' ) rule__Association__Group_12__1 ;
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1258:1: rule__Association__Group_12__0 : ( 'column' ) rule__Association__Group_12__1 ;
     public final void rule__Association__Group_12__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1262:1: ( ( 'foreign key' ) rule__Association__Group_12__1 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1263:1: ( 'foreign key' ) rule__Association__Group_12__1
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1262:1: ( ( 'column' ) rule__Association__Group_12__1 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1263:1: ( 'column' ) rule__Association__Group_12__1
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1263:1: ( 'foreign key' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1264:1: 'foreign key'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1263:1: ( 'column' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1264:1: 'column'
             {
-             before(grammarAccess.getAssociationAccess().getForeignKeyKeyword_12_0()); 
+             before(grammarAccess.getAssociationAccess().getColumnKeyword_12_0()); 
             match(input,18,FOLLOW_18_in_rule__Association__Group_12__02583); 
-             after(grammarAccess.getAssociationAccess().getForeignKeyKeyword_12_0()); 
+             after(grammarAccess.getAssociationAccess().getColumnKeyword_12_0()); 
 
             }
 
@@ -3801,21 +3801,21 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
 
 
     // $ANTLR start rule__Association__Group_14_1__0
-    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1379:1: rule__Association__Group_14_1__0 : ( 'column' ) rule__Association__Group_14_1__1 ;
+    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1379:1: rule__Association__Group_14_1__0 : ( 'on' ) rule__Association__Group_14_1__1 ;
     public final void rule__Association__Group_14_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1383:1: ( ( 'column' ) rule__Association__Group_14_1__1 )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1384:1: ( 'column' ) rule__Association__Group_14_1__1
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1383:1: ( ( 'on' ) rule__Association__Group_14_1__1 )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1384:1: ( 'on' ) rule__Association__Group_14_1__1
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1384:1: ( 'column' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1385:1: 'column'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1384:1: ( 'on' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:1385:1: 'on'
             {
-             before(grammarAccess.getAssociationAccess().getColumnKeyword_14_1_0()); 
+             before(grammarAccess.getAssociationAccess().getOnKeyword_14_1_0()); 
             match(input,21,FOLLOW_21_in_rule__Association__Group_14_1__02813); 
-             after(grammarAccess.getAssociationAccess().getColumnKeyword_14_1_0()); 
+             after(grammarAccess.getAssociationAccess().getOnKeyword_14_1_0()); 
 
             }
 
@@ -6394,7 +6394,7 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
             int alt33=2;
             int LA33_0 = input.LA(1);
 
-            if ( (LA33_0==21) ) {
+            if ( (LA33_0==18) ) {
                 alt33=1;
             }
             switch (alt33) {
@@ -6595,7 +6595,7 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
             // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2541:1: 'column'
             {
              before(grammarAccess.getPropertyAccess().getColumnKeyword_3_0()); 
-            match(input,21,FOLLOW_21_in_rule__Property__Group_3__05029); 
+            match(input,18,FOLLOW_18_in_rule__Property__Group_3__05029); 
              after(grammarAccess.getPropertyAccess().getColumnKeyword_3_0()); 
 
             }
@@ -12441,11 +12441,11 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
     public static final BitSet FOLLOW_30_in_rule__UniqueRule__Group_5__04679 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_rule__UniqueRule__Group_5__1_in_rule__UniqueRule__Group_5__04689 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UniqueRule__PropertiesAssignment_5_1_in_rule__UniqueRule__Group_5__14717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Property__Alternatives_0_in_rule__Property__Group__04755 = new BitSet(new long[]{0x000000C000210000L});
+    public static final BitSet FOLLOW_rule__Property__Alternatives_0_in_rule__Property__Group__04755 = new BitSet(new long[]{0x000000C000050000L});
     public static final BitSet FOLLOW_rule__Property__Group__1_in_rule__Property__Group__04764 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Property__NullableAssignment_1_in_rule__Property__Group__14792 = new BitSet(new long[]{0x0000008000210000L});
+    public static final BitSet FOLLOW_rule__Property__NullableAssignment_1_in_rule__Property__Group__14792 = new BitSet(new long[]{0x0000008000050000L});
     public static final BitSet FOLLOW_rule__Property__Group__2_in_rule__Property__Group__14802 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Property__Group_2__0_in_rule__Property__Group__24830 = new BitSet(new long[]{0x0000000000210000L});
+    public static final BitSet FOLLOW_rule__Property__Group_2__0_in_rule__Property__Group__24830 = new BitSet(new long[]{0x0000000000050000L});
     public static final BitSet FOLLOW_rule__Property__Group__3_in_rule__Property__Group__24840 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Property__Group_3__0_in_rule__Property__Group__34868 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_rule__Property__Group__4_in_rule__Property__Group__34878 = new BitSet(new long[]{0x0000000000000002L});
@@ -12453,7 +12453,7 @@ public class InternalBusinessDomainParser extends AbstractInternalContentAssistP
     public static final BitSet FOLLOW_rule__Property__DerivedAssignment_2_0_in_rule__Property__Group_2__04952 = new BitSet(new long[]{0x0000010000000002L});
     public static final BitSet FOLLOW_rule__Property__Group_2__1_in_rule__Property__Group_2__04961 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Property__WritableAssignment_2_1_in_rule__Property__Group_2__14989 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__Property__Group_3__05029 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_18_in_rule__Property__Group_3__05029 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_rule__Property__Group_3__1_in_rule__Property__Group_3__05039 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Property__ColumnAssignment_3_1_in_rule__Property__Group_3__15067 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__BoolProperty__DescriptionAssignment_0_in_rule__BoolProperty__Group__05105 = new BitSet(new long[]{0x0000020000000000L});

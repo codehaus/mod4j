@@ -33,7 +33,7 @@ Association:
     "association" 
     source=[BusinessClass]
     sourceRoleName=ID
-    ("foreign key" sourceForeignKey=ID)?
+    ("column" sourceForeignKey=ID)?
     ("references" sourceAlternateKey=ID)?
     sourceMultiplicity=Multiplicity
     ((bidirectional?="<->") | ("->"))
@@ -41,9 +41,9 @@ Association:
     ("table" table=ID)?
     target=[AbstractBusinessClass]
     targetRoleName=ID
-    ("foreign key" targetForeignKey=ID)?
+    ("column" targetForeignKey=ID)?
     ("references" targetAlternateKey=ID)?
-    (ordered?="ordered" ("column" orderingColumn=ID)?)? ";"
+    (ordered?="ordered" ("on" orderingColumn=ID)?)? ";"
     ;
 
 enum Multiplicity:

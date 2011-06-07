@@ -125,7 +125,7 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final Assignment cSourceRoleNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cSourceRoleNameIDTerminalRuleCall_3_0 = (RuleCall)cSourceRoleNameAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cForeignKeyKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cColumnKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cSourceForeignKeyAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cSourceForeignKeyIDTerminalRuleCall_4_1_0 = (RuleCall)cSourceForeignKeyAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
@@ -150,7 +150,7 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final Assignment cTargetRoleNameAssignment_11 = (Assignment)cGroup.eContents().get(11);
 		private final RuleCall cTargetRoleNameIDTerminalRuleCall_11_0 = (RuleCall)cTargetRoleNameAssignment_11.eContents().get(0);
 		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
-		private final Keyword cForeignKeyKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Keyword cColumnKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
 		private final Assignment cTargetForeignKeyAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
 		private final RuleCall cTargetForeignKeyIDTerminalRuleCall_12_1_0 = (RuleCall)cTargetForeignKeyAssignment_12_1.eContents().get(0);
 		private final Group cGroup_13 = (Group)cGroup.eContents().get(13);
@@ -161,30 +161,30 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final Assignment cOrderedAssignment_14_0 = (Assignment)cGroup_14.eContents().get(0);
 		private final Keyword cOrderedOrderedKeyword_14_0_0 = (Keyword)cOrderedAssignment_14_0.eContents().get(0);
 		private final Group cGroup_14_1 = (Group)cGroup_14.eContents().get(1);
-		private final Keyword cColumnKeyword_14_1_0 = (Keyword)cGroup_14_1.eContents().get(0);
+		private final Keyword cOnKeyword_14_1_0 = (Keyword)cGroup_14_1.eContents().get(0);
 		private final Assignment cOrderingColumnAssignment_14_1_1 = (Assignment)cGroup_14_1.eContents().get(1);
 		private final RuleCall cOrderingColumnIDTerminalRuleCall_14_1_1_0 = (RuleCall)cOrderingColumnAssignment_14_1_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_15 = (Keyword)cGroup.eContents().get(15);
 		
 		//Association:
-		//  description=STRING? "association" source=[BusinessClass] sourceRoleName=ID (
-		//  "foreign key" sourceForeignKey=ID)? ("references" sourceAlternateKey=ID)?
-		//  sourceMultiplicity=Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=
-		//  Multiplicity ("table" table=ID)? target=[AbstractBusinessClass] targetRoleName=ID (
-		//  "foreign key" targetForeignKey=ID)? ("references" targetAlternateKey=ID)? (ordered?=
-		//  "ordered" ("column" orderingColumn=ID)?)? ";"; 
+		//  description=STRING? "association" source=[BusinessClass] sourceRoleName=ID ("column"
+		//  sourceForeignKey=ID)? ("references" sourceAlternateKey=ID)? sourceMultiplicity=
+		//  Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=Multiplicity ("table"
+		//  table=ID)? target=[AbstractBusinessClass] targetRoleName=ID ("column"
+		//  targetForeignKey=ID)? ("references" targetAlternateKey=ID)? (ordered?="ordered" (
+		//  "on" orderingColumn=ID)?)? ";"; 
 		//// COMMETNED OUT: import does not work correctly, therefore should not be possible at all.
 		////BusinessClassReference:
 		////    "from" referredModel=ID "import" name=ID  ";" 
 		////    ;
 		public ParserRule getRule() { return rule; }
 
-		//description=STRING? "association" source=[BusinessClass] sourceRoleName=ID (
-		//"foreign key" sourceForeignKey=ID)? ("references" sourceAlternateKey=ID)?
-		//sourceMultiplicity=Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=
-		//Multiplicity ("table" table=ID)? target=[AbstractBusinessClass] targetRoleName=ID (
-		//"foreign key" targetForeignKey=ID)? ("references" targetAlternateKey=ID)? (ordered?=
-		//"ordered" ("column" orderingColumn=ID)?)? ";"
+		//description=STRING? "association" source=[BusinessClass] sourceRoleName=ID ("column"
+		//sourceForeignKey=ID)? ("references" sourceAlternateKey=ID)? sourceMultiplicity=
+		//Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=Multiplicity ("table"
+		//table=ID)? target=[AbstractBusinessClass] targetRoleName=ID ("column"
+		//targetForeignKey=ID)? ("references" targetAlternateKey=ID)? (ordered?="ordered" (
+		//"on" orderingColumn=ID)?)? ";"
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -211,11 +211,11 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		//ID
 		public RuleCall getSourceRoleNameIDTerminalRuleCall_3_0() { return cSourceRoleNameIDTerminalRuleCall_3_0; }
 
-		//("foreign key" sourceForeignKey=ID)?
+		//("column" sourceForeignKey=ID)?
 		public Group getGroup_4() { return cGroup_4; }
 
-		//"foreign key"
-		public Keyword getForeignKeyKeyword_4_0() { return cForeignKeyKeyword_4_0; }
+		//"column"
+		public Keyword getColumnKeyword_4_0() { return cColumnKeyword_4_0; }
 
 		//sourceForeignKey=ID
 		public Assignment getSourceForeignKeyAssignment_4_1() { return cSourceForeignKeyAssignment_4_1; }
@@ -286,11 +286,11 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		//ID
 		public RuleCall getTargetRoleNameIDTerminalRuleCall_11_0() { return cTargetRoleNameIDTerminalRuleCall_11_0; }
 
-		//("foreign key" targetForeignKey=ID)?
+		//("column" targetForeignKey=ID)?
 		public Group getGroup_12() { return cGroup_12; }
 
-		//"foreign key"
-		public Keyword getForeignKeyKeyword_12_0() { return cForeignKeyKeyword_12_0; }
+		//"column"
+		public Keyword getColumnKeyword_12_0() { return cColumnKeyword_12_0; }
 
 		//targetForeignKey=ID
 		public Assignment getTargetForeignKeyAssignment_12_1() { return cTargetForeignKeyAssignment_12_1; }
@@ -310,7 +310,7 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		//ID
 		public RuleCall getTargetAlternateKeyIDTerminalRuleCall_13_1_0() { return cTargetAlternateKeyIDTerminalRuleCall_13_1_0; }
 
-		//(ordered?="ordered" ("column" orderingColumn=ID)?)?
+		//(ordered?="ordered" ("on" orderingColumn=ID)?)?
 		public Group getGroup_14() { return cGroup_14; }
 
 		//ordered?="ordered"
@@ -319,11 +319,11 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		//"ordered"
 		public Keyword getOrderedOrderedKeyword_14_0_0() { return cOrderedOrderedKeyword_14_0_0; }
 
-		//("column" orderingColumn=ID)?
+		//("on" orderingColumn=ID)?
 		public Group getGroup_14_1() { return cGroup_14_1; }
 
-		//"column"
-		public Keyword getColumnKeyword_14_1_0() { return cColumnKeyword_14_1_0; }
+		//"on"
+		public Keyword getOnKeyword_14_1_0() { return cOnKeyword_14_1_0; }
 
 		//orderingColumn=ID
 		public Assignment getOrderingColumnAssignment_14_1_1() { return cOrderingColumnAssignment_14_1_1; }
@@ -1501,12 +1501,12 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 	}
 
 	//Association:
-	//  description=STRING? "association" source=[BusinessClass] sourceRoleName=ID (
-	//  "foreign key" sourceForeignKey=ID)? ("references" sourceAlternateKey=ID)?
-	//  sourceMultiplicity=Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=
-	//  Multiplicity ("table" table=ID)? target=[AbstractBusinessClass] targetRoleName=ID (
-	//  "foreign key" targetForeignKey=ID)? ("references" targetAlternateKey=ID)? (ordered?=
-	//  "ordered" ("column" orderingColumn=ID)?)? ";"; 
+	//  description=STRING? "association" source=[BusinessClass] sourceRoleName=ID ("column"
+	//  sourceForeignKey=ID)? ("references" sourceAlternateKey=ID)? sourceMultiplicity=
+	//  Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=Multiplicity ("table"
+	//  table=ID)? target=[AbstractBusinessClass] targetRoleName=ID ("column"
+	//  targetForeignKey=ID)? ("references" targetAlternateKey=ID)? (ordered?="ordered" (
+	//  "on" orderingColumn=ID)?)? ";"; 
 	//// COMMETNED OUT: import does not work correctly, therefore should not be possible at all.
 	////BusinessClassReference:
 	////    "from" referredModel=ID "import" name=ID  ";" 

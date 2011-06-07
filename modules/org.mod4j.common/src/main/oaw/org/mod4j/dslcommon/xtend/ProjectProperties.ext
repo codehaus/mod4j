@@ -105,6 +105,9 @@ String getHibernate_mapping_class_id_generator_class() :
 String getHibernatePrimaryKeyClass() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getHibernatePrimaryKeyClass();
  
+String getHibernateNamingStrategy() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getHibernateNamingStrategy();
+ 
 String getHibernate_InheritanceMappingStrategy() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getHibernate_InheritanceMappingStrategy();
 
