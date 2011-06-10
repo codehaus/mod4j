@@ -42,7 +42,7 @@ BusinessClassDto :
     (
         ( ";" )
         |
-	    ( "[" (propertyReferences += BusinessClassPropertyReference)+  
+	    ( "[" (propertyReferences += BusinessClassPropertyReference)*
 	      ( "references" "["
 	      		(associationReferences += BusinessClassAssociationRoleReference)+
 	        "]"

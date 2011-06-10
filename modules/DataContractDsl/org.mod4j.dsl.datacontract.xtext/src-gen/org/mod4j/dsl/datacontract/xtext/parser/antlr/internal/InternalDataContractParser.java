@@ -791,7 +791,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBusinessClassDto
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:376:1: ruleBusinessClassDto returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:376:1: ruleBusinessClassDto returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )* ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) ) ;
     public final EObject ruleBusinessClassDto() throws RecognitionException {
         EObject current = null;
 
@@ -805,11 +805,11 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:381:6: ( ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:382:1: ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:381:6: ( ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )* ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:382:1: ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )* ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:382:1: ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:382:2: (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:382:1: ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )* ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:382:2: (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )* ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) )
             {
             // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:382:2: (lv_description_0= RULE_STRING )?
             int alt7=2;
@@ -892,7 +892,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:446:2: ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:446:2: ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )* ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) )
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -904,7 +904,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("446:2: ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) )", 11, 0, input);
+                    new NoViableAltException("446:2: ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )* ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) )", 11, 0, input);
 
                 throw nvae;
             }
@@ -920,17 +920,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:451:6: ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' )
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:451:6: ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )* ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' )
                     {
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:451:6: ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' )
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:451:7: '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']'
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:451:6: ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )* ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' )
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:451:7: '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )* ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']'
                     {
                     match(input,19,FOLLOW_19_in_ruleBusinessClassDto871); 
 
                             createLeafNode(grammarAccess.getBusinessClassDtoAccess().getLeftSquareBracketKeyword_5_1_0(), null); 
                         
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:455:1: (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+
-                    int cnt8=0;
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:455:1: (lv_propertyReferences_7= ruleBusinessClassPropertyReference )*
                     loop8:
                     do {
                         int alt8=2;
@@ -970,12 +969,8 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt8 >= 1 ) break loop8;
-                                EarlyExitException eee =
-                                    new EarlyExitException(8, input);
-                                throw eee;
+                    	    break loop8;
                         }
-                        cnt8++;
                     } while (true);
 
                     // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:476:3: ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )?
@@ -1732,6 +1727,11 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
             case RULE_STRING:
                 {
                 switch ( input.LA(2) ) {
+                case 25:
+                    {
+                    alt15=2;
+                    }
+                    break;
                 case RULE_ID:
                     {
                     alt15=6;
@@ -1742,24 +1742,19 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                     alt15=4;
                     }
                     break;
-                case 25:
-                    {
-                    alt15=2;
-                    }
-                    break;
                 case 26:
                     {
                     alt15=3;
                     }
                     break;
-                case 24:
-                    {
-                    alt15=1;
-                    }
-                    break;
                 case 28:
                     {
                     alt15=5;
+                    }
+                    break;
+                case 24:
+                    {
+                    alt15=1;
                     }
                     break;
                 default:
@@ -2895,7 +2890,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_18_in_ruleBusinessClassDto820 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleBusinessClassDto842 = new BitSet(new long[]{0x0000000000081000L});
     public static final BitSet FOLLOW_12_in_ruleBusinessClassDto855 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_ruleBusinessClassDto871 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_19_in_ruleBusinessClassDto871 = new BitSet(new long[]{0x0000000000300020L});
     public static final BitSet FOLLOW_ruleBusinessClassPropertyReference_in_ruleBusinessClassDto905 = new BitSet(new long[]{0x0000000000300020L});
     public static final BitSet FOLLOW_20_in_ruleBusinessClassDto920 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_19_in_ruleBusinessClassDto929 = new BitSet(new long[]{0x0000000000000020L});

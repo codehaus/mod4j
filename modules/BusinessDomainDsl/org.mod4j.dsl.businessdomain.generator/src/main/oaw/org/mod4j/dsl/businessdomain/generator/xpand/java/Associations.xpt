@@ -24,20 +24,12 @@
         private «target.name» «targetRoleName»;
         «EXPAND AssociationsMany2One::many2OneAccessorsTo FOR this»
     «ELSEIF isOne2Many() -»
-        private final «getCollectionInterface()»<«javaDomainClass(target.name)»> «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
+        private «getCollectionInterface()»<«javaDomainClass(target.name)»> «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
         «EXPAND AssociationsOne2Many::one2ManyAccessorsTo FOR this»
     «ELSEIF isMany2Many() -»
-        private final «getCollectionInterface()»<«javaDomainClass(target.name)»> «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
+        private «getCollectionInterface()»<«javaDomainClass(target.name)»> «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
         «EXPAND AssociationsMany2Many::many2ManyAccessorsTo FOR this»
     «ENDIF»
-«ENDDEFINE»
-
-«DEFINE addAlternateIdentifier FOR Association»
-        /**
-         * Alternate identifier for the {@link #«targetRoleName»} («target.name») association.
-         */
-        protected «getHibernatePrimaryKeyClass()» «sourceAlternateKey»«sourceForeignKey» =
-            («getHibernatePrimaryKeyClass()») «getHibernate_mapping_class_id_generator_class()».generateIdentifier();
 «ENDDEFINE»
 
 «DEFINE addFromReferenceVariable FOR Association»

@@ -89,7 +89,7 @@
           <groups xsi:type="xtext:Keyword" value=";"/>
           <groups xsi:type="xtext:Group">
             <tokens xsi:type="xtext:Keyword" value="["/>
-            <tokens xsi:type="xtext:Assignment" cardinality="+" feature="propertyReferences" operator="+=">
+            <tokens xsi:type="xtext:Assignment" cardinality="*" feature="propertyReferences" operator="+=">
               <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
             </tokens>
             <tokens xsi:type="xtext:Group" cardinality="?">

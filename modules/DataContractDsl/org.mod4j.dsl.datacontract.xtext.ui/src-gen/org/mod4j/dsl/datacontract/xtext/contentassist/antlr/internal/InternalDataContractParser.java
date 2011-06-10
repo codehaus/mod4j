@@ -1200,11 +1200,11 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
                 {
                 int LA1_1 = input.LA(2);
 
-                if ( (LA1_1==17||LA1_1==23) ) {
-                    alt1=1;
-                }
-                else if ( (LA1_1==13) ) {
+                if ( (LA1_1==13) ) {
                     alt1=2;
+                }
+                else if ( (LA1_1==17||LA1_1==23) ) {
+                    alt1=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -1585,9 +1585,14 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
             case RULE_STRING:
                 {
                 switch ( input.LA(2) ) {
-                case 24:
+                case 26:
                     {
-                    alt5=1;
+                    alt5=3;
+                    }
+                    break;
+                case 28:
+                    {
+                    alt5=5;
                     }
                     break;
                 case 27:
@@ -1600,19 +1605,14 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
                     alt5=2;
                     }
                     break;
-                case 26:
-                    {
-                    alt5=3;
-                    }
-                    break;
-                case 28:
-                    {
-                    alt5=5;
-                    }
-                    break;
                 case RULE_ID:
                     {
                     alt5=6;
+                    }
+                    break;
+                case 24:
+                    {
+                    alt5=1;
                     }
                     break;
                 default:
@@ -2741,41 +2741,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassDto__Group_5_1__1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1004:1: rule__BusinessClassDto__Group_5_1__1 : ( ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 ) ) ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )* ) ) rule__BusinessClassDto__Group_5_1__2 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1004:1: rule__BusinessClassDto__Group_5_1__1 : ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )* ) rule__BusinessClassDto__Group_5_1__2 ;
     public final void rule__BusinessClassDto__Group_5_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1008:1: ( ( ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 ) ) ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )* ) ) rule__BusinessClassDto__Group_5_1__2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1009:1: ( ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 ) ) ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )* ) ) rule__BusinessClassDto__Group_5_1__2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1008:1: ( ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )* ) rule__BusinessClassDto__Group_5_1__2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1009:1: ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )* ) rule__BusinessClassDto__Group_5_1__2
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1009:1: ( ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 ) ) ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )* ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1010:1: ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 ) ) ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )* )
-            {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1010:1: ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1011:1: ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1009:1: ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )* )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1010:1: ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )*
             {
              before(grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesAssignment_5_1_1()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1012:1: ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1012:2: rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1
-            {
-            pushFollow(FOLLOW_rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1_in_rule__BusinessClassDto__Group_5_1__12068);
-            rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1();
-            _fsp--;
-
-
-            }
-
-             after(grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesAssignment_5_1_1()); 
-
-            }
-
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1015:1: ( ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )* )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1016:1: ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )*
-            {
-             before(grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesAssignment_5_1_1()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1017:1: ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )*
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1011:1: ( rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 )*
             loop11:
             do {
                 int alt11=2;
@@ -2788,9 +2767,9 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
                 switch (alt11) {
             	case 1 :
-            	    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1017:2: rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1
+            	    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1011:2: rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1
             	    {
-            	    pushFollow(FOLLOW_rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1_in_rule__BusinessClassDto__Group_5_1__12080);
+            	    pushFollow(FOLLOW_rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1_in_rule__BusinessClassDto__Group_5_1__12066);
             	    rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1();
             	    _fsp--;
 
@@ -2807,10 +2786,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-
-            }
-
-            pushFollow(FOLLOW_rule__BusinessClassDto__Group_5_1__2_in_rule__BusinessClassDto__Group_5_1__12092);
+            pushFollow(FOLLOW_rule__BusinessClassDto__Group_5_1__2_in_rule__BusinessClassDto__Group_5_1__12076);
             rule__BusinessClassDto__Group_5_1__2();
             _fsp--;
 
@@ -2833,20 +2809,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassDto__Group_5_1__2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1029:1: rule__BusinessClassDto__Group_5_1__2 : ( ( rule__BusinessClassDto__Group_5_1_2__0 )? ) rule__BusinessClassDto__Group_5_1__3 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1022:1: rule__BusinessClassDto__Group_5_1__2 : ( ( rule__BusinessClassDto__Group_5_1_2__0 )? ) rule__BusinessClassDto__Group_5_1__3 ;
     public final void rule__BusinessClassDto__Group_5_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1033:1: ( ( ( rule__BusinessClassDto__Group_5_1_2__0 )? ) rule__BusinessClassDto__Group_5_1__3 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1034:1: ( ( rule__BusinessClassDto__Group_5_1_2__0 )? ) rule__BusinessClassDto__Group_5_1__3
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1026:1: ( ( ( rule__BusinessClassDto__Group_5_1_2__0 )? ) rule__BusinessClassDto__Group_5_1__3 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1027:1: ( ( rule__BusinessClassDto__Group_5_1_2__0 )? ) rule__BusinessClassDto__Group_5_1__3
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1034:1: ( ( rule__BusinessClassDto__Group_5_1_2__0 )? )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1035:1: ( rule__BusinessClassDto__Group_5_1_2__0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1027:1: ( ( rule__BusinessClassDto__Group_5_1_2__0 )? )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1028:1: ( rule__BusinessClassDto__Group_5_1_2__0 )?
             {
              before(grammarAccess.getBusinessClassDtoAccess().getGroup_5_1_2()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1036:1: ( rule__BusinessClassDto__Group_5_1_2__0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1029:1: ( rule__BusinessClassDto__Group_5_1_2__0 )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -2855,9 +2831,9 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
             }
             switch (alt12) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1036:2: rule__BusinessClassDto__Group_5_1_2__0
+                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1029:2: rule__BusinessClassDto__Group_5_1_2__0
                     {
-                    pushFollow(FOLLOW_rule__BusinessClassDto__Group_5_1_2__0_in_rule__BusinessClassDto__Group_5_1__22120);
+                    pushFollow(FOLLOW_rule__BusinessClassDto__Group_5_1_2__0_in_rule__BusinessClassDto__Group_5_1__22104);
                     rule__BusinessClassDto__Group_5_1_2__0();
                     _fsp--;
 
@@ -2871,7 +2847,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__BusinessClassDto__Group_5_1__3_in_rule__BusinessClassDto__Group_5_1__22130);
+            pushFollow(FOLLOW_rule__BusinessClassDto__Group_5_1__3_in_rule__BusinessClassDto__Group_5_1__22114);
             rule__BusinessClassDto__Group_5_1__3();
             _fsp--;
 
@@ -2894,20 +2870,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassDto__Group_5_1__3
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1047:1: rule__BusinessClassDto__Group_5_1__3 : ( ']' ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1040:1: rule__BusinessClassDto__Group_5_1__3 : ( ']' ) ;
     public final void rule__BusinessClassDto__Group_5_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1051:1: ( ( ']' ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1052:1: ( ']' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1044:1: ( ( ']' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1045:1: ( ']' )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1052:1: ( ']' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1053:1: ']'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1045:1: ( ']' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1046:1: ']'
             {
              before(grammarAccess.getBusinessClassDtoAccess().getRightSquareBracketKeyword_5_1_3()); 
-            match(input,20,FOLLOW_20_in_rule__BusinessClassDto__Group_5_1__32159); 
+            match(input,20,FOLLOW_20_in_rule__BusinessClassDto__Group_5_1__32143); 
              after(grammarAccess.getBusinessClassDtoAccess().getRightSquareBracketKeyword_5_1_3()); 
 
             }
@@ -2931,25 +2907,25 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassDto__Group_5_1_2__0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1074:1: rule__BusinessClassDto__Group_5_1_2__0 : ( 'references' ) rule__BusinessClassDto__Group_5_1_2__1 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1067:1: rule__BusinessClassDto__Group_5_1_2__0 : ( 'references' ) rule__BusinessClassDto__Group_5_1_2__1 ;
     public final void rule__BusinessClassDto__Group_5_1_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1078:1: ( ( 'references' ) rule__BusinessClassDto__Group_5_1_2__1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1079:1: ( 'references' ) rule__BusinessClassDto__Group_5_1_2__1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1071:1: ( ( 'references' ) rule__BusinessClassDto__Group_5_1_2__1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1072:1: ( 'references' ) rule__BusinessClassDto__Group_5_1_2__1
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1079:1: ( 'references' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1080:1: 'references'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1072:1: ( 'references' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1073:1: 'references'
             {
              before(grammarAccess.getBusinessClassDtoAccess().getReferencesKeyword_5_1_2_0()); 
-            match(input,21,FOLLOW_21_in_rule__BusinessClassDto__Group_5_1_2__02203); 
+            match(input,21,FOLLOW_21_in_rule__BusinessClassDto__Group_5_1_2__02187); 
              after(grammarAccess.getBusinessClassDtoAccess().getReferencesKeyword_5_1_2_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__BusinessClassDto__Group_5_1_2__1_in_rule__BusinessClassDto__Group_5_1_2__02213);
+            pushFollow(FOLLOW_rule__BusinessClassDto__Group_5_1_2__1_in_rule__BusinessClassDto__Group_5_1_2__02197);
             rule__BusinessClassDto__Group_5_1_2__1();
             _fsp--;
 
@@ -2972,25 +2948,25 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassDto__Group_5_1_2__1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1094:1: rule__BusinessClassDto__Group_5_1_2__1 : ( '[' ) rule__BusinessClassDto__Group_5_1_2__2 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1087:1: rule__BusinessClassDto__Group_5_1_2__1 : ( '[' ) rule__BusinessClassDto__Group_5_1_2__2 ;
     public final void rule__BusinessClassDto__Group_5_1_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1098:1: ( ( '[' ) rule__BusinessClassDto__Group_5_1_2__2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1099:1: ( '[' ) rule__BusinessClassDto__Group_5_1_2__2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1091:1: ( ( '[' ) rule__BusinessClassDto__Group_5_1_2__2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1092:1: ( '[' ) rule__BusinessClassDto__Group_5_1_2__2
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1099:1: ( '[' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1100:1: '['
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1092:1: ( '[' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1093:1: '['
             {
              before(grammarAccess.getBusinessClassDtoAccess().getLeftSquareBracketKeyword_5_1_2_1()); 
-            match(input,19,FOLLOW_19_in_rule__BusinessClassDto__Group_5_1_2__12242); 
+            match(input,19,FOLLOW_19_in_rule__BusinessClassDto__Group_5_1_2__12226); 
              after(grammarAccess.getBusinessClassDtoAccess().getLeftSquareBracketKeyword_5_1_2_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__BusinessClassDto__Group_5_1_2__2_in_rule__BusinessClassDto__Group_5_1_2__12252);
+            pushFollow(FOLLOW_rule__BusinessClassDto__Group_5_1_2__2_in_rule__BusinessClassDto__Group_5_1_2__12236);
             rule__BusinessClassDto__Group_5_1_2__2();
             _fsp--;
 
@@ -3013,26 +2989,26 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassDto__Group_5_1_2__2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1114:1: rule__BusinessClassDto__Group_5_1_2__2 : ( ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 ) ) ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )* ) ) rule__BusinessClassDto__Group_5_1_2__3 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1107:1: rule__BusinessClassDto__Group_5_1_2__2 : ( ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 ) ) ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )* ) ) rule__BusinessClassDto__Group_5_1_2__3 ;
     public final void rule__BusinessClassDto__Group_5_1_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1118:1: ( ( ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 ) ) ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )* ) ) rule__BusinessClassDto__Group_5_1_2__3 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1119:1: ( ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 ) ) ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )* ) ) rule__BusinessClassDto__Group_5_1_2__3
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1111:1: ( ( ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 ) ) ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )* ) ) rule__BusinessClassDto__Group_5_1_2__3 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1112:1: ( ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 ) ) ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )* ) ) rule__BusinessClassDto__Group_5_1_2__3
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1119:1: ( ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 ) ) ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )* ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1120:1: ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 ) ) ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )* )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1112:1: ( ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 ) ) ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )* ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1113:1: ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 ) ) ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )* )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1120:1: ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1121:1: ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1113:1: ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1114:1: ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )
             {
              before(grammarAccess.getBusinessClassDtoAccess().getAssociationReferencesAssignment_5_1_2_2()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1122:1: ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1122:2: rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1115:1: ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1115:2: rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2
             {
-            pushFollow(FOLLOW_rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2_in_rule__BusinessClassDto__Group_5_1_2__22282);
+            pushFollow(FOLLOW_rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2_in_rule__BusinessClassDto__Group_5_1_2__22266);
             rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2();
             _fsp--;
 
@@ -3043,11 +3019,11 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1125:1: ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )* )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1126:1: ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )*
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1118:1: ( ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )* )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1119:1: ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )*
             {
              before(grammarAccess.getBusinessClassDtoAccess().getAssociationReferencesAssignment_5_1_2_2()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1127:1: ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )*
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1120:1: ( rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 )*
             loop13:
             do {
                 int alt13=2;
@@ -3060,9 +3036,9 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
                 switch (alt13) {
             	case 1 :
-            	    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1127:2: rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2
+            	    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1120:2: rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2
             	    {
-            	    pushFollow(FOLLOW_rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2_in_rule__BusinessClassDto__Group_5_1_2__22294);
+            	    pushFollow(FOLLOW_rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2_in_rule__BusinessClassDto__Group_5_1_2__22278);
             	    rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2();
             	    _fsp--;
 
@@ -3082,7 +3058,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__BusinessClassDto__Group_5_1_2__3_in_rule__BusinessClassDto__Group_5_1_2__22306);
+            pushFollow(FOLLOW_rule__BusinessClassDto__Group_5_1_2__3_in_rule__BusinessClassDto__Group_5_1_2__22290);
             rule__BusinessClassDto__Group_5_1_2__3();
             _fsp--;
 
@@ -3105,20 +3081,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassDto__Group_5_1_2__3
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1139:1: rule__BusinessClassDto__Group_5_1_2__3 : ( ']' ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1132:1: rule__BusinessClassDto__Group_5_1_2__3 : ( ']' ) ;
     public final void rule__BusinessClassDto__Group_5_1_2__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1143:1: ( ( ']' ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1144:1: ( ']' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1136:1: ( ( ']' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1137:1: ( ']' )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1144:1: ( ']' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1145:1: ']'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1137:1: ( ']' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1138:1: ']'
             {
              before(grammarAccess.getBusinessClassDtoAccess().getRightSquareBracketKeyword_5_1_2_3()); 
-            match(input,20,FOLLOW_20_in_rule__BusinessClassDto__Group_5_1_2__32335); 
+            match(input,20,FOLLOW_20_in_rule__BusinessClassDto__Group_5_1_2__32319); 
              after(grammarAccess.getBusinessClassDtoAccess().getRightSquareBracketKeyword_5_1_2_3()); 
 
             }
@@ -3142,20 +3118,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__EnumerationDto__Group__0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1166:1: rule__EnumerationDto__Group__0 : ( ( rule__EnumerationDto__DescriptionAssignment_0 )? ) rule__EnumerationDto__Group__1 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1159:1: rule__EnumerationDto__Group__0 : ( ( rule__EnumerationDto__DescriptionAssignment_0 )? ) rule__EnumerationDto__Group__1 ;
     public final void rule__EnumerationDto__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1170:1: ( ( ( rule__EnumerationDto__DescriptionAssignment_0 )? ) rule__EnumerationDto__Group__1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1171:1: ( ( rule__EnumerationDto__DescriptionAssignment_0 )? ) rule__EnumerationDto__Group__1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1163:1: ( ( ( rule__EnumerationDto__DescriptionAssignment_0 )? ) rule__EnumerationDto__Group__1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1164:1: ( ( rule__EnumerationDto__DescriptionAssignment_0 )? ) rule__EnumerationDto__Group__1
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1171:1: ( ( rule__EnumerationDto__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1172:1: ( rule__EnumerationDto__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1164:1: ( ( rule__EnumerationDto__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1165:1: ( rule__EnumerationDto__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getEnumerationDtoAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1173:1: ( rule__EnumerationDto__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1166:1: ( rule__EnumerationDto__DescriptionAssignment_0 )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -3164,9 +3140,9 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
             }
             switch (alt14) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1173:2: rule__EnumerationDto__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1166:2: rule__EnumerationDto__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__EnumerationDto__DescriptionAssignment_0_in_rule__EnumerationDto__Group__02378);
+                    pushFollow(FOLLOW_rule__EnumerationDto__DescriptionAssignment_0_in_rule__EnumerationDto__Group__02362);
                     rule__EnumerationDto__DescriptionAssignment_0();
                     _fsp--;
 
@@ -3180,7 +3156,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__EnumerationDto__Group__1_in_rule__EnumerationDto__Group__02388);
+            pushFollow(FOLLOW_rule__EnumerationDto__Group__1_in_rule__EnumerationDto__Group__02372);
             rule__EnumerationDto__Group__1();
             _fsp--;
 
@@ -3203,25 +3179,25 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__EnumerationDto__Group__1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1184:1: rule__EnumerationDto__Group__1 : ( 'enumeration' ) rule__EnumerationDto__Group__2 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1177:1: rule__EnumerationDto__Group__1 : ( 'enumeration' ) rule__EnumerationDto__Group__2 ;
     public final void rule__EnumerationDto__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1188:1: ( ( 'enumeration' ) rule__EnumerationDto__Group__2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1189:1: ( 'enumeration' ) rule__EnumerationDto__Group__2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1181:1: ( ( 'enumeration' ) rule__EnumerationDto__Group__2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1182:1: ( 'enumeration' ) rule__EnumerationDto__Group__2
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1189:1: ( 'enumeration' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1190:1: 'enumeration'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1182:1: ( 'enumeration' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1183:1: 'enumeration'
             {
              before(grammarAccess.getEnumerationDtoAccess().getEnumerationKeyword_1()); 
-            match(input,13,FOLLOW_13_in_rule__EnumerationDto__Group__12417); 
+            match(input,13,FOLLOW_13_in_rule__EnumerationDto__Group__12401); 
              after(grammarAccess.getEnumerationDtoAccess().getEnumerationKeyword_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__EnumerationDto__Group__2_in_rule__EnumerationDto__Group__12427);
+            pushFollow(FOLLOW_rule__EnumerationDto__Group__2_in_rule__EnumerationDto__Group__12411);
             rule__EnumerationDto__Group__2();
             _fsp--;
 
@@ -3244,23 +3220,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__EnumerationDto__Group__2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1204:1: rule__EnumerationDto__Group__2 : ( ( rule__EnumerationDto__NameAssignment_2 ) ) rule__EnumerationDto__Group__3 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1197:1: rule__EnumerationDto__Group__2 : ( ( rule__EnumerationDto__NameAssignment_2 ) ) rule__EnumerationDto__Group__3 ;
     public final void rule__EnumerationDto__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1208:1: ( ( ( rule__EnumerationDto__NameAssignment_2 ) ) rule__EnumerationDto__Group__3 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1209:1: ( ( rule__EnumerationDto__NameAssignment_2 ) ) rule__EnumerationDto__Group__3
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1201:1: ( ( ( rule__EnumerationDto__NameAssignment_2 ) ) rule__EnumerationDto__Group__3 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1202:1: ( ( rule__EnumerationDto__NameAssignment_2 ) ) rule__EnumerationDto__Group__3
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1209:1: ( ( rule__EnumerationDto__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1210:1: ( rule__EnumerationDto__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1202:1: ( ( rule__EnumerationDto__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1203:1: ( rule__EnumerationDto__NameAssignment_2 )
             {
              before(grammarAccess.getEnumerationDtoAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1211:1: ( rule__EnumerationDto__NameAssignment_2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1211:2: rule__EnumerationDto__NameAssignment_2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1204:1: ( rule__EnumerationDto__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1204:2: rule__EnumerationDto__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__EnumerationDto__NameAssignment_2_in_rule__EnumerationDto__Group__22455);
+            pushFollow(FOLLOW_rule__EnumerationDto__NameAssignment_2_in_rule__EnumerationDto__Group__22439);
             rule__EnumerationDto__NameAssignment_2();
             _fsp--;
 
@@ -3271,7 +3247,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__EnumerationDto__Group__3_in_rule__EnumerationDto__Group__22464);
+            pushFollow(FOLLOW_rule__EnumerationDto__Group__3_in_rule__EnumerationDto__Group__22448);
             rule__EnumerationDto__Group__3();
             _fsp--;
 
@@ -3294,25 +3270,25 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__EnumerationDto__Group__3
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1222:1: rule__EnumerationDto__Group__3 : ( 'represents' ) rule__EnumerationDto__Group__4 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1215:1: rule__EnumerationDto__Group__3 : ( 'represents' ) rule__EnumerationDto__Group__4 ;
     public final void rule__EnumerationDto__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1226:1: ( ( 'represents' ) rule__EnumerationDto__Group__4 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1227:1: ( 'represents' ) rule__EnumerationDto__Group__4
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1219:1: ( ( 'represents' ) rule__EnumerationDto__Group__4 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1220:1: ( 'represents' ) rule__EnumerationDto__Group__4
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1227:1: ( 'represents' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1228:1: 'represents'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1220:1: ( 'represents' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1221:1: 'represents'
             {
              before(grammarAccess.getEnumerationDtoAccess().getRepresentsKeyword_3()); 
-            match(input,18,FOLLOW_18_in_rule__EnumerationDto__Group__32493); 
+            match(input,18,FOLLOW_18_in_rule__EnumerationDto__Group__32477); 
              after(grammarAccess.getEnumerationDtoAccess().getRepresentsKeyword_3()); 
 
             }
 
-            pushFollow(FOLLOW_rule__EnumerationDto__Group__4_in_rule__EnumerationDto__Group__32503);
+            pushFollow(FOLLOW_rule__EnumerationDto__Group__4_in_rule__EnumerationDto__Group__32487);
             rule__EnumerationDto__Group__4();
             _fsp--;
 
@@ -3335,23 +3311,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__EnumerationDto__Group__4
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1242:1: rule__EnumerationDto__Group__4 : ( ( rule__EnumerationDto__BaseAssignment_4 ) ) rule__EnumerationDto__Group__5 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1235:1: rule__EnumerationDto__Group__4 : ( ( rule__EnumerationDto__BaseAssignment_4 ) ) rule__EnumerationDto__Group__5 ;
     public final void rule__EnumerationDto__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1246:1: ( ( ( rule__EnumerationDto__BaseAssignment_4 ) ) rule__EnumerationDto__Group__5 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1247:1: ( ( rule__EnumerationDto__BaseAssignment_4 ) ) rule__EnumerationDto__Group__5
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1239:1: ( ( ( rule__EnumerationDto__BaseAssignment_4 ) ) rule__EnumerationDto__Group__5 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1240:1: ( ( rule__EnumerationDto__BaseAssignment_4 ) ) rule__EnumerationDto__Group__5
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1247:1: ( ( rule__EnumerationDto__BaseAssignment_4 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1248:1: ( rule__EnumerationDto__BaseAssignment_4 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1240:1: ( ( rule__EnumerationDto__BaseAssignment_4 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1241:1: ( rule__EnumerationDto__BaseAssignment_4 )
             {
              before(grammarAccess.getEnumerationDtoAccess().getBaseAssignment_4()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1249:1: ( rule__EnumerationDto__BaseAssignment_4 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1249:2: rule__EnumerationDto__BaseAssignment_4
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1242:1: ( rule__EnumerationDto__BaseAssignment_4 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1242:2: rule__EnumerationDto__BaseAssignment_4
             {
-            pushFollow(FOLLOW_rule__EnumerationDto__BaseAssignment_4_in_rule__EnumerationDto__Group__42531);
+            pushFollow(FOLLOW_rule__EnumerationDto__BaseAssignment_4_in_rule__EnumerationDto__Group__42515);
             rule__EnumerationDto__BaseAssignment_4();
             _fsp--;
 
@@ -3362,7 +3338,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__EnumerationDto__Group__5_in_rule__EnumerationDto__Group__42540);
+            pushFollow(FOLLOW_rule__EnumerationDto__Group__5_in_rule__EnumerationDto__Group__42524);
             rule__EnumerationDto__Group__5();
             _fsp--;
 
@@ -3385,20 +3361,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__EnumerationDto__Group__5
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1260:1: rule__EnumerationDto__Group__5 : ( ';' ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1253:1: rule__EnumerationDto__Group__5 : ( ';' ) ;
     public final void rule__EnumerationDto__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1264:1: ( ( ';' ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1265:1: ( ';' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1257:1: ( ( ';' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1258:1: ( ';' )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1265:1: ( ';' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1266:1: ';'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1258:1: ( ';' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1259:1: ';'
             {
              before(grammarAccess.getEnumerationDtoAccess().getSemicolonKeyword_5()); 
-            match(input,14,FOLLOW_14_in_rule__EnumerationDto__Group__52569); 
+            match(input,14,FOLLOW_14_in_rule__EnumerationDto__Group__52553); 
              after(grammarAccess.getEnumerationDtoAccess().getSemicolonKeyword_5()); 
 
             }
@@ -3422,23 +3398,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassPropertyReference__Group__0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1291:1: rule__BusinessClassPropertyReference__Group__0 : ( ( rule__BusinessClassPropertyReference__NameAssignment_0 ) ) rule__BusinessClassPropertyReference__Group__1 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1284:1: rule__BusinessClassPropertyReference__Group__0 : ( ( rule__BusinessClassPropertyReference__NameAssignment_0 ) ) rule__BusinessClassPropertyReference__Group__1 ;
     public final void rule__BusinessClassPropertyReference__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1295:1: ( ( ( rule__BusinessClassPropertyReference__NameAssignment_0 ) ) rule__BusinessClassPropertyReference__Group__1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1296:1: ( ( rule__BusinessClassPropertyReference__NameAssignment_0 ) ) rule__BusinessClassPropertyReference__Group__1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1288:1: ( ( ( rule__BusinessClassPropertyReference__NameAssignment_0 ) ) rule__BusinessClassPropertyReference__Group__1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1289:1: ( ( rule__BusinessClassPropertyReference__NameAssignment_0 ) ) rule__BusinessClassPropertyReference__Group__1
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1296:1: ( ( rule__BusinessClassPropertyReference__NameAssignment_0 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1297:1: ( rule__BusinessClassPropertyReference__NameAssignment_0 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1289:1: ( ( rule__BusinessClassPropertyReference__NameAssignment_0 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1290:1: ( rule__BusinessClassPropertyReference__NameAssignment_0 )
             {
              before(grammarAccess.getBusinessClassPropertyReferenceAccess().getNameAssignment_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1298:1: ( rule__BusinessClassPropertyReference__NameAssignment_0 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1298:2: rule__BusinessClassPropertyReference__NameAssignment_0
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1291:1: ( rule__BusinessClassPropertyReference__NameAssignment_0 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1291:2: rule__BusinessClassPropertyReference__NameAssignment_0
             {
-            pushFollow(FOLLOW_rule__BusinessClassPropertyReference__NameAssignment_0_in_rule__BusinessClassPropertyReference__Group__02616);
+            pushFollow(FOLLOW_rule__BusinessClassPropertyReference__NameAssignment_0_in_rule__BusinessClassPropertyReference__Group__02600);
             rule__BusinessClassPropertyReference__NameAssignment_0();
             _fsp--;
 
@@ -3449,7 +3425,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__BusinessClassPropertyReference__Group__1_in_rule__BusinessClassPropertyReference__Group__02625);
+            pushFollow(FOLLOW_rule__BusinessClassPropertyReference__Group__1_in_rule__BusinessClassPropertyReference__Group__02609);
             rule__BusinessClassPropertyReference__Group__1();
             _fsp--;
 
@@ -3472,20 +3448,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassPropertyReference__Group__1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1309:1: rule__BusinessClassPropertyReference__Group__1 : ( ';' ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1302:1: rule__BusinessClassPropertyReference__Group__1 : ( ';' ) ;
     public final void rule__BusinessClassPropertyReference__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1313:1: ( ( ';' ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1314:1: ( ';' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1306:1: ( ( ';' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1307:1: ( ';' )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1314:1: ( ';' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1315:1: ';'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1307:1: ( ';' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1308:1: ';'
             {
              before(grammarAccess.getBusinessClassPropertyReferenceAccess().getSemicolonKeyword_1()); 
-            match(input,14,FOLLOW_14_in_rule__BusinessClassPropertyReference__Group__12654); 
+            match(input,14,FOLLOW_14_in_rule__BusinessClassPropertyReference__Group__12638); 
              after(grammarAccess.getBusinessClassPropertyReferenceAccess().getSemicolonKeyword_1()); 
 
             }
@@ -3509,23 +3485,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassAssociationRoleReference__Group__0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1332:1: rule__BusinessClassAssociationRoleReference__Group__0 : ( ( rule__BusinessClassAssociationRoleReference__NameAssignment_0 ) ) rule__BusinessClassAssociationRoleReference__Group__1 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1325:1: rule__BusinessClassAssociationRoleReference__Group__0 : ( ( rule__BusinessClassAssociationRoleReference__NameAssignment_0 ) ) rule__BusinessClassAssociationRoleReference__Group__1 ;
     public final void rule__BusinessClassAssociationRoleReference__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1336:1: ( ( ( rule__BusinessClassAssociationRoleReference__NameAssignment_0 ) ) rule__BusinessClassAssociationRoleReference__Group__1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1337:1: ( ( rule__BusinessClassAssociationRoleReference__NameAssignment_0 ) ) rule__BusinessClassAssociationRoleReference__Group__1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1329:1: ( ( ( rule__BusinessClassAssociationRoleReference__NameAssignment_0 ) ) rule__BusinessClassAssociationRoleReference__Group__1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1330:1: ( ( rule__BusinessClassAssociationRoleReference__NameAssignment_0 ) ) rule__BusinessClassAssociationRoleReference__Group__1
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1337:1: ( ( rule__BusinessClassAssociationRoleReference__NameAssignment_0 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1338:1: ( rule__BusinessClassAssociationRoleReference__NameAssignment_0 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1330:1: ( ( rule__BusinessClassAssociationRoleReference__NameAssignment_0 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1331:1: ( rule__BusinessClassAssociationRoleReference__NameAssignment_0 )
             {
              before(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getNameAssignment_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1339:1: ( rule__BusinessClassAssociationRoleReference__NameAssignment_0 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1339:2: rule__BusinessClassAssociationRoleReference__NameAssignment_0
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1332:1: ( rule__BusinessClassAssociationRoleReference__NameAssignment_0 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1332:2: rule__BusinessClassAssociationRoleReference__NameAssignment_0
             {
-            pushFollow(FOLLOW_rule__BusinessClassAssociationRoleReference__NameAssignment_0_in_rule__BusinessClassAssociationRoleReference__Group__02693);
+            pushFollow(FOLLOW_rule__BusinessClassAssociationRoleReference__NameAssignment_0_in_rule__BusinessClassAssociationRoleReference__Group__02677);
             rule__BusinessClassAssociationRoleReference__NameAssignment_0();
             _fsp--;
 
@@ -3536,7 +3512,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__BusinessClassAssociationRoleReference__Group__1_in_rule__BusinessClassAssociationRoleReference__Group__02702);
+            pushFollow(FOLLOW_rule__BusinessClassAssociationRoleReference__Group__1_in_rule__BusinessClassAssociationRoleReference__Group__02686);
             rule__BusinessClassAssociationRoleReference__Group__1();
             _fsp--;
 
@@ -3559,25 +3535,25 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassAssociationRoleReference__Group__1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1350:1: rule__BusinessClassAssociationRoleReference__Group__1 : ( 'as' ) rule__BusinessClassAssociationRoleReference__Group__2 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1343:1: rule__BusinessClassAssociationRoleReference__Group__1 : ( 'as' ) rule__BusinessClassAssociationRoleReference__Group__2 ;
     public final void rule__BusinessClassAssociationRoleReference__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1354:1: ( ( 'as' ) rule__BusinessClassAssociationRoleReference__Group__2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1355:1: ( 'as' ) rule__BusinessClassAssociationRoleReference__Group__2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1347:1: ( ( 'as' ) rule__BusinessClassAssociationRoleReference__Group__2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1348:1: ( 'as' ) rule__BusinessClassAssociationRoleReference__Group__2
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1355:1: ( 'as' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1356:1: 'as'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1348:1: ( 'as' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1349:1: 'as'
             {
              before(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getAsKeyword_1()); 
-            match(input,22,FOLLOW_22_in_rule__BusinessClassAssociationRoleReference__Group__12731); 
+            match(input,22,FOLLOW_22_in_rule__BusinessClassAssociationRoleReference__Group__12715); 
              after(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getAsKeyword_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__BusinessClassAssociationRoleReference__Group__2_in_rule__BusinessClassAssociationRoleReference__Group__12741);
+            pushFollow(FOLLOW_rule__BusinessClassAssociationRoleReference__Group__2_in_rule__BusinessClassAssociationRoleReference__Group__12725);
             rule__BusinessClassAssociationRoleReference__Group__2();
             _fsp--;
 
@@ -3600,23 +3576,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassAssociationRoleReference__Group__2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1370:1: rule__BusinessClassAssociationRoleReference__Group__2 : ( ( rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2 ) ) rule__BusinessClassAssociationRoleReference__Group__3 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1363:1: rule__BusinessClassAssociationRoleReference__Group__2 : ( ( rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2 ) ) rule__BusinessClassAssociationRoleReference__Group__3 ;
     public final void rule__BusinessClassAssociationRoleReference__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1374:1: ( ( ( rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2 ) ) rule__BusinessClassAssociationRoleReference__Group__3 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1375:1: ( ( rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2 ) ) rule__BusinessClassAssociationRoleReference__Group__3
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1367:1: ( ( ( rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2 ) ) rule__BusinessClassAssociationRoleReference__Group__3 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1368:1: ( ( rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2 ) ) rule__BusinessClassAssociationRoleReference__Group__3
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1375:1: ( ( rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1376:1: ( rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1368:1: ( ( rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1369:1: ( rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2 )
             {
              before(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getDtoTypeAssignment_2()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1377:1: ( rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1377:2: rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1370:1: ( rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1370:2: rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2
             {
-            pushFollow(FOLLOW_rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2_in_rule__BusinessClassAssociationRoleReference__Group__22769);
+            pushFollow(FOLLOW_rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2_in_rule__BusinessClassAssociationRoleReference__Group__22753);
             rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2();
             _fsp--;
 
@@ -3627,7 +3603,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__BusinessClassAssociationRoleReference__Group__3_in_rule__BusinessClassAssociationRoleReference__Group__22778);
+            pushFollow(FOLLOW_rule__BusinessClassAssociationRoleReference__Group__3_in_rule__BusinessClassAssociationRoleReference__Group__22762);
             rule__BusinessClassAssociationRoleReference__Group__3();
             _fsp--;
 
@@ -3650,20 +3626,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassAssociationRoleReference__Group__3
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1388:1: rule__BusinessClassAssociationRoleReference__Group__3 : ( ';' ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1381:1: rule__BusinessClassAssociationRoleReference__Group__3 : ( ';' ) ;
     public final void rule__BusinessClassAssociationRoleReference__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1392:1: ( ( ';' ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1393:1: ( ';' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1385:1: ( ( ';' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1386:1: ( ';' )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1393:1: ( ';' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1394:1: ';'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1386:1: ( ';' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1387:1: ';'
             {
              before(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getSemicolonKeyword_3()); 
-            match(input,14,FOLLOW_14_in_rule__BusinessClassAssociationRoleReference__Group__32807); 
+            match(input,14,FOLLOW_14_in_rule__BusinessClassAssociationRoleReference__Group__32791); 
              after(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getSemicolonKeyword_3()); 
 
             }
@@ -3687,20 +3663,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CustomDto__Group__0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1415:1: rule__CustomDto__Group__0 : ( ( rule__CustomDto__DescriptionAssignment_0 )? ) rule__CustomDto__Group__1 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1408:1: rule__CustomDto__Group__0 : ( ( rule__CustomDto__DescriptionAssignment_0 )? ) rule__CustomDto__Group__1 ;
     public final void rule__CustomDto__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1419:1: ( ( ( rule__CustomDto__DescriptionAssignment_0 )? ) rule__CustomDto__Group__1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1420:1: ( ( rule__CustomDto__DescriptionAssignment_0 )? ) rule__CustomDto__Group__1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1412:1: ( ( ( rule__CustomDto__DescriptionAssignment_0 )? ) rule__CustomDto__Group__1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1413:1: ( ( rule__CustomDto__DescriptionAssignment_0 )? ) rule__CustomDto__Group__1
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1420:1: ( ( rule__CustomDto__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1421:1: ( rule__CustomDto__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1413:1: ( ( rule__CustomDto__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1414:1: ( rule__CustomDto__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getCustomDtoAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1422:1: ( rule__CustomDto__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1415:1: ( rule__CustomDto__DescriptionAssignment_0 )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -3709,9 +3685,9 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
             }
             switch (alt15) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1422:2: rule__CustomDto__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1415:2: rule__CustomDto__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__CustomDto__DescriptionAssignment_0_in_rule__CustomDto__Group__02850);
+                    pushFollow(FOLLOW_rule__CustomDto__DescriptionAssignment_0_in_rule__CustomDto__Group__02834);
                     rule__CustomDto__DescriptionAssignment_0();
                     _fsp--;
 
@@ -3725,7 +3701,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CustomDto__Group__1_in_rule__CustomDto__Group__02860);
+            pushFollow(FOLLOW_rule__CustomDto__Group__1_in_rule__CustomDto__Group__02844);
             rule__CustomDto__Group__1();
             _fsp--;
 
@@ -3748,25 +3724,25 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CustomDto__Group__1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1433:1: rule__CustomDto__Group__1 : ( 'custom' ) rule__CustomDto__Group__2 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1426:1: rule__CustomDto__Group__1 : ( 'custom' ) rule__CustomDto__Group__2 ;
     public final void rule__CustomDto__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1437:1: ( ( 'custom' ) rule__CustomDto__Group__2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1438:1: ( 'custom' ) rule__CustomDto__Group__2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1430:1: ( ( 'custom' ) rule__CustomDto__Group__2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1431:1: ( 'custom' ) rule__CustomDto__Group__2
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1438:1: ( 'custom' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1439:1: 'custom'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1431:1: ( 'custom' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1432:1: 'custom'
             {
              before(grammarAccess.getCustomDtoAccess().getCustomKeyword_1()); 
-            match(input,23,FOLLOW_23_in_rule__CustomDto__Group__12889); 
+            match(input,23,FOLLOW_23_in_rule__CustomDto__Group__12873); 
              after(grammarAccess.getCustomDtoAccess().getCustomKeyword_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CustomDto__Group__2_in_rule__CustomDto__Group__12899);
+            pushFollow(FOLLOW_rule__CustomDto__Group__2_in_rule__CustomDto__Group__12883);
             rule__CustomDto__Group__2();
             _fsp--;
 
@@ -3789,23 +3765,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CustomDto__Group__2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1453:1: rule__CustomDto__Group__2 : ( ( rule__CustomDto__NameAssignment_2 ) ) rule__CustomDto__Group__3 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1446:1: rule__CustomDto__Group__2 : ( ( rule__CustomDto__NameAssignment_2 ) ) rule__CustomDto__Group__3 ;
     public final void rule__CustomDto__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1457:1: ( ( ( rule__CustomDto__NameAssignment_2 ) ) rule__CustomDto__Group__3 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1458:1: ( ( rule__CustomDto__NameAssignment_2 ) ) rule__CustomDto__Group__3
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1450:1: ( ( ( rule__CustomDto__NameAssignment_2 ) ) rule__CustomDto__Group__3 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1451:1: ( ( rule__CustomDto__NameAssignment_2 ) ) rule__CustomDto__Group__3
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1458:1: ( ( rule__CustomDto__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1459:1: ( rule__CustomDto__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1451:1: ( ( rule__CustomDto__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1452:1: ( rule__CustomDto__NameAssignment_2 )
             {
              before(grammarAccess.getCustomDtoAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1460:1: ( rule__CustomDto__NameAssignment_2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1460:2: rule__CustomDto__NameAssignment_2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1453:1: ( rule__CustomDto__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1453:2: rule__CustomDto__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__CustomDto__NameAssignment_2_in_rule__CustomDto__Group__22927);
+            pushFollow(FOLLOW_rule__CustomDto__NameAssignment_2_in_rule__CustomDto__Group__22911);
             rule__CustomDto__NameAssignment_2();
             _fsp--;
 
@@ -3816,7 +3792,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CustomDto__Group__3_in_rule__CustomDto__Group__22936);
+            pushFollow(FOLLOW_rule__CustomDto__Group__3_in_rule__CustomDto__Group__22920);
             rule__CustomDto__Group__3();
             _fsp--;
 
@@ -3839,25 +3815,25 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CustomDto__Group__3
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1471:1: rule__CustomDto__Group__3 : ( '[' ) rule__CustomDto__Group__4 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1464:1: rule__CustomDto__Group__3 : ( '[' ) rule__CustomDto__Group__4 ;
     public final void rule__CustomDto__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1475:1: ( ( '[' ) rule__CustomDto__Group__4 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1476:1: ( '[' ) rule__CustomDto__Group__4
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1468:1: ( ( '[' ) rule__CustomDto__Group__4 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1469:1: ( '[' ) rule__CustomDto__Group__4
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1476:1: ( '[' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1477:1: '['
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1469:1: ( '[' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1470:1: '['
             {
              before(grammarAccess.getCustomDtoAccess().getLeftSquareBracketKeyword_3()); 
-            match(input,19,FOLLOW_19_in_rule__CustomDto__Group__32965); 
+            match(input,19,FOLLOW_19_in_rule__CustomDto__Group__32949); 
              after(grammarAccess.getCustomDtoAccess().getLeftSquareBracketKeyword_3()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CustomDto__Group__4_in_rule__CustomDto__Group__32975);
+            pushFollow(FOLLOW_rule__CustomDto__Group__4_in_rule__CustomDto__Group__32959);
             rule__CustomDto__Group__4();
             _fsp--;
 
@@ -3880,26 +3856,26 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CustomDto__Group__4
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1491:1: rule__CustomDto__Group__4 : ( ( ( rule__CustomDto__PropertiesAssignment_4 ) ) ( ( rule__CustomDto__PropertiesAssignment_4 )* ) ) rule__CustomDto__Group__5 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1484:1: rule__CustomDto__Group__4 : ( ( ( rule__CustomDto__PropertiesAssignment_4 ) ) ( ( rule__CustomDto__PropertiesAssignment_4 )* ) ) rule__CustomDto__Group__5 ;
     public final void rule__CustomDto__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1495:1: ( ( ( ( rule__CustomDto__PropertiesAssignment_4 ) ) ( ( rule__CustomDto__PropertiesAssignment_4 )* ) ) rule__CustomDto__Group__5 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1496:1: ( ( ( rule__CustomDto__PropertiesAssignment_4 ) ) ( ( rule__CustomDto__PropertiesAssignment_4 )* ) ) rule__CustomDto__Group__5
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1488:1: ( ( ( ( rule__CustomDto__PropertiesAssignment_4 ) ) ( ( rule__CustomDto__PropertiesAssignment_4 )* ) ) rule__CustomDto__Group__5 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1489:1: ( ( ( rule__CustomDto__PropertiesAssignment_4 ) ) ( ( rule__CustomDto__PropertiesAssignment_4 )* ) ) rule__CustomDto__Group__5
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1496:1: ( ( ( rule__CustomDto__PropertiesAssignment_4 ) ) ( ( rule__CustomDto__PropertiesAssignment_4 )* ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1497:1: ( ( rule__CustomDto__PropertiesAssignment_4 ) ) ( ( rule__CustomDto__PropertiesAssignment_4 )* )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1489:1: ( ( ( rule__CustomDto__PropertiesAssignment_4 ) ) ( ( rule__CustomDto__PropertiesAssignment_4 )* ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1490:1: ( ( rule__CustomDto__PropertiesAssignment_4 ) ) ( ( rule__CustomDto__PropertiesAssignment_4 )* )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1497:1: ( ( rule__CustomDto__PropertiesAssignment_4 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1498:1: ( rule__CustomDto__PropertiesAssignment_4 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1490:1: ( ( rule__CustomDto__PropertiesAssignment_4 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1491:1: ( rule__CustomDto__PropertiesAssignment_4 )
             {
              before(grammarAccess.getCustomDtoAccess().getPropertiesAssignment_4()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1499:1: ( rule__CustomDto__PropertiesAssignment_4 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1499:2: rule__CustomDto__PropertiesAssignment_4
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1492:1: ( rule__CustomDto__PropertiesAssignment_4 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1492:2: rule__CustomDto__PropertiesAssignment_4
             {
-            pushFollow(FOLLOW_rule__CustomDto__PropertiesAssignment_4_in_rule__CustomDto__Group__43005);
+            pushFollow(FOLLOW_rule__CustomDto__PropertiesAssignment_4_in_rule__CustomDto__Group__42989);
             rule__CustomDto__PropertiesAssignment_4();
             _fsp--;
 
@@ -3910,11 +3886,11 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1502:1: ( ( rule__CustomDto__PropertiesAssignment_4 )* )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1503:1: ( rule__CustomDto__PropertiesAssignment_4 )*
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1495:1: ( ( rule__CustomDto__PropertiesAssignment_4 )* )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1496:1: ( rule__CustomDto__PropertiesAssignment_4 )*
             {
              before(grammarAccess.getCustomDtoAccess().getPropertiesAssignment_4()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1504:1: ( rule__CustomDto__PropertiesAssignment_4 )*
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1497:1: ( rule__CustomDto__PropertiesAssignment_4 )*
             loop16:
             do {
                 int alt16=2;
@@ -3927,9 +3903,9 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
                 switch (alt16) {
             	case 1 :
-            	    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1504:2: rule__CustomDto__PropertiesAssignment_4
+            	    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1497:2: rule__CustomDto__PropertiesAssignment_4
             	    {
-            	    pushFollow(FOLLOW_rule__CustomDto__PropertiesAssignment_4_in_rule__CustomDto__Group__43017);
+            	    pushFollow(FOLLOW_rule__CustomDto__PropertiesAssignment_4_in_rule__CustomDto__Group__43001);
             	    rule__CustomDto__PropertiesAssignment_4();
             	    _fsp--;
 
@@ -3949,7 +3925,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CustomDto__Group__5_in_rule__CustomDto__Group__43029);
+            pushFollow(FOLLOW_rule__CustomDto__Group__5_in_rule__CustomDto__Group__43013);
             rule__CustomDto__Group__5();
             _fsp--;
 
@@ -3972,20 +3948,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CustomDto__Group__5
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1516:1: rule__CustomDto__Group__5 : ( ']' ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1509:1: rule__CustomDto__Group__5 : ( ']' ) ;
     public final void rule__CustomDto__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1520:1: ( ( ']' ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1521:1: ( ']' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1513:1: ( ( ']' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1514:1: ( ']' )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1521:1: ( ']' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1522:1: ']'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1514:1: ( ']' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1515:1: ']'
             {
              before(grammarAccess.getCustomDtoAccess().getRightSquareBracketKeyword_5()); 
-            match(input,20,FOLLOW_20_in_rule__CustomDto__Group__53058); 
+            match(input,20,FOLLOW_20_in_rule__CustomDto__Group__53042); 
              after(grammarAccess.getCustomDtoAccess().getRightSquareBracketKeyword_5()); 
 
             }
@@ -4009,23 +3985,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoProperty__Group__0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1547:1: rule__DtoProperty__Group__0 : ( ( rule__DtoProperty__Alternatives_0 ) ) rule__DtoProperty__Group__1 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1540:1: rule__DtoProperty__Group__0 : ( ( rule__DtoProperty__Alternatives_0 ) ) rule__DtoProperty__Group__1 ;
     public final void rule__DtoProperty__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1551:1: ( ( ( rule__DtoProperty__Alternatives_0 ) ) rule__DtoProperty__Group__1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1552:1: ( ( rule__DtoProperty__Alternatives_0 ) ) rule__DtoProperty__Group__1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1544:1: ( ( ( rule__DtoProperty__Alternatives_0 ) ) rule__DtoProperty__Group__1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1545:1: ( ( rule__DtoProperty__Alternatives_0 ) ) rule__DtoProperty__Group__1
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1552:1: ( ( rule__DtoProperty__Alternatives_0 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1553:1: ( rule__DtoProperty__Alternatives_0 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1545:1: ( ( rule__DtoProperty__Alternatives_0 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1546:1: ( rule__DtoProperty__Alternatives_0 )
             {
              before(grammarAccess.getDtoPropertyAccess().getAlternatives_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1554:1: ( rule__DtoProperty__Alternatives_0 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1554:2: rule__DtoProperty__Alternatives_0
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1547:1: ( rule__DtoProperty__Alternatives_0 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1547:2: rule__DtoProperty__Alternatives_0
             {
-            pushFollow(FOLLOW_rule__DtoProperty__Alternatives_0_in_rule__DtoProperty__Group__03105);
+            pushFollow(FOLLOW_rule__DtoProperty__Alternatives_0_in_rule__DtoProperty__Group__03089);
             rule__DtoProperty__Alternatives_0();
             _fsp--;
 
@@ -4036,7 +4012,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DtoProperty__Group__1_in_rule__DtoProperty__Group__03114);
+            pushFollow(FOLLOW_rule__DtoProperty__Group__1_in_rule__DtoProperty__Group__03098);
             rule__DtoProperty__Group__1();
             _fsp--;
 
@@ -4059,20 +4035,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoProperty__Group__1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1565:1: rule__DtoProperty__Group__1 : ( ';' ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1558:1: rule__DtoProperty__Group__1 : ( ';' ) ;
     public final void rule__DtoProperty__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1569:1: ( ( ';' ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1570:1: ( ';' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1562:1: ( ( ';' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1563:1: ( ';' )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1570:1: ( ';' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1571:1: ';'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1563:1: ( ';' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1564:1: ';'
             {
              before(grammarAccess.getDtoPropertyAccess().getSemicolonKeyword_1()); 
-            match(input,14,FOLLOW_14_in_rule__DtoProperty__Group__13143); 
+            match(input,14,FOLLOW_14_in_rule__DtoProperty__Group__13127); 
              after(grammarAccess.getDtoPropertyAccess().getSemicolonKeyword_1()); 
 
             }
@@ -4096,20 +4072,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoBooleanProperty__Group__0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1588:1: rule__DtoBooleanProperty__Group__0 : ( ( rule__DtoBooleanProperty__DescriptionAssignment_0 )? ) rule__DtoBooleanProperty__Group__1 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1581:1: rule__DtoBooleanProperty__Group__0 : ( ( rule__DtoBooleanProperty__DescriptionAssignment_0 )? ) rule__DtoBooleanProperty__Group__1 ;
     public final void rule__DtoBooleanProperty__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1592:1: ( ( ( rule__DtoBooleanProperty__DescriptionAssignment_0 )? ) rule__DtoBooleanProperty__Group__1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1593:1: ( ( rule__DtoBooleanProperty__DescriptionAssignment_0 )? ) rule__DtoBooleanProperty__Group__1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1585:1: ( ( ( rule__DtoBooleanProperty__DescriptionAssignment_0 )? ) rule__DtoBooleanProperty__Group__1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1586:1: ( ( rule__DtoBooleanProperty__DescriptionAssignment_0 )? ) rule__DtoBooleanProperty__Group__1
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1593:1: ( ( rule__DtoBooleanProperty__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1594:1: ( rule__DtoBooleanProperty__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1586:1: ( ( rule__DtoBooleanProperty__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1587:1: ( rule__DtoBooleanProperty__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getDtoBooleanPropertyAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1595:1: ( rule__DtoBooleanProperty__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1588:1: ( rule__DtoBooleanProperty__DescriptionAssignment_0 )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -4118,9 +4094,9 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
             }
             switch (alt17) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1595:2: rule__DtoBooleanProperty__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1588:2: rule__DtoBooleanProperty__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__DtoBooleanProperty__DescriptionAssignment_0_in_rule__DtoBooleanProperty__Group__03182);
+                    pushFollow(FOLLOW_rule__DtoBooleanProperty__DescriptionAssignment_0_in_rule__DtoBooleanProperty__Group__03166);
                     rule__DtoBooleanProperty__DescriptionAssignment_0();
                     _fsp--;
 
@@ -4134,7 +4110,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DtoBooleanProperty__Group__1_in_rule__DtoBooleanProperty__Group__03192);
+            pushFollow(FOLLOW_rule__DtoBooleanProperty__Group__1_in_rule__DtoBooleanProperty__Group__03176);
             rule__DtoBooleanProperty__Group__1();
             _fsp--;
 
@@ -4157,23 +4133,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoBooleanProperty__Group__1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1606:1: rule__DtoBooleanProperty__Group__1 : ( ( rule__DtoBooleanProperty__DataTypeAssignment_1 ) ) rule__DtoBooleanProperty__Group__2 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1599:1: rule__DtoBooleanProperty__Group__1 : ( ( rule__DtoBooleanProperty__DataTypeAssignment_1 ) ) rule__DtoBooleanProperty__Group__2 ;
     public final void rule__DtoBooleanProperty__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1610:1: ( ( ( rule__DtoBooleanProperty__DataTypeAssignment_1 ) ) rule__DtoBooleanProperty__Group__2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1611:1: ( ( rule__DtoBooleanProperty__DataTypeAssignment_1 ) ) rule__DtoBooleanProperty__Group__2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1603:1: ( ( ( rule__DtoBooleanProperty__DataTypeAssignment_1 ) ) rule__DtoBooleanProperty__Group__2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1604:1: ( ( rule__DtoBooleanProperty__DataTypeAssignment_1 ) ) rule__DtoBooleanProperty__Group__2
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1611:1: ( ( rule__DtoBooleanProperty__DataTypeAssignment_1 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1612:1: ( rule__DtoBooleanProperty__DataTypeAssignment_1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1604:1: ( ( rule__DtoBooleanProperty__DataTypeAssignment_1 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1605:1: ( rule__DtoBooleanProperty__DataTypeAssignment_1 )
             {
              before(grammarAccess.getDtoBooleanPropertyAccess().getDataTypeAssignment_1()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1613:1: ( rule__DtoBooleanProperty__DataTypeAssignment_1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1613:2: rule__DtoBooleanProperty__DataTypeAssignment_1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1606:1: ( rule__DtoBooleanProperty__DataTypeAssignment_1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1606:2: rule__DtoBooleanProperty__DataTypeAssignment_1
             {
-            pushFollow(FOLLOW_rule__DtoBooleanProperty__DataTypeAssignment_1_in_rule__DtoBooleanProperty__Group__13220);
+            pushFollow(FOLLOW_rule__DtoBooleanProperty__DataTypeAssignment_1_in_rule__DtoBooleanProperty__Group__13204);
             rule__DtoBooleanProperty__DataTypeAssignment_1();
             _fsp--;
 
@@ -4184,7 +4160,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DtoBooleanProperty__Group__2_in_rule__DtoBooleanProperty__Group__13229);
+            pushFollow(FOLLOW_rule__DtoBooleanProperty__Group__2_in_rule__DtoBooleanProperty__Group__13213);
             rule__DtoBooleanProperty__Group__2();
             _fsp--;
 
@@ -4207,23 +4183,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoBooleanProperty__Group__2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1624:1: rule__DtoBooleanProperty__Group__2 : ( ( rule__DtoBooleanProperty__NameAssignment_2 ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1617:1: rule__DtoBooleanProperty__Group__2 : ( ( rule__DtoBooleanProperty__NameAssignment_2 ) ) ;
     public final void rule__DtoBooleanProperty__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1628:1: ( ( ( rule__DtoBooleanProperty__NameAssignment_2 ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1629:1: ( ( rule__DtoBooleanProperty__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1621:1: ( ( ( rule__DtoBooleanProperty__NameAssignment_2 ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1622:1: ( ( rule__DtoBooleanProperty__NameAssignment_2 ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1629:1: ( ( rule__DtoBooleanProperty__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1630:1: ( rule__DtoBooleanProperty__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1622:1: ( ( rule__DtoBooleanProperty__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1623:1: ( rule__DtoBooleanProperty__NameAssignment_2 )
             {
              before(grammarAccess.getDtoBooleanPropertyAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1631:1: ( rule__DtoBooleanProperty__NameAssignment_2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1631:2: rule__DtoBooleanProperty__NameAssignment_2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1624:1: ( rule__DtoBooleanProperty__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1624:2: rule__DtoBooleanProperty__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__DtoBooleanProperty__NameAssignment_2_in_rule__DtoBooleanProperty__Group__23257);
+            pushFollow(FOLLOW_rule__DtoBooleanProperty__NameAssignment_2_in_rule__DtoBooleanProperty__Group__23241);
             rule__DtoBooleanProperty__NameAssignment_2();
             _fsp--;
 
@@ -4253,20 +4229,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoStringProperty__Group__0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1647:1: rule__DtoStringProperty__Group__0 : ( ( rule__DtoStringProperty__DescriptionAssignment_0 )? ) rule__DtoStringProperty__Group__1 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1640:1: rule__DtoStringProperty__Group__0 : ( ( rule__DtoStringProperty__DescriptionAssignment_0 )? ) rule__DtoStringProperty__Group__1 ;
     public final void rule__DtoStringProperty__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1651:1: ( ( ( rule__DtoStringProperty__DescriptionAssignment_0 )? ) rule__DtoStringProperty__Group__1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1652:1: ( ( rule__DtoStringProperty__DescriptionAssignment_0 )? ) rule__DtoStringProperty__Group__1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1644:1: ( ( ( rule__DtoStringProperty__DescriptionAssignment_0 )? ) rule__DtoStringProperty__Group__1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1645:1: ( ( rule__DtoStringProperty__DescriptionAssignment_0 )? ) rule__DtoStringProperty__Group__1
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1652:1: ( ( rule__DtoStringProperty__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1653:1: ( rule__DtoStringProperty__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1645:1: ( ( rule__DtoStringProperty__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1646:1: ( rule__DtoStringProperty__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getDtoStringPropertyAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1654:1: ( rule__DtoStringProperty__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1647:1: ( rule__DtoStringProperty__DescriptionAssignment_0 )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -4275,9 +4251,9 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
             }
             switch (alt18) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1654:2: rule__DtoStringProperty__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1647:2: rule__DtoStringProperty__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__DtoStringProperty__DescriptionAssignment_0_in_rule__DtoStringProperty__Group__03297);
+                    pushFollow(FOLLOW_rule__DtoStringProperty__DescriptionAssignment_0_in_rule__DtoStringProperty__Group__03281);
                     rule__DtoStringProperty__DescriptionAssignment_0();
                     _fsp--;
 
@@ -4291,7 +4267,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DtoStringProperty__Group__1_in_rule__DtoStringProperty__Group__03307);
+            pushFollow(FOLLOW_rule__DtoStringProperty__Group__1_in_rule__DtoStringProperty__Group__03291);
             rule__DtoStringProperty__Group__1();
             _fsp--;
 
@@ -4314,23 +4290,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoStringProperty__Group__1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1665:1: rule__DtoStringProperty__Group__1 : ( ( rule__DtoStringProperty__DataTypeAssignment_1 ) ) rule__DtoStringProperty__Group__2 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1658:1: rule__DtoStringProperty__Group__1 : ( ( rule__DtoStringProperty__DataTypeAssignment_1 ) ) rule__DtoStringProperty__Group__2 ;
     public final void rule__DtoStringProperty__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1669:1: ( ( ( rule__DtoStringProperty__DataTypeAssignment_1 ) ) rule__DtoStringProperty__Group__2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1670:1: ( ( rule__DtoStringProperty__DataTypeAssignment_1 ) ) rule__DtoStringProperty__Group__2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1662:1: ( ( ( rule__DtoStringProperty__DataTypeAssignment_1 ) ) rule__DtoStringProperty__Group__2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1663:1: ( ( rule__DtoStringProperty__DataTypeAssignment_1 ) ) rule__DtoStringProperty__Group__2
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1670:1: ( ( rule__DtoStringProperty__DataTypeAssignment_1 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1671:1: ( rule__DtoStringProperty__DataTypeAssignment_1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1663:1: ( ( rule__DtoStringProperty__DataTypeAssignment_1 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1664:1: ( rule__DtoStringProperty__DataTypeAssignment_1 )
             {
              before(grammarAccess.getDtoStringPropertyAccess().getDataTypeAssignment_1()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1672:1: ( rule__DtoStringProperty__DataTypeAssignment_1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1672:2: rule__DtoStringProperty__DataTypeAssignment_1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1665:1: ( rule__DtoStringProperty__DataTypeAssignment_1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1665:2: rule__DtoStringProperty__DataTypeAssignment_1
             {
-            pushFollow(FOLLOW_rule__DtoStringProperty__DataTypeAssignment_1_in_rule__DtoStringProperty__Group__13335);
+            pushFollow(FOLLOW_rule__DtoStringProperty__DataTypeAssignment_1_in_rule__DtoStringProperty__Group__13319);
             rule__DtoStringProperty__DataTypeAssignment_1();
             _fsp--;
 
@@ -4341,7 +4317,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DtoStringProperty__Group__2_in_rule__DtoStringProperty__Group__13344);
+            pushFollow(FOLLOW_rule__DtoStringProperty__Group__2_in_rule__DtoStringProperty__Group__13328);
             rule__DtoStringProperty__Group__2();
             _fsp--;
 
@@ -4364,23 +4340,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoStringProperty__Group__2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1683:1: rule__DtoStringProperty__Group__2 : ( ( rule__DtoStringProperty__NameAssignment_2 ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1676:1: rule__DtoStringProperty__Group__2 : ( ( rule__DtoStringProperty__NameAssignment_2 ) ) ;
     public final void rule__DtoStringProperty__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1687:1: ( ( ( rule__DtoStringProperty__NameAssignment_2 ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1688:1: ( ( rule__DtoStringProperty__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1680:1: ( ( ( rule__DtoStringProperty__NameAssignment_2 ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1681:1: ( ( rule__DtoStringProperty__NameAssignment_2 ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1688:1: ( ( rule__DtoStringProperty__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1689:1: ( rule__DtoStringProperty__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1681:1: ( ( rule__DtoStringProperty__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1682:1: ( rule__DtoStringProperty__NameAssignment_2 )
             {
              before(grammarAccess.getDtoStringPropertyAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1690:1: ( rule__DtoStringProperty__NameAssignment_2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1690:2: rule__DtoStringProperty__NameAssignment_2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1683:1: ( rule__DtoStringProperty__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1683:2: rule__DtoStringProperty__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__DtoStringProperty__NameAssignment_2_in_rule__DtoStringProperty__Group__23372);
+            pushFollow(FOLLOW_rule__DtoStringProperty__NameAssignment_2_in_rule__DtoStringProperty__Group__23356);
             rule__DtoStringProperty__NameAssignment_2();
             _fsp--;
 
@@ -4410,20 +4386,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoDateTimeProperty__Group__0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1706:1: rule__DtoDateTimeProperty__Group__0 : ( ( rule__DtoDateTimeProperty__DescriptionAssignment_0 )? ) rule__DtoDateTimeProperty__Group__1 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1699:1: rule__DtoDateTimeProperty__Group__0 : ( ( rule__DtoDateTimeProperty__DescriptionAssignment_0 )? ) rule__DtoDateTimeProperty__Group__1 ;
     public final void rule__DtoDateTimeProperty__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1710:1: ( ( ( rule__DtoDateTimeProperty__DescriptionAssignment_0 )? ) rule__DtoDateTimeProperty__Group__1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1711:1: ( ( rule__DtoDateTimeProperty__DescriptionAssignment_0 )? ) rule__DtoDateTimeProperty__Group__1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1703:1: ( ( ( rule__DtoDateTimeProperty__DescriptionAssignment_0 )? ) rule__DtoDateTimeProperty__Group__1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1704:1: ( ( rule__DtoDateTimeProperty__DescriptionAssignment_0 )? ) rule__DtoDateTimeProperty__Group__1
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1711:1: ( ( rule__DtoDateTimeProperty__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1712:1: ( rule__DtoDateTimeProperty__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1704:1: ( ( rule__DtoDateTimeProperty__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1705:1: ( rule__DtoDateTimeProperty__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getDtoDateTimePropertyAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1713:1: ( rule__DtoDateTimeProperty__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1706:1: ( rule__DtoDateTimeProperty__DescriptionAssignment_0 )?
             int alt19=2;
             int LA19_0 = input.LA(1);
 
@@ -4432,9 +4408,9 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
             }
             switch (alt19) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1713:2: rule__DtoDateTimeProperty__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1706:2: rule__DtoDateTimeProperty__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__DtoDateTimeProperty__DescriptionAssignment_0_in_rule__DtoDateTimeProperty__Group__03412);
+                    pushFollow(FOLLOW_rule__DtoDateTimeProperty__DescriptionAssignment_0_in_rule__DtoDateTimeProperty__Group__03396);
                     rule__DtoDateTimeProperty__DescriptionAssignment_0();
                     _fsp--;
 
@@ -4448,7 +4424,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DtoDateTimeProperty__Group__1_in_rule__DtoDateTimeProperty__Group__03422);
+            pushFollow(FOLLOW_rule__DtoDateTimeProperty__Group__1_in_rule__DtoDateTimeProperty__Group__03406);
             rule__DtoDateTimeProperty__Group__1();
             _fsp--;
 
@@ -4471,23 +4447,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoDateTimeProperty__Group__1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1724:1: rule__DtoDateTimeProperty__Group__1 : ( ( rule__DtoDateTimeProperty__DataTypeAssignment_1 ) ) rule__DtoDateTimeProperty__Group__2 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1717:1: rule__DtoDateTimeProperty__Group__1 : ( ( rule__DtoDateTimeProperty__DataTypeAssignment_1 ) ) rule__DtoDateTimeProperty__Group__2 ;
     public final void rule__DtoDateTimeProperty__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1728:1: ( ( ( rule__DtoDateTimeProperty__DataTypeAssignment_1 ) ) rule__DtoDateTimeProperty__Group__2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1729:1: ( ( rule__DtoDateTimeProperty__DataTypeAssignment_1 ) ) rule__DtoDateTimeProperty__Group__2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1721:1: ( ( ( rule__DtoDateTimeProperty__DataTypeAssignment_1 ) ) rule__DtoDateTimeProperty__Group__2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1722:1: ( ( rule__DtoDateTimeProperty__DataTypeAssignment_1 ) ) rule__DtoDateTimeProperty__Group__2
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1729:1: ( ( rule__DtoDateTimeProperty__DataTypeAssignment_1 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1730:1: ( rule__DtoDateTimeProperty__DataTypeAssignment_1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1722:1: ( ( rule__DtoDateTimeProperty__DataTypeAssignment_1 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1723:1: ( rule__DtoDateTimeProperty__DataTypeAssignment_1 )
             {
              before(grammarAccess.getDtoDateTimePropertyAccess().getDataTypeAssignment_1()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1731:1: ( rule__DtoDateTimeProperty__DataTypeAssignment_1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1731:2: rule__DtoDateTimeProperty__DataTypeAssignment_1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1724:1: ( rule__DtoDateTimeProperty__DataTypeAssignment_1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1724:2: rule__DtoDateTimeProperty__DataTypeAssignment_1
             {
-            pushFollow(FOLLOW_rule__DtoDateTimeProperty__DataTypeAssignment_1_in_rule__DtoDateTimeProperty__Group__13450);
+            pushFollow(FOLLOW_rule__DtoDateTimeProperty__DataTypeAssignment_1_in_rule__DtoDateTimeProperty__Group__13434);
             rule__DtoDateTimeProperty__DataTypeAssignment_1();
             _fsp--;
 
@@ -4498,7 +4474,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DtoDateTimeProperty__Group__2_in_rule__DtoDateTimeProperty__Group__13459);
+            pushFollow(FOLLOW_rule__DtoDateTimeProperty__Group__2_in_rule__DtoDateTimeProperty__Group__13443);
             rule__DtoDateTimeProperty__Group__2();
             _fsp--;
 
@@ -4521,23 +4497,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoDateTimeProperty__Group__2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1742:1: rule__DtoDateTimeProperty__Group__2 : ( ( rule__DtoDateTimeProperty__NameAssignment_2 ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1735:1: rule__DtoDateTimeProperty__Group__2 : ( ( rule__DtoDateTimeProperty__NameAssignment_2 ) ) ;
     public final void rule__DtoDateTimeProperty__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1746:1: ( ( ( rule__DtoDateTimeProperty__NameAssignment_2 ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1747:1: ( ( rule__DtoDateTimeProperty__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1739:1: ( ( ( rule__DtoDateTimeProperty__NameAssignment_2 ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1740:1: ( ( rule__DtoDateTimeProperty__NameAssignment_2 ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1747:1: ( ( rule__DtoDateTimeProperty__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1748:1: ( rule__DtoDateTimeProperty__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1740:1: ( ( rule__DtoDateTimeProperty__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1741:1: ( rule__DtoDateTimeProperty__NameAssignment_2 )
             {
              before(grammarAccess.getDtoDateTimePropertyAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1749:1: ( rule__DtoDateTimeProperty__NameAssignment_2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1749:2: rule__DtoDateTimeProperty__NameAssignment_2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1742:1: ( rule__DtoDateTimeProperty__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1742:2: rule__DtoDateTimeProperty__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__DtoDateTimeProperty__NameAssignment_2_in_rule__DtoDateTimeProperty__Group__23487);
+            pushFollow(FOLLOW_rule__DtoDateTimeProperty__NameAssignment_2_in_rule__DtoDateTimeProperty__Group__23471);
             rule__DtoDateTimeProperty__NameAssignment_2();
             _fsp--;
 
@@ -4567,20 +4543,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoIntegerProperty__Group__0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1765:1: rule__DtoIntegerProperty__Group__0 : ( ( rule__DtoIntegerProperty__DescriptionAssignment_0 )? ) rule__DtoIntegerProperty__Group__1 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1758:1: rule__DtoIntegerProperty__Group__0 : ( ( rule__DtoIntegerProperty__DescriptionAssignment_0 )? ) rule__DtoIntegerProperty__Group__1 ;
     public final void rule__DtoIntegerProperty__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1769:1: ( ( ( rule__DtoIntegerProperty__DescriptionAssignment_0 )? ) rule__DtoIntegerProperty__Group__1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1770:1: ( ( rule__DtoIntegerProperty__DescriptionAssignment_0 )? ) rule__DtoIntegerProperty__Group__1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1762:1: ( ( ( rule__DtoIntegerProperty__DescriptionAssignment_0 )? ) rule__DtoIntegerProperty__Group__1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1763:1: ( ( rule__DtoIntegerProperty__DescriptionAssignment_0 )? ) rule__DtoIntegerProperty__Group__1
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1770:1: ( ( rule__DtoIntegerProperty__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1771:1: ( rule__DtoIntegerProperty__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1763:1: ( ( rule__DtoIntegerProperty__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1764:1: ( rule__DtoIntegerProperty__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getDtoIntegerPropertyAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1772:1: ( rule__DtoIntegerProperty__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1765:1: ( rule__DtoIntegerProperty__DescriptionAssignment_0 )?
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -4589,9 +4565,9 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
             }
             switch (alt20) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1772:2: rule__DtoIntegerProperty__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1765:2: rule__DtoIntegerProperty__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__DtoIntegerProperty__DescriptionAssignment_0_in_rule__DtoIntegerProperty__Group__03527);
+                    pushFollow(FOLLOW_rule__DtoIntegerProperty__DescriptionAssignment_0_in_rule__DtoIntegerProperty__Group__03511);
                     rule__DtoIntegerProperty__DescriptionAssignment_0();
                     _fsp--;
 
@@ -4605,7 +4581,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DtoIntegerProperty__Group__1_in_rule__DtoIntegerProperty__Group__03537);
+            pushFollow(FOLLOW_rule__DtoIntegerProperty__Group__1_in_rule__DtoIntegerProperty__Group__03521);
             rule__DtoIntegerProperty__Group__1();
             _fsp--;
 
@@ -4628,23 +4604,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoIntegerProperty__Group__1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1783:1: rule__DtoIntegerProperty__Group__1 : ( ( rule__DtoIntegerProperty__DataTypeAssignment_1 ) ) rule__DtoIntegerProperty__Group__2 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1776:1: rule__DtoIntegerProperty__Group__1 : ( ( rule__DtoIntegerProperty__DataTypeAssignment_1 ) ) rule__DtoIntegerProperty__Group__2 ;
     public final void rule__DtoIntegerProperty__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1787:1: ( ( ( rule__DtoIntegerProperty__DataTypeAssignment_1 ) ) rule__DtoIntegerProperty__Group__2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1788:1: ( ( rule__DtoIntegerProperty__DataTypeAssignment_1 ) ) rule__DtoIntegerProperty__Group__2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1780:1: ( ( ( rule__DtoIntegerProperty__DataTypeAssignment_1 ) ) rule__DtoIntegerProperty__Group__2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1781:1: ( ( rule__DtoIntegerProperty__DataTypeAssignment_1 ) ) rule__DtoIntegerProperty__Group__2
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1788:1: ( ( rule__DtoIntegerProperty__DataTypeAssignment_1 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1789:1: ( rule__DtoIntegerProperty__DataTypeAssignment_1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1781:1: ( ( rule__DtoIntegerProperty__DataTypeAssignment_1 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1782:1: ( rule__DtoIntegerProperty__DataTypeAssignment_1 )
             {
              before(grammarAccess.getDtoIntegerPropertyAccess().getDataTypeAssignment_1()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1790:1: ( rule__DtoIntegerProperty__DataTypeAssignment_1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1790:2: rule__DtoIntegerProperty__DataTypeAssignment_1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1783:1: ( rule__DtoIntegerProperty__DataTypeAssignment_1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1783:2: rule__DtoIntegerProperty__DataTypeAssignment_1
             {
-            pushFollow(FOLLOW_rule__DtoIntegerProperty__DataTypeAssignment_1_in_rule__DtoIntegerProperty__Group__13565);
+            pushFollow(FOLLOW_rule__DtoIntegerProperty__DataTypeAssignment_1_in_rule__DtoIntegerProperty__Group__13549);
             rule__DtoIntegerProperty__DataTypeAssignment_1();
             _fsp--;
 
@@ -4655,7 +4631,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DtoIntegerProperty__Group__2_in_rule__DtoIntegerProperty__Group__13574);
+            pushFollow(FOLLOW_rule__DtoIntegerProperty__Group__2_in_rule__DtoIntegerProperty__Group__13558);
             rule__DtoIntegerProperty__Group__2();
             _fsp--;
 
@@ -4678,23 +4654,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoIntegerProperty__Group__2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1801:1: rule__DtoIntegerProperty__Group__2 : ( ( rule__DtoIntegerProperty__NameAssignment_2 ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1794:1: rule__DtoIntegerProperty__Group__2 : ( ( rule__DtoIntegerProperty__NameAssignment_2 ) ) ;
     public final void rule__DtoIntegerProperty__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1805:1: ( ( ( rule__DtoIntegerProperty__NameAssignment_2 ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1806:1: ( ( rule__DtoIntegerProperty__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1798:1: ( ( ( rule__DtoIntegerProperty__NameAssignment_2 ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1799:1: ( ( rule__DtoIntegerProperty__NameAssignment_2 ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1806:1: ( ( rule__DtoIntegerProperty__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1807:1: ( rule__DtoIntegerProperty__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1799:1: ( ( rule__DtoIntegerProperty__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1800:1: ( rule__DtoIntegerProperty__NameAssignment_2 )
             {
              before(grammarAccess.getDtoIntegerPropertyAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1808:1: ( rule__DtoIntegerProperty__NameAssignment_2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1808:2: rule__DtoIntegerProperty__NameAssignment_2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1801:1: ( rule__DtoIntegerProperty__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1801:2: rule__DtoIntegerProperty__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__DtoIntegerProperty__NameAssignment_2_in_rule__DtoIntegerProperty__Group__23602);
+            pushFollow(FOLLOW_rule__DtoIntegerProperty__NameAssignment_2_in_rule__DtoIntegerProperty__Group__23586);
             rule__DtoIntegerProperty__NameAssignment_2();
             _fsp--;
 
@@ -4724,20 +4700,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoDecimalProperty__Group__0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1824:1: rule__DtoDecimalProperty__Group__0 : ( ( rule__DtoDecimalProperty__DescriptionAssignment_0 )? ) rule__DtoDecimalProperty__Group__1 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1817:1: rule__DtoDecimalProperty__Group__0 : ( ( rule__DtoDecimalProperty__DescriptionAssignment_0 )? ) rule__DtoDecimalProperty__Group__1 ;
     public final void rule__DtoDecimalProperty__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1828:1: ( ( ( rule__DtoDecimalProperty__DescriptionAssignment_0 )? ) rule__DtoDecimalProperty__Group__1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1829:1: ( ( rule__DtoDecimalProperty__DescriptionAssignment_0 )? ) rule__DtoDecimalProperty__Group__1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1821:1: ( ( ( rule__DtoDecimalProperty__DescriptionAssignment_0 )? ) rule__DtoDecimalProperty__Group__1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1822:1: ( ( rule__DtoDecimalProperty__DescriptionAssignment_0 )? ) rule__DtoDecimalProperty__Group__1
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1829:1: ( ( rule__DtoDecimalProperty__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1830:1: ( rule__DtoDecimalProperty__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1822:1: ( ( rule__DtoDecimalProperty__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1823:1: ( rule__DtoDecimalProperty__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getDtoDecimalPropertyAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1831:1: ( rule__DtoDecimalProperty__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1824:1: ( rule__DtoDecimalProperty__DescriptionAssignment_0 )?
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -4746,9 +4722,9 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
             }
             switch (alt21) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1831:2: rule__DtoDecimalProperty__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1824:2: rule__DtoDecimalProperty__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__DtoDecimalProperty__DescriptionAssignment_0_in_rule__DtoDecimalProperty__Group__03642);
+                    pushFollow(FOLLOW_rule__DtoDecimalProperty__DescriptionAssignment_0_in_rule__DtoDecimalProperty__Group__03626);
                     rule__DtoDecimalProperty__DescriptionAssignment_0();
                     _fsp--;
 
@@ -4762,7 +4738,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DtoDecimalProperty__Group__1_in_rule__DtoDecimalProperty__Group__03652);
+            pushFollow(FOLLOW_rule__DtoDecimalProperty__Group__1_in_rule__DtoDecimalProperty__Group__03636);
             rule__DtoDecimalProperty__Group__1();
             _fsp--;
 
@@ -4785,23 +4761,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoDecimalProperty__Group__1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1842:1: rule__DtoDecimalProperty__Group__1 : ( ( rule__DtoDecimalProperty__DataTypeAssignment_1 ) ) rule__DtoDecimalProperty__Group__2 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1835:1: rule__DtoDecimalProperty__Group__1 : ( ( rule__DtoDecimalProperty__DataTypeAssignment_1 ) ) rule__DtoDecimalProperty__Group__2 ;
     public final void rule__DtoDecimalProperty__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1846:1: ( ( ( rule__DtoDecimalProperty__DataTypeAssignment_1 ) ) rule__DtoDecimalProperty__Group__2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1847:1: ( ( rule__DtoDecimalProperty__DataTypeAssignment_1 ) ) rule__DtoDecimalProperty__Group__2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1839:1: ( ( ( rule__DtoDecimalProperty__DataTypeAssignment_1 ) ) rule__DtoDecimalProperty__Group__2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1840:1: ( ( rule__DtoDecimalProperty__DataTypeAssignment_1 ) ) rule__DtoDecimalProperty__Group__2
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1847:1: ( ( rule__DtoDecimalProperty__DataTypeAssignment_1 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1848:1: ( rule__DtoDecimalProperty__DataTypeAssignment_1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1840:1: ( ( rule__DtoDecimalProperty__DataTypeAssignment_1 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1841:1: ( rule__DtoDecimalProperty__DataTypeAssignment_1 )
             {
              before(grammarAccess.getDtoDecimalPropertyAccess().getDataTypeAssignment_1()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1849:1: ( rule__DtoDecimalProperty__DataTypeAssignment_1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1849:2: rule__DtoDecimalProperty__DataTypeAssignment_1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1842:1: ( rule__DtoDecimalProperty__DataTypeAssignment_1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1842:2: rule__DtoDecimalProperty__DataTypeAssignment_1
             {
-            pushFollow(FOLLOW_rule__DtoDecimalProperty__DataTypeAssignment_1_in_rule__DtoDecimalProperty__Group__13680);
+            pushFollow(FOLLOW_rule__DtoDecimalProperty__DataTypeAssignment_1_in_rule__DtoDecimalProperty__Group__13664);
             rule__DtoDecimalProperty__DataTypeAssignment_1();
             _fsp--;
 
@@ -4812,7 +4788,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DtoDecimalProperty__Group__2_in_rule__DtoDecimalProperty__Group__13689);
+            pushFollow(FOLLOW_rule__DtoDecimalProperty__Group__2_in_rule__DtoDecimalProperty__Group__13673);
             rule__DtoDecimalProperty__Group__2();
             _fsp--;
 
@@ -4835,23 +4811,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoDecimalProperty__Group__2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1860:1: rule__DtoDecimalProperty__Group__2 : ( ( rule__DtoDecimalProperty__NameAssignment_2 ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1853:1: rule__DtoDecimalProperty__Group__2 : ( ( rule__DtoDecimalProperty__NameAssignment_2 ) ) ;
     public final void rule__DtoDecimalProperty__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1864:1: ( ( ( rule__DtoDecimalProperty__NameAssignment_2 ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1865:1: ( ( rule__DtoDecimalProperty__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1857:1: ( ( ( rule__DtoDecimalProperty__NameAssignment_2 ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1858:1: ( ( rule__DtoDecimalProperty__NameAssignment_2 ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1865:1: ( ( rule__DtoDecimalProperty__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1866:1: ( rule__DtoDecimalProperty__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1858:1: ( ( rule__DtoDecimalProperty__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1859:1: ( rule__DtoDecimalProperty__NameAssignment_2 )
             {
              before(grammarAccess.getDtoDecimalPropertyAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1867:1: ( rule__DtoDecimalProperty__NameAssignment_2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1867:2: rule__DtoDecimalProperty__NameAssignment_2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1860:1: ( rule__DtoDecimalProperty__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1860:2: rule__DtoDecimalProperty__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__DtoDecimalProperty__NameAssignment_2_in_rule__DtoDecimalProperty__Group__23717);
+            pushFollow(FOLLOW_rule__DtoDecimalProperty__NameAssignment_2_in_rule__DtoDecimalProperty__Group__23701);
             rule__DtoDecimalProperty__NameAssignment_2();
             _fsp--;
 
@@ -4881,20 +4857,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoEnumerationProperty__Group__0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1883:1: rule__DtoEnumerationProperty__Group__0 : ( ( rule__DtoEnumerationProperty__DescriptionAssignment_0 )? ) rule__DtoEnumerationProperty__Group__1 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1876:1: rule__DtoEnumerationProperty__Group__0 : ( ( rule__DtoEnumerationProperty__DescriptionAssignment_0 )? ) rule__DtoEnumerationProperty__Group__1 ;
     public final void rule__DtoEnumerationProperty__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1887:1: ( ( ( rule__DtoEnumerationProperty__DescriptionAssignment_0 )? ) rule__DtoEnumerationProperty__Group__1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1888:1: ( ( rule__DtoEnumerationProperty__DescriptionAssignment_0 )? ) rule__DtoEnumerationProperty__Group__1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1880:1: ( ( ( rule__DtoEnumerationProperty__DescriptionAssignment_0 )? ) rule__DtoEnumerationProperty__Group__1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1881:1: ( ( rule__DtoEnumerationProperty__DescriptionAssignment_0 )? ) rule__DtoEnumerationProperty__Group__1
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1888:1: ( ( rule__DtoEnumerationProperty__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1889:1: ( rule__DtoEnumerationProperty__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1881:1: ( ( rule__DtoEnumerationProperty__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1882:1: ( rule__DtoEnumerationProperty__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getDtoEnumerationPropertyAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1890:1: ( rule__DtoEnumerationProperty__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1883:1: ( rule__DtoEnumerationProperty__DescriptionAssignment_0 )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -4903,9 +4879,9 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
             }
             switch (alt22) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1890:2: rule__DtoEnumerationProperty__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1883:2: rule__DtoEnumerationProperty__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__DtoEnumerationProperty__DescriptionAssignment_0_in_rule__DtoEnumerationProperty__Group__03757);
+                    pushFollow(FOLLOW_rule__DtoEnumerationProperty__DescriptionAssignment_0_in_rule__DtoEnumerationProperty__Group__03741);
                     rule__DtoEnumerationProperty__DescriptionAssignment_0();
                     _fsp--;
 
@@ -4919,7 +4895,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DtoEnumerationProperty__Group__1_in_rule__DtoEnumerationProperty__Group__03767);
+            pushFollow(FOLLOW_rule__DtoEnumerationProperty__Group__1_in_rule__DtoEnumerationProperty__Group__03751);
             rule__DtoEnumerationProperty__Group__1();
             _fsp--;
 
@@ -4942,23 +4918,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoEnumerationProperty__Group__1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1901:1: rule__DtoEnumerationProperty__Group__1 : ( ( rule__DtoEnumerationProperty__TypeAssignment_1 ) ) rule__DtoEnumerationProperty__Group__2 ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1894:1: rule__DtoEnumerationProperty__Group__1 : ( ( rule__DtoEnumerationProperty__TypeAssignment_1 ) ) rule__DtoEnumerationProperty__Group__2 ;
     public final void rule__DtoEnumerationProperty__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1905:1: ( ( ( rule__DtoEnumerationProperty__TypeAssignment_1 ) ) rule__DtoEnumerationProperty__Group__2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1906:1: ( ( rule__DtoEnumerationProperty__TypeAssignment_1 ) ) rule__DtoEnumerationProperty__Group__2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1898:1: ( ( ( rule__DtoEnumerationProperty__TypeAssignment_1 ) ) rule__DtoEnumerationProperty__Group__2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1899:1: ( ( rule__DtoEnumerationProperty__TypeAssignment_1 ) ) rule__DtoEnumerationProperty__Group__2
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1906:1: ( ( rule__DtoEnumerationProperty__TypeAssignment_1 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1907:1: ( rule__DtoEnumerationProperty__TypeAssignment_1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1899:1: ( ( rule__DtoEnumerationProperty__TypeAssignment_1 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1900:1: ( rule__DtoEnumerationProperty__TypeAssignment_1 )
             {
              before(grammarAccess.getDtoEnumerationPropertyAccess().getTypeAssignment_1()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1908:1: ( rule__DtoEnumerationProperty__TypeAssignment_1 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1908:2: rule__DtoEnumerationProperty__TypeAssignment_1
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1901:1: ( rule__DtoEnumerationProperty__TypeAssignment_1 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1901:2: rule__DtoEnumerationProperty__TypeAssignment_1
             {
-            pushFollow(FOLLOW_rule__DtoEnumerationProperty__TypeAssignment_1_in_rule__DtoEnumerationProperty__Group__13795);
+            pushFollow(FOLLOW_rule__DtoEnumerationProperty__TypeAssignment_1_in_rule__DtoEnumerationProperty__Group__13779);
             rule__DtoEnumerationProperty__TypeAssignment_1();
             _fsp--;
 
@@ -4969,7 +4945,7 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DtoEnumerationProperty__Group__2_in_rule__DtoEnumerationProperty__Group__13804);
+            pushFollow(FOLLOW_rule__DtoEnumerationProperty__Group__2_in_rule__DtoEnumerationProperty__Group__13788);
             rule__DtoEnumerationProperty__Group__2();
             _fsp--;
 
@@ -4992,23 +4968,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoEnumerationProperty__Group__2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1919:1: rule__DtoEnumerationProperty__Group__2 : ( ( rule__DtoEnumerationProperty__NameAssignment_2 ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1912:1: rule__DtoEnumerationProperty__Group__2 : ( ( rule__DtoEnumerationProperty__NameAssignment_2 ) ) ;
     public final void rule__DtoEnumerationProperty__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1923:1: ( ( ( rule__DtoEnumerationProperty__NameAssignment_2 ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1924:1: ( ( rule__DtoEnumerationProperty__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1916:1: ( ( ( rule__DtoEnumerationProperty__NameAssignment_2 ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1917:1: ( ( rule__DtoEnumerationProperty__NameAssignment_2 ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1924:1: ( ( rule__DtoEnumerationProperty__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1925:1: ( rule__DtoEnumerationProperty__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1917:1: ( ( rule__DtoEnumerationProperty__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1918:1: ( rule__DtoEnumerationProperty__NameAssignment_2 )
             {
              before(grammarAccess.getDtoEnumerationPropertyAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1926:1: ( rule__DtoEnumerationProperty__NameAssignment_2 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1926:2: rule__DtoEnumerationProperty__NameAssignment_2
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1919:1: ( rule__DtoEnumerationProperty__NameAssignment_2 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1919:2: rule__DtoEnumerationProperty__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__DtoEnumerationProperty__NameAssignment_2_in_rule__DtoEnumerationProperty__Group__23832);
+            pushFollow(FOLLOW_rule__DtoEnumerationProperty__NameAssignment_2_in_rule__DtoEnumerationProperty__Group__23816);
             rule__DtoEnumerationProperty__NameAssignment_2();
             _fsp--;
 
@@ -5038,20 +5014,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DataContractModel__DescriptionAssignment_0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1942:1: rule__DataContractModel__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1935:1: rule__DataContractModel__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__DataContractModel__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1946:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1947:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1939:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1940:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1947:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1948:1: RULE_STRING
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1940:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1941:1: RULE_STRING
             {
              before(grammarAccess.getDataContractModelAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__DataContractModel__DescriptionAssignment_03872); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__DataContractModel__DescriptionAssignment_03856); 
              after(grammarAccess.getDataContractModelAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -5075,20 +5051,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DataContractModel__NameAssignment_2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1957:1: rule__DataContractModel__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1950:1: rule__DataContractModel__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__DataContractModel__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1961:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1962:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1954:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1955:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1962:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1963:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1955:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1956:1: RULE_ID
             {
              before(grammarAccess.getDataContractModelAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DataContractModel__NameAssignment_23903); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DataContractModel__NameAssignment_23887); 
              after(grammarAccess.getDataContractModelAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -5112,20 +5088,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DataContractModel__ExternalReferencesAssignment_4
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1972:1: rule__DataContractModel__ExternalReferencesAssignment_4 : ( ruleExternalReference ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1965:1: rule__DataContractModel__ExternalReferencesAssignment_4 : ( ruleExternalReference ) ;
     public final void rule__DataContractModel__ExternalReferencesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1976:1: ( ( ruleExternalReference ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1977:1: ( ruleExternalReference )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1969:1: ( ( ruleExternalReference ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1970:1: ( ruleExternalReference )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1977:1: ( ruleExternalReference )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1978:1: ruleExternalReference
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1970:1: ( ruleExternalReference )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1971:1: ruleExternalReference
             {
              before(grammarAccess.getDataContractModelAccess().getExternalReferencesExternalReferenceParserRuleCall_4_0()); 
-            pushFollow(FOLLOW_ruleExternalReference_in_rule__DataContractModel__ExternalReferencesAssignment_43934);
+            pushFollow(FOLLOW_ruleExternalReference_in_rule__DataContractModel__ExternalReferencesAssignment_43918);
             ruleExternalReference();
             _fsp--;
 
@@ -5152,20 +5128,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DataContractModel__DtosAssignment_5_0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1987:1: rule__DataContractModel__DtosAssignment_5_0 : ( ruleDto ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1980:1: rule__DataContractModel__DtosAssignment_5_0 : ( ruleDto ) ;
     public final void rule__DataContractModel__DtosAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1991:1: ( ( ruleDto ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1992:1: ( ruleDto )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1984:1: ( ( ruleDto ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1985:1: ( ruleDto )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1992:1: ( ruleDto )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1993:1: ruleDto
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1985:1: ( ruleDto )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1986:1: ruleDto
             {
              before(grammarAccess.getDataContractModelAccess().getDtosDtoParserRuleCall_5_0_0()); 
-            pushFollow(FOLLOW_ruleDto_in_rule__DataContractModel__DtosAssignment_5_03965);
+            pushFollow(FOLLOW_ruleDto_in_rule__DataContractModel__DtosAssignment_5_03949);
             ruleDto();
             _fsp--;
 
@@ -5192,20 +5168,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DataContractModel__EnumerationsAssignment_5_1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2002:1: rule__DataContractModel__EnumerationsAssignment_5_1 : ( ruleEnumerationDto ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1995:1: rule__DataContractModel__EnumerationsAssignment_5_1 : ( ruleEnumerationDto ) ;
     public final void rule__DataContractModel__EnumerationsAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2006:1: ( ( ruleEnumerationDto ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2007:1: ( ruleEnumerationDto )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:1999:1: ( ( ruleEnumerationDto ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2000:1: ( ruleEnumerationDto )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2007:1: ( ruleEnumerationDto )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2008:1: ruleEnumerationDto
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2000:1: ( ruleEnumerationDto )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2001:1: ruleEnumerationDto
             {
              before(grammarAccess.getDataContractModelAccess().getEnumerationsEnumerationDtoParserRuleCall_5_1_0()); 
-            pushFollow(FOLLOW_ruleEnumerationDto_in_rule__DataContractModel__EnumerationsAssignment_5_13996);
+            pushFollow(FOLLOW_ruleEnumerationDto_in_rule__DataContractModel__EnumerationsAssignment_5_13980);
             ruleEnumerationDto();
             _fsp--;
 
@@ -5232,20 +5208,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ExternalReference__DescriptionAssignment_0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2017:1: rule__ExternalReference__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2010:1: rule__ExternalReference__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__ExternalReference__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2021:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2022:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2014:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2015:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2022:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2023:1: RULE_STRING
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2015:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2016:1: RULE_STRING
             {
              before(grammarAccess.getExternalReferenceAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ExternalReference__DescriptionAssignment_04027); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ExternalReference__DescriptionAssignment_04011); 
              after(grammarAccess.getExternalReferenceAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -5269,20 +5245,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ExternalReference__ModelnameAssignment_2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2032:1: rule__ExternalReference__ModelnameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2025:1: rule__ExternalReference__ModelnameAssignment_2 : ( RULE_ID ) ;
     public final void rule__ExternalReference__ModelnameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2036:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2037:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2029:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2030:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2037:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2038:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2030:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2031:1: RULE_ID
             {
              before(grammarAccess.getExternalReferenceAccess().getModelnameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ExternalReference__ModelnameAssignment_24058); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ExternalReference__ModelnameAssignment_24042); 
              after(grammarAccess.getExternalReferenceAccess().getModelnameIDTerminalRuleCall_2_0()); 
 
             }
@@ -5306,23 +5282,23 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ExternalReference__KeywordAssignment_3
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2047:1: rule__ExternalReference__KeywordAssignment_3 : ( ( rule__ExternalReference__KeywordAlternatives_3_0 ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2040:1: rule__ExternalReference__KeywordAssignment_3 : ( ( rule__ExternalReference__KeywordAlternatives_3_0 ) ) ;
     public final void rule__ExternalReference__KeywordAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2051:1: ( ( ( rule__ExternalReference__KeywordAlternatives_3_0 ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2052:1: ( ( rule__ExternalReference__KeywordAlternatives_3_0 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2044:1: ( ( ( rule__ExternalReference__KeywordAlternatives_3_0 ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2045:1: ( ( rule__ExternalReference__KeywordAlternatives_3_0 ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2052:1: ( ( rule__ExternalReference__KeywordAlternatives_3_0 ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2053:1: ( rule__ExternalReference__KeywordAlternatives_3_0 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2045:1: ( ( rule__ExternalReference__KeywordAlternatives_3_0 ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2046:1: ( rule__ExternalReference__KeywordAlternatives_3_0 )
             {
              before(grammarAccess.getExternalReferenceAccess().getKeywordAlternatives_3_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2054:1: ( rule__ExternalReference__KeywordAlternatives_3_0 )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2054:2: rule__ExternalReference__KeywordAlternatives_3_0
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2047:1: ( rule__ExternalReference__KeywordAlternatives_3_0 )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2047:2: rule__ExternalReference__KeywordAlternatives_3_0
             {
-            pushFollow(FOLLOW_rule__ExternalReference__KeywordAlternatives_3_0_in_rule__ExternalReference__KeywordAssignment_34089);
+            pushFollow(FOLLOW_rule__ExternalReference__KeywordAlternatives_3_0_in_rule__ExternalReference__KeywordAssignment_34073);
             rule__ExternalReference__KeywordAlternatives_3_0();
             _fsp--;
 
@@ -5352,20 +5328,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ExternalReference__NameAssignment_4
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2063:1: rule__ExternalReference__NameAssignment_4 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2056:1: rule__ExternalReference__NameAssignment_4 : ( RULE_ID ) ;
     public final void rule__ExternalReference__NameAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2067:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2068:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2060:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2061:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2068:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2069:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2061:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2062:1: RULE_ID
             {
              before(grammarAccess.getExternalReferenceAccess().getNameIDTerminalRuleCall_4_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ExternalReference__NameAssignment_44122); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ExternalReference__NameAssignment_44106); 
              after(grammarAccess.getExternalReferenceAccess().getNameIDTerminalRuleCall_4_0()); 
 
             }
@@ -5389,20 +5365,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassDto__DescriptionAssignment_0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2078:1: rule__BusinessClassDto__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2071:1: rule__BusinessClassDto__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__BusinessClassDto__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2082:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2083:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2075:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2076:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2083:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2084:1: RULE_STRING
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2076:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2077:1: RULE_STRING
             {
              before(grammarAccess.getBusinessClassDtoAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__BusinessClassDto__DescriptionAssignment_04153); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__BusinessClassDto__DescriptionAssignment_04137); 
              after(grammarAccess.getBusinessClassDtoAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -5426,20 +5402,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassDto__NameAssignment_2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2093:1: rule__BusinessClassDto__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2086:1: rule__BusinessClassDto__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__BusinessClassDto__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2097:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2098:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2090:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2091:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2098:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2099:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2091:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2092:1: RULE_ID
             {
              before(grammarAccess.getBusinessClassDtoAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BusinessClassDto__NameAssignment_24184); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BusinessClassDto__NameAssignment_24168); 
              after(grammarAccess.getBusinessClassDtoAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -5463,24 +5439,24 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassDto__BaseAssignment_4
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2108:1: rule__BusinessClassDto__BaseAssignment_4 : ( ( RULE_ID ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2101:1: rule__BusinessClassDto__BaseAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__BusinessClassDto__BaseAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2112:1: ( ( ( RULE_ID ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2113:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2105:1: ( ( ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2106:1: ( ( RULE_ID ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2113:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2114:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2106:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2107:1: ( RULE_ID )
             {
              before(grammarAccess.getBusinessClassDtoAccess().getBaseExternalReferenceCrossReference_4_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2115:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2116:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2108:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2109:1: RULE_ID
             {
              before(grammarAccess.getBusinessClassDtoAccess().getBaseExternalReferenceIDTerminalRuleCall_4_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BusinessClassDto__BaseAssignment_44219); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BusinessClassDto__BaseAssignment_44203); 
              after(grammarAccess.getBusinessClassDtoAccess().getBaseExternalReferenceIDTerminalRuleCall_4_0_1()); 
 
             }
@@ -5508,20 +5484,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2127:1: rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 : ( ruleBusinessClassPropertyReference ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2120:1: rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1 : ( ruleBusinessClassPropertyReference ) ;
     public final void rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2131:1: ( ( ruleBusinessClassPropertyReference ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2132:1: ( ruleBusinessClassPropertyReference )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2124:1: ( ( ruleBusinessClassPropertyReference ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2125:1: ( ruleBusinessClassPropertyReference )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2132:1: ( ruleBusinessClassPropertyReference )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2133:1: ruleBusinessClassPropertyReference
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2125:1: ( ruleBusinessClassPropertyReference )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2126:1: ruleBusinessClassPropertyReference
             {
              before(grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesBusinessClassPropertyReferenceParserRuleCall_5_1_1_0()); 
-            pushFollow(FOLLOW_ruleBusinessClassPropertyReference_in_rule__BusinessClassDto__PropertyReferencesAssignment_5_1_14254);
+            pushFollow(FOLLOW_ruleBusinessClassPropertyReference_in_rule__BusinessClassDto__PropertyReferencesAssignment_5_1_14238);
             ruleBusinessClassPropertyReference();
             _fsp--;
 
@@ -5548,20 +5524,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2142:1: rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 : ( ruleBusinessClassAssociationRoleReference ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2135:1: rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2 : ( ruleBusinessClassAssociationRoleReference ) ;
     public final void rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2146:1: ( ( ruleBusinessClassAssociationRoleReference ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2147:1: ( ruleBusinessClassAssociationRoleReference )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2139:1: ( ( ruleBusinessClassAssociationRoleReference ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2140:1: ( ruleBusinessClassAssociationRoleReference )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2147:1: ( ruleBusinessClassAssociationRoleReference )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2148:1: ruleBusinessClassAssociationRoleReference
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2140:1: ( ruleBusinessClassAssociationRoleReference )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2141:1: ruleBusinessClassAssociationRoleReference
             {
              before(grammarAccess.getBusinessClassDtoAccess().getAssociationReferencesBusinessClassAssociationRoleReferenceParserRuleCall_5_1_2_2_0()); 
-            pushFollow(FOLLOW_ruleBusinessClassAssociationRoleReference_in_rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_24285);
+            pushFollow(FOLLOW_ruleBusinessClassAssociationRoleReference_in_rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_24269);
             ruleBusinessClassAssociationRoleReference();
             _fsp--;
 
@@ -5588,20 +5564,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__EnumerationDto__DescriptionAssignment_0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2157:1: rule__EnumerationDto__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2150:1: rule__EnumerationDto__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__EnumerationDto__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2161:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2162:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2154:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2155:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2162:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2163:1: RULE_STRING
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2155:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2156:1: RULE_STRING
             {
              before(grammarAccess.getEnumerationDtoAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EnumerationDto__DescriptionAssignment_04316); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EnumerationDto__DescriptionAssignment_04300); 
              after(grammarAccess.getEnumerationDtoAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -5625,20 +5601,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__EnumerationDto__NameAssignment_2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2172:1: rule__EnumerationDto__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2165:1: rule__EnumerationDto__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__EnumerationDto__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2176:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2177:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2169:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2170:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2177:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2178:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2170:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2171:1: RULE_ID
             {
              before(grammarAccess.getEnumerationDtoAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EnumerationDto__NameAssignment_24347); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EnumerationDto__NameAssignment_24331); 
              after(grammarAccess.getEnumerationDtoAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -5662,24 +5638,24 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__EnumerationDto__BaseAssignment_4
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2187:1: rule__EnumerationDto__BaseAssignment_4 : ( ( RULE_ID ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2180:1: rule__EnumerationDto__BaseAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__EnumerationDto__BaseAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2191:1: ( ( ( RULE_ID ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2192:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2184:1: ( ( ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2185:1: ( ( RULE_ID ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2192:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2193:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2185:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2186:1: ( RULE_ID )
             {
              before(grammarAccess.getEnumerationDtoAccess().getBaseExternalReferenceCrossReference_4_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2194:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2195:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2187:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2188:1: RULE_ID
             {
              before(grammarAccess.getEnumerationDtoAccess().getBaseExternalReferenceIDTerminalRuleCall_4_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EnumerationDto__BaseAssignment_44382); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EnumerationDto__BaseAssignment_44366); 
              after(grammarAccess.getEnumerationDtoAccess().getBaseExternalReferenceIDTerminalRuleCall_4_0_1()); 
 
             }
@@ -5707,20 +5683,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassPropertyReference__NameAssignment_0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2206:1: rule__BusinessClassPropertyReference__NameAssignment_0 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2199:1: rule__BusinessClassPropertyReference__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__BusinessClassPropertyReference__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2210:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2211:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2203:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2204:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2211:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2212:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2204:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2205:1: RULE_ID
             {
              before(grammarAccess.getBusinessClassPropertyReferenceAccess().getNameIDTerminalRuleCall_0_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BusinessClassPropertyReference__NameAssignment_04417); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BusinessClassPropertyReference__NameAssignment_04401); 
              after(grammarAccess.getBusinessClassPropertyReferenceAccess().getNameIDTerminalRuleCall_0_0()); 
 
             }
@@ -5744,20 +5720,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassAssociationRoleReference__NameAssignment_0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2221:1: rule__BusinessClassAssociationRoleReference__NameAssignment_0 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2214:1: rule__BusinessClassAssociationRoleReference__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__BusinessClassAssociationRoleReference__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2225:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2226:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2218:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2219:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2226:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2227:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2219:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2220:1: RULE_ID
             {
              before(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getNameIDTerminalRuleCall_0_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BusinessClassAssociationRoleReference__NameAssignment_04448); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BusinessClassAssociationRoleReference__NameAssignment_04432); 
              after(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getNameIDTerminalRuleCall_0_0()); 
 
             }
@@ -5781,24 +5757,24 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2236:1: rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2 : ( ( RULE_ID ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2229:1: rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2240:1: ( ( ( RULE_ID ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2241:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2233:1: ( ( ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2234:1: ( ( RULE_ID ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2241:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2242:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2234:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2235:1: ( RULE_ID )
             {
              before(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getDtoTypeDtoCrossReference_2_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2243:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2244:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2236:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2237:1: RULE_ID
             {
              before(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getDtoTypeDtoIDTerminalRuleCall_2_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_24483); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_24467); 
              after(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getDtoTypeDtoIDTerminalRuleCall_2_0_1()); 
 
             }
@@ -5826,20 +5802,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CustomDto__DescriptionAssignment_0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2255:1: rule__CustomDto__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2248:1: rule__CustomDto__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__CustomDto__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2259:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2260:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2252:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2253:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2260:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2261:1: RULE_STRING
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2253:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2254:1: RULE_STRING
             {
              before(grammarAccess.getCustomDtoAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__CustomDto__DescriptionAssignment_04518); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__CustomDto__DescriptionAssignment_04502); 
              after(grammarAccess.getCustomDtoAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -5863,20 +5839,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CustomDto__NameAssignment_2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2270:1: rule__CustomDto__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2263:1: rule__CustomDto__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__CustomDto__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2274:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2275:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2267:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2268:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2275:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2276:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2268:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2269:1: RULE_ID
             {
              before(grammarAccess.getCustomDtoAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__CustomDto__NameAssignment_24549); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__CustomDto__NameAssignment_24533); 
              after(grammarAccess.getCustomDtoAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -5900,20 +5876,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CustomDto__PropertiesAssignment_4
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2285:1: rule__CustomDto__PropertiesAssignment_4 : ( ruleDtoProperty ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2278:1: rule__CustomDto__PropertiesAssignment_4 : ( ruleDtoProperty ) ;
     public final void rule__CustomDto__PropertiesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2289:1: ( ( ruleDtoProperty ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2290:1: ( ruleDtoProperty )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2282:1: ( ( ruleDtoProperty ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2283:1: ( ruleDtoProperty )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2290:1: ( ruleDtoProperty )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2291:1: ruleDtoProperty
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2283:1: ( ruleDtoProperty )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2284:1: ruleDtoProperty
             {
              before(grammarAccess.getCustomDtoAccess().getPropertiesDtoPropertyParserRuleCall_4_0()); 
-            pushFollow(FOLLOW_ruleDtoProperty_in_rule__CustomDto__PropertiesAssignment_44580);
+            pushFollow(FOLLOW_ruleDtoProperty_in_rule__CustomDto__PropertiesAssignment_44564);
             ruleDtoProperty();
             _fsp--;
 
@@ -5940,20 +5916,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoBooleanProperty__DescriptionAssignment_0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2300:1: rule__DtoBooleanProperty__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2293:1: rule__DtoBooleanProperty__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__DtoBooleanProperty__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2304:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2305:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2297:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2298:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2305:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2306:1: RULE_STRING
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2298:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2299:1: RULE_STRING
             {
              before(grammarAccess.getDtoBooleanPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__DtoBooleanProperty__DescriptionAssignment_04611); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__DtoBooleanProperty__DescriptionAssignment_04595); 
              after(grammarAccess.getDtoBooleanPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -5977,24 +5953,24 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoBooleanProperty__DataTypeAssignment_1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2315:1: rule__DtoBooleanProperty__DataTypeAssignment_1 : ( ( 'boolean' ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2308:1: rule__DtoBooleanProperty__DataTypeAssignment_1 : ( ( 'boolean' ) ) ;
     public final void rule__DtoBooleanProperty__DataTypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2319:1: ( ( ( 'boolean' ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2320:1: ( ( 'boolean' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2312:1: ( ( ( 'boolean' ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2313:1: ( ( 'boolean' ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2320:1: ( ( 'boolean' ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2321:1: ( 'boolean' )
-            {
-             before(grammarAccess.getDtoBooleanPropertyAccess().getDataTypeBooleanKeyword_1_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2322:1: ( 'boolean' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2323:1: 'boolean'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2313:1: ( ( 'boolean' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2314:1: ( 'boolean' )
             {
              before(grammarAccess.getDtoBooleanPropertyAccess().getDataTypeBooleanKeyword_1_0()); 
-            match(input,24,FOLLOW_24_in_rule__DtoBooleanProperty__DataTypeAssignment_14647); 
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2315:1: ( 'boolean' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2316:1: 'boolean'
+            {
+             before(grammarAccess.getDtoBooleanPropertyAccess().getDataTypeBooleanKeyword_1_0()); 
+            match(input,24,FOLLOW_24_in_rule__DtoBooleanProperty__DataTypeAssignment_14631); 
              after(grammarAccess.getDtoBooleanPropertyAccess().getDataTypeBooleanKeyword_1_0()); 
 
             }
@@ -6022,20 +5998,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoBooleanProperty__NameAssignment_2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2338:1: rule__DtoBooleanProperty__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2331:1: rule__DtoBooleanProperty__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__DtoBooleanProperty__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2342:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2343:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2335:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2336:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2343:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2344:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2336:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2337:1: RULE_ID
             {
              before(grammarAccess.getDtoBooleanPropertyAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoBooleanProperty__NameAssignment_24686); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoBooleanProperty__NameAssignment_24670); 
              after(grammarAccess.getDtoBooleanPropertyAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -6059,20 +6035,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoStringProperty__DescriptionAssignment_0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2353:1: rule__DtoStringProperty__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2346:1: rule__DtoStringProperty__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__DtoStringProperty__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2357:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2358:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2350:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2351:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2358:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2359:1: RULE_STRING
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2351:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2352:1: RULE_STRING
             {
              before(grammarAccess.getDtoStringPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__DtoStringProperty__DescriptionAssignment_04717); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__DtoStringProperty__DescriptionAssignment_04701); 
              after(grammarAccess.getDtoStringPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -6096,24 +6072,24 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoStringProperty__DataTypeAssignment_1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2368:1: rule__DtoStringProperty__DataTypeAssignment_1 : ( ( 'string' ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2361:1: rule__DtoStringProperty__DataTypeAssignment_1 : ( ( 'string' ) ) ;
     public final void rule__DtoStringProperty__DataTypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2372:1: ( ( ( 'string' ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2373:1: ( ( 'string' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2365:1: ( ( ( 'string' ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2366:1: ( ( 'string' ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2373:1: ( ( 'string' ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2374:1: ( 'string' )
-            {
-             before(grammarAccess.getDtoStringPropertyAccess().getDataTypeStringKeyword_1_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2375:1: ( 'string' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2376:1: 'string'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2366:1: ( ( 'string' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2367:1: ( 'string' )
             {
              before(grammarAccess.getDtoStringPropertyAccess().getDataTypeStringKeyword_1_0()); 
-            match(input,25,FOLLOW_25_in_rule__DtoStringProperty__DataTypeAssignment_14753); 
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2368:1: ( 'string' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2369:1: 'string'
+            {
+             before(grammarAccess.getDtoStringPropertyAccess().getDataTypeStringKeyword_1_0()); 
+            match(input,25,FOLLOW_25_in_rule__DtoStringProperty__DataTypeAssignment_14737); 
              after(grammarAccess.getDtoStringPropertyAccess().getDataTypeStringKeyword_1_0()); 
 
             }
@@ -6141,20 +6117,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoStringProperty__NameAssignment_2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2391:1: rule__DtoStringProperty__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2384:1: rule__DtoStringProperty__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__DtoStringProperty__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2395:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2396:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2388:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2389:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2396:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2397:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2389:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2390:1: RULE_ID
             {
              before(grammarAccess.getDtoStringPropertyAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoStringProperty__NameAssignment_24792); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoStringProperty__NameAssignment_24776); 
              after(grammarAccess.getDtoStringPropertyAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -6178,20 +6154,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoDateTimeProperty__DescriptionAssignment_0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2406:1: rule__DtoDateTimeProperty__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2399:1: rule__DtoDateTimeProperty__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__DtoDateTimeProperty__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2410:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2411:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2403:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2404:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2411:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2412:1: RULE_STRING
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2404:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2405:1: RULE_STRING
             {
              before(grammarAccess.getDtoDateTimePropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__DtoDateTimeProperty__DescriptionAssignment_04823); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__DtoDateTimeProperty__DescriptionAssignment_04807); 
              after(grammarAccess.getDtoDateTimePropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -6215,24 +6191,24 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoDateTimeProperty__DataTypeAssignment_1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2421:1: rule__DtoDateTimeProperty__DataTypeAssignment_1 : ( ( 'datetime' ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2414:1: rule__DtoDateTimeProperty__DataTypeAssignment_1 : ( ( 'datetime' ) ) ;
     public final void rule__DtoDateTimeProperty__DataTypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2425:1: ( ( ( 'datetime' ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2426:1: ( ( 'datetime' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2418:1: ( ( ( 'datetime' ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2419:1: ( ( 'datetime' ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2426:1: ( ( 'datetime' ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2427:1: ( 'datetime' )
-            {
-             before(grammarAccess.getDtoDateTimePropertyAccess().getDataTypeDatetimeKeyword_1_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2428:1: ( 'datetime' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2429:1: 'datetime'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2419:1: ( ( 'datetime' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2420:1: ( 'datetime' )
             {
              before(grammarAccess.getDtoDateTimePropertyAccess().getDataTypeDatetimeKeyword_1_0()); 
-            match(input,26,FOLLOW_26_in_rule__DtoDateTimeProperty__DataTypeAssignment_14859); 
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2421:1: ( 'datetime' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2422:1: 'datetime'
+            {
+             before(grammarAccess.getDtoDateTimePropertyAccess().getDataTypeDatetimeKeyword_1_0()); 
+            match(input,26,FOLLOW_26_in_rule__DtoDateTimeProperty__DataTypeAssignment_14843); 
              after(grammarAccess.getDtoDateTimePropertyAccess().getDataTypeDatetimeKeyword_1_0()); 
 
             }
@@ -6260,20 +6236,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoDateTimeProperty__NameAssignment_2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2444:1: rule__DtoDateTimeProperty__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2437:1: rule__DtoDateTimeProperty__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__DtoDateTimeProperty__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2448:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2449:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2441:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2442:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2449:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2450:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2442:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2443:1: RULE_ID
             {
              before(grammarAccess.getDtoDateTimePropertyAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoDateTimeProperty__NameAssignment_24898); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoDateTimeProperty__NameAssignment_24882); 
              after(grammarAccess.getDtoDateTimePropertyAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -6297,20 +6273,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoIntegerProperty__DescriptionAssignment_0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2459:1: rule__DtoIntegerProperty__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2452:1: rule__DtoIntegerProperty__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__DtoIntegerProperty__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2463:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2464:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2456:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2457:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2464:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2465:1: RULE_STRING
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2457:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2458:1: RULE_STRING
             {
              before(grammarAccess.getDtoIntegerPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__DtoIntegerProperty__DescriptionAssignment_04929); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__DtoIntegerProperty__DescriptionAssignment_04913); 
              after(grammarAccess.getDtoIntegerPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -6334,24 +6310,24 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoIntegerProperty__DataTypeAssignment_1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2474:1: rule__DtoIntegerProperty__DataTypeAssignment_1 : ( ( 'integer' ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2467:1: rule__DtoIntegerProperty__DataTypeAssignment_1 : ( ( 'integer' ) ) ;
     public final void rule__DtoIntegerProperty__DataTypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2478:1: ( ( ( 'integer' ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2479:1: ( ( 'integer' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2471:1: ( ( ( 'integer' ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2472:1: ( ( 'integer' ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2479:1: ( ( 'integer' ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2480:1: ( 'integer' )
-            {
-             before(grammarAccess.getDtoIntegerPropertyAccess().getDataTypeIntegerKeyword_1_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2481:1: ( 'integer' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2482:1: 'integer'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2472:1: ( ( 'integer' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2473:1: ( 'integer' )
             {
              before(grammarAccess.getDtoIntegerPropertyAccess().getDataTypeIntegerKeyword_1_0()); 
-            match(input,27,FOLLOW_27_in_rule__DtoIntegerProperty__DataTypeAssignment_14965); 
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2474:1: ( 'integer' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2475:1: 'integer'
+            {
+             before(grammarAccess.getDtoIntegerPropertyAccess().getDataTypeIntegerKeyword_1_0()); 
+            match(input,27,FOLLOW_27_in_rule__DtoIntegerProperty__DataTypeAssignment_14949); 
              after(grammarAccess.getDtoIntegerPropertyAccess().getDataTypeIntegerKeyword_1_0()); 
 
             }
@@ -6379,20 +6355,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoIntegerProperty__NameAssignment_2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2497:1: rule__DtoIntegerProperty__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2490:1: rule__DtoIntegerProperty__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__DtoIntegerProperty__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2501:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2502:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2494:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2495:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2502:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2503:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2495:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2496:1: RULE_ID
             {
              before(grammarAccess.getDtoIntegerPropertyAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoIntegerProperty__NameAssignment_25004); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoIntegerProperty__NameAssignment_24988); 
              after(grammarAccess.getDtoIntegerPropertyAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -6416,20 +6392,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoDecimalProperty__DescriptionAssignment_0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2512:1: rule__DtoDecimalProperty__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2505:1: rule__DtoDecimalProperty__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__DtoDecimalProperty__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2516:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2517:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2509:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2510:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2517:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2518:1: RULE_STRING
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2510:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2511:1: RULE_STRING
             {
              before(grammarAccess.getDtoDecimalPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__DtoDecimalProperty__DescriptionAssignment_05035); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__DtoDecimalProperty__DescriptionAssignment_05019); 
              after(grammarAccess.getDtoDecimalPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -6453,24 +6429,24 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoDecimalProperty__DataTypeAssignment_1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2527:1: rule__DtoDecimalProperty__DataTypeAssignment_1 : ( ( 'decimal' ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2520:1: rule__DtoDecimalProperty__DataTypeAssignment_1 : ( ( 'decimal' ) ) ;
     public final void rule__DtoDecimalProperty__DataTypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2531:1: ( ( ( 'decimal' ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2532:1: ( ( 'decimal' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2524:1: ( ( ( 'decimal' ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2525:1: ( ( 'decimal' ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2532:1: ( ( 'decimal' ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2533:1: ( 'decimal' )
-            {
-             before(grammarAccess.getDtoDecimalPropertyAccess().getDataTypeDecimalKeyword_1_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2534:1: ( 'decimal' )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2535:1: 'decimal'
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2525:1: ( ( 'decimal' ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2526:1: ( 'decimal' )
             {
              before(grammarAccess.getDtoDecimalPropertyAccess().getDataTypeDecimalKeyword_1_0()); 
-            match(input,28,FOLLOW_28_in_rule__DtoDecimalProperty__DataTypeAssignment_15071); 
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2527:1: ( 'decimal' )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2528:1: 'decimal'
+            {
+             before(grammarAccess.getDtoDecimalPropertyAccess().getDataTypeDecimalKeyword_1_0()); 
+            match(input,28,FOLLOW_28_in_rule__DtoDecimalProperty__DataTypeAssignment_15055); 
              after(grammarAccess.getDtoDecimalPropertyAccess().getDataTypeDecimalKeyword_1_0()); 
 
             }
@@ -6498,20 +6474,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoDecimalProperty__NameAssignment_2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2550:1: rule__DtoDecimalProperty__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2543:1: rule__DtoDecimalProperty__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__DtoDecimalProperty__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2554:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2555:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2547:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2548:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2555:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2556:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2548:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2549:1: RULE_ID
             {
              before(grammarAccess.getDtoDecimalPropertyAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoDecimalProperty__NameAssignment_25110); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoDecimalProperty__NameAssignment_25094); 
              after(grammarAccess.getDtoDecimalPropertyAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -6535,20 +6511,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoEnumerationProperty__DescriptionAssignment_0
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2565:1: rule__DtoEnumerationProperty__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2558:1: rule__DtoEnumerationProperty__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__DtoEnumerationProperty__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2569:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2570:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2562:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2563:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2570:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2571:1: RULE_STRING
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2563:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2564:1: RULE_STRING
             {
              before(grammarAccess.getDtoEnumerationPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__DtoEnumerationProperty__DescriptionAssignment_05141); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__DtoEnumerationProperty__DescriptionAssignment_05125); 
              after(grammarAccess.getDtoEnumerationPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -6572,24 +6548,24 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoEnumerationProperty__TypeAssignment_1
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2580:1: rule__DtoEnumerationProperty__TypeAssignment_1 : ( ( RULE_ID ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2573:1: rule__DtoEnumerationProperty__TypeAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__DtoEnumerationProperty__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2584:1: ( ( ( RULE_ID ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2585:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2577:1: ( ( ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2578:1: ( ( RULE_ID ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2585:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2586:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2578:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2579:1: ( RULE_ID )
             {
              before(grammarAccess.getDtoEnumerationPropertyAccess().getTypeEnumerationDtoCrossReference_1_0()); 
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2587:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2588:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2580:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2581:1: RULE_ID
             {
              before(grammarAccess.getDtoEnumerationPropertyAccess().getTypeEnumerationDtoIDTerminalRuleCall_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoEnumerationProperty__TypeAssignment_15176); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoEnumerationProperty__TypeAssignment_15160); 
              after(grammarAccess.getDtoEnumerationPropertyAccess().getTypeEnumerationDtoIDTerminalRuleCall_1_0_1()); 
 
             }
@@ -6617,20 +6593,20 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoEnumerationProperty__NameAssignment_2
-    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2599:1: rule__DtoEnumerationProperty__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2592:1: rule__DtoEnumerationProperty__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__DtoEnumerationProperty__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2603:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2604:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2596:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2597:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2604:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2605:1: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2597:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext.ui/src-gen/org/mod4j/dsl/datacontract/xtext/contentassist/antlr/internal/InternalDataContract.g:2598:1: RULE_ID
             {
              before(grammarAccess.getDtoEnumerationPropertyAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoEnumerationProperty__NameAssignment_25211); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoEnumerationProperty__NameAssignment_25195); 
              after(grammarAccess.getDtoEnumerationPropertyAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -6748,128 +6724,127 @@ public class InternalDataContractParser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_rule__BusinessClassDto__BaseAssignment_4_in_rule__BusinessClassDto__Group__41944 = new BitSet(new long[]{0x0000000000084000L});
     public static final BitSet FOLLOW_rule__BusinessClassDto__Group__5_in_rule__BusinessClassDto__Group__41953 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__BusinessClassDto__Alternatives_5_in_rule__BusinessClassDto__Group__51981 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__BusinessClassDto__Group_5_1__02028 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_19_in_rule__BusinessClassDto__Group_5_1__02028 = new BitSet(new long[]{0x0000000000300020L});
     public static final BitSet FOLLOW_rule__BusinessClassDto__Group_5_1__1_in_rule__BusinessClassDto__Group_5_1__02038 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1_in_rule__BusinessClassDto__Group_5_1__12068 = new BitSet(new long[]{0x0000000000300020L});
-    public static final BitSet FOLLOW_rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1_in_rule__BusinessClassDto__Group_5_1__12080 = new BitSet(new long[]{0x0000000000300020L});
-    public static final BitSet FOLLOW_rule__BusinessClassDto__Group_5_1__2_in_rule__BusinessClassDto__Group_5_1__12092 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BusinessClassDto__Group_5_1_2__0_in_rule__BusinessClassDto__Group_5_1__22120 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__BusinessClassDto__Group_5_1__3_in_rule__BusinessClassDto__Group_5_1__22130 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__BusinessClassDto__Group_5_1__32159 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__BusinessClassDto__Group_5_1_2__02203 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_rule__BusinessClassDto__Group_5_1_2__1_in_rule__BusinessClassDto__Group_5_1_2__02213 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__BusinessClassDto__Group_5_1_2__12242 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__BusinessClassDto__Group_5_1_2__2_in_rule__BusinessClassDto__Group_5_1_2__12252 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2_in_rule__BusinessClassDto__Group_5_1_2__22282 = new BitSet(new long[]{0x0000000000100020L});
-    public static final BitSet FOLLOW_rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2_in_rule__BusinessClassDto__Group_5_1_2__22294 = new BitSet(new long[]{0x0000000000100020L});
-    public static final BitSet FOLLOW_rule__BusinessClassDto__Group_5_1_2__3_in_rule__BusinessClassDto__Group_5_1_2__22306 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__BusinessClassDto__Group_5_1_2__32335 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EnumerationDto__DescriptionAssignment_0_in_rule__EnumerationDto__Group__02378 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_rule__EnumerationDto__Group__1_in_rule__EnumerationDto__Group__02388 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__EnumerationDto__Group__12417 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__EnumerationDto__Group__2_in_rule__EnumerationDto__Group__12427 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EnumerationDto__NameAssignment_2_in_rule__EnumerationDto__Group__22455 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_rule__EnumerationDto__Group__3_in_rule__EnumerationDto__Group__22464 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__EnumerationDto__Group__32493 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__EnumerationDto__Group__4_in_rule__EnumerationDto__Group__32503 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EnumerationDto__BaseAssignment_4_in_rule__EnumerationDto__Group__42531 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_rule__EnumerationDto__Group__5_in_rule__EnumerationDto__Group__42540 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__EnumerationDto__Group__52569 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BusinessClassPropertyReference__NameAssignment_0_in_rule__BusinessClassPropertyReference__Group__02616 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_rule__BusinessClassPropertyReference__Group__1_in_rule__BusinessClassPropertyReference__Group__02625 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__BusinessClassPropertyReference__Group__12654 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BusinessClassAssociationRoleReference__NameAssignment_0_in_rule__BusinessClassAssociationRoleReference__Group__02693 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_rule__BusinessClassAssociationRoleReference__Group__1_in_rule__BusinessClassAssociationRoleReference__Group__02702 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_rule__BusinessClassAssociationRoleReference__Group__12731 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__BusinessClassAssociationRoleReference__Group__2_in_rule__BusinessClassAssociationRoleReference__Group__12741 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2_in_rule__BusinessClassAssociationRoleReference__Group__22769 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_rule__BusinessClassAssociationRoleReference__Group__3_in_rule__BusinessClassAssociationRoleReference__Group__22778 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__BusinessClassAssociationRoleReference__Group__32807 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CustomDto__DescriptionAssignment_0_in_rule__CustomDto__Group__02850 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_rule__CustomDto__Group__1_in_rule__CustomDto__Group__02860 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_rule__CustomDto__Group__12889 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__CustomDto__Group__2_in_rule__CustomDto__Group__12899 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CustomDto__NameAssignment_2_in_rule__CustomDto__Group__22927 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_rule__CustomDto__Group__3_in_rule__CustomDto__Group__22936 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__CustomDto__Group__32965 = new BitSet(new long[]{0x000000001F000030L});
-    public static final BitSet FOLLOW_rule__CustomDto__Group__4_in_rule__CustomDto__Group__32975 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CustomDto__PropertiesAssignment_4_in_rule__CustomDto__Group__43005 = new BitSet(new long[]{0x000000001F100030L});
-    public static final BitSet FOLLOW_rule__CustomDto__PropertiesAssignment_4_in_rule__CustomDto__Group__43017 = new BitSet(new long[]{0x000000001F100030L});
-    public static final BitSet FOLLOW_rule__CustomDto__Group__5_in_rule__CustomDto__Group__43029 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__CustomDto__Group__53058 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoProperty__Alternatives_0_in_rule__DtoProperty__Group__03105 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_rule__DtoProperty__Group__1_in_rule__DtoProperty__Group__03114 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__DtoProperty__Group__13143 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoBooleanProperty__DescriptionAssignment_0_in_rule__DtoBooleanProperty__Group__03182 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_rule__DtoBooleanProperty__Group__1_in_rule__DtoBooleanProperty__Group__03192 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoBooleanProperty__DataTypeAssignment_1_in_rule__DtoBooleanProperty__Group__13220 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__DtoBooleanProperty__Group__2_in_rule__DtoBooleanProperty__Group__13229 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoBooleanProperty__NameAssignment_2_in_rule__DtoBooleanProperty__Group__23257 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoStringProperty__DescriptionAssignment_0_in_rule__DtoStringProperty__Group__03297 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_rule__DtoStringProperty__Group__1_in_rule__DtoStringProperty__Group__03307 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoStringProperty__DataTypeAssignment_1_in_rule__DtoStringProperty__Group__13335 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__DtoStringProperty__Group__2_in_rule__DtoStringProperty__Group__13344 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoStringProperty__NameAssignment_2_in_rule__DtoStringProperty__Group__23372 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoDateTimeProperty__DescriptionAssignment_0_in_rule__DtoDateTimeProperty__Group__03412 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_rule__DtoDateTimeProperty__Group__1_in_rule__DtoDateTimeProperty__Group__03422 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoDateTimeProperty__DataTypeAssignment_1_in_rule__DtoDateTimeProperty__Group__13450 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__DtoDateTimeProperty__Group__2_in_rule__DtoDateTimeProperty__Group__13459 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoDateTimeProperty__NameAssignment_2_in_rule__DtoDateTimeProperty__Group__23487 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoIntegerProperty__DescriptionAssignment_0_in_rule__DtoIntegerProperty__Group__03527 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_rule__DtoIntegerProperty__Group__1_in_rule__DtoIntegerProperty__Group__03537 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoIntegerProperty__DataTypeAssignment_1_in_rule__DtoIntegerProperty__Group__13565 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__DtoIntegerProperty__Group__2_in_rule__DtoIntegerProperty__Group__13574 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoIntegerProperty__NameAssignment_2_in_rule__DtoIntegerProperty__Group__23602 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoDecimalProperty__DescriptionAssignment_0_in_rule__DtoDecimalProperty__Group__03642 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_rule__DtoDecimalProperty__Group__1_in_rule__DtoDecimalProperty__Group__03652 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoDecimalProperty__DataTypeAssignment_1_in_rule__DtoDecimalProperty__Group__13680 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__DtoDecimalProperty__Group__2_in_rule__DtoDecimalProperty__Group__13689 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoDecimalProperty__NameAssignment_2_in_rule__DtoDecimalProperty__Group__23717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoEnumerationProperty__DescriptionAssignment_0_in_rule__DtoEnumerationProperty__Group__03757 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__DtoEnumerationProperty__Group__1_in_rule__DtoEnumerationProperty__Group__03767 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoEnumerationProperty__TypeAssignment_1_in_rule__DtoEnumerationProperty__Group__13795 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__DtoEnumerationProperty__Group__2_in_rule__DtoEnumerationProperty__Group__13804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DtoEnumerationProperty__NameAssignment_2_in_rule__DtoEnumerationProperty__Group__23832 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__DataContractModel__DescriptionAssignment_03872 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DataContractModel__NameAssignment_23903 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExternalReference_in_rule__DataContractModel__ExternalReferencesAssignment_43934 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDto_in_rule__DataContractModel__DtosAssignment_5_03965 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumerationDto_in_rule__DataContractModel__EnumerationsAssignment_5_13996 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__ExternalReference__DescriptionAssignment_04027 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ExternalReference__ModelnameAssignment_24058 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ExternalReference__KeywordAlternatives_3_0_in_rule__ExternalReference__KeywordAssignment_34089 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ExternalReference__NameAssignment_44122 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__BusinessClassDto__DescriptionAssignment_04153 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__BusinessClassDto__NameAssignment_24184 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__BusinessClassDto__BaseAssignment_44219 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBusinessClassPropertyReference_in_rule__BusinessClassDto__PropertyReferencesAssignment_5_1_14254 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBusinessClassAssociationRoleReference_in_rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_24285 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__EnumerationDto__DescriptionAssignment_04316 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__EnumerationDto__NameAssignment_24347 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__EnumerationDto__BaseAssignment_44382 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__BusinessClassPropertyReference__NameAssignment_04417 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__BusinessClassAssociationRoleReference__NameAssignment_04448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_24483 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__CustomDto__DescriptionAssignment_04518 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__CustomDto__NameAssignment_24549 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDtoProperty_in_rule__CustomDto__PropertiesAssignment_44580 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__DtoBooleanProperty__DescriptionAssignment_04611 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_rule__DtoBooleanProperty__DataTypeAssignment_14647 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoBooleanProperty__NameAssignment_24686 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__DtoStringProperty__DescriptionAssignment_04717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_rule__DtoStringProperty__DataTypeAssignment_14753 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoStringProperty__NameAssignment_24792 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__DtoDateTimeProperty__DescriptionAssignment_04823 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_rule__DtoDateTimeProperty__DataTypeAssignment_14859 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoDateTimeProperty__NameAssignment_24898 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__DtoIntegerProperty__DescriptionAssignment_04929 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_rule__DtoIntegerProperty__DataTypeAssignment_14965 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoIntegerProperty__NameAssignment_25004 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__DtoDecimalProperty__DescriptionAssignment_05035 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_rule__DtoDecimalProperty__DataTypeAssignment_15071 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoDecimalProperty__NameAssignment_25110 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__DtoEnumerationProperty__DescriptionAssignment_05141 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoEnumerationProperty__TypeAssignment_15176 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoEnumerationProperty__NameAssignment_25211 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1_in_rule__BusinessClassDto__Group_5_1__12066 = new BitSet(new long[]{0x0000000000300020L});
+    public static final BitSet FOLLOW_rule__BusinessClassDto__Group_5_1__2_in_rule__BusinessClassDto__Group_5_1__12076 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BusinessClassDto__Group_5_1_2__0_in_rule__BusinessClassDto__Group_5_1__22104 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_rule__BusinessClassDto__Group_5_1__3_in_rule__BusinessClassDto__Group_5_1__22114 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__BusinessClassDto__Group_5_1__32143 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_rule__BusinessClassDto__Group_5_1_2__02187 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_rule__BusinessClassDto__Group_5_1_2__1_in_rule__BusinessClassDto__Group_5_1_2__02197 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__BusinessClassDto__Group_5_1_2__12226 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__BusinessClassDto__Group_5_1_2__2_in_rule__BusinessClassDto__Group_5_1_2__12236 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2_in_rule__BusinessClassDto__Group_5_1_2__22266 = new BitSet(new long[]{0x0000000000100020L});
+    public static final BitSet FOLLOW_rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2_in_rule__BusinessClassDto__Group_5_1_2__22278 = new BitSet(new long[]{0x0000000000100020L});
+    public static final BitSet FOLLOW_rule__BusinessClassDto__Group_5_1_2__3_in_rule__BusinessClassDto__Group_5_1_2__22290 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__BusinessClassDto__Group_5_1_2__32319 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EnumerationDto__DescriptionAssignment_0_in_rule__EnumerationDto__Group__02362 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__EnumerationDto__Group__1_in_rule__EnumerationDto__Group__02372 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__EnumerationDto__Group__12401 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__EnumerationDto__Group__2_in_rule__EnumerationDto__Group__12411 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EnumerationDto__NameAssignment_2_in_rule__EnumerationDto__Group__22439 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__EnumerationDto__Group__3_in_rule__EnumerationDto__Group__22448 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__EnumerationDto__Group__32477 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__EnumerationDto__Group__4_in_rule__EnumerationDto__Group__32487 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EnumerationDto__BaseAssignment_4_in_rule__EnumerationDto__Group__42515 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_rule__EnumerationDto__Group__5_in_rule__EnumerationDto__Group__42524 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__EnumerationDto__Group__52553 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BusinessClassPropertyReference__NameAssignment_0_in_rule__BusinessClassPropertyReference__Group__02600 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_rule__BusinessClassPropertyReference__Group__1_in_rule__BusinessClassPropertyReference__Group__02609 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__BusinessClassPropertyReference__Group__12638 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BusinessClassAssociationRoleReference__NameAssignment_0_in_rule__BusinessClassAssociationRoleReference__Group__02677 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_rule__BusinessClassAssociationRoleReference__Group__1_in_rule__BusinessClassAssociationRoleReference__Group__02686 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_rule__BusinessClassAssociationRoleReference__Group__12715 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__BusinessClassAssociationRoleReference__Group__2_in_rule__BusinessClassAssociationRoleReference__Group__12725 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2_in_rule__BusinessClassAssociationRoleReference__Group__22753 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_rule__BusinessClassAssociationRoleReference__Group__3_in_rule__BusinessClassAssociationRoleReference__Group__22762 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__BusinessClassAssociationRoleReference__Group__32791 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CustomDto__DescriptionAssignment_0_in_rule__CustomDto__Group__02834 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_rule__CustomDto__Group__1_in_rule__CustomDto__Group__02844 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_rule__CustomDto__Group__12873 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__CustomDto__Group__2_in_rule__CustomDto__Group__12883 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CustomDto__NameAssignment_2_in_rule__CustomDto__Group__22911 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_rule__CustomDto__Group__3_in_rule__CustomDto__Group__22920 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__CustomDto__Group__32949 = new BitSet(new long[]{0x000000001F000030L});
+    public static final BitSet FOLLOW_rule__CustomDto__Group__4_in_rule__CustomDto__Group__32959 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CustomDto__PropertiesAssignment_4_in_rule__CustomDto__Group__42989 = new BitSet(new long[]{0x000000001F100030L});
+    public static final BitSet FOLLOW_rule__CustomDto__PropertiesAssignment_4_in_rule__CustomDto__Group__43001 = new BitSet(new long[]{0x000000001F100030L});
+    public static final BitSet FOLLOW_rule__CustomDto__Group__5_in_rule__CustomDto__Group__43013 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__CustomDto__Group__53042 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoProperty__Alternatives_0_in_rule__DtoProperty__Group__03089 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_rule__DtoProperty__Group__1_in_rule__DtoProperty__Group__03098 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__DtoProperty__Group__13127 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoBooleanProperty__DescriptionAssignment_0_in_rule__DtoBooleanProperty__Group__03166 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_rule__DtoBooleanProperty__Group__1_in_rule__DtoBooleanProperty__Group__03176 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoBooleanProperty__DataTypeAssignment_1_in_rule__DtoBooleanProperty__Group__13204 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__DtoBooleanProperty__Group__2_in_rule__DtoBooleanProperty__Group__13213 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoBooleanProperty__NameAssignment_2_in_rule__DtoBooleanProperty__Group__23241 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoStringProperty__DescriptionAssignment_0_in_rule__DtoStringProperty__Group__03281 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_rule__DtoStringProperty__Group__1_in_rule__DtoStringProperty__Group__03291 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoStringProperty__DataTypeAssignment_1_in_rule__DtoStringProperty__Group__13319 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__DtoStringProperty__Group__2_in_rule__DtoStringProperty__Group__13328 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoStringProperty__NameAssignment_2_in_rule__DtoStringProperty__Group__23356 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoDateTimeProperty__DescriptionAssignment_0_in_rule__DtoDateTimeProperty__Group__03396 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_rule__DtoDateTimeProperty__Group__1_in_rule__DtoDateTimeProperty__Group__03406 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoDateTimeProperty__DataTypeAssignment_1_in_rule__DtoDateTimeProperty__Group__13434 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__DtoDateTimeProperty__Group__2_in_rule__DtoDateTimeProperty__Group__13443 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoDateTimeProperty__NameAssignment_2_in_rule__DtoDateTimeProperty__Group__23471 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoIntegerProperty__DescriptionAssignment_0_in_rule__DtoIntegerProperty__Group__03511 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_rule__DtoIntegerProperty__Group__1_in_rule__DtoIntegerProperty__Group__03521 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoIntegerProperty__DataTypeAssignment_1_in_rule__DtoIntegerProperty__Group__13549 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__DtoIntegerProperty__Group__2_in_rule__DtoIntegerProperty__Group__13558 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoIntegerProperty__NameAssignment_2_in_rule__DtoIntegerProperty__Group__23586 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoDecimalProperty__DescriptionAssignment_0_in_rule__DtoDecimalProperty__Group__03626 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_rule__DtoDecimalProperty__Group__1_in_rule__DtoDecimalProperty__Group__03636 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoDecimalProperty__DataTypeAssignment_1_in_rule__DtoDecimalProperty__Group__13664 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__DtoDecimalProperty__Group__2_in_rule__DtoDecimalProperty__Group__13673 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoDecimalProperty__NameAssignment_2_in_rule__DtoDecimalProperty__Group__23701 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoEnumerationProperty__DescriptionAssignment_0_in_rule__DtoEnumerationProperty__Group__03741 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__DtoEnumerationProperty__Group__1_in_rule__DtoEnumerationProperty__Group__03751 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoEnumerationProperty__TypeAssignment_1_in_rule__DtoEnumerationProperty__Group__13779 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__DtoEnumerationProperty__Group__2_in_rule__DtoEnumerationProperty__Group__13788 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DtoEnumerationProperty__NameAssignment_2_in_rule__DtoEnumerationProperty__Group__23816 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__DataContractModel__DescriptionAssignment_03856 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DataContractModel__NameAssignment_23887 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExternalReference_in_rule__DataContractModel__ExternalReferencesAssignment_43918 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDto_in_rule__DataContractModel__DtosAssignment_5_03949 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnumerationDto_in_rule__DataContractModel__EnumerationsAssignment_5_13980 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__ExternalReference__DescriptionAssignment_04011 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ExternalReference__ModelnameAssignment_24042 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ExternalReference__KeywordAlternatives_3_0_in_rule__ExternalReference__KeywordAssignment_34073 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ExternalReference__NameAssignment_44106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__BusinessClassDto__DescriptionAssignment_04137 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__BusinessClassDto__NameAssignment_24168 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__BusinessClassDto__BaseAssignment_44203 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBusinessClassPropertyReference_in_rule__BusinessClassDto__PropertyReferencesAssignment_5_1_14238 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBusinessClassAssociationRoleReference_in_rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_24269 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__EnumerationDto__DescriptionAssignment_04300 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__EnumerationDto__NameAssignment_24331 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__EnumerationDto__BaseAssignment_44366 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__BusinessClassPropertyReference__NameAssignment_04401 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__BusinessClassAssociationRoleReference__NameAssignment_04432 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_24467 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__CustomDto__DescriptionAssignment_04502 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__CustomDto__NameAssignment_24533 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDtoProperty_in_rule__CustomDto__PropertiesAssignment_44564 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__DtoBooleanProperty__DescriptionAssignment_04595 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_rule__DtoBooleanProperty__DataTypeAssignment_14631 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoBooleanProperty__NameAssignment_24670 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__DtoStringProperty__DescriptionAssignment_04701 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_rule__DtoStringProperty__DataTypeAssignment_14737 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoStringProperty__NameAssignment_24776 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__DtoDateTimeProperty__DescriptionAssignment_04807 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_rule__DtoDateTimeProperty__DataTypeAssignment_14843 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoDateTimeProperty__NameAssignment_24882 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__DtoIntegerProperty__DescriptionAssignment_04913 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_rule__DtoIntegerProperty__DataTypeAssignment_14949 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoIntegerProperty__NameAssignment_24988 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__DtoDecimalProperty__DescriptionAssignment_05019 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_rule__DtoDecimalProperty__DataTypeAssignment_15055 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoDecimalProperty__NameAssignment_25094 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__DtoEnumerationProperty__DescriptionAssignment_05125 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoEnumerationProperty__TypeAssignment_15160 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoEnumerationProperty__NameAssignment_25195 = new BitSet(new long[]{0x0000000000000002L});
 
 }

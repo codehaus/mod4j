@@ -1007,16 +1007,9 @@ rule__BusinessClassDto__Group_5_1__1
     }
 :
 (
-(
-{ before(grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesAssignment_5_1_1()); }
-(rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1)
-{ after(grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesAssignment_5_1_1()); }
-)
-(
 { before(grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesAssignment_5_1_1()); }
 (rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1)*
 { after(grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesAssignment_5_1_1()); }
-)
 )
 
 	rule__BusinessClassDto__Group_5_1__2

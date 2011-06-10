@@ -686,7 +686,7 @@ protected class ExternalReference_SemicolonKeyword_5 extends KeywordToken  {
  *
  * BusinessClassDto:
  *   description=STRING? "class" name=ID "represents" base=[ExternalReference] (";"|"["
- *   propertyReferences+=BusinessClassPropertyReference+ ("references" "["
+ *   propertyReferences+=BusinessClassPropertyReference* ("references" "["
  *   associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]"); 
  * 
  *     
@@ -708,7 +708,7 @@ protected class ExternalReference_SemicolonKeyword_5 extends KeywordToken  {
  **/
 
 // description=STRING? "class" name=ID "represents" base=[ExternalReference] (";"|"["
-// propertyReferences+=BusinessClassPropertyReference+ ("references" "["
+// propertyReferences+=BusinessClassPropertyReference* ("references" "["
 // associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]")
 protected class BusinessClassDto_Group extends GroupToken {
 	
@@ -868,7 +868,7 @@ protected class BusinessClassDto_BaseAssignment_4 extends AssignmentToken  {
 
 }
 
-// ";"|"[" propertyReferences+=BusinessClassPropertyReference+ ("references" "["
+// ";"|"[" propertyReferences+=BusinessClassPropertyReference* ("references" "["
 // associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]"
 protected class BusinessClassDto_Alternatives_5 extends AlternativesToken {
 
@@ -910,7 +910,7 @@ protected class BusinessClassDto_SemicolonKeyword_5_0 extends KeywordToken  {
 		
 }
 
-// "[" propertyReferences+=BusinessClassPropertyReference+ ("references" "["
+// "[" propertyReferences+=BusinessClassPropertyReference* ("references" "["
 // associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]"
 protected class BusinessClassDto_Group_5_1 extends GroupToken {
 	
@@ -951,7 +951,7 @@ protected class BusinessClassDto_LeftSquareBracketKeyword_5_1_0 extends KeywordT
 		
 }
 
-// propertyReferences+=BusinessClassPropertyReference+
+// propertyReferences+=BusinessClassPropertyReference*
 protected class BusinessClassDto_PropertyReferencesAssignment_5_1_1 extends AssignmentToken  {
 	
 	public BusinessClassDto_PropertyReferencesAssignment_5_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -970,7 +970,7 @@ protected class BusinessClassDto_PropertyReferencesAssignment_5_1_1 extends Assi
 	}	
 		
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("propertyReferences",true)) == null) return null;
+		if((value = current.getConsumable("propertyReferences",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("propertyReferences");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
@@ -1029,6 +1029,7 @@ protected class BusinessClassDto_ReferencesKeyword_5_1_2_0 extends KeywordToken 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new BusinessClassDto_PropertyReferencesAssignment_5_1_1(parent, this, 0, inst);
+			case 1: return new BusinessClassDto_LeftSquareBracketKeyword_5_1_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -1134,6 +1135,7 @@ protected class BusinessClassDto_RightSquareBracketKeyword_5_1_3 extends Keyword
 		switch(index) {
 			case 0: return new BusinessClassDto_Group_5_1_2(parent, this, 0, inst);
 			case 1: return new BusinessClassDto_PropertyReferencesAssignment_5_1_1(parent, this, 1, inst);
+			case 2: return new BusinessClassDto_LeftSquareBracketKeyword_5_1_0(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	

@@ -71,7 +71,11 @@
      * @return «roleName» («getCollectionInterface()»<«type»>).
      */
     public «getCollectionInterface()»<«type»> get«roleName.toFirstUpper()» () {
-        return Collections.unmodifiable«getCollectionInterface()»(this.«roleName»);
+        if (this.«roleName» != null) {
+            return Collections.unmodifiable«getCollectionInterface()»(this.«roleName»);
+        } else {
+            return null;
+        }
     }
 «ENDDEFINE»
 
@@ -87,7 +91,7 @@
      *         with the given id.
      */
     public «type» getFrom«roleName.toFirstUpper()» («getHibernatePrimaryKeyClass()» id) {
-        if (id == null) {
+        if ((this.«roleName» == null) || (id == null)) {
             return null;
         }
         for («type» «type.toFirstLower()»: this.«roleName») {
@@ -106,6 +110,9 @@
     public boolean addTo«targetRoleName.toFirstUpper()»(«javaDomainClass(target.name)» element) {
         if ( element == null ) {
             return false;
+        }
+        if (this.«targetRoleName» == null) {
+            «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
         }
         if (!«targetRoleName».contains(element)) {
             «targetRoleName».add(element);
@@ -128,6 +135,9 @@
         if ( element == null ) {
             return;
         }
+        if (this.«targetRoleName» == null) {
+            «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
+        }
         «targetRoleName».add(index, element);
     «IF this.bidirectional -»
             element.addTo«sourceRoleName.toFirstUpper()»((«javaDomainClass(source.name)») this);
@@ -141,6 +151,9 @@
      * Implements removing a single element from a collection.
      */
     public boolean removeFrom«targetRoleName.toFirstUpper()»(«javaDomainClass(this.target.name)» element) {
+        if («targetRoleName» == null) {
+            return false;
+        }
         if ( element == null ) {
             return false;
         }
@@ -161,6 +174,9 @@
      * Implements removing a single element from a collection.
      */
     public «javaDomainClass(this.target.name)»  removeFrom«targetRoleName.toFirstUpper()»(int index) {
+        if («targetRoleName» == null) {
+            return null;
+        }
         «javaDomainClass(this.target.name)» element;
         element = this.«this.targetRoleName».remove(index);
     «IF this.bidirectional -»
@@ -185,6 +201,9 @@
      *         if the index is out of range (index < 0 || index >= size()).
      */
     public «javaDomainClass(this.target.name)» set«this.targetRoleName.toFirstUpper()»(int index, «javaDomainClass(target.name)» element) {
+        if («targetRoleName» == null) {
+            throw new IndexOutOfBoundsException("«targetRoleName» is null"); 
+        }
         «javaDomainClass(this.target.name)» result;
         validation.setActive(false);
         result = removeFrom«this.targetRoleName.toFirstUpper()»(index);

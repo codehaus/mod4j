@@ -473,7 +473,7 @@ ruleBusinessClassDto returns [EObject current=null]
 	        currentNode = currentNode.getParent();
 	    }
 	
-)+('references' 
+)*('references' 
     {
         createLeafNode(grammarAccess.getBusinessClassDtoAccess().getReferencesKeyword_5_1_2_0(), null); 
     }

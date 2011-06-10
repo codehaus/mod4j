@@ -234,9 +234,11 @@
                   «FOREACH associationProperties AS assRef -»
                      «LET javaTranslatorName(javaClassName(assRef.dtoType.getBaseDtoName())).toFirstLower() AS assRefTranslator»
                      «IF assRef.multiplicity == Multiplicity::MANY -»
+                        if (source.get«assRef.name.toFirstUpper()»() != null) {
                            for («assRef.dtoType.getBaseDtoBusinessClassName()» element: source.get«assRef.name.toFirstUpper()»()) {
                               result.addTo«assRef.name.toFirstUpper()»(«assRefTranslator».toDto(element, translated));
                           }
+                        }
                      «ELSE -» «REM»2One«ENDREM»
                          if( source.get«assRef.name.toFirstUpper()»() != null ) {
                              result.set«assRef.name.toFirstUpper()»(«assRefTranslator».toDto(source.get«assRef.name.toFirstUpper()»(), translated));
@@ -316,7 +318,9 @@
              «REM»For now all To-Many associations are ignored.«ENDREM»
          «ELSE» 
             «REM»To-One association.«ENDREM»
-            result.set«assRef.name.toFirstUpper()»(«assRefTranslator».exampleFromDto(source.get«assRef.name.toFirstUpper()»())); 
+            if (source.get«assRef.name.toFirstUpper()»() != null) {
+                result.set«assRef.name.toFirstUpper()»(«assRefTranslator».exampleFromDto(source.get«assRef.name.toFirstUpper()»()));
+            }
          «ENDIF»
          «ENDLET»
      «ENDFOREACH»

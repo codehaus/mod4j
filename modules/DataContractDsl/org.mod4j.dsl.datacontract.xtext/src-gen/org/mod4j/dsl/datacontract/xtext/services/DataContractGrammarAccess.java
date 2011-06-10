@@ -225,7 +225,7 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 		
 		//BusinessClassDto:
 		//  description=STRING? "class" name=ID "represents" base=[ExternalReference] (";"|"["
-		//  propertyReferences+=BusinessClassPropertyReference+ ("references" "["
+		//  propertyReferences+=BusinessClassPropertyReference* ("references" "["
 		//  associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]"); 
 		//
 		//    
@@ -246,7 +246,7 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 		public ParserRule getRule() { return rule; }
 
 		//description=STRING? "class" name=ID "represents" base=[ExternalReference] (";"|"["
-		//propertyReferences+=BusinessClassPropertyReference+ ("references" "["
+		//propertyReferences+=BusinessClassPropertyReference* ("references" "["
 		//associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]")
 		public Group getGroup() { return cGroup; }
 
@@ -277,21 +277,21 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 		//ID
 		public RuleCall getBaseExternalReferenceIDTerminalRuleCall_4_0_1() { return cBaseExternalReferenceIDTerminalRuleCall_4_0_1; }
 
-		//";"|"[" propertyReferences+=BusinessClassPropertyReference+ ("references" "["
+		//";"|"[" propertyReferences+=BusinessClassPropertyReference* ("references" "["
 		//associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]"
 		public Alternatives getAlternatives_5() { return cAlternatives_5; }
 
 		//";"
 		public Keyword getSemicolonKeyword_5_0() { return cSemicolonKeyword_5_0; }
 
-		//"[" propertyReferences+=BusinessClassPropertyReference+ ("references" "["
+		//"[" propertyReferences+=BusinessClassPropertyReference* ("references" "["
 		//associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]"
 		public Group getGroup_5_1() { return cGroup_5_1; }
 
 		//"["
 		public Keyword getLeftSquareBracketKeyword_5_1_0() { return cLeftSquareBracketKeyword_5_1_0; }
 
-		//propertyReferences+=BusinessClassPropertyReference+
+		//propertyReferences+=BusinessClassPropertyReference*
 		public Assignment getPropertyReferencesAssignment_5_1_1() { return cPropertyReferencesAssignment_5_1_1; }
 
 		//BusinessClassPropertyReference
@@ -909,7 +909,7 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 
 	//BusinessClassDto:
 	//  description=STRING? "class" name=ID "represents" base=[ExternalReference] (";"|"["
-	//  propertyReferences+=BusinessClassPropertyReference+ ("references" "["
+	//  propertyReferences+=BusinessClassPropertyReference* ("references" "["
 	//  associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]"); 
 	//
 	//    
