@@ -281,6 +281,10 @@ public class ProjectProperties {
         return getServiceRootPackage() + DTO_PACKAGE;
     }
 
+    public static String getDtoPackageAsPath() {
+        return getDtoPackage().replaceAll("\\.", "/");
+    }
+
     public static String getTranslatorsPackage() {
         return getDtoPackage() + TRANSLATORS_PACKAGE;
     }

@@ -47,6 +47,7 @@ Symbol toElement(StringEnumerationLiteral lit) :
     result.setName(lit.name) ->
     result.setType("StringEnumerationLiteral")->
     result.properties.add( newProperty("value", ((StringEnumerationLiteral)lit).persistedValue)) ->
+    result.properties.add( newProperty("description", ((StringEnumerationLiteral)lit).description)) ->
     result
     ;
 
@@ -55,6 +56,7 @@ Symbol toElement(IntegerEnumerationLiteral lit) :
     result.setName(lit.name) ->
     result.setType("IntegerEnumerationLiteral")->
     result.properties.add( newProperty("value", ((IntegerEnumerationLiteral)lit).persistedValue.toString())) ->
+    result.properties.add( newProperty("description", ((IntegerEnumerationLiteral)lit).description)) ->
     result
     ;
 

@@ -27,31 +27,10 @@
     *
     * Generated at: «timestamp()»
     */
-   public enum «javaClassName(name)» {
-    
+   public enum «javaClassName(name)» {    
         «FOREACH literals AS enumlit ITERATOR enumlitIter SEPARATOR "," »
             «EXPAND enumlit FOR enumlit -»
         «ENDFOREACH»;
-        
-        private static final Map<«enumerationLiteralType()», «javaClassName(name)»> lookup = new HashMap<«enumerationLiteralType()», «javaClassName(name)»>();
-        static {
-            for(«javaClassName(name)» s : EnumSet.allOf(«javaClassName(name)».class))
-                   lookup.put(s.id(), s);
-            }
-
-            private «enumerationLiteralType()» id;
-            
-            private «javaClassName(name)»(«enumerationLiteralType()» id) {
-            this.id = id;
-        }
-        
-        public «enumerationLiteralType()» id() {
-            return id;
-        }
-        
-        public static «javaClassName(name)» value(«enumerationLiteralType()» id) {
-            return lookup.get(id); 
-        }                  
     }
 «ENDDEFINE»
 
@@ -60,9 +39,15 @@
 «ENDDEFINE»
 
 «DEFINE enumlit FOR EnumerationDtoIntegerLiteral -»
-            «name.toUpperCase()»(«value»)
+            «name»
 «ENDDEFINE»
 
 «DEFINE enumlit FOR EnumerationDtoStringLiteral -»
-            «name.toUpperCase()»("«value»")
+            «name»
+«ENDDEFINE»
+
+«DEFINE enumDescriptionProperties FOR EnumerationDto -»
+    «FOREACH literals AS l -»
+«this.name».«l.name»=«l.description»
+    «ENDFOREACH -»
 «ENDDEFINE»

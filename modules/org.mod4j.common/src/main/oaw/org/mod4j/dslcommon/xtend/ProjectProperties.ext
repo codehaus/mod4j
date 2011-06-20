@@ -132,6 +132,9 @@ String getLocalServicePackage() :
 
 String getDtoPackage() : 
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDtoPackage();
+
+String getDtoPackageAsPath() : 
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDtoPackageAsPath();
  
 String getTranslatorsPackage() : 
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getTranslatorsPackage();

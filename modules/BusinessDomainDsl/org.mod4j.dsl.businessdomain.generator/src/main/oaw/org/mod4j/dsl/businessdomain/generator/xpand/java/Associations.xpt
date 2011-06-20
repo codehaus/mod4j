@@ -27,7 +27,7 @@
         private «getCollectionInterface()»<«javaDomainClass(target.name)»> «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
         «EXPAND AssociationsOne2Many::one2ManyAccessorsTo FOR this»
     «ELSEIF isMany2Many() -»
-        private «getCollectionInterface()»<«javaDomainClass(target.name)»> «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
+        private «getCollectionInterface()»<«javaDomainClass(target.name)»> «targetRoleName»;
         «EXPAND AssociationsMany2Many::many2ManyAccessorsTo FOR this»
     «ENDIF»
 «ENDDEFINE»

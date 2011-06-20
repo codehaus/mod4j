@@ -1,17 +1,17 @@
 "The RecordShop data contract."
 datacontract RecordShopDataContract  ; 
   
-from RecordShopDomainModel import Customer;
-from RecordShopDomainModel import Person;
-from RecordShopDomainModel import Relation;
-from RecordShopDomainModel import Artist;
-from RecordShopDomainModel import Order;
-from RecordShopDomainModel import Record;
-from RecordShopDomainModel import OrderLine;
-from RecordShopDomainModel import Product;
-from RecordShopDomainModel import SexeEnum;
-from RecordShopDomainModel import RecordTypeEnum;
-from RecordShopDomainModel import Address;
+from RecordShopDomainModel businessclass Customer;
+from RecordShopDomainModel businessclass Person;
+from RecordShopDomainModel businessclass Relation;
+from RecordShopDomainModel businessclass Artist;
+from RecordShopDomainModel businessclass Order;
+from RecordShopDomainModel businessclass Record;
+from RecordShopDomainModel businessclass OrderLine;
+from RecordShopDomainModel businessclass Product;
+from RecordShopDomainModel enumeration SexeEnum;
+from RecordShopDomainModel enumeration RecordTypeEnum;
+from RecordShopDomainModel businessclass Address;
   
     /*     
      * Transfer objects for BusinessClasses 

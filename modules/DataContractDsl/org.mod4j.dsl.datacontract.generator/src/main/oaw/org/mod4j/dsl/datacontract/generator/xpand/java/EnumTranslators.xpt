@@ -44,7 +44,7 @@
                   if( source == null ){
                       return null;
                   }
-                  return «javaClassName(base.name)».value(source.id());              
+                  return «javaClassName(base.name)».valueOf(source.name());          
               }
              
              /**
@@ -59,7 +59,7 @@
                   if( source == null ){
                       return null;
                   }
-                  return «javaClassName(name)».value(source.id());              
+                  return «javaClassName(name)».valueOf(source.name());              
               }
           }
 «ENDDEFINE»

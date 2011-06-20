@@ -2,6 +2,7 @@ package org.company.recordshop.bd.domain;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.joda.time.DateTime;
@@ -31,7 +32,7 @@ public class ManyToManyAssociationTest {
 
     @Test
     public void testAddToContributors() {
-        assertEquals(0, record1.getContributors().size());
+        assertNull(record1.getContributors());
         assertEquals(0, artist1.getRecords().size());
 
         /**

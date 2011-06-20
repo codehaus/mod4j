@@ -11,6 +11,7 @@
 «IMPORT DataContractDsl»
 «IMPORT org::mod4j::dsl::datacontract::generator::xpand::java»
 «IMPORT org::mod4j::dsl::datacontract::generator::xpand::maven»
+«IMPORT org::mod4j::dslcommon::xpand::properties»
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::common::xtend::FileTracker»
@@ -46,6 +47,13 @@
 
     «FILE generate(getServiceModuleName(), getServiceRootPackageAsPath() + "/dtoTranslatorsContext.xml")»
         «EXPAND TranslatorsConfig::Spring FOR this»
+    «ENDFILE»
+    
+    «FILE generate(getServiceModuleName(), getDtoPackageAsPath() + "/enum-values.properties")»
+        «EXPAND PropertyComments::regenerationWarningHeader ("Mod4j ServiceDsl generator: ServiceLayer.xpt") FOR this»
+        «FOREACH enumerations AS enum -»
+            «EXPAND Enumeration::enumDescriptionProperties FOR enum -»
+        «ENDFOREACH -»
     «ENDFILE»
 
 «ENDDEFINE»

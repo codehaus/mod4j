@@ -141,12 +141,13 @@
                           * Synchronize «assRef.name.toFirstUpper()» association.
                           */
    «REM»2Many«ENDREM» «IF assRef.multiplicity == Multiplicity::MANY -»
-                             Set<«assRefBusinessClass»> «assRef.name»ToBeRemoved = new HashSet<«assRefBusinessClass»>(
-                                          target.get«assRef.name.toFirstUpper()»().size());
+                             Set<«assRefBusinessClass»> «assRef.name»ToBeRemoved = new HashSet<«assRefBusinessClass»>();
                           /* Avoid changing the collection underneath an active iterator. */
-                          for («assRefBusinessClass» element : target.get«assRef.name.toFirstUpper()»()) {
-                              if (source.getFrom«assRef.name.toFirstUpper()»(element.getId()) == null) {
-                                  «assRef.name»ToBeRemoved.add(element);
+                          if (target.get«assRef.name.toFirstUpper()»() != null) {
+                              for («assRefBusinessClass» element : target.get«assRef.name.toFirstUpper()»()) {
+                                  if (source.getFrom«assRef.name.toFirstUpper()»(element.getId()) == null) {
+                                    «assRef.name»ToBeRemoved.add(element);
+                                  }
                               }
                           }
                           /* Objects to be removed */

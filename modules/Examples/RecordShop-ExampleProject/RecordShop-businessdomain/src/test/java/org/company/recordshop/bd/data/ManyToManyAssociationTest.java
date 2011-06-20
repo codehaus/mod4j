@@ -2,10 +2,9 @@ package org.company.recordshop.bd.data;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import org.company.recordshop.bd.data.ArtistDao;
-import org.company.recordshop.bd.data.RecordDao;
 import org.company.recordshop.bd.domain.Artist;
 import org.company.recordshop.bd.domain.Record;
 import org.company.recordshop.bd.domain.RecordTypeEnum;
@@ -61,7 +60,7 @@ public class ManyToManyAssociationTest extends AbstractDaoTestCase {
 
 	@Test
 	public void testAddToContributors() {
-		assertEquals(0, record1.getContributors().size());
+		assertNull(record1.getContributors());
 		assertEquals(0, artist1.getRecords().size());
 
 		/**

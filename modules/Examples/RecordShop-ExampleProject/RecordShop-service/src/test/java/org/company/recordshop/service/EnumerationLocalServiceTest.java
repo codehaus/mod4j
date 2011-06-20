@@ -24,6 +24,6 @@ public class EnumerationLocalServiceTest extends AbstractServiceTestCase {
 		dto = enumerationLocalService.readStringEnumClassAsStringEnumClassDto(id);
 		Assert.assertNotNull(dto);
 		Assert.assertEquals(StringEnumDto.ONE, dto.getTheEnum());
-		Assert.assertEquals("one", dto.getTheEnum().id());
+		Assert.assertEquals("ONE", dto.getTheEnum().name());
 	}
 }
