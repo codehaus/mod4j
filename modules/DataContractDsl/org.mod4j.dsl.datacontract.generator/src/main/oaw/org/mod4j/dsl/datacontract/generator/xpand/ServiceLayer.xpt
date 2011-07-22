@@ -35,6 +35,8 @@
 		«FILE generate(getServiceModuleName(), javaPathFileName(getFqnDtoClass(name, dto.name)))»
 		  	«EXPAND dtoBean::createDto FOR dto»
 		«ENDFILE»
+	«ENDFOREACH»
+	«FOREACH dtos.typeSelect(DataContractDsl::BusinessClassDto) AS dto»
 		«FILE generate(getServiceModuleName(), javaPathFileName(getFqnTranslatorClass(name, dto.name)))»
 		  	«EXPAND Translators::createTranslator FOR dto»
 		«ENDFILE»
