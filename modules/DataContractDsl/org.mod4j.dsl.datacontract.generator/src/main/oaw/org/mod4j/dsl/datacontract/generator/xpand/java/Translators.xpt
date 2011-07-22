@@ -38,10 +38,10 @@
          «FOREACH associationProperties AS assRef -»
              import «getFqnDomainClass(base.modelname, assRef.dtoType.getBaseDtoBusinessClassName())»;
              import «getFqnDtoClass(datacontractModel.name, assRef.dtoType.getBaseDtoName())»;
-         «ENDFOREACH»
+         «ENDFOREACH -»
         «FOREACH associationProperties AS assRef»
             import «getFqnDaoInterface(base.modelname, assRef.dtoType.getBaseDtoBusinessClassName())»;
-        «ENDFOREACH»
+        «ENDFOREACH -»
 
         /**
          * Translator for translating «javaClassName(base.name)» domain objects from- and to «javaClassName(name)» data transfer objects.
@@ -62,14 +62,14 @@
               «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
                   «IF dataProperty.metaType == DtoEnumerationProperty -»
                       private «javaClassName(((DtoEnumerationProperty)dataProperty).type.name)»Translator «dataProperty.name»Translator = new «javaClassName(((DtoEnumerationProperty)dataProperty).type.name)»Translator();
-                  «ENDIF»
+                  «ENDIF -»
               «ENDFOREACH»
 
                  /**
-              «IF this.creatable»
+              «IF this.creatable -»
                   * Translates a «javaClassName(name)» dto object into a «javaClassName(base.name)» domain object.
                   * A new domain object will be created passed to the {@link #fromDto(«javaClassName(name)», «javaClassName(base.name)»)}.
-              «ENDIF».
+              «ENDIF -»
                   *
                   * @param source The {@link «javaClassName(name)»} object to translate, may not be {@code null}.
                   * @return {@link «javaClassName(base.name)»}, the resulting domain object.
@@ -87,7 +87,7 @@
                       return fromDto(source, target, translated);
                   «ELSE -»
                       throw new IllegalArgumentException("This source dto does not contain all non-nullable properties of the domain object to be created: " + source.toString());
-                  «ENDIF»
+                  «ENDIF -»
               }
 
              /**
@@ -119,9 +119,7 @@
                   }
 
                   validateVersion(source, target);
-
                   target.activateValidation(false);
-
                   «FOREACH properties.typeSelect(DtoDataProperty).select(e|e.writable) AS dataProperty -»
                       «IF !dataProperty.nullable && !dataProperty.mandatoryForCreation»if (source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»() != null) {«ENDIF-»
                           «IF dataProperty.metaType == DtoEnumerationProperty -»
@@ -129,9 +127,8 @@
                           «ELSE -»
                               target.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
                           «ENDIF -»
-                      «IF !dataProperty.nullable && !dataProperty.mandatoryForCreation»}«ENDIF»
-                  «ENDFOREACH»
- 
+                      «IF !dataProperty.nullable && !dataProperty.mandatoryForCreation»}«ENDIF -»
+                  «ENDFOREACH -»
                   translated.put(source, target);
                   «FOREACH  associationProperties AS assRef -»
                     «LET assRef.dtoType.getBaseDtoBusinessClassName() AS assRefBusinessClass»
@@ -171,7 +168,6 @@
                                 }
                             }
                         }
-
                           «REM»end new code«ENDREM»
    «REM»2One«ENDREM» «ELSE»
                          if (source.get«assRef.name.toFirstUpper()»() == null ) {
@@ -195,7 +191,6 @@
                      «ENDLET»
                   «ENDFOREACH»
                   target.activateValidation(true);
-
                   return target;
               }
 
@@ -262,6 +257,8 @@
             *            The DTO.
             * @param target
             *            The domain object target.
+            * @throws ConcurrentUpdateException
+	        *            when the versions do not match.
             */
            private void validateVersion(final «javaClassName(name)» source, final «javaClassName(base.name)» target) {
                final Integer sourceVersion = source.getVersion();
@@ -275,7 +272,7 @@
                                                          ", target is " + targetVersion + ".");
                }
            }
-           }
+       }
    «ENDLET»
 «ENDDEFINE»
 
@@ -306,7 +303,6 @@
               result.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
           «ENDIF -»
       «ENDFOREACH»
-      
      «REM»Process associations.«ENDREM»
      «FOREACH this.properties.typeSelect(DtoAssociationRoleProperty) AS assRef -»
          «LET javaTranslatorName(javaClassName(assRef.dtoType.getBaseDtoName())).toFirstLower() AS assRefTranslator»
