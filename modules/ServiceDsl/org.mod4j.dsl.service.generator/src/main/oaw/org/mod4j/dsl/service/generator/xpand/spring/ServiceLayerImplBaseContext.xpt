@@ -53,31 +53,30 @@
     </aop:config>
     «ENDFOREACH»
     «FOREACH allServices AS service»
-    <tx:advice id="txAdvice«service.name.toFirstLower()»Service"
-        transaction-manager="transactionManager">
+    <tx:advice id="txAdvice«service.name.toFirstLower()»Service" transaction-manager="transactionManager">
         <tx:attributes>
-            <tx:method name="*" propagation="SUPPORTS" read-only="true" />
-            «FOREACH findAllSubSymbols(service, "ServiceMethod") AS method-»
-            <tx:method name="«method.name»" propagation="REQUIRED" />
-            «ENDFOREACH»
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="retrieve*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="read*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="list*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="count*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="*" propagation="REQUIRED" />
         </tx:attributes>
     </tx:advice>
     «ENDFOREACH»
-    
     <!-- Application Layer  -->
     «FOREACH allServices AS service»
-    <!-- service.name = «service.name»  this.name = «this.name»-->
     <bean id="«service.name.toFirstLower()»Service" class="«getFqnLocalServiceClass(service.name)»">
-        «IF service.getPropertyValue("UniqueBusinessClasses").length > 0»
-            «FOREACH service.getPropertyValue("UniqueBusinessClasses").split(",") AS bcName»
-        	    <property name="«javaDaoInterface(bcName).toFirstLower()»" ref="«javaDaoInterface(bcName).toFirstLower()»" />
-            «ENDFOREACH» 
-    	«ENDIF»
+        «IF service.getPropertyValue("UniqueBusinessClasses").length > 0 -»
+            «FOREACH service.getPropertyValue("UniqueBusinessClasses").split(",") AS bcName-»
+        <property name="«javaDaoInterface(bcName).toFirstLower()»" ref="«javaDaoInterface(bcName).toFirstLower()»" />
+            «ENDFOREACH -» 
+    	«ENDIF -»
     	«FOREACH findAllSubSymbols(service, "DtoReference") AS dto -»
-            <property name="«javaTranslatorClass(dto.name).toFirstLower()»" ref="«javaTranslatorClass(dto.name).toFirstLower()»" />
+        <property name="«javaTranslatorClass(dto.name).toFirstLower()»" ref="«javaTranslatorClass(dto.name).toFirstLower()»" />
 	    «ENDFOREACH-»
     </bean>
-    «ENDFOREACH»
+    «ENDFOREACH-»
 </beans>
 «ENDLET»
 «ENDDEFINE»
