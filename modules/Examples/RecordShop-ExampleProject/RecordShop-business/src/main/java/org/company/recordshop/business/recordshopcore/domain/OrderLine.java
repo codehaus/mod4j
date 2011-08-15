@@ -3,6 +3,8 @@
  */
 package org.company.recordshop.business.recordshopcore.domain;
 
+import java.math.BigDecimal;
+
 
 /**
  * 
@@ -38,12 +40,12 @@ public class OrderLine extends OrderLineImplBase {
     /**
 	 * @return lineAmount (Float)
 	 */
-	public Float getLineAmount() {
+	public BigDecimal getLineAmount() {
 
 		if (getProduct() == null) {
-			return 0F;
+			return BigDecimal.ZERO;
 		}
-		return getProduct().getPrice() * getQuantity();
+		return getProduct().getPrice().multiply(BigDecimal.valueOf(getQuantity()));
 
 	}
 

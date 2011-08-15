@@ -37,6 +37,10 @@
     import org.joda.time.DateTime;
 «ENDDEFINE»
 
+«DEFINE addImports FOR DecimalProperty»
+    import java.math.BigDecimal;
+«ENDDEFINE»
+
 «DEFINE addImports FOR Enumeration»
     import java.util.EnumSet;
     import java.util.HashMap;

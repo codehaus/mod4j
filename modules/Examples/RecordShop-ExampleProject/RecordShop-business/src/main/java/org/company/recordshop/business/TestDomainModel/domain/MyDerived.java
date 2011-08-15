@@ -11,6 +11,8 @@
 
 package org.company.recordshop.business.TestDomainModel.domain;
 
+import java.math.BigDecimal;
+
 import org.joda.time.DateTime;
 
 /**
@@ -79,9 +81,9 @@ public class MyDerived extends MyDerivedImplBase {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Float getFifth() {
+	public BigDecimal getFifth() {
 		// TODO Mod4j: add derivation rule for derived attribute fifth
-		return 0F;
+		return BigDecimal.ZERO;
 	}
 
 	/**

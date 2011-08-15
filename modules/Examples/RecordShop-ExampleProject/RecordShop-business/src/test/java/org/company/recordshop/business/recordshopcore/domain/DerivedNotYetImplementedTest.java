@@ -3,6 +3,8 @@ package org.company.recordshop.business.recordshopcore.domain;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.math.BigDecimal;
+
 import org.company.recordshop.business.TestDomainModel.domain.DerivedNotYetImplemented;
 import org.joda.time.DateTime;
 import org.junit.Test;
@@ -57,7 +59,7 @@ public class DerivedNotYetImplementedTest {
     public void testSetFifth() {
         DerivedNotYetImplemented derived = new DerivedNotYetImplemented();
         try {
-            derived.setFifth(5.0F);
+            derived.setFifth(new BigDecimal("5.0"));
             fail("Expected UnsupportedOperationException");
         } catch (UnsupportedOperationException e) {
             assertEquals("Not implemented", e.getMessage());

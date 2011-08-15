@@ -2,6 +2,8 @@ package org.company.recordshop.business.data;
 
 import static org.junit.Assert.assertEquals;
 
+import java.math.BigDecimal;
+
 import org.company.recordshop.business.recordshopcore.data.ProductDao;
 import org.company.recordshop.business.recordshopcore.domain.Product;
 import org.junit.Test;
@@ -18,7 +20,7 @@ public class ProductDaoTest extends AbstractDaoTestCase {
     @Test
     public void testAddAndRetrieve() {
 
-        Product product = new Product("PRODNR-1234", 99.99f, true);
+        Product product = new Product("PRODNR-1234", BigDecimal.valueOf(99.99), true);
 
         productDao.add(product);
         flush();

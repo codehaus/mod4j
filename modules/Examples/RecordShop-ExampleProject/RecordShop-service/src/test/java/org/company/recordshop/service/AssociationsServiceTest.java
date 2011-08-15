@@ -2,6 +2,7 @@ package org.company.recordshop.service;
 
 import static org.junit.Assert.assertEquals;
 
+import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -167,7 +168,7 @@ public class AssociationsServiceTest extends AbstractServiceTestCase {
     public final void testAddExistingProduct() {
         ProductWithCustomersDto p001 = new ProductWithCustomersDto();
         p001.setProductNumber("p001");
-        p001.setPrice(new Float(8));
+        p001.setPrice(BigDecimal.valueOf(8));
         p001.setOrderable(true);
         ProductWithCustomersDto createdP001 = customerService
                 .readProductAsProductWithCustomersDto(customerService.createProduct(p001));
@@ -219,7 +220,7 @@ public class AssociationsServiceTest extends AbstractServiceTestCase {
     public final void testAddExistingCustomer() {
         ProductWithCustomersDto p001 = new ProductWithCustomersDto();
         p001.setProductNumber("p001");
-        p001.setPrice(new Float(8));
+        p001.setPrice(BigDecimal.valueOf(8));
         p001.setOrderable(true);
         ProductWithCustomersDto createdP001 = customerService
                 .readProductAsProductWithCustomersDto(customerService.createProduct(p001));
@@ -254,7 +255,7 @@ public class AssociationsServiceTest extends AbstractServiceTestCase {
         Assert.assertTrue("Number of customers should be one", stored.getBuyers().size() == 1);
         storedCustomer = stored.getFromBuyers(createdCustomer.getId());
         Assert.assertTrue("Customer should be there", storedCustomer != null);
-        Assert.assertTrue("Customer number inciiorrect", storedCustomer.getCustomerNr() == 9101);
+        Assert.assertTrue("Customer number incorrect", storedCustomer.getCustomerNr() == 9101);
 
     }
 

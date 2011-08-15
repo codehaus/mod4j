@@ -3,6 +3,8 @@ package org.company.recordshop.business.recordshopcore.domain.businessrules;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.math.BigDecimal;
+
 import org.company.recordshop.business.recordshopcore.domain.OrderLine;
 import org.company.recordshop.business.recordshopcore.domain.Product;
 import org.junit.Test;
@@ -17,7 +19,7 @@ public class ProductMinQuantityBusinessRuleValidationTest {
 	@Test
 	public final void testUpdateOrderLineQauntity() {
 		
-		Product product = new Product("1234", 1F, true);
+		Product product = new Product("1234", BigDecimal.ONE, true);
 		product.setMinimalQuantity(2);
 		OrderLine orderline = new OrderLine(1, "Test line");
 		orderline.setQuantity(1);

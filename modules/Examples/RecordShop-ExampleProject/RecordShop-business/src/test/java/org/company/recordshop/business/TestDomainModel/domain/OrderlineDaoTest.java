@@ -3,6 +3,8 @@ package org.company.recordshop.business.TestDomainModel.domain;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigDecimal;
+
 import org.company.recordshop.business.data.AbstractDaoTestCase;
 import org.company.recordshop.business.recordshopcore.data.OrderLineDao;
 import org.company.recordshop.business.recordshopcore.domain.OrderLine;
@@ -21,7 +23,7 @@ public class OrderlineDaoTest extends AbstractDaoTestCase {
 	@Test
 	public void testAddAndRetrieve() {
        
-	    Product product = new Product("PRODNR-1234", 99.99f, true);
+	    Product product = new Product("PRODNR-1234", BigDecimal.valueOf(99.99), true);
         
         OrderLine orderLine = new OrderLine(1, "ORDERLINE-1");
         orderLine.setProduct(product);

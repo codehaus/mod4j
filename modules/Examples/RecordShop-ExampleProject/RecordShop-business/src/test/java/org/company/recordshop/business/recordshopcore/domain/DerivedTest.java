@@ -3,6 +3,8 @@ package org.company.recordshop.business.recordshopcore.domain;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigDecimal;
+
 import org.company.recordshop.business.TestDomainModel.domain.Derived;
 import org.joda.time.DateTime;
 import org.junit.Test;
@@ -41,7 +43,7 @@ public class DerivedTest {
 
     @Test
     public void testGetFifth() {
-        assertEquals(5.0F, new Derived().getFifth(), 0.000000001);
+        assertTrue(new BigDecimal("5.0").equals( new Derived().getFifth()));
     }
 
 }

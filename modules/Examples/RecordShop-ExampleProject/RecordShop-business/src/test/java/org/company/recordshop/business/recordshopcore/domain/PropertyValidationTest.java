@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.math.BigDecimal;
+
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.mod4j.runtime.exception.BusinessRuleException;
@@ -103,28 +105,10 @@ public class PropertyValidationTest {
         }
     }
 
-    /**
-     * Test method for {@link Record#setPrice(float)}. According to the RecordShop business domain model, the length of
-     * the username of a Customer must be between 3 or 10 characters. A BusinessRuleException must be thrown if we try
-     * set a value before this range.
-     */
-    // TODO @Test
-    public void testDecimalPropertyMinValueValidation() {
-        Record record = new Record("Saterdaynight", 24.95F, RecordTypeEnum.BLUERAY);
-
-        try {
-            record.setPrice(0F);
-            record.setPrice(-1F);
-            fail("Expected BusinessRuleException, wrapped in a RuntimeException");
-        } catch (BusinessRuleException e) {
-            assertTrue(e.getMessage().contains("todo"));
-        }
-    }
-
     @Test
     public void testNotNullablePropertyInConstructor() {
         try {
-            new Record(null, 12.50F, RecordTypeEnum.BLUERAY);
+            new Record(null, new BigDecimal("12.50"), RecordTypeEnum.BLUERAY);
             fail("Expected BusinessRuleException");
         } catch (BusinessRuleException e) {
             Errors b = (Errors) e.getCause();
@@ -135,7 +119,7 @@ public class PropertyValidationTest {
 
     @Test
     public void testNotNullableAsin() {
-        Record record = new Record("record", 12.50F, RecordTypeEnum.BLUERAY);
+        Record record = new Record("record", new BigDecimal("12.50"), RecordTypeEnum.BLUERAY);
         try {
             record.setAsin(null);
         } catch (BusinessRuleException ex) {
@@ -147,7 +131,7 @@ public class PropertyValidationTest {
 
     @Test
     public void testNotNullableTitle() {
-        Record record = new Record("record", 12.50F, RecordTypeEnum.BLUERAY);
+        Record record = new Record("record", new BigDecimal("12.50"), RecordTypeEnum.BLUERAY);
         try {
             record.setTitle(null);
         } catch (BusinessRuleException ex) {
@@ -159,7 +143,7 @@ public class PropertyValidationTest {
 
     @Test
     public void testNotNullableType() {
-        Record record = new Record("record", 12.50F, RecordTypeEnum.BLUERAY);
+        Record record = new Record("record", new BigDecimal("12.50"), RecordTypeEnum.BLUERAY);
         try {
             record.setType(null);
         } catch (BusinessRuleException ex) {

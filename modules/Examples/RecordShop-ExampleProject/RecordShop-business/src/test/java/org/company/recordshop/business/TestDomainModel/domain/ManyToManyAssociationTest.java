@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigDecimal;
+
 import org.company.recordshop.business.data.AbstractDaoTestCase;
 import org.company.recordshop.business.recordshopcore.data.ArtistDao;
 import org.company.recordshop.business.recordshopcore.data.RecordDao;
@@ -33,9 +35,9 @@ public class ManyToManyAssociationTest extends AbstractDaoTestCase {
 
 	@Before
 	public void setUp() throws Exception {
-		record1 = new Record("1234", 24.95F, RecordTypeEnum.BLUERAY);
-		record2 = new Record("1234", 24.95F, RecordTypeEnum.BLUERAY);
-		record3 = new Record("1234", 24.95F, RecordTypeEnum.BLUERAY);
+		record1 = new Record("1234", BigDecimal.valueOf(24.95), RecordTypeEnum.BLUERAY);
+		record2 = new Record("1234", BigDecimal.valueOf(24.95), RecordTypeEnum.BLUERAY);
+		record3 = new Record("1234", BigDecimal.valueOf(24.95), RecordTypeEnum.BLUERAY);
 		recordDao.add(record1);
 		recordDao.add(record2);
 		recordDao.add(record3);

@@ -22,6 +22,10 @@
     import java.util.Collections;
 «ENDDEFINE»
 
+«DEFINE addImports FOR DataContractDsl::DtoDecimalProperty»
+    import java.math.BigDecimal;
+«ENDDEFINE»
+
 «DEFINE addImports FOR DtoDateTimeProperty»
     import org.joda.time.DateTime;
 «ENDDEFINE»

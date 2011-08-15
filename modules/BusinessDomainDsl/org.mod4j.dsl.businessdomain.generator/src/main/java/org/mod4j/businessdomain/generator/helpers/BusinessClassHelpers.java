@@ -201,7 +201,7 @@ public class BusinessClassHelpers {
     }
 
     public static String javaNullableType(DecimalProperty p) {
-        return "Float";
+        return "BigDecimal";
     }
 
     public static String javaDefaultValue(DecimalProperty p) {

@@ -3,6 +3,8 @@ package org.company.recordshop.business.TestDomainModel.domain;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigDecimal;
+
 import org.company.recordshop.business.TestDomainModel.data.DerivedDao;
 import org.company.recordshop.business.data.AbstractDaoTestCase;
 import org.joda.time.DateTime;
@@ -47,7 +49,7 @@ public class DerivedDaoTest extends AbstractDaoTestCase {
 
     @Test
     public void testGetFifth() {
-        assertEquals(5.0F, read.getFifth(), 0.000001);
+        assertTrue(BigDecimal.valueOf(5.0).equals(read.getFifth()));
     }
     @Test
     public void testSetSecondo() {

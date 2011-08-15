@@ -3,6 +3,8 @@ package org.company.recordshop.service;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigDecimal;
+
 import org.company.recordshop.service.customers.local.CustomersLocalService;
 import org.company.recordshop.service.dto.common.CustomerWithOrdersAndOrderLines;
 import org.company.recordshop.service.dto.common.FullProductDto;
@@ -38,19 +40,19 @@ public class ThreeLevelsAssociationTest extends AbstractServiceTestCase {
 
         FullProductDto productDto1 = new FullProductDto();
         productDto1.setProductNumber("PRODNR-1");
-        productDto1.setPrice(99.99f);
+        productDto1.setPrice(BigDecimal.valueOf(99.99));
         productDto1.setOrderable(true);
         FullProductDto productDto2 = new FullProductDto();
         productDto2.setProductNumber("PRODNR-2");
-        productDto2.setPrice(99.99f);
+        productDto2.setPrice(BigDecimal.valueOf(99.99));
         productDto2.setOrderable(true);
         FullProductDto productDto3 = new FullProductDto();
         productDto3.setProductNumber("PRODNR-3");
-        productDto3.setPrice(99.99f);
+        productDto3.setPrice(BigDecimal.valueOf(99.99));
         productDto3.setOrderable(true);
         FullProductDto productDto4 = new FullProductDto();
         productDto4.setProductNumber("PRODNR-4");
-        productDto4.setPrice(99.99f);
+        productDto4.setPrice(BigDecimal.valueOf(99.99));
         productDto4.setOrderable(true);
 
         OrderWithOrderLinesDto order1 = new OrderWithOrderLinesDto();
@@ -206,7 +208,7 @@ public class ThreeLevelsAssociationTest extends AbstractServiceTestCase {
         for (OrderWithOrderLinesDto orderDto : createdCustomer.getOrders()) {
             for (OrderLineDto orderLine : orderDto.getOrderLines()) {
                 orderLine.setDescription("-THE-BASKET-");
-                orderLine.getProduct().setPrice(10f);
+                orderLine.getProduct().setPrice(BigDecimal.TEN);
             }
         }
 
@@ -220,7 +222,7 @@ public class ThreeLevelsAssociationTest extends AbstractServiceTestCase {
         for (OrderWithOrderLinesDto orderDto : updatedCustomer.getOrders()) {
             for (OrderLineDto orderLine : orderDto.getOrderLines()) {
                 assertTrue(orderLine.getDescription().equals("-THE-BASKET-"));
-                assertTrue(orderLine.getProduct().getPrice() == 10f);
+                assertTrue(orderLine.getProduct().getPrice().equals(BigDecimal.TEN));
             }
         }
 

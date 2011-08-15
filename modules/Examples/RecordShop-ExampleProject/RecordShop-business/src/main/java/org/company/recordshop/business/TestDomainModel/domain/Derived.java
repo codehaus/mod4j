@@ -11,6 +11,8 @@
 
 package org.company.recordshop.business.TestDomainModel.domain;
 
+import java.math.BigDecimal;
+
 import org.joda.time.DateTime;
 
 /**
@@ -73,8 +75,8 @@ public class Derived extends DerivedImplBase {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Float getFifth() {
-		return 5.0F;
+	public BigDecimal getFifth() {
+		return new BigDecimal("5.0");
 	}
 
 	/**

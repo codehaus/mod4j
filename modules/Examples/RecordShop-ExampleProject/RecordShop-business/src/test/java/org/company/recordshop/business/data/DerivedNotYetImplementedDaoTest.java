@@ -3,6 +3,8 @@ package org.company.recordshop.business.data;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.math.BigDecimal;
+
 import org.company.recordshop.business.TestDomainModel.data.DerivedNotYetImplementedDao;
 import org.company.recordshop.business.TestDomainModel.domain.DerivedNotYetImplemented;
 import org.joda.time.DateTime;
@@ -118,7 +120,7 @@ public class DerivedNotYetImplementedDaoTest extends AbstractDaoTestCase {
     @Test
     public void testSetFifth() {
         try {
-            read.setFifth(5.0F);
+            read.setFifth(BigDecimal.valueOf(5.0));
             fail("Expected UnsupportedOperationException");
         } catch (UnsupportedOperationException e) {
             assertEquals("Not implemented", e.getMessage());

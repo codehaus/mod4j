@@ -3,6 +3,8 @@
  */
 package org.company.recordshop.business.TestDomainModel.domain;
 
+import java.math.BigDecimal;
+
 import org.joda.time.DateTime;
 
 /**
@@ -60,7 +62,7 @@ public class DerivedNotYetImplemented extends DerivedNotYetImplementedImplBase {
 	/**
 	 * @return fifth (float)
 	 */
-	public Float getFifth() {
+	public BigDecimal getFifth() {
 		throw new UnsupportedOperationException("Not implemented");
 	}
 
@@ -100,8 +102,7 @@ public class DerivedNotYetImplemented extends DerivedNotYetImplementedImplBase {
 	 * @param fifth
 	 *            (float)
 	 */
-	public void setFifth(final Float fifth) {
+	public void setFifth(final BigDecimal fifth) {
 		throw new UnsupportedOperationException("Not implemented");
 	}
-
 }

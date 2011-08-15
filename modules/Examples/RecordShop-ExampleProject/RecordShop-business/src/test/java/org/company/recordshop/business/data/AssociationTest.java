@@ -7,6 +7,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -90,14 +91,14 @@ public class AssociationTest extends AbstractDaoTestCase {
         return result;
     }
 
-    protected Record createRecord(int i, String asin, Float ff) {
+    protected Record createRecord(int i, String asin, BigDecimal ff) {
         Record result = new Record(asin, ff, RecordTypeEnum.BLUERAY);
         allRecords.add(result);
         recordDao.add(result);
         return result;
     }
 
-    protected Product createProduct(String prodNr, float price) {
+    protected Product createProduct(String prodNr, BigDecimal price) {
         Product result = new Product(prodNr, price, false);
         allProducts.add(result);
         productDao.add(result);
@@ -148,19 +149,19 @@ public class AssociationTest extends AbstractDaoTestCase {
         order02.addToOrderLines(line05);
         order03.addToOrderLines(line06);
 
-        record01 = createRecord(1, "rec 01", 2F);
-        record02 = createRecord(1, "rec 02", 2F);
-        record03 = createRecord(1, "rec 03", 2F);
-        record04 = createRecord(1, "rec 04", 2F);
-        record05 = createRecord(1, "rec 05", 2F);
-        record06 = createRecord(1, "rec 06", 2F);
+        record01 = createRecord(1, "rec 01", BigDecimal.valueOf(2));
+        record02 = createRecord(1, "rec 02", BigDecimal.valueOf(2));
+        record03 = createRecord(1, "rec 03", BigDecimal.valueOf(2));
+        record04 = createRecord(1, "rec 04", BigDecimal.valueOf(2));
+        record05 = createRecord(1, "rec 05", BigDecimal.valueOf(2));
+        record06 = createRecord(1, "rec 06", BigDecimal.valueOf(2));
 
-        pr01 = createProduct("product 01", 1);
-        pr02 = createProduct("product 02", 2);
-        pr03 = createProduct("product 03", 3);
-        pr04 = createProduct("product 04", 4);
-        pr05 = createProduct("product 05", 5);
-        pr06 = createProduct("product 06", 6);
+        pr01 = createProduct("product 01", BigDecimal.valueOf(1));
+        pr02 = createProduct("product 02", BigDecimal.valueOf(2));
+        pr03 = createProduct("product 03", BigDecimal.valueOf(3));
+        pr04 = createProduct("product 04", BigDecimal.valueOf(4));
+        pr05 = createProduct("product 05", BigDecimal.valueOf(5));
+        pr06 = createProduct("product 06", BigDecimal.valueOf(6));
 
         line01.setProduct(pr01);
         line02.setProduct(pr02);

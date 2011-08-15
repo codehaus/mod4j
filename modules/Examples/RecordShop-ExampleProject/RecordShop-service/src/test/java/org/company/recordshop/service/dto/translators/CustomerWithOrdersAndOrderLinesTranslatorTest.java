@@ -3,6 +3,7 @@ package org.company.recordshop.service.dto.translators;
 import static org.junit.Assert.assertEquals;
 
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -134,7 +135,7 @@ public class CustomerWithOrdersAndOrderLinesTranslatorTest extends AbstractServi
         line.setLineNumber(i);
         FullProductDto product = new FullProductDto();
         product.setProductNumber(productNumber);
-        product.setPrice(15.0F);
+        product.setPrice(BigDecimal.valueOf(15.0));
         product.setOrderable(true);
         line.setProduct(product);
         return line;

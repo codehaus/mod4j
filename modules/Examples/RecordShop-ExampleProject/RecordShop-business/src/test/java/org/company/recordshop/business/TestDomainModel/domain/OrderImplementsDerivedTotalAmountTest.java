@@ -2,6 +2,8 @@ package org.company.recordshop.business.TestDomainModel.domain;
 
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigDecimal;
+
 import org.company.recordshop.business.recordshopcore.domain.Order;
 import org.company.recordshop.business.recordshopcore.domain.OrderLine;
 import org.company.recordshop.business.recordshopcore.domain.Product;
@@ -18,11 +20,11 @@ public class OrderImplementsDerivedTotalAmountTest {
         OrderLine orderline4 = new OrderLine(4, "Orderline 4");
         OrderLine orderline5 = new OrderLine(5, "Orderline 5");
         
-        Product pr01 = new Product( "pr01", 100.00F, true);
-        Product pr02 = new Product( "pr02", 200.00F, true);
-        Product pr03 = new Product( "pr03", 300.00F, true);
-        Product pr04 = new Product( "pr04", 400.00F, true);
-        Product pr05 = new Product( "pr05", 500.00F, true);
+        Product pr01 = new Product( "pr01", BigDecimal.valueOf(100.00), true);
+        Product pr02 = new Product( "pr02", BigDecimal.valueOf(200.00), true);
+        Product pr03 = new Product( "pr03", BigDecimal.valueOf(300.00), true);
+        Product pr04 = new Product( "pr04", BigDecimal.valueOf(400.00), true);
+        Product pr05 = new Product( "pr05", BigDecimal.valueOf(500.00), true);
         
         orderline1.setProduct(pr01);
         orderline2.setProduct(pr02);
@@ -36,7 +38,7 @@ public class OrderImplementsDerivedTotalAmountTest {
         order.addToOrderLines(orderline3);
         order.addToOrderLines(orderline4);
         order.addToOrderLines(orderline5);
-        assertTrue("Order totalAmount should be equal to 1500.0", order.getTotalAmount() == 1500.0F);
+        assertTrue("Order totalAmount should be equal to 1500.0", order.getTotalAmount().equals(BigDecimal.valueOf(1500.0)));
         
     }
 }

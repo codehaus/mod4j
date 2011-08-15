@@ -3,6 +3,8 @@ package org.company.recordshop.service.dto.translators;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigDecimal;
+
 import org.company.recordshop.business.TestDomainModel.domain.Derived;
 import org.company.recordshop.service.dto.TestDC.DerivedDto;
 import org.company.recordshop.service.dto.TestDC.translators.DerivedDtoTranslator;
@@ -32,7 +34,7 @@ public class DerivedDtoTranslatorTest {
 		assertEquals(true, target.isSecondo());
 		assertEquals(new DateTime(3), target.getThird());
 		assertEquals(4, target.getFourth().intValue());
-		assertEquals(5.0F, target.getFifth(), 0.0D);
+		assertTrue(BigDecimal.valueOf(5.0).equals(target.getFifth()));
 	}
 
 	@Test

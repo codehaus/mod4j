@@ -4,6 +4,8 @@
  */
 package org.company.recordshop.business.recordshopcore.domain;
 
+import java.math.BigDecimal;
+
 
 /**
  * An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records.
@@ -37,10 +39,10 @@ public class Order extends OrderImplBase {
      * @see org.company.recordshop.domain.OrderImplBase#getTotalAmount()
      */
     @Override
-    public Float getTotalAmount() {
-       float totalAmount = 0;
+    public BigDecimal getTotalAmount() {
+       BigDecimal totalAmount = BigDecimal.valueOf(0);
        for (OrderLine line : getOrderLines()){
-           totalAmount += line.getLineAmount();
+           totalAmount = totalAmount.add(line.getLineAmount());
        }
        return totalAmount;
     }
