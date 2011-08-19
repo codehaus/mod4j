@@ -434,6 +434,18 @@
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="precision"/>
+          <tokens xsi:type="xtext:Assignment" feature="precision" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="scale"/>
+          <tokens xsi:type="xtext:Assignment" feature="scale" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+          </tokens>
+        </tokens>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="EnumerationProperty">

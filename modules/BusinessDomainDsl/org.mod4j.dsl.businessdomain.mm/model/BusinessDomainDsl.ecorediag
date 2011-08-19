@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_xRtMQEfKEd6T2KAisuQZqQ" type="EcoreTools" name="BusinessDomainDsl.ecorediag" measurementUnit="Pixel">
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_xRtMQEfKEd6T2KAisuQZqQ" type="EcoreTools" name="BusinessDomainDsl.ecorediag" measurementUnit="Pixel">
   <children xmi:type="notation:Node" xmi:id="_xR9q8EfKEd6T2KAisuQZqQ" type="1005">
     <children xmi:type="notation:Node" xmi:id="_xR-SAEfKEd6T2KAisuQZqQ" type="4010"/>
     <children xmi:type="notation:Node" xmi:id="_xR-5EEfKEd6T2KAisuQZqQ" type="5008">
@@ -475,6 +475,14 @@
       <children xmi:type="notation:Node" xmi:id="_xSiSskfKEd6T2KAisuQZqQ" type="2001">
         <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//DecimalProperty/defaultValue"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_xSiSs0fKEd6T2KAisuQZqQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_8Ep-MceAEeC2ovwPibYQAg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//DecimalProperty/scale"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8Ep-MseAEeC2ovwPibYQAg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_GCn-0MnUEeC2ovwPibYQAg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//DecimalProperty/precision"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_GCn-0cnUEeC2ovwPibYQAg"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_xShEkUfKEd6T2KAisuQZqQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_xShEkkfKEd6T2KAisuQZqQ"/>

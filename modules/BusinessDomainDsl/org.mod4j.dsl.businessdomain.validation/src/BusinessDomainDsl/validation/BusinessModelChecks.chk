@@ -106,6 +106,9 @@ context StringProperty ERROR "The lenght of the default value of Property ["+ na
  
 context StringProperty ERROR "The minimum lenght of Property ["+ name + "] must be less or equal to the maximum lenght." :
     ((minLength != -1) && (maxLength != -1) ) ? minLength <= maxLength : true ;
+
+context DecimalProperty ERROR "The scale of Property ["+ name +"] must be less or equal to precision." :
+    ((scale != -1) && (precision != -1) ) ? scale <= precision : true ;
  
 // context EnumerationProperty ERROR "The default value of Property ["+ name + "] must be an enumeration literal of [" + type.name + "]." :
 //    (hasDefault ? this.type.enumerationLiterals.name.contains(defaultValue) : true);

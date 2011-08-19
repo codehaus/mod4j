@@ -2699,12 +2699,134 @@ rule__DecimalProperty__Group__2
 { after(grammarAccess.getDecimalPropertyAccess().getNameAssignment_2()); }
 )
 
+	rule__DecimalProperty__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
 
+rule__DecimalProperty__Group__3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getDecimalPropertyAccess().getGroup_3()); }
+(rule__DecimalProperty__Group_3__0)?
+{ after(grammarAccess.getDecimalPropertyAccess().getGroup_3()); }
+)
+
+	rule__DecimalProperty__Group__4
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__DecimalProperty__Group__4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getDecimalPropertyAccess().getGroup_4()); }
+(rule__DecimalProperty__Group_4__0)?
+{ after(grammarAccess.getDecimalPropertyAccess().getGroup_4()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+rule__DecimalProperty__Group_3__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getDecimalPropertyAccess().getPrecisionKeyword_3_0()); }
+
+	'precision' 
+
+{ after(grammarAccess.getDecimalPropertyAccess().getPrecisionKeyword_3_0()); }
+)
+
+	rule__DecimalProperty__Group_3__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__DecimalProperty__Group_3__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getDecimalPropertyAccess().getPrecisionAssignment_3_1()); }
+(rule__DecimalProperty__PrecisionAssignment_3_1)
+{ after(grammarAccess.getDecimalPropertyAccess().getPrecisionAssignment_3_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
+rule__DecimalProperty__Group_4__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getDecimalPropertyAccess().getScaleKeyword_4_0()); }
+
+	'scale' 
+
+{ after(grammarAccess.getDecimalPropertyAccess().getScaleKeyword_4_0()); }
+)
+
+	rule__DecimalProperty__Group_4__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__DecimalProperty__Group_4__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getDecimalPropertyAccess().getScaleAssignment_4_1()); }
+(rule__DecimalProperty__ScaleAssignment_4_1)
+{ after(grammarAccess.getDecimalPropertyAccess().getScaleAssignment_4_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
 
 
 
@@ -3877,6 +3999,36 @@ rule__DecimalProperty__NameAssignment_2
 (
 { before(grammarAccess.getDecimalPropertyAccess().getNameIDTerminalRuleCall_2_0()); }
 	RULE_ID{ after(grammarAccess.getDecimalPropertyAccess().getNameIDTerminalRuleCall_2_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DecimalProperty__PrecisionAssignment_3_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getDecimalPropertyAccess().getPrecisionINTTerminalRuleCall_3_1_0()); }
+	RULE_INT{ after(grammarAccess.getDecimalPropertyAccess().getPrecisionINTTerminalRuleCall_3_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DecimalProperty__ScaleAssignment_4_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getDecimalPropertyAccess().getScaleINTTerminalRuleCall_4_1_0()); }
+	RULE_INT{ after(grammarAccess.getDecimalPropertyAccess().getScaleINTTerminalRuleCall_4_1_0()); }
 )
 
 ;

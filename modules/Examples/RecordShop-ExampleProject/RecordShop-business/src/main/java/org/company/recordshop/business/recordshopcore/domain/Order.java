@@ -40,7 +40,7 @@ public class Order extends OrderImplBase {
      */
     @Override
     public BigDecimal getTotalAmount() {
-       BigDecimal totalAmount = BigDecimal.valueOf(0);
+       BigDecimal totalAmount = BigDecimal.ZERO;
        for (OrderLine line : getOrderLines()){
            totalAmount = totalAmount.add(line.getLineAmount());
        }

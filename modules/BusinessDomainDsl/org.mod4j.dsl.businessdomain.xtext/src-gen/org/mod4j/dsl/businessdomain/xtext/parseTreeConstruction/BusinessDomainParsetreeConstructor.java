@@ -3719,18 +3719,24 @@ protected class IntegerProperty_MaxValueAssignment_5_1 extends AssignmentToken  
 /************ begin Rule DecimalProperty ****************
  *
  * DecimalProperty:
- *   description=STRING? dataType="decimal" name=ID; 
+ *   description=STRING? dataType="decimal" name=ID ("precision" precision=INT)? ("scale"
+ *   scale=INT)?; 
  * 
  * 
  *     
+ *       
+ *       
  *       
  * //                 (hasDefault?="default" defaultValue=INT)?
  * //               ("min" minValue=INT)? ("max" maxValue=INT)?
  *
  **/
 
-// description=STRING? dataType="decimal" name=ID 
+// description=STRING? dataType="decimal" name=ID ("precision" precision=INT)? ("scale"
+// scale=INT)? 
 //     
+//       
+//       
 //       
 // //                 (hasDefault?="default" defaultValue=INT)?
 // //               ("min" minValue=INT)? ("max" maxValue=INT)?
@@ -3746,7 +3752,9 @@ protected class DecimalProperty_Group extends GroupToken {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new DecimalProperty_NameAssignment_2(parent, this, 0, inst);
+			case 0: return new DecimalProperty_Group_4(parent, this, 0, inst);
+			case 1: return new DecimalProperty_Group_3(parent, this, 1, inst);
+			case 2: return new DecimalProperty_NameAssignment_2(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	
@@ -3818,9 +3826,7 @@ protected class DecimalProperty_DataTypeAssignment_1 extends AssignmentToken  {
 
 }
 
-// name=ID   
-// //                 (hasDefault?="default" defaultValue=INT)?
-// //               ("min" minValue=INT)? ("max" maxValue=INT)?
+// name=ID
 protected class DecimalProperty_NameAssignment_2 extends AssignmentToken  {
 	
 	public DecimalProperty_NameAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3850,6 +3856,151 @@ protected class DecimalProperty_NameAssignment_2 extends AssignmentToken  {
 	}
 
 }
+
+// ("precision" precision=INT)?
+protected class DecimalProperty_Group_3 extends GroupToken {
+	
+	public DecimalProperty_Group_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getDecimalPropertyAccess().getGroup_3();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new DecimalProperty_PrecisionAssignment_3_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "precision"
+protected class DecimalProperty_PrecisionKeyword_3_0 extends KeywordToken  {
+	
+	public DecimalProperty_PrecisionKeyword_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getDecimalPropertyAccess().getPrecisionKeyword_3_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new DecimalProperty_NameAssignment_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// precision=INT
+protected class DecimalProperty_PrecisionAssignment_3_1 extends AssignmentToken  {
+	
+	public DecimalProperty_PrecisionAssignment_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getDecimalPropertyAccess().getPrecisionAssignment_3_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new DecimalProperty_PrecisionKeyword_3_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("precision",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("precision");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getDecimalPropertyAccess().getPrecisionINTTerminalRuleCall_3_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// ("scale" scale=INT)?
+protected class DecimalProperty_Group_4 extends GroupToken {
+	
+	public DecimalProperty_Group_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getDecimalPropertyAccess().getGroup_4();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new DecimalProperty_ScaleAssignment_4_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "scale"
+protected class DecimalProperty_ScaleKeyword_4_0 extends KeywordToken  {
+	
+	public DecimalProperty_ScaleKeyword_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getDecimalPropertyAccess().getScaleKeyword_4_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new DecimalProperty_Group_3(parent, this, 0, inst);
+			case 1: return new DecimalProperty_NameAssignment_2(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// scale=INT
+protected class DecimalProperty_ScaleAssignment_4_1 extends AssignmentToken  {
+	
+	public DecimalProperty_ScaleAssignment_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getDecimalPropertyAccess().getScaleAssignment_4_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new DecimalProperty_ScaleKeyword_4_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("scale",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("scale");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getDecimalPropertyAccess().getScaleINTTerminalRuleCall_4_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
 
 
 /************ end Rule DecimalProperty ****************/

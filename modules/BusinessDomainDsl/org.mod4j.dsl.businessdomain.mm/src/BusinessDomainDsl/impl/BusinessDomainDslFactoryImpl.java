@@ -25,383 +25,383 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class BusinessDomainDslFactoryImpl extends EFactoryImpl implements BusinessDomainDslFactory {
 	/**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc -->
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static BusinessDomainDslFactory init() {
-        try {
-            BusinessDomainDslFactory theBusinessDomainDslFactory = (BusinessDomainDslFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.mod4j.org/busmod"); 
-            if (theBusinessDomainDslFactory != null) {
-                return theBusinessDomainDslFactory;
-            }
-        }
-        catch (Exception exception) {
-            EcorePlugin.INSTANCE.log(exception);
-        }
-        return new BusinessDomainDslFactoryImpl();
-    }
+		try {
+			BusinessDomainDslFactory theBusinessDomainDslFactory = (BusinessDomainDslFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.mod4j.org/busmod"); 
+			if (theBusinessDomainDslFactory != null) {
+				return theBusinessDomainDslFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new BusinessDomainDslFactoryImpl();
+	}
 
 	/**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc -->
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BusinessDomainDslFactoryImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public EObject create(EClass eClass) {
-        switch (eClass.getClassifierID()) {
-            case BusinessDomainDslPackage.MODEL_ELEMENT: return createModelElement();
-            case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL: return createBusinessDomainModel();
-            case BusinessDomainDslPackage.BUSINESS_CLASS: return createBusinessClass();
-            case BusinessDomainDslPackage.PROPERTY: return createProperty();
-            case BusinessDomainDslPackage.ENUMERATION: return createEnumeration();
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL: return createEnumerationLiteral();
-            case BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE: return createAbstractBusinessRule();
-            case BusinessDomainDslPackage.BOOL_PROPERTY: return createBoolProperty();
-            case BusinessDomainDslPackage.DATE_TIME_PROPERTY: return createDateTimeProperty();
-            case BusinessDomainDslPackage.ENUMERATION_PROPERTY: return createEnumerationProperty();
-            case BusinessDomainDslPackage.INTEGER_PROPERTY: return createIntegerProperty();
-            case BusinessDomainDslPackage.STRING_PROPERTY: return createStringProperty();
-            case BusinessDomainDslPackage.BLOB_BINARY_PROPERTY: return createBlobBinaryProperty();
-            case BusinessDomainDslPackage.BLOB_TEXT_PROPERTY: return createBlobTextProperty();
-            case BusinessDomainDslPackage.ASSOCIATION: return createAssociation();
-            case BusinessDomainDslPackage.DECIMAL_PROPERTY: return createDecimalProperty();
-            case BusinessDomainDslPackage.ABSTRACT_BUSINESS_CLASS: return createAbstractBusinessClass();
-            case BusinessDomainDslPackage.BUSINESS_CLASS_REFERENCE: return createBusinessClassReference();
-            case BusinessDomainDslPackage.UNIQUE_RULE: return createUniqueRule();
-            case BusinessDomainDslPackage.BUSINESS_RULE: return createBusinessRule();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-        }
-    }
+		switch (eClass.getClassifierID()) {
+			case BusinessDomainDslPackage.MODEL_ELEMENT: return createModelElement();
+			case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL: return createBusinessDomainModel();
+			case BusinessDomainDslPackage.BUSINESS_CLASS: return createBusinessClass();
+			case BusinessDomainDslPackage.PROPERTY: return createProperty();
+			case BusinessDomainDslPackage.ENUMERATION: return createEnumeration();
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL: return createEnumerationLiteral();
+			case BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE: return createAbstractBusinessRule();
+			case BusinessDomainDslPackage.BOOL_PROPERTY: return createBoolProperty();
+			case BusinessDomainDslPackage.DATE_TIME_PROPERTY: return createDateTimeProperty();
+			case BusinessDomainDslPackage.ENUMERATION_PROPERTY: return createEnumerationProperty();
+			case BusinessDomainDslPackage.INTEGER_PROPERTY: return createIntegerProperty();
+			case BusinessDomainDslPackage.STRING_PROPERTY: return createStringProperty();
+			case BusinessDomainDslPackage.BLOB_BINARY_PROPERTY: return createBlobBinaryProperty();
+			case BusinessDomainDslPackage.BLOB_TEXT_PROPERTY: return createBlobTextProperty();
+			case BusinessDomainDslPackage.ASSOCIATION: return createAssociation();
+			case BusinessDomainDslPackage.DECIMAL_PROPERTY: return createDecimalProperty();
+			case BusinessDomainDslPackage.ABSTRACT_BUSINESS_CLASS: return createAbstractBusinessClass();
+			case BusinessDomainDslPackage.BUSINESS_CLASS_REFERENCE: return createBusinessClassReference();
+			case BusinessDomainDslPackage.UNIQUE_RULE: return createUniqueRule();
+			case BusinessDomainDslPackage.BUSINESS_RULE: return createBusinessRule();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
-        switch (eDataType.getClassifierID()) {
-            case BusinessDomainDslPackage.MULTIPLICITY:
-                return createMultiplicityFromString(eDataType, initialValue);
-            case BusinessDomainDslPackage.DATE_TIME_ACCURACY:
-                return createDateTimeAccuracyFromString(eDataType, initialValue);
-            case BusinessDomainDslPackage.PERSISTENCY_MODE:
-                return createPersistencyModeFromString(eDataType, initialValue);
-            default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-        }
-    }
+		switch (eDataType.getClassifierID()) {
+			case BusinessDomainDslPackage.MULTIPLICITY:
+				return createMultiplicityFromString(eDataType, initialValue);
+			case BusinessDomainDslPackage.DATE_TIME_ACCURACY:
+				return createDateTimeAccuracyFromString(eDataType, initialValue);
+			case BusinessDomainDslPackage.PERSISTENCY_MODE:
+				return createPersistencyModeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
-        switch (eDataType.getClassifierID()) {
-            case BusinessDomainDslPackage.MULTIPLICITY:
-                return convertMultiplicityToString(eDataType, instanceValue);
-            case BusinessDomainDslPackage.DATE_TIME_ACCURACY:
-                return convertDateTimeAccuracyToString(eDataType, instanceValue);
-            case BusinessDomainDslPackage.PERSISTENCY_MODE:
-                return convertPersistencyModeToString(eDataType, instanceValue);
-            default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-        }
-    }
+		switch (eDataType.getClassifierID()) {
+			case BusinessDomainDslPackage.MULTIPLICITY:
+				return convertMultiplicityToString(eDataType, instanceValue);
+			case BusinessDomainDslPackage.DATE_TIME_ACCURACY:
+				return convertDateTimeAccuracyToString(eDataType, instanceValue);
+			case BusinessDomainDslPackage.PERSISTENCY_MODE:
+				return convertPersistencyModeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ModelElement createModelElement() {
-        ModelElementImpl modelElement = new ModelElementImpl();
-        return modelElement;
-    }
+		ModelElementImpl modelElement = new ModelElementImpl();
+		return modelElement;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BusinessDomainModel createBusinessDomainModel() {
-        BusinessDomainModelImpl businessDomainModel = new BusinessDomainModelImpl();
-        return businessDomainModel;
-    }
+		BusinessDomainModelImpl businessDomainModel = new BusinessDomainModelImpl();
+		return businessDomainModel;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BusinessClass createBusinessClass() {
-        BusinessClassImpl businessClass = new BusinessClassImpl();
-        return businessClass;
-    }
+		BusinessClassImpl businessClass = new BusinessClassImpl();
+		return businessClass;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public Property createProperty() {
-        PropertyImpl property = new PropertyImpl();
-        return property;
-    }
+		PropertyImpl property = new PropertyImpl();
+		return property;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public Enumeration createEnumeration() {
-        EnumerationImpl enumeration = new EnumerationImpl();
-        return enumeration;
-    }
+		EnumerationImpl enumeration = new EnumerationImpl();
+		return enumeration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EnumerationLiteral createEnumerationLiteral() {
-        EnumerationLiteralImpl enumerationLiteral = new EnumerationLiteralImpl();
-        return enumerationLiteral;
-    }
+		EnumerationLiteralImpl enumerationLiteral = new EnumerationLiteralImpl();
+		return enumerationLiteral;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public AbstractBusinessRule createAbstractBusinessRule() {
-        AbstractBusinessRuleImpl abstractBusinessRule = new AbstractBusinessRuleImpl();
-        return abstractBusinessRule;
-    }
+		AbstractBusinessRuleImpl abstractBusinessRule = new AbstractBusinessRuleImpl();
+		return abstractBusinessRule;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BoolProperty createBoolProperty() {
-        BoolPropertyImpl boolProperty = new BoolPropertyImpl();
-        return boolProperty;
-    }
+		BoolPropertyImpl boolProperty = new BoolPropertyImpl();
+		return boolProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public DateTimeProperty createDateTimeProperty() {
-        DateTimePropertyImpl dateTimeProperty = new DateTimePropertyImpl();
-        return dateTimeProperty;
-    }
+		DateTimePropertyImpl dateTimeProperty = new DateTimePropertyImpl();
+		return dateTimeProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EnumerationProperty createEnumerationProperty() {
-        EnumerationPropertyImpl enumerationProperty = new EnumerationPropertyImpl();
-        return enumerationProperty;
-    }
+		EnumerationPropertyImpl enumerationProperty = new EnumerationPropertyImpl();
+		return enumerationProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public IntegerProperty createIntegerProperty() {
-        IntegerPropertyImpl integerProperty = new IntegerPropertyImpl();
-        return integerProperty;
-    }
+		IntegerPropertyImpl integerProperty = new IntegerPropertyImpl();
+		return integerProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public StringProperty createStringProperty() {
-        StringPropertyImpl stringProperty = new StringPropertyImpl();
-        return stringProperty;
-    }
+		StringPropertyImpl stringProperty = new StringPropertyImpl();
+		return stringProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BlobBinaryProperty createBlobBinaryProperty() {
-        BlobBinaryPropertyImpl blobBinaryProperty = new BlobBinaryPropertyImpl();
-        return blobBinaryProperty;
-    }
+		BlobBinaryPropertyImpl blobBinaryProperty = new BlobBinaryPropertyImpl();
+		return blobBinaryProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BlobTextProperty createBlobTextProperty() {
-        BlobTextPropertyImpl blobTextProperty = new BlobTextPropertyImpl();
-        return blobTextProperty;
-    }
+		BlobTextPropertyImpl blobTextProperty = new BlobTextPropertyImpl();
+		return blobTextProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public Association createAssociation() {
-        AssociationImpl association = new AssociationImpl();
-        return association;
-    }
+		AssociationImpl association = new AssociationImpl();
+		return association;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public DecimalProperty createDecimalProperty() {
-        DecimalPropertyImpl decimalProperty = new DecimalPropertyImpl();
-        return decimalProperty;
-    }
+		DecimalPropertyImpl decimalProperty = new DecimalPropertyImpl();
+		return decimalProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public AbstractBusinessClass createAbstractBusinessClass() {
-        AbstractBusinessClassImpl abstractBusinessClass = new AbstractBusinessClassImpl();
-        return abstractBusinessClass;
-    }
+		AbstractBusinessClassImpl abstractBusinessClass = new AbstractBusinessClassImpl();
+		return abstractBusinessClass;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BusinessClassReference createBusinessClassReference() {
-        BusinessClassReferenceImpl businessClassReference = new BusinessClassReferenceImpl();
-        return businessClassReference;
-    }
+		BusinessClassReferenceImpl businessClassReference = new BusinessClassReferenceImpl();
+		return businessClassReference;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public UniqueRule createUniqueRule() {
-        UniqueRuleImpl uniqueRule = new UniqueRuleImpl();
-        return uniqueRule;
-    }
+		UniqueRuleImpl uniqueRule = new UniqueRuleImpl();
+		return uniqueRule;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BusinessRule createBusinessRule() {
-        BusinessRuleImpl businessRule = new BusinessRuleImpl();
-        return businessRule;
-    }
+		BusinessRuleImpl businessRule = new BusinessRuleImpl();
+		return businessRule;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public Multiplicity createMultiplicityFromString(EDataType eDataType, String initialValue) {
-        Multiplicity result = Multiplicity.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		Multiplicity result = Multiplicity.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertMultiplicityToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public DateTimeAccuracy createDateTimeAccuracyFromString(EDataType eDataType, String initialValue) {
-        DateTimeAccuracy result = DateTimeAccuracy.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		DateTimeAccuracy result = DateTimeAccuracy.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertDateTimeAccuracyToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public PersistencyMode createPersistencyModeFromString(EDataType eDataType, String initialValue) {
-        PersistencyMode result = PersistencyMode.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		PersistencyMode result = PersistencyMode.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertPersistencyModeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BusinessDomainDslPackage getBusinessDomainDslPackage() {
-        return (BusinessDomainDslPackage)getEPackage();
-    }
+		return (BusinessDomainDslPackage)getEPackage();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @deprecated
-     * @generated
-     */
+	 * @deprecated
+	 * @generated
+	 */
 	@Deprecated
 	public static BusinessDomainDslPackage getPackage() {
-        return BusinessDomainDslPackage.eINSTANCE;
-    }
+		return BusinessDomainDslPackage.eINSTANCE;
+	}
 
 } //BusinessDomainDslFactoryImpl

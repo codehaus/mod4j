@@ -126,6 +126,8 @@ IntegerProperty:
 DecimalProperty:
     (description=STRING)?
     dataType="decimal" name=ID
+    ("precision" precision=INT)?
+    ("scale" scale=INT)?
 //                 (hasDefault?="default" defaultValue=INT)?
 //               ("min" minValue=INT)? ("max" maxValue=INT)?  
     ;

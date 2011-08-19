@@ -974,19 +974,33 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final Keyword cDataTypeDecimalKeyword_1_0 = (Keyword)cDataTypeAssignment_1.eContents().get(0);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cPrecisionKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cPrecisionAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cPrecisionINTTerminalRuleCall_3_1_0 = (RuleCall)cPrecisionAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cScaleKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cScaleAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cScaleINTTerminalRuleCall_4_1_0 = (RuleCall)cScaleAssignment_4_1.eContents().get(0);
 		
 		//DecimalProperty:
-		//  description=STRING? dataType="decimal" name=ID; 
+		//  description=STRING? dataType="decimal" name=ID ("precision" precision=INT)? ("scale"
+		//  scale=INT)?; 
 		//
 		//
 		//    
+		//      
+		//      
 		//      
 		////                 (hasDefault?="default" defaultValue=INT)?
 		////               ("min" minValue=INT)? ("max" maxValue=INT)?
 		public ParserRule getRule() { return rule; }
 
-		//description=STRING? dataType="decimal" name=ID 
+		//description=STRING? dataType="decimal" name=ID ("precision" precision=INT)? ("scale"
+		//scale=INT)? 
 		//    
+		//      
+		//      
 		//      
 		////                 (hasDefault?="default" defaultValue=INT)?
 		////               ("min" minValue=INT)? ("max" maxValue=INT)?
@@ -1004,15 +1018,35 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		//"decimal"
 		public Keyword getDataTypeDecimalKeyword_1_0() { return cDataTypeDecimalKeyword_1_0; }
 
-		//name=ID   
-		////                 (hasDefault?="default" defaultValue=INT)?
-		////               ("min" minValue=INT)? ("max" maxValue=INT)?
+		//name=ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
-		//ID 
-		////                 (hasDefault?="default" defaultValue=INT)?
-		////               ("min" minValue=INT)? ("max" maxValue=INT)?
+		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//("precision" precision=INT)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"precision"
+		public Keyword getPrecisionKeyword_3_0() { return cPrecisionKeyword_3_0; }
+
+		//precision=INT
+		public Assignment getPrecisionAssignment_3_1() { return cPrecisionAssignment_3_1; }
+
+		//INT
+		public RuleCall getPrecisionINTTerminalRuleCall_3_1_0() { return cPrecisionINTTerminalRuleCall_3_1_0; }
+
+		//("scale" scale=INT)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"scale"
+		public Keyword getScaleKeyword_4_0() { return cScaleKeyword_4_0; }
+
+		//scale=INT
+		public Assignment getScaleAssignment_4_1() { return cScaleAssignment_4_1; }
+
+		//INT
+		public RuleCall getScaleINTTerminalRuleCall_4_1_0() { return cScaleINTTerminalRuleCall_4_1_0; }
 	}
 
 	public class EnumerationPropertyElements implements IParserRuleAccess {
@@ -1469,10 +1503,13 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 	}
 
 	//DecimalProperty:
-	//  description=STRING? dataType="decimal" name=ID; 
+	//  description=STRING? dataType="decimal" name=ID ("precision" precision=INT)? ("scale"
+	//  scale=INT)?; 
 	//
 	//
 	//    
+	//      
+	//      
 	//      
 	////                 (hasDefault?="default" defaultValue=INT)?
 	////               ("min" minValue=INT)? ("max" maxValue=INT)?

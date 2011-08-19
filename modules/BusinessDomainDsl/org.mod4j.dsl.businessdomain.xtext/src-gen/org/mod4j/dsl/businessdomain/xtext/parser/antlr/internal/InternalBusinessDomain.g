@@ -1778,7 +1778,55 @@ ruleDecimalProperty returns [EObject current=null]
 	        }
 	    }
 	
-));
+)('precision' 
+    {
+        createLeafNode(grammarAccess.getDecimalPropertyAccess().getPrecisionKeyword_3_0(), null); 
+    }
+(	
+	
+	    lv_precision_4=	RULE_INT
+	{
+		createLeafNode(grammarAccess.getDecimalPropertyAccess().getPrecisionINTTerminalRuleCall_3_1_0(), "precision"); 
+	}
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getDecimalPropertyRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "precision", lv_precision_4, "INT", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+	
+))?('scale' 
+    {
+        createLeafNode(grammarAccess.getDecimalPropertyAccess().getScaleKeyword_4_0(), null); 
+    }
+(	
+	
+	    lv_scale_6=	RULE_INT
+	{
+		createLeafNode(grammarAccess.getDecimalPropertyAccess().getScaleINTTerminalRuleCall_4_1_0(), "scale"); 
+	}
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getDecimalPropertyRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "scale", lv_scale_6, "INT", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+	
+))?);
 
 
 

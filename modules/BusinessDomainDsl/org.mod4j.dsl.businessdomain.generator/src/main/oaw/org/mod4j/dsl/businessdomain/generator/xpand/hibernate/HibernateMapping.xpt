@@ -132,6 +132,17 @@
               type="org.joda.time.contrib.hibernate.PersistentDateTime" />
 «ENDDEFINE»
 
+«DEFINE mapping FOR BusinessDomainDsl::DecimalProperty -»
+        <property name="«this.name»"«IF precision > 0» precision="«precision»"«ENDIF»«IF scale > -1» scale="«scale»"«ENDIF» 
+        «IF this.uniqueRule() != null -»
+            unique-key="«uniqueRule().name»"
+        «ENDIF -»
+        «IF !this.nullable»
+            not-null="true"
+        «ENDIF -»
+        />
+«ENDDEFINE»
+
 «REM»mapping for outgoing associations«ENDREM»
 «DEFINE mappingsTo FOR Association -»
     «IF isOne2Many(this)»

@@ -30,13 +30,14 @@ public class RecordDaoTest extends AbstractDaoTestCase {
 
 	@Test
 	public void testRetrieve() {
-		Record record = new Record("Abbey Road", BigDecimal.valueOf(25.50), RecordTypeEnum.BLUERAY);
+		Record record = new Record("Abbey Road", new BigDecimal("25.50"), RecordTypeEnum.BLUERAY);
 		recordDao.add(record);
 		flush();
 		clear();
 
 		Record saved = recordDao.retrieve(record.getId());
 		assertEquals("Abbey Road", saved.getAsin());
+		assertEquals("25.50", saved.getPrice().toString());
 	}
 
 	@Test
@@ -44,7 +45,7 @@ public class RecordDaoTest extends AbstractDaoTestCase {
 		assertEquals(0, countRowsInTable("Record_TABLE"));
 		assertEquals(0, countRowsInTable("Artist_TABLE"));
 		assertEquals(0, countRowsInTable("records_contributors"));
-		Record record = new Record("Abbey Road", BigDecimal.valueOf(25.50), RecordTypeEnum.BLUERAY);
+		Record record = new Record("Abbey Road", new BigDecimal("25.50"), RecordTypeEnum.BLUERAY);
 		Artist john = new Artist("John", "Lennon", date(), 
 				"singer/guitarist/songwriter");
 		Artist paul = new Artist("Paul", "McCartney", date(), "singer/bass/songwriter");
@@ -78,6 +79,7 @@ public class RecordDaoTest extends AbstractDaoTestCase {
 		saved = recordDao.retrieve(record.getId());
 		assertEquals("Abbey Road", saved.getAsin());
 		assertEquals(1, saved.getContributors().size());
+		assertEquals("25.50", saved.getPrice().toString());
 		assertEquals(1, countRowsInTable("records_contributors"));
 	}
 }

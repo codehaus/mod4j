@@ -77,6 +77,8 @@ public class BusinessDomainParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIntegerPropertyAccess().getGroup_4(), "rule__IntegerProperty__Group_4__0");
 					put(grammarAccess.getIntegerPropertyAccess().getGroup_5(), "rule__IntegerProperty__Group_5__0");
 					put(grammarAccess.getDecimalPropertyAccess().getGroup(), "rule__DecimalProperty__Group__0");
+					put(grammarAccess.getDecimalPropertyAccess().getGroup_3(), "rule__DecimalProperty__Group_3__0");
+					put(grammarAccess.getDecimalPropertyAccess().getGroup_4(), "rule__DecimalProperty__Group_4__0");
 					put(grammarAccess.getEnumerationPropertyAccess().getGroup(), "rule__EnumerationProperty__Group__0");
 					put(grammarAccess.getEnumerationPropertyAccess().getGroup_3(), "rule__EnumerationProperty__Group_3__0");
 					put(grammarAccess.getBusinessDomainModelAccess().getDescriptionAssignment_0(), "rule__BusinessDomainModel__DescriptionAssignment_0");
@@ -140,6 +142,8 @@ public class BusinessDomainParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDecimalPropertyAccess().getDescriptionAssignment_0(), "rule__DecimalProperty__DescriptionAssignment_0");
 					put(grammarAccess.getDecimalPropertyAccess().getDataTypeAssignment_1(), "rule__DecimalProperty__DataTypeAssignment_1");
 					put(grammarAccess.getDecimalPropertyAccess().getNameAssignment_2(), "rule__DecimalProperty__NameAssignment_2");
+					put(grammarAccess.getDecimalPropertyAccess().getPrecisionAssignment_3_1(), "rule__DecimalProperty__PrecisionAssignment_3_1");
+					put(grammarAccess.getDecimalPropertyAccess().getScaleAssignment_4_1(), "rule__DecimalProperty__ScaleAssignment_4_1");
 					put(grammarAccess.getEnumerationPropertyAccess().getDescriptionAssignment_0(), "rule__EnumerationProperty__DescriptionAssignment_0");
 					put(grammarAccess.getEnumerationPropertyAccess().getTypeAssignment_1(), "rule__EnumerationProperty__TypeAssignment_1");
 					put(grammarAccess.getEnumerationPropertyAccess().getNameAssignment_2(), "rule__EnumerationProperty__NameAssignment_2");

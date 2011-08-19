@@ -7,7 +7,6 @@ domain recordshopcore;
       
 "A Person represents a legal person."  
 class Person [ 
-
     "First name of the person."   
     string firstName; 
     "Last name of the person."    
@@ -43,7 +42,6 @@ class Address [
 
 "A Customer represents a Person who orders from the RecordShop."
 class Customer inherits Person [
-    
     integer customerNr;  
     string username minlength 3 maxlength 10 nullable ;
     string emailAddress regexp "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,4}$" nullable;
@@ -68,25 +66,23 @@ class Artist inherits Person [
 
 "A Record is a representation of a physical medium containing one or more musical compositions."
 class Record [
-
     string asin;
     string title default "Title unknown";
     integer mediumCode default 111 ;
-    decimal price;
-    RecordTypeEnum type;  
+    decimal price precision 10 scale 2;
+    RecordTypeEnum type;
 ]
 
 "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."
-class Order [ 
-
+class Order [
 	"A number to identify the Order"
-    string orderNumber;  
+    string    orderNumber;
     "The date on which the order has been placed"
     datetime  orderDate default "2009-01-01" nullable;
     datetime  deliveryDateTime  nullable;
-    integer discountPercentage min 01 max 100 nullable ;
+    integer   discountPercentage min 01 max 100 nullable ;
     "The total amount of the Order. Its value is derived from the summation of the OrderLine amounts"
-    decimal totalAmount nullable derived; 
+    decimal   totalAmount nullable derived; 
     
     rules [
         "The orderNumber of a Order must be unique "
@@ -98,7 +94,6 @@ class Order [
 ]
 
 class OrderLine [ 
-
     integer lineNumber min 01 max 50;
     integer quantity default 1;
     string description;
@@ -109,7 +104,6 @@ class OrderLine [
 ]
 
 class Product [
-
 	string productNumber;
 	decimal price;
 	boolean inStock default false;
@@ -119,7 +113,6 @@ class Product [
 
 "Sexe enumeration."
 enumeration SexeEnum [
-
     FEMALE = 2;
     MALE = 3;
 ]
